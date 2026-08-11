@@ -1,0 +1,279 @@
+{
+  "h1": {
+    "fontSize": "68px",
+    "fontFamily": "\"Inter Display\", sans-serif",
+    "fontWeight": "700",
+    "color": "rgba(0, 0, 0, 0)",
+    "background": "linear-gradient(to right, rgb(28, 0, 184), rgb(0, 255, 255))",
+    "padding": "0px",
+    "margin": "0px",
+    "lineHeight": "102px",
+    "text": "#1 No Code Automation Platform",
+    "tag": "H1"
+  },
+  "gradient": {
+    "fontSize": "68px",
+    "fontFamily": "\"Inter Display\", sans-serif",
+    "fontWeight": "700",
+    "color": "rgba(0, 0, 0, 0)",
+    "background": "linear-gradient(to right, rgb(28, 0, 184), rgb(0, 255, 255))",
+    "padding": "0px",
+    "margin": "0px",
+    "lineHeight": "102px",
+    "text": "#1 No Code Automation Platform",
+    "tag": "H1"
+  },
+  "sub": {
+    "fontSize": "18px",
+    "fontFamily": "\"Inter Display\", sans-serif",
+    "fontWeight": "400",
+    "color": "rgb(111, 123, 130)",
+    "background": "none",
+    "padding": "0px",
+    "margin": "0px 256px",
+    "lineHeight": "27px",
+    "text": "theTestRo empowers teams to build powerful end-to-end automation without writing a single line of code. With self-healing locators, NLP-based test steps, and intelligent scheduling, you can create, ex",
+    "tag": "P"
+  },
+  "pill": {
+    "fontSize": "14px",
+    "fontFamily": "\"Inter Display\", sans-serif",
+    "fontWeight": "400",
+    "color": "rgb(0, 137, 186)",
+    "background": "none",
+    "padding": "15px 30px",
+    "margin": "0px",
+    "lineHeight": "21px",
+    "text": "Automate Everything. Code Nothing.",
+    "tag": "P"
+  },
+  "btn": {
+    "fontSize": "16px",
+    "fontFamily": "\"Inter Display\", sans-serif",
+    "fontWeight": "400",
+    "color": "rgb(255, 255, 255)",
+    "background": "linear-gradient(to right, rgb(38, 2, 237), rgb(0, 255, 255))",
+    "padding": "0px 28px",
+    "margin": "0px",
+    "lineHeight": "24px",
+    "text": "Try theTestRo for free",
+    "tag": "BUTTON"
+  },
+  "nav": {
+    "fontSize": "16px",
+    "fontFamily": "\"Inter Display\", sans-serif",
+    "fontWeight": "400",
+    "color": "rgb(2, 8, 23)",
+    "background": "none",
+    "padding": "0px",
+    "margin": "0px",
+    "lineHeight": "24px",
+    "text": "Features\nPricing\nContact Us\nTry theTestRo for free",
+    "tag": "NAV"
+  },
+  "body": {
+    "fontFamily": "\"Inter Display\", sans-serif",
+    "bg": "rgb(255, 255, 255)"
+  },
+  "sections": [
+    {
+      "id": "root",
+      "tag": "DIV",
+      "class": "",
+      "text": "Boost Testing Efficiency with theTestRo's Smart Automation GET DEMO NOW Feature"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "",
+      "text": ""
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "pb-10 relative overflow-hidden transition-all duration-300 pt-52 md:pt-52",
+      "text": "Self-Healing Schedule Tests Data Driven API Testing Automate Everything. Code N"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden background-blink",
+      "text": "20+ Projects Successfully Delivered Empowering teams with reliable no-code aut"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-28 overflow-hidden industry-leaders-container",
+      "text": "Chosen by Industry Leaders Worldwide From fast-growing startups to global enter"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 linear-background ",
+      "text": "Quality services you can count on Functional Automation Testing delivering qual"
+    },
+    {
+      "id": "why-the-testro",
+      "tag": "DIV",
+      "class": "",
+      "text": "Zero-code, full automation only with theTestRo Why Teams Love theTestRo Automa"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 sm:py-32",
+      "text": "Zero-code, full automation only with theTestRo Why Teams Love theTestRo Automa"
+    },
+    {
+      "id": "features",
+      "tag": "DIV",
+      "class": "",
+      "text": "Powerful Features for Modern Teams Everything your team needs to move faster. F"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 overflow-hidden",
+      "text": "Powerful Features for Modern Teams Everything your team needs to move faster. F"
+    },
+    {
+      "id": "how-it-works",
+      "tag": "DIV",
+      "class": "",
+      "text": "Simple, fast, reliable testing How theTestRo Works From setup to success—seaml"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "sm:py-20 how-it-works-container text-white overflow-hidden",
+      "text": "Simple, fast, reliable testing How theTestRo Works From setup to success—seaml"
+    },
+    {
+      "id": "pricing",
+      "tag": "DIV",
+      "class": "",
+      "text": "Pricing From Startup to Enterprise Test Automation for Everyone. Flexible plan"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 bg-gradient-to-b from-gray-50 to-white",
+      "text": "Pricing From Startup to Enterprise Test Automation for Everyone. Flexible plan"
+    },
+    {
+      "id": "testimonials",
+      "tag": "DIV",
+      "class": "",
+      "text": "Teams across 50+ countries use theTestRo What Our Clients Says About Us Truste"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 overflow-hidden",
+      "text": "Teams across 50+ countries use theTestRo What Our Clients Says About Us Truste"
+    },
+    {
+      "id": "videos",
+      "tag": "DIV",
+      "class": "",
+      "text": "Watch theTestRo in Action Explore quick walkthroughs and feature demos from our"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 bg-slate-50",
+      "text": "Watch theTestRo in Action Explore quick walkthroughs and feature demos from our"
+    },
+    {
+      "id": "faq",
+      "tag": "DIV",
+      "class": "",
+      "text": "Frequently Asked Questions How does the replay feature help me? The replay feat"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 bg-gray-50",
+      "text": "Frequently Asked Questions How does the replay feature help me? The replay feat"
+    },
+    {
+      "id": "faq-answer-0",
+      "tag": "DIV",
+      "class": "overflow-hidden transition-all duration-300 ease-in-out max-h-96 opacity-100",
+      "text": "The replay feature allows you to watch test executions step-by-step, helping you"
+    },
+    {
+      "id": "faq-answer-1",
+      "tag": "DIV",
+      "class": "overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0",
+      "text": "Yes! theTestRo's visual test builder lets you record complex user interactions l"
+    },
+    {
+      "id": "faq-answer-2",
+      "tag": "DIV",
+      "class": "overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0",
+      "text": "Yes. The debug panel lets you test, tweak, and validate XPaths instantly at the "
+    },
+    {
+      "id": "faq-answer-3",
+      "tag": "DIV",
+      "class": "overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0",
+      "text": "Absolutely! theTestRo supports cross-browser testing on Chrome, Firefox, Safari,"
+    },
+    {
+      "id": "faq-answer-4",
+      "tag": "DIV",
+      "class": "overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0",
+      "text": "Yes, you can schedule test runs at specific times or trigger them based on event"
+    },
+    {
+      "id": "faq-answer-5",
+      "tag": "DIV",
+      "class": "overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0",
+      "text": "Self-healing automatically updates locators when UI elements change, reducing te"
+    },
+    {
+      "id": "contact-form",
+      "tag": "DIV",
+      "class": "",
+      "text": "Talk to Us — We're Ready Tell us what you need and we'll show you how we can he"
+    },
+    {
+      "id": "",
+      "tag": "SECTION",
+      "class": "py-20 sm:py-32 bg-gray-50",
+      "text": "Talk to Us — We're Ready Tell us what you need and we'll show you how we can he"
+    },
+    {
+      "id": "firstName",
+      "tag": "INPUT",
+      "class": "flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background fi",
+      "text": ""
+    },
+    {
+      "id": "lastName",
+      "tag": "INPUT",
+      "class": "flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background fi",
+      "text": ""
+    },
+    {
+      "id": "email",
+      "tag": "INPUT",
+      "class": "flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background fi",
+      "text": ""
+    },
+    {
+      "id": "company",
+      "tag": "INPUT",
+      "class": "flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background fi",
+      "text": ""
+    },
+    {
+      "id": "message",
+      "tag": "TEXTAREA",
+      "class": "flex min-h-[80px] w-full rounded-md border px-3 py-2 text-sm ring-offset-backgro",
+      "text": ""
+    }
+  ],
+  "title": "TestRo - AI-Powered Web Automation | Record, Play, Automate"
+}

@@ -1,0 +1,290 @@
+{
+  "bodyColor": "rgb(2, 8, 23)",
+  "fontReady": true,
+  "scrollH": 11951,
+  "hero": {
+    "text": "#1 No Code Automation Platform",
+    "fs": "68px",
+    "fw": "700",
+    "lh": "102px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgba(0, 0, 0, 0)",
+    "w": 1063,
+    "h": 102,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "0px",
+    "maxW": "none"
+  },
+  "pill": {
+    "text": "Automate Everything. Code Nothing.",
+    "fs": "14px",
+    "fw": "400",
+    "lh": "21px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(0, 137, 186)",
+    "w": 287,
+    "h": 40,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "40px",
+    "maxW": "none"
+  },
+  "heroSub": null,
+  "heroBtn": {
+    "text": "Get Started Get Started",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(255, 255, 255)",
+    "w": 174,
+    "h": 48,
+    "mt": "24px",
+    "mb": "0px",
+    "br": "24px",
+    "maxW": "none"
+  },
+  "nav": {
+    "text": "Features Pricing Contact Us Try theTestRo for free",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(2, 8, 23)",
+    "w": 1152,
+    "h": 66,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "30px",
+    "maxW": "none"
+  },
+  "navBtn": {
+    "text": "Try theTestRo for free",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(255, 255, 255)",
+    "w": 210,
+    "h": 48,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "24px",
+    "maxW": "none"
+  },
+  "banner": {
+    "text": "Boost Testing Efficiency with theTestRo's Smart Automation GET DEMO NO",
+    "fs": "20px",
+    "fw": "500",
+    "lh": "30px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(0, 62, 133)",
+    "w": 1152,
+    "h": 54,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "24px",
+    "maxW": "none"
+  },
+  "clientsTitle": {
+    "text": "Chosen by Industry Leaders Worldwide",
+    "fs": "68px",
+    "fw": "700",
+    "lh": "102px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgba(0, 0, 0, 0)",
+    "w": 1368,
+    "h": 102,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "0px",
+    "maxW": "none"
+  },
+  "clientsSub": {
+    "text": "From fast-growing startups to global enterprises, teams trust us to po",
+    "fs": "18px",
+    "fw": "400",
+    "lh": "27px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(111, 123, 130)",
+    "w": 821,
+    "h": 27,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "0px",
+    "maxW": "none"
+  },
+  "servicesTitle": {
+    "text": "Functional Automation Testing delivering quality, reliability & confid",
+    "fs": "48px",
+    "fw": "700",
+    "lh": "48px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(2, 8, 23)",
+    "w": 1368,
+    "h": 136,
+    "mt": "0px",
+    "mb": "8px",
+    "br": "0px",
+    "maxW": "none"
+  },
+  "whyTitle": {
+    "text": "Why Teams Love theTestRo",
+    "fs": "68px",
+    "fw": "700",
+    "lh": "102px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgba(0, 0, 0, 0)",
+    "w": 1216,
+    "h": 102,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "0px",
+    "maxW": "none"
+  },
+  "howTitle": {
+    "text": "How theTestRo Works",
+    "fs": "52px",
+    "fw": "700",
+    "lh": "78px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(255, 255, 255)",
+    "w": 1216,
+    "h": 78,
+    "mt": "0px",
+    "mb": "0px",
+    "br": "0px",
+    "maxW": "none"
+  },
+  "priceTitle": {
+    "text": "From Startup to Enterprise Test Automation for Everyone.",
+    "fs": "68px",
+    "fw": "700",
+    "lh": "85px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgba(0, 0, 0, 0)",
+    "w": 1376,
+    "h": 255,
+    "mt": "0px",
+    "mb": "16px",
+    "br": "0px",
+    "maxW": "none"
+  },
+  "faqTitle": {
+    "text": "Frequently Asked Questions",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(2, 8, 23)",
+    "w": 768,
+    "h": 204,
+    "mt": "0px",
+    "mb": "48px",
+    "br": "0px",
+    "maxW": "768px"
+  },
+  "toggle": {
+    "text": "Monthly Yearly Save 20%",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "ff": "\"Inter Display\", sans-serif",
+    "color": "rgb(255, 255, 255)",
+    "w": 270,
+    "h": 49,
+    "mt": "12px",
+    "mb": "0px",
+    "br": "9999px",
+    "maxW": "none"
+  },
+  "sections": {
+    "hero": {
+      "h": 796,
+      "pt": "208px",
+      "pb": "40px",
+      "pl": "0px"
+    },
+    "stats": {
+      "h": 348,
+      "pt": "80px",
+      "pb": "80px",
+      "pl": "32px"
+    },
+    "clients": {
+      "h": 837,
+      "pt": "112px",
+      "pb": "112px",
+      "pl": "0px"
+    },
+    "services": {
+      "h": 1025,
+      "pt": "80px",
+      "pb": "80px",
+      "pl": "0px"
+    },
+    "why": {
+      "h": 901,
+      "pt": "128px",
+      "pb": "128px",
+      "pl": "0px"
+    },
+    "features": {
+      "h": 1160,
+      "pt": "80px",
+      "pb": "80px",
+      "pl": "0px"
+    },
+    "how": {
+      "h": 874,
+      "pt": "80px",
+      "pb": "80px",
+      "pl": "0px"
+    },
+    "testimonials": {
+      "h": 886,
+      "pt": "80px",
+      "pb": "80px",
+      "pl": "0px"
+    },
+    "videos": {
+      "h": 636,
+      "pt": "80px",
+      "pb": "80px",
+      "pl": "0px"
+    },
+    "faq": {
+      "h": 984,
+      "pt": "80px",
+      "pb": "80px",
+      "pl": "0px"
+    },
+    "contact": {
+      "h": 1118,
+      "pt": "128px",
+      "pb": "128px",
+      "pl": "0px"
+    }
+  },
+  "footer": {
+    "h": 732,
+    "pt": "48px",
+    "pb": "48px",
+    "pl": "32px"
+  }
+}

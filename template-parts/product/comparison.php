@@ -1,0 +1,134 @@
+<?php
+/**
+ * Product page comparison — legacy frameworks versus AI-native automation.
+ *
+ * Expected $args: id, eyebrow, title, intro, legacy (label/note), modern (label/note),
+ * rows (array[] of aspect/legacy/modern, optional legacy_mark/modern_mark).
+ *
+ * Mark values: check | close | partial. Defaults keep legacy=close and modern=check
+ * so existing product/Why pages render unchanged.
+ *
+ * @package TestRo
+ */
+
+$args   = isset( $args ) && is_array( $args ) ? $args : array();
+$rows   = isset( $args['rows'] ) && is_array( $args['rows'] ) ? $args['rows'] : array();
+$legacy = isset( $args['legacy'] ) && is_array( $args['legacy'] ) ? $args['legacy'] : array();
+$modern = isset( $args['modern'] ) && is_array( $args['modern'] ) ? $args['modern'] : array();
+$id     = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
+
+if ( ! $rows ) {
+	return;
+}
+
+$heading_id   = $id ? $id . '-heading' : '';
+$legacy_label = isset( $legacy['label'] ) ? $legacy['label'] : __( 'Legacy frameworks', 'testro' );
+$modern_label = isset( $modern['label'] ) ? $modern['label'] : __( 'theTestRo', 'testro' );
+
+/**
+ * Resolve comparison cell mark metadata.
+ *
+ * @param string $mark Mark key.
+ * @return array{icon:string,class:string}
+ */
+$resolve_mark = static function ( $mark ) {
+	$mark = sanitize_key( (string) $mark );
+
+	if ( 'check' === $mark ) {
+		return array(
+			'icon'  => 'check',
+			'class' => 'testro-prod-compare__mark--check',
+		);
+	}
+
+	if ( 'partial' === $mark ) {
+		return array(
+			'icon'  => 'minus',
+			'class' => 'testro-prod-compare__mark--partial',
+		);
+	}
+
+	return array(
+		'icon'  => 'close',
+		'class' => 'testro-prod-compare__mark--close',
+	);
+};
+?>
+<section
+	class="testro-prod-section testro-prod-compare"
+	<?php echo $id ? 'id="' . esc_attr( $id ) . '"' : ''; ?>
+	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
+>
+	<div class="testro-container">
+		<?php
+		get_template_part(
+			'template-parts/product/section-header',
+			null,
+			array(
+				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+				'title'      => isset( $args['title'] ) ? $args['title'] : '',
+				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
+				'heading_id' => $heading_id,
+			)
+		);
+		?>
+
+		<div class="testro-prod-compare__table" data-reveal>
+			<div class="testro-prod-compare__head" aria-hidden="true">
+				<div class="testro-prod-compare__head-spacer"></div>
+
+				<div class="testro-prod-compare__head-cell testro-prod-compare__head-cell--legacy">
+					<span class="testro-prod-compare__head-icon">
+						<?php echo testro_icon( 'close', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+					</span>
+					<span>
+						<span class="testro-prod-compare__head-label"><?php echo esc_html( $legacy_label ); ?></span>
+						<?php if ( ! empty( $legacy['note'] ) ) : ?>
+							<span class="testro-prod-compare__head-note"><?php echo esc_html( $legacy['note'] ); ?></span>
+						<?php endif; ?>
+					</span>
+				</div>
+
+				<div class="testro-prod-compare__head-cell testro-prod-compare__head-cell--modern">
+					<span class="testro-prod-compare__head-icon">
+						<?php echo testro_icon( 'sparkles', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+					</span>
+					<span>
+						<span class="testro-prod-compare__head-label"><?php echo esc_html( $modern_label ); ?></span>
+						<?php if ( ! empty( $modern['note'] ) ) : ?>
+							<span class="testro-prod-compare__head-note"><?php echo esc_html( $modern['note'] ); ?></span>
+						<?php endif; ?>
+					</span>
+				</div>
+			</div>
+
+			<ul class="testro-prod-compare__rows">
+				<?php foreach ( $rows as $index => $row ) : ?>
+					<?php
+					$legacy_mark = $resolve_mark( isset( $row['legacy_mark'] ) ? $row['legacy_mark'] : 'close' );
+					$modern_mark = $resolve_mark( isset( $row['modern_mark'] ) ? $row['modern_mark'] : 'check' );
+					?>
+					<li class="testro-prod-compare__row" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+						<p class="testro-prod-compare__aspect"><?php echo esc_html( $row['aspect'] ); ?></p>
+
+						<div class="testro-prod-compare__cell testro-prod-compare__cell--legacy">
+							<span class="testro-prod-compare__cell-label"><?php echo esc_html( $legacy_label ); ?></span>
+							<span class="testro-prod-compare__mark <?php echo esc_attr( $legacy_mark['class'] ); ?>" aria-hidden="true">
+								<?php echo testro_icon( $legacy_mark['icon'], array( 'size' => 14 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+							</span>
+							<p class="testro-prod-compare__text"><?php echo esc_html( $row['legacy'] ); ?></p>
+						</div>
+
+						<div class="testro-prod-compare__cell testro-prod-compare__cell--modern">
+							<span class="testro-prod-compare__cell-label"><?php echo esc_html( $modern_label ); ?></span>
+							<span class="testro-prod-compare__mark <?php echo esc_attr( $modern_mark['class'] ); ?>" aria-hidden="true">
+								<?php echo testro_icon( $modern_mark['icon'], array( 'size' => 14 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+							</span>
+							<p class="testro-prod-compare__text"><?php echo esc_html( $row['modern'] ); ?></p>
+						</div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+</section>

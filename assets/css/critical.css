@@ -1,0 +1,185 @@
+/**
+ * TestRo critical CSS — above-the-fold LCP helpers.
+ */
+
+@font-face {
+  font-family: "Inter Display";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/InterDisplay-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter Display";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/InterDisplay-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/InterDisplay-Regular.woff2") format("woff2");
+}
+
+:root {
+  --testro-font: "Inter Display", Inter, system-ui, -apple-system, sans-serif;
+  --grad-text: linear-gradient(to right, #1c00b8, #00ffff);
+  --grad-btn: linear-gradient(to right, #2602ed, #00ffff);
+  --grad-banner: linear-gradient(to right, #adf4ff, #3c00ff, #78a4f5, #adf4ff);
+  --nav-top-banner: 5.5rem;
+  --nav-top: 1rem;
+  --nav-width: 80%;
+  --nav-height: 66px;
+  --header-stack-padding: 13rem;
+  --color-banner-text: #003e85;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--testro-font);
+  background: #fff;
+  color: #020817;
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1rem;
+  background: #2602ed;
+  color: #fff;
+}
+
+.testro-top-banner {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--nav-width);
+  z-index: 50;
+}
+
+.testro-top-banner__inner {
+  background: var(--grad-banner);
+  min-height: 54px;
+  height: 54px;
+  border-radius: 24px;
+  color: var(--color-banner-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.testro-top-banner__text {
+  font-family: "Inter Display", sans-serif;
+}
+
+.testro-nav {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--nav-width);
+  height: var(--nav-height);
+  border-radius: 30px;
+  background: rgb(255 255 255 / 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  z-index: 40;
+  top: var(--nav-top-banner);
+}
+
+body.banner-hidden .testro-nav {
+  top: var(--nav-top);
+}
+
+.testro-hero {
+  padding: 13rem 0 2.5rem;
+  padding-top: max(13rem, var(--header-stack-padding, 13rem));
+  text-align: center;
+}
+
+.gradient-text,
+.testro-hero__title {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 68px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.testro-btn--primary {
+  background-image: var(--grad-btn);
+  color: #fff;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 24px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --nav-width: calc(100% - 1.5rem);
+    --nav-top-banner: 7.25rem;
+    --header-stack-padding: 12.5rem;
+  }
+
+  .testro-top-banner,
+  .testro-nav {
+    width: var(--nav-width);
+  }
+
+  .testro-top-banner__inner {
+    height: auto;
+    min-height: 44px;
+    font-size: 15px;
+  }
+
+  .testro-nav {
+    height: auto;
+    min-height: var(--nav-height);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-width: calc(100% - 1.5rem);
+    --nav-top-banner: 7.75rem;
+    --header-stack-padding: 13rem;
+  }
+
+  .gradient-text,
+  .testro-hero__title {
+    font-size: 38px;
+  }
+
+  .testro-hero {
+    padding-top: max(12.5rem, var(--header-stack-padding, 12.5rem));
+  }
+}

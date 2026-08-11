@@ -1,0 +1,222 @@
+{
+  "ref": {
+    "fonts": [],
+    "fontCount": 0,
+    "banner": {
+      "sel": ".banner-background",
+      "text": "Boost Testing Efficiency with theTestRo's Smart Automation GET DEMO NOW",
+      "w": 1152,
+      "h": 54,
+      "fontFamily": "\"Inter Display\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "500",
+      "lineHeight": "30px",
+      "letterSpacing": "normal",
+      "webkitFontSmoothing": "auto",
+      "fontFeatureSettings": "normal",
+      "fontVariationSettings": "normal",
+      "textRendering": "auto",
+      "fontSynthesis": "weight style small-caps",
+      "used": {
+        "checkDisplay500": true,
+        "checkInter500": true,
+        "checkDisplay600": true
+      }
+    },
+    "bannerText": {
+      "sel": ".banner-background p",
+      "text": "Boost Testing Efficiency with theTestRo's Smart Automation",
+      "w": 526,
+      "h": 30,
+      "fontFamily": "\"Inter Display\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "500",
+      "lineHeight": "30px",
+      "letterSpacing": "normal",
+      "webkitFontSmoothing": "auto",
+      "fontFeatureSettings": "normal",
+      "fontVariationSettings": "normal",
+      "textRendering": "auto",
+      "fontSynthesis": "weight style small-caps",
+      "used": {
+        "checkDisplay500": true,
+        "checkInter500": true,
+        "checkDisplay600": true
+      }
+    },
+    "bannerCta": {
+      "sel": ".banner-background button",
+      "text": "GET DEMO NOW",
+      "w": 145,
+      "h": 24,
+      "fontFamily": "\"Inter Display\", sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "webkitFontSmoothing": "auto",
+      "fontFeatureSettings": "normal",
+      "fontVariationSettings": "normal",
+      "textRendering": "auto",
+      "fontSynthesis": "weight style small-caps",
+      "used": {
+        "checkDisplay500": true,
+        "checkInter500": true,
+        "checkDisplay600": true
+      }
+    },
+    "body": {
+      "sel": "body",
+      "text": "Boost Testing Efficiency with theTestRo's Smart Automation GET DEMO NOW Features Pricing ",
+      "w": 1440,
+      "h": 12111,
+      "fontFamily": "\"Inter Display\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "webkitFontSmoothing": "auto",
+      "fontFeatureSettings": "normal",
+      "fontVariationSettings": "normal",
+      "textRendering": "auto",
+      "fontSynthesis": "weight style small-caps",
+      "used": {
+        "checkDisplay500": true,
+        "checkInter500": true,
+        "checkDisplay600": true
+      }
+    }
+  },
+  "ours": {
+    "fonts": [
+      {
+        "family": "Inter Display",
+        "weight": "700",
+        "style": "normal",
+        "status": "loaded",
+        "stretch": "normal"
+      },
+      {
+        "family": "Inter Display",
+        "weight": "400",
+        "style": "normal",
+        "status": "loaded",
+        "stretch": "normal"
+      },
+      {
+        "family": "Inter Display",
+        "weight": "400",
+        "style": "normal",
+        "status": "loaded",
+        "stretch": "normal"
+      },
+      {
+        "family": "Inter Display",
+        "weight": "500",
+        "style": "normal",
+        "status": "loaded",
+        "stretch": "normal"
+      },
+      {
+        "family": "Inter Display",
+        "weight": "600",
+        "style": "normal",
+        "status": "loaded",
+        "stretch": "normal"
+      },
+      {
+        "family": "Inter Display",
+        "weight": "700",
+        "style": "normal",
+        "status": "loaded",
+        "stretch": "normal"
+      }
+    ],
+    "fontCount": 6,
+    "banner": {
+      "sel": ".banner-background",
+      "text": "Boost Testing Efficiency with theTestRo's Smart Automation GET DEMO NOW",
+      "w": 1152,
+      "h": 54,
+      "fontFamily": "\"Inter Display\", Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "500",
+      "lineHeight": "30px",
+      "letterSpacing": "normal",
+      "webkitFontSmoothing": "antialiased",
+      "fontFeatureSettings": "normal",
+      "fontVariationSettings": "normal",
+      "textRendering": "auto",
+      "fontSynthesis": "weight style small-caps",
+      "used": {
+        "checkDisplay500": true,
+        "checkInter500": true,
+        "checkDisplay600": true
+      }
+    },
+    "bannerText": {
+      "sel": ".banner-background p",
+      "text": "Boost Testing Efficiency with theTestRo's Smart Automation",
+      "w": 527,
+      "h": 30,
+      "fontFamily": "\"Inter Display\", Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "500",
+      "lineHeight": "30px",
+      "letterSpacing": "normal",
+      "webkitFontSmoothing": "antialiased",
+      "fontFeatureSettings": "normal",
+      "fontVariationSettings": "normal",
+      "textRendering": "auto",
+      "fontSynthesis": "weight style small-caps",
+      "used": {
+        "checkDisplay500": true,
+        "checkInter500": true,
+        "checkDisplay600": true
+      }
+    },
+    "bannerCta": {
+      "sel": ".banner-background button",
+      "text": "GET DEMO NOW",
+      "w": 140,
+      "h": 24,
+      "fontFamily": "\"Inter Display\", Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "webkitFontSmoothing": "antialiased",
+      "fontFeatureSettings": "normal",
+      "fontVariationSettings": "normal",
+      "textRendering": "auto",
+      "fontSynthesis": "weight style small-caps",
+      "used": {
+        "checkDisplay500": true,
+        "checkInter500": true,
+        "checkDisplay600": true
+      }
+    },
+    "body": {
+      "sel": "body",
+      "text": "Skip to content Boost Testing Efficiency with theTestRo's Smart Automation GET DEMO NOW ",
+      "w": 1440,
+      "h": 12154,
+      "fontFamily": "\"Inter Display\", Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "webkitFontSmoothing": "antialiased",
+      "fontFeatureSettings": "normal",
+      "fontVariationSettings": "normal",
+      "textRendering": "auto",
+      "fontSynthesis": "weight style small-caps",
+      "used": {
+        "checkDisplay500": true,
+        "checkInter500": true,
+        "checkDisplay600": true
+      }
+    },
+    "url": "http://localhost/thetestro/"
+  }
+}

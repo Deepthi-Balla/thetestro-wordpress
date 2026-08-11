@@ -1,0 +1,20 @@
+# WordPress / local files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# Logs
+*.log
+
+# Node dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+
+# Build output
+dist/
+build/

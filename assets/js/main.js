@@ -1,0 +1,2539 @@
+/**
+ * TestRo theme — front-end interactions
+ * Works with template-parts BEM + data-* hooks. Uses window.testroData.
+ */
+(function () {
+  'use strict';
+
+  var DATA = window.testroData || {};
+  var AJAX_URL = DATA.ajaxUrl || '/wp-admin/admin-ajax.php';
+  var NONCE = DATA.nonce || '';
+  var BASE_URL = 'https://dev-api.thetestro.com';
+
+  function ready(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  function qs(sel, root) {
+    return (root || document).querySelector(sel);
+  }
+
+  function qsa(sel, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  }
+
+  function on(el, evt, handler, opts) {
+    if (!el) return;
+    el.addEventListener(evt, handler, opts);
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 1. Hero carousel                                                         */
+  /* ------------------------------------------------------------------------ */
+  function initHeroCarousel() {
+    var root = qs('.testro-hero');
+    if (!root) return;
+
+    var track = qs('[data-hero-track]', root);
+    var slides = qsa('[data-hero-slide]', root);
+    if (!track || !slides.length) return;
+
+    var indicators = qsa('[data-hero-indicator]', root);
+    var index = 0;
+    var completed = 0;
+    var timer = null;
+    var transitioning = false;
+    var INTERVAL = 6000;
+    var RESET_PAUSE = 450;
+    var TRANSITION_MS = 700;
+
+    function resetBadgeAnimations(slide) {
+      qsa('.testro-hero__badge', slide).forEach(function (badge) {
+        badge.style.animation = 'none';
+        void badge.offsetWidth;
+        badge.style.animation = '';
+      });
+    }
+
+    function syncIndicators() {
+      indicators.forEach(function (el, i) {
+        var done = i < completed;
+        el.classList.toggle('is-done', done);
+        el.classList.toggle('is-pending', !done);
+        el.setAttribute('aria-current', i === index ? 'true' : 'false');
+      });
+    }
+
+    function setTrackPosition(i, instant) {
+      if (instant) {
+        track.style.transition = 'none';
+      } else {
+        track.style.transition = '';
+      }
+      track.style.transform = 'translate3d(-' + i * 100 + '%, 0, 0)';
+      if (instant) {
+        void track.offsetWidth;
+        track.style.transition = '';
+      }
+    }
+
+    function showSlide(i, opts) {
+      var options = opts || {};
+      var next = (i + slides.length) % slides.length;
+      var changed = next !== index;
+      var instant = !!options.instant || !changed;
+
+      index = next;
+      setTrackPosition(index, instant);
+
+      slides.forEach(function (slide, s) {
+        var active = s === index;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+
+      if (instant || !changed) {
+        resetBadgeAnimations(slides[index]);
+        transitioning = false;
+        return;
+      }
+
+      transitioning = true;
+      var done = false;
+      function finish() {
+        if (done) return;
+        done = true;
+        transitioning = false;
+        resetBadgeAnimations(slides[index]);
+      }
+
+      function onEnd(e) {
+        if (e.target !== track) return;
+        if (e.propertyName && e.propertyName !== 'transform') return;
+        track.removeEventListener('transitionend', onEnd);
+        finish();
+      }
+
+      track.addEventListener('transitionend', onEnd);
+      setTimeout(finish, TRANSITION_MS + 80);
+    }
+
+    function clearTimer() {
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+    }
+
+    function advance() {
+      if (transitioning) return;
+
+      completed = index + 1;
+      syncIndicators();
+
+      if (completed >= slides.length) {
+        timer = setTimeout(function () {
+          completed = 0;
+          showSlide(0, { instant: true });
+          syncIndicators();
+          scheduleNext();
+        }, RESET_PAUSE);
+        return;
+      }
+
+      showSlide(index + 1);
+      syncIndicators();
+      scheduleNext();
+    }
+
+    function scheduleNext() {
+      clearTimer();
+      timer = setTimeout(advance, INTERVAL);
+    }
+
+    function goTo(i) {
+      if (transitioning) return;
+      clearTimer();
+      var target = (i + slides.length) % slides.length;
+      completed = target;
+      showSlide(target);
+      syncIndicators();
+      scheduleNext();
+    }
+
+    indicators.forEach(function (el) {
+      on(el, 'click', function () {
+        goTo(parseInt(el.getAttribute('data-hero-indicator'), 10) || 0);
+      });
+    });
+
+    window.addEventListener('resize', function () {
+      setTrackPosition(index, true);
+    });
+
+    completed = 0;
+    showSlide(0, { instant: true });
+    syncIndicators();
+    scheduleNext();
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 2. Floating nav + hamburger + smooth scroll + banner offset              */
+  /* ------------------------------------------------------------------------ */
+  function initNav() {
+    var banner = qs('.testro-top-banner');
+    var nav = qs('.testro-nav');
+    var toggle = qs('.testro-nav__toggle');
+    var MOBILE_NAV_MAX = 900;
+    var megaItems = nav ? qsa('.testro-nav__item--has-mega', nav) : [];
+    var closeMegaTimer = null;
+
+    function isMobileNav() {
+      return window.innerWidth <= MOBILE_NAV_MAX;
+    }
+
+    function clampMegaPosition(item) {
+      var panel = item ? qs('.testro-mega', item) : null;
+      if (!panel) return;
+      if (isMobileNav()) {
+        panel.style.removeProperty('--mega-shift');
+        return;
+      }
+      panel.style.setProperty('--mega-shift', '0px');
+      /* Measure after centering, then nudge to keep the panel in viewport */
+      var rect = panel.getBoundingClientRect();
+      var pad = 12;
+      var shift = 0;
+      if (rect.left < pad) {
+        shift = pad - rect.left;
+      } else if (rect.right > window.innerWidth - pad) {
+        shift = window.innerWidth - pad - rect.right;
+      }
+      panel.style.setProperty('--mega-shift', shift + 'px');
+    }
+
+    function setMegaOpen(item, open) {
+      if (!item) return;
+      var trigger = qs('.testro-nav__trigger', item);
+      var panel = qs('.testro-mega', item);
+      item.classList.toggle('is-open', open);
+      if (trigger) {
+        trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      if (panel) {
+        panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+        if (open) {
+          panel.removeAttribute('hidden');
+          requestAnimationFrame(function () {
+            clampMegaPosition(item);
+          });
+        } else if (isMobileNav()) {
+          panel.setAttribute('hidden', '');
+          panel.style.removeProperty('--mega-shift');
+        } else {
+          /* Desktop keeps panel in DOM for CSS hover/transitions */
+          panel.removeAttribute('hidden');
+          panel.style.removeProperty('--mega-shift');
+        }
+      }
+    }
+
+    function closeAllMegas(except) {
+      megaItems.forEach(function (item) {
+        if (except && item === except) return;
+        setMegaOpen(item, false);
+      });
+    }
+
+    function setNavOpen(open) {
+      if (!nav) return;
+      nav.classList.toggle('is-open', open);
+      document.body.classList.toggle('nav-open', open);
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      if (!open) {
+        closeAllMegas();
+      }
+    }
+
+    function closeNav() {
+      setNavOpen(false);
+    }
+
+    var BANNER_NAV_GAP = 18; /* preserves desktop 5.5rem stack (16+54+18=88) */
+    var CONTENT_BREATHING = 32;
+    var NAV_TOP_COMPACT = 16; /* --nav-top: 1rem */
+
+    function parsePx(value, fallback) {
+      var n = parseFloat(value);
+      return isNaN(n) ? fallback : n;
+    }
+
+    function syncHeaderStackOffset() {
+      var root = document.documentElement;
+      var visible =
+        banner &&
+        !banner.classList.contains('is-hidden') &&
+        getComputedStyle(banner).display !== 'none';
+
+      var navHeight = nav ? nav.offsetHeight : 66;
+      var bannerTop = NAV_TOP_COMPACT;
+      var bannerHeight = 0;
+
+      if (banner && getComputedStyle(banner).display !== 'none') {
+        bannerTop = parsePx(getComputedStyle(banner).top, NAV_TOP_COMPACT);
+        bannerHeight = banner.offsetHeight;
+      }
+
+      /* Always reserve space for the full banner+nav stack so hero content
+         does not jump when the banner hides on scroll. */
+      var stackedNavTop = bannerHeight
+        ? bannerTop + bannerHeight + BANNER_NAV_GAP
+        : NAV_TOP_COMPACT;
+      root.style.setProperty('--nav-top-banner', stackedNavTop + 'px');
+
+      if (visible) {
+        document.body.classList.remove('banner-hidden');
+        if (nav) nav.classList.remove('is-compact');
+      } else {
+        document.body.classList.add('banner-hidden');
+        if (nav) nav.classList.add('is-compact');
+      }
+
+      var minStack = window.matchMedia('(max-width: 768px)').matches ? 160 : 208;
+      var stackPadding = Math.max(minStack, stackedNavTop + navHeight + CONTENT_BREATHING);
+      root.style.setProperty('--header-stack-padding', stackPadding + 'px');
+
+      var activeNavTop = visible ? stackedNavTop : NAV_TOP_COMPACT;
+      root.style.setProperty('--header-scroll-offset', activeNavTop + navHeight + 24 + 'px');
+    }
+
+    function updateNavTop() {
+      syncHeaderStackOffset();
+    }
+
+    updateNavTop();
+
+    /* Ensure desktop panels are not stuck with [hidden] from SSR */
+    function syncMegaHiddenState() {
+      megaItems.forEach(function (item) {
+        var panel = qs('.testro-mega', item);
+        if (!panel) return;
+        if (isMobileNav()) {
+          if (!item.classList.contains('is-open')) {
+            panel.setAttribute('hidden', '');
+          }
+        } else {
+          panel.removeAttribute('hidden');
+          if (!item.classList.contains('is-open')) {
+            /* leave closed via CSS */
+          }
+        }
+      });
+    }
+
+    syncMegaHiddenState();
+
+    window.addEventListener('resize', function () {
+      updateNavTop();
+      if (window.innerWidth > MOBILE_NAV_MAX) {
+        closeNav();
+      }
+      syncMegaHiddenState();
+      closeAllMegas();
+    });
+
+    if (typeof ResizeObserver !== 'undefined') {
+      var stackObserver = new ResizeObserver(function () {
+        updateNavTop();
+      });
+      if (banner) stackObserver.observe(banner);
+      if (nav) stackObserver.observe(nav);
+    }
+
+    // Reference: hide top banner on scroll down, show near top
+    if (banner) {
+      var lastY = window.scrollY || 0;
+      window.addEventListener(
+        'scroll',
+        function () {
+          var y = window.scrollY || 0;
+          if (y < 50) {
+            banner.classList.remove('is-hidden');
+          } else if (y > lastY) {
+            banner.classList.add('is-hidden');
+          } else if (y < lastY && y < 100) {
+            banner.classList.remove('is-hidden');
+          }
+          lastY = y;
+          updateNavTop();
+        },
+        { passive: true }
+      );
+    }
+
+    on(toggle, 'click', function () {
+      if (!nav) return;
+      setNavOpen(!nav.classList.contains('is-open'));
+    });
+
+    /* Mega menu: desktop hover + keyboard / mobile accordion */
+    megaItems.forEach(function (item) {
+      var trigger = qs('.testro-nav__trigger', item);
+
+      on(item, 'mouseenter', function () {
+        if (isMobileNav()) return;
+        if (closeMegaTimer) {
+          clearTimeout(closeMegaTimer);
+          closeMegaTimer = null;
+        }
+        closeAllMegas(item);
+        setMegaOpen(item, true);
+      });
+
+      on(item, 'mouseleave', function () {
+        if (isMobileNav()) return;
+        closeMegaTimer = setTimeout(function () {
+          setMegaOpen(item, false);
+        }, 140);
+      });
+
+      on(trigger, 'click', function (e) {
+        if (!isMobileNav()) {
+          /* Desktop uses hover; click toggles for touch laptops */
+          e.preventDefault();
+          var willOpen = !item.classList.contains('is-open');
+          closeAllMegas(item);
+          setMegaOpen(item, willOpen);
+          return;
+        }
+        e.preventDefault();
+        var open = !item.classList.contains('is-open');
+        closeAllMegas(item);
+        setMegaOpen(item, open);
+      });
+
+      on(trigger, 'keydown', function (e) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          setMegaOpen(item, true);
+          var firstLink = qs('.testro-mega__link', item);
+          if (firstLink) firstLink.focus();
+        } else if (e.key === 'Escape') {
+          setMegaOpen(item, false);
+          trigger.focus();
+        }
+      });
+    });
+
+    qsa('a[href*="#"]').forEach(function (link) {
+      on(link, 'click', function (e) {
+        var href = link.getAttribute('href') || '';
+        var hashIndex = href.indexOf('#');
+        if (hashIndex === -1) return;
+        var hash = href.slice(hashIndex);
+        if (!hash || hash === '#') return;
+        var target = qs(hash);
+        if (!target) return;
+
+        // Only intercept same-page anchors
+        var url = new URL(href, window.location.href);
+        if (url.pathname.replace(/\/$/, '') !== window.location.pathname.replace(/\/$/, '')) {
+          return;
+        }
+
+        e.preventDefault();
+        var scrollOffset = parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue('--header-scroll-offset')
+        );
+        var offset =
+          !isNaN(scrollOffset) && scrollOffset > 0
+            ? scrollOffset
+            : (nav ? nav.offsetHeight : 64) + 24;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        closeAllMegas();
+        closeNav();
+      });
+    });
+
+    // Close mobile menu / megas on outside click
+    on(document, 'click', function (e) {
+      if (!nav) return;
+      if (nav.contains(e.target)) return;
+      closeAllMegas();
+      if (nav.classList.contains('is-open')) {
+        closeNav();
+      }
+    });
+
+    on(document, 'keydown', function (e) {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        closeAllMegas();
+        closeNav();
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 3 + 10. Demo modal open/close                                            */
+  /* ------------------------------------------------------------------------ */
+  function initDemoModal() {
+    var modal = qs('#demo-modal') || qs('.testro-modal');
+    if (!modal) return;
+
+    var closeTimer = null;
+    var ANIM_MS = 200;
+    var reduceMotion =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function openModal() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      modal.classList.remove('is-closing');
+      modal.hidden = false;
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      // Double rAF so the browser paints the closed state before transitioning.
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          modal.classList.add('is-open');
+        });
+      });
+      var focusEl = qs('input, button, textarea, select', modal);
+      if (focusEl) focusEl.focus();
+    }
+
+    function finishClose() {
+      modal.classList.remove('is-open', 'is-closing');
+      modal.hidden = true;
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      closeTimer = null;
+    }
+
+    function closeModal() {
+      if (modal.hidden && !modal.classList.contains('is-open')) return;
+      if (reduceMotion) {
+        finishClose();
+        return;
+      }
+      modal.classList.remove('is-open');
+      modal.classList.add('is-closing');
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(finishClose, ANIM_MS);
+    }
+
+    qsa('[data-open-modal="demo-modal"]').forEach(function (btn) {
+      on(btn, 'click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    qsa('[data-close-modal="demo-modal"]', modal).forEach(function (btn) {
+      on(btn, 'click', function (e) {
+        e.preventDefault();
+        closeModal();
+      });
+    });
+
+    on(document, 'keydown', function (e) {
+      if (e.key === 'Escape' && (!modal.hidden || modal.classList.contains('is-open'))) {
+        closeModal();
+      }
+    });
+
+    window.testroOpenDemo = openModal;
+    window.testroCloseDemo = closeModal;
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 4. Pricing monthly / yearly                                              */
+  /* ------------------------------------------------------------------------ */
+  function formatUsdMonth(amount) {
+    return '$' + Math.round(amount) + '/mo';
+  }
+
+  function animateCostText(el, text) {
+    if (!el) return;
+    if (el.textContent === text) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      el.textContent = text;
+      return;
+    }
+    el.classList.add('is-updating');
+    window.setTimeout(function () {
+      el.textContent = text;
+      el.classList.remove('is-updating');
+    }, 120);
+  }
+
+  function updatePricingCardCosts(card, yearly) {
+    if (!card || !card.hasAttribute('data-infra-unit')) return;
+
+    var unit = parseFloat(card.getAttribute('data-infra-unit'));
+    var parallel = parseInt(card.getAttribute('data-parallel'), 10);
+    var baseMonthly = parseFloat(card.getAttribute('data-base-monthly'));
+    var baseYearly = parseFloat(card.getAttribute('data-base-yearly'));
+
+    if (isNaN(unit) || isNaN(baseMonthly)) return;
+    if (isNaN(parallel) || parallel < 1) parallel = 1;
+
+    var base = yearly
+      ? (isNaN(baseYearly) ? Math.round(baseMonthly * 0.8) : baseYearly)
+      : baseMonthly;
+    var infra = parallel * unit;
+    var total = base + infra;
+
+    animateCostText(qs('[data-base-cost]', card), formatUsdMonth(base));
+    animateCostText(qs('[data-infra-cost]', card), formatUsdMonth(infra));
+    animateCostText(qs('[data-total-cost]', card), formatUsdMonth(total));
+  }
+
+  function syncAllPricingCosts(root, yearly) {
+    qsa('[data-infra-unit]', root).forEach(function (card) {
+      updatePricingCardCosts(card, yearly);
+    });
+  }
+
+  function initPricingToggle() {
+    var root = qs('.testro-pricing') || qs('#pricing');
+    if (!root) return;
+
+    var monthlyBtn = qs('[data-billing="monthly"]', root);
+    var yearlyBtn = qs('[data-billing="yearly"]', root);
+    if (!monthlyBtn || !yearlyBtn) return;
+
+    function setMode(yearly) {
+      root.classList.toggle('is-yearly', yearly);
+      monthlyBtn.classList.toggle('is-active', !yearly);
+      yearlyBtn.classList.toggle('is-active', yearly);
+      monthlyBtn.classList.toggle('active-tab', !yearly);
+      yearlyBtn.classList.toggle('active-tab', yearly);
+      monthlyBtn.classList.toggle('default-tab', yearly);
+      yearlyBtn.classList.toggle('default-tab', !yearly);
+      monthlyBtn.setAttribute('aria-pressed', (!yearly).toString());
+      yearlyBtn.setAttribute('aria-pressed', yearly.toString());
+
+      // Header base subscription amounts only — never include infrastructure cost.
+      qsa('[data-price-monthly]', root).forEach(function (el) {
+        if (el.hasAttribute('data-price-custom')) return;
+        var monthly = parseFloat(el.getAttribute('data-price-monthly'));
+        var yearlyVal = el.getAttribute('data-price-yearly');
+        if (isNaN(monthly)) return;
+        // Keep the monthly display amount in sync; yearly block is static markup.
+        if (el.closest('.testro-pricing__price--yearly')) return;
+        var value = yearly
+          ? (yearlyVal !== null && yearlyVal !== ''
+            ? Math.round(parseFloat(yearlyVal))
+            : Math.round(monthly * 0.8))
+          : monthly;
+        el.textContent = '$' + value;
+      });
+
+      qsa('[data-billing-note]', root).forEach(function (el) {
+        var monthlyNote = el.getAttribute('data-note-monthly') || '(billed month-to-month)';
+        var yearlyNote = el.getAttribute('data-note-yearly') || '(billed annually)';
+        el.textContent = yearly ? yearlyNote : monthlyNote;
+      });
+
+      syncAllPricingCosts(root, yearly);
+    }
+
+    on(monthlyBtn, 'click', function () { setMode(false); });
+    on(yearlyBtn, 'click', function () { setMode(true); });
+    setMode(false);
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 4a. Pricing parallel execution + infrastructure cost                     */
+  /* ------------------------------------------------------------------------ */
+  function initPricingInfra() {
+    var root = qs('.testro-pricing') || qs('#pricing');
+    if (!root) return;
+
+    function isYearly() {
+      return root.classList.contains('is-yearly');
+    }
+
+    function setParallel(card, qtyRoot, next) {
+      var min = parseInt(qtyRoot.getAttribute('data-min'), 10);
+      if (isNaN(min) || min < 1) min = 1;
+      var value = parseInt(next, 10);
+      if (isNaN(value) || value < min) value = min;
+
+      qtyRoot.setAttribute('data-value', String(value));
+      card.setAttribute('data-parallel', String(value));
+
+      var valueEl = qs('[data-qty-value]', qtyRoot);
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (valueEl) {
+        if (!reduce && valueEl.textContent !== String(value)) {
+          valueEl.classList.add('is-updating');
+          window.setTimeout(function () {
+            valueEl.textContent = String(value);
+            valueEl.classList.remove('is-updating');
+          }, 90);
+        } else {
+          valueEl.textContent = String(value);
+        }
+      }
+
+      var decBtn = qs('[data-qty-action="dec"]', qtyRoot);
+      if (decBtn) decBtn.disabled = value <= min;
+
+      updatePricingCardCosts(card, isYearly());
+    }
+
+    qsa('[data-parallel-qty]', root).forEach(function (qtyRoot) {
+      var card = qtyRoot.closest('.testro-pricing__card');
+      if (!card) return;
+
+      var initial = parseInt(qtyRoot.getAttribute('data-value'), 10);
+      setParallel(card, qtyRoot, isNaN(initial) ? 1 : initial);
+
+      qsa('[data-qty-action]', qtyRoot).forEach(function (btn) {
+        on(btn, 'click', function () {
+          var current = parseInt(card.getAttribute('data-parallel'), 10);
+          if (isNaN(current)) current = 1;
+          var action = btn.getAttribute('data-qty-action');
+          var next = action === 'dec' ? current - 1 : current + 1;
+          setParallel(card, qtyRoot, next);
+        });
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 4b. Pricing scroll reveal                                                */
+  /* ------------------------------------------------------------------------ */
+  function initPricingReveal() {
+    var section = qs('[data-pricing-section]');
+    if (!section) return;
+
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      section.classList.add('is-revealed');
+      return;
+    }
+
+    /*
+     * Observe the header (not the whole section). On mobile the cards stack and
+     * the section is often taller than the viewport, so threshold: 0.18 on the
+     * section can never be reached — cards stay at opacity: 0 forever.
+     */
+    var target = qs('.testro-pricing__header', section) || qs('.testro-pricing__grid', section) || section;
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            section.classList.add('is-revealed');
+            io.unobserve(target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+    );
+
+    io.observe(target);
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 5. Features tabs                                                         */
+  /* ------------------------------------------------------------------------ */
+  function initFeatureTabs() {
+    var roots = qsa('[data-feature-tabs]');
+    if (!roots.length) {
+      var legacy = qs('.testro-features');
+      if (legacy) roots = [legacy];
+    }
+    if (!roots.length) return;
+
+    roots.forEach(function (root) {
+      bindFeatureTabs(root);
+    });
+  }
+
+  function bindFeatureTabs(root) {
+    var tabs = qsa('[data-feature-tab]', root);
+    var panels = qsa('[data-feature-panel]', root);
+    if (!tabs.length || !panels.length) return;
+
+    var animating = false;
+    var TRANSITION_MS = 420;
+
+    function setPanelVideos(panel, play) {
+      var video = qs('video', panel);
+      if (!video) return;
+      if (play) {
+        video.currentTime = 0;
+        video.play().catch(function () {});
+      } else {
+        video.pause();
+      }
+    }
+
+    function activate(key, opts) {
+      opts = opts || {};
+      if (animating) return;
+
+      var current = panels.find(function (panel) {
+        return panel.classList.contains('is-active');
+      });
+      var next = panels.find(function (panel) {
+        return panel.getAttribute('data-feature-panel') === key;
+      });
+      if (!next) return;
+      if (current === next && !opts.force) return;
+
+      tabs.forEach(function (tab) {
+        var match = tab.getAttribute('data-feature-tab') === key;
+        tab.classList.toggle('is-active', match);
+        tab.setAttribute('aria-selected', match ? 'true' : 'false');
+        tab.tabIndex = match ? 0 : -1;
+        if (match && typeof tab.scrollIntoView === 'function' && tab.closest('[data-usecase-tablist]')) {
+          tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      });
+
+      function showNext() {
+        panels.forEach(function (panel) {
+          var match = panel === next;
+          panel.classList.toggle('is-active', match);
+          if (match) {
+            panel.removeAttribute('hidden');
+            setPanelVideos(panel, true);
+            // Retrigger enter transition.
+            var parts = qsa('[data-feature-animate]', panel);
+            parts.forEach(function (el) {
+              el.style.opacity = '0';
+              el.style.transform = 'translateY(12px)';
+            });
+            // Force reflow then animate in.
+            void panel.offsetWidth;
+            requestAnimationFrame(function () {
+              parts.forEach(function (el) {
+                el.style.opacity = '';
+                el.style.transform = '';
+              });
+            });
+          } else {
+            panel.setAttribute('hidden', '');
+            setPanelVideos(panel, false);
+          }
+        });
+        animating = false;
+      }
+
+      if (!current || opts.force) {
+        showNext();
+        return;
+      }
+
+      animating = true;
+      var leaving = qsa('[data-feature-animate]', current);
+      leaving.forEach(function (el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(12px)';
+      });
+
+      window.setTimeout(function () {
+        showNext();
+      }, TRANSITION_MS * 0.45);
+    }
+
+    tabs.forEach(function (tab) {
+      on(tab, 'click', function () {
+        activate(tab.getAttribute('data-feature-tab'));
+      });
+      on(tab, 'keydown', function (e) {
+        var keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
+        if (keys.indexOf(e.key) === -1) return;
+        e.preventDefault();
+        var i = tabs.indexOf(tab);
+        var next = i;
+        if (e.key === 'ArrowRight') next = (i + 1) % tabs.length;
+        if (e.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+        if (e.key === 'Home') next = 0;
+        if (e.key === 'End') next = tabs.length - 1;
+        tabs[next].focus();
+        activate(tabs[next].getAttribute('data-feature-tab'));
+      });
+    });
+
+    activate(tabs[0].getAttribute('data-feature-tab'), { force: true });
+    initUsecaseRail(root);
+  }
+
+  function initUsecaseRail(root) {
+    var rail = qs('[data-usecase-rail]', root);
+    var tablist = qs('[data-usecase-tablist]', root) || (rail ? qs('.testro-prod-usecases__tablist', rail) : null);
+    var cue = qs('[data-usecase-cue]', root);
+    if (!rail || !tablist) return;
+
+    function updateOverflow() {
+      var maxScroll = Math.max(0, tablist.scrollWidth - tablist.clientWidth);
+      var overflowing = maxScroll > 8;
+      var atEnd = !overflowing || tablist.scrollLeft >= maxScroll - 8;
+      rail.classList.toggle('is-overflowing', overflowing);
+      rail.classList.toggle('is-at-end', atEnd);
+      if (cue) {
+        cue.setAttribute('aria-hidden', overflowing && !atEnd ? 'false' : 'true');
+        cue.tabIndex = overflowing && !atEnd ? 0 : -1;
+      }
+    }
+
+    function scrollActiveIntoView() {
+      var active = qs('.is-active[data-feature-tab]', tablist) || qs('[aria-selected="true"]', tablist);
+      if (!active || typeof active.scrollIntoView !== 'function') return;
+      active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    on(tablist, 'scroll', updateOverflow, { passive: true });
+    if (cue) {
+      on(cue, 'click', function () {
+        tablist.scrollBy({ left: Math.max(120, tablist.clientWidth * 0.55), behavior: 'smooth' });
+      });
+    }
+
+    tablist.addEventListener('click', function (e) {
+      var tab = e.target.closest('[data-feature-tab]');
+      if (!tab || !tablist.contains(tab)) return;
+      window.setTimeout(scrollActiveIntoView, 30);
+      window.setTimeout(updateOverflow, 280);
+    });
+
+    window.addEventListener('resize', updateOverflow);
+    window.addEventListener('load', updateOverflow);
+    if (typeof ResizeObserver !== 'undefined') {
+      var observer = new ResizeObserver(function () {
+        updateOverflow();
+      });
+      observer.observe(tablist);
+      observer.observe(rail);
+    }
+    if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === 'function') {
+      document.fonts.ready.then(updateOverflow).catch(function () {});
+    }
+    updateOverflow();
+    window.requestAnimationFrame(function () {
+      updateOverflow();
+      window.setTimeout(updateOverflow, 250);
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 6. FAQ accordion                                                         */
+  /* ------------------------------------------------------------------------ */
+  function initFaq() {
+    var root = qs('[data-faq-accordion]') || qs('.testro-faq__list');
+    if (!root) return;
+
+    var items = qsa('.testro-faq__item', root);
+    if (!items.length) return;
+
+    items.forEach(function (item) {
+      var btn = qs('[data-faq-trigger]', item);
+      var panel = qs('[data-faq-panel]', item);
+      if (!btn || !panel) return;
+
+      on(btn, 'click', function () {
+        var wasOpen = item.classList.contains('is-open');
+
+        items.forEach(function (other) {
+          other.classList.remove('is-open');
+          var ob = qs('[data-faq-trigger]', other);
+          var op = qs('[data-faq-panel]', other);
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+          if (op) op.setAttribute('hidden', '');
+        });
+
+        if (!wasOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+          panel.removeAttribute('hidden');
+        }
+      });
+    });
+
+    // Open first
+    var first = items[0];
+    first.classList.add('is-open');
+    var firstBtn = qs('[data-faq-trigger]', first);
+    var firstPanel = qs('[data-faq-panel]', first);
+    if (firstBtn) firstBtn.setAttribute('aria-expanded', 'true');
+    if (firstPanel) firstPanel.removeAttribute('hidden');
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 7. Testimonials 3D coverflow carousel                                    */
+  /* ------------------------------------------------------------------------ */
+  function initTestimonials() {
+    var root = qs('[data-testimonials]') || qs('.testro-testimonials');
+    if (!root) return;
+
+    var stage = qs('[data-testimonials-stage]', root) || qs('.testro-testimonials__stage', root);
+    var track = qs('[data-testimonials-track]', root) || qs('.testro-testimonials__track', root);
+    var slides = track ? qsa('[data-testimonial-index]', track) : [];
+    var dots = qsa('[data-testimonials-dot]', root);
+    if (!stage || !track || slides.length < 2) return;
+
+    var index = 0;
+    var timer = null;
+    var resumeTimer = null;
+    var autoplay = true;
+    var INTERVAL = 4000;
+    var CLICK_PAUSE_MS = 10000;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var mobileMq = window.matchMedia('(max-width: 767px)');
+
+    function isMobile() {
+      return mobileMq.matches;
+    }
+
+    function shortestOffset(i, active, total) {
+      var offset = i - active;
+      if (offset > total / 2) offset -= total;
+      if (offset < -total / 2) offset += total;
+      return offset;
+    }
+
+    // Coverflow step — sized so cards sit with a clear white gutter (no overlap).
+    // ~2× prior gutter (~29px → ~58px): step +30 from previous 285/320/350.
+    function coverflowStep() {
+      var vw = window.innerWidth;
+      if (vw < 1024) return 315;
+      if (vw < 1200) return 350;
+      return 380;
+    }
+
+    function styleForOffset(offset, step) {
+      var abs = Math.abs(offset);
+      var isCenter = offset === 0;
+      var isAdjacent = abs === 1;
+      var isNext = abs === 2;
+      // Outer (±2 / 3rd card) farther out — larger gap from adjacent (2nd).
+      var x = offset * step;
+      if (isNext) {
+        x = (offset > 0 ? 1 : -1) * Math.round(step * 1.72);
+      } else if (abs > 2) {
+        x = (offset > 0 ? 1 : -1) * Math.round(step * 1.9);
+      }
+      var scale = 1;
+      var opacity = 1;
+      var z = 10;
+      var blur = 0;
+      var rotateY = 0;
+
+      if (isCenter) {
+        scale = 1;
+        z = 30;
+        opacity = 1;
+        rotateY = 0;
+      } else if (isAdjacent) {
+        scale = 0.85;
+        z = 20;
+        opacity = 0.6;
+        blur = 2;
+        rotateY = offset > 0 ? 12 : -12;
+      } else if (isNext) {
+        scale = 0.7;
+        z = 10;
+        opacity = 0.4;
+        blur = 4;
+        rotateY = offset > 0 ? 20 : -20;
+      } else {
+        scale = 0.6;
+        z = 5;
+        opacity = 0;
+        rotateY = offset > 0 ? 45 : -45;
+      }
+
+      return {
+        transform:
+          'translate(-50%, -50%) perspective(1000px) translateX(' +
+          x +
+          'px) rotateY(' +
+          rotateY +
+          'deg) scale(' +
+          scale +
+          ')',
+        opacity: String(opacity),
+        zIndex: String(z),
+        filter: blur > 0 ? 'blur(' + blur + 'px)' : 'none'
+      };
+    }
+
+    function updateDots() {
+      dots.forEach(function (dot, di) {
+        var active = di === index;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+    }
+
+    function clearSlideInlineStyles() {
+      slides.forEach(function (slide) {
+        slide.style.transform = '';
+        slide.style.opacity = '';
+        slide.style.zIndex = '';
+        slide.style.filter = '';
+        slide.style.pointerEvents = '';
+        slide.style.width = '';
+        slide.style.minWidth = '';
+        slide.style.maxWidth = '';
+        slide.style.flex = '';
+        slide.style.display = '';
+      });
+    }
+
+    function clearTrackTransform() {
+      track.style.transform = '';
+      track.style.transition = '';
+    }
+
+    // Size every card to the tallest so width/height stay uniform.
+    function syncCardHeights() {
+      slides.forEach(function (slide) {
+        var card = slide.querySelector('.testro-testimonials__card');
+        if (!card) return;
+        card.style.height = 'auto';
+        card.style.minHeight = '';
+      });
+      root.style.removeProperty('--testimonial-card-h');
+
+      // Force layout so natural heights are measurable.
+      void root.offsetHeight;
+
+      var maxH = 0;
+      slides.forEach(function (slide) {
+        var card = slide.querySelector('.testro-testimonials__card');
+        if (!card) return;
+        // Temporarily unhide for accurate measure on mobile (display:none slides).
+        var wasHidden = getComputedStyle(slide).display === 'none';
+        var prevDisplay = slide.style.display;
+        var prevVisibility = slide.style.visibility;
+        var prevPosition = slide.style.position;
+        var prevTransform = slide.style.transform;
+        if (wasHidden) {
+          slide.style.display = 'flex';
+          slide.style.visibility = 'hidden';
+          slide.style.position = 'absolute';
+        }
+        // Clear transform so scale/rotate don't shrink measured height.
+        slide.style.transform = 'none';
+        var h = card.offsetHeight;
+        if (h > maxH) maxH = h;
+        slide.style.transform = prevTransform;
+        if (wasHidden) {
+          slide.style.display = prevDisplay;
+          slide.style.visibility = prevVisibility;
+          slide.style.position = prevPosition;
+        }
+      });
+
+      maxH = Math.ceil(maxH);
+      if (maxH < 1) return;
+
+      slides.forEach(function (slide) {
+        var card = slide.querySelector('.testro-testimonials__card');
+        if (!card) return;
+        card.style.height = maxH + 'px';
+        card.style.minHeight = maxH + 'px';
+      });
+      root.style.setProperty('--testimonial-card-h', maxH + 'px');
+
+      if (!isMobile()) {
+        root.style.setProperty('--testimonial-stage-h', maxH + 48 + 'px');
+      } else {
+        root.style.removeProperty('--testimonial-stage-h');
+      }
+    }
+
+    // Mobile: one visible card at a time (show/hide) + auto-scroll; dots/swipe for control.
+    function layoutMobile() {
+      clearSlideInlineStyles();
+      clearTrackTransform();
+      root.style.removeProperty('--testimonial-stage-h');
+
+      if (!stage.getAttribute('aria-roledescription')) {
+        stage.setAttribute('aria-roledescription', 'carousel');
+      }
+
+      slides.forEach(function (slide, i) {
+        var isActive = i === index;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        slide.tabIndex = isActive ? 0 : -1;
+      });
+      updateDots();
+      syncCardHeights();
+    }
+
+    function layoutDesktop() {
+      clearSlideInlineStyles();
+      clearTrackTransform();
+
+      if (!stage.getAttribute('aria-roledescription')) {
+        stage.setAttribute('aria-roledescription', 'carousel');
+      }
+
+      var total = slides.length;
+      var step = coverflowStep();
+      slides.forEach(function (slide, i) {
+        var offset = shortestOffset(i, index, total);
+        var style = styleForOffset(offset, step);
+        var isActive = offset === 0;
+
+        slide.style.transform = style.transform;
+        slide.style.opacity = style.opacity;
+        slide.style.zIndex = style.zIndex;
+        slide.style.filter = style.filter;
+        slide.style.pointerEvents = Math.abs(offset) <= 2 && style.opacity !== '0' ? 'auto' : 'none';
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        slide.tabIndex = isActive ? 0 : -1;
+      });
+
+      syncCardHeights();
+    }
+
+    function layout(instant) {
+      if (isMobile()) {
+        layoutMobile();
+        return;
+      }
+      layoutDesktop();
+    }
+
+    function select(i, instant) {
+      index = ((i % slides.length) + slides.length) % slides.length;
+      layout(!!instant);
+    }
+
+    function clearResume() {
+      if (resumeTimer) {
+        clearTimeout(resumeTimer);
+        resumeTimer = null;
+      }
+    }
+
+    function stopAutoplay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+      clearResume();
+    }
+
+    function restart() {
+      if (timer) clearInterval(timer);
+      if (reduceMotion) return;
+      // Mobile quotes are longer (no image) — give a bit more reading time.
+      var interval = isMobile() ? 6000 : INTERVAL;
+      timer = setInterval(function () {
+        if (autoplay) select(index + 1);
+      }, interval);
+    }
+
+    function pauseAutoplay(temporaryMs) {
+      autoplay = false;
+      clearResume();
+      if (temporaryMs) {
+        resumeTimer = setTimeout(function () {
+          autoplay = true;
+        }, temporaryMs);
+      }
+    }
+
+    dots.forEach(function (dot) {
+      on(dot, 'click', function () {
+        if (!isMobile()) return;
+        var target = parseInt(dot.getAttribute('data-testimonial-index'), 10);
+        if (isNaN(target)) return;
+        select(target);
+        // Manual pick pauses briefly, then auto-scroll resumes (YouTube-like).
+        pauseAutoplay(CLICK_PAUSE_MS);
+        restart();
+      });
+    });
+
+    slides.forEach(function (slide, i) {
+      on(slide, 'click', function () {
+        if (isMobile()) return;
+        select(i);
+        // Reference: click pauses autoplay for 10s, then resumes.
+        pauseAutoplay(CLICK_PAUSE_MS);
+        restart();
+      });
+
+      on(slide, 'keydown', function (e) {
+        if (isMobile()) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          select(i);
+          pauseAutoplay(CLICK_PAUSE_MS);
+          restart();
+        }
+      });
+    });
+
+    on(stage, 'mouseenter', function () {
+      if (isMobile()) return;
+      autoplay = false;
+      clearResume();
+    });
+
+    on(stage, 'mouseleave', function () {
+      if (isMobile()) return;
+      autoplay = true;
+    });
+
+    // Touch swipe: coverflow on desktop/tablet; one-at-a-time on mobile.
+    var touchStartX = null;
+    on(stage, 'touchstart', function (e) {
+      if (!e.changedTouches || !e.changedTouches.length) return;
+      touchStartX = e.changedTouches[0].clientX;
+      autoplay = false;
+      clearResume();
+    }, { passive: true });
+
+    on(stage, 'touchend', function (e) {
+      if (touchStartX === null || !e.changedTouches || !e.changedTouches.length) return;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(dx) <= 40) {
+        autoplay = true;
+        return;
+      }
+      select(index + (dx < 0 ? 1 : -1));
+      pauseAutoplay(CLICK_PAUSE_MS);
+      restart();
+    }, { passive: true });
+
+    layout(true);
+    restart();
+    window.addEventListener('resize', function () {
+      layout(true);
+      restart();
+    });
+
+    // Remeasure after fonts/layout settle so every card matches tallest height.
+    function remeasureEqualSize() {
+      syncCardHeights();
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        layout(true);
+      });
+    }
+    window.addEventListener('load', remeasureEqualSize);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(remeasureEqualSize);
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 8. Videos carousel + dots + scroll reveal                                */
+  /* ------------------------------------------------------------------------ */
+  function initVideosCarousel() {
+    var section = qs('[data-videos-section]') || qs('.testro-videos');
+    if (!section) return;
+
+    var track = qs('[data-videos-track]', section);
+    var viewport = qs('[data-videos-viewport]', section);
+    var slides = qsa('[data-videos-slide]', section);
+    var cards = qsa('.testro-videos__card', section);
+    var dots = qsa('[data-videos-dot]', section);
+    if (!track || !slides.length) return;
+
+    var index = 0;
+    var dragging = false;
+    var startX = 0;
+    var startTranslate = 0;
+    var currentTranslate = 0;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function slidesPerView() {
+      var w = window.innerWidth;
+      if (w >= 1024) return 3;
+      if (w >= 640) return 2;
+      return 1;
+    }
+
+    function maxIndex() {
+      return Math.max(0, slides.length - slidesPerView());
+    }
+
+    function slideStride() {
+      if (!slides[0] || !viewport) return 0;
+      return slides[0].getBoundingClientRect().width;
+    }
+
+    function clampIndex(i) {
+      var max = maxIndex();
+      if (i < 0) return 0;
+      if (i > max) return max;
+      return i;
+    }
+
+    function setActive(i, instant) {
+      index = clampIndex(i);
+      currentTranslate = -(index * slideStride());
+
+      if (instant || reduceMotion) {
+        track.style.transition = 'none';
+      } else {
+        track.style.transition = '';
+      }
+      track.style.transform = 'translate3d(' + currentTranslate + 'px, 0, 0)';
+      if (instant) {
+        void track.offsetWidth;
+        track.style.transition = '';
+      }
+
+      slides.forEach(function (slide, si) {
+        var active = si === index;
+        slide.classList.toggle('is-active', active);
+      });
+      cards.forEach(function (card, ci) {
+        card.classList.toggle('is-active', ci === index);
+      });
+      dots.forEach(function (dot, di) {
+        var active = di === index;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+    }
+
+    dots.forEach(function (dot) {
+      on(dot, 'click', function () {
+        var target = parseInt(dot.getAttribute('data-video-index'), 10);
+        if (isNaN(target)) return;
+        /* On desktop all slides fit — still highlight the chosen card. */
+        if (slidesPerView() >= slides.length) {
+          index = Math.max(0, Math.min(target, slides.length - 1));
+          currentTranslate = 0;
+          track.style.transform = 'translate3d(0, 0, 0)';
+          slides.forEach(function (slide, si) {
+            slide.classList.toggle('is-active', si === index);
+          });
+          cards.forEach(function (card, ci) {
+            card.classList.toggle('is-active', ci === index);
+          });
+          dots.forEach(function (d, di) {
+            var active = di === index;
+            d.classList.toggle('is-active', active);
+            d.setAttribute('aria-current', active ? 'true' : 'false');
+          });
+          return;
+        }
+        setActive(target);
+      });
+    });
+
+    /* Hover lift works even when the pointer is over the cross-origin iframe. */
+    slides.forEach(function (slide, si) {
+      on(slide, 'pointerenter', function () {
+        if (cards[si]) cards[si].classList.add('is-hover');
+      });
+      on(slide, 'pointerleave', function () {
+        if (cards[si]) cards[si].classList.remove('is-hover');
+      });
+    });
+
+    /* Pointer / touch drag (Embla-style). */
+    function onPointerDown(e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true;
+      startX = e.clientX;
+      startTranslate = currentTranslate;
+      track.style.transition = 'none';
+      if (viewport.setPointerCapture) {
+        try {
+          viewport.setPointerCapture(e.pointerId);
+        } catch (err) {}
+      }
+    }
+
+    function onPointerMove(e) {
+      if (!dragging) return;
+      var dx = e.clientX - startX;
+      var next = startTranslate + dx;
+      var min = -(maxIndex() * slideStride());
+      if (next > 0) next = next * 0.35;
+      if (next < min) next = min + (next - min) * 0.35;
+      track.style.transform = 'translate3d(' + next + 'px, 0, 0)';
+    }
+
+    function onPointerUp(e) {
+      if (!dragging) return;
+      dragging = false;
+      track.style.transition = '';
+      var dx = e.clientX - startX;
+      var stride = slideStride();
+      var threshold = Math.min(80, stride * 0.2);
+      var nextIndex = index;
+      if (dx < -threshold) nextIndex = index + 1;
+      else if (dx > threshold) nextIndex = index - 1;
+      setActive(nextIndex);
+    }
+
+    if (viewport && window.PointerEvent) {
+      on(viewport, 'pointerdown', onPointerDown);
+      on(viewport, 'pointermove', onPointerMove);
+      on(viewport, 'pointerup', onPointerUp);
+      on(viewport, 'pointercancel', onPointerUp);
+    }
+
+    on(window, 'resize', function () {
+      setActive(index, true);
+    });
+
+    setActive(0, true);
+
+    /* Scroll reveal */
+    if (!('IntersectionObserver' in window) || reduceMotion) {
+      section.classList.add('is-revealed');
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            section.classList.add('is-revealed');
+            io.unobserve(section);
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
+    );
+    io.observe(section);
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 9 + 10 + 11. AJAX forms                                                  */
+  /* ------------------------------------------------------------------------ */
+  function setStatus(form, type, text) {
+    var status = qs('.testro-form__status', form);
+    if (!status) return;
+    status.hidden = false;
+    status.textContent = text;
+    status.classList.toggle('is-success', type === 'success');
+    status.classList.toggle('is-error', type === 'error');
+  }
+
+  function postAjax(action, payload) {
+    var body = new FormData();
+    body.append('action', action);
+    body.append('nonce', NONCE);
+    Object.keys(payload).forEach(function (key) {
+      if (payload[key] !== undefined && payload[key] !== null) {
+        body.append(key, payload[key]);
+      }
+    });
+    return fetch(AJAX_URL, {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: body
+    }).then(function (res) {
+      return res.json().catch(function () {
+        return { success: false, data: { message: 'Unexpected response' } };
+      });
+    });
+  }
+
+  function postServiceRequest(payload) {
+    return fetch(BASE_URL + '/v1/service_request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      return res
+        .json()
+        .then(function (data) {
+          return { ok: res.ok, status: res.status, data: data };
+        })
+        .catch(function () {
+          return {
+            ok: false,
+            status: res.status,
+            data: { message: 'Unexpected response from server.' }
+          };
+        });
+    });
+  }
+
+  function formToObject(form) {
+    var fd = new FormData(form);
+    var obj = {};
+    fd.forEach(function (value, key) {
+      obj[key] = value;
+    });
+    return obj;
+  }
+
+  function bindForm(form, options) {
+    if (!form || form.getAttribute('data-bound')) return;
+    form.setAttribute('data-bound', '1');
+
+    on(form, 'submit', function (e) {
+      e.preventDefault();
+      var btn = qs('[type="submit"]', form);
+      if (btn) btn.disabled = true;
+
+      var payload = formToObject(form);
+      if (options.type) payload.type = options.type;
+
+      postAjax(options.action, payload)
+        .then(function (json) {
+          var ok = !!(json && json.success);
+          var message =
+            (json && json.data && json.data.message) ||
+            (ok ? options.success : options.error);
+          setStatus(form, ok ? 'success' : 'error', message);
+          if (ok) {
+            form.reset();
+            var redirect =
+              (json && json.data && json.data.redirect) ||
+              options.redirect ||
+              '';
+            if (redirect) {
+              window.location.href = redirect;
+              return;
+            }
+            if (typeof options.onSuccess === 'function') options.onSuccess();
+          }
+        })
+        .catch(function () {
+          setStatus(form, 'error', options.error);
+        })
+        .finally(function () {
+          if (btn) btn.disabled = false;
+        });
+    });
+  }
+
+  function showContactThanks(form) {
+    var card = form.closest('.testro-contact__card');
+    var thanks = card ? qs('#testro-contact-thanks', card) : null;
+    if (!card || !thanks) return;
+    form.hidden = true;
+    thanks.hidden = false;
+    card.classList.add('is-submitted');
+    thanks.setAttribute('tabindex', '-1');
+    if (typeof thanks.focus === 'function') {
+      try {
+        thanks.focus({ preventScroll: true });
+      } catch (err) {
+        thanks.focus();
+      }
+    }
+  }
+
+  function clearContactFieldErrors(form) {
+    qsa('.testro-form__field.is-invalid', form).forEach(function (field) {
+      field.classList.remove('is-invalid');
+    });
+    qsa('.testro-form__error', form).forEach(function (error) {
+      error.hidden = true;
+      error.textContent = '';
+    });
+  }
+
+  function setContactFieldError(form, name, message) {
+    var input = qs('[name="' + name + '"]', form);
+    var field = input ? input.closest('.testro-form__field') : null;
+    var error = qs('[data-error-for="' + name + '"]', form);
+    if (field) field.classList.add('is-invalid');
+    if (error) {
+      error.hidden = false;
+      error.textContent = message;
+    }
+  }
+
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
+  }
+
+  function splitFullName(fullName) {
+    var parts = String(fullName || '')
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean);
+    if (!parts.length) {
+      return { first_name: '', last_name: '' };
+    }
+    if (parts.length === 1) {
+      return { first_name: parts[0], last_name: parts[0] };
+    }
+    return {
+      first_name: parts[0],
+      last_name: parts.slice(1).join(' ')
+    };
+  }
+
+  function validateContactForm(form) {
+    clearContactFieldErrors(form);
+    var data = formToObject(form);
+    var valid = true;
+    var firstInvalid = null;
+
+    function fail(name, message) {
+      valid = false;
+      setContactFieldError(form, name, message);
+      if (!firstInvalid) {
+        firstInvalid = qs('[name="' + name + '"]', form);
+      }
+    }
+
+    if (qs('[name="full_name"]', form)) {
+      if (!String(data.full_name || '').trim()) {
+        fail('full_name', 'Please enter your full name.');
+      }
+    } else {
+      if (!String(data.first_name || '').trim()) {
+        fail('first_name', 'Please enter your first name.');
+      }
+      if (!String(data.last_name || '').trim()) {
+        fail('last_name', 'Please enter your last name.');
+      }
+    }
+
+    if (!String(data.work_email || '').trim()) {
+      fail('work_email', 'Please enter your work email.');
+    } else if (!isValidEmail(data.work_email)) {
+      fail('work_email', 'Please enter a valid work email.');
+    }
+
+    if (!String(data.company || '').trim()) {
+      fail('company', 'Please enter your company name.');
+    }
+
+    if (qs('[name="subject"]', form) && !String(data.subject || '').trim()) {
+      fail('subject', 'Please select an inquiry type.');
+    }
+
+    if (!String(data.message || '').trim()) {
+      fail('message', 'Please enter a message.');
+    }
+
+    if (firstInvalid && typeof firstInvalid.focus === 'function') {
+      firstInvalid.focus();
+    }
+
+    return valid;
+  }
+
+  function buildContactPayload(form) {
+    var formData = formToObject(form);
+    var names;
+
+    if (formData.full_name) {
+      names = splitFullName(formData.full_name);
+    } else {
+      names = {
+        first_name: formData.first_name || '',
+        last_name: formData.last_name || ''
+      };
+    }
+
+    var requirements = String(formData.message || '').trim();
+    var subject = String(formData.subject || '').trim();
+    var phone = String(formData.phone || '').trim();
+    var extras = [];
+
+    if (subject) extras.push('Inquiry type: ' + subject);
+    if (phone) extras.push('Phone: ' + phone);
+    if (extras.length) {
+      requirements = extras.join('\n') + '\n\n' + requirements;
+    }
+
+    return {
+      first_name: names.first_name,
+      last_name: names.last_name,
+      work_email: formData.work_email || '',
+      organization_name: formData.company || '',
+      primary_requirements: requirements,
+      type: 'book_demo'
+    };
+  }
+
+  function bindContactForm(form, options) {
+    if (!form || form.getAttribute('data-bound')) return;
+    form.setAttribute('data-bound', '1');
+
+    on(form, 'input', function (e) {
+      var target = e.target;
+      if (!target || !target.name) return;
+      var field = target.closest('.testro-form__field');
+      var error = qs('[data-error-for="' + target.name + '"]', form);
+      if (field) field.classList.remove('is-invalid');
+      if (error) {
+        error.hidden = true;
+        error.textContent = '';
+      }
+    });
+
+    on(form, 'change', function (e) {
+      var target = e.target;
+      if (!target || !target.name) return;
+      var field = target.closest('.testro-form__field');
+      var error = qs('[data-error-for="' + target.name + '"]', form);
+      if (field) field.classList.remove('is-invalid');
+      if (error) {
+        error.hidden = true;
+        error.textContent = '';
+      }
+    });
+
+    on(form, 'submit', function (e) {
+      e.preventDefault();
+      var btn = qs('[type="submit"]', form);
+      if (!validateContactForm(form)) {
+        setStatus(form, 'error', 'Please fix the highlighted fields and try again.');
+        return;
+      }
+
+      if (btn) btn.disabled = true;
+      var statusEl = qs('.testro-form__status', form);
+      if (statusEl) {
+        statusEl.hidden = true;
+        statusEl.textContent = '';
+        statusEl.classList.remove('is-success', 'is-error');
+      }
+
+      postServiceRequest(buildContactPayload(form))
+        .then(function (result) {
+          var data = result.data || {};
+          if (result.ok) {
+            form.reset();
+            clearContactFieldErrors(form);
+            showContactThanks(form);
+            return;
+          }
+
+          setStatus(
+            form,
+            'error',
+            data.message || data.error || options.error
+          );
+        })
+        .catch(function () {
+          setStatus(form, 'error', options.error);
+        })
+        .finally(function () {
+          if (btn) btn.disabled = false;
+        });
+    });
+  }
+
+  function initContactInquiryPrefill() {
+    var subject = qs('#contact-subject');
+    if (!subject) return;
+
+    function applyInquiry(value) {
+      if (!value) return;
+      var option = qs('option[value="' + value + '"]', subject);
+      if (!option) return;
+      subject.value = value;
+      subject.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    qsa('[data-inquiry]').forEach(function (link) {
+      on(link, 'click', function () {
+        applyInquiry(link.getAttribute('data-inquiry'));
+      });
+    });
+
+    // Prefill from ?inquiry= when arriving from Partners (or other) CTAs.
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      applyInquiry(params.get('inquiry'));
+    } catch (err) {
+      /* ignore */
+    }
+  }
+
+  function initForms() {
+    var thankYou = (window.testroData && testroData.thankYou) || {};
+
+    bindContactForm(qs('#testro-contact-form'), {
+      error: 'Something went wrong. Please try again.'
+    });
+    initContactInquiryPrefill();
+
+    bindForm(qs('#testro-demo-form'), {
+      action: 'testro_demo',
+      success: 'Demo request received! We will contact you shortly.',
+      error: 'Unable to submit demo request. Please try again.',
+      redirect: thankYou.demo || '',
+      onSuccess: function () {
+        setTimeout(function () {
+          if (window.testroCloseDemo) window.testroCloseDemo();
+        }, 1200);
+      }
+    });
+
+    bindForm(qs('#testro-newsletter-form'), {
+      action: 'testro_newsletter',
+      success: 'Thanks for subscribing!',
+      error: 'Subscription failed. Please try again.',
+      redirect: thankYou.newsletter || ''
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* Web Vitals → gtag / dataLayer (when analytics IDs are configured)         */
+  /* ------------------------------------------------------------------------ */
+  function initWebVitals() {
+    if (!window.testroData || !testroData.webVitals) return;
+
+    function send(metric) {
+      var value = Math.round(
+        metric.name === 'CLS' ? metric.value * 1000 : metric.value
+      );
+      var body = {
+        event: 'web_vitals',
+        event_category: 'Web Vitals',
+        event_label: metric.id,
+        value: value,
+        metric_id: metric.id,
+        metric_name: metric.name,
+        metric_value: metric.value,
+        metric_rating: metric.rating || ''
+      };
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(body);
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', metric.name, {
+          event_category: 'Web Vitals',
+          event_label: metric.id,
+          value: value,
+          non_interaction: true,
+          metric_id: metric.id,
+          metric_value: String(metric.value),
+          metric_rating: metric.rating || ''
+        });
+      }
+    }
+
+    // Lightweight observers (no external web-vitals package).
+    try {
+      if ('PerformanceObserver' in window) {
+        var poLcp = new PerformanceObserver(function (list) {
+          var entries = list.getEntries();
+          var last = entries[entries.length - 1];
+          if (last) {
+            send({
+              name: 'LCP',
+              value: last.startTime,
+              id: 'v1-' + Date.now(),
+              rating:
+                last.startTime <= 2500
+                  ? 'good'
+                  : last.startTime <= 4000
+                    ? 'needs-improvement'
+                    : 'poor'
+            });
+          }
+        });
+        poLcp.observe({ type: 'largest-contentful-paint', buffered: true });
+
+        var clsValue = 0;
+        var poCls = new PerformanceObserver(function (list) {
+          list.getEntries().forEach(function (entry) {
+            if (!entry.hadRecentInput) clsValue += entry.value;
+          });
+        });
+        poCls.observe({ type: 'layout-shift', buffered: true });
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'hidden') {
+            send({
+              name: 'CLS',
+              value: clsValue,
+              id: 'v1-' + Date.now(),
+              rating:
+                clsValue <= 0.1
+                  ? 'good'
+                  : clsValue <= 0.25
+                    ? 'needs-improvement'
+                    : 'poor'
+            });
+          }
+        });
+
+        var poInp = new PerformanceObserver(function (list) {
+          list.getEntries().forEach(function (entry) {
+            var dur =
+              entry.duration ||
+              (entry.processingStart
+                ? entry.processingStart - entry.startTime
+                : 0);
+            send({
+              name: 'INP',
+              value: dur,
+              id: 'v1-' + Date.now(),
+              rating:
+                dur <= 200 ? 'good' : dur <= 500 ? 'needs-improvement' : 'poor'
+            });
+          });
+        });
+        try {
+          poInp.observe({ type: 'event', buffered: true, durationThreshold: 16 });
+        } catch (e) {
+          /* older browsers */
+        }
+      }
+
+      if (window.performance && performance.timing) {
+        window.addEventListener('load', function () {
+          var t = performance.timing;
+          var ttfb = t.responseStart - t.requestStart;
+          var fcpEntries =
+            performance.getEntriesByName &&
+            performance.getEntriesByName('first-contentful-paint');
+          send({
+            name: 'TTFB',
+            value: ttfb,
+            id: 'v1-' + Date.now(),
+            rating:
+              ttfb <= 800 ? 'good' : ttfb <= 1800 ? 'needs-improvement' : 'poor'
+          });
+          if (fcpEntries && fcpEntries[0]) {
+            var fcp = fcpEntries[0].startTime;
+            send({
+              name: 'FCP',
+              value: fcp,
+              id: 'v1-' + Date.now(),
+              rating:
+                fcp <= 1800
+                  ? 'good'
+                  : fcp <= 3000
+                    ? 'needs-improvement'
+                    : 'poor'
+            });
+          }
+        });
+      }
+    } catch (err) {
+      /* ignore */
+    }
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 12. Scroll reveal — how-it-works fan cards                               */
+  /* ------------------------------------------------------------------------ */
+  function initScrollReveal() {
+    var section = qs('[data-how-section]');
+    if (!section) return;
+
+    if (!('IntersectionObserver' in window)) {
+      section.classList.add('is-revealed');
+      return;
+    }
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      section.classList.add('is-revealed');
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          // Match reference: fan out at ~60% visible; reset when fully out of view.
+          if (entry.intersectionRatio >= 0.6) {
+            section.classList.add('is-revealed');
+          } else if (entry.intersectionRatio === 0) {
+            section.classList.remove('is-revealed');
+          }
+        });
+      },
+      { threshold: [0, 0.6, 0.7] }
+    );
+
+    io.observe(section);
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 13. Clients interactive cards                                            */
+  /* ------------------------------------------------------------------------ */
+  /* ------------------------------------------------------------------------ */
+  /* Services — heading swap on card hover/focus                              */
+  /* ------------------------------------------------------------------------ */
+  function initServices() {
+    var root = qs('[data-services]');
+    if (!root) return;
+
+    var titleEl = qs('[data-services-title]', root);
+    var descEl = qs('[data-services-desc]', root);
+    var header = qs('.testro-services__header', root);
+    var cards = qsa('[data-services-card]', root);
+    if (!titleEl || !descEl || !cards.length) return;
+
+    var defaultTitle = titleEl.textContent.trim();
+    var defaultDesc = descEl.textContent.trim();
+    var activeCard = null;
+    var swapTimer = null;
+
+    function setCopy(title, desc) {
+      if (titleEl.textContent === title && descEl.textContent === desc) return;
+      if (header) header.classList.add('is-swapping');
+      if (swapTimer) window.clearTimeout(swapTimer);
+      swapTimer = window.setTimeout(function () {
+        titleEl.textContent = title;
+        descEl.textContent = desc;
+        if (header) header.classList.remove('is-swapping');
+        swapTimer = null;
+      }, 120);
+    }
+
+    function activate(card) {
+      if (activeCard === card) return;
+      cards.forEach(function (c) {
+        c.classList.toggle('is-active', c === card);
+      });
+      activeCard = card;
+      setCopy(
+        card.getAttribute('data-main-title') || defaultTitle,
+        card.getAttribute('data-main-description') || defaultDesc
+      );
+    }
+
+    function deactivate() {
+      if (!activeCard) return;
+      activeCard.classList.remove('is-active');
+      activeCard = null;
+      setCopy(defaultTitle, defaultDesc);
+    }
+
+    function isMovingToCard(related) {
+      return !!(related && related.closest && related.closest('[data-services-card]'));
+    }
+
+    cards.forEach(function (card) {
+      on(card, 'mouseenter', function () {
+        activate(card);
+      });
+      on(card, 'mouseleave', function (e) {
+        if (!isMovingToCard(e.relatedTarget)) {
+          deactivate();
+        }
+      });
+      on(card, 'focusin', function () {
+        activate(card);
+      });
+      on(card, 'focusout', function (e) {
+        if (!isMovingToCard(e.relatedTarget)) {
+          deactivate();
+        }
+      });
+    });
+  }
+
+  function initClientsCards() {
+    // Handled by initClients (autoplay + stack layout).
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 13b. Reset page scroll on every navigation                               */
+  /* ------------------------------------------------------------------------ */
+  function initPageScrollReset() {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    function hasMeaningfulHash() {
+      var hash = window.location.hash || '';
+      return hash !== '' && hash !== '#';
+    }
+
+    function resetToTop() {
+      if (hasMeaningfulHash()) return;
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+
+    resetToTop();
+
+    // Back/forward (incl. bfcache) can restore a mid-page position; force top
+    // unless the URL targets an in-page section.
+    on(window, 'pageshow', function () {
+      resetToTop();
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 14. Floating scroll-to-top button                                        */
+  /* ------------------------------------------------------------------------ */
+  function initScrollTopButton() {
+    var button = qs('[data-scroll-top]');
+    if (!button) return;
+
+    var SHOW_AFTER = 360;
+    var ticking = false;
+    var reduceMotion =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function syncVisibility() {
+      var visible = (window.scrollY || window.pageYOffset || 0) > SHOW_AFTER;
+      button.classList.toggle('is-visible', visible);
+      button.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      button.tabIndex = visible ? 0 : -1;
+      ticking = false;
+    }
+
+    function requestSync() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(syncVisibility);
+    }
+
+    on(window, 'scroll', requestSync, { passive: true });
+    on(window, 'resize', requestSync);
+    on(button, 'click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion ? 'auto' : 'smooth'
+      });
+    });
+
+    syncVisibility();
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* Boot                                                                     */
+  /* ------------------------------------------------------------------------ */
+
+  /* ------------------------------------------------------------------------ */
+  /* Clients stacked selector                                                 */
+  /* ------------------------------------------------------------------------ */
+  function initClients() {
+    var root = qs('[data-clients]');
+    if (!root) return;
+    var cards = qsa('[data-client-index]', root);
+    var featuresEl = qs('[data-client-features]', root);
+    if (!cards.length || !featuresEl) return;
+
+    var index = 0;
+    var timer = null;
+    var INTERVAL = 3000;
+    var paused = false;
+
+    // Match reference: start on second card (Graduway).
+    cards.forEach(function (c, i) {
+      if (c.classList.contains('is-active')) index = i;
+    });
+
+    function escapeRegExp(str) {
+      return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function renderFeatures(features) {
+      featuresEl.innerHTML = '';
+      (features || []).forEach(function (f, i) {
+        var wrap = document.createElement('div');
+        wrap.className = 'testro-clients__feature ' + (i % 2 === 0 ? 'industry-badge' : 'industry-badge-2');
+        wrap.style.marginLeft = (window.innerWidth < 768 ? 0 : i * 16) + 'px';
+        var p = document.createElement('p');
+        p.className = 'primary-color-text';
+        var text = f.text || '';
+        var hl = f.highlight || '';
+        var hlWord = f.highlight_word || f.highlightWord || '';
+        if (hl && text.toLowerCase().indexOf(String(hl).toLowerCase()) !== -1) {
+          var re = new RegExp(escapeRegExp(hl), 'i');
+          p.innerHTML = text.replace(re, '<strong>' + hl + '</strong>');
+        } else {
+          p.textContent = text;
+        }
+        if (hlWord) {
+          p.innerHTML += ' <strong>' + hlWord + '</strong>';
+        }
+        wrap.appendChild(p);
+        featuresEl.appendChild(wrap);
+      });
+    }
+
+    function layoutStack() {
+      if (window.innerWidth < 768) {
+        cards.forEach(function (c) {
+          c.style.transform = '';
+          c.style.opacity = '';
+          c.style.zIndex = '';
+          c.style.filter = '';
+        });
+        return;
+      }
+
+      var total = cards.length;
+      cards.forEach(function (card, i) {
+        var offset = i - index;
+        if (offset > total / 2) offset -= total;
+        if (offset < -total / 2) offset += total;
+
+        var isActive = offset === 0;
+        var isAdjacent = Math.abs(offset) === 1;
+        var y = offset * 130;
+        var scale = 1;
+        var opacity = 1;
+        var blur = 0;
+        var z = 10;
+
+        if (isActive) {
+          scale = 1.15;
+          opacity = 1;
+          blur = 0;
+          z = 30;
+        } else if (isAdjacent) {
+          scale = 0.9;
+          opacity = 0.35;
+          blur = 2;
+          z = 20;
+        } else {
+          scale = 0.75;
+          opacity = 0.15;
+          blur = 4;
+          z = 10;
+        }
+
+        card.style.transform = 'translateY(' + y + 'px) scale(' + scale + ')';
+        card.style.opacity = String(opacity);
+        card.style.zIndex = String(z);
+        card.style.filter = blur ? 'blur(' + blur + 'px)' : 'none';
+      });
+    }
+
+    function select(i, opts) {
+      var options = opts || {};
+      index = (i + cards.length) % cards.length;
+      var activeBtn = cards[index];
+      cards.forEach(function (btn, b) {
+        var on = b === index;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+
+      if (!options.skipFeatures) {
+        var raw = activeBtn.getAttribute('data-client-features') || '[]';
+        var features = [];
+        try { features = JSON.parse(raw); } catch (e) {}
+        renderFeatures(features);
+      }
+      layoutStack();
+    }
+
+    function restart() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(function () {
+        if (!paused) select(index + 1);
+      }, INTERVAL);
+    }
+
+    cards.forEach(function (btn, i) {
+      on(btn, 'click', function () {
+        select(i);
+        restart();
+      });
+      on(btn, 'mouseenter', function () {
+        paused = true;
+        select(i);
+      });
+      on(btn, 'mouseleave', function () {
+        paused = false;
+      });
+      on(btn, 'focusin', function () {
+        select(i);
+      });
+    });
+
+    select(index, { skipFeatures: true });
+    layoutStack();
+    restart();
+    window.addEventListener('resize', function () {
+      layoutStack();
+      qsa('.testro-clients__feature', featuresEl).forEach(function (el, i) {
+        el.style.marginLeft = (window.innerWidth < 768 ? 0 : i * 16) + 'px';
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 15. Product pages — generic scroll reveal                                */
+  /* ------------------------------------------------------------------------ */
+  function initReveal() {
+    var targets = qsa('[data-reveal]');
+    if (!targets.length) return;
+
+    function revealAll() {
+      targets.forEach(function (el) {
+        el.classList.add('is-revealed');
+      });
+    }
+
+    if (
+      !('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      revealAll();
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-revealed');
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    targets.forEach(function (el) {
+      io.observe(el);
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 16. Product pages — lifecycle timeline progress                          */
+  /* ------------------------------------------------------------------------ */
+  function initLifecycle() {
+    var section = qs('[data-lifecycle]');
+    if (!section) return;
+
+    var steps = qsa('[data-lifecycle-step]', section);
+    var fill = qs('[data-lifecycle-fill]', section);
+    if (!steps.length) return;
+
+    function setProgress(count) {
+      if (!fill) return;
+      var ratio = steps.length ? count / steps.length : 0;
+      fill.style.setProperty('--rail-progress', Math.min(100, ratio * 100) + '%');
+    }
+
+    if (
+      !('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      steps.forEach(function (step) {
+        step.classList.add('is-active');
+      });
+      setProgress(steps.length);
+      return;
+    }
+
+    var reached = 0;
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-active');
+          reached = Math.max(reached, steps.indexOf(entry.target) + 1);
+          setProgress(reached);
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.35, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    steps.forEach(function (step) {
+      io.observe(step);
+    });
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* 17. Homepage industries tabs                                             */
+  /* ------------------------------------------------------------------------ */
+  function initIndustriesTabs() {
+    var root = qs('[data-industries]');
+    if (!root) return;
+
+    var tabs = qsa('[data-industries-tab]', root);
+    var panels = qsa('[data-industries-panel]', root);
+    if (!tabs.length || !panels.length) return;
+
+    function activate(key, focusTab) {
+      tabs.forEach(function (tab) {
+        var active = tab.getAttribute('data-industries-tab') === key;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        tab.tabIndex = active ? 0 : -1;
+        if (active && focusTab) {
+          tab.focus();
+        }
+      });
+
+      panels.forEach(function (panel) {
+        var active = panel.getAttribute('data-industries-panel') === key;
+        panel.classList.toggle('is-active', active);
+        if (active) {
+          panel.removeAttribute('hidden');
+        } else {
+          panel.setAttribute('hidden', '');
+        }
+      });
+    }
+
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () {
+        activate(tab.getAttribute('data-industries-tab'), false);
+      });
+
+      tab.addEventListener('keydown', function (event) {
+        var next = null;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          next = tabs[(index + 1) % tabs.length];
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          next = tabs[(index - 1 + tabs.length) % tabs.length];
+        } else if (event.key === 'Home') {
+          next = tabs[0];
+        } else if (event.key === 'End') {
+          next = tabs[tabs.length - 1];
+        }
+        if (!next) return;
+        event.preventDefault();
+        activate(next.getAttribute('data-industries-tab'), true);
+      });
+    });
+  }
+
+  ready(function () {
+    initPageScrollReset();
+    initClients();
+    initHeroCarousel();
+    initNav();
+    initDemoModal();
+    initPricingToggle();
+    initPricingInfra();
+    initPricingReveal();
+    initFeatureTabs();
+    initFaq();
+    initTestimonials();
+    initVideosCarousel();
+    initForms();
+    initWebVitals();
+    initScrollReveal();
+    initClientsCards();
+    initServices();
+    initScrollTopButton();
+    initReveal();
+    initLifecycle();
+    initIndustriesTabs();
+  });
+})();

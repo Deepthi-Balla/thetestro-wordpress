@@ -1,0 +1,24 @@
+# REFERENCE ONLY — do not deploy as a physical /robots.txt.
+#
+# A static robots.txt overrides WordPress’s robots_txt filter
+# (testro_robots_txt in inc/sitemap.php), which emits absolute Sitemap
+# URLs for the current host (including subdirectory installs).
+#
+# Prefer: delete or empty any physical /robots.txt so WP serves
+# /index.php?robots=1 (or pretty /robots.txt via rewrite) dynamically.
+#
+# Example of what the theme filter emits (paths adjust to home_url()):
+#
+# User-agent: *
+# Allow: /
+# Disallow: /?s=
+# Disallow: /search/
+# Disallow: /author/
+# Disallow: /tag/
+# Disallow: /category/
+# Disallow: /wp-admin/
+# Allow: /wp-admin/admin-ajax.php
+# Disallow: /wp-includes/
+# Sitemap: https://example.com/wp-sitemap.xml
+# Sitemap: https://example.com/?testro_image_sitemap=1
+# Sitemap: https://example.com/?testro_video_sitemap=1
