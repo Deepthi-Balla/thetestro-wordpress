@@ -31,13 +31,15 @@ $heading_id = $id ? $id . '-heading' : '';
 			array(
 				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
 		);
 		?>
 
-		<div class="testro-prod-arch__diagram">
+		<div class="testro-prod-arch__diagram" style="<?php echo esc_attr( '--arch-cols: ' . count( $items ) . ';' ); ?>">
 			<?php if ( $hub ) : ?>
 				<div class="testro-prod-arch__hub" data-reveal>
 					<span class="testro-prod-arch__hub-pulse" aria-hidden="true"></span>
@@ -60,11 +62,17 @@ $heading_id = $id ? $id . '-heading' : '';
 								<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 							<h3 class="testro-prod-arch__title"><?php echo esc_html( $item['title'] ); ?></h3>
-							<p class="testro-prod-arch__desc"><?php echo esc_html( $item['description'] ); ?></p>
+							<?php if ( ! empty( $item['description'] ) ) : ?>
+								<p class="testro-prod-arch__desc"><?php echo esc_html( $item['description'] ); ?></p>
+							<?php endif; ?>
 						</div>
 					</li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-arch__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

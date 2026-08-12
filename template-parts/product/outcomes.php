@@ -36,10 +36,12 @@ if ( $variant ) {
 			'template-parts/product/section-header',
 			null,
 			array(
-				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
+				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+				'title'         => isset( $args['title'] ) ? $args['title'] : '',
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
 		);
 		?>
@@ -67,5 +69,9 @@ if ( $variant ) {
 				</li>
 			<?php endforeach; ?>
 		</ul>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-outcomes__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

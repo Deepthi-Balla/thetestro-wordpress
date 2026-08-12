@@ -2,22 +2,20 @@
 /**
  * Testimonials section — 3D coverflow carousel (matches reference).
  *
- * Optional $args: eyebrow, title, intro.
+ * Optional $args: title, headline.
  *
  * @package TestRo
  */
 
-$args    = isset( $args ) && is_array( $args ) ? $args : array();
-$eyebrow = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : __( 'Teams across 50+ countries use theTestRo', 'testro' );
-$title   = isset( $args['title'] ) ? (string) $args['title'] : __( 'What Our Clients Says About Us', 'testro' );
-$intro   = isset( $args['intro'] ) ? (string) $args['intro'] : __( "Trusted by teams worldwide, theTestRo has revolutionized their testing processes. Here's what some of our clients have to say about their experience with us.", 'testro' );
+$args     = isset( $args ) && is_array( $args ) ? $args : array();
+$title    = isset( $args['title'] ) ? (string) $args['title'] : __( 'Customer Testimonials', 'testro' );
+$headline = isset( $args['headline'] ) ? (string) $args['headline'] : __( 'What Our Customers Say', 'testro' );
 
-// The default heading is tuned to sit on one line; overrides may need to wrap.
 $heading_class = isset( $args['title'] ) ? ' testro-testimonials__heading--wrap' : '';
 
 $testimonials = array_values(
 	array_filter(
-		testro_get_testimonials(),
+		array_slice( testro_get_testimonials(), 0, 5 ),
 		static function ( $item ) {
 			return ! empty( $item['name'] ) && ! empty( $item['quote'] );
 		}
@@ -32,13 +30,10 @@ if ( $count < 1 ) {
 	<section class="testro-testimonials" aria-labelledby="testimonials-heading" data-testimonials>
 		<div class="testro-container">
 			<header class="testro-testimonials__header">
-				<?php if ( '' !== $eyebrow ) : ?>
-					<div class="testro-testimonials__eyebrow-wrap">
-						<p class="subtitle-pill testro-section-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-					</div>
+				<h5 id="testimonials-heading" class="gradient-text main-headings testro-testimonials__heading<?php echo esc_attr( $heading_class ); ?>"><?php echo esc_html( $title ); ?></h5>
+				<?php if ( '' !== $headline ) : ?>
+					<p class="sub-text testro-testimonials__headline"><?php echo esc_html( $headline ); ?></p>
 				<?php endif; ?>
-				<h2 id="testimonials-heading" class="gradient-text main-headings testro-testimonials__heading<?php echo esc_attr( $heading_class ); ?>"><?php echo esc_html( $title ); ?></h2>
-				<p class="sub-text testro-testimonials__desc"><?php echo esc_html( $intro ); ?></p>
 			</header>
 
 			<div
@@ -91,7 +86,7 @@ if ( $count < 1 ) {
 									<header class="testro-testimonials__identity">
 										<span class="testro-testimonials__quote-icon" aria-hidden="true">“</span>
 										<div class="testro-testimonials__identity-meta">
-											<h3 class="testro-testimonials__name"><?php echo esc_html( $item['name'] ); ?></h3>
+											<p class="testro-testimonials__name"><?php echo esc_html( $item['name'] ); ?></p>
 											<?php if ( ! empty( $item['role'] ) ) : ?>
 												<span class="testro-testimonials__role">
 													<svg class="testro-testimonials__role-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">

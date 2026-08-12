@@ -12,7 +12,7 @@ $items     = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['item
 $dashboard = isset( $args['dashboard'] ) && is_array( $args['dashboard'] ) ? $args['dashboard'] : array();
 $id        = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 
-if ( ! $items ) {
+if ( ! $items && ! $dashboard && empty( $args['title'] ) ) {
 	return;
 }
 
@@ -37,13 +37,16 @@ $ring_offset  = $ring_length * ( 1 - ( $score / 100 ) );
 			array(
 				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
 		);
 		?>
 
-		<div class="testro-prod-analytics__layout">
+		<div class="testro-prod-analytics__layout<?php echo ! $items ? ' testro-prod-analytics__layout--solo' : ''; ?>">
+			<?php if ( $items ) : ?>
 			<ul class="testro-prod-analytics__list">
 				<?php foreach ( $items as $index => $item ) : ?>
 					<li class="testro-prod-analytics__item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
@@ -57,6 +60,7 @@ $ring_offset  = $ring_length * ( 1 - ( $score / 100 ) );
 					</li>
 				<?php endforeach; ?>
 			</ul>
+			<?php endif; ?>
 
 			<?php if ( $dashboard ) : ?>
 				<div class="testro-prod-panel" data-reveal role="img" aria-label="<?php esc_attr_e( 'Illustrative release readiness dashboard showing a 96 percent readiness score, execution trends and failure breakdown', 'testro' ); ?>">
@@ -137,5 +141,9 @@ $ring_offset  = $ring_length * ( 1 - ( $score / 100 ) );
 				</div>
 			<?php endif; ?>
 		</div>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-analytics__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

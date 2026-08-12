@@ -70,36 +70,19 @@ function testro_get_product_pages() {
 		'ai-test-automation' => array(
 			'slug' => 'ai-test-automation',
 			'seo'  => array(
-				'title'       => __( 'AI Test Automation Platform | Self-Healing Test Automation | theTestRo', 'testro' ),
-				'description' => __( 'Create, execute, and maintain reliable web and API tests with theTestRo\'s enterprise AI test automation platform. Natural language authoring, self-healing automation, and cloud-scale parallel execution.', 'testro' ),
+				'title'       => __( 'AI Test Automation Platform for Intelligent Software Testing', 'testro' ),
+				'description' => __( 'Accelerate software testing with theTestRo\'s AI test automation platform. Create, execute, and maintain AI-powered automated tests with speed and accuracy.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI Test Automation Platform', 'testro' ),
-				'title'    => __( 'Test Smarter with theTestRo AI Test Automation Platform', 'testro' ),
-				'subtitle' => __( 'Accelerate software delivery with enterprise-grade AI test automation. Create, execute, and maintain reliable web and API tests using AI-powered, self-healing automation—without the complexity of traditional frameworks.', 'testro' ),
-				'badges'   => array(
-					__( 'Self-Healing', 'testro' ),
-					__( 'Natural Language Authoring', 'testro' ),
-					__( 'Parallel Cloud Execution', 'testro' ),
-					__( 'CI/CD Native', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Test Smarter with an AI Test Automation Platform', 'testro' ),
+				'subtitle' => __( 'Built for modern software teams. theTestRo is an AI test automation platform that writes, runs, and heals your tests. Ship faster. Catch more bugs. Spend less time on manual fixes.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '30X',
-						'label' => __( 'Faster test creation', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '99.95%',
-						'label' => __( 'Execution success rate', 'testro' ),
-						'icon'  => 'shield-check',
-					),
-					array(
-						'value' => '15,000+',
-						'label' => __( 'Test cases automated', 'testro' ),
-						'icon'  => 'layout-grid',
+						'label' => __( 'Schedule a Demo', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
+						'icon'  => 'arrow-right',
 					),
 				),
 			),
@@ -108,189 +91,188 @@ function testro_get_product_pages() {
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'ai-native-automation',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'AI-Native Test Automation', 'testro' ),
-					'title'   => __( 'Built for Modern Software Teams', 'testro' ),
-					'intro'   => __( 'Modern software demands intelligent automation that keeps pace with rapid releases. theTestRo combines AI, no-code automation, and self-healing technology to help QA teams create reliable automated tests faster while significantly reducing maintenance effort.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-native-automation',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'AI-Native Test Automation', 'testro' ),
+					'intro'         => __( 'theTestRo is AI-native. AI sits at the core of every test. It\'s not bolted on as an extra. This is real AI software testing, not automation with an AI label stuck on top.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'message-text',
 							'title'       => __( 'Natural Language Test Authoring', 'testro' ),
-							'description' => __( 'Create automation tests using plain English instead of complex scripts, making automation accessible to testers, developers, and business users.', 'testro' ),
+							'description' => __( 'Type a test in plain English. AI turns it into a working test in seconds.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
 							'title'       => __( 'AI-Driven Test Generation', 'testro' ),
-							'description' => __( 'Automatically generate test scenarios based on user workflows, reducing manual effort and accelerating automation coverage.', 'testro' ),
+							'description' => __( 'AI studies your app and your past tests. Then it builds new test cases on its own.', 'testro' ),
 						),
 						array(
 							'icon'        => 'user-check',
 							'title'       => __( 'Human-in-the-Loop Validation', 'testro' ),
-							'description' => __( 'Combine AI intelligence with human oversight to ensure every automated workflow meets your quality standards before execution.', 'testro' ),
+							'description' => __( 'AI proposes each step. Your team checks and approves it. You stay in control.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'       => 'feature-grid',
-					'id'         => 'intelligent-automation-engine',
-					'variant'    => 'tint',
-					'columns'    => 3,
-					'eyebrow'    => __( 'Intelligent Automation Engine', 'testro' ),
-					'title'      => __( 'AI That Continuously Improves Your Automation', 'testro' ),
-					'intro'      => __( "TheTestRo's intelligent automation engine adapts as your applications evolve, helping teams reduce flaky tests and automate with confidence.", 'testro' ),
-					'items'      => array(
+					'type'          => 'feature-grid',
+					'id'            => 'intelligent-automation-engine',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Intelligent Automation Engine', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'pen-square',
 							'title'       => __( 'AI Test Authoring', 'testro' ),
-							'description' => __( 'Create automation workflows without writing code using an intuitive AI-powered interface.', 'testro' ),
+							'description' => __( 'Build tests by recording, typing a prompt, or writing plain steps.', 'testro' ),
 						),
 						array(
 							'icon'        => 'scan-eye',
 							'title'       => __( 'Intelligent Object Recognition', 'testro' ),
-							'description' => __( 'Automatically identifies UI elements even when applications change.', 'testro' ),
+							'description' => __( 'AI finds buttons and fields the way a real user would.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
 							'title'       => __( 'Self-Healing Automation', 'testro' ),
-							'description' => __( 'Broken locators are automatically repaired using intelligent element recognition, minimizing maintenance.', 'testro' ),
+							'description' => __( 'Your UI changes. AI fixes the test. No manual work needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'crosshair',
 							'title'       => __( 'Dynamic Locator Intelligence', 'testro' ),
-							'description' => __( 'Uses multiple locator strategies to improve test stability across changing applications.', 'testro' ),
+							'description' => __( 'AI tracks more than one way to find each element. One small change won\'t break your test.', 'testro' ),
 						),
 						array(
 							'icon'        => 'database',
 							'title'       => __( 'AI Test Data Generation', 'testro' ),
-							'description' => __( 'Automatically generate meaningful test data for comprehensive test execution.', 'testro' ),
+							'description' => __( 'Get realistic names, dates, and addresses in seconds. No setup required.', 'testro' ),
 						),
 						array(
 							'icon'        => 'stethoscope',
 							'title'       => __( 'AI Root Cause Analysis', 'testro' ),
-							'description' => __( 'Quickly identify why a test failed with intelligent diagnostics and actionable insights.', 'testro' ),
+							'description' => __( 'A test fails. AI tells you why, fast. No digging through logs.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-test-execution',
-					'variant' => 'brand',
-					'columns' => 3,
-					'eyebrow' => __( 'Enterprise Test Execution', 'testro' ),
-					'title'   => __( 'Execute Faster Across Every Environment', 'testro' ),
-					'intro'   => __( 'Run automation confidently across browsers, environments, and applications.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-test-execution',
+					'variant'       => 'brand',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise Test Execution', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'zap',
 							'title'       => __( 'Parallel Execution Engine', 'testro' ),
-							'description' => __( 'Execute hundreds of test cases simultaneously to dramatically reduce execution time.', 'testro' ),
+							'description' => __( 'Run thousands of tests at once, in the cloud.', 'testro' ),
 						),
 						array(
 							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser & Cross-Platform Testing', 'testro' ),
-							'description' => __( 'Validate application quality across Chrome, Edge, Firefox, Safari, and multiple operating systems.', 'testro' ),
+							'title'       => __( 'Cross-Browser & Cross-Platform Execution', 'testro' ),
+							'description' => __( 'Test every browser, OS, and device combo.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layers-api',
-							'title'       => __( 'API, UI & End-to-End Testing', 'testro' ),
-							'description' => __( 'Test every layer of your application from backend APIs to complete customer journeys.', 'testro' ),
+							'title'       => __( 'API + UI + End-to-End Test Automation', 'testro' ),
+							'description' => __( 'Cover your whole stack. One platform, not five tools.', 'testro' ),
 						),
 						array(
 							'icon'        => 'calendar-sync',
 							'title'       => __( 'Continuous Test Orchestration', 'testro' ),
-							'description' => __( 'Automatically schedule, trigger, and manage test executions across your release pipeline.', 'testro' ),
+							'description' => __( 'Schedule and trigger test runs on autopilot.', 'testro' ),
 						),
 						array(
 							'icon'        => 'cloud',
 							'title'       => __( 'Cloud-Native Execution', 'testro' ),
-							'description' => __( 'Scale automation effortlessly with cloud-based execution infrastructure.', 'testro' ),
+							'description' => __( 'No servers to manage. Scale up or down, anytime.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'lifecycle',
-					'id'      => 'autonomous-test-lifecycle',
-					'eyebrow' => __( 'Autonomous Test Lifecycle', 'testro' ),
-					'title'   => __( 'AI That Manages Your Entire Testing Journey', 'testro' ),
-					'intro'   => __( 'TheTestRo helps teams automate every stage of the testing lifecycle.', 'testro' ),
-					'items'   => array(
+					'type'          => 'lifecycle',
+					'id'            => 'autonomous-test-lifecycle',
+					'title'         => __( 'Autonomous Test Lifecycle', 'testro' ),
+					'intro'         => __( 'theTestRo manages the full test lifecycle, start to finish:', 'testro' ),
+					'heading_level' => 3,
+					'loop_note'     => '',
+					'items'         => array(
 						array(
 							'icon'        => 'sparkles',
-							'title'       => __( 'Generate intelligent test cases', 'testro' ),
-							'description' => __( 'AI reads your application workflows and drafts the scenarios that matter most, so coverage starts on day one.', 'testro' ),
+							'title'       => __( 'Generate Test Cases', 'testro' ),
+							'description' => __( 'AI builds tests from your requirements and user flows.', 'testro' ),
 						),
 						array(
 							'icon'        => 'rocket',
-							'title'       => __( 'Execute automation at enterprise scale', 'testro' ),
-							'description' => __( 'Runs fan out across cloud browsers and environments in parallel, keeping regression cycles within your release window.', 'testro' ),
+							'title'       => __( 'Execute at Scale', 'testro' ),
+							'description' => __( 'Run tests in parallel, across every browser and device.', 'testro' ),
 						),
 						array(
 							'icon'        => 'alert-octagon',
-							'title'       => __( 'Detect failures instantly', 'testro' ),
-							'description' => __( 'Every step is monitored in real time, and teams are alerted the moment a workflow deviates from expected behaviour.', 'testro' ),
+							'title'       => __( 'Detect Failures', 'testro' ),
+							'description' => __( 'AI flags failed steps the moment they happen.', 'testro' ),
 						),
 						array(
 							'icon'        => 'microscope',
-							'title'       => __( 'Analyze root causes automatically', 'testro' ),
-							'description' => __( 'Diagnostics separate genuine defects from environment noise and point engineers straight to the failing step.', 'testro' ),
+							'title'       => __( 'Analyze Root Cause', 'testro' ),
+							'description' => __( 'AI explains why a test failed, not just that it did.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wrench',
-							'title'       => __( 'Self-heal broken automation', 'testro' ),
-							'description' => __( 'Locators that break after a UI change are repaired automatically, so suites keep running without manual rework.', 'testro' ),
+							'title'       => __( 'Self-Heal Tests', 'testro' ),
+							'description' => __( 'AI fixes broken tests on its own. Your suite stays green.', 'testro' ),
 						),
 						array(
 							'icon'        => 'trending-up',
-							'title'       => __( 'Continuously optimize future executions using AI insights', 'testro' ),
-							'description' => __( 'Historical results feed back into the engine to prioritise high-risk areas and trim wasted execution time.', 'testro' ),
+							'title'       => __( 'Continuous Optimization', 'testro' ),
+							'description' => __( 'AI learns from every run. Test accuracy improves over time.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'      => 'analytics',
-					'id'        => 'quality-intelligence',
-					'eyebrow'   => __( 'AI-Powered Quality Intelligence', 'testro' ),
-					'title'     => __( 'Turn Test Results into Actionable Insights', 'testro' ),
-					'intro'     => __( 'Move beyond pass/fail reports with intelligent analytics that help teams release software confidently.', 'testro' ),
-					'items'     => array(
+					'type'          => 'analytics',
+					'id'            => 'quality-intelligence',
+					'title'         => __( 'AI-Powered Quality Intelligence', 'testro' ),
+					'intro'         => __( 'Turn Test Results Into Real Insight', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'filter-check',
 							'title'       => __( 'Smart Failure Classification', 'testro' ),
-							'description' => __( 'Automatically categorize failures to reduce investigation time.', 'testro' ),
+							'description' => __( 'AI sorts failures into real bugs, flaky tests, or setup issues.', 'testro' ),
 						),
 						array(
 							'icon'        => 'activity',
 							'title'       => __( 'Execution Insights', 'testro' ),
-							'description' => __( 'Track execution trends, performance, and automation effectiveness.', 'testro' ),
+							'description' => __( 'See trends across every test run, in one clear view.', 'testro' ),
 						),
 						array(
 							'icon'        => 'gauge',
 							'title'       => __( 'Test Health Analytics', 'testro' ),
-							'description' => __( 'Monitor automation stability and identify high-risk test suites.', 'testro' ),
+							'description' => __( 'Know which tests are stable and which need attention.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
 							'title'       => __( 'Risk-Based Prioritization', 'testro' ),
-							'description' => __( 'Focus testing on the areas most likely to impact production.', 'testro' ),
+							'description' => __( 'AI points you to the tests that matter most.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
 							'title'       => __( 'Release Readiness Dashboard', 'testro' ),
-							'description' => __( 'Know exactly when your application is ready for deployment.', 'testro' ),
+							'description' => __( 'Know in seconds if your build is safe to ship.', 'testro' ),
 						),
 					),
-					'dashboard' => array(
+					'dashboard'     => array(
 						'label'     => __( 'Release readiness', 'testro' ),
 						'score'     => 96,
 						'status'    => __( 'Ready to ship', 'testro' ),
@@ -376,207 +358,184 @@ function testro_get_product_pages() {
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'enterprise-architecture',
-					'eyebrow' => __( 'Enterprise Automation Architecture', 'testro' ),
-					'title'   => __( 'Built to Scale Across Every Enterprise', 'testro' ),
-					'intro'   => __( 'Designed for organizations managing thousands of automated test cases.', 'testro' ),
-					'hub'     => array(
+					'type'          => 'architecture',
+					'id'            => 'enterprise-architecture',
+					'title'         => __( 'Enterprise Automation Architecture', 'testro' ),
+					'intro'         => __( 'Built for Scale and Security', 'testro' ),
+					'heading_level' => 4,
+					'hub'           => array(
 						'label' => __( 'theTestRo', 'testro' ),
 						'sub'   => __( 'AI automation core', 'testro' ),
 						'icon'  => 'sparkles',
 					),
-					'items'   => array(
+					'items'         => array(
 						array(
 							'icon'        => 'layout-grid',
 							'title'       => __( 'Unified Test Platform', 'testro' ),
-							'description' => __( 'Manage all automation activities from a single platform.', 'testro' ),
+							'description' => __( 'Manage every test type in one place, not scattered tools.', 'testro' ),
 						),
 						array(
 							'icon'        => 'folder-tree',
 							'title'       => __( 'Scalable Test Repository', 'testro' ),
-							'description' => __( 'Organize and reuse automation assets across projects.', 'testro' ),
+							'description' => __( 'Store and organize thousands of tests with no slowdown.', 'testro' ),
 						),
 						array(
 							'icon'        => 'puzzle',
 							'title'       => __( 'Reusable Test Components', 'testro' ),
-							'description' => __( 'Build once and reuse automation components throughout your organization.', 'testro' ),
+							'description' => __( 'Build once, use everywhere. Cut duplicate work.', 'testro' ),
 						),
 						array(
 							'icon'        => 'server',
 							'title'       => __( 'Environment Management', 'testro' ),
-							'description' => __( 'Execute tests seamlessly across development, staging, and production environments.', 'testro' ),
+							'description' => __( 'Test across dev, staging, and production with ease.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-lock',
 							'title'       => __( 'Secure Enterprise Infrastructure', 'testro' ),
-							'description' => __( 'Enterprise-grade security designed for large-scale software delivery.', 'testro' ),
+							'description' => __( 'Built with enterprise-grade security in mind.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'devops-continuous-quality',
-					'eyebrow' => __( 'DevOps & Continuous Quality', 'testro' ),
-					'title'   => __( 'Integrate AI Automation into Every Release', 'testro' ),
-					'intro'   => __( 'Bring continuous quality into your development pipeline.', 'testro' ),
-					'items'   => array(
+					'type'          => 'pipeline',
+					'id'            => 'devops-continuous-quality',
+					'title'         => __( 'DevOps & Continuous Quality', 'testro' ),
+					'intro'         => __( 'Fits Right Into Your DevOps Flow', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'infinity',
 							'stage'       => __( 'Build', 'testro' ),
 							'title'       => __( 'CI/CD Pipeline Integration', 'testro' ),
-							'description' => __( 'Automatically execute tests during every build and deployment.', 'testro' ),
+							'description' => __( 'Connects with Jenkins, GitHub Actions, GitLab, and Azure DevOps.', 'testro' ),
 						),
 						array(
 							'icon'        => 'git-branch',
 							'stage'       => __( 'Commit', 'testro' ),
 							'title'       => __( 'Git-Based Workflows', 'testro' ),
-							'description' => __( 'Integrate seamlessly with modern version control systems.', 'testro' ),
+							'description' => __( 'Version-control your tests, just like your code.', 'testro' ),
 						),
 						array(
 							'icon'        => 'clock',
 							'stage'       => __( 'Trigger', 'testro' ),
 							'title'       => __( 'Scheduled & Trigger-Based Execution', 'testro' ),
-							'description' => __( 'Run automation on schedules or automatically after code changes.', 'testro' ),
+							'description' => __( 'Run tests on a schedule, or the second new code lands.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-check',
 							'stage'       => __( 'Gate', 'testro' ),
 							'title'       => __( 'Quality Gates', 'testro' ),
-							'description' => __( 'Prevent defective code from reaching production.', 'testro' ),
+							'description' => __( 'Block risky releases automatically when tests fail.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
 							'stage'       => __( 'Feedback', 'testro' ),
 							'title'       => __( 'Continuous Feedback Loop', 'testro' ),
-							'description' => __( 'Provide developers with immediate insights to resolve issues faster.', 'testro' ),
+							'description' => __( 'Get instant results your whole team can see.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'comparison',
-					'id'      => 'ai-vs-legacy',
-					'eyebrow' => __( 'AI-Native vs. Legacy', 'testro' ),
-					'title'   => __( 'Why AI-Native Automation Outperforms Legacy Frameworks', 'testro' ),
-					'intro'   => __( 'Traditional automation requires continuous scripting and maintenance. theTestRo uses AI to deliver a smarter approach.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Legacy frameworks', 'testro' ),
-						'note'  => __( 'Code-first suites that grow more expensive every sprint', 'testro' ),
+					'type'          => 'comparison',
+					'id'            => 'ai-vs-legacy',
+					'title'         => __( 'Why AI-Native Automation Outperforms Legacy Frameworks', 'testro' ),
+					'intro'         => __( 'theTestRo vs. Old-School Frameworks', 'testro' ),
+					'heading_level' => 4,
+					'legacy'        => array(
+						'label' => __( 'Legacy Frameworks', 'testro' ),
 					),
-					'modern'  => array(
-						'label' => __( 'theTestRo AI-native', 'testro' ),
-						'note'  => __( 'An automation engine that maintains itself as your app evolves', 'testro' ),
+					'modern'        => array(
+						'label' => __( 'theTestRo', 'testro' ),
 					),
-					'rows'    => array(
+					'rows'          => array(
 						array(
-							'aspect' => __( 'Test creation', 'testro' ),
-							'legacy' => __( 'Hand-written scripts that depend on scarce engineering time', 'testro' ),
-							'modern' => __( 'Scriptless test creation', 'testro' ),
+							'legacy' => __( 'Heavy scripts, slow to build', 'testro' ),
+							'modern' => __( 'Plain-English test creation', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Ongoing upkeep', 'testro' ),
-							'legacy' => __( 'Locators and helpers rewritten manually every release', 'testro' ),
-							'modern' => __( 'Intelligent maintenance', 'testro' ),
+							'legacy' => __( 'Manual upkeep', 'testro' ),
+							'modern' => __( 'Tests that update themselves', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'UI changes', 'testro' ),
-							'legacy' => __( 'Suites break on redesigns and stay red until someone fixes them', 'testro' ),
-							'modern' => __( 'Autonomous recovery from UI changes', 'testro' ),
+							'legacy' => __( 'Breaks on every UI change', 'testro' ),
+							'modern' => __( 'Tests that heal on their own', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Execution speed', 'testro' ),
-							'legacy' => __( 'Sequential runs bound to a handful of local machines', 'testro' ),
-							'modern' => __( 'Faster execution cycles', 'testro' ),
+							'legacy' => __( 'Slower runs', 'testro' ),
+							'modern' => __( 'Faster runs at scale', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Cost of ownership', 'testro' ),
-							'legacy' => __( 'Maintenance overhead compounds as coverage grows', 'testro' ),
-							'modern' => __( 'Lower automation maintenance costs', 'testro' ),
+							'legacy' => __( 'High maintenance cost', 'testro' ),
+							'modern' => __( 'Low maintenance cost', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Confidence in results', 'testro' ),
-							'legacy' => __( 'Flaky failures erode trust in the whole suite', 'testro' ),
-							'modern' => __( 'Higher test stability and reliability', 'testro' ),
+							'legacy' => __( 'Flaky, unstable tests', 'testro' ),
+							'modern' => __( 'Stable, reliable tests', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'enterprise-outcomes',
-					'eyebrow' => __( 'Enterprise Outcomes', 'testro' ),
-					'title'   => __( 'Deliver Better Software Faster', 'testro' ),
-					'intro'   => __( 'Organizations using theTestRo experience measurable improvements in software quality and delivery.', 'testro' ),
-					'items'   => array(
+					'type'          => 'outcomes',
+					'id'            => 'enterprise-outcomes',
+					'title'         => __( 'Enterprise Outcomes', 'testro' ),
+					'intro'         => __( 'What Teams Gain with theTestRo', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'  => 'rocket',
-							'title' => __( 'Accelerate software releases', 'testro' ),
+							'icon'        => 'rocket',
+							'title'       => __( 'Faster Software Delivery', 'testro' ),
+							'description' => __( 'Ship releases in days, not weeks.', 'testro' ),
 						),
 						array(
-							'icon'  => 'wrench',
-							'title' => __( 'Reduce automation maintenance effort', 'testro' ),
+							'icon'        => 'wrench',
+							'title'       => __( 'Reduced Maintenance', 'testro' ),
+							'description' => __( 'Spend less time fixing tests. Spend more time building.', 'testro' ),
 						),
 						array(
-							'icon'  => 'shield-check',
-							'title' => __( 'Improve test reliability', 'testro' ),
+							'icon'        => 'shield-check',
+							'title'       => __( 'Improved Test Stability', 'testro' ),
+							'description' => __( 'Fewer flaky failures. More trust in every result.', 'testro' ),
 						),
 						array(
-							'icon'  => 'layout-grid',
-							'title' => __( 'Increase automation coverage', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Increased Coverage', 'testro' ),
+							'description' => __( 'Test more of your app, with less manual work.', 'testro' ),
 						),
 						array(
-							'icon'  => 'coins',
-							'title' => __( 'Lower QA operating costs', 'testro' ),
+							'icon'        => 'coins',
+							'title'       => __( 'Lower QA Costs', 'testro' ),
+							'description' => __( 'Do more with a smaller team.', 'testro' ),
 						),
 						array(
-							'icon'  => 'trending-up',
-							'title' => __( 'Drive enterprise digital transformation', 'testro' ),
+							'icon'        => 'trending-up',
+							'title'       => __( 'Faster Digital Transformation', 'testro' ),
+							'description' => __( 'Move fast on new projects, backed by solid testing.', 'testro' ),
 						),
 					),
 				),
 
-				/*
-				 * Reused site-wide sections. The shared stats band is deliberately
-				 * omitted here because the hero metrics already carry those figures.
-				 */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise QA Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Thousands of automated test cases are executed every day using theTestRo to help engineering teams deliver high-quality software with confidence.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Teams Transformed by AI Automation', 'testro' ),
-					'intro'   => __( 'See how engineering teams have transformed their QA process using AI-powered automation—faster regression testing, less maintenance effort, more frequent releases, and higher automation stability.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'AI Test Automation FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'ai-test-automation',
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'ai-test-automation',
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'cta',
-					'id'      => 'get-started',
-					'title'   => __( 'Ready to Modernize Test Automation with AI?', 'testro' ),
-					'intro'   => __( 'Transform your software testing with intelligent, self-healing automation designed for modern engineering teams. Start creating reliable automated tests faster, reduce maintenance effort, and release software with confidence.', 'testro' ),
-					'actions' => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
-					),
+					'type'          => 'cta',
+					'id'            => 'get-started',
+					'title'         => __( 'Final CTA', 'testro' ),
+					'intro'         => __( 'Ready to Modernize Testing with AI?', 'testro' ),
+					'body'          => __( 'Join QA teams already using theTestRo to ship faster, catch more bugs, and cut manual work.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => testro_product_default_actions(),
 				),
 			),
 		),
@@ -584,36 +543,18 @@ function testro_get_product_pages() {
 		'no-code-test-automation' => array(
 			'slug' => 'no-code-test-automation',
 			'seo'  => array(
-				'title'       => __( 'No-Code Test Automation Tool | Visual AI Testing Platform | theTestRo', 'testro' ),
-				'description' => __( 'theTestRo is the best no-code test automation tool for modern QA teams. Create, execute, and maintain reliable automated tests with AI-assisted visual workflows, self-healing locators, and CI/CD-native execution—without writing code.', 'testro' ),
+				'title'       => __( 'Best No-Code Test Automation Tool for Faster Testing', 'testro' ),
+				'description' => __( 'Discover the best no-code test automation tool to create, execute, and maintain automated tests without coding. Accelerate software testing with theTestRo.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'No-Code Test Automation', 'testro' ),
-				'title'    => __( 'Best No-Code Test Automation Tool for Modern QA Teams', 'testro' ),
-				'subtitle' => __( 'Eliminate the complexity of traditional automation with theTestRo\'s AI-powered no-code testing platform. Create, execute, and maintain automated tests using an intuitive visual interface without writing a single line of code. Empower QA engineers, business users, and product teams to accelerate software releases with faster, smarter, and more reliable automation.', 'testro' ),
-				'badges'   => array(
-					__( 'Drag & Drop', 'testro' ),
-					__( 'AI Assisted', 'testro' ),
-					__( 'Self-Healing', 'testro' ),
-					__( 'CI/CD Native', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Best No-Code Test Automation Tool', 'testro' ),
+				'subtitle' => __( 'theTestRo is the best no-code test automation tool for teams who want speed without scripts. Record your actions or type plain steps. Get a working test in minutes, with zero code.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '0',
-						'label' => __( 'Lines of code required', 'testro' ),
-						'icon'  => 'code',
-					),
-					array(
-						'value' => '30X',
-						'label' => __( 'Faster visual test creation', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '99.95%',
-						'label' => __( 'Self-healing success rate', 'testro' ),
-						'icon'  => 'heart-pulse',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
@@ -622,391 +563,359 @@ function testro_get_product_pages() {
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'end-to-end-nocode',
-					'eyebrow' => __( 'Connected Workflow', 'testro' ),
-					'title'   => __( 'End-to-End No-Code Test Automation', 'testro' ),
-					'intro'   => __( 'Move from plan to production-ready automation in one continuous no-code journey—without handoffs between tools or teams.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'folder-tree',
-							'stage'       => __( 'Planning', 'testro' ),
-							'title'       => __( 'Test Planning', 'testro' ),
-							'description' => __( 'Organize test scenarios, define automation strategies, and prepare comprehensive test plans from a centralized platform.', 'testro' ),
-						),
-						array(
-							'icon'        => 'pen-square',
-							'stage'       => __( 'Authoring', 'testro' ),
-							'title'       => __( 'Test Authoring', 'testro' ),
-							'description' => __( 'Create powerful automated tests through an intuitive visual interface without requiring programming knowledge.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Execution', 'testro' ),
-							'title'       => __( 'Test Execution', 'testro' ),
-							'description' => __( 'Run automated tests across multiple browsers and environments while monitoring execution in real time.', 'testro' ),
-						),
-					),
-				),
-
-				/* ---------------------------------------------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'ai-powered-nocode',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered No-Code', 'testro' ),
-					'title'   => __( 'Intelligent Automation Designed for Everyone', 'testro' ),
-					'intro'   => __( 'Combine visual design with AI assistance so every teammate can build reliable automation—whether they write code or not.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI-Assisted Test Creation', 'testro' ),
-							'description' => __( 'Generate intelligent test steps using AI recommendations that accelerate automation development.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Visual Workflow Builder', 'testro' ),
-							'description' => __( 'Design complex automation workflows using an intuitive drag-and-drop interface.', 'testro' ),
-						),
+					'type'          => 'pipeline',
+					'id'            => 'how-it-works',
+					'title'         => __( 'How It Works', 'testro' ),
+					'intro'         => __( 'Say goodbye to scripts and syntax errors. Record your actions in a real browser, or type steps in plain English. Either way, you get a working test fast — and you don\'t need a developer standing by to explain what went wrong.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'activity',
-							'title'       => __( 'Record & Playback', 'testro' ),
-							'description' => __( 'Capture real user interactions and instantly convert them into reusable automated test cases.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Drag-and-Drop Test Design', 'testro' ),
-							'description' => __( 'Create sophisticated automation flows by simply arranging reusable testing components visually.', 'testro' ),
-						),
-					),
-				),
-
-				/* ---------------------------------------------------------- */
-				array(
-					'type'    => 'healing',
-					'id'      => 'self-healing-automation',
-					'eyebrow' => __( 'Resilient Automation', 'testro' ),
-					'title'   => __( 'Self-Healing Test Automation', 'testro' ),
-					'intro'   => __( 'Keep suites green as your UI evolves. theTestRo detects locator drift, repairs steps automatically, and continues the run without waiting for a manual fix.', 'testro' ),
-					'steps'   => array(
-						array(
-							'icon'  => 'alert-octagon',
-							'label' => __( 'Broken Test', 'testro' ),
-						),
-						array(
-							'icon'  => 'scan-eye',
-							'label' => __( 'AI Detects Change', 'testro' ),
-						),
-						array(
-							'icon'  => 'wand',
-							'label' => __( 'Auto Heals', 'testro' ),
-						),
-						array(
-							'icon'  => 'circle-check',
-							'label' => __( 'Test Continues', 'testro' ),
-						),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Auto-Healing Tests', 'testro' ),
-							'description' => __( 'Automatically detect UI changes and repair broken test locators without manual intervention.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Intelligent Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce ongoing maintenance with AI that continuously optimizes and stabilizes your automation suite.', 'testro' ),
-						),
-					),
-				),
-
-				/* ---------------------------------------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'key-features',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Key Features', 'testro' ),
-					'title'   => __( 'Everything You Need in a No-Code Test Automation Tool', 'testro' ),
-					'intro'   => __( 'Enterprise-grade capabilities packaged in a visual interface—so quality scales with every release.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Validate applications consistently across Chrome, Firefox, Edge, Safari, and more.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'API Test Automation', 'testro' ),
-							'description' => __( 'Automate REST API validation alongside UI testing within a unified platform.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Execute multiple automated tests simultaneously to dramatically reduce testing time.', 'testro' ),
+							'stage'       => __( 'Record', 'testro' ),
+							'title'       => __( 'Record Your Actions', 'testro' ),
+							'description' => __( 'Click through your app like a real user. Every step gets captured automatically.', 'testro' ),
 						),
 						array(
 							'icon'        => 'calendar-sync',
-							'title'       => __( 'Test Scheduling', 'testro' ),
-							'description' => __( 'Schedule automation runs for nightly builds, releases, or recurring quality checks.', 'testro' ),
+							'stage'       => __( 'Run', 'testro' ),
+							'title'       => __( 'Run Anywhere, Anytime', 'testro' ),
+							'description' => __( 'Schedule runs, trigger them after every deploy, or start one on demand.', 'testro' ),
 						),
 						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Visual Test Reports', 'testro' ),
-							'description' => __( 'Analyze automation results through interactive dashboards and detailed execution reports.', 'testro' ),
-						),
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Test Analytics & Reporting', 'testro' ),
-							'description' => __( 'Gain actionable insights into automation health, execution trends, and quality metrics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Integrate seamlessly with modern DevOps pipelines to enable continuous testing.', 'testro' ),
+							'icon'        => 'zap',
+							'stage'       => __( 'Start', 'testro' ),
+							'title'       => __( 'No Setup Required', 'testro' ),
+							'description' => __( 'Test right in your browser. No installs. No config files. No hassle.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'lifecycle',
-					'id'      => 'how-testro-works',
-					'eyebrow' => __( 'How theTestRo Works', 'testro' ),
-					'title'   => __( 'From Visual Design to Continuous Quality', 'testro' ),
-					'intro'   => __( 'A clear four-stage loop that turns no-code workflows into durable, AI-maintained automation.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'key-features',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Key Features', 'testro' ),
+					'intro'         => __( 'theTestRo covers the essentials any strong codeless testing platform needs, plus a few extras most tools skip.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'pen-square',
-							'title'       => __( 'Create Tests', 'testro' ),
-							'description' => __( 'Build automated tests visually using AI-assisted no-code tools.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Execute Tests', 'testro' ),
-							'description' => __( 'Run tests across browsers, environments, and devices with scalable execution.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Analyze Results', 'testro' ),
-							'description' => __( 'Review comprehensive reports, screenshots, logs, and AI-powered failure analysis.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Fast Test Creation', 'testro' ),
+							'description' => __( 'Turn real actions into a repeatable test in seconds.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
-							'title'       => __( 'Maintain Tests with AI', 'testro' ),
-							'description' => __( 'Allow intelligent self-healing technology to automatically maintain test stability as your application evolves.', 'testro' ),
+							'title'       => __( 'Easy Maintenance', 'testro' ),
+							'description' => __( 'Smart selectors keep your tests working, even as your app changes.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Painless CI Integration', 'testro' ),
+							'description' => __( 'Connect to Jenkins, GitHub Actions, and CircleCI right out of the box.', 'testro' ),
+						),
+						array(
+							'icon'        => 'microscope',
+							'title'       => __( 'Powerful Debugging Tools', 'testro' ),
+							'description' => __( 'Every run comes with video, logs, and a step-by-step replay.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Cross-Browser Coverage', 'testro' ),
+							'description' => __( 'Run the same test across Chrome, Firefox, Safari, and Edge without extra setup.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'nocode-benefits',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Benefits', 'testro' ),
-					'title'   => __( 'Why Teams Choose No-Code Test Automation', 'testro' ),
-					'intro'   => __( 'Measurable outcomes for QA, product, and engineering—without the scripting tax of legacy frameworks.', 'testro' ),
-					'items'   => array(
+					'type'          => 'outcomes',
+					'id'            => 'ai-backed-authoring',
+					'variant'       => 'tint',
+					'title'         => __( 'Plain-English, AI-Backed Authoring', 'testro' ),
+					'intro'         => __( 'This isn\'t basic record-and-playback. theTestRo is AI no-code test automation at its core. It understands real apps, not just clicks.', 'testro' ),
+					'intro_extra'   => __( 'That difference matters once your app goes beyond simple flows. It includes logins with multi-factor codes. It includes dynamic pricing tables. It also includes forms that change based on what users pick.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster Test Development', 'testro' ),
-							'description' => __( 'Reduce automation creation time using visual workflows and AI-assisted authoring.', 'testro' ),
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain English Steps', 'testro' ),
+							'description' => __( 'Write "Log in with a valid email." The platform builds the working test for you.', 'testro' ),
 						),
 						array(
-							'icon'        => 'code',
-							'title'       => __( 'Reduce Manual Scripting', 'testro' ),
-							'description' => __( 'Eliminate the need for extensive coding while maintaining enterprise-grade automation capabilities.', 'testro' ),
+							'icon'        => 'pen-square',
+							'title'       => __( 'BDD Support', 'testro' ),
+							'description' => __( 'Paste Behavior-Driven Development steps and get instant automation.', 'testro' ),
 						),
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Smart Object Recognition', 'testro' ),
+							'description' => __( 'AI finds buttons and fields even when your page layout shifts around.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Skipping code shouldn\'t mean losing power. theTestRo gives non-technical testers the same depth a full engineering team used to need.', 'testro' ),
+				),
+
+				/* ---------------------------------------------------------- */
+				array(
+					'type'          => 'outcomes',
+					'id'            => 'built-to-stay-green',
+					'variant'       => 'tint',
+					'title'         => __( 'Built to Stay Green', 'testro' ),
+					'intro'         => __( 'A common worry with any codeless test automation platform is upkeep. theTestRo handles this with a few smart defaults, so tests stay stable over time:', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'crosshair',
+							'title'       => __( 'Multiple Backup Selectors', 'testro' ),
+							'description' => __( 'Each step gets more than one way to find an element. A small design tweak won\'t break your test.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Built-In Auto-Retries', 'testro' ),
+							'description' => __( 'Flaky steps get a second try automatically, instead of failing right away.', 'testro' ),
+						),
+						array(
+							'icon'        => 'clock',
+							'title'       => __( 'Smart Waits', 'testro' ),
+							'description' => __( 'Tests wait for key background calls to finish before moving forward. Fewer false failures, less noise.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is scriptless test automation built to last, not just built to launch fast.', 'testro' ),
+				),
+
+				/* ---------------------------------------------------------- */
+				array(
+					'type'          => 'outcomes',
+					'id'            => 'who-its-for',
+					'variant'       => 'tint',
+					'title'         => __( 'Who It\'s For', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'user-check',
-							'title'       => __( 'Empower Non-Technical Teams', 'testro' ),
-							'description' => __( 'Enable QA analysts, business users, and product owners to build automation without programming experience.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Lower Testing Costs', 'testro' ),
-							'description' => __( 'Reduce development effort and long-term maintenance expenses through intelligent automation.', 'testro' ),
+							'title'       => __( 'Manual Testers', 'testro' ),
+							'description' => __( 'Turn your existing test cases into automated ones. No coding course needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Higher Test Coverage', 'testro' ),
-							'description' => __( 'Automate more business-critical workflows while increasing overall software quality.', 'testro' ),
+							'title'       => __( 'QA Teams', 'testro' ),
+							'description' => __( 'Free up your automation engineers for the hard problems. Let the whole team help with testing.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Product Managers', 'testro' ),
+							'description' => __( 'Check new features yourself, without waiting on engineering.', 'testro' ),
+						),
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Small Teams & Startups', 'testro' ),
+							'description' => __( 'Get real test coverage without hiring a full automation team.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'QA Leads & Managers', 'testro' ),
+							'description' => __( 'Roll out a repeatable, no-code software testing process across every team, without months of training.', 'testro' ),
 						),
 						array(
 							'icon'        => 'trending-up',
-							'title'       => __( 'Faster Release Cycles', 'testro' ),
-							'description' => __( 'Accelerate software delivery with reliable automated testing integrated into every release.', 'testro' ),
+							'title'       => __( 'Growing Engineering Orgs', 'testro' ),
+							'description' => __( 'Add test coverage as fast as you ship new features. Do it without hiring a new tester for each one.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'platforms-integrations',
-					'eyebrow' => __( 'Supported Platforms & Integrations', 'testro' ),
-					'title'   => __( 'Connected to Your Delivery Ecosystem', 'testro' ),
-					'intro'   => __( 'TheTestRo integrates seamlessly with your existing software delivery ecosystem, enabling continuous quality across every stage of development.', 'testro' ),
-					'hub'     => array(
+					'type'          => 'comparison',
+					'id'            => 'scripted-tools-vs-thetestro',
+					'title'         => __( 'Scripted Tools vs. theTestRo', 'testro' ),
+					'intro'         => __( 'Why More Teams Are Going Scriptless', 'testro' ),
+					'heading_level' => 4,
+					'legacy'        => array(
+						'label' => __( 'Code-Based Tools (Selenium, Cypress)', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'theTestRo', 'testro' ),
+					),
+					'rows'          => array(
+						array(
+							'legacy' => __( 'Needs dedicated automation engineers', 'testro' ),
+							'modern' => __( 'Anyone on the team can build a test', 'testro' ),
+						),
+						array(
+							'legacy' => __( 'Manual selector writing', 'testro' ),
+							'modern' => __( 'Selectors update on their own', 'testro' ),
+						),
+						array(
+							'legacy' => __( 'Slow ramp-up time', 'testro' ),
+							'modern' => __( 'Live in minutes, not weeks', 'testro' ),
+						),
+						array(
+							'legacy' => __( 'Pulls developers off feature work', 'testro' ),
+							'modern' => __( 'Frees developers to build, not maintain tests', 'testro' ),
+						),
+						array(
+							'legacy' => __( 'Steep learning curve', 'testro' ),
+							'modern' => __( 'No coding skills needed at all', 'testro' ),
+						),
+					),
+				),
+
+				/* ---------------------------------------------------------- */
+				array(
+					'type'          => 'architecture',
+					'id'            => 'integrations',
+					'title'         => __( 'Integrations', 'testro' ),
+					'heading_level' => 4,
+					'hub'           => array(
 						'label' => __( 'theTestRo', 'testro' ),
 						'sub'   => __( 'No-code automation hub', 'testro' ),
 						'icon'  => 'sparkles',
 					),
-					'items'   => array(
+					'items'         => array(
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Automate modern web apps across browsers and responsive layouts.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'APIs', 'testro' ),
-							'description' => __( 'Validate REST endpoints and combine API steps with UI flows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Keep defects and test outcomes aligned with your issue tracker.', 'testro' ),
+							'icon'        => 'git-branch',
+							'title'       => __( 'GitHub Integration', 'testro' ),
+							'description' => __( 'Run tests on every pull request, automatically.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Trigger suites from Jenkins pipelines on every build.', 'testro' ),
+							'title'       => __( 'CI/CD Integrations', 'testro' ),
+							'description' => __( 'Works with Jenkins, CircleCI, GitLab, and Azure DevOps out of the box.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Run quality checks on pull requests and deployments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Plug into Azure pipelines for continuous testing gates.', 'testro' ),
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Jira Integration', 'testro' ),
+							'description' => __( 'One-click bug reports, with video, logs, and repro steps included.', 'testro' ),
 						),
 						array(
 							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify teams instantly when suites fail or heal themselves.', 'testro' ),
+							'title'       => __( 'Slack Integration', 'testro' ),
+							'description' => __( 'Get alerts right in the channels your team already checks.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'usecases',
-					'id'      => 'use-cases',
-					'eyebrow' => __( 'Use Cases', 'testro' ),
-					'title'   => __( 'Built for Every Critical Testing Scenario', 'testro' ),
-					'intro'   => __( 'See how theTestRo helps teams automate each testing scenario efficiently using AI-powered no-code automation.', 'testro' ),
-					'tabs'    => array(
-						array(
-							'id'            => 'regression',
-							'label'         => __( 'Regression Testing', 'testro' ),
-							'title'         => __( 'Regression Testing Without the Maintenance Drag', 'testro' ),
-							'description'   => __( 'Protect every release with visual regression suites that theTestRo authors quickly and keeps stable with self-healing as your application changes.', 'testro' ),
-							'illustration'  => 'regression',
-							'bullets'       => array(
-								__( 'Build broad regression coverage with drag-and-drop workflows', 'testro' ),
-								__( 'Re-run suites in parallel across browsers after every build', 'testro' ),
-								__( 'Let AI repair broken locators so regressions stay trustworthy', 'testro' ),
+					'type'          => 'analytics',
+					'id'            => 'visual-reports-dashboards',
+					'title'         => __( 'Visual Reports & Dashboards', 'testro' ),
+					'intro'         => __( 'Raw test data turns into results your whole team can read at a glance. Track pass rates, spot flaky runs, and see exactly which step failed and why — all from one clean dashboard. No spreadsheets. No digging through raw logs to find the one line that matters.', 'testro' ),
+					'heading_level' => 4,
+					'dashboard'     => array(
+						'label'     => __( 'Release readiness', 'testro' ),
+						'score'     => 96,
+						'status'    => __( 'Ready to ship', 'testro' ),
+						'build'     => __( 'Build #2481 · main', 'testro' ),
+						'tiles'     => array(
+							array(
+								'label' => __( 'Pass rate', 'testro' ),
+								'value' => '98.4%',
+								'trend' => __( '+2.1 pts', 'testro' ),
+								'tone'  => 'up',
+							),
+							array(
+								'label' => __( 'Self-healed steps', 'testro' ),
+								'value' => '312',
+								'trend' => __( 'No manual fixes', 'testro' ),
+								'tone'  => 'up',
+							),
+							array(
+								'label' => __( 'Avg. suite duration', 'testro' ),
+								'value' => '4m 12s',
+								'trend' => __( '−38% vs. last month', 'testro' ),
+								'tone'  => 'up',
+							),
+							array(
+								'label' => __( 'Flaky tests', 'testro' ),
+								'value' => '0.6%',
+								'trend' => __( '−4.3 pts', 'testro' ),
+								'tone'  => 'up',
 							),
 						),
-						array(
-							'id'            => 'functional',
-							'label'         => __( 'Functional Testing', 'testro' ),
-							'title'         => __( 'Functional Testing Anyone Can Author', 'testro' ),
-							'description'   => __( 'Capture business rules as visual steps so QA analysts and product owners can validate features without waiting on scripting bandwidth.', 'testro' ),
-							'illustration'  => 'functional',
-							'bullets'       => array(
-								__( 'Translate acceptance criteria into reusable no-code flows', 'testro' ),
-								__( 'Combine UI assertions with AI-assisted step suggestions', 'testro' ),
-								__( 'Share components across teams to keep functional coverage consistent', 'testro' ),
+						'chart'     => array(
+							'title' => __( 'Last 7 executions', 'testro' ),
+							'bars'  => array(
+								array(
+									'label' => __( 'Mon', 'testro' ),
+									'value' => 62,
+								),
+								array(
+									'label' => __( 'Tue', 'testro' ),
+									'value' => 74,
+								),
+								array(
+									'label' => __( 'Wed', 'testro' ),
+									'value' => 58,
+								),
+								array(
+									'label' => __( 'Thu', 'testro' ),
+									'value' => 83,
+								),
+								array(
+									'label' => __( 'Fri', 'testro' ),
+									'value' => 91,
+								),
+								array(
+									'label' => __( 'Sat', 'testro' ),
+									'value' => 78,
+								),
+								array(
+									'label' => __( 'Sun', 'testro' ),
+									'value' => 96,
+								),
 							),
 						),
-						array(
-							'id'            => 'smoke',
-							'label'         => __( 'Smoke Testing', 'testro' ),
-							'title'         => __( 'Fast Smoke Suites for Every Deployment', 'testro' ),
-							'description'   => __( 'Spin up lightweight smoke packs that confirm critical paths after each deploy—scheduled or triggered straight from your CI pipeline.', 'testro' ),
-							'illustration'  => 'smoke',
-							'bullets'       => array(
-								__( 'Prioritize login, checkout, and other go/no-go journeys', 'testro' ),
-								__( 'Schedule nightly or post-deploy smoke runs in minutes', 'testro' ),
-								__( 'Get instant Slack alerts when a smoke gate fails', 'testro' ),
+						'breakdown' => array(
+							array(
+								'label' => __( 'Product defects', 'testro' ),
+								'value' => 12,
+								'tone'  => 'critical',
 							),
-						),
-						array(
-							'id'            => 'end-to-end',
-							'label'         => __( 'End-to-End Testing', 'testro' ),
-							'title'         => __( 'End-to-End Journeys Across UI and APIs', 'testro' ),
-							'description'   => __( 'Model complete customer journeys in one visual canvas—set up data through APIs, drive the UI, and assert outcomes without stitching scripts together.', 'testro' ),
-							'illustration'  => 'e2e',
-							'bullets'       => array(
-								__( 'Mix API and UI steps in a single no-code scenario', 'testro' ),
-								__( 'Reuse workflow blocks for multi-step customer paths', 'testro' ),
-								__( 'Diagnose failures with screenshots, logs, and AI insights', 'testro' ),
+							array(
+								'label' => __( 'Environment issues', 'testro' ),
+								'value' => 5,
+								'tone'  => 'warning',
 							),
-						),
-						array(
-							'id'            => 'cross-browser',
-							'label'         => __( 'Cross-Browser Testing', 'testro' ),
-							'title'         => __( 'Cross-Browser Confidence at Scale', 'testro' ),
-							'description'   => __( 'Design once and execute across Chrome, Firefox, Edge, and Safari so browser quirks never block a release.', 'testro' ),
-							'illustration'  => 'browsers',
-							'bullets'       => array(
-								__( 'Run the same visual suite across major browsers in parallel', 'testro' ),
-								__( 'Compare execution health with unified analytics', 'testro' ),
-								__( 'Catch rendering and interaction issues before customers do', 'testro' ),
-							),
-						),
-						array(
-							'id'            => 'api',
-							'label'         => __( 'API Testing', 'testro' ),
-							'title'         => __( 'API Testing Inside the Same No-Code Platform', 'testro' ),
-							'description'   => __( 'Validate REST endpoints with visual assertions and weave API checks into broader end-to-end flows—no separate tooling required.', 'testro' ),
-							'illustration'  => 'api',
-							'bullets'       => array(
-								__( 'Author API validations without writing request scripts', 'testro' ),
-								__( 'Chain API setup with UI verification in one journey', 'testro' ),
-								__( 'Monitor API health trends alongside UI automation metrics', 'testro' ),
+							array(
+								'label' => __( 'Auto-resolved by AI', 'testro' ),
+								'value' => 83,
+								'tone'  => 'healthy',
 							),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise QA Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Teams rely on theTestRo\'s no-code test automation tool to expand coverage, cut scripting effort, and ship higher-quality software with confidence.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Teams Transformed by No-Code Automation', 'testro' ),
-					'intro'   => __( 'See how QA and product teams deliver faster releases with visual authoring, self-healing suites, and AI-assisted no-code test automation.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'No-Code Test Automation FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'no-code-test-automation',
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'no-code-test-automation',
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-nocode',
-					'title'      => __( 'Ready to Transform Software Testing Without Writing Code?', 'testro' ),
-					'intro'      => __( 'Build reliable automated tests faster with theTestRo\'s AI-powered no-code automation platform. Reduce scripting effort, improve software quality, and accelerate every software release.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'get-started-nocode',
+					'title'         => __( 'Final CTA', 'testro' ),
+					'intro'         => __( 'Start Testing Without Writing a Single Line of Code', 'testro' ),
+					'body'          => __( 'Join teams who ship faster with theTestRo. No scripts. No engineers required. Just faster, more reliable releases — built by the people who already know your product best.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -1015,36 +924,18 @@ function testro_get_product_pages() {
 		'automated-web-application-testing' => array(
 			'slug' => 'automated-web-application-testing',
 			'seo'  => array(
-				'title'       => __( 'Web Testing Tool | Automated Web Application Testing | theTestRo', 'testro' ),
-				'description' => __( 'theTestRo is an AI-powered web testing tool for automated web application testing. Create reliable cross-browser tests, self-heal locators, validate UI changes, and scale execution in CI/CD.', 'testro' ),
+				'title'       => __( 'Best Web Testing Tool for Fast & Reliable Automation', 'testro' ),
+				'description' => __( 'Automate web application testing with theTestRo\'s best web testing tool. Execute reliable cross-browser tests and accelerate software delivery with confidence.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Web Testing', 'testro' ),
 				'title'    => __( 'Best Web Testing Tool for Automated Web Application Testing', 'testro' ),
-				'subtitle' => __( 'Deliver flawless web experiences with theTestRo\'s AI-powered Web Testing platform. Automate end-to-end web application testing across browsers using intelligent test creation, self-healing automation, visual validation, and enterprise-grade execution. Reduce maintenance, improve release confidence, and accelerate software delivery with AI-driven testing.', 'testro' ),
-				'badges'   => array(
-					__( 'Cross-Browser', 'testro' ),
-					__( 'Self-Healing', 'testro' ),
-					__( 'Visual Validation', 'testro' ),
-					__( 'CI/CD Native', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'subtitle' => __( 'theTestRo is a web testing tool built for real user journeys, not just clicks. Write tests in plain English. Run them across every browser. Let AI catch what breaks, before your users do. This is automated web testing built to keep pace with how fast your team ships.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '4+',
-						'label' => __( 'Browsers supported', 'testro' ),
-						'icon'  => 'browsers',
-					),
-					array(
-						'value' => '10X',
-						'label' => __( 'Faster with parallel runs', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '99.9%',
-						'label' => __( 'Web test pass rate', 'testro' ),
-						'icon'  => 'circle-check',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
@@ -1053,134 +944,79 @@ function testro_get_product_pages() {
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'build-reliable-web-tests',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Faster Coverage', 'testro' ),
-					'title'   => __( 'Build Reliable Web Tests Faster', 'testro' ),
-					'intro'   => __( 'Author durable web automation without drowning in scripts. theTestRo combines intelligent authoring, resilient locators, and reusable flows so teams expand coverage in days—not months.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'pen-square',
-							'title'       => __( 'Intelligent Test Creation', 'testro' ),
-							'description' => __( 'Describe web journeys in plain language or assemble visual steps—AI turns intent into executable, maintainable scenarios.', 'testro' ),
-						),
-						array(
-							'icon'        => 'crosshair',
-							'title'       => __( 'Stable Element Targeting', 'testro' ),
-							'description' => __( 'Capture UI elements with multi-strategy locators that stay resilient as layouts, labels, and frameworks evolve.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Reusable Web Components', 'testro' ),
-							'description' => __( 'Package login, search, and checkout blocks once and reuse them across suites to keep coverage consistent.', 'testro' ),
-						),
-					),
+					'type'          => 'feature-grid',
+					'id'            => 'build-reliable-web-tests',
+					'variant'       => 'spotlight',
+					'title'         => __( 'Build Reliable Web Tests Faster', 'testro' ),
+					'intro'         => __( 'Stop losing sprint days to test scripts and syntax errors. theTestRo turns your stories, page flows, or plain-English steps into a working test in minutes, not days. Update any step by typing a new sentence. No code. No rebuild.', 'testro' ),
+					'intro_extra'   => __( 'This kind of web application test automation means your team spends less time maintaining tests and more time building features.', 'testro' ),
+					'heading_level' => 2,
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'test-every-user-journey',
-					'eyebrow' => __( 'End-to-End Coverage', 'testro' ),
-					'title'   => __( 'Test Every User Journey', 'testro' ),
-					'intro'   => __( 'Model the paths customers take—and the business workflows behind them—so every release proves the experiences that matter most.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Login', 'testro' ),
-							'title'       => __( 'Authenticate securely', 'testro' ),
-							'description' => __( 'Validate sign-in, SSO, and session handling across browsers and environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'stage'       => __( 'Browse', 'testro' ),
-							'title'       => __( 'Navigate the product', 'testro' ),
-							'description' => __( 'Exercise catalog, search, and navigation flows the way real users do.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'stage'       => __( 'Checkout', 'testro' ),
-							'title'       => __( 'Complete critical transactions', 'testro' ),
-							'description' => __( 'Prove payments, forms, and multi-step conversions under realistic conditions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'stage'       => __( 'Confirm', 'testro' ),
-							'title'       => __( 'Assert the outcome', 'testro' ),
-							'description' => __( 'Confirm success states, notifications, and data integrity after each journey.', 'testro' ),
-						),
-					),
-				),
-
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'journey-coverage-types',
-					'variant' => 'tint',
-					'columns' => 3,
-					'eyebrow' => __( 'Journey Types', 'testro' ),
-					'title'   => __( 'Cover Flows That Drive Revenue and Trust', 'testro' ),
-					'intro'   => __( 'Prioritize the journeys that protect conversions, compliance, and brand experience.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'test-every-user-journey',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Test Every User Journey', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'activity',
 							'title'       => __( 'User Flows', 'testro' ),
-							'description' => __( 'Automate click-paths customers follow from landing pages through core product actions.', 'testro' ),
+							'description' => __( 'Cover logins, sign-ups, search, and checkout, the paths your users take every day.', 'testro' ),
 						),
 						array(
 							'icon'        => 'folder-tree',
 							'title'       => __( 'Business Workflows', 'testro' ),
-							'description' => __( 'Validate multi-role processes spanning forms, approvals, and backend-triggered UI states.', 'testro' ),
+							'description' => __( 'Test multi-step processes like approvals, payments, and order tracking, start to finish.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
 							'title'       => __( 'Critical Paths', 'testro' ),
-							'description' => __( 'Guard the go/no-go journeys that must pass before every production release.', 'testro' ),
+							'description' => __( 'Protect the exact flows that drive revenue, so a bad release never slips through.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'A single missed step in a checkout flow can cost real money. theTestRo\'s web test automation is built to catch that kind of gap before it reaches production, not after a customer reports it.', 'testro' ),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'ai-web-test-authoring',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Authoring', 'testro' ),
-					'title'   => __( 'AI-Powered Web Test Authoring', 'testro' ),
-					'intro'   => __( 'Turn requirements into runnable web tests faster with AI assistance that understands application context—not just selectors.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-web-test-authoring',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'AI-Powered Web Test Authoring', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'sparkles',
-							'title'       => __( 'Natural Language Scenarios', 'testro' ),
-							'description' => __( 'Describe what to verify in plain English and let AI draft executable web test steps your team can refine.', 'testro' ),
+							'title'       => __( 'Natural Language Test Creation', 'testro' ),
+							'description' => __( 'Type "Log in and add an item to the cart." Get a working test back in seconds.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
-							'title'       => __( 'Smart Step Suggestions', 'testro' ),
-							'description' => __( 'Receive AI recommendations for assertions, waits, and alternate paths as you author critical journeys.', 'testro' ),
+							'title'       => __( 'AI Test Generation', 'testro' ),
+							'description' => __( 'Turn a user story, PRD, or design file into a full test. Edge cases included.', 'testro' ),
 						),
 						array(
 							'icon'        => 'scan-eye',
-							'title'       => __( 'Intelligent Object Recognition', 'testro' ),
-							'description' => __( 'Identify UI elements using attributes, structure, and context so tests survive redesigns.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'AI Test Data Generation', 'testro' ),
-							'description' => __( 'Generate realistic form inputs and edge-case data to expand coverage without manual spreadsheet work.', 'testro' ),
+							'title'       => __( 'Visual Test Builder', 'testro' ),
+							'description' => __( 'Prefer to see it? Build and edit tests by clicking through your app directly.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'theTestRo brings real AI web testing to every step, not just the first draft. It keeps learning from every test run.', 'testro' ),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'browsers',
-					'id'      => 'execute-across-browsers',
-					'eyebrow' => __( 'Cross-Browser Execution', 'testro' ),
-					'title'   => __( 'Execute Tests Across Every Browser', 'testro' ),
-					'intro'   => __( 'Run the same suite in parallel across Chrome, Edge, Firefox, and Safari so browser quirks never block a release.', 'testro' ),
-					'items'   => array(
+					'type'          => 'browsers',
+					'id'            => 'execute-across-browsers',
+					'title'         => __( 'Execute Tests Across Every Browser', 'testro' ),
+					'intro'         => __( 'Run the same web test across every browser your users actually use:', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'name'     => __( 'Chrome', 'testro' ),
 							'status'   => __( 'Running', 'testro' ),
@@ -1206,205 +1042,171 @@ function testro_get_product_pages() {
 							'tone'     => 'visual',
 						),
 					),
-					'parallel' => array(
+					'parallel'      => array(
 						'title'       => __( 'Parallel Execution', 'testro' ),
-						'description' => __( 'Fan suites out across cloud browsers simultaneously—cut cycle time without sacrificing coverage.', 'testro' ),
-						'stat'        => '10X',
-						'stat_label'  => __( 'faster suites', 'testro' ),
+						'description' => __( 'Run thousands of tests at once, so a full regression suite finishes in minutes, not hours.', 'testro' ),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'healing',
-					'id'      => 'intelligent-web-maintenance',
-					'eyebrow' => __( 'Resilient Automation', 'testro' ),
-					'title'   => __( 'Intelligent Web Test Maintenance', 'testro' ),
-					'intro'   => __( 'When the UI shifts, theTestRo repairs broken steps automatically so web suites stay green without waiting on manual locator fixes.', 'testro' ),
-					'steps'   => array(
-						array(
-							'icon'  => 'alert-octagon',
-							'label' => __( 'Broken Locator', 'testro' ),
-						),
-						array(
-							'icon'  => 'scan-eye',
-							'label' => __( 'AI Detects', 'testro' ),
-						),
-						array(
-							'icon'  => 'wand',
-							'label' => __( 'Auto-Heals', 'testro' ),
-						),
-						array(
-							'icon'  => 'circle-check',
-							'label' => __( 'Execution Continues', 'testro' ),
-						),
-					),
-					'items'   => array(
+					'type'          => 'healing',
+					'id'            => 'intelligent-web-maintenance',
+					'title'         => __( 'Intelligent Web Test Maintenance', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'heart-pulse',
 							'title'       => __( 'Self-Healing Locators', 'testro' ),
-							'description' => __( 'Broken selectors are repaired mid-run using alternate strategies and element fingerprints.', 'testro' ),
+							'description' => __( 'Your page structure shifts. theTestRo finds the right element on its own.', 'testro' ),
 						),
 						array(
 							'icon'        => 'crosshair',
 							'title'       => __( 'Dynamic Element Detection', 'testro' ),
-							'description' => __( 'Recognize elements that move, rename, or re-render without rewriting every step.', 'testro' ),
+							'description' => __( 'Handles dropdowns, pop-ups, and content that loads after the page does.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
 							'title'       => __( 'Automatic Test Updates', 'testro' ),
-							'description' => __( 'Persist healed locators back into the suite so tomorrow\'s run starts already stable.', 'testro' ),
+							'description' => __( 'Tests adjust to small UI changes. No failing. No waiting on a fix.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'visual-diff',
-					'id'      => 'validate-ui-changes',
-					'eyebrow' => __( 'Visual Regression', 'testro' ),
-					'title'   => __( 'Validate Every UI Change', 'testro' ),
-					'intro'   => __( 'Catch layout shifts, styling regressions, and missing components before customers do—with AI-assisted visual comparison across browsers.', 'testro' ),
-					'before'  => array(
-						'label' => __( 'Baseline', 'testro' ),
-						'note'  => __( 'Approved UI', 'testro' ),
-					),
-					'after'   => array(
-						'label' => __( 'Current build', 'testro' ),
-						'note'  => __( 'Diff detected', 'testro' ),
-					),
-					'diff'    => array(
-						'label'  => __( 'Visual diff', 'testro' ),
-						'change' => __( '3 regions changed', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'validate-ui-changes',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Validate Every UI Change', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'        => 'scan-eye',
-							'title'       => __( 'Pixel-Aware Comparisons', 'testro' ),
-							'description' => __( 'Highlight meaningful visual deltas while filtering noise from fonts and anti-aliasing.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'UI Validation', 'testro' ),
+							'description' => __( 'Confirm buttons, forms, and menus all work as designed, on every release.', 'testro' ),
 						),
 						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Baselines', 'testro' ),
-							'description' => __( 'Maintain expected visuals per browser so Chrome-only quirks never hide Safari issues.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Visual Regression Testing', 'testro' ),
+							'description' => __( 'Catch layout shifts and broken styles before a user ever sees them.', 'testro' ),
 						),
 						array(
 							'icon'        => 'filter-check',
-							'title'       => __( 'Reviewable Diffs', 'testro' ),
-							'description' => __( 'Approve or reject changes in context so intentional redesigns become the new baseline.', 'testro' ),
+							'title'       => __( 'Layout Verification', 'testro' ),
+							'description' => __( 'Compare screenshots across builds. Spot changes that shouldn\'t be there.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Release Visual Gates', 'testro' ),
-							'description' => __( 'Block deployments when critical screens regress beyond your accepted thresholds.', 'testro' ),
+							'icon'        => 'browsers',
+							'title'       => __( 'Responsive Testing', 'testro' ),
+							'description' => __( 'Check your site across screen sizes, from desktop down to mobile.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'debug-failures-faster',
-					'variant' => 'brand',
-					'columns' => 4,
-					'eyebrow' => __( 'Diagnostics', 'testro' ),
-					'title'   => __( 'Debug Test Failures Faster', 'testro' ),
-					'intro'   => __( 'Every failure arrives with the evidence engineers need—screenshots, video, logs, and AI root-cause hints in one place.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'debug-failures-faster',
+					'variant'       => 'brand',
+					'columns'       => 4,
+					'title'         => __( 'Debug Test Failures Faster', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'scan-eye',
-							'title'       => __( 'Screenshot Capture', 'testro' ),
-							'description' => __( 'See the exact UI state at the failing step across every browser under test.', 'testro' ),
+							'title'       => __( 'Screenshots', 'testro' ),
+							'description' => __( 'See the exact moment a test failed, no guesswork needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'activity',
-							'title'       => __( 'Session Video', 'testro' ),
-							'description' => __( 'Replay the full interaction timeline to reproduce timing and navigation issues.', 'testro' ),
+							'title'       => __( 'Video Recording', 'testro' ),
+							'description' => __( 'Watch a full replay of the run, step by step.', 'testro' ),
 						),
 						array(
 							'icon'        => 'code',
 							'title'       => __( 'Execution Logs', 'testro' ),
-							'description' => __( 'Inspect step-level commands, network signals, and assertion details without leaving the platform.', 'testro' ),
+							'description' => __( 'Dig into console and network activity behind every test.', 'testro' ),
 						),
 						array(
 							'icon'        => 'stethoscope',
-							'title'       => __( 'AI Analysis', 'testro' ),
-							'description' => __( 'Separate product defects from environment noise with intelligent failure classification.', 'testro' ),
+							'title'       => __( 'Root Cause Analysis', 'testro' ),
+							'description' => __( 'AI tells you whether it\'s a real bug, a flaky step, or an environment issue.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'No more digging through a 500-test suite to find the one line that matters. theTestRo surfaces it for you.', 'testro' ),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'scale-web-testing-cicd',
-					'eyebrow' => __( 'CI/CD Integration', 'testro' ),
-					'title'   => __( 'Scale Web Testing in CI/CD', 'testro' ),
-					'intro'   => __( 'Trigger web suites from the pipelines your teams already trust—and gate releases on quality signals that matter.', 'testro' ),
-					'hub'     => array(
+					'type'          => 'architecture',
+					'id'            => 'scale-web-testing-cicd',
+					'title'         => __( 'Scale Web Testing in CI/CD', 'testro' ),
+					'heading_level' => 4,
+					'hub'           => array(
 						'label' => __( 'theTestRo', 'testro' ),
 						'sub'   => __( 'Web testing hub', 'testro' ),
 						'icon'  => 'sparkles',
 					),
-					'items'   => array(
+					'items'         => array(
 						array(
 							'icon'        => 'infinity',
 							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Kick off parallel browser suites on every Jenkins build.', 'testro' ),
+							'description' => '',
 						),
 						array(
 							'icon'        => 'git-branch',
 							'title'       => __( 'GitHub Actions', 'testro' ),
-							'description' => __( 'Run quality checks on pull requests and deployment workflows.', 'testro' ),
+							'description' => '',
 						),
 						array(
 							'icon'        => 'cloud',
 							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Plug into Azure pipelines for continuous web testing gates.', 'testro' ),
+							'description' => '',
 						),
 						array(
 							'icon'        => 'folder-tree',
 							'title'       => __( 'GitLab', 'testro' ),
-							'description' => __( 'Integrate with GitLab CI to keep merge requests release-ready.', 'testro' ),
+							'description' => '',
 						),
 						array(
 							'icon'        => 'plug',
 							'title'       => __( 'Webhooks', 'testro' ),
-							'description' => __( 'Trigger or notify from any system with flexible webhook hooks.', 'testro' ),
+							'description' => __( 'Trigger a test run the moment new code lands, no extra setup required.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'      => 'analytics',
-					'id'        => 'web-testing-analytics',
-					'eyebrow'   => __( 'Quality Intelligence', 'testro' ),
-					'title'     => __( 'Web Testing Analytics', 'testro' ),
-					'intro'     => __( 'Track pass rates, browser health, self-healing impact, and release readiness from a single web testing dashboard.', 'testro' ),
-					'items'     => array(
+					'type'          => 'analytics',
+					'id'            => 'web-testing-analytics',
+					'title'         => __( 'Web Testing Analytics', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'gauge',
-							'title'       => __( 'Browser Health Trends', 'testro' ),
-							'description' => __( 'Compare stability across Chrome, Firefox, Safari, and Edge over time.', 'testro' ),
+							'title'       => __( 'Test Reports', 'testro' ),
+							'description' => __( 'Clear, shareable summaries after every run.', 'testro' ),
 						),
 						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Failure Classification', 'testro' ),
-							'description' => __( 'Automatically group product defects, flaky steps, and environment issues.', 'testro' ),
+							'icon'        => 'trending-up',
+							'title'       => __( 'Historical Trends', 'testro' ),
+							'description' => __( 'See how pass rates and stability shift release over release.', 'testro' ),
 						),
 						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Self-Healing Impact', 'testro' ),
-							'description' => __( 'Quantify how many steps AI repaired so maintenance effort stays visible.', 'testro' ),
+							'icon'        => 'activity',
+							'title'       => __( 'Execution Metrics', 'testro' ),
+							'description' => __( 'Track run time, flaky rate, and coverage in one place.', 'testro' ),
 						),
 						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Release Readiness', 'testro' ),
-							'description' => __( 'Know when critical web journeys are green enough to ship.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Dashboard', 'testro' ),
+							'description' => __( 'One view for your whole team to check before every ship.', 'testro' ),
 						),
 					),
-					'dashboard' => array(
+					'dashboard'     => array(
 						'label'     => __( 'Web release readiness', 'testro' ),
 						'score'     => 97,
 						'status'    => __( 'Ready to ship', 'testro' ),
@@ -1490,117 +1292,73 @@ function testro_get_product_pages() {
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-ready-web',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Enterprise Ready', 'testro' ),
-					'title'   => __( 'Enterprise-Ready Web Testing', 'testro' ),
-					'intro'   => __( 'Give QA, engineering, and security the controls they need to scale web automation across the organization.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-ready-web',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Enterprise-Ready Web Testing', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
 							'icon'        => 'user-check',
 							'title'       => __( 'Team Collaboration', 'testro' ),
-							'description' => __( 'Share suites, components, and results so SDETs and QA leads work from one source of truth.', 'testro' ),
+							'description' => __( 'Share tests, results, and notes across your whole QA team.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-lock',
 							'title'       => __( 'Role-Based Access', 'testro' ),
-							'description' => __( 'Control who can author, execute, and approve changes with granular permissions.', 'testro' ),
+							'description' => __( 'Control who can edit, run, or approve a test.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-check',
 							'title'       => __( 'Security', 'testro' ),
-							'description' => __( 'Enterprise-grade controls designed for regulated environments and sensitive applications.', 'testro' ),
+							'description' => __( 'Built with strong data protection in mind, at every step.', 'testro' ),
 						),
 						array(
 							'icon'        => 'cloud',
 							'title'       => __( 'Cloud Execution', 'testro' ),
-							'description' => __( 'Scale browser capacity elastically without managing local device farms.', 'testro' ),
+							'description' => __( 'Run at scale. No servers to set up or manage yourself.', 'testro' ),
 						),
 					),
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'supported-browsers-platforms',
-					'variant' => 'tint',
-					'columns' => 4,
-					'eyebrow' => __( 'Coverage Matrix', 'testro' ),
-					'title'   => __( 'Supported Browsers & Platforms', 'testro' ),
-					'intro'   => __( 'Validate web experiences where your customers live—across major browsers and operating systems.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Chrome', 'testro' ),
-							'description' => __( 'Full automation and visual checks on the world\'s most-used browser.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Firefox', 'testro' ),
-							'description' => __( 'Catch Gecko-specific rendering and interaction differences early.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Safari', 'testro' ),
-							'description' => __( 'Protect Apple user journeys with reliable WebKit coverage.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Edge', 'testro' ),
-							'description' => __( 'Validate Chromium Edge behavior for enterprise desktops.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Windows', 'testro' ),
-							'description' => __( 'Execute suites on Windows agents for corporate environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'macOS', 'testro' ),
-							'description' => __( 'Run Safari and desktop workflows on macOS infrastructure.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Linux', 'testro' ),
-							'description' => __( 'Scale headless and headed runs on Linux CI workers.', 'testro' ),
-						),
-					),
+					'type'          => 'feature-grid',
+					'id'            => 'supported-browsers-platforms',
+					'variant'       => 'tint',
+					'title'         => __( 'Supported Browsers & Platforms', 'testro' ),
+					'intro'         => __( 'theTestRo covers every major browser and system your users touch. That includes Chrome, Firefox, Safari, and Edge, on Windows, macOS, and Linux. Add mobile web coverage too, for the full picture of how real users see your site.', 'testro' ),
+					'intro_extra'   => __( 'Run a single-page app? A big multi-tenant platform? A site built on React, Angular, or Vue? theTestRo handles all of it. It deals with dynamic content and slow-loading parts on its own, no extra setup. You won\'t need to write custom waits every time your team ships something new.', 'testro' ),
+					'heading_level' => 5,
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise QA Teams', 'testro' ),
-					'title'   => __( 'Chosen for Mission-Critical Web Quality', 'testro' ),
-					'intro'   => __( 'Engineering teams rely on theTestRo\'s web testing tool to protect customer journeys, accelerate releases, and keep cross-browser suites trustworthy.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Teams Shipping Better Web Experiences', 'testro' ),
-					'intro'   => __( 'See how QA and DevOps teams cut maintenance, expand browser coverage, and release web applications with higher confidence using AI-powered web testing.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Web Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'automated-web-application-testing',
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'automated-web-application-testing',
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-web-testing',
-					'title'      => __( 'Start Testing Web Applications with AI', 'testro' ),
-					'intro'      => __( 'Transform your web testing with AI-powered automation designed for modern software teams. Create reliable web tests faster, reduce maintenance, validate every user journey, and release software with confidence using theTestRo.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'get-started-web-testing',
+					'title'         => __( 'Start Testing Web Applications with AI', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s automated web testing to catch bugs early, cover every browser, and ship with real confidence.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -1609,702 +1367,262 @@ function testro_get_product_pages() {
 		'automated-api-testing' => array(
 			'slug' => 'automated-api-testing',
 			'seo'  => array(
-				'title'       => __( 'API Testing Tool | Automated REST & SOAP API Testing | theTestRo', 'testro' ),
-				'description' => __( 'theTestRo is an AI-powered API testing tool for automated REST, SOAP, and GraphQL testing. Import OpenAPI and Postman collections, self-heal API tests, and scale execution in CI/CD.', 'testro' ),
+				'title'       => __( 'Best API Testing Tool for Automated API Testing | theTestRo', 'testro' ),
+				'description' => __( 'Automate API testing with theTestRo\'s best API testing tool. Test REST APIs faster, improve test coverage, and deliver reliable software with confidence.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered API Testing', 'testro' ),
 				'title'    => __( 'Best API Testing Tool for Faster API Automation', 'testro' ),
-				'subtitle' => __( 'Accelerate API quality with theTestRo\'s AI-powered API Testing platform. Design, automate, execute, and validate REST, SOAP, and modern API workflows using intelligent automation, self-healing tests, and enterprise-grade execution. Deliver reliable APIs faster with AI-assisted testing built for modern development teams.', 'testro' ),
-				'badges'   => array(
-					__( 'REST & SOAP', 'testro' ),
-					__( 'OpenAPI Import', 'testro' ),
-					__( 'Self-Healing', 'testro' ),
-					__( 'CI/CD Native', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'subtitle' => __( 'theTestRo is the best API testing tool for teams who want speed and accuracy without the busywork. Import a spec, chain a request into a full user journey, and let AI catch what breaks, before your users do.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3X',
-						'label' => __( 'Faster API coverage', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '99.9%',
-						'label' => __( 'API test pass rate', 'testro' ),
-						'icon'  => 'circle-check',
-					),
-					array(
-						'value' => '10X',
-						'label' => __( 'Parallel cloud speed', 'testro' ),
-						'icon'  => 'cloud',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 2. Unified API Testing ---------------------------------- */
+				/* 2. Import a Spec, Get Working Tests --------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'unified-api-testing',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Unified Platform', 'testro' ),
-					'title'   => __( 'API Testing Connected to the Full Testing Lifecycle', 'testro' ),
-					'intro'   => __( 'Validate APIs in isolation, combine them with UI automation, and prove complete business flows—all inside one AI-powered platform.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'import-a-spec',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Import a Spec, Get Working Tests', 'testro' ),
+					'intro'         => __( 'From Spec to Test Suite in Minutes', 'testro' ),
+					'intro_extra'   => __( 'Skip the blank page. Bring in your Postman collection or Swagger/OpenAPI file, and theTestRo reads it, finds every endpoint, and builds the requests for you. What used to take a sprint to hand-write now takes minutes.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'One-Click Import', 'testro' ),
+							'description' => __( 'Upload a Postman or OpenAPI file. Get runnable tests back right away.', 'testro' ),
+						),
 						array(
 							'icon'        => 'layers-api',
-							'title'       => __( 'Test APIs Independently', 'testro' ),
-							'description' => __( 'Validate APIs in isolation to identify issues early in the development lifecycle.', 'testro' ),
+							'title'       => __( 'Auto-Detected Endpoints', 'testro' ),
+							'description' => __( 'theTestRo maps out your routes, methods, and payloads on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Assertions Built In', 'testro' ),
+							'description' => __( 'Status codes, headers, and response body checks get added automatically, no manual setup.', 'testro' ),
+						),
+					),
+				),
+
+				/* 3. Test APIs Alone or Inside a Full Journey ------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'test-apis-alone-or-full-journey',
+					'columns'       => 3,
+					'title'         => __( 'Test APIs Alone or Inside a Full Journey', 'testro' ),
+					'intro'         => __( 'Some checks just need a fast request and response. Others need the full picture.', 'testro' ),
+					'outro'         => __( 'This shows what real API test automation looks like when one mode doesn\'t box it in.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'Standalone API Tests', 'testro' ),
+							'description' => __( 'Validate a single endpoint quickly, no browser required.', 'testro' ),
 						),
 						array(
 							'icon'        => 'browsers',
-							'title'       => __( 'Combine API + UI Testing', 'testro' ),
-							'description' => __( 'Build complete automation scenarios by combining backend API validation with frontend UI testing.', 'testro' ),
+							'title'       => __( 'Chained API + UI Flows', 'testro' ),
+							'description' => __( 'Call an API mid-journey, confirm the backend state, then continue through the UI to see it reflected correctly.', 'testro' ),
 						),
 						array(
 							'icon'        => 'folder-tree',
-							'title'       => __( 'End-to-End Business Flow Validation', 'testro' ),
-							'description' => __( 'Verify complete business processes by testing every layer of the application stack.', 'testro' ),
+							'title'       => __( 'Reusable Step Groups', 'testro' ),
+							'description' => __( 'Save common sequences like login and token setup once, then reuse them across every test.', 'testro' ),
 						),
 					),
 				),
 
-				/* 3. Design & Create API Tests ---------------------------- */
+				/* 4. Validate Every Response ------------------------------ */
 				array(
-					'type'    => 'bento',
-					'id'      => 'design-create-api-tests',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Author Faster', 'testro' ),
-					'title'   => __( 'Design & Create API Tests Without the Scripting Drag', 'testro' ),
-					'intro'   => __( 'Generate, import, and refine automated API tests with AI assistance and the collections your teams already maintain.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Natural Language API Test Authoring', 'testro' ),
-							'description' => __( 'Create API tests using AI-assisted natural language instead of writing complex scripts.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'Import Swagger / OpenAPI Specifications', 'testro' ),
-							'description' => __( 'Automatically generate API tests by importing OpenAPI or Swagger documentation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Import Postman Collections', 'testro' ),
-							'description' => __( 'Reuse existing Postman collections and accelerate automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'pen-square',
-							'title'       => __( 'Request Builder', 'testro' ),
-							'description' => __( 'Create API requests visually with an intuitive interface.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Environment Variables', 'testro' ),
-							'description' => __( 'Manage environments, credentials, and configurations across multiple deployments.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Request & Response Validation ------------------------ */
-				array(
-					'type'    => 'request-response',
-					'id'      => 'api-request-response-validation',
-					'eyebrow' => __( 'Precise Assertions', 'testro' ),
-					'title'   => __( 'API Request & Response Validation', 'testro' ),
-					'intro'   => __( 'Inspect every request and response, then assert status codes, payloads, headers, and schemas with confidence.', 'testro' ),
-					'request' => array(
-						'method' => 'POST',
-						'path'   => '/api/v1/orders',
-						'body'   => array(
-							'{',
-							'  "sku": "PRO-42",',
-							'  "qty": 2',
-							'}',
-						),
-					),
-					'response' => array(
-						'status' => '201 Created',
-						'body'   => array(
-							'{',
-							'  "id": "ord_9182",',
-							'  "status": "confirmed"',
-							'}',
-						),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Status Code Validation', 'testro' ),
-							'description' => __( 'Verify expected HTTP response codes.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'Response Body Assertions', 'testro' ),
-							'description' => __( 'Validate response content accurately.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Header Validation', 'testro' ),
-							'description' => __( 'Ensure headers contain the correct values.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'validate-every-response',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Validate Every Response, Not Just the Status Code', 'testro' ),
+					'intro'         => __( 'Go Deeper Than "It Returned 200"', 'testro' ),
+					'intro_extra'   => __( 'A passing status code doesn\'t mean the response was actually correct. A field could be missing, a value could be wrong, or the shape of the data could have quietly changed. theTestRo checks further:', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'filter-check',
-							'title'       => __( 'JSON Schema Validation', 'testro' ),
-							'description' => __( 'Automatically validate JSON responses against predefined schemas.', 'testro' ),
+							'title'       => __( 'Schema & Contract Validation', 'testro' ),
+							'description' => __( 'Catch a broken response structure before it reaches your frontend.', 'testro' ),
 						),
 						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'XML Validation', 'testro' ),
-							'description' => __( 'Support XML response verification.', 'testro' ),
-						),
-						array(
-							'icon'        => 'crosshair',
-							'title'       => __( 'Data Assertions', 'testro' ),
-							'description' => __( 'Confirm returned data matches expected business rules.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Advanced API Testing Capabilities -------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'advanced-api-capabilities',
-					'variant' => 'tint',
-					'columns' => 3,
-					'eyebrow' => __( 'Protocol Coverage', 'testro' ),
-					'title'   => __( 'Advanced API Testing Capabilities', 'testro' ),
-					'intro'   => __( 'Cover modern and legacy API surfaces with authentication, CRUD flows, and data-driven scenarios built for enterprise QA.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'REST API Testing', 'testro' ),
-							'description' => __( 'Automate REST endpoints with requests, chaining, and precise response assertions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'SOAP API Testing', 'testro' ),
-							'description' => __( 'Validate SOAP services and XML payloads alongside your modern API suites.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'GraphQL Testing', 'testro' ),
-							'description' => __( 'Exercise GraphQL queries and mutations with structured response validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Authentication', 'testro' ),
-							'description' => __( 'Secure APIs with OAuth, Bearer tokens, API keys, and environment-scoped credentials.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'CRUD Operation Testing', 'testro' ),
-							'description' => __( 'Prove create, read, update, and delete flows across interdependent endpoints.', 'testro' ),
+							'icon'        => 'code',
+							'title'       => __( 'Payload & Field-Level Checks', 'testro' ),
+							'description' => __( 'Confirm the exact data your API sends back, not just that it sent something.', 'testro' ),
 						),
 						array(
 							'icon'        => 'database',
-							'title'       => __( 'Data-Driven API Testing', 'testro' ),
-							'description' => __( 'Parameterize requests with datasets to expand coverage without duplicating tests.', 'testro' ),
+							'title'       => __( 'Data-Driven Testing', 'testro' ),
+							'description' => __( 'Run the same test with many input sets from CSV, Excel, or a database. No duplicate test cases are needed.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. AI-Powered API Automation ---------------------------- */
+				/* 5. Self-Healing API Tests ------------------------------- */
 				array(
-					'type'    => 'healing',
-					'id'      => 'ai-powered-api-automation',
-					'eyebrow' => __( 'AI Automation', 'testro' ),
-					'title'   => __( 'AI-Powered API Automation That Stays Reliable', 'testro' ),
-					'intro'   => __( 'Generate API scenarios with AI, heal broken assertions as contracts evolve, and diagnose failures with intelligent insights.', 'testro' ),
-					'steps'   => array(
+					'type'          => 'healing',
+					'id'            => 'self-healing-api-tests',
+					'title'         => __( 'Self-Healing API Tests', 'testro' ),
+					'intro'         => __( 'When Your API Changes, Your Tests Keep Up', 'testro' ),
+					'intro_extra'   => __( 'Endpoints shift. Fields get renamed. Schemas evolve. theTestRo adapts instead of breaking:', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'  => 'layers-api',
-							'label' => __( 'API Test', 'testro' ),
-						),
-						array(
-							'icon'  => 'sparkles',
-							'label' => __( 'AI Analysis', 'testro' ),
-						),
-						array(
-							'icon'  => 'heart-pulse',
-							'label' => __( 'Auto-Healing', 'testro' ),
-						),
-						array(
-							'icon'  => 'circle-check',
-							'label' => __( 'Successful Execution', 'testro' ),
-						),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Generation', 'testro' ),
-							'description' => __( 'Automatically generate API test scenarios using AI.', 'testro' ),
+							'icon'        => 'activity',
+							'title'       => __( 'Schema Drift Detection', 'testro' ),
+							'description' => __( 'Spot new fields, changed structures, or updated endpoints as soon as they happen.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
-							'title'       => __( 'Self-Healing API Tests', 'testro' ),
-							'description' => __( 'Adapt API tests automatically as endpoints evolve.', 'testro' ),
-						),
-						array(
-							'icon'        => 'stethoscope',
-							'title'       => __( 'Intelligent Failure Analysis', 'testro' ),
-							'description' => __( 'Identify the root cause of failures using AI insights.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Auto-Suggest Assertions', 'testro' ),
-							'description' => __( 'Receive intelligent assertion recommendations while creating tests.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Smart Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce maintenance with AI-driven optimization.', 'testro' ),
-						),
-					),
-				),
-
-				/* 7. End-to-End API Workflows ----------------------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'end-to-end-api-workflows',
-					'eyebrow' => __( 'Workflow Automation', 'testro' ),
-					'title'   => __( 'End-to-End API Workflows', 'testro' ),
-					'intro'   => __( 'Chain requests, verify data, and confirm UI outcomes in one continuous automated journey.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'layers-api',
-							'stage'       => __( 'API 1', 'testro' ),
-							'title'       => __( 'Chain Multiple API Requests', 'testro' ),
-							'description' => __( 'Automate complex API workflows across dependent endpoints.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'stage'       => __( 'API 2', 'testro' ),
-							'title'       => __( 'Pass Context Forward', 'testro' ),
-							'description' => __( 'Reuse tokens, IDs, and payloads between steps automatically.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'stage'       => __( 'Database', 'testro' ),
-							'title'       => __( 'Backend Data Verification', 'testro' ),
-							'description' => __( 'Ensure APIs correctly update application data.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'stage'       => __( 'UI', 'testro' ),
-							'title'       => __( 'API + UI Validation', 'testro' ),
-							'description' => __( 'Verify backend and frontend behavior together.', 'testro' ),
-						),
-						array(
-							'icon'        => 'circle-check',
-							'stage'       => __( 'Success', 'testro' ),
-							'title'       => __( 'Database Validation', 'testro' ),
-							'description' => __( 'Validate database changes after API execution.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. Execute API Tests at Scale --------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'execute-api-tests-at-scale',
-					'variant' => 'brand',
-					'columns' => 4,
-					'eyebrow' => __( 'Cloud Execution', 'testro' ),
-					'title'   => __( 'Execute API Tests at Scale', 'testro' ),
-					'intro'   => __( 'Run suites in parallel across environments on elastic cloud infrastructure—without managing local runners.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Parallel Execution', 'testro' ),
-							'description' => __( 'Execute multiple API tests simultaneously.', 'testro' ),
-						),
-						array(
-							'icon'        => 'calendar-sync',
-							'title'       => __( 'Scheduled Test Runs', 'testro' ),
-							'description' => __( 'Run API automation on predefined schedules.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Cross-Environment Testing', 'testro' ),
-							'description' => __( 'Execute tests across development, staging, and production.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Cloud Execution', 'testro' ),
-							'description' => __( 'Scale API testing instantly using cloud infrastructure.', 'testro' ),
-						),
-					),
-				),
-
-				/* 9. CI/CD & DevOps Integration --------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'api-cicd-devops',
-					'eyebrow' => __( 'DevOps Integration', 'testro' ),
-					'title'   => __( 'CI/CD & DevOps Integration', 'testro' ),
-					'intro'   => __( 'Integrate API testing directly into your DevOps pipeline to validate every build automatically and accelerate continuous delivery.', 'testro' ),
-					'hub'     => array(
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'API testing hub', 'testro' ),
-						'icon'  => 'sparkles',
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Trigger parallel API suites on every Jenkins build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub Actions', 'testro' ),
-							'description' => __( 'Gate pull requests with automated API quality checks.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'GitLab CI', 'testro' ),
-							'description' => __( 'Keep merge requests release-ready with API gates.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Plug into Azure pipelines for continuous API validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'CircleCI', 'testro' ),
-							'description' => __( 'Run API suites in CircleCI workflows on every commit.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Bamboo', 'testro' ),
-							'description' => __( 'Connect Bamboo plans to cloud-scale API execution.', 'testro' ),
-						),
-					),
-				),
-
-				/* 10. API Test Analytics ---------------------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'api-test-analytics',
-					'eyebrow'   => __( 'Quality Intelligence', 'testro' ),
-					'title'     => __( 'API Test Analytics', 'testro' ),
-					'intro'     => __( 'Monitor request logs, success rates, failure trends, and API performance from a centralized dashboard.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Execution Reports', 'testro' ),
-							'description' => __( 'Access comprehensive execution reports.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'Request & Response Logs', 'testro' ),
-							'description' => __( 'Inspect every request and response.', 'testro' ),
-						),
-						array(
-							'icon'        => 'stethoscope',
-							'title'       => __( 'Failure Analysis', 'testro' ),
-							'description' => __( 'Use AI insights to identify issues faster.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Historical Trends', 'testro' ),
-							'description' => __( 'Track API quality over time.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Dashboard & Metrics', 'testro' ),
-							'description' => __( 'Monitor API testing health through centralized dashboards.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'API release readiness', 'testro' ),
-						'score'     => 98,
-						'status'    => __( 'APIs healthy', 'testro' ),
-						'build'     => __( 'Build #4412 · main', 'testro' ),
-						'tiles'     => array(
-							array(
-								'label' => __( 'Success rate', 'testro' ),
-								'value' => '99.4%',
-								'trend' => __( '+0.8 pts', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Avg latency', 'testro' ),
-								'value' => '182ms',
-								'trend' => __( '−12% week', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Self-healed', 'testro' ),
-								'value' => '94',
-								'trend' => __( 'No manual fixes', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Suite duration', 'testro' ),
-								'value' => '1m 26s',
-								'trend' => __( '−38% parallel', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Last 7 API runs', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 74,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 86,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 79,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 91,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 95,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 88,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 98,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'Contract defects', 'testro' ),
-								'value' => 6,
-								'tone'  => 'critical',
-							),
-							array(
-								'label' => __( 'Auth failures', 'testro' ),
-								'value' => 3,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Auto-healed', 'testro' ),
-								'value' => 94,
-								'tone'  => 'healthy',
-							),
-						),
-					),
-				),
-
-				/* 11. Enterprise API Testing ------------------------------ */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-api-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Enterprise Ready', 'testro' ),
-					'title'   => __( 'Enterprise API Testing', 'testro' ),
-					'intro'   => __( 'Give QA, engineering, and security the controls they need to scale API automation across the organization.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Role-Based Access Control', 'testro' ),
-							'description' => __( 'Manage permissions securely.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Secure Test Data Management', 'testro' ),
-							'description' => __( 'Protect sensitive API data.', 'testro' ),
-						),
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Team Collaboration', 'testro' ),
-							'description' => __( 'Enable efficient collaboration across QA and development teams.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Scalable Test Execution', 'testro' ),
-							'description' => __( 'Support enterprise-scale automation across multiple projects.', 'testro' ),
-						),
-					),
-				),
-
-				/* 12. Supported Integrations ------------------------------ */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'api-supported-integrations',
-					'eyebrow' => __( 'Ecosystem', 'testro' ),
-					'title'   => __( 'Supported Integrations', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with the tools your development teams already use to streamline API testing and collaboration.', 'testro' ),
-					'hub'     => array(
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'API ecosystem', 'testro' ),
-						'icon'  => 'sparkles',
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'Swagger / OpenAPI', 'testro' ),
-							'description' => __( 'Import specs to generate API tests automatically.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Postman', 'testro' ),
-							'description' => __( 'Reuse collections and accelerate suite authoring.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'REST APIs', 'testro' ),
-							'description' => __( 'Validate REST endpoints with full assertion coverage.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'SOAP APIs', 'testro' ),
-							'description' => __( 'Cover legacy SOAP services in the same platform.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Tools', 'testro' ),
-							'description' => __( 'Connect pipelines for continuous API quality gates.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Keep defects and API outcomes aligned with delivery work.', 'testro' ),
+							'title'       => __( 'Automatic Repair', 'testro' ),
+							'description' => __( 'theTestRo updates the affected test on its own, so a small API change doesn\'t take down your whole suite.', 'testro' ),
 						),
 						array(
 							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify teams instantly when API suites fail or heal.', 'testro' ),
+							'title'       => __( 'Plain-English Editing', 'testro' ),
+							'description' => __( 'Need to adjust a step yourself? Just rewrite the sentence. No code, no framework digging.', 'testro' ),
 						),
 					),
 				),
 
-				/* 13. API Testing Use Cases ------------------------------- */
+				/* 6. Scale Execution in the Cloud ------------------------- */
 				array(
-					'type'      => 'usecases',
-					'id'        => 'api-testing-use-cases',
-					'eyebrow'   => __( 'Use Cases', 'testro' ),
-					'title'     => __( 'API Testing Use Cases', 'testro' ),
-					'intro'     => __( 'See how theTestRo helps organizations automate and validate each API testing scenario efficiently using AI-powered automation.', 'testro' ),
-					'mock_note' => __( 'AI-powered API automation', 'testro' ),
-					'tabs'      => array(
+					'type'          => 'feature-grid',
+					'id'            => 'scale-execution-in-the-cloud',
+					'variant'       => 'brand',
+					'columns'       => 3,
+					'title'         => __( 'Scale Execution in the Cloud', 'testro' ),
+					'intro'         => __( 'theTestRo runs API test automation at real scale:', 'testro' ),
+					'outro'         => __( 'theTestRo is API testing software built to handle real-world scale, not just a handful of test cases in a demo.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'id'           => 'functional-api',
-							'label'        => __( 'Functional API Testing', 'testro' ),
-							'title'        => __( 'Functional API Testing That Matches Business Rules', 'testro' ),
-							'description'  => __( 'Prove every endpoint behaves correctly against expected status codes, payloads, and business outcomes—without brittle hand-written scripts.', 'testro' ),
-							'illustration' => 'api',
-							'bullets'      => array(
-								__( 'Author functional API cases in natural language or the request builder', 'testro' ),
-								__( 'Assert bodies, headers, and schemas on every response', 'testro' ),
-								__( 'Reuse environments and variables across deployments', 'testro' ),
-							),
+							'icon'        => 'zap',
+							'title'       => __( 'Parallel Execution', 'testro' ),
+							'description' => __( 'Run large batches of tests at once, across services and environments.', 'testro' ),
 						),
 						array(
-							'id'           => 'contract',
-							'label'        => __( 'Contract Testing', 'testro' ),
-							'title'        => __( 'Contract Testing Against Living API Specs', 'testro' ),
-							'description'  => __( 'Import OpenAPI and Swagger definitions to keep consumer and provider contracts aligned as services evolve.', 'testro' ),
-							'illustration' => 'functional',
-							'bullets'      => array(
-								__( 'Generate tests directly from OpenAPI / Swagger specs', 'testro' ),
-								__( 'Detect breaking schema and status-code changes early', 'testro' ),
-								__( 'Self-heal assertions when safe contract updates land', 'testro' ),
-							),
+							'icon'        => 'rocket',
+							'title'       => __( 'Fast Feedback', 'testro' ),
+							'description' => __( 'Get results back in minutes, not hours, even on large suites.', 'testro' ),
 						),
 						array(
-							'id'           => 'regression-api',
-							'label'        => __( 'Regression API Testing', 'testro' ),
-							'title'        => __( 'Regression Suites That Stay Green', 'testro' ),
-							'description'  => __( 'Protect critical APIs on every build with parallel regression packs and AI-assisted maintenance.', 'testro' ),
-							'illustration' => 'regression',
-							'bullets'      => array(
-								__( 'Run broad API regression coverage after every commit', 'testro' ),
-								__( 'Schedule nightly suites across staging environments', 'testro' ),
-								__( 'Track pass-rate trends in centralized analytics', 'testro' ),
-							),
-						),
-						array(
-							'id'           => 'integration',
-							'label'        => __( 'Integration Testing', 'testro' ),
-							'title'        => __( 'Integration Testing Across Services', 'testro' ),
-							'description'  => __( 'Validate how services talk to each other—auth handoffs, data contracts, and failure modes included.', 'testro' ),
-							'illustration' => 'e2e',
-							'bullets'      => array(
-								__( 'Chain multi-service API calls in one scenario', 'testro' ),
-								__( 'Verify side effects with backend data checks', 'testro' ),
-								__( 'Surface integration defects before UI testing begins', 'testro' ),
-							),
-						),
-						array(
-							'id'           => 'e2e-api',
-							'label'        => __( 'End-to-End API Validation', 'testro' ),
-							'title'        => __( 'End-to-End API Validation Across Layers', 'testro' ),
-							'description'  => __( 'Combine API setup, UI verification, and database assertions so full business journeys are proven in one flow.', 'testro' ),
-							'illustration' => 'smoke',
-							'bullets'      => array(
-								__( 'Mix API and UI steps in a single automated journey', 'testro' ),
-								__( 'Confirm data integrity after each business transaction', 'testro' ),
-								__( 'Diagnose failures with logs and AI root-cause hints', 'testro' ),
-							),
-						),
-						array(
-							'id'           => 'microservices',
-							'label'        => __( 'Microservices Testing', 'testro' ),
-							'title'        => __( 'Microservices Testing at Cloud Scale', 'testro' ),
-							'description'  => __( 'Validate independently deployable services with parallel execution, contract checks, and CI/CD-native quality gates.', 'testro' ),
-							'illustration' => 'browsers',
-							'bullets'      => array(
-								__( 'Test service boundaries without waiting on full UI stacks', 'testro' ),
-								__( 'Scale suites across environments with cloud runners', 'testro' ),
-								__( 'Gate microservice releases on API health signals', 'testro' ),
-							),
+							'icon'        => 'server',
+							'title'       => __( 'REST API Testing & SOAP Support', 'testro' ),
+							'description' => __( 'Cover modern REST endpoints and legacy SOAP services from the same platform.', 'testro' ),
 						),
 					),
 				),
 
+				/* 7. Trigger Tests on Every Backend Deploy ---------------- */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise QA Teams', 'testro' ),
-					'title'   => __( 'Chosen for Mission-Critical API Quality', 'testro' ),
-					'intro'   => __( 'Engineering teams rely on theTestRo\'s API testing tool to protect contracts, accelerate releases, and keep automated API suites trustworthy.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'trigger-tests-on-every-backend-deploy',
+					'variant'       => 'spotlight',
+					'title'         => __( 'Trigger Tests on Every Backend Deploy', 'testro' ),
+					'intro'         => __( 'Catch Breaks Before They Reach Production', 'testro' ),
+					'intro_extra'   => __( 'theTestRo plugs straight into your release process. Every backend deploy can kick off a test run automatically, so a broken contract appears in the pull request, not after it ships.', 'testro' ),
+					'intro_body'    => __( 'Results report a pass or fail status. Failures go to Slack or your issue tracker. No one needs to check a separate dashboard.', 'testro' ),
+					'heading_level' => 4,
 				),
 
+				/* 8. Debug Failures Fast ---------------------------------- */
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Teams Shipping Reliable APIs Faster', 'testro' ),
-					'intro'   => __( 'See how QA and DevOps teams expand API coverage, cut maintenance, and release with higher confidence using AI-powered API testing.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'debug-failures-fast',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Debug Failures Fast', 'testro' ),
+					'intro'         => __( 'Know Why It Failed, Not Just That It Did', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Full Request & Response Logs', 'testro' ),
+							'description' => __( 'See exactly what was sent and what came back.', 'testro' ),
+						),
+						array(
+							'icon'        => 'stethoscope',
+							'title'       => __( 'Root Cause Analysis', 'testro' ),
+							'description' => __( 'AI separates a real contract break from a flaky network blip or environment issue.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wrench',
+							'title'       => __( 'One-Click Bug Filing', 'testro' ),
+							'description' => __( 'Send a failure straight to your tracker with logs and repro steps attached.', 'testro' ),
+						),
+					),
 				),
 
+				/* 9. Enterprise API Testing at Scale ---------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'API Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'automated-api-testing',
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-api-testing-at-scale',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise API Testing at Scale', 'testro' ),
+					'intro'         => __( 'Enterprise API testing means more than running a lot of tests. It means giving the right people access, keeping data where compliance rules require it, and letting teams work from one shared source of truth. It replaces five disconnected tools.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Unified Coverage View', 'testro' ),
+							'description' => __( 'API results sit next to your web and mobile test results in one dashboard, so you see the whole picture.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Role-Based Access', 'testro' ),
+							'description' => __( 'Control who can edit, run, or approve tests across teams.', 'testro' ),
+						),
+						array(
+							'icon'        => 'cloud',
+							'title'       => __( 'Deployment Flexibility', 'testro' ),
+							'description' => __( 'Run in theTestRo\'s cloud, a private environment, or fully on-premise behind your firewall. Choose what fits your compliance needs.', 'testro' ),
+						),
+					),
 				),
 
-				/* 15. Final CTA ------------------------------------------- */
+				/* 10. FAQ ------------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-api-testing',
-					'title'      => __( 'Ready to Accelerate API Testing with AI?', 'testro' ),
-					'intro'      => __( 'Transform your API testing with AI-powered automation. Create intelligent API tests faster, validate every endpoint with confidence, and integrate continuous API quality into every software release using theTestRo.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'automated-api-testing',
+				),
+
+				/* 11. Final CTA ------------------------------------------- */
+				array(
+					'type'          => 'cta',
+					'id'            => 'get-started-api-testing',
+					'title'         => __( 'Start Automating API Tests with AI', 'testro' ),
+					'intro'         => __( 'Stop Writing Requests by Hand', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s API testing platform. Catch broken contracts early, reduce maintenance, and ship backend changes with confidence.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -2313,120 +1631,33 @@ function testro_get_product_pages() {
 		'automated-cross-browser-testing-tool' => array(
 			'slug' => 'automated-cross-browser-testing-tool',
 			'seo'  => array(
-				'title'       => __( 'Cross-Browser Testing Tool | Automated Browser Compatibility Testing | theTestRo', 'testro' ),
-				'description' => __( 'theTestRo is an AI-powered cross-browser testing tool for automated browser compatibility testing. Validate Chrome, Firefox, Edge, and Safari, run parallel cloud tests, detect UI inconsistencies, and ship with confidence.', 'testro' ),
+				'title'       => __( 'Best Cross-Browser Testing Tool | theTestRo', 'testro' ),
+				'description' => __( 'Run automated cross-browser testing with theTestRo\'s best cross-browser testing tool. Test web apps across browsers to ensure compatibility and faster releases.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Cross-Browser Testing', 'testro' ),
-				'title'    => __( 'Best Cross-Browser Testing Tool', 'testro' ),
-				'subtitle' => __( 'Ensure flawless user experiences across every browser and operating system with theTestRo\'s AI-powered Cross-Browser Testing platform. Validate browser compatibility, automate cross-browser testing, detect UI inconsistencies, and accelerate software delivery using intelligent automation and enterprise-scale execution.', 'testro' ),
-				'badges'   => array(
-					__( 'Chrome · Firefox · Edge · Safari', 'testro' ),
-					__( 'Parallel Cloud Execution', 'testro' ),
-					__( 'AI Visual Validation', 'testro' ),
-					__( 'CI/CD Native', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'          => __( 'Best Cross-Browser Testing Tool for Reliable Web Compatibility', 'testro' ),
+				'subtitle'       => __( 'theTestRo is the best cross-browser testing tool for teams who can\'t afford browser gaps in production. Write a test once. Run it across Chrome, Safari, Firefox, and Edge automatically.', 'testro' ),
+				'subtitle_extra' => __( 'Let AI catch what breaks along the way. This is cross-platform testing built to keep up with how many devices your users actually use.', 'testro' ),
+				'actions'        => array(
 					array(
-						'value' => '4+',
-						'label' => __( 'Major browsers covered', 'testro' ),
-						'icon'  => 'browsers',
-					),
-					array(
-						'value' => '10X',
-						'label' => __( 'Faster with parallel runs', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '99.9%',
-						'label' => __( 'Browser test pass rate', 'testro' ),
-						'icon'  => 'circle-check',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 2. Consistent behavior across browsers -------------------- */
+				/* 2. Write Once, Run Everywhere --------------------------- */
 				array(
-					'type'    => 'visual-diff',
-					'id'      => 'consistent-behavior-across-browsers',
-					'eyebrow' => __( 'Browser Compatibility Testing', 'testro' ),
-					'title'   => __( 'Ensure Consistent Application Behavior Across Browsers', 'testro' ),
-					'intro'   => __( 'Run the same journey in Chrome, Firefox, Edge, and Safari—then let AI highlight rendering differences before customers ever see them.', 'testro' ),
-					'before'  => array(
-						'label' => __( 'Chrome baseline', 'testro' ),
-						'note'  => __( 'Approved render', 'testro' ),
-					),
-					'after'   => array(
-						'label' => __( 'Safari build', 'testro' ),
-						'note'  => __( 'Diff detected', 'testro' ),
-					),
-					'diff'    => array(
-						'label'  => __( 'AI comparison', 'testro' ),
-						'change' => __( '2 layout regions', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'scan-eye',
-							'title'       => __( 'Browser Rendering Validation', 'testro' ),
-							'description' => __( 'Ensure your application renders correctly across all supported browsers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'UI Consistency Checks', 'testro' ),
-							'description' => __( 'Automatically identify layout, styling, and visual inconsistencies before release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Platform Compatibility', 'testro' ),
-							'description' => __( 'Deliver consistent experiences across browsers, operating systems, and devices.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. Intelligent browser test automation -------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'intelligent-browser-test-automation',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Intelligent Automation', 'testro' ),
-					'title'   => __( 'Intelligent Browser Test Automation', 'testro' ),
-					'intro'   => __( 'Author once, execute everywhere. AI-assisted workflows, reusable components, and self-healing locators keep automated cross-browser testing stable as UIs evolve.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI-Assisted Test Creation', 'testro' ),
-							'description' => __( 'Generate browser automation using AI-powered workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Reusable Test Components', 'testro' ),
-							'description' => __( 'Create reusable browser testing components that accelerate automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Automatic Locator Recovery', 'testro' ),
-							'description' => __( 'Recover from UI changes automatically using self-healing technology.', 'testro' ),
-						),
-						array(
-							'icon'        => 'crosshair',
-							'title'       => __( 'Dynamic Element Recognition', 'testro' ),
-							'description' => __( 'Identify dynamic web elements intelligently across browsers.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Execute across multiple browser environments ----------- */
-				array(
-					'type'    => 'browsers',
-					'id'      => 'execute-across-browser-environments',
-					'eyebrow' => __( 'Cloud Browser Execution', 'testro' ),
-					'title'   => __( 'Execute Tests Across Multiple Browser Environments', 'testro' ),
-					'intro'   => __( 'Fan suites out across browser versions and operating systems simultaneously—enterprise cloud infrastructure scales with every release.', 'testro' ),
-					'items'   => array(
+					'type'          => 'browsers',
+					'id'            => 'write-once-run-everywhere',
+					'title'         => __( 'Write Once, Run Everywhere', 'testro' ),
+					'intro'         => __( 'Your users don\'t all use the same browser. Your tests shouldn\'t need five versions just to keep up with that.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'name'     => __( 'Chrome', 'testro' ),
 							'status'   => __( 'Running', 'testro' ),
@@ -2434,9 +1665,187 @@ function testro_get_product_pages() {
 							'tone'     => 'running',
 						),
 						array(
+							'name'     => __( 'Safari', 'testro' ),
+							'status'   => __( 'Running', 'testro' ),
+							'progress' => 74,
+							'tone'     => 'running',
+						),
+						array(
 							'name'     => __( 'Firefox', 'testro' ),
 							'status'   => __( 'Running', 'testro' ),
-							'progress' => 67,
+							'progress' => 68,
+							'tone'     => 'running',
+						),
+						array(
+							'name'     => __( 'Edge', 'testro' ),
+							'status'   => __( 'Passed', 'testro' ),
+							'progress' => 100,
+							'tone'     => 'passed',
+						),
+					),
+					'features'      => array(
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Single Test, Full Coverage', 'testro' ),
+							'description' => __( 'Build a test once. theTestRo runs it across Chrome, Safari, Firefox, and Edge. No rewriting needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Real Browsers, Not Just Emulators', 'testro' ),
+							'description' => __( 'Check behavior on real browser engines. Not simulated guesses that miss real rendering quirks.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Desktop and Mobile Web Together', 'testro' ),
+							'description' => __( 'Cover layouts, touch, and mobile behavior alongside desktop, all in one run.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is cross-browser test automation the way it should work. Build it once. Trust it everywhere.', 'testro' ),
+				),
+
+				/* 3. How It Works ------------------------------------------- */
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-it-works',
+					'title'         => __( 'How It Works', 'testro' ),
+					'intro'         => __( 'From One Test to Full Browser Coverage in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'pen-square',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Build the Test', 'testro' ),
+							'description' => __( 'Record your actions or write steps in plain English. No browser-specific code needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Pick Your Target Browsers', 'testro' ),
+							'description' => __( 'Select which browsers, OS versions, and screen sizes matter to your users.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Run in Parallel', 'testro' ),
+							'description' => __( 'theTestRo executes the same test across every selected target at once.', 'testro' ),
+						),
+						array(
+							'icon'        => 'gauge',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Review Per-Browser Results', 'testro' ),
+							'description' => __( 'See exactly which browsers passed, which failed, and why, all in one report.', 'testro' ),
+						),
+					),
+				),
+
+				/* 4. Browser compatibility -------------------------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'browser-compatibility-testing',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Browser Compatibility Testing That Actually Catches the Gaps', 'testro' ),
+					'intro'         => __( 'Find What "Works on Chrome" Misses', 'testro' ),
+					'intro_extra'   => __( 'A feature can work fine in one browser and quietly break in another. A button that doesn\'t register a click. A layout that collapses. A form that submits wrong. theTestRo is built to catch exactly that kind of gap:', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Rendering Differences', 'testro' ),
+							'description' => __( 'Spot layout shifts and style breaks between browser engines. Catch them before a user ever sees them.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Functional Parity Checks', 'testro' ),
+							'description' => __( 'Confirm buttons, forms, and navigation work the same way everywhere. Not just on your team\'s default browser.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Legacy and Current Versions', 'testro' ),
+							'description' => __( 'Test the latest browser releases and older versions your users might still be running.', 'testro' ),
+						),
+					),
+				),
+
+				/* 5. Who relies on cross-browser testing ------------------ */
+				array(
+					'type'          => 'outcomes',
+					'id'            => 'who-relies-on-cross-browser-testing',
+					'variant'       => 'tint',
+					'title'         => __( 'Who Relies on Cross-Browser Testing', 'testro' ),
+					'intro'         => __( 'Built for Teams Who Can\'t Guess Which Browser a User Picks', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'E-Commerce Teams', 'testro' ),
+							'description' => __( 'A broken checkout button in one browser costs real revenue. Catch it before launch, not after a support ticket.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'SaaS Product Teams', 'testro' ),
+							'description' => __( 'Enterprise customers use a wide mix of browsers, often older, locked-down corporate versions. Cover them all.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Agencies & Consultancies', 'testro' ),
+							'description' => __( 'Deliver client sites with proof they work everywhere, not just in the browser your team happened to test in.', 'testro' ),
+						),
+						array(
+							'icon'        => 'gauge',
+							'title'       => __( 'QA Managers', 'testro' ),
+							'description' => __( 'Get one clear report across every target browser, instead of piecing together manual checks from different testers.', 'testro' ),
+						),
+					),
+				),
+
+				/* 6. AI cross-browser testing ----------------------------- */
+				array(
+					'type'          => 'outcomes',
+					'id'            => 'ai-cross-browser-testing',
+					'variant'       => 'spotlight',
+					'title'         => __( 'AI Cross-Browser Testing That Adapts on Its Own', 'testro' ),
+					'intro'         => __( 'When Browsers Render Differently, theTestRo Keeps Up', 'testro' ),
+					'intro_extra'   => __( 'Every browser engine handles elements a little differently. That\'s usually where cross-browser tests break.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Self-Healing Across Engines', 'testro' ),
+							'description' => __( 'theTestRo finds the right element even when Chrome, Firefox, and Safari render it differently underneath.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Automatic Adjustment', 'testro' ),
+							'description' => __( 'A rendering quirk in one browser won\'t take down your whole suite. theTestRo adapts and keeps running.', 'testro' ),
+						),
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Fixes', 'testro' ),
+							'description' => __( 'Need to update a step yourself? Just rewrite the sentence. No separate driver code per browser.', 'testro' ),
+						),
+					),
+				),
+
+				/* 7. Scale execution in parallel ---------------------------- */
+				array(
+					'type'          => 'browsers',
+					'id'            => 'scale-execution-parallel',
+					'title'         => __( 'Scale Execution Across Browsers in Parallel', 'testro' ),
+					'intro'         => __( 'Stop Running Browsers One at a Time', 'testro' ),
+					'intro_extra'   => __( 'Sequential browser testing is slow by design; every browser waits its turn.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'name'     => __( 'Chrome', 'testro' ),
+							'status'   => __( 'Running', 'testro' ),
+							'progress' => 88,
+							'tone'     => 'running',
+						),
+						array(
+							'name'     => __( 'Firefox', 'testro' ),
+							'status'   => __( 'Running', 'testro' ),
+							'progress' => 72,
 							'tone'     => 'running',
 						),
 						array(
@@ -2448,436 +1857,157 @@ function testro_get_product_pages() {
 						array(
 							'name'     => __( 'Safari', 'testro' ),
 							'status'   => __( 'Visual check', 'testro' ),
-							'progress' => 94,
+							'progress' => 91,
 							'tone'     => 'visual',
 						),
 					),
-					'parallel' => array(
-						'title'       => __( 'Parallel Test Execution', 'testro' ),
-						'description' => __( 'Run browser tests simultaneously to reduce execution time—without sacrificing coverage across versions or OS targets.', 'testro' ),
-						'stat'        => '10X',
-						'stat_label'  => __( 'faster suites', 'testro' ),
-					),
-				),
-
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'browser-environment-coverage',
-					'variant' => 'tint',
-					'columns' => 4,
-					'eyebrow' => __( 'Environment Coverage', 'testro' ),
-					'title'   => __( 'Browsers, Versions, and Operating Systems', 'testro' ),
-					'intro'   => __( 'Select the matrix your customers use—then execute with confidence on cloud infrastructure built for scale.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Browser & Version Selection', 'testro' ),
-							'description' => __( 'Execute tests across multiple browser versions with ease.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Operating System Coverage', 'testro' ),
-							'description' => __( 'Validate application behavior on Windows, macOS, and Linux.', 'testro' ),
-						),
+					'features'      => array(
 						array(
 							'icon'        => 'zap',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Run browser tests simultaneously to reduce execution time.', 'testro' ),
+							'title'       => __( 'Parallel Execution', 'testro' ),
+							'description' => __( 'Run your test across every target browser at the same time, not one after another.', 'testro' ),
+						),
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Fast Feedback', 'testro' ),
+							'description' => __( 'Get a full compatibility check back in minutes, even for large regression suites.', 'testro' ),
 						),
 						array(
 							'icon'        => 'cloud',
-							'title'       => __( 'Cloud-Based Test Runs', 'testro' ),
-							'description' => __( 'Scale browser testing effortlessly using enterprise cloud infrastructure.', 'testro' ),
+							'title'       => __( 'Cloud Execution', 'testro' ),
+							'description' => __( 'No local browser lab to maintain, patch, or keep updated. theTestRo handles the infrastructure.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Running the same suite locally across five browsers usually means five separate setups, five sets of drivers, and five places for something to go stale. theTestRo replaces all of that with one cloud-based run.', 'testro' ),
 				),
 
-				/* 5. Validate modern web experiences ------------------------ */
+				/* 8. Real-world conditions ---------------------------------- */
 				array(
-					'type'    => 'lifecycle',
-					'id'      => 'validate-modern-web-experiences',
-					'eyebrow' => __( 'Responsive Testing', 'testro' ),
-					'title'   => __( 'Validate Modern Web Experiences', 'testro' ),
-					'intro'   => __( 'Prove layouts and interactions from desktop to tablet to mobile—so every viewport delivers a consistent customer journey.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Desktop', 'testro' ),
-							'description' => __( 'Validate full desktop layouts, dense navigation, and multi-column experiences across major browsers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Tablet', 'testro' ),
-							'description' => __( 'Confirm breakpoints, touch targets, and adaptive components at tablet widths.', 'testro' ),
-						),
-						array(
-							'icon'        => 'scan-eye',
-							'title'       => __( 'Mobile', 'testro' ),
-							'description' => __( 'Catch mobile-only rendering and interaction issues before they reach production.', 'testro' ),
-						),
-					),
-				),
-
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'modern-experience-checks',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Experience Quality', 'testro' ),
-					'title'   => __( 'Layouts, Interactions, and Journeys', 'testro' ),
-					'intro'   => __( 'Go beyond static screenshots—validate the dynamic experiences customers actually use.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Responsive Layout Verification', 'testro' ),
-							'description' => __( 'Ensure responsive layouts work perfectly across every screen size.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'real-world-conditions',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Real-World Conditions, Not Just a Clean Test Environment', 'testro' ),
+					'intro'         => __( 'Test How Your Users Actually Experience Your Site', 'testro' ),
+					'intro_extra'   => __( 'A perfect browser in a perfect test environment isn\'t the real world.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'activity',
-							'title'       => __( 'Interactive UI Validation', 'testro' ),
-							'description' => __( 'Validate dynamic interactions including forms, modals, menus, and animations.', 'testro' ),
+							'title'       => __( 'Network Throttling', 'testro' ),
+							'description' => __( 'See how your app behaves on a slow connection, not just fast office Wi-Fi.', 'testro' ),
 						),
 						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Dynamic Content Testing', 'testro' ),
-							'description' => __( 'Verify content updates correctly across browsers.', 'testro' ),
+							'icon'        => 'crosshair',
+							'title'       => __( 'Geolocation Simulation', 'testro' ),
+							'description' => __( 'Check how content, currency, and language change for users in different regions.', 'testro' ),
 						),
 						array(
-							'icon'        => 'target',
-							'title'       => __( 'User Journey Validation', 'testro' ),
-							'description' => __( 'Automate complete customer workflows across different browser environments.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Responsive Breakpoints', 'testro' ),
+							'description' => __( 'Check layouts across desktop, tablet, and mobile screens, all in one pass.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. Identify and resolve browser-specific issues ----------- */
+				/* 9. Catch browser bugs before release ---------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'resolve-browser-specific-issues',
-					'variant' => 'brand',
-					'columns' => 4,
-					'eyebrow' => __( 'Debugging Dashboard', 'testro' ),
-					'title'   => __( 'Identify and Resolve Browser-Specific Issues', 'testro' ),
-					'intro'   => __( 'Every failure arrives with screenshots, console and network signals, video playback, and AI diagnostics—so teams fix the real issue, not the noise.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'Execution Logs', 'testro' ),
-							'description' => __( 'Review detailed execution logs for every browser session.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'catch-browser-bugs-before-release',
+					'variant'       => 'spotlight',
+					'title'         => __( 'Catch Browser Bugs Before They Reach a Release', 'testro' ),
+					'intro'         => __( 'Trigger a Full Browser Check on Every Pull Request', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects straight into your release workflow. New code lands, and a full cross-browser run can start automatically.', 'testro' ),
+					'outro'         => __( 'A Safari-only bug shows up in code review, not in a support ticket weeks later. Results come back per browser, so your team knows exactly where the fix is needed. No guessing from one vague failure message.', 'testro' ),
+					'heading_level' => 4,
+				),
+
+				/* 10. Debug browser-specific failures ----------------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'debug-browser-specific-failures',
+					'variant'       => 'brand',
+					'columns'       => 3,
+					'title'         => __( 'Debug Browser-Specific Failures Fast', 'testro' ),
+					'intro'         => __( 'See Exactly Where It Broke, and Why', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
 							'icon'        => 'scan-eye',
-							'title'       => __( 'Screenshots', 'testro' ),
-							'description' => __( 'Capture visual evidence for every failed step.', 'testro' ),
+							'title'       => __( 'Per-Browser Screenshots', 'testro' ),
+							'description' => __( 'See the exact moment of failure, in the exact browser it happened in.', 'testro' ),
 						),
 						array(
 							'icon'        => 'activity',
 							'title'       => __( 'Video Playback', 'testro' ),
-							'description' => __( 'Replay complete browser executions.', 'testro' ),
+							'description' => __( 'Watch a full replay of the run, browser by browser.', 'testro' ),
 						),
 						array(
 							'icon'        => 'stethoscope',
-							'title'       => __( 'Network & Console Diagnostics', 'testro' ),
-							'description' => __( 'Identify browser-specific issues using console and network analysis.', 'testro' ),
+							'title'       => __( 'Root Cause Analysis', 'testro' ),
+							'description' => __( 'AI tells you if it\'s a real compatibility bug or a flaky, unrelated failure.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'That distinction matters. A team that chases every flaky failure as if it were a real bug burns hours it doesn\'t have. theTestRo sorts the signal from the noise before your team even looks at the report.', 'testro' ),
 				),
 
-				/* 7. Continuous testing for every code change --------------- */
+				/* 11. Enterprise cross-browser testing ---------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'continuous-browser-testing',
-					'eyebrow' => __( 'DevOps Workflow', 'testro' ),
-					'title'   => __( 'Continuous Testing for Every Code Change', 'testro' ),
-					'intro'   => __( 'Wire automated cross-browser testing into the path from commit to release—so every change is validated where customers browse.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Ship the change', 'testro' ),
-							'description' => __( 'Engineers push updates knowing browser quality gates will catch regressions early.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Git', 'testro' ),
-							'title'       => __( 'Commit & branch', 'testro' ),
-							'description' => __( 'Connect repositories so every merge request can trigger browser suites automatically.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'Pipeline trigger', 'testro' ),
-							'description' => __( 'Automatically execute browser tests after every code commit.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-cross-browser-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise Cross-Browser Testing at Scale', 'testro' ),
+					'intro'         => __( 'Built for Teams Running Hundreds of Checks a Day', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
 							'icon'        => 'browsers',
-							'stage'       => __( 'Browser Testing', 'testro' ),
-							'title'       => __( 'Validate the matrix', 'testro' ),
-							'description' => __( 'Run parallel cloud browsers across versions, OS targets, and environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Ship with confidence', 'testro' ),
-							'description' => __( 'Promote builds only when browser compatibility signals stay green.', 'testro' ),
-						),
-					),
-				),
-
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'cicd-browser-triggers',
-					'variant' => 'tint',
-					'columns' => 3,
-					'eyebrow' => __( 'Always-On Validation', 'testro' ),
-					'title'   => __( 'Trigger, Schedule, and Target Environments', 'testro' ),
-					'intro'   => __( 'Fit browser validation to how your teams already ship software.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Trigger Tests from CI/CD', 'testro' ),
-							'description' => __( 'Automatically execute browser tests after every code commit.', 'testro' ),
-						),
-						array(
-							'icon'        => 'calendar-sync',
-							'title'       => __( 'Scheduled Browser Validation', 'testro' ),
-							'description' => __( 'Run browser validation at predefined intervals.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Environment-Based Execution', 'testro' ),
-							'description' => __( 'Execute browser tests across development, staging, and production environments.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. Browser testing insights ------------------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'browser-testing-insights',
-					'eyebrow'   => __( 'Quality Intelligence', 'testro' ),
-					'title'     => __( 'Browser Testing Insights', 'testro' ),
-					'intro'     => __( 'Track browser-wise pass rates, comparison trends, and historical quality from one centralized dashboard.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Execution Dashboard', 'testro' ),
-							'description' => __( 'View browser testing activity from one centralized dashboard.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Browser-Wise Results', 'testro' ),
-							'description' => __( 'Analyze test outcomes for every supported browser.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Failure Trends', 'testro' ),
-							'description' => __( 'Identify recurring browser-specific issues.', 'testro' ),
-						),
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Historical Analytics', 'testro' ),
-							'description' => __( 'Monitor browser quality improvements over time.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Cross-browser readiness', 'testro' ),
-						'score'     => 98,
-						'status'    => __( 'Ready to ship', 'testro' ),
-						'build'     => __( 'Build #4281 · main', 'testro' ),
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '99.2%',
-								'trend' => __( '+1.8 pts', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Browsers green', 'testro' ),
-								'value' => '4/4',
-								'trend' => __( 'All major', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'UI diffs', 'testro' ),
-								'value' => '3',
-								'trend' => __( 'Reviewed', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Suite duration', 'testro' ),
-								'value' => '2m 54s',
-								'trend' => __( '−48% parallel', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Last 7 browser runs', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 74,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 86,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 71,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 90,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 95,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 83,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 98,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'Chrome issues', 'testro' ),
-								'value' => 2,
-								'tone'  => 'critical',
-							),
-							array(
-								'label' => __( 'Safari quirks', 'testro' ),
-								'value' => 5,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Auto-healed', 'testro' ),
-								'value' => 142,
-								'tone'  => 'healthy',
-							),
-						),
-					),
-				),
-
-				/* 9. Built for enterprise QA teams -------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-qa-browser-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Enterprise Ready', 'testro' ),
-					'title'   => __( 'Built for Enterprise QA Teams', 'testro' ),
-					'intro'   => __( 'Give QA, developers, and business stakeholders the collaboration, security, and scale required for mission-critical browser quality.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Team Collaboration', 'testro' ),
-							'description' => __( 'Enable seamless collaboration between QA, developers, and business teams.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Secure Test Execution', 'testro' ),
-							'description' => __( 'Enterprise-grade security for browser testing infrastructure.', 'testro' ),
+							'title'       => __( 'Broad Browser and OS Coverage', 'testro' ),
+							'description' => __( 'Test across Windows, macOS, iOS, and Android. No new infrastructure needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-lock',
 							'title'       => __( 'Role-Based Access', 'testro' ),
-							'description' => __( 'Manage user permissions securely across teams.', 'testro' ),
+							'description' => __( 'Control who can build, run, or approve tests across your org.', 'testro' ),
 						),
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Scalable Cloud Infrastructure', 'testro' ),
-							'description' => __( 'Scale browser testing across multiple projects without compromising performance.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'Manual and Automated Together', 'testro' ),
+							'description' => __( 'Some edge cases still need a human eye. theTestRo supports manual browser sessions right alongside automated runs, in the same place.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'theTestRo isn\'t just browser testing on its own either. It provides full cross-platform testing and covers the mix of browsers, systems, and screen sizes your real users actually use.', 'testro' ),
 				),
 
-				/* 10. Supported browsers & platforms ------------------------ */
+				/* 12. FAQ --------------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'supported-browsers-platforms-cbt',
-					'variant' => 'tint',
-					'columns' => 4,
-					'eyebrow' => __( 'Browser Ecosystem', 'testro' ),
-					'title'   => __( 'Supported Browsers & Platforms', 'testro' ),
-					'intro'   => __( 'Run automated browser testing across the most widely used browsers and operating systems to ensure every customer receives a consistent experience regardless of their environment.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Chrome', 'testro' ),
-							'description' => __( 'Automate and visually validate the world\'s most-used browser across versions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Firefox', 'testro' ),
-							'description' => __( 'Catch Gecko-specific rendering and interaction differences early.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Edge', 'testro' ),
-							'description' => __( 'Validate Chromium Edge behavior for enterprise desktops.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Safari', 'testro' ),
-							'description' => __( 'Protect Apple user journeys with reliable WebKit coverage.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Windows', 'testro' ),
-							'description' => __( 'Execute suites on Windows agents for corporate environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'macOS', 'testro' ),
-							'description' => __( 'Run Safari and desktop workflows on macOS infrastructure.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Linux', 'testro' ),
-							'description' => __( 'Scale headed and headless runs on Linux CI workers.', 'testro' ),
-						),
-					),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'automated-cross-browser-testing-tool',
 				),
 
+				/* 13. Final CTA --------------------------------------------- */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise QA Teams', 'testro' ),
-					'title'   => __( 'Chosen for Mission-Critical Browser Quality', 'testro' ),
-					'intro'   => __( 'Engineering teams rely on theTestRo\'s cross-browser testing tool to protect customer experiences, expand browser coverage, and release with confidence.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Teams Shipping Consistent Experiences Everywhere', 'testro' ),
-					'intro'   => __( 'See how QA and DevOps teams cut browser defects, accelerate parallel execution, and ship high-quality applications with AI-powered cross-browser testing.', 'testro' ),
-				),
-
-				/* 11. FAQ --------------------------------------------------- */
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Cross-Browser Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'automated-cross-browser-testing-tool',
-				),
-
-				/* 12. Final CTA --------------------------------------------- */
-				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-cross-browser-testing',
-					'title'      => __( 'Deliver Flawless Experiences Across Every Browser', 'testro' ),
-					'intro'      => __( 'Validate browser compatibility, automate cross-browser testing, and ensure consistent user experiences with theTestRo\'s AI-powered Cross-Browser Testing platform. Release high-quality applications confidently across every browser and operating system.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'get-started-cross-browser-testing',
+					'title'         => __( 'Start Testing Across Every Browser Today', 'testro' ),
+					'intro'         => __( 'Stop Guessing Which Browsers Your Users Are On', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s cross-browser testing software. Catch compatibility bugs early and ship with confidence. It works no matter which browser a user opens. From a two-person startup to a large enterprise QA org, the same platform scales with what you need.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -2887,187 +2017,192 @@ function testro_get_product_pages() {
 			'slug'   => 'test-management-software',
 			'title'  => __( 'AI Test Management Tool', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'AI Test Management Software | Test Management Tool | theTestRo', 'testro' ),
-				'description' => __( 'theTestRo AI Test Management Software helps QA teams plan, organize, execute, and optimize the entire testing lifecycle with AI-powered insights, requirement traceability, and enterprise analytics.', 'testro' ),
+				'title'       => __( 'Best AI Test Management Software for Modern QA Teams', 'testro' ),
+				'description' => __( 'Manage test cases, test execution, and reporting with the best AI test management tool. Improve collaboration, track QA progress, and deliver quality software faster.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Test Management', 'testro' ),
-				'title'    => __( 'AI Test Management Software', 'testro' ),
-				'subtitle' => __( 'Manage your entire software testing lifecycle from one intelligent platform. Plan, organize, execute, and optimize testing using AI-powered test management, automated insights, real-time collaboration, and enterprise-grade reporting. TheTestRo helps QA teams deliver higher-quality software faster with complete visibility across every release.', 'testro' ),
-				'badges'   => array(
-					__( 'AI Insights', 'testro' ),
-					__( 'End-to-End Traceability', 'testro' ),
-					__( 'Unified Execution', 'testro' ),
-					__( 'Enterprise Reporting', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Best AI Test Management Software for Modern QA Teams', 'testro' ),
+				'subtitle' => __( 'theTestRo is AI test management software that plans sprints, writes test cases, runs tests, and reports bugs, all in one place. One central repository. No more spreadsheets. No more tool switching.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '1',
-						'label' => __( 'Centralized test platform', 'testro' ),
-						'icon'  => 'layout-grid',
-					),
-					array(
-						'value' => '360°',
-						'label' => __( 'Release visibility', 'testro' ),
-						'icon'  => 'gauge',
-					),
-					array(
-						'value' => 'AI',
-						'label' => __( 'Prioritization & insights', 'testro' ),
-						'icon'  => 'sparkles',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Centralize testing lifecycle --------------------------- */
+				/* 2. What Is an AI Test Management Tool? -------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'testing-lifecycle',
-					'eyebrow' => __( 'End-to-End Lifecycle', 'testro' ),
-					'title'   => __( 'Centralize Your Entire Testing Lifecycle', 'testro' ),
-					'intro'   => __( 'Connect requirements, planning, execution, defects, and release readiness in one AI-powered test management workspace—so every release moves with complete visibility.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'folder-tree',
-							'stage'       => __( 'Requirements', 'testro' ),
-							'title'       => __( 'Requirement Traceability', 'testro' ),
-							'description' => __( 'Connect requirements directly with test cases and execution results.', 'testro' ),
-						),
-						array(
-							'icon'        => 'pen-square',
-							'stage'       => __( 'Planning', 'testro' ),
-							'title'       => __( 'Test Planning', 'testro' ),
-							'description' => __( 'Create structured testing strategies and organize releases efficiently.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'stage'       => __( 'Organization', 'testro' ),
-							'title'       => __( 'Test Organization', 'testro' ),
-							'description' => __( 'Manage all test assets from one centralized workspace.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'stage'       => __( 'Repository', 'testro' ),
-							'title'       => __( 'Test Repository', 'testro' ),
-							'description' => __( 'Store, organize, and reuse test cases across multiple projects.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release Readiness', 'testro' ),
-							'description' => __( 'Move from defects to confident release decisions with shared visibility.', 'testro' ),
-						),
-					),
+					'type'          => 'feature-grid',
+					'id'            => 'what-is-ai-test-management',
+					'title'         => __( 'What Is an AI Test Management Tool?', 'testro' ),
+					'intro'         => __( 'A Single Source of Truth for Your Whole QA Process', 'testro' ),
+					'intro_extra'   => __( 'A test management tool helps testers plan tests, write test cases, run them, and track bugs. It keeps everything organized in one place.', 'testro' ),
+					'intro_body'    => __( 'A strong test management platform becomes the single source of truth for a QA team. Every test case, every run, and every bug report lives in one searchable home. No more digging through spreadsheets, chat threads, and someone\'s personal notes.', 'testro' ),
+					'outro'         => __( 'An AI test management tool takes that a step further. Instead of testers doing every step by hand, AI agents handle the repetitive parts. They read requirements, draft test cases, run them, and write up bugs. Your team reviews and stays in control at each step.', 'testro' ),
+					'heading_level' => 2,
 				),
 
-				/* 2. AI-Driven Test Management ------------------------------ */
+				/* 3. AI Agents at Every Stage of Testing -------------------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'ai-driven-test-management',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Driven Test Management', 'testro' ),
-					'title'   => __( 'Intelligent Capabilities That Keep Suites Lean and Coverage High', 'testro' ),
-					'intro'   => __( 'Use AI across AI Test Case Management to generate, prioritize, clean, and recommend the right work—so teams spend less time on busywork and more time on quality.', 'testro' ),
-					'items'   => array(
+					'type'          => 'outcomes',
+					'id'            => 'ai-agents-testing',
+					'variant'       => 'spotlight',
+					'title'         => __( 'AI Agents at Every Stage of Testing', 'testro' ),
+					'intro'         => __( 'Four AI Agents, One Testing Workflow', 'testro' ),
+					'intro_extra'   => __( 'theTestRo places a dedicated AI agent at each stage of the test management cycle. This keeps work moving, so nothing waits for someone to handle it.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI Test Case Generation', 'testro' ),
-							'description' => __( 'Generate high-quality test cases using AI based on requirements and user stories.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Smart Test Prioritization', 'testro' ),
-							'description' => __( 'Automatically prioritize critical test cases based on risk and business impact.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Duplicate Test Detection', 'testro' ),
-							'description' => __( 'Identify duplicate or redundant test cases to maintain a clean repository.', 'testro' ),
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'The Planner', 'testro' ),
+							'description' => __( 'Spots new sprints the moment they start. Pulls in every story automatically. No manual setup. No lag behind the dev team.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
-							'title'       => __( 'Intelligent Test Recommendations', 'testro' ),
-							'description' => __( 'Receive AI-powered recommendations to improve test coverage and execution efficiency.', 'testro' ),
+							'title'       => __( 'The Generator', 'testro' ),
+							'description' => __( 'Turns a Jira story, PRD, Figma file, screenshot, or a short prompt into a detailed test case. Complete with steps, preconditions, and both positive and negative scenarios.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'The Runner', 'testro' ),
+							'description' => __( 'Runs test cases on a live browser while you watch. Pause it, tweak the test data, or rerun a step. No lost context.', 'testro' ),
+						),
+						array(
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'The Bug Reporter', 'testro' ),
+							'description' => __( 'Writes a full bug report the second a step fails. Steps to reproduce are already filled in. Then it files straight into your tracker.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This is what AI-powered test management actually looks like in practice. Not one clever feature, but AI support at every single stage of the cycle.', 'testro' ),
 				),
 
-				/* 3. Test Planning & Organization --------------------------- */
+				/* 4. One Central Repository for Every Test ------------------- */
 				array(
-					'type'    => 'kanban',
-					'id'      => 'test-planning-organization',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Test Planning & Organization', 'testro' ),
-					'title'   => __( 'Structure Suites, Collections, and Ownership on One Board', 'testro' ),
-					'intro'   => __( 'Plan releases with Kanban-style clarity—group suites, tag collections, assign owners, and track versions without scattering assets across tools.', 'testro' ),
-					'items'   => array(
+					'type'          => 'outcomes',
+					'id'            => 'central-test-repository',
+					'variant'       => 'tint',
+					'title'         => __( 'One Central Repository for Every Test', 'testro' ),
+					'intro'         => __( 'Stop Hunting Across Spreadsheets and Tools', 'testro' ),
+					'intro_extra'   => __( 'theTestRo replaces scattered spreadsheets and outdated tools. It gives you one central home for every test case, test run, and bug report.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Test Suites', 'testro' ),
-							'description' => __( 'Group related test cases into structured suites.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Test Collections', 'testro' ),
-							'description' => __( 'Organize test cases for different projects, releases, and modules.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Test Labels & Tags', 'testro' ),
-							'description' => __( 'Categorize tests using custom labels and tags.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Searchable Repository', 'testro' ),
+							'description' => __( 'Find any test case in seconds, not by scrolling through tabs.', 'testro' ),
 						),
 						array(
 							'icon'        => 'git-branch',
 							'title'       => __( 'Version Control', 'testro' ),
-							'description' => __( 'Track changes across multiple test versions.', 'testro' ),
+							'description' => __( 'See exactly what changed in a test case and when, with a full history.', 'testro' ),
 						),
 						array(
 							'icon'        => 'user-check',
-							'title'       => __( 'Test Ownership', 'testro' ),
-							'description' => __( 'Assign and manage test responsibilities across teams.', 'testro' ),
+							'title'       => __( 'Team-Wide Access', 'testro' ),
+							'description' => __( 'Testers, developers, and product managers all work from the same source, instead of five different copies.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A test case management tool built this way means nobody\'s asking "wait, which version of this test is the current one?" ever again.', 'testro' ),
+				),
+
+				/* 5. Two-Way Sync With Jira --------------------------------- */
+				array(
+					'type'          => 'architecture',
+					'id'            => 'jira-two-way-sync',
+					'title'         => __( 'Two-Way Sync With Jira', 'testro' ),
+					'intro'         => __( 'Requirements and Tests, Always in Sync', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects directly with Jira, so nothing needs to be updated twice.', 'testro' ),
+					'heading_level' => 3,
+					'hub'           => array(
+						'icon'  => 'sparkles',
+						'label' => __( 'theTestRo', 'testro' ),
+						'sub'   => __( 'Jira sync', 'testro' ),
+					),
+					'items'         => array(
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Auto-Detected Sprints', 'testro' ),
+							'description' => __( 'The moment a sprint goes live, its stories flow into theTestRo automatically.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Story-to-Test Mapping', 'testro' ),
+							'description' => __( 'Every test case links back to the exact requirement it covers, so "has this been tested?" has a real answer.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Two-Way Status Updates', 'testro' ),
+							'description' => __( 'Update a test\'s status in theTestRo, and Jira reflects it instantly. No copy-pasting between tools.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Full traceability between requirements, test cases, and bugs also makes audits and compliance reporting far less painful. The coverage mapping is already built in.', 'testro' ),
+				),
+
+				/* 6. Test Case Generation ----------------------------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'test-case-generation',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Test Case Generation From Whatever You Already Have', 'testro' ),
+					'intro'         => __( 'From Requirements to Test Cases, Without the Blank Page', 'testro' ),
+					'intro_extra'   => __( 'Skip writing test cases from scratch. theTestRo\'s AI reads what your team already produces and turns it straight into structured tests.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Jira Stories', 'testro' ),
+							'description' => __( 'Generate test cases directly from an existing story, no manual translation needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'pen-square',
+							'title'       => __( 'PRDs & Figma Files', 'testro' ),
+							'description' => __( 'Feed in a product doc or a design file, and get test coverage that reflects the actual planned experience.', 'testro' ),
+						),
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Screenshots & Videos', 'testro' ),
+							'description' => __( 'Upload a screen recording of a user flow, and theTestRo turns it into a repeatable test.', 'testro' ),
+						),
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Prompts', 'testro' ),
+							'description' => __( 'Type what you want tested, and get a complete test case back, edge cases included.', 'testro' ),
 						),
 					),
 				),
 
-				/* 4. Test Execution Management ------------------------------ */
+				/* 7. Human-in-the-Loop Test Execution ----------------------- */
 				array(
-					'type'      => 'analytics',
-					'id'        => 'test-execution-management',
-					'eyebrow'   => __( 'Test Execution Management', 'testro' ),
-					'title'     => __( 'Run Manual and Automated Tests from One Control Plane', 'testro' ),
-					'intro'     => __( 'Orchestrate running, completed, and scheduled work across environments—with release progress and status visible in real time.', 'testro' ),
-					'items'     => array(
+					'type'          => 'analytics',
+					'id'            => 'human-in-the-loop-execution',
+					'title'         => __( 'Human-in-the-Loop Test Execution', 'testro' ),
+					'intro'         => __( 'AI Runs the Test. You Stay in Control.', 'testro' ),
+					'intro_extra'   => __( 'theTestRo\'s test execution isn\'t a black box. Watch tests run live in a real browser, with full visibility into every step.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Manual & Automated Test Runs', 'testro' ),
-							'description' => __( 'Execute both manual and automated tests from a single platform.', 'testro' ),
+							'icon'        => 'activity',
+							'title'       => __( 'Live Execution View', 'testro' ),
+							'description' => __( 'Watch each step happen in real time, not just a pass/fail summary after the fact.', 'testro' ),
 						),
 						array(
-							'icon'        => 'calendar-sync',
-							'title'       => __( 'Scheduled Execution', 'testro' ),
-							'description' => __( 'Automate recurring test execution schedules.', 'testro' ),
+							'icon'        => 'database',
+							'title'       => __( 'Auto-Generated Test Data', 'testro' ),
+							'description' => __( 'Tests run with realistic data automatically, no manual setup required.', 'testro' ),
 						),
 						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Parallel Execution', 'testro' ),
-							'description' => __( 'Run multiple test suites simultaneously.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Environment Management', 'testro' ),
-							'description' => __( 'Manage execution across development, staging, and production environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Release-Based Execution', 'testro' ),
-							'description' => __( 'Organize testing around software releases.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Pause, Tweak, Rerun', 'testro' ),
+							'description' => __( 'Something looks off mid-run? Pause it, adjust the data, and continue, without starting over.', 'testro' ),
 						),
 					),
-					'dashboard' => array(
+					'dashboard'     => array(
 						'label'     => __( 'Execution Control', 'testro' ),
 						'build'     => __( 'Release 2.4 · Sprint 18', 'testro' ),
 						'status'    => __( 'On track', 'testro' ),
@@ -3151,94 +2286,32 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* 5. Defect & Requirement Traceability ---------------------- */
+				/* 8. Reporting, Analytics & Quality Insights ---------------- */
 				array(
-					'type'   => 'traceability',
-					'id'     => 'defect-requirement-traceability',
-					'eyebrow'=> __( 'Defect & Requirement Traceability', 'testro' ),
-					'title'  => __( 'See Every Requirement Through Test Cases, Execution, and Defects', 'testro' ),
-					'intro'  => __( 'Keep planning, execution, and defect work linked so coverage gaps and release risk surface before they reach production.', 'testro' ),
-					'stages' => array(
+					'type'          => 'analytics',
+					'id'            => 'reporting-analytics-insights',
+					'title'         => __( 'Reporting, Analytics & Quality Insights', 'testro' ),
+					'intro'         => __( 'See the Full Picture, Not Just Pass or Fail', 'testro' ),
+					'intro_extra'   => __( 'A test management platform is only as useful as the visibility it gives your team.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'  => 'folder-tree',
-							'label' => __( 'Requirements', 'testro' ),
+							'icon'        => 'gauge',
+							'title'       => __( 'Real-Time Dashboards', 'testro' ),
+							'description' => __( 'Track pass rates, execution status, and defect trends as they happen.', 'testro' ),
 						),
-						array(
-							'icon'  => 'layout-grid',
-							'label' => __( 'Test Cases', 'testro' ),
-						),
-						array(
-							'icon'  => 'zap',
-							'label' => __( 'Execution', 'testro' ),
-						),
-						array(
-							'icon'  => 'alert-octagon',
-							'label' => __( 'Defects', 'testro' ),
-						),
-						array(
-							'icon'  => 'rocket',
-							'label' => __( 'Release', 'testro' ),
-						),
-					),
-					'items'  => array(
 						array(
 							'icon'        => 'git-branch',
-							'title'       => __( 'Requirement Mapping', 'testro' ),
-							'description' => __( 'Map business requirements directly to test cases.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Test Coverage Matrix', 'testro' ),
-							'description' => __( 'Visualize testing coverage across projects.', 'testro' ),
-						),
-						array(
-							'icon'        => 'alert-octagon',
-							'title'       => __( 'Defect Linking', 'testro' ),
-							'description' => __( 'Associate defects with failed test cases.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Release Traceability', 'testro' ),
-							'description' => __( 'Track every requirement from planning through deployment.', 'testro' ),
-						),
-					),
-				),
-
-				/* 6. Real-Time Test Intelligence ---------------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'real-time-test-intelligence',
-					'eyebrow'   => __( 'Real-Time Test Intelligence', 'testro' ),
-					'title'     => __( 'Analytics That Turn Execution Noise into Release Decisions', 'testro' ),
-					'intro'     => __( 'Monitor live activity, pass/fail trends, test health, risk indicators, and AI insights from a premium analytics dashboard built for enterprise QA.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Live Execution Dashboard', 'testro' ),
-							'description' => __( 'Monitor testing activity in real time.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Test Health Metrics', 'testro' ),
-							'description' => __( 'Measure automation quality and execution stability.', 'testro' ),
+							'title'       => __( 'Coverage & Traceability Reports', 'testro' ),
+							'description' => __( 'Show exactly which requirements the tests cover and which requirements still need attention.', 'testro' ),
 						),
 						array(
 							'icon'        => 'trending-up',
-							'title'       => __( 'Pass/Fail Trends', 'testro' ),
-							'description' => __( 'Track execution performance across releases.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Release Readiness', 'testro' ),
-							'description' => __( 'Determine whether your application is ready for production.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Risk Analysis', 'testro' ),
-							'description' => __( 'Identify high-risk modules using AI-driven analytics.', 'testro' ),
+							'title'       => __( 'Quality Engineering Insights', 'testro' ),
+							'description' => __( 'Track metrics like flakiness, cycle time, and defect leakage for every project in one view. Not spread across five tools.', 'testro' ),
 						),
 					),
-					'dashboard' => array(
+					'dashboard'     => array(
 						'label'     => __( 'Release Readiness', 'testro' ),
 						'build'     => __( 'Build #1842 · Main', 'testro' ),
 						'status'    => __( 'Ready', 'testro' ),
@@ -3320,270 +2393,144 @@ function testro_get_product_pages() {
 							),
 						),
 					),
+					'outro'         => __( 'Instead of relying on a status meeting to find out where testing stands, everyone on the team can just open the dashboard. This is the kind of visibility an AI testing management platform should deliver. It gives insight without anyone having to chase it down.', 'testro' ),
 				),
 
-				/* 7. Team Collaboration ------------------------------------- */
+				/* 9. Migration ---------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'team-collaboration',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Team Collaboration', 'testro' ),
-					'title'   => __( 'Collaborate Inside the Test Lifecycle—Not Across Spreadsheets', 'testro' ),
-					'intro'   => __( 'Give QA, developers, and stakeholders shared assets, reviews, and approvals with enterprise-ready access control.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Role-Based Access', 'testro' ),
-							'description' => __( 'Control permissions securely across teams.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Comments & Reviews', 'testro' ),
-							'description' => __( 'Collaborate directly within test cases.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Approval Workflows', 'testro' ),
-							'description' => __( 'Create structured review and approval processes.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Shared Test Assets', 'testro' ),
-							'description' => __( 'Share reusable test cases and execution assets across teams.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. DevOps & Enterprise Integrations ----------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'devops-integrations',
-					'eyebrow' => __( 'DevOps & Enterprise Integrations', 'testro' ),
-					'title'   => __( 'Connect theTestRo to the Tools Your Delivery Teams Already Use', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your existing DevOps and collaboration tools to streamline testing and accelerate continuous delivery.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'AI Test Management', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Sync requirements, defects, and delivery work with your issue tracker.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Align plans, pipelines, and test evidence with Azure DevOps workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger and report test activity from pull requests and repositories.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Drive scheduled and continuous test runs from Jenkins jobs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Push execution alerts and release signals into team channels.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Pipelines', 'testro' ),
-							'description' => __( 'Embed quality gates across your continuous delivery toolchain.', 'testro' ),
-						),
-					),
-				),
-
-				/* 9. Enterprise Governance ---------------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-governance',
-					'variant' => 'brand',
-					'columns' => 4,
-					'eyebrow' => __( 'Enterprise Governance', 'testro' ),
-					'title'   => __( 'Security, Auditability, and Scale Built for Regulated Teams', 'testro' ),
-					'intro'   => __( 'Govern multi-project repositories with complete history, enterprise permissions, and performance that keeps pace as coverage grows.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Audit Logs', 'testro' ),
-							'description' => __( 'Track every change with complete audit history.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Security & Permissions', 'testro' ),
-							'description' => __( 'Enterprise-grade security and user management.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Multi-Project Management', 'testro' ),
-							'description' => __( 'Manage multiple teams and projects from one platform.', 'testro' ),
-						),
+					'type'          => 'outcomes',
+					'id'            => 'migrate-existing-tests',
+					'variant'       => 'tint',
+					'title'         => __( 'Migrate From Spreadsheets and Legacy Tools in Minutes', 'testro' ),
+					'intro'         => __( 'Bring Your Existing Tests With You', 'testro' ),
+					'intro_extra'   => __( 'Switching test case management software shouldn\'t mean starting from zero.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'database',
-							'title'       => __( 'Scalable Test Repository', 'testro' ),
-							'description' => __( 'Scale your testing assets without compromising organization or performance.', 'testro' ),
+							'title'       => __( 'CSV & Excel Import', 'testro' ),
+							'description' => __( 'Bring in your existing test cases in minutes, auto-tagged and organized with clean IDs.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Migration From Legacy Tools', 'testro' ),
+							'description' => __( 'Move over from spreadsheets or older platforms without losing your test history.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Guided Onboarding', 'testro' ),
+							'description' => __( 'Start testing within minutes of signing up, with no steep learning curve to climb first.', 'testro' ),
 						),
 					),
 				),
 
-				/* 10. Why teams choose -------------------------------------- */
+				/* 10. Comparison table ---------------------------------------- */
 				array(
-					'type'    => 'comparison',
-					'id'      => 'why-choose-ai-test-management',
-					'eyebrow' => __( 'Why Teams Choose theTestRo', 'testro' ),
-					'title'   => __( 'Why Teams Choose theTestRo AI Test Management Tool', 'testro' ),
-					'intro'   => __( 'Organizations choose theTestRo because it unifies planning, execution, collaboration, and analytics into a single AI-powered platform, helping QA teams improve productivity, reduce manual effort, and release software with greater confidence.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Traditional Test Management', 'testro' ),
-						'note'  => __( 'Disconnected tools and manual overhead', 'testro' ),
+					'type'          => 'comparison',
+					'id'            => 'why-teams-move-off-spreadsheets',
+					'title'         => __( 'Why Teams Move Off Spreadsheets and Legacy Tools', 'testro' ),
+					'intro'         => __( 'Spreadsheets vs. Legacy Tools vs. theTestRo', 'testro' ),
+					'heading_level' => 5,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Spreadsheets', 'testro' ),
 					),
-					'modern'  => array(
+					'middle'        => array(
+						'label' => __( 'Legacy Tools', 'testro' ),
+					),
+					'modern'        => array(
 						'label' => __( 'theTestRo', 'testro' ),
-						'note'  => __( 'AI-powered lifecycle on one platform', 'testro' ),
 					),
-					'rows'    => array(
+					'rows'          => array(
 						array(
-							'aspect' => __( 'Planning approach', 'testro' ),
-							'legacy' => __( 'Manual Planning', 'testro' ),
-							'modern' => __( 'AI-Powered Test Management', 'testro' ),
+							'aspect' => __( 'Setup', 'testro' ),
+							'legacy' => __( 'None, but chaotic', 'testro' ),
+							'middle' => __( 'Long, clunky onboarding', 'testro' ),
+							'modern' => __( 'Live in minutes', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Decision support', 'testro' ),
-							'legacy' => __( 'Limited Visibility', 'testro' ),
-							'modern' => __( 'Intelligent Recommendations', 'testro' ),
+							'aspect' => __( 'Test Case Writing', 'testro' ),
+							'legacy' => __( 'Fully manual', 'testro' ),
+							'middle' => __( 'Manual or semi-automated', 'testro' ),
+							'modern' => __( 'AI-generated from Jira, PRDs, prompts', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Coverage links', 'testro' ),
-							'legacy' => __( 'Separate Tools', 'testro' ),
-							'modern' => __( 'End-to-End Traceability', 'testro' ),
+							'aspect' => __( 'Traceability', 'testro' ),
+							'legacy' => __( 'None', 'testro' ),
+							'middle' => __( 'Partial, hard to manage', 'testro' ),
+							'modern' => __( 'Built-in, end-to-end', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Execution model', 'testro' ),
-							'legacy' => __( 'Limited Automation', 'testro' ),
-							'modern' => __( 'Unified Manual & Automation', 'testro' ),
+							'aspect' => __( 'Collaboration', 'testro' ),
+							'legacy' => __( 'Offline, email-based', 'testro' ),
+							'middle' => __( 'Siloed', 'testro' ),
+							'modern' => __( 'Real-time, shared workspace', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Reporting depth', 'testro' ),
-							'legacy' => __( 'High Maintenance', 'testro' ),
-							'modern' => __( 'Enterprise Analytics', 'testro' ),
+							'aspect' => __( 'Execution & Bug Filing', 'testro' ),
+							'legacy' => __( 'Manual, error-prone', 'testro' ),
+							'middle' => __( 'Manual, tool switching', 'testro' ),
+							'modern' => __( 'AI-assisted, human-reviewed', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Release speed', 'testro' ),
-							'legacy' => __( 'Slower Releases', 'testro' ),
-							'modern' => __( 'Faster Release Readiness', 'testro' ),
-						),
-					),
-				),
-
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'ai-tm-productivity-gains',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Productivity Gains', 'testro' ),
-					'title'   => __( 'Measurable Impact Across the Testing Lifecycle', 'testro' ),
-					'intro'   => __( 'Teams using theTestRo AI Test Management Software consolidate tools, cut manual coordination, and ship with clearer release confidence.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Less manual planning overhead', 'testro' ),
-							'description' => __( 'AI prioritization and recommendations reduce time spent organizing suites by hand.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'One workspace for every asset', 'testro' ),
-							'description' => __( 'Replace fragmented trackers with a unified repository, execution plane, and analytics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Faster release readiness', 'testro' ),
-							'description' => __( 'Live dashboards and risk signals help teams decide when a build is truly ready.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Higher release confidence', 'testro' ),
-							'description' => __( 'Traceability from requirements to defects keeps coverage honest and auditable.', 'testro' ),
+							'aspect' => __( 'Integrations', 'testro' ),
+							'legacy' => __( 'None', 'testro' ),
+							'middle' => __( 'Limited', 'testro' ),
+							'modern' => __( 'Native Jira, CI/CD, and more', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise QA Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Engineering and QA organizations rely on theTestRo to centralize test management, accelerate delivery, and protect release quality.', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'test-management-software',
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Teams Transforming Test Management with AI', 'testro' ),
-					'intro'   => __( 'See how modern QA teams unify planning, execution, collaboration, and analytics with theTestRo\'s AI Test Management platform.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'AI Test Management FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'test-management-software',
-				),
-
-				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-ai-test-management',
-					'title'      => __( 'Manage, Execute, and Optimize Testing from a Single AI-Powered Platform', 'testro' ),
-					'intro'      => __( 'Transform your testing lifecycle with theTestRo\'s AI Test Management platform. Plan smarter, execute faster, collaborate seamlessly, and gain real-time visibility into every release using intelligent automation and enterprise-grade analytics.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'start-managing-tests-with-ai',
+					'title'         => __( 'Start Managing Tests With AI Today', 'testro' ),
+					'intro'         => __( 'Replace the Spreadsheet Chaos for Good', 'testro' ),
+					'body'          => __( 'Join QA teams already using theTestRo\'s AI test management software to plan, test, and ship faster.', 'testro' ),
+					'body_extra'    => __( 'Do less manual work at every stage.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
 
+
 		'self-healing-test-automation-tool' => array(
 			'slug'   => 'self-healing-test-automation-tool',
 			'title'  => __( 'Self-Healing Automation Tool', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'Self-Healing Test Automation Tool | AI Self-Healing Automation | theTestRo', 'testro' ),
-				'description' => __( 'theTestRo Self-Healing Test Automation Tool delivers AI Locator Intelligence and Automatic Locator Recovery so suites adapt to UI changes, cut maintenance, and stay reliable across every release.', 'testro' ),
+				'title'       => __( 'Best Self-Healing Test Automation tool for Stable Test Execution', 'testro' ),
+				'description' => __( 'Reduce test maintenance with a self-healing test automation tool. Adapt to UI changes automatically, reduce flaky tests, and ensure reliable execution.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Self-Healing Automation', 'testro' ),
-				'title'    => __( 'Self-Healing Test Automation Tool', 'testro' ),
-				'subtitle' => __( 'Reduce automation maintenance and eliminate flaky tests with theTestRo\'s AI-powered Self-Healing Automation Tool. Automatically detect UI changes, repair broken locators, adapt to application updates, and keep your automated tests running without manual intervention. Deliver reliable, stable, and scalable automation across every release.', 'testro' ),
-				'badges'   => array(
-					__( 'AI Locator Intelligence', 'testro' ),
-					__( 'Auto Recovery', 'testro' ),
-					__( 'Zero Manual Updates', 'testro' ),
-					__( 'CI/CD Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'          => __( 'Best Self-Healing Test Automation Tool for Reliable Testing', 'testro' ),
+				'subtitle'       => __( 'theTestRo is a self-healing test automation tool. It stops broken locators from breaking your builds.', 'testro' ),
+				'subtitle_extra' => __( 'Your app\'s UI changes, and AI updates the test on its own. No manual script fixes. No flaky suite waiting on someone to notice. This is AI test automation built to hold up over time, not just on day one.', 'testro' ),
+				'actions'        => array(
 					array(
-						'value' => '99.95%',
-						'label' => __( 'Heal success rate', 'testro' ),
-						'icon'  => 'shield-check',
-					),
-					array(
-						'value' => '−70%',
-						'label' => __( 'Less maintenance', 'testro' ),
-						'icon'  => 'trending-up',
-					),
-					array(
-						'value' => '<2s',
-						'label' => __( 'Average heal time', 'testro' ),
-						'icon'  => 'zap',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
@@ -3592,249 +2539,198 @@ function testro_get_product_pages() {
 
 				/* 1. Intelligent Test Stability ---------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'intelligent-test-stability',
-					'eyebrow' => __( 'Intelligent Test Stability', 'testro' ),
-					'title'   => __( 'From Application Change to Successful Execution', 'testro' ),
-					'intro'   => __( 'Watch AI keep suites green when the UI shifts—detecting broken locators, analyzing the DOM, healing steps automatically, and continuing the run without waiting on manual fixes.', 'testro' ),
-					'items'   => array(
+					'type'          => 'pipeline',
+					'id'            => 'intelligent-test-stability',
+					'title'         => __( 'Intelligent Test Stability', 'testro' ),
+					'intro'         => __( 'Tests That Stay Stable as Your App Changes', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'refresh',
-							'stage'       => __( 'Application Update', 'testro' ),
+							'stage'       => __( 'Adapt', 'testro' ),
 							'title'       => __( 'Adaptive Test Execution', 'testro' ),
-							'description' => __( 'Automatically adapt to application changes without interrupting execution.', 'testro' ),
-						),
-						array(
-							'icon'        => 'alert-octagon',
-							'stage'       => __( 'Broken Locator', 'testro' ),
-							'title'       => __( 'Drift Detected Instantly', 'testro' ),
-							'description' => __( 'Flag failing selectors the moment a UI update breaks the primary locator path.', 'testro' ),
+							'description' => __( 'Tests adjust in real time to small UI shifts. They don\'t just fail outright.', 'testro' ),
 						),
 						array(
 							'icon'        => 'scan-eye',
-							'stage'       => __( 'AI Analysis', 'testro' ),
+							'stage'       => __( 'Recognize', 'testro' ),
 							'title'       => __( 'Dynamic Object Recognition', 'testro' ),
-							'description' => __( 'Identify UI elements intelligently using multiple locator strategies.', 'testro' ),
+							'description' => __( 'theTestRo finds elements based on how they actually behave and look. Not one fixed reference point.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
-							'stage'       => __( 'Auto-Heal', 'testro' ),
+							'stage'       => __( 'Recover', 'testro' ),
 							'title'       => __( 'Automatic Recovery Engine', 'testro' ),
-							'description' => __( 'Recover failed steps automatically and continue execution without manual updates.', 'testro' ),
-						),
-						array(
-							'icon'        => 'circle-check',
-							'stage'       => __( 'Successful Execution', 'testro' ),
-							'title'       => __( 'Stable Run Continues', 'testro' ),
-							'description' => __( 'Persist healed locators and finish the suite with enterprise-grade reliability.', 'testro' ),
+							'description' => __( 'If a step can\'t find its target the usual way, theTestRo tries other paths. It does this before it marks the step as a failure.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This is what AI self-healing test automation should deliver. Stability that holds up release after release, not just on day one.', 'testro' ),
 				),
 
 				/* 2. AI Locator Intelligence ------------------------------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'ai-locator-intelligence',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI Locator Intelligence', 'testro' ),
-					'title'   => __( 'Find the Most Reliable Locator—Every Time', 'testro' ),
-					'intro'   => __( 'Multi-attribute matching, DOM change detection, and intelligent ranking keep element resolution resilient as modern apps re-render.', 'testro' ),
-					'items'   => array(
+					'type'          => 'outcomes',
+					'id'            => 'ai-locator-intelligence',
+					'variant'       => 'spotlight',
+					'title'         => __( 'AI Locator Intelligence', 'testro' ),
+					'intro'         => __( 'Smarter Than a Single Hardcoded Selector', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'crosshair',
 							'title'       => __( 'Smart Locator Detection', 'testro' ),
-							'description' => __( 'Identify the best available locator using AI-powered intelligence.', 'testro' ),
+							'description' => __( 'theTestRo builds each locator from multiple signals. Not one brittle CSS path.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layout-grid',
 							'title'       => __( 'Multi-Attribute Element Matching', 'testro' ),
-							'description' => __( 'Compare multiple element attributes instead of relying on a single locator.', 'testro' ),
+							'description' => __( 'An ID changes but the label, position, and role stay the same? theTestRo still finds it.', 'testro' ),
 						),
 						array(
 							'icon'        => 'scan-eye',
 							'title'       => __( 'DOM Change Detection', 'testro' ),
-							'description' => __( 'Automatically detect structural changes within the application\'s DOM.', 'testro' ),
+							'description' => __( 'Structural shifts in the page get flagged and handled on their own. Nothing breaks silently.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
 							'title'       => __( 'Intelligent Locator Ranking', 'testro' ),
-							'description' => __( 'Rank available locators and choose the most reliable option dynamically.', 'testro' ),
+							'description' => __( 'More than one match is possible? theTestRo picks the most reliable one, not just the first one found.', 'testro' ),
 						),
 					),
 				),
 
 				/* 3. Autonomous Test Recovery ------------------------------ */
 				array(
-					'type'    => 'healing',
-					'id'      => 'autonomous-test-recovery',
-					'eyebrow' => __( 'Autonomous Test Recovery', 'testro' ),
-					'title'   => __( 'Repair Broken Steps Without Touching Your Scripts', 'testro' ),
-					'intro'   => __( 'When locators fail mid-run, theTestRo recovers the element, updates the step, and continues execution—so maintenance no longer blocks the release train.', 'testro' ),
-					'steps'   => array(
-						array(
-							'icon'  => 'code',
-							'label' => __( 'Original Locator', 'testro' ),
-						),
-						array(
-							'icon'  => 'refresh',
-							'label' => __( 'Application Update', 'testro' ),
-						),
-						array(
-							'icon'  => 'sparkles',
-							'label' => __( 'AI Recovery', 'testro' ),
-						),
-						array(
-							'icon'  => 'wand',
-							'label' => __( 'Updated Locator', 'testro' ),
-						),
-						array(
-							'icon'  => 'circle-check',
-							'label' => __( 'Execution Continues', 'testro' ),
-						),
-					),
-					'items'   => array(
+					'type'          => 'healing',
+					'id'            => 'autonomous-test-recovery',
+					'title'         => __( 'Autonomous Test Recovery', 'testro' ),
+					'intro'         => __( 'Recovery Without a Person in the Loop', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'wrench',
 							'title'       => __( 'Automatic Locator Updates', 'testro' ),
-							'description' => __( 'Repair broken locators automatically without modifying scripts.', 'testro' ),
+							'description' => __( 'A changed element gets a new locator on its own. No manual edit needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'crosshair',
 							'title'       => __( 'Runtime Element Resolution', 'testro' ),
-							'description' => __( 'Resolve UI elements dynamically during execution.', 'testro' ),
+							'description' => __( 'theTestRo figures out what an element is right when the test runs. Not from a stale reference captured weeks ago.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
 							'title'       => __( 'Failed Step Recovery', 'testro' ),
-							'description' => __( 'Recover failed steps intelligently and continue testing.', 'testro' ),
+							'description' => __( 'One failed step doesn\'t have to end the run. theTestRo tries to recover before giving up.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-check',
 							'title'       => __( 'Zero Manual Script Updates', 'testro' ),
-							'description' => __( 'Reduce manual maintenance and keep automation stable over time.', 'testro' ),
+							'description' => __( 'Your team stops opening old test scripts just to fix a selector that moved.', 'testro' ),
 						),
 					),
 				),
 
 				/* 4. Adaptive UI Change Detection -------------------------- */
 				array(
-					'type'    => 'visual-diff',
-					'id'      => 'adaptive-ui-change-detection',
-					'eyebrow' => __( 'Adaptive UI Change Detection', 'testro' ),
-					'title'   => __( 'See How the UI Changed Before Suites Break', 'testro' ),
-					'intro'   => __( 'Detect structural and component-level UI shifts across Old UI and Updated UI states—then confirm AI Comparison passes so automation stays aligned with the live application.', 'testro' ),
-					'before'  => array(
-						'label' => __( 'Old UI', 'testro' ),
-						'note'  => __( 'Previous structure', 'testro' ),
-					),
-					'after'   => array(
-						'label' => __( 'Updated UI', 'testro' ),
-						'note'  => __( 'DOM shifted', 'testro' ),
-					),
-					'diff'    => array(
-						'label'  => __( 'AI Comparison', 'testro' ),
-						'change' => __( 'Passed', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'adaptive-ui-change-detection',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Adaptive UI Change Detection', 'testro' ),
+					'intro'         => __( 'Built for How Modern Web Apps Actually Change', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'microscope',
 							'title'       => __( 'DOM Structure Analysis', 'testro' ),
-							'description' => __( 'Analyze structural changes within the application automatically.', 'testro' ),
+							'description' => __( 'theTestRo reads structural changes in the page. Not just surface-level text.', 'testro' ),
 						),
 						array(
 							'icon'        => 'sparkles',
 							'title'       => __( 'Dynamic Component Recognition', 'testro' ),
-							'description' => __( 'Recognize changing UI components using AI.', 'testro' ),
+							'description' => __( 'Handles parts that load, re-render, or shift position with no warning.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layers-api',
 							'title'       => __( 'Shadow DOM Support', 'testro' ),
-							'description' => __( 'Handle modern web applications using Shadow DOM.', 'testro' ),
+							'description' => __( 'Works with elements nested inside shadow DOM, where many older tools lose sight of them.', 'testro' ),
 						),
 						array(
 							'icon'        => 'code',
 							'title'       => __( 'Modern Web Framework Compatibility', 'testro' ),
-							'description' => __( 'Support applications built with React, Angular, Vue, and other modern frameworks.', 'testro' ),
+							'description' => __( 'Built to handle React, Angular, and Vue apps. The DOM updates constantly behind the scenes, and theTestRo keeps up.', 'testro' ),
 						),
 					),
 				),
 
 				/* 5. Intelligent Execution Engine -------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'intelligent-execution-engine',
-					'eyebrow' => __( 'Intelligent Execution Engine', 'testro' ),
-					'title'   => __( 'Decide, Wait, Retry, and Succeed in Real Time', 'testro' ),
-					'intro'   => __( 'An execution engine that times waits, retries transient noise, and synchronizes with asynchronous UIs—so self-healing has a stable runway to work.', 'testro' ),
-					'items'   => array(
+					'type'          => 'pipeline',
+					'id'            => 'intelligent-execution-engine',
+					'title'         => __( 'Intelligent Execution Engine', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'zap',
-							'stage'       => __( 'Execution', 'testro' ),
+							'stage'       => __( 'Runtime', 'testro' ),
 							'title'       => __( 'Runtime Decision Engine', 'testro' ),
-							'description' => __( 'Make intelligent execution decisions in real time.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'stage'       => __( 'AI Decision', 'testro' ),
-							'title'       => __( 'Smart Path Selection', 'testro' ),
-							'description' => __( 'Choose the safest next action when the UI state is ambiguous or delayed.', 'testro' ),
+							'description' => __( 'theTestRo decides how to handle a surprise in the moment. It doesn\'t just crash and wait for a rerun.', 'testro' ),
 						),
 						array(
 							'icon'        => 'clock',
-							'stage'       => __( 'Smart Wait', 'testro' ),
+							'stage'       => __( 'Wait', 'testro' ),
 							'title'       => __( 'Smart Wait Strategies', 'testro' ),
-							'description' => __( 'Automatically wait for dynamic application states.', 'testro' ),
+							'description' => __( 'Wait times adjust to real network and page-load conditions. Not a fixed timer that\'s either too short or wastes time.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
 							'stage'       => __( 'Retry', 'testro' ),
 							'title'       => __( 'Automatic Retry Logic', 'testro' ),
-							'description' => __( 'Retry transient failures intelligently.', 'testro' ),
+							'description' => __( 'A flaky step gets a second try before it counts as a real failure.', 'testro' ),
 						),
 						array(
 							'icon'        => 'circle-check',
-							'stage'       => __( 'Success', 'testro' ),
+							'stage'       => __( 'Sync', 'testro' ),
 							'title'       => __( 'Dynamic Synchronization', 'testro' ),
-							'description' => __( 'Synchronize execution with modern asynchronous web applications.', 'testro' ),
+							'description' => __( 'Tests stay in step with the app\'s real load state. Fewer timing-related false failures.', 'testro' ),
 						),
 					),
 				),
 
 				/* 6. Failure Diagnostics & AI Insights --------------------- */
 				array(
-					'type'      => 'analytics',
-					'id'        => 'failure-diagnostics-ai-insights',
-					'eyebrow'   => __( 'Failure Diagnostics & AI Insights', 'testro' ),
-					'title'     => __( 'See Why Steps Failed—and How AI Recovered Them', 'testro' ),
-					'intro'     => __( 'Screenshots, video, timelines, root-cause signals, and recovery recommendations land in one diagnostics dashboard so engineers debug faster.', 'testro' ),
-					'items'     => array(
+					'type'          => 'analytics',
+					'id'            => 'failure-diagnostics-ai-insights',
+					'title'         => __( 'Failure Diagnostics & AI Insights', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'microscope',
 							'title'       => __( 'Root Cause Analysis', 'testro' ),
-							'description' => __( 'Automatically identify the reason behind failed executions.', 'testro' ),
+							'description' => __( 'AI tells a real bug apart from a flaky, unrelated failure.', 'testro' ),
 						),
 						array(
 							'icon'        => 'filter-check',
 							'title'       => __( 'Failure Classification', 'testro' ),
-							'description' => __( 'Categorize failures intelligently for faster debugging.', 'testro' ),
+							'description' => __( 'Failures get sorted on their own. Your team isn\'t triaging each one from scratch.', 'testro' ),
 						),
 						array(
 							'icon'        => 'activity',
 							'title'       => __( 'Execution Timeline', 'testro' ),
-							'description' => __( 'Review detailed execution timelines for every test.', 'testro' ),
+							'description' => __( 'See the full sequence of what happened, step by step, right up to the failure.', 'testro' ),
 						),
 						array(
 							'icon'        => 'scan-eye',
 							'title'       => __( 'Screenshots & Video Logs', 'testro' ),
-							'description' => __( 'Capture complete visual evidence for every execution.', 'testro' ),
+							'description' => __( 'Every failure comes with visual proof. Not just a line of error text.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
 							'title'       => __( 'AI Recovery Recommendations', 'testro' ),
-							'description' => __( 'Receive AI-powered suggestions to improve automation stability.', 'testro' ),
+							'description' => __( 'theTestRo suggests a fix when a step can\'t heal itself. Your team isn\'t starting from zero.', 'testro' ),
 						),
 					),
-					'dashboard' => array(
+					'dashboard'     => array(
 						'label'     => __( 'Healing Diagnostics', 'testro' ),
 						'build'     => __( 'Run #4821 · Checkout', 'testro' ),
 						'status'    => __( 'Recovered', 'testro' ),
@@ -3932,188 +2828,135 @@ function testro_get_product_pages() {
 
 				/* 7. Enterprise Automation Reliability --------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'enterprise-automation-reliability',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Enterprise Automation Reliability', 'testro' ),
-					'title'   => __( 'Stable Suites at the Scale Your Releases Demand', 'testro' ),
-					'intro'   => __( 'Self-healing is built for long-lived enterprise suites—less maintenance debt, higher success rates, and confident ownership of thousands of automated tests.', 'testro' ),
-					'items'   => array(
+					'type'          => 'outcomes',
+					'id'            => 'enterprise-automation-reliability',
+					'variant'       => 'tint',
+					'title'         => __( 'Enterprise Automation Reliability', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'shield-check',
 							'title'       => __( 'Long-Term Test Stability', 'testro' ),
-							'description' => __( 'Maintain reliable automation even as applications evolve.', 'testro' ),
+							'description' => __( 'Tests stay reliable over months of releases. Not just the week they were written.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wrench',
 							'title'       => __( 'Reduced Maintenance Overhead', 'testro' ),
-							'description' => __( 'Minimize manual script updates using intelligent self-healing.', 'testro' ),
+							'description' => __( 'Automated test maintenance means less time on upkeep, more time on new coverage.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
 							'title'       => __( 'Higher Automation Success Rate', 'testro' ),
-							'description' => __( 'Increase execution reliability across every release.', 'testro' ),
+							'description' => __( 'Fewer false failures. Your team can trust a red result when it actually happens.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
 							'title'       => __( 'Large-Scale Test Suite Management', 'testro' ),
-							'description' => __( 'Manage thousands of automated tests with confidence.', 'testro' ),
+							'description' => __( 'Self-healing holds up whether you\'re running 50 tests or 5,000.', 'testro' ),
 						),
 					),
 				),
 
 				/* 8. DevOps & CI/CD Integration ---------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'devops-cicd-integration',
-					'eyebrow' => __( 'DevOps & CI/CD Integration', 'testro' ),
-					'title'   => __( 'Self-Healing That Fits Your Delivery Pipeline', 'testro' ),
-					'intro'   => __( 'Integrate self-healing automation into your CI/CD pipeline to ensure resilient automated testing throughout the software delivery lifecycle.', 'testro' ),
-					'hub'     => array(
+					'type'          => 'architecture',
+					'id'            => 'devops-cicd-integration',
+					'title'         => __( 'DevOps & CI/CD Integration', 'testro' ),
+					'intro'         => __( 'Self-Healing That Works Inside Your Existing Pipeline', 'testro' ),
+					'intro_extra'   => __( 'Self-healing only helps if it runs where your team already ships code. theTestRo connects straight into the tools your pipeline already uses:', 'testro' ),
+					'heading_level' => 5,
+					'hub'           => array(
 						'icon'  => 'heart-pulse',
 						'label' => __( 'theTestRo', 'testro' ),
 						'sub'   => __( 'Self-Healing Automation', 'testro' ),
 					),
-					'items'   => array(
+					'items'         => array(
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Trigger healed suites from Jenkins jobs on every build.', 'testro' ),
+							'icon'  => 'server',
+							'title' => __( 'Jenkins', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub Actions', 'testro' ),
-							'description' => __( 'Run resilient checks on pull requests and deployments.', 'testro' ),
+							'icon'  => 'git-branch',
+							'title' => __( 'GitHub Actions', 'testro' ),
 						),
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed self-healing gates inside Azure pipelines.', 'testro' ),
+							'icon'  => 'cloud',
+							'title' => __( 'Azure DevOps', 'testro' ),
 						),
 						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'GitLab CI', 'testro' ),
-							'description' => __( 'Keep GitLab pipelines green when UI locators drift.', 'testro' ),
+							'icon'  => 'infinity',
+							'title' => __( 'GitLab CI', 'testro' ),
 						),
 						array(
 							'icon'        => 'plug',
 							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Sync failure evidence and heal outcomes with delivery work.', 'testro' ),
+							'description' => __( 'Failed tests can file directly into your existing tickets.', 'testro' ),
 						),
 						array(
 							'icon'        => 'message-text',
 							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify channels when suites self-heal or need review.', 'testro' ),
+							'description' => __( 'Get notified the moment a test needs attention, right where your team already talks. A self-healing test automation tool that lives outside your pipeline just becomes one more dashboard nobody checks. theTestRo sits inside the workflow your team already has.', 'testro' ),
 						),
 					),
 				),
 
 				/* 9. Why Teams Choose -------------------------------------- */
 				array(
-					'type'    => 'comparison',
-					'id'      => 'why-choose-self-healing',
-					'eyebrow' => __( 'Why Teams Choose theTestRo', 'testro' ),
-					'title'   => __( 'Why Teams Choose theTestRo Self-Healing Automation', 'testro' ),
-					'intro'   => __( 'Organizations choose theTestRo because it dramatically reduces automation maintenance while improving reliability through intelligent locator recovery, AI-powered diagnostics, adaptive execution, and enterprise-grade automation stability.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Traditional Automation', 'testro' ),
-						'note'  => __( 'Brittle selectors and manual rework', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'theTestRo', 'testro' ),
-						'note'  => __( 'AI self-healing on every run', 'testro' ),
-					),
-					'rows'    => array(
+					'type'          => 'outcomes',
+					'id'            => 'why-choose-self-healing',
+					'variant'       => 'spotlight',
+					'title'         => __( 'Why Teams Choose theTestRo Self-Healing Automation', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
-							'aspect' => __( 'Locator strategy', 'testro' ),
-							'legacy' => __( 'Manual Locator Updates', 'testro' ),
-							'modern' => __( 'AI Locator Intelligence', 'testro' ),
+							'icon'        => 'layers-api',
+							'title'       => __( 'Healing at Every Layer', 'testro' ),
+							'description' => __( 'Locators, waits, and retries all adapt together. Not just one isolated fix.', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Recovery', 'testro' ),
-							'legacy' => __( 'Slow Recovery', 'testro' ),
-							'modern' => __( 'Automatic Recovery', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Transparent Recovery', 'testro' ),
+							'description' => __( 'See exactly what changed and why a test still passed. No black-box "it worked" with zero explanation.', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Automation model', 'testro' ),
-							'legacy' => __( 'Frequent Script Breakage', 'testro' ),
-							'modern' => __( 'Self-Healing Automation', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'No Extra Setup', 'testro' ),
+							'description' => __( 'Self-healing is built in from day one. It\'s not a bolt-on feature buried behind a separate setup step.', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Synchronization', 'testro' ),
-							'legacy' => __( 'Limited Adaptability', 'testro' ),
-							'modern' => __( 'Intelligent Synchronization', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Stability', 'testro' ),
-							'legacy' => __( 'Flaky Tests', 'testro' ),
-							'modern' => __( 'Enterprise Stability', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Maintenance', 'testro' ),
-							'legacy' => __( 'High Maintenance', 'testro' ),
-							'modern' => __( 'Minimal Maintenance', 'testro' ),
+							'icon'        => 'browsers',
+							'title'       => __( 'Consistent Across Test Types', 'testro' ),
+							'description' => __( 'The same self-healing logic covers web, API, and cross-browser tests. Not just one narrow use case.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'self-healing-impact',
-					'variant' => 'brand',
-					'eyebrow' => __( 'Measurable Impact', 'testro' ),
-					'title'   => __( 'Less Maintenance. More Stability. Faster Releases.', 'testro' ),
-					'intro'   => __( 'Teams adopting AI self-healing reclaim engineering time, raise suite confidence, and ship with fewer false failures blocking the pipeline.', 'testro' ),
-					'items'   => array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'self-healing-test-automation-tool',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'get-started-self-healing',
+					'title'         => __( 'Final CTA', 'testro' ),
+					'intro'         => __( 'Stop Fixing Broken Tests by Hand', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s self-healing test automation. Cut maintenance time and keep your test suite reliable, release after release. Less time fixing tests. More time building.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
 						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Reduced maintenance', 'testro' ),
-							'description' => __( 'Cut locator rework with automatic repairs that persist into the next run.', 'testro' ),
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
 						),
 						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Improved stability', 'testro' ),
-							'description' => __( 'Keep regression suites green when UI components rename, move, or re-render.', 'testro' ),
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
 						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster releases', 'testro' ),
-							'description' => __( 'Spend less time firefighting flaky tests and more time shipping quality.', 'testro' ),
-						),
-					),
-				),
-
-				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Who Refuse Flaky Automation', 'testro' ),
-					'intro'   => __( 'QA and engineering organizations rely on theTestRo self-healing to protect suite stability as products ship faster.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Cut Maintenance with Self-Healing', 'testro' ),
-					'intro'   => __( 'See how modern QA teams reduce locator churn, recover failed steps automatically, and keep CI green with theTestRo.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Self-Healing Automation FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'self-healing-test-automation-tool',
-				),
-
-				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-self-healing',
-					'title'      => __( 'Keep Your Automation Running Even When Your Application Changes', 'testro' ),
-					'intro'      => __( 'Transform your automation strategy with theTestRo\'s AI-powered Self-Healing Automation Tool. Eliminate flaky tests, reduce maintenance effort, and build resilient automation that continuously adapts to modern applications.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
 					),
 				),
 			),
@@ -4123,339 +2966,382 @@ function testro_get_product_pages() {
 			'slug'   => 'test-development',
 			'title'  => __( 'AI-Powered Test Development Platform', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'AI Test Development Platform | Low-Code & No-Code Test Creation | theTestRo', 'testro' ),
-				'description' => __( 'Accelerate software testing with theTestRo\'s AI-Powered Test Development Platform. Create automated tests with natural language, low-code/no-code authoring, reusable components, and intelligent automation.', 'testro' ),
+				'title'       => __( 'Build Automated Tests with AI Test Development Platform', 'testro' ),
+				'description' => __( 'Accelerate test creation with an AI-powered test development platform. Build, manage, and maintain automated tests using intelligent automation.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Test Development', 'testro' ),
-				'title'    => __( 'AI-Powered Test Development Platform', 'testro' ),
-				'subtitle' => __( 'Accelerate software testing with theTestRo\'s AI-Powered Test Development Platform. Create, organize, and maintain automated tests faster using AI-assisted authoring, natural language testing, reusable components, and intelligent automation. Reduce scripting effort while improving test quality, collaboration, and long-term maintainability.', 'testro' ),
-				'badges'   => array(
-					__( 'Natural Language Authoring', 'testro' ),
-					__( 'Low-Code / No-Code', 'testro' ),
-					__( 'Reusable Components', 'testro' ),
-					__( 'Self-Healing Maintenance', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'          => __( 'AI-Powered Test Development Platform', 'testro' ),
+				'subtitle'       => __( 'theTestRo is an AI-powered test development platform built for speed. Describe a test in plain English, or record a flow. Get a working automated test back in seconds.', 'testro' ),
+				'subtitle_extra' => __( 'No scripting. No steep learning curve. Just faster test development from day one.', 'testro' ),
+				'actions'        => array(
 					array(
-						'value' => '30X',
-						'label' => __( 'Faster test creation', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '−60%',
-						'label' => __( 'Less scripting effort', 'testro' ),
-						'icon'  => 'code',
-					),
-					array(
-						'value' => 'AI',
-						'label' => __( 'Assisted authoring', 'testro' ),
-						'icon'  => 'sparkles',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Why theTestRo for Test Development -------------------- */
+				/* 1. Agentic Test Development ------------------------------ */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'why-test-development',
-					'eyebrow' => __( 'Why theTestRo', 'testro' ),
-					'title'   => __( 'Why theTestRo for Test Development', 'testro' ),
-					'intro'   => __( 'Move from idea to reliable automation faster—with AI-assisted authoring, maintainable suites, and far less manual scripting across every release.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'agentic-test-development',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Agentic Test Development, Built for Speed', 'testro' ),
+					'intro'         => __( 'Tests Built Before You\'d Even Finish Typing Them by Hand', 'testro' ),
+					'intro_extra'   => __( 'theTestRo\'s AI agents handle the heavy lifting of test development. Your suite keeps pace with every sprint instead of falling behind it.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'sparkles',
-							'stage'       => __( 'Accelerate', 'testro' ),
-							'title'       => __( 'Accelerate Test Creation with AI', 'testro' ),
-							'description' => __( 'Generate intelligent test cases faster using AI-assisted automation and smart recommendations.', 'testro' ),
+							'title'       => __( 'Auto-Generated Test Structure', 'testro' ),
+							'description' => __( 'AI reads your requirements. It builds a test\'s structure on its own.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'stage'       => __( 'Stabilize', 'testro' ),
-							'title'       => __( 'Build Stable & Maintainable Test Suites', 'testro' ),
-							'description' => __( 'Create scalable, reusable, and reliable test suites that grow with your application.', 'testro' ),
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Sprint-Aware Updates', 'testro' ),
+							'description' => __( 'New stories land, and theTestRo flags coverage gaps before your team has to go looking for them.', 'testro' ),
 						),
 						array(
-							'icon'        => 'pen-square',
-							'stage'       => __( 'Simplify', 'testro' ),
-							'title'       => __( 'Reduce Manual Scripting Effort', 'testro' ),
-							'description' => __( 'Minimize coding effort through AI-powered, low-code, and no-code test development capabilities.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Continuous Test Suggestions', 'testro' ),
+							'description' => __( 'AI recommends new tests and updates as your product changes. Not just once at setup.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This is what AI test development looks like when it\'s built to keep up. Not just to save time on day one.', 'testro' ),
 				),
 
-				/* 2. Create Tests Faster ----------------------------------- */
+				/* 2. Natural Language Test Creation ------------------------ */
 				array(
-					'type'    => 'bento',
-					'id'      => 'create-tests-faster',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Intelligent Test Development Platform', 'testro' ),
-					'title'   => __( 'Create Tests Faster', 'testro' ),
-					'intro'   => __( 'Author automation with AI recommendations, natural language, record & playback, and modular components—so coverage grows without a scripting bottleneck.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Create Tests Using AI', 'testro' ),
-							'description' => __( 'Automatically generate intelligent test cases using AI-powered recommendations.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'natural-language-test-creation',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Natural Language Test Creation', 'testro' ),
+					'intro'         => __( 'Write a Sentence. Get a Working Test.', 'testro' ),
+					'intro_extra'   => __( 'You shouldn\'t need to know a framework to build a reliable test.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'message-text',
-							'title'       => __( 'Natural Language Test Creation', 'testro' ),
-							'description' => __( 'Create automated tests using simple, human-readable language.', 'testro' ),
+							'title'       => __( 'Plain English Test Steps', 'testro' ),
+							'description' => __( 'Describe what should happen. theTestRo turns it into a working test.', 'testro' ),
 						),
 						array(
 							'icon'        => 'activity',
-							'title'       => __( 'Record & Playback', 'testro' ),
-							'description' => __( 'Capture user interactions and instantly convert them into reusable automated tests.', 'testro' ),
+							'title'       => __( 'Record-and-Convert', 'testro' ),
+							'description' => __( 'Click through a flow once. Get a clean, readable test script back automatically.', 'testro' ),
 						),
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI-Assisted Test Generation', 'testro' ),
-							'description' => __( 'Use AI to generate optimized test scenarios and workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Reusable Test Components', 'testro' ),
-							'description' => __( 'Build modular test components that can be reused across multiple projects.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. Develop Tests Faster ---------------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'develop-tests-faster',
-					'variant' => 'tint',
-					'columns' => 4,
-					'eyebrow' => __( 'Develop Tests Faster', 'testro' ),
-					'title'   => __( 'Low-Code Authoring Built for Scale', 'testro' ),
-					'intro'   => __( 'Compose flexible automation with minimal coding—data-driven runs, parameterized cases, and shared libraries that keep every team productive.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Low-Code / No-Code Test Authoring', 'testro' ),
-							'description' => __( 'Create automation with minimal coding effort.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Data-Driven Test Development', 'testro' ),
-							'description' => __( 'Run the same test across multiple datasets efficiently.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Parameterized Test Cases', 'testro' ),
-							'description' => __( 'Design flexible and reusable test cases using dynamic parameters.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Shared Test Libraries', 'testro' ),
-							'description' => __( 'Maintain centralized libraries of reusable testing assets.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Simplify Test Maintenance ----------------------------- */
-				array(
-					'type'    => 'healing',
-					'id'      => 'simplify-test-maintenance',
-					'eyebrow' => __( 'Simplify Test Maintenance', 'testro' ),
-					'title'   => __( 'Keep Suites Stable as Applications Evolve', 'testro' ),
-					'intro'   => __( 'Self-healing technology, automatic locator updates, reusable objects, and version control reduce the cost of keeping automation trustworthy.', 'testro' ),
-					'steps'   => array(
-						array(
-							'icon'  => 'alert-octagon',
-							'label' => __( 'UI Change', 'testro' ),
-						),
-						array(
-							'icon'  => 'scan-eye',
-							'label' => __( 'AI Detects', 'testro' ),
-						),
-						array(
-							'icon'  => 'wand',
-							'label' => __( 'Auto-Heal', 'testro' ),
-						),
-						array(
-							'icon'  => 'git-branch',
-							'label' => __( 'Versioned', 'testro' ),
-						),
-						array(
-							'icon'  => 'circle-check',
-							'label' => __( 'Suite Stable', 'testro' ),
-						),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Self-Healing Tests', 'testro' ),
-							'description' => __( 'Automatically recover from UI changes using AI-powered self-healing technology.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Automatic Locator Updates', 'testro' ),
-							'description' => __( 'Repair broken locators without modifying test scripts manually.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Reusable Objects', 'testro' ),
-							'description' => __( 'Reuse common UI objects across automation projects.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Version Control Support', 'testro' ),
-							'description' => __( 'Track test changes and collaborate efficiently using version-controlled assets.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Collaborative Test Development ------------------------ */
-				array(
-					'type'    => 'kanban',
-					'id'      => 'collaborative-test-development',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Collaborative Test Development', 'testro' ),
-					'title'   => __( 'Build Automation Together—Securely and at Scale', 'testro' ),
-					'intro'   => __( 'Share projects, control access, review changes, and manage every asset from one centralized test repository.', 'testro' ),
-					'items'   => array(
 						array(
 							'icon'        => 'user-check',
-							'title'       => __( 'Team Collaboration', 'testro' ),
-							'description' => __( 'Enable multiple team members to work together on shared automation projects.', 'testro' ),
+							'title'       => __( 'AI Test Creation for Any Skill Level', 'testro' ),
+							'description' => __( 'Manual testers and engineers both work in the same simple interface. No separate tools needed.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is intelligent test authoring built so a whole QA team can pitch in. Not just the people who can code.', 'testro' ),
+				),
+
+				/* 3. How Test Development Works ---------------------------- */
+				array(
+					'type'          => 'lifecycle',
+					'id'            => 'how-test-development-works',
+					'title'         => __( 'How Test Development Works With theTestRo', 'testro' ),
+					'intro'         => __( 'From Idea to Executable Test in Four Steps', 'testro' ),
+					'heading_level' => 3,
+					'loop_note'     => '',
+					'items'         => array(
+						array(
+							'icon'        => 'pen-square',
+							'title'       => __( 'Describe or Record', 'testro' ),
+							'description' => __( 'Write a plain-English sentence. Or record yourself clicking through the flow once.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Role-Based Access Control', 'testro' ),
-							'description' => __( 'Securely manage permissions across teams.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Review the Draft', 'testro' ),
+							'description' => __( 'theTestRo builds the full test with steps, assertions, and structure. Check it before running anything.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Extend if Needed', 'testro' ),
+							'description' => __( 'Add conditional logic, loops, or reusable components to cover edge cases.', 'testro' ),
+						),
+						array(
+							'icon'        => 'circle-check',
+							'title'       => __( 'Run and Refine', 'testro' ),
+							'description' => __( 'Run the test, review results, and let AI flag anything that needs a second look.', 'testro' ),
+						),
+					),
+				),
+
+				/* 4. Who Builds Tests With theTestRo ----------------------- */
+				array(
+					'type'          => 'outcomes',
+					'id'            => 'who-builds-tests',
+					'variant'       => 'tint',
+					'title'         => __( 'Who Builds Tests With theTestRo', 'testro' ),
+					'intro'         => __( 'Built for the Whole QA Team, Not Just Engineers', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Manual Testers', 'testro' ),
+							'description' => __( 'Turn existing manual test cases into automated ones. No need to learn a scripting language.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'QA Engineers', 'testro' ),
+							'description' => __( 'Skip the repetitive setup work. Spend more time on complex scenarios and real edge cases.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Product Managers', 'testro' ),
+							'description' => __( 'Validate a new feature yourself. No need to wait in line for QA bandwidth.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
-							'title'       => __( 'Review & Approval Workflows', 'testro' ),
-							'description' => __( 'Implement structured review and approval processes for test assets.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Centralized Test Repository', 'testro' ),
-							'description' => __( 'Manage all test assets from one centralized repository.', 'testro' ),
+							'title'       => __( 'QA Leads', 'testro' ),
+							'description' => __( 'Roll out a consistent test development process across the whole team. Less onboarding time needed.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. Across Applications ----------------------------------- */
+				/* 5. Modular Test Components ------------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'test-development-across-applications',
-					'eyebrow' => __( 'Multi-Platform Coverage', 'testro' ),
-					'title'   => __( 'AI-Powered Test Development Across Applications', 'testro' ),
-					'intro'   => __( 'Build intelligent automation once and apply it across the surfaces your products run on—web, mobile, APIs, browsers, and enterprise systems.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'AI Test Development', 'testro' ),
-						'sub'   => __( 'Unified authoring hub', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'modular-test-components',
+					'columns'       => 3,
+					'title'         => __( 'Modular Test Components, Built for Reuse', 'testro' ),
+					'intro'         => __( 'Build Once. Reuse Everywhere.', 'testro' ),
+					'intro_extra'   => __( 'Repeating the same steps across dozens of tests wastes time. It multiplies maintenance work too.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Build intelligent automation for modern web applications.', 'testro' ),
+							'icon'        => 'puzzle',
+							'title'       => __( 'Reusable Step Groups', 'testro' ),
+							'description' => __( 'Turn a common sequence, like login, into a component you drop into any test.', 'testro' ),
 						),
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Mobile Applications', 'testro' ),
-							'description' => __( 'Develop reliable automation for Android and iOS applications.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Update Once, Apply Everywhere', 'testro' ),
+							'description' => __( 'Change a shared component, and every test using it updates on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'No Duplicate Logic', 'testro' ),
+							'description' => __( 'Cut down on copy-pasted steps that quietly drift out of sync over time.', 'testro' ),
+						),
+					),
+				),
+
+				/* 6. Data-Driven Testing ----------------------------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'data-driven-testing',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Data-Driven Testing, Made Simple', 'testro' ),
+					'intro'         => __( 'One Test, Every Data Set', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'Built-In Data Tables', 'testro' ),
+							'description' => __( 'Run the same test against multiple input combinations. No need to write it multiple times.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layers-api',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Create reusable API automation workflows.', 'testro' ),
+							'title'       => __( 'External Data Sources', 'testro' ),
+							'description' => __( 'Pull test data straight from spreadsheets, APIs, or databases.', 'testro' ),
 						),
 						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Develop browser-independent automation that works consistently across environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Enterprise Applications', 'testro' ),
-							'description' => __( 'Support ERP, CRM, and enterprise business applications with scalable automation.', 'testro' ),
+							'icon'        => 'target',
+							'title'       => __( 'Broader Coverage, Less Effort', 'testro' ),
+							'description' => __( 'Cover more real-world scenarios without multiplying your test count.', 'testro' ),
 						),
 					),
 				),
 
-				/* 7. DevOps workflow --------------------------------------- */
+				/* 7. Assertions That Understand Context -------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'integrate-development-workflow',
-					'eyebrow' => __( 'DevOps Integration', 'testro' ),
-					'title'   => __( 'Integrate with Your Development Workflow', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your existing development workflow and automate testing throughout your CI/CD pipeline. Collaborate efficiently with development teams while maintaining continuous quality across every software release.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'infinity',
+					'type'          => 'feature-grid',
+					'id'            => 'assertions-that-understand-context',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Assertions That Understand Context', 'testro' ),
+					'intro'         => __( 'Validation That Thinks, Not Just Checks', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'AI-Recommended Validations', 'testro' ),
+							'description' => __( 'theTestRo suggests assertions based on what the UI is actually doing. Not a generic template.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Custom Assertions in Seconds', 'testro' ),
+							'description' => __( 'Add a specific check without hunting for a locator first.', 'testro' ),
+						),
+						array(
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Fewer Missed Edge Cases', 'testro' ),
+							'description' => __( 'AI flags validation gaps your team might not think to test by hand.', 'testro' ),
+						),
+					),
+				),
+
+				/* 8. Extend Any Test --------------------------------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'extend-any-test',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Extend Any Test, Even the AI-Generated Ones', 'testro' ),
+					'intro'         => __( 'AI Gets You Started. You Take It Further.', 'testro' ),
+					'intro_extra'   => __( 'An AI-generated test is a starting point. Not a ceiling.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Conditional Logic', 'testro' ),
+							'description' => __( 'Add if/else branches to handle different app states within one test.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Loops & Repetition', 'testro' ),
+							'description' => __( 'Run a step multiple times without writing it out again and again.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Custom Flows on Top of AI Output', 'testro' ),
+							'description' => __( 'Extend an auto-generated test with your own logic. Its built-in stability stays intact.', 'testro' ),
+						),
+					),
+				),
+
+				/* 9. Cleaner Maintenance With Smart Suggestions ------------ */
+				array(
+					'type'          => 'outcomes',
+					'id'            => 'cleaner-maintenance',
+					'variant'       => 'spotlight',
+					'title'         => __( 'Cleaner Maintenance With Smart Suggestions', 'testro' ),
+					'intro'         => __( 'A Test Suite That Tells You What Needs Attention', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Unused Step Detection', 'testro' ),
+							'description' => __( 'theTestRo flags steps that no longer serve a purpose.', 'testro' ),
+						),
+						array(
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Outdated Logic Alerts', 'testro' ),
+							'description' => __( 'Get notified when a test\'s logic no longer matches how the app behaves.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Missing Validation Flags', 'testro' ),
+							'description' => __( 'AI points out where a test checks an action but not the actual result.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Automated test development doesn\'t stop at creation. theTestRo keeps working after the test is written. Your suite stays lean instead of piling up dead weight release after release.', 'testro' ),
+				),
+
+				/* 10. One Platform for Every Testing Team ------------------ */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'one-platform-every-team',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'One Platform for Every Testing Team', 'testro' ),
+					'intro'         => __( 'Authoring, Management, and Execution Together', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'pen-square',
+							'title'       => __( 'Test Authoring', 'testro' ),
+							'description' => __( 'Recorder, plain-English tests, reusable step groups, and a shared element repository.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Test Management', 'testro' ),
+							'description' => __( 'Version control, review workflows, role-based access, and test data handling.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Test Execution', 'testro' ),
+							'description' => __( 'Cloud device coverage, local testing, parallel runs, and scheduled runs.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A test development tool split across three separate products just adds friction. theTestRo keeps the whole workflow in one place.', 'testro' ),
+				),
+
+				/* 11. Fits Into Your Existing Workflow --------------------- */
+				array(
+					'type'          => 'architecture',
+					'id'            => 'fits-existing-workflow',
+					'title'         => __( 'Fits Into Your Existing Workflow', 'testro' ),
+					'intro'         => __( 'Works With the Tools You Already Use', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jira, Jenkins, GitHub Actions, Azure DevOps, and GitLab. Test development plugs into your release process. It does not run as a separate task. A new pull request can trigger a test run automatically, and results flow back into the tools your team already checks each day.', 'testro' ),
+					'heading_level' => 5,
+					'hub'           => array(
+						'icon'  => 'sparkles',
 						'label' => __( 'theTestRo', 'testro' ),
 						'sub'   => __( 'Test Development hub', 'testro' ),
 					),
-					'items'   => array(
+					'items'         => array(
 						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Keep requirements, defects, and automation work aligned in one tracker.', 'testro' ),
+							'icon'  => 'plug',
+							'title' => __( 'Jira', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger and report test activity from pull requests and repositories.', 'testro' ),
+							'icon'  => 'server',
+							'title' => __( 'Jenkins', 'testro' ),
 						),
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed test development gates inside Azure pipelines and boards.', 'testro' ),
+							'icon'  => 'git-branch',
+							'title' => __( 'GitHub Actions', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run authored suites from Jenkins jobs on every build.', 'testro' ),
+							'icon'  => 'cloud',
+							'title' => __( 'Azure DevOps', 'testro' ),
 						),
 						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Pipelines', 'testro' ),
-							'description' => __( 'Automate testing throughout delivery so every release ships with confidence.', 'testro' ),
+							'icon'  => 'infinity',
+							'title' => __( 'GitLab', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Accelerating Automation Development', 'testro' ),
-					'intro'   => __( 'QA and engineering organizations rely on theTestRo to create, maintain, and scale automated tests with AI-powered development.', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'test-development',
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Build Automation Faster with AI', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo\'s AI-powered Test Development platform to accelerate automation development, reduce scripting effort, improve collaboration, increase coverage, and deliver software faster.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Test Development FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'test-development',
-				),
-
-				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-test-development',
-					'title'      => __( 'Build Smarter, Faster, and More Reliable Automated Tests with AI', 'testro' ),
-					'intro'      => __( 'Accelerate your software delivery with theTestRo\'s AI-Powered Test Development Platform. Create intelligent automated tests, reduce maintenance effort, collaborate seamlessly across teams, and scale your automation with confidence using enterprise-grade AI technology.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'get-started-test-development',
+					'title'         => __( 'Start Building Tests Faster Today', 'testro' ),
+					'intro'         => __( 'Describe It. Automate It. Ship It.', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s AI test automation to build stable tests in minutes, not days.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -15115,221 +14001,217 @@ function testro_get_faq_set( $context = '' ) {
 	$sets = array(
 		'ai-test-automation' => array(
 			array(
-				'question' => __( 'What makes AI test automation different from traditional automation?', 'testro' ),
-				'answer'   => __( 'Traditional frameworks require engineers to write and maintain code for every scenario. theTestRo lets you describe a test in plain English, generates the automation for you, and then keeps it working as the application changes. The result is faster coverage with a fraction of the scripting and upkeep.', 'testro' ),
+				'question' => __( 'What is an AI test automation platform?', 'testro' ),
+				'answer'   => __( 'An AI testing platform uses AI to build, run, and fix automated tests. theTestRo builds tests from plain English, heals them on its own, and tells you why a test failed.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce maintenance?', 'testro' ),
-				'answer'   => __( 'Every element is captured with several locator strategies. When a UI change breaks the primary locator, theTestRo evaluates the alternatives, identifies the correct element, and repairs the step automatically during execution—so the run continues instead of failing and waiting for a manual fix.', 'testro' ),
+				'question' => __( 'How is this different from regular test automation?', 'testro' ),
+				'answer'   => __( 'Old tools need scripts and manual upkeep. AI-powered test automation writes tests from plain language, fixes itself, and gets smarter with every run.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can non-technical users create automated tests?', 'testro' ),
-				'answer'   => __( 'Yes. Manual testers, business analysts, and product owners can author automation using natural language steps and the visual builder. No programming knowledge is required, and technical users can still add custom code where a scenario needs it.', 'testro' ),
+				'question' => __( 'Do I need to code to use theTestRo?', 'testro' ),
+				'answer'   => __( 'No. Build tests in plain English, no code needed. Want to write scripts instead? That works too.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'theTestRo plugs into modern CI/CD tooling and Git-based workflows. Suites can run on every build or deployment, on a schedule, or on demand, and quality gates can block a release when the results fall below your thresholds.', 'testro' ),
+				'question' => __( 'Can it handle enterprise-scale testing?', 'testro' ),
+				'answer'   => __( 'Yes. Run thousands of tests in parallel, across every browser and device. Built for large teams from day one.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I automate both UI and API testing?', 'testro' ),
-				'answer'   => __( 'Yes. You can validate REST and GraphQL endpoints, drive the user interface, and combine both in a single end-to-end scenario—so a workflow can set up data through an API and then verify it in the application.', 'testro' ),
+				'question' => __( 'How does self-healing work?', 'testro' ),
+				'answer'   => __( 'Your app\'s UI changes. AI spots the change and fixes the test right away. No manual work. No broken suites.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI identify application changes?', 'testro' ),
-				'answer'   => __( 'The intelligent object recognition engine profiles each element using attributes, structure, text, and its position relative to nearby elements. When the application is updated, the engine matches the new element against that profile, flags what changed, and updates the automation accordingly.', 'testro' ),
+				'question' => __( 'Does it connect to CI/CD tools?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo works with Jenkins, GitHub Actions, GitLab CI, and Azure DevOps.', 'testro' ),
 			),
 		),
 
 		'no-code-test-automation' => array(
 			array(
-				'question' => __( 'What is no-code test automation?', 'testro' ),
-				'answer'   => __( 'No-code test automation lets teams design, execute, and maintain automated tests through a visual interface instead of writing scripts. With theTestRo\'s no-code test automation tool, you arrange reusable steps, apply AI assistance, and run suites across browsers and pipelines—without depending on programming skills for every scenario.', 'testro' ),
+				'question' => __( 'What is the best no-code test automation tool for beginners?', 'testro' ),
+				'answer'   => __( 'theTestRo is built for teams with zero coding background. Record your actions, or write steps in plain English, and get a working test in minutes.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can non-technical users create automated tests?', 'testro' ),
-				'answer'   => __( 'Yes. QA analysts, business users, and product owners can build automation using drag-and-drop workflows, record & playback, and AI-assisted recommendations. Engineers can still extend flows when a scenario needs advanced logic, so the whole team contributes to coverage.', 'testro' ),
+				'question' => __( 'Is a codeless tool as strong as code-based testing?', 'testro' ),
+				'answer'   => __( 'Yes. This kind of automated testing without coding covers complex flows, background waits, and dynamic pages — the same ground scripted tools cover, without writing any code.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support AI-powered automation?', 'testro' ),
-				'answer'   => __( 'Absolutely. theTestRo combines no-code authoring with AI-assisted test creation, intelligent object recognition, and self-healing maintenance so suites stay reliable as applications evolve—without constant manual rework.', 'testro' ),
+				'question' => __( 'Are tests built this way hard to maintain?', 'testro' ),
+				'answer'   => __( 'No. Backup selectors, built-in retries, and smart waits keep tests stable as your app changes over time.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I automate API and UI testing together?', 'testro' ),
-				'answer'   => __( 'Yes. You can validate REST APIs and user interfaces in the same platform, including end-to-end journeys that set up data through an API and then verify the result in the application—all from the visual builder.', 'testro' ),
+				'question' => __( 'Can non-technical team members use this platform?', 'testro' ),
+				'answer'   => __( 'Yes. Manual testers, QA staff, and product managers can all build and run tests with no coding skills required.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo integrate with CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo integrates with tools such as Jenkins, GitHub, and Azure DevOps so suites can run on every build, on a schedule, or on demand. Quality gates help prevent defective code from reaching production.', 'testro' ),
+				'question' => __( 'Does it work inside a CI/CD pipeline?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo connects with Jenkins, GitHub Actions, CircleCI, GitLab, and Azure DevOps, so tests run right inside your existing pipeline. Every test result flows back into the tools your team already checks, so nobody has to log into a separate dashboard to see what broke.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing automation work?', 'testro' ),
-				'answer'   => __( 'When a UI change breaks a locator, theTestRo detects the drift, evaluates alternate element strategies, repairs the step automatically, and continues the run. That keeps regression and smoke suites trustworthy with far less maintenance effort.', 'testro' ),
+				'question' => __( 'How fast can I build my first test?', 'testro' ),
+				'answer'   => __( 'Most teams build their first test in under five minutes. No setup. No install. Record a real workflow once, and theTestRo turns it into a test you can rerun on every release, on every browser, without touching it again.', 'testro' ),
 			),
 		),
 
 		'automated-web-application-testing' => array(
 			array(
-				'question' => __( 'What is automated web testing?', 'testro' ),
-				'answer'   => __( 'Automated web testing uses software to exercise web applications the way users do—navigating pages, filling forms, and verifying outcomes—without manual clicks every release. theTestRo\'s web testing tool adds AI authoring, self-healing locators, visual validation, and parallel browser execution so teams cover more journeys with less maintenance.', 'testro' ),
+				'question' => __( 'What are the best web testing tools for automated testing?', 'testro' ),
+				'answer'   => __( 'The best web testing tools bring AI test creation, self-healing, and cross-browser checks into one place. theTestRo does all three. You won\'t need to stitch separate tools together for each job.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support cross-browser testing?', 'testro' ),
-				'answer'   => __( 'Yes. You can design a suite once and execute it across Chrome, Edge, Firefox, and Safari in parallel, with unified results so browser-specific issues surface before customers see them.', 'testro' ),
+				'question' => __( 'Does web test automation require coding skills?', 'testro' ),
+				'answer'   => __( 'No. Write test steps in plain English, or build visually by clicking through your app. No scripting needed.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve web test automation?', 'testro' ),
-				'answer'   => __( 'AI accelerates authoring with natural-language and suggested steps, recognizes UI elements more resiliently than brittle selectors alone, self-heals broken locators during execution, and helps classify failures so engineers spend time on real defects—not flaky noise.', 'testro' ),
+				'question' => __( 'How does AI web testing handle UI changes?', 'testro' ),
+				'answer'   => __( 'Self-healing locators and dynamic element detection let tests adjust automatically when your page layout shifts, instead of failing outright.', 'testro' ),
 			),
 			array(
-				'question' => __( 'What browsers are supported?', 'testro' ),
-				'answer'   => __( 'theTestRo supports major desktop browsers including Chrome, Firefox, Safari, and Edge, with execution available across Windows, macOS, and Linux environments so coverage matches your users\' platforms.', 'testro' ),
+				'question' => __( 'Does this cover full web application test automation, not just single pages?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers full user journeys and multi-step business workflows, not just isolated page checks, so your test suite reflects how people actually use your app.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can web tests run in CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate with Jenkins, GitHub Actions, Azure DevOps, GitLab, and webhooks to trigger suites on every build or deployment, and use quality gates to block releases when critical web journeys fail.', 'testro' ),
+				'question' => __( 'Can this web testing software run across multiple browsers at once?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo runs cross-browser web testing in parallel across Chrome, Edge, Firefox, and Safari, cutting full regression time down significantly.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing work?', 'testro' ),
-				'answer'   => __( 'When a locator breaks after a UI change, theTestRo detects the failure, evaluates alternate element strategies and fingerprints, repairs the step automatically, and continues the run—then persists the healed locator so future executions stay stable.', 'testro' ),
+				'question' => __( 'Is theTestRo enterprise web testing software?', 'testro' ),
+				'answer'   => __( 'Yes. Role-based access, team collaboration, and cloud execution make it a fit for QA teams of any size, big or small.', 'testro' ),
 			),
 		),
 
 		'automated-api-testing' => array(
 			array(
-				'question' => __( 'What is API testing?', 'testro' ),
-				'answer'   => __( 'API testing validates application programming interfaces by sending requests and verifying responses—status codes, payloads, headers, and schemas—without relying on the user interface. theTestRo\'s API testing tool adds AI authoring, OpenAPI and Postman imports, self-healing maintenance, and CI/CD-native execution so teams automate REST, SOAP, and GraphQL quality faster.', 'testro' ),
+				'question' => __( 'What makes theTestRo the best API testing tool for teams without deep coding skills?', 'testro' ),
+				'answer'   => __( 'theTestRo turns a Postman or Swagger spec into working tests automatically. It also lets you edit any step in plain English. No framework knowledge required to get started.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support REST and SOAP APIs?', 'testro' ),
-				'answer'   => __( 'Yes. You can automate REST endpoints and SOAP services in the same platform, including authentication, CRUD flows, XML and JSON validation, and end-to-end workflows that combine API steps with UI verification.', 'testro' ),
+				'question' => __( 'Does theTestRo support REST API testing and SOAP together?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo supports modern REST API testing and older SOAP services, so you do not need two tools.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I import Postman collections?', 'testro' ),
-				'answer'   => __( 'Yes. Import existing Postman collections to accelerate API automation, then extend them with assertions, chaining, environments, and AI-assisted maintenance inside theTestRo.', 'testro' ),
+				'question' => __( 'How does AI API testing help with schema changes?', 'testro' ),
+				'answer'   => __( 'When an endpoint schema changes, theTestRo detects it and fixes the affected test automatically. It keeps your test suite from breaking until someone notices.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support Swagger / OpenAPI?', 'testro' ),
-				'answer'   => __( 'Yes. Import Swagger or OpenAPI specifications to automatically generate API tests from your documented contracts, then refine assertions and run them across environments and pipelines.', 'testro' ),
+				'question' => __( 'Is this an enterprise API testing platform, or built for smaller teams too?', 'testro' ),
+				'answer'   => __( 'Both. Small teams get started fast with the cloud version. Larger orgs can run in a private or on-premise environment with role-based access and dedicated support.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve API testing?', 'testro' ),
-				'answer'   => __( 'AI helps generate API scenarios from natural language, suggests assertions while you author, self-heals tests as endpoints evolve, and analyzes failures so engineers spend time on real contract defects—not noisy maintenance work.', 'testro' ),
+				'question' => __( 'Can I chain API calls into a full end-to-end test?', 'testro' ),
+				'answer'   => __( 'Yes. Call an API to set up state. Validate the response. Then run a UI flow. Confirm it renders correctly. Do it all in one test.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can API tests be executed in CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate with Jenkins, GitHub Actions, GitLab CI, Azure DevOps, CircleCI, Bamboo, and related DevOps tools to validate every build automatically and gate releases on API quality signals.', 'testro' ),
+				'question' => __( 'How is theTestRo different from a tool like Postman?', 'testro' ),
+				'answer'   => __( 'Postman is a strong standalone API client. theTestRo goes further. It is built for automated API testing at scale. It uses AI to generate tests. It also supports self-healing. You can chain API and UI checks in one test.', 'testro' ),
 			),
 		),
 
 		'automated-cross-browser-testing-tool' => array(
 			array(
-				'question' => __( 'What is Cross-Browser Testing?', 'testro' ),
-				'answer'   => __( 'Cross-browser testing verifies that a web application works consistently across different browsers and operating systems. theTestRo\'s AI-powered cross-browser testing tool automates those checks—validating rendering, interactions, and journeys in Chrome, Firefox, Edge, and Safari so customers get the same experience everywhere.', 'testro' ),
+				'question' => __( 'What makes theTestRo the best cross-browser testing tool for small teams?', 'testro' ),
+				'answer'   => __( 'theTestRo removes the need for a local browser lab. Build a test once. Run it across every major browser. Get results back in minutes. No infrastructure to manage yourself.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which browsers are supported?', 'testro' ),
-				'answer'   => __( 'theTestRo supports major desktop browsers including Chrome, Firefox, Edge, and Safari, with execution across Windows, macOS, and Linux so coverage matches the platforms your customers use.', 'testro' ),
+				'question' => __( 'How does automated cross-browser testing handle browser-specific rendering differences?', 'testro' ),
+				'answer'   => __( 'theTestRo\'s AI finds elements based on how they actually look, not one fixed selector. Chrome and Safari render something differently? The same test adapts to both.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can browser tests run in parallel?', 'testro' ),
-				'answer'   => __( 'Yes. Parallel cloud execution runs the same suite across multiple browsers and versions simultaneously, cutting cycle time while expanding browser compatibility coverage.', 'testro' ),
+				'question' => __( 'Can I test both desktop and mobile browsers in the same run?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers desktop and mobile web together. No need for a separate mobile-only test suite.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support responsive testing?', 'testro' ),
-				'answer'   => __( 'Yes. Validate responsive layouts and interactions across desktop, tablet, and mobile viewports, including forms, modals, menus, animations, and complete user journeys in every browser environment.', 'testro' ),
+				'question' => __( 'Is this cross-browser testing platform suitable for regulated or enterprise environments?', 'testro' ),
+				'answer'   => __( 'Yes. Role-based access and broad OS coverage make theTestRo a fit for larger, compliance-focused QA teams. Small teams get the same tools too.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve Cross-Browser Testing?', 'testro' ),
-				'answer'   => __( 'AI accelerates browser automation authoring, recognizes dynamic elements more resiliently, self-heals broken locators during execution, highlights rendering differences across browsers, and helps classify failures so teams fix real defects—not flaky noise.', 'testro' ),
+				'question' => __( 'Does theTestRo support testing legacy browser versions, not just the latest release?', 'testro' ),
+				'answer'   => __( 'Yes. Test current releases and older versions your users may still be on. You\'re not only checking for people who already updated.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can browser testing be integrated into CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Trigger automated cross-browser testing from CI/CD after every commit, on a schedule, or across development, staging, and production environments—and gate releases when browser quality signals fall below your thresholds.', 'testro' ),
+				'question' => __( 'How is AI cross-browser testing different from just running Selenium across multiple browsers?', 'testro' ),
+				'answer'   => __( 'A Selenium setup needs separate driver code and upkeep for each browser. theTestRo\'s self-healing approach adapts one test across every browser on its own. Far less manual work to keep it running.', 'testro' ),
 			),
 		),
 
 		'test-management-software' => array(
 			array(
-				'question' => __( 'What is AI Test Management?', 'testro' ),
-				'answer'   => __( 'AI Test Management is a modern approach to planning, organizing, executing, and optimizing software testing with intelligent assistance. theTestRo\'s AI Test Management Software centralizes suites, requirements, defects, analytics, and collaboration so QA teams manage the full lifecycle from one platform.', 'testro' ),
+				'question' => __( 'What is an AI test management tool?', 'testro' ),
+				'answer'   => __( 'An AI test management tool uses AI agents to help plan, write, run, and report tests. It also keeps test cases, test runs, and bugs organized in one central place for the QA team.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can manual and automated tests be managed together?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo unifies manual and automated test runs in a single Test Execution Management workspace—so teams schedule, monitor, and report on both without switching tools.', 'testro' ),
+				'question' => __( 'How is AI-powered test management different from a regular test management platform?', 'testro' ),
+				'answer'   => __( 'A regular platform still needs manual test case writing and execution tracking. AI-powered test management handles the repetitive parts. It drafts tests, runs them, and writes bug reports. A person reviews and approves each step.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI generate test cases?', 'testro' ),
-				'answer'   => __( 'theTestRo uses requirements and user stories as input to generate high-quality candidate test cases, then helps teams refine and organize them inside the shared repository for reuse across projects and releases.', 'testro' ),
+				'question' => __( 'Can this test case management software import my existing spreadsheets?', 'testro' ),
+				'answer'   => __( 'Yes. Upload your CSV or Excel test cases. theTestRo auto-organizes them with clean IDs. You won\'t start from a blank page.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo integrate with Jira and Azure DevOps?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo integrates with Jira, Azure DevOps, GitHub, Jenkins, Slack, and CI/CD pipelines so requirements, defects, and execution signals stay aligned with your delivery toolchain.', 'testro' ),
+				'question' => __( 'Does theTestRo\'s test management platform integrate with Jira?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo syncs both ways with Jira. Sprint stories, test cases, and bug statuses update automatically in both tools.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I track requirements and defects together?', 'testro' ),
-				'answer'   => __( 'Yes. Requirement Traceability links business requirements to test cases, execution results, and defects—giving you a clear path from planning through release readiness.', 'testro' ),
+				'question' => __( 'Is AI-generated test coverage actually reliable, or does it need review?', 'testro' ),
+				'answer'   => __( 'Every AI-generated test case is fully editable before it runs. Review it, tweak a step, or approve it as-is; you stay in control the whole way through.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI prioritize test execution?', 'testro' ),
-				'answer'   => __( 'Smart prioritization weighs risk and business impact to surface the most critical cases first, helping teams focus execution time where it protects release quality the most.', 'testro' ),
+				'question' => __( 'How does this compare to managing tests through spreadsheets?', 'testro' ),
+				'answer'   => __( 'Spreadsheets have no traceability and no version control. They break down as a team grows. theTestRo\'s test case management tool gives you searchable, versioned tests. Full requirement-to-bug traceability is built in from day one.', 'testro' ),
 			),
 		),
 
 		'self-healing-test-automation-tool' => array(
 			array(
-				'question' => __( 'What is Self-Healing Test Automation?', 'testro' ),
-				'answer'   => __( 'Self-Healing Test Automation is an AI-driven approach that detects when UI changes break automation locators and repairs them during execution. theTestRo\'s Self-Healing Test Automation Tool keeps suites running by recovering elements automatically instead of failing and waiting for manual script updates.', 'testro' ),
+				'question' => __( 'What is a self-healing test automation tool?', 'testro' ),
+				'answer'   => __( 'A self-healing test automation tool uses AI to spot and fix broken tests on its own when an app\'s UI changes. No person needs to manually update a locator or script.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI repair broken locators?', 'testro' ),
-				'answer'   => __( 'Each element is profiled with multiple locator strategies and attributes. When the primary locator fails, AI Locator Intelligence evaluates alternatives, matches the updated DOM node, and applies Automatic Locator Recovery so the step continues—then persists the healed locator for future runs.', 'testro' ),
+				'question' => __( 'How does AI self-healing test automation actually work?', 'testro' ),
+				'answer'   => __( 'theTestRo tracks multiple signals for each element, not just one selector. The page changes, and it re-identifies the element using the signals that still match, then updates the test on its own.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does self-healing eliminate manual maintenance?', 'testro' ),
-				'answer'   => __( 'It dramatically reduces maintenance for common UI drift—renamed attributes, moved components, and re-rendered elements—but intentional redesigns and new flows may still need authoring. Most teams see far fewer emergency locator fixes and more time spent on coverage.', 'testro' ),
+				'question' => __( 'Will self-healing testing hide real bugs from my team?', 'testro' ),
+				'answer'   => __( 'No. theTestRo only heals cosmetic or structural UI changes, like a moved button or an updated class name. A real functional bug still fails the test and gets flagged for review.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which web frameworks are supported?', 'testro' ),
-				'answer'   => __( 'Self-healing works with modern web applications including React, Angular, Vue, and other component-driven frameworks, with support for dynamic DOM updates and Shadow DOM where the application uses it.', 'testro' ),
+				'question' => __( 'Does automated test maintenance replace the need for a QA engineer?', 'testro' ),
+				'answer'   => __( 'No. It removes the repetitive part, fixing broken locators, so your QA team can spend that time on real test coverage and edge cases instead.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can self-healing work in CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate with Jenkins, GitHub Actions, Azure DevOps, GitLab CI, and related DevOps tools so self-healing runs on every build. Suites recover from locator drift in the pipeline while Jira and Slack stay informed of outcomes that need human review.', 'testro' ),
+				'question' => __( 'Can self-healing test scripts work with modern frameworks like React or Angular?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo handles constant re-rendering and shifting DOM structures in React, Angular, and Vue apps.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI identify changing UI elements?', 'testro' ),
-				'answer'   => __( 'Intelligent matching compares attributes, structure, visible text, and relative context around each element. When the application updates, the engine detects DOM change, ranks candidate locators, and selects the most reliable match so Self-Healing Testing stays accurate.', 'testro' ),
+				'question' => __( 'Does this intelligent test automation tool work with my existing CI/CD setup?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo connects with Jenkins, GitHub Actions, Azure DevOps, and GitLab CI. Self-healing runs as part of your existing pipeline, not as a separate manual step.', 'testro' ),
 			),
 		),
 
 		'test-development' => array(
 			array(
-				'question' => __( 'What is AI-powered Test Development?', 'testro' ),
-				'answer'   => __( 'AI-powered Test Development uses artificial intelligence to help teams create, organize, and maintain automated tests faster. With theTestRo\'s AI Test Development Platform, you can generate scenarios from requirements, author flows in natural language, reuse components, and keep suites stable with intelligent automation—without relying on heavy manual scripting for every case.', 'testro' ),
+				'question' => __( 'What is test development?', 'testro' ),
+				'answer'   => __( 'Test development is the process of planning, designing, writing, and maintaining tests. It verifies that software behaves as expected, from test case design through execution and reporting.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I create tests without coding?', 'testro' ),
-				'answer'   => __( 'Yes. Manual testers, analysts, and product owners can create automated tests using natural language, record & playback, and the visual low-code/no-code builder. Engineers can still extend flows with advanced logic when a scenario needs it.', 'testro' ),
+				'question' => __( 'What is an AI-powered test development platform?', 'testro' ),
+				'answer'   => __( 'It\'s a platform that uses AI to generate, structure, and update tests on its own. This cuts the manual work of writing and maintaining test scripts by hand.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support low-code and no-code testing?', 'testro' ),
-				'answer'   => __( 'Absolutely. theTestRo combines AI-assisted authoring with low-code and no-code test development so teams minimize scripting effort while still building scalable, maintainable automation across web, mobile, API, and enterprise applications.', 'testro' ),
+				'question' => __( 'Do I need coding skills to use this test development tool?', 'testro' ),
+				'answer'   => __( 'No. Write tests in plain English, or record a flow directly. Coding is optional, not required.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI generate test cases?', 'testro' ),
-				'answer'   => __( 'AI analyzes requirements, user stories, and application context to recommend and generate optimized test scenarios and workflows. You can refine those suggestions in the AI Test Builder, add reusable components, and promote them into shared libraries for ongoing use.', 'testro' ),
+				'question' => __( 'How does AI test creation handle app changes over time?', 'testro' ),
+				'answer'   => __( 'theTestRo flags coverage gaps and outdated logic as your app evolves. Tests stay aligned with real behavior instead of quietly going stale.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can multiple team members collaborate on test development?', 'testro' ),
-				'answer'   => __( 'Yes. Teams share automation projects in a centralized repository with role-based access control, review and approval workflows, and version-controlled assets—so collaboration stays secure and organized as coverage grows.', 'testro' ),
+				'question' => __( 'Can I customize a test that AI already generated?', 'testro' ),
+				'answer'   => __( 'Yes. Add conditional logic, loops, or custom validations on top of any AI-generated test. Its stability stays intact.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support reusable test components?', 'testro' ),
-				'answer'   => __( 'Yes. Build modular test components and shared libraries once, then reuse them across projects. Reusable objects and parameterized cases help you scale coverage while keeping maintenance low.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can Test Development integrate with CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate with Jira, GitHub, Azure DevOps, Jenkins, and other CI/CD tools so authored suites run throughout your delivery pipeline—keeping continuous quality aligned with every software release.', 'testro' ),
+				'question' => __( 'Does automated test development reduce ongoing maintenance work?', 'testro' ),
+				'answer'   => __( 'Yes. Reusable components, smart maintenance tips, and self-healing logic reduce manual upkeep. This upkeep often grows as a test suite expands.', 'testro' ),
 			),
 		),
 

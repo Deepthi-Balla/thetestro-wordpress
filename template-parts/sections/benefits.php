@@ -5,8 +5,9 @@
  * @package TestRo
  */
 
-$data  = testro_get_benefits();
-$items = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] : array();
+$data     = testro_get_benefits();
+$items    = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] : array();
+$headline = isset( $data['headline'] ) ? (string) $data['headline'] : '';
 
 if ( ! $items ) {
 	return;
@@ -15,9 +16,10 @@ if ( ! $items ) {
 <section class="testro-benefits" id="benefits" aria-labelledby="benefits-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-benefits__header">
-			<p class="subtitle-pill testro-section-eyebrow"><?php echo esc_html( $data['eyebrow'] ); ?></p>
-			<h2 id="benefits-heading" class="gradient-text main-headings"><?php echo esc_html( $data['title'] ); ?></h2>
-			<p class="sub-text"><?php echo esc_html( $data['intro'] ); ?></p>
+			<h5 id="benefits-heading" class="gradient-text main-headings"><?php echo esc_html( $data['title'] ); ?></h5>
+			<?php if ( '' !== $headline ) : ?>
+				<p class="sub-text testro-benefits__headline"><?php echo esc_html( $headline ); ?></p>
+			<?php endif; ?>
 		</header>
 
 		<ul class="testro-benefits__grid">
@@ -30,8 +32,7 @@ if ( ! $items ) {
 					<span class="testro-benefits__icon" aria-hidden="true">
 						<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 					</span>
-					<h3 class="testro-benefits__title"><?php echo esc_html( $item['title'] ); ?></h3>
-					<p class="testro-benefits__desc"><?php echo esc_html( $item['description'] ); ?></p>
+					<p class="testro-benefits__title"><strong><?php echo esc_html( $item['title'] ); ?></strong> — <?php echo esc_html( $item['description'] ); ?></p>
 				</li>
 			<?php endforeach; ?>
 		</ul>

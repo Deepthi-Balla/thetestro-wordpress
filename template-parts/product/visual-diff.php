@@ -32,10 +32,12 @@ $heading_id = $id ? $id . '-heading' : '';
 			'template-parts/product/section-header',
 			null,
 			array(
-				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
+				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+				'title'         => isset( $args['title'] ) ? $args['title'] : '',
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
 		);
 		?>

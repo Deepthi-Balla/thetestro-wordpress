@@ -11,11 +11,9 @@ $features = testro_get_why_features();
 	<section class="testro-why" aria-labelledby="why-heading">
 		<div class="testro-container">
 			<header class="testro-why__header">
-				<div class="testro-why__eyebrow-wrap">
-					<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Zero-code, full automation only with theTestRo', 'testro' ); ?></p>
-				</div>
-				<h2 id="why-heading" class="gradient-text main-headings testro-why__heading"><?php esc_html_e( 'Why Teams Love theTestRo', 'testro' ); ?></h2>
-				<p class="sub-text testro-why__intro"><?php esc_html_e( "Automation shouldn't be complicated—and with Testro, it isn't. We designed every part of the platform so you can build, launch, and maintain automations without touching a single line of code.", 'testro' ); ?></p>
+				<h3 id="why-heading" class="gradient-text main-headings testro-why__heading"><?php esc_html_e( 'Why theTestRo?', 'testro' ); ?></h3>
+				<p class="sub-text testro-why__intro"><?php esc_html_e( 'Old record-and-playback tools break easily. Open-source frameworks take too much setup. theTestRo fixes both problems.', 'testro' ); ?></p>
+				<p class="sub-text testro-why__intro"><?php esc_html_e( "Here's what you get:", 'testro' ); ?></p>
 			</header>
 
 			<ul class="testro-why__grid">
@@ -29,8 +27,7 @@ $features = testro_get_why_features();
 								echo testro_get_why_icon_svg( $feature['icon'] );
 								?>
 							</div>
-							<h3 class="testro-why__title"><?php echo esc_html( $feature['title'] ); ?></h3>
-							<p class="testro-why__desc"><?php echo esc_html( $feature['description'] ); ?></p>
+							<p class="testro-why__title"><strong><?php echo esc_html( $feature['title'] ); ?></strong> — <?php echo esc_html( $feature['description'] ); ?></p>
 						</div>
 					</li>
 				<?php endforeach; ?>

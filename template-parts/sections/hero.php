@@ -13,10 +13,11 @@ $count  = count( $slides );
 		<div class="testro-hero__track" data-hero-track>
 		<?php foreach ( $slides as $index => $slide ) : ?>
 			<?php
-			$is_first       = ( 0 === $index );
-			$heading        = $is_first ? 'h1' : 'h2';
-			$cta_primary    = isset( $slide['cta'] ) ? $slide['cta'] : __( 'Start Testing', 'testro' );
-			$cta_secondary  = isset( $slide['cta_secondary'] ) ? $slide['cta_secondary'] : __( 'Get a Demo', 'testro' );
+			$is_first      = ( 0 === $index );
+			$heading       = $is_first ? 'h1' : 'p';
+			$heading_class = $is_first ? 'testro-hero__title gradient-text' : 'testro-hero__title gradient-text testro-hero__title--plain';
+			$cta_primary   = isset( $slide['cta'] ) ? $slide['cta'] : __( 'Start Testing', 'testro' );
+			$cta_secondary = isset( $slide['cta_secondary'] ) ? $slide['cta_secondary'] : __( 'Get a Demo', 'testro' );
 			?>
 			<div
 				class="testro-hero__slide<?php echo $is_first ? ' is-active' : ''; ?>"
@@ -34,7 +35,7 @@ $count  = count( $slides );
 
 				<p class="testro-hero__pill subtitle-pill"><?php echo esc_html( $slide['pill'] ); ?></p>
 
-				<<?php echo esc_html( $heading ); ?> class="testro-hero__title gradient-text">
+				<<?php echo esc_html( $heading ); ?> class="<?php echo esc_attr( $heading_class ); ?>">
 					<?php echo esc_html( $slide['title'] ); ?>
 				</<?php echo esc_html( $heading ); ?>>
 
@@ -47,7 +48,7 @@ $count  = count( $slides );
 						null,
 						array(
 							'label' => $cta_primary,
-							'href'  => trailingslashit( home_url( '/' ) ) . '#pricing',
+							'href'  => '#final-cta',
 							'attrs' => array(
 								'class' => 'testro-btn testro-btn--primary',
 							),
@@ -64,11 +65,16 @@ $count  = count( $slides );
 						<span><?php echo esc_html( $cta_secondary ); ?></span>
 					</button>
 				</div>
+
+				<?php if ( ! empty( $slide['supporting_line'] ) ) : ?>
+					<p class="testro-hero__supporting sub-text"><?php echo esc_html( $slide['supporting_line'] ); ?></p>
+				<?php endif; ?>
 			</div>
 		<?php endforeach; ?>
 		</div>
 	</div>
 
+	<?php if ( $count > 1 ) : ?>
 	<div class="testro-hero__indicators" data-hero-indicators role="group" aria-label="<?php esc_attr_e( 'Slide progress', 'testro' ); ?>">
 		<?php foreach ( $slides as $index => $slide ) : ?>
 			<button
@@ -90,4 +96,5 @@ $count  = count( $slides );
 			</button>
 		<?php endforeach; ?>
 	</div>
+	<?php endif; ?>
 </section>

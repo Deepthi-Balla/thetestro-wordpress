@@ -36,7 +36,8 @@ $loop_note  = isset( $args['loop_note'] )
 				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 				'title'      => isset( $args['title'] ) ? $args['title'] : '',
 				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
 		);
 		?>
@@ -74,9 +75,11 @@ $loop_note  = isset( $args['loop_note'] )
 			<?php endforeach; ?>
 		</ol>
 
+		<?php if ( '' !== $loop_note ) : ?>
 		<p class="testro-prod-lifecycle__loop" data-reveal>
 			<?php echo testro_icon( 'refresh', array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 			<?php echo esc_html( $loop_note ); ?>
 		</p>
+		<?php endif; ?>
 	</div>
 </section>

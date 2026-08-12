@@ -17,9 +17,10 @@ $args    = isset( $args ) && is_array( $args ) ? $args : array();
 $items   = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['items'] : array();
 $variant = isset( $args['variant'] ) ? sanitize_html_class( $args['variant'] ) : 'default';
 $columns = isset( $args['columns'] ) ? max( 2, min( 4, (int) $args['columns'] ) ) : 3;
-$id      = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
+$id    = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
+$title = isset( $args['title'] ) ? (string) $args['title'] : '';
 
-if ( ! $items ) {
+if ( ! $items && '' === $title ) {
 	return;
 }
 
@@ -39,13 +40,17 @@ $heading_id = $id ? $id . '-heading' : '';
 			array(
 				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
-				'tone'       => $tone,
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'intro_body'    => isset( $args['intro_body'] ) ? $args['intro_body'] : '',
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+				'tone'          => $tone,
 			)
 		);
 		?>
 
+		<?php if ( $items ) : ?>
 		<ul class="testro-prod-cards" data-columns="<?php echo esc_attr( (string) $columns ); ?>">
 			<?php foreach ( $items as $index => $item ) : ?>
 				<?php
@@ -67,7 +72,7 @@ $heading_id = $id ? $id . '-heading' : '';
 								<?php echo testro_icon( $item['icon'], array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 						<?php endif; ?>
-						<h3 class="testro-prod-card__title"><?php echo esc_html( $item['title'] ); ?></h3>
+						<p class="testro-prod-card__title"><?php echo esc_html( $item['title'] ); ?></p>
 						<?php if ( ! empty( $item['description'] ) ) : ?>
 							<p class="testro-prod-card__desc"><?php echo esc_html( $item['description'] ); ?></p>
 						<?php endif; ?>
@@ -108,5 +113,10 @@ $heading_id = $id ? $id . '-heading' : '';
 				</li>
 			<?php endforeach; ?>
 		</ul>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-features__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

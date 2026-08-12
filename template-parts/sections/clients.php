@@ -2,33 +2,43 @@
 /**
  * Clients / industry leaders section — stacked cards + feature bullets.
  *
- * Optional $args: eyebrow, title, intro.
+ * Optional $args: title, intro.
  *
  * @package TestRo
  */
 
-$args    = isset( $args ) && is_array( $args ) ? $args : array();
-$eyebrow = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : __( 'Trusted by Companies', 'testro' );
-$title   = isset( $args['title'] ) ? (string) $args['title'] : __( 'Trusted by Companies Worldwide', 'testro' );
-$intro   = isset( $args['intro'] ) ? (string) $args['intro'] : __( 'From fast-growing startups to global enterprises, teams trust us to power their automation at scale.', 'testro' );
+$args  = isset( $args ) && is_array( $args ) ? $args : array();
+$title = isset( $args['title'] ) ? (string) $args['title'] : __( 'Trusted By Companies', 'testro' );
+$intro = isset( $args['intro'] ) ? (string) $args['intro'] : __( 'Thousands of QA teams use theTestRo. They ship faster. They see fewer bugs. They trust every release.', 'testro' );
 
-// Defaults may wrap on smaller viewports; explicit overrides always wrap freely.
-$heading_class = ' testro-clients__heading--wrap';
-$desc_class    = isset( $args['intro'] ) ? ' testro-clients__desc--wrap' : '';
+$heading_class = isset( $args['title'] ) ? ' testro-clients__heading--wrap' : ' testro-clients__heading--wrap';
+$desc_class    = ' testro-clients__desc--wrap';
 
 $clients = testro_get_clients();
+$stats   = testro_get_stats();
 $first   = isset( $clients[1] ) ? $clients[1] : $clients[0];
 $active  = isset( $clients[1] ) ? 1 : 0;
 ?>
 <section class="testro-clients industry-leaders-container" aria-labelledby="clients-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-clients__header">
-			<?php if ( '' !== $eyebrow ) : ?>
-				<p class="subtitle-pill testro-section-eyebrow testro-clients__eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-			<?php endif; ?>
 			<h2 id="clients-heading" class="gradient-text main-headings testro-clients__heading<?php echo esc_attr( $heading_class ); ?>"><?php echo esc_html( $title ); ?></h2>
 			<p class="sub-text testro-clients__desc<?php echo esc_attr( $desc_class ); ?>"><?php echo esc_html( $intro ); ?></p>
 		</header>
+
+		<?php if ( $stats ) : ?>
+			<ul class="testro-stats__list testro-clients__stats" aria-label="<?php esc_attr_e( 'Platform statistics', 'testro' ); ?>">
+				<?php foreach ( $stats as $stat ) : ?>
+					<li class="testro-stats__item">
+						<p class="testro-stats__value"><?php echo esc_html( $stat['value'] ); ?></p>
+						<p class="testro-stats__label"><?php echo esc_html( $stat['label'] ); ?></p>
+						<?php if ( ! empty( $stat['description'] ) ) : ?>
+							<p class="testro-stats__desc"><?php echo esc_html( $stat['description'] ); ?></p>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
 
 		<div class="testro-clients__layout" data-clients>
 			<div class="testro-clients__features" data-client-features aria-live="polite">

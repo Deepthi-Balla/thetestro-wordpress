@@ -19,9 +19,15 @@ if ( ! $steps && ! $items ) {
 
 $heading_id = $id ? $id . '-heading' : '';
 $step_count = count( $steps );
+$cards_only = ! $steps && $items;
+
+$section_class = 'testro-prod-section testro-prod-section--tint testro-prod-healing';
+if ( $cards_only ) {
+	$section_class .= ' testro-prod-healing--cards-only';
+}
 ?>
 <section
-	class="testro-prod-section testro-prod-section--tint testro-prod-healing"
+	class="<?php echo esc_attr( $section_class ); ?>"
 	<?php echo $id ? 'id="' . esc_attr( $id ) . '"' : ''; ?>
 	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
 >
@@ -31,10 +37,12 @@ $step_count = count( $steps );
 			'template-parts/product/section-header',
 			null,
 			array(
-				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
+				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+				'title'         => isset( $args['title'] ) ? $args['title'] : '',
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
 		);
 		?>
@@ -70,15 +78,16 @@ $step_count = count( $steps );
 								<?php echo testro_icon( $item['icon'], array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 							<div class="testro-prod-healing__card-body">
-								<h3 class="testro-prod-healing__card-title"><?php echo esc_html( $item['title'] ); ?></h3>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-healing__card-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
+								<p class="testro-prod-healing__card-title"><strong><?php echo esc_html( $item['title'] ); ?></strong> — <?php echo esc_html( $item['description'] ); ?></p>
 							</div>
 						</li>
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
 		</div>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-healing__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

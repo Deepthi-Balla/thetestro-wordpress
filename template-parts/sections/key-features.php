@@ -13,9 +13,7 @@ if ( ! $features ) {
 <section class="testro-key-features" id="key-features" aria-labelledby="key-features-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-key-features__header">
-			<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Platform capabilities', 'testro' ); ?></p>
-			<h2 id="key-features-heading" class="gradient-text main-headings"><?php esc_html_e( 'Key features for modern test automation', 'testro' ); ?></h2>
-			<p class="sub-text"><?php esc_html_e( 'Explore the products and features that help teams author, execute, heal, and analyze tests at enterprise scale.', 'testro' ); ?></p>
+			<h3 id="key-features-heading" class="gradient-text main-headings"><?php esc_html_e( 'Key Features', 'testro' ); ?></h3>
 		</header>
 
 		<ul class="testro-key-features__grid">
@@ -26,8 +24,7 @@ if ( ! $features ) {
 							<?php echo testro_nav_icon( $feature['icon'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 						</span>
 						<span class="testro-key-features__body">
-							<h3 class="testro-key-features__title"><?php echo esc_html( $feature['title'] ); ?></h3>
-							<p class="testro-key-features__desc"><?php echo esc_html( $feature['description'] ); ?></p>
+							<p class="testro-key-features__title"><strong><?php echo esc_html( $feature['title'] ); ?></strong> — <?php echo esc_html( $feature['description'] ); ?></p>
 						</span>
 						<span class="testro-key-features__arrow" aria-hidden="true">
 							<?php echo testro_icon( 'arrow-right', array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>

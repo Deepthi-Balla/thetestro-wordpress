@@ -44,7 +44,7 @@ function testro_document_title_parts( $parts ) {
 	$static  = function_exists( 'testro_get_static_page' ) ? testro_get_static_page() : null;
 
 	if ( is_front_page() ) {
-		$parts['title']   = 'TestRo - Intelligence-Powered Web Automation | Record, Play, Automate';
+		$parts['title']   = 'Best Test Automation Platform for Modern Software Testing';
 		$parts['tagline'] = '';
 		$parts['site']    = '';
 	} elseif ( is_404() ) {
@@ -85,7 +85,7 @@ add_filter( 'document_title_parts', 'testro_document_title_parts' );
  */
 function testro_get_meta_description() {
 	if ( is_front_page() ) {
-		return 'theTestRo empowers teams to build powerful end-to-end automation without writing a single line of code. Self-healing locators, NLP-based test steps, and intelligent scheduling.';
+		return "Accelerate software testing with theTestRo's test automation platform. Automate web, API, cross-browser, AI-powered, and no-code testing from one platform.";
 	}
 
 	if ( function_exists( 'testro_get_product_page' ) ) {

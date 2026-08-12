@@ -7,7 +7,7 @@
 
 $steps = testro_get_how_it_works();
 $count = count( $steps );
-$is_timeline = ( 5 === $count );
+$is_timeline = ( 4 === $count || 5 === $count );
 ?>
 <div id="how-it-works">
 	<section
@@ -17,11 +17,8 @@ $is_timeline = ( 5 === $count );
 	>
 		<div class="testro-container">
 			<header class="testro-how__header">
-				<div class="testro-how__eyebrow-wrap">
-					<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Simple, fast, reliable testing', 'testro' ); ?></p>
-				</div>
-				<h2 id="how-heading" class="main-headings testro-how__title-heading"><?php esc_html_e( 'How theTestRo Works', 'testro' ); ?></h2>
-				<p class="testro-how__intro"><?php esc_html_e( 'From discovery to continuous optimization—five clear steps that turn ideas into reliable, AI-assisted automation without friction.', 'testro' ); ?></p>
+				<h4 id="how-heading" class="main-headings testro-how__title-heading"><?php esc_html_e( 'How It Works', 'testro' ); ?></h4>
+				<p class="sub-text testro-how__headline"><?php esc_html_e( 'Four Simple Steps to Better Testing', 'testro' ); ?></p>
 			</header>
 
 			<div class="testro-how__stage">
@@ -36,10 +33,7 @@ $is_timeline = ( 5 === $count );
 								<div class="testro-how__card-header">
 									<p class="testro-how__step-label"><?php echo esc_html( $step['step'] ); ?></p>
 									<span class="testro-how__step-num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></span>
-									<h3 class="testro-how__title"><?php echo esc_html( $step['title'] ); ?></h3>
-								</div>
-								<div class="testro-how__card-body">
-									<p class="testro-how__desc"><?php echo esc_html( $step['description'] ); ?></p>
+									<p class="testro-how__title"><strong><?php echo esc_html( $step['title'] ); ?></strong> — <?php echo esc_html( $step['description'] ); ?></p>
 								</div>
 							</article>
 							<?php if ( $is_timeline && $index < $count - 1 ) : ?>

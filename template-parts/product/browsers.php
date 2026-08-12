@@ -11,6 +11,7 @@
 $args     = isset( $args ) && is_array( $args ) ? $args : array();
 $items    = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['items'] : array();
 $parallel = isset( $args['parallel'] ) && is_array( $args['parallel'] ) ? $args['parallel'] : array();
+$features = isset( $args['features'] ) && is_array( $args['features'] ) ? $args['features'] : array();
 $id       = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 
 if ( ! $items ) {
@@ -30,10 +31,12 @@ $heading_id = $id ? $id . '-heading' : '';
 			'template-parts/product/section-header',
 			null,
 			array(
-				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
+				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+				'title'         => isset( $args['title'] ) ? $args['title'] : '',
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
 		);
 		?>
@@ -74,6 +77,27 @@ $heading_id = $id ? $id . '-heading' : '';
 			</ul>
 		</div>
 
+		<?php if ( $features ) : ?>
+			<ul class="testro-prod-cards" data-columns="3">
+				<?php foreach ( $features as $index => $feature ) : ?>
+					<li class="testro-prod-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+						<span class="testro-prod-card__glow" aria-hidden="true"></span>
+						<div class="testro-prod-card__body">
+							<?php if ( ! empty( $feature['icon'] ) ) : ?>
+								<span class="testro-prod-card__icon" aria-hidden="true">
+									<?php echo testro_icon( $feature['icon'], array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+								</span>
+							<?php endif; ?>
+							<h3 class="testro-prod-card__title"><?php echo esc_html( $feature['title'] ); ?></h3>
+							<?php if ( ! empty( $feature['description'] ) ) : ?>
+								<p class="testro-prod-card__desc"><?php echo esc_html( $feature['description'] ); ?></p>
+							<?php endif; ?>
+						</div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+
 		<?php if ( $parallel ) : ?>
 			<aside class="testro-prod-browsers__parallel" data-reveal>
 				<span class="testro-prod-browsers__parallel-icon" aria-hidden="true">
@@ -96,6 +120,10 @@ $heading_id = $id ? $id . '-heading' : '';
 					</p>
 				<?php endif; ?>
 			</aside>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-browsers__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>

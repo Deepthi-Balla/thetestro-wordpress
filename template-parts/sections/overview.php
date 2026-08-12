@@ -1,39 +1,33 @@
 <?php
 /**
- * Product overview section — platform summary with highlights + CSS mock.
+ * Product overview section — platform summary with paragraphs + CSS mock.
  *
  * @package TestRo
  */
 
 $data       = testro_get_overview();
-$highlights = isset( $data['highlights'] ) && is_array( $data['highlights'] ) ? $data['highlights'] : array();
+$headline   = isset( $data['headline'] ) ? (string) $data['headline'] : '';
+$paragraphs = isset( $data['paragraphs'] ) && is_array( $data['paragraphs'] ) ? $data['paragraphs'] : array();
 ?>
 <section class="testro-overview linear-background" id="overview" aria-labelledby="overview-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-overview__header" data-reveal>
-			<p class="subtitle-pill testro-section-eyebrow"><?php echo esc_html( $data['eyebrow'] ); ?></p>
 			<h2 id="overview-heading" class="gradient-text main-headings testro-overview__title">
 				<?php echo esc_html( $data['title'] ); ?>
 			</h2>
-			<p class="sub-text testro-overview__intro"><?php echo esc_html( $data['intro'] ); ?></p>
+			<?php if ( '' !== $headline ) : ?>
+				<p class="sub-text testro-overview__headline"><?php echo esc_html( $headline ); ?></p>
+			<?php endif; ?>
 		</header>
 
 		<div class="testro-overview__layout">
 			<div class="testro-overview__copy" data-reveal>
-				<?php if ( $highlights ) : ?>
-					<ul class="testro-overview__highlights">
-						<?php foreach ( $highlights as $index => $item ) : ?>
-							<li class="testro-overview__highlight" style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms" data-reveal>
-								<span class="testro-overview__highlight-icon" aria-hidden="true">
-									<?php echo testro_icon( 'circle-check', array( 'size' => 20 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
-								</span>
-								<span class="testro-overview__highlight-text">
-									<strong><?php echo esc_html( $item['title'] ); ?></strong>
-									<span><?php echo esc_html( $item['description'] ); ?></span>
-								</span>
-							</li>
+				<?php if ( $paragraphs ) : ?>
+					<div class="testro-overview__paragraphs">
+						<?php foreach ( $paragraphs as $index => $paragraph ) : ?>
+							<p class="testro-overview__paragraph sub-text" style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms" data-reveal><?php echo esc_html( $paragraph ); ?></p>
 						<?php endforeach; ?>
-					</ul>
+					</div>
 				<?php endif; ?>
 			</div>
 

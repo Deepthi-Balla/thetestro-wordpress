@@ -21,7 +21,8 @@
 $args     = isset( $args ) && is_array( $args ) ? $args : array();
 $eyebrow  = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
 $title    = isset( $args['title'] ) ? (string) $args['title'] : '';
-$subtitle = isset( $args['subtitle'] ) ? (string) $args['subtitle'] : '';
+$subtitle       = isset( $args['subtitle'] ) ? (string) $args['subtitle'] : '';
+$subtitle_extra = isset( $args['subtitle_extra'] ) ? (string) $args['subtitle_extra'] : '';
 $badges   = isset( $args['badges'] ) && is_array( $args['badges'] ) ? $args['badges'] : array();
 $actions  = isset( $args['actions'] ) && is_array( $args['actions'] ) ? $args['actions'] : array();
 $metrics  = isset( $args['metrics'] ) && is_array( $args['metrics'] ) ? $args['metrics'] : array();
@@ -61,6 +62,10 @@ $section_class = 'testro-prod-hero' . ( $is_split ? ' testro-prod-hero--split' :
 
 		<?php if ( ! $is_split && '' !== $subtitle ) : ?>
 			<p class="testro-prod-hero__sub" data-reveal><?php echo esc_html( $subtitle ); ?></p>
+		<?php endif; ?>
+
+		<?php if ( ! $is_split && '' !== $subtitle_extra ) : ?>
+			<p class="testro-prod-hero__sub" data-reveal><?php echo esc_html( $subtitle_extra ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( $actions ) : ?>

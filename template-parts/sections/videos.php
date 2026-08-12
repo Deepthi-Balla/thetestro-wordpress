@@ -12,9 +12,9 @@ $count  = count( $videos );
 	<section class="testro-videos" aria-labelledby="videos-heading" data-videos-section>
 		<div class="testro-container">
 			<header class="testro-videos__header">
-				<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Product demo', 'testro' ); ?></p>
-				<h2 id="videos-heading" class="gradient-text main-headings testro-videos__heading"><?php esc_html_e( 'See theTestRo in action', 'testro' ); ?></h2>
-				<p class="sub-text testro-videos__desc"><?php esc_html_e( 'Watch product demos and walkthroughs that show how AI-powered no-code automation fits into your QA workflow—from authoring to CI/CD.', 'testro' ); ?></p>
+				<h4 id="videos-heading" class="gradient-text main-headings testro-videos__heading"><?php esc_html_e( 'Product Demo / Video', 'testro' ); ?></h4>
+				<p class="sub-text testro-videos__headline"><?php esc_html_e( 'See theTestRo in Action', 'testro' ); ?></p>
+				<p class="sub-text testro-videos__desc"><?php esc_html_e( 'Watch how fast test creation, AI healing, and reporting really work.', 'testro' ); ?></p>
 			</header>
 
 			<div class="testro-videos__carousel-wrap">
@@ -89,7 +89,7 @@ $count  = count( $videos );
 					aria-haspopup="dialog"
 					aria-controls="demo-modal"
 				>
-					<span><?php esc_html_e( 'Schedule a personalized walkthrough', 'testro' ); ?></span>
+					<span><?php esc_html_e( 'Watch the Full Demo', 'testro' ); ?></span>
 				</button>
 			</div>
 		</div>

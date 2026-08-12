@@ -4,15 +4,16 @@
  *
  * Optional $args:
  * - faqs    (array|string) FAQ list, or a context key for testro_get_faq_set().
- * - eyebrow (string)       Optional pill above the heading.
- * - title   (string)       Heading override.
+ * - title         (string)       Heading override.
+ * - heading_level (int)          Semantic heading level 1–6. Default 5 on homepage.
  *
  * @package TestRo
  */
 
-$args    = isset( $args ) && is_array( $args ) ? $args : array();
-$eyebrow = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
-$title   = isset( $args['title'] ) ? (string) $args['title'] : __( 'Frequently Asked Questions', 'testro' );
+$args          = isset( $args ) && is_array( $args ) ? $args : array();
+$title         = isset( $args['title'] ) ? (string) $args['title'] : __( 'FAQs', 'testro' );
+$heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 5;
+$heading_tag   = 'h' . $heading_level;
 
 if ( isset( $args['faqs'] ) && is_array( $args['faqs'] ) ) {
 	$faqs = $args['faqs'];
@@ -30,10 +31,8 @@ if ( ! $faqs ) {
 	<section class="testro-faq" aria-labelledby="faq-heading">
 		<div class="testro-container">
 			<header class="testro-section-header">
-				<?php if ( '' !== $eyebrow ) : ?>
-					<p class="subtitle-pill testro-section-eyebrow testro-faq__eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-				<?php endif; ?>
-				<h2 id="faq-heading" class="gradient-text main-headings"><?php echo esc_html( $title ); ?></h2>
+				<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
+				<<?php echo $heading_tag; ?> id="faq-heading" class="gradient-text main-headings"><?php echo esc_html( $title ); ?></<?php echo $heading_tag; ?>>
 			</header>
 
 			<div class="testro-faq__list" data-faq-accordion>
@@ -43,7 +42,7 @@ if ( ! $faqs ) {
 					$button_id = 'faq-question-' . $index;
 					?>
 					<div class="testro-faq__item">
-						<h3 class="testro-faq__question">
+						<div class="testro-faq__question">
 							<button
 								type="button"
 								id="<?php echo esc_attr( $button_id ); ?>"
@@ -54,7 +53,7 @@ if ( ! $faqs ) {
 							>
 								<?php echo esc_html( $faq['question'] ); ?>
 							</button>
-						</h3>
+						</div>
 						<div
 							id="<?php echo esc_attr( $panel_id ); ?>"
 							class="testro-faq__answer"

@@ -31,7 +31,8 @@ $heading_id = $id ? $id . '-heading' : '';
 				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 				'title'      => isset( $args['title'] ) ? $args['title'] : '',
 				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
 		);
 		?>
@@ -53,5 +54,9 @@ $heading_id = $id ? $id . '-heading' : '';
 				</li>
 			<?php endforeach; ?>
 		</ol>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-pipeline__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

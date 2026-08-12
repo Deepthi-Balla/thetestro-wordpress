@@ -11,11 +11,11 @@ get_template_part(
 	'template-parts/product/healing',
 	null,
 	array(
-		'id'      => 'ai-capabilities',
-		'eyebrow' => $data['eyebrow'],
-		'title'   => $data['title'],
-		'intro'   => $data['intro'],
-		'steps'   => $data['steps'],
-		'items'   => $data['items'],
+		'id'            => 'ai-capabilities',
+		'title'         => $data['title'],
+		'intro'         => $data['intro'],
+		'outro'         => isset( $data['outro'] ) ? $data['outro'] : '',
+		'items'         => $data['items'],
+		'heading_level' => 3,
 	)
 );

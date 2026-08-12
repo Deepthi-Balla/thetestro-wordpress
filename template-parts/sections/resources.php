@@ -5,8 +5,10 @@
  * @package TestRo
  */
 
-$data  = testro_get_resources();
-$items = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] : array();
+$data     = testro_get_resources();
+$items    = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] : array();
+$headline = isset( $data['headline'] ) ? (string) $data['headline'] : '';
+$cta      = isset( $data['cta'] ) && is_array( $data['cta'] ) ? $data['cta'] : array();
 
 if ( ! $items ) {
 	return;
@@ -15,9 +17,10 @@ if ( ! $items ) {
 <section class="testro-resources" id="resources" aria-labelledby="resources-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-resources__header">
-			<p class="subtitle-pill testro-section-eyebrow"><?php echo esc_html( $data['eyebrow'] ); ?></p>
-			<h2 id="resources-heading" class="gradient-text main-headings"><?php echo esc_html( $data['title'] ); ?></h2>
-			<p class="sub-text"><?php echo esc_html( $data['intro'] ); ?></p>
+			<h5 id="resources-heading" class="gradient-text main-headings"><?php echo esc_html( $data['title'] ); ?></h5>
+			<?php if ( '' !== $headline ) : ?>
+				<p class="sub-text testro-resources__headline"><?php echo esc_html( $headline ); ?></p>
+			<?php endif; ?>
 		</header>
 
 		<ul class="testro-resources__grid">
@@ -35,7 +38,7 @@ if ( ! $items ) {
 						<?php if ( ! empty( $item['meta'] ) ) : ?>
 							<span class="testro-resources__meta"><?php echo esc_html( $item['meta'] ); ?></span>
 						<?php endif; ?>
-						<h3 class="testro-resources__title"><?php echo esc_html( $item['title'] ); ?></h3>
+						<p class="testro-resources__title"><?php echo esc_html( $item['title'] ); ?></p>
 						<p class="testro-resources__desc"><?php echo esc_html( $item['description'] ); ?></p>
 						<span class="testro-resources__arrow" aria-hidden="true">
 							<?php echo testro_icon( 'arrow-right', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -44,5 +47,23 @@ if ( ! $items ) {
 				</li>
 			<?php endforeach; ?>
 		</ul>
+
+		<?php if ( ! empty( $cta['label'] ) && ! empty( $cta['href'] ) ) : ?>
+			<div class="testro-resources__cta">
+				<?php
+				get_template_part(
+					'template-parts/components/primary-button',
+					null,
+					array(
+						'label' => $cta['label'],
+						'href'  => $cta['href'],
+						'attrs' => array(
+							'class' => 'testro-btn testro-btn--outline',
+						),
+					)
+				);
+				?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>

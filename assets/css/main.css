@@ -478,6 +478,11 @@ p {
   border-color: transparent;
 }
 
+.testro-btn--outline .primary-button__arrow,
+.testro-btn--outline .testro-btn__label {
+  color: inherit;
+}
+
 .testro-btn--banner {
   color: #fff !important;
   font-weight: 600;
@@ -1319,6 +1324,13 @@ body.banner-hidden .testro-nav,
   line-height: 1;
 }
 
+.testro-hero__supporting {
+  margin-top: 1rem;
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
 .testro-hero__indicators {
   display: flex;
   align-items: center;
@@ -2116,6 +2128,10 @@ body.banner-hidden .testro-nav,
   letter-spacing: normal;
 }
 
+.testro-how__headline {
+  color: #fff;
+}
+
 .testro-how__intro {
   margin: 1.5rem auto 0;
   max-width: 48rem;
@@ -2180,12 +2196,12 @@ body.banner-hidden .testro-nav,
 /* -------------------------------------------------------------------------- */
 /* How it works — 5-step connected timeline (not fan)                         */
 /* -------------------------------------------------------------------------- */
-.testro-how--count-5.testro-how--timeline .testro-how__stage {
+.testro-how--timeline .testro-how__stage {
   height: auto;
   display: block;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__steps {
+.testro-how--timeline .testro-how__steps {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -2195,8 +2211,8 @@ body.banner-hidden .testro-nav,
   position: relative;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__step,
-.testro-how--count-5.testro-how--timeline.is-revealed .testro-how__step {
+.testro-how--timeline .testro-how__step,
+.testro-how--timeline.is-revealed .testro-how__step {
   position: relative;
   left: auto;
   top: auto;
@@ -2214,12 +2230,12 @@ body.banner-hidden .testro-nav,
 }
 
 /* data-reveal still fades cards in */
-html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-reveal] {
+html.testro-js .testro-how--timeline .testro-how__step[data-reveal] {
   opacity: 0;
   transform: translateY(16px);
 }
 
-html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-reveal].is-revealed {
+html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed {
   opacity: 1;
   transform: none;
   transition:
@@ -2228,7 +2244,7 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
   transition-delay: var(--how-delay, 0ms);
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__card {
+.testro-how--timeline .testro-how__card {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -2238,7 +2254,7 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
   box-sizing: border-box;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__card-header {
+.testro-how--timeline .testro-how__card-header {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -2248,14 +2264,14 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
   padding: 1.25rem 1.25rem 0.75rem;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__card-body {
+.testro-how--timeline .testro-how__card-body {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
   padding: 0 1.25rem 1.25rem;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__step-num {
+.testro-how--timeline .testro-how__step-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2270,12 +2286,12 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
   flex: 0 0 auto;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__step-label {
+.testro-how--timeline .testro-how__step-label {
   margin: 0;
   flex: 0 0 auto;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__title {
+.testro-how--timeline .testro-how__title {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.2;
@@ -2283,14 +2299,14 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
   min-height: 1.2em;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__desc {
+.testro-how--timeline .testro-how__desc {
   margin: 0;
   font-size: 0.9375rem;
   line-height: 1.5;
   flex: 1 1 auto;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__connector {
+.testro-how--timeline .testro-how__connector {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2299,46 +2315,46 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
   padding: 0.5rem 0;
 }
 
-.testro-how--count-5.testro-how--timeline .testro-how__connector-arrow {
+.testro-how--timeline .testro-how__connector-arrow {
   transform: rotate(90deg);
   opacity: 0.9;
 }
 
-.testro-how--count-5.testro-how--timeline.is-revealed .testro-how__card:hover,
-.testro-how--count-5.testro-how--timeline.is-revealed .testro-how__card:focus-within {
+.testro-how--timeline.is-revealed .testro-how__card:hover,
+.testro-how--timeline.is-revealed .testro-how__card:focus-within {
   transform: translateY(-2px);
 }
 
 /* Mid: wrap 3 + 2 */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .testro-how--count-5.testro-how--timeline .testro-how__steps {
+  .testro-how--timeline .testro-how__steps {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 1.25rem 1.25rem;
     align-items: stretch;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__step {
+  .testro-how--timeline .testro-how__step {
     grid-column: span 2;
     height: 100%;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__step:nth-child(4) {
+  .testro-how--timeline .testro-how__step:nth-child(4) {
     grid-column: 2 / span 2;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__step:nth-child(5) {
+  .testro-how--timeline .testro-how__step:nth-child(5) {
     grid-column: 4 / span 2;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__connector {
+  .testro-how--timeline .testro-how__connector {
     display: none;
   }
 }
 
 /* Desktop: horizontal row with connectors centered in gaps */
 @media (min-width: 1024px) {
-  .testro-how--count-5.testro-how--timeline .testro-how__steps {
+  .testro-how--timeline .testro-how__steps {
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -2346,7 +2362,7 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
     gap: 1.5rem;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__step {
+  .testro-how--timeline .testro-how__step {
     flex: 1 1 0;
     min-width: 0;
     flex-direction: column;
@@ -2355,7 +2371,7 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
     align-self: stretch;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__card {
+  .testro-how--timeline .testro-how__card {
     flex: 1 1 auto;
     width: 100%;
     height: 100%;
@@ -2363,27 +2379,27 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
     min-height: 100%;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__card-header {
+  .testro-how--timeline .testro-how__card-header {
     padding: 1.15rem 1rem 0.65rem;
     gap: 0.5rem;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__card-body {
+  .testro-how--timeline .testro-how__card-body {
     padding: 0 1rem 1.15rem;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__title {
+  .testro-how--timeline .testro-how__title {
     font-size: 1.125rem;
     line-height: 1.25;
     min-height: 1.25em;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__desc {
+  .testro-how--timeline .testro-how__desc {
     font-size: 0.8125rem;
     line-height: 1.45;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__connector {
+  .testro-how--timeline .testro-how__connector {
     position: absolute;
     left: calc(100% + 0.75rem);
     top: 50%;
@@ -2396,35 +2412,35 @@ html.testro-js .testro-how--count-5.testro-how--timeline .testro-how__step[data-
     z-index: 2;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__connector-arrow {
+  .testro-how--timeline .testro-how__connector-arrow {
     transform: none;
   }
 }
 
 @media (min-width: 1280px) {
-  .testro-how--count-5.testro-how--timeline .testro-how__steps {
+  .testro-how--timeline .testro-how__steps {
     gap: 1.75rem;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__connector {
+  .testro-how--timeline .testro-how__connector {
     left: calc(100% + 0.875rem);
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__title {
+  .testro-how--timeline .testro-how__title {
     font-size: 1.2rem;
     line-height: 1.25;
     min-height: 1.25em;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__desc {
+  .testro-how--timeline .testro-how__desc {
     font-size: 0.875rem;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__card-header {
+  .testro-how--timeline .testro-how__card-header {
     padding: 1.35rem 1.15rem 0.75rem;
   }
 
-  .testro-how--count-5.testro-how--timeline .testro-how__card-body {
+  .testro-how--timeline .testro-how__card-body {
     padding: 0 1.15rem 1.35rem;
   }
 }
@@ -6489,6 +6505,11 @@ body.modal-open {
   font-size: var(--font-sub);
   text-align: center;
   line-height: 1.5; /* 27px */
+}
+
+.testro-clients__stats {
+  margin: 0 auto 3rem;
+  max-width: 56rem;
 }
 
 .testro-clients__layout {
@@ -17731,6 +17752,12 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   align-items: center;
 }
 
+.testro-prod-analytics__layout--solo {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
 .testro-prod-analytics__list {
   display: grid;
   gap: 0.875rem;
@@ -18123,7 +18150,7 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 .testro-prod-arch__nodes {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--arch-cols, 5), minmax(0, 1fr));
   gap: 1.25rem;
   width: 100%;
 }
@@ -18132,10 +18159,15 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   content: "";
   position: absolute;
   top: 0;
-  left: 10%;
-  right: 10%;
+  left: calc(50% / var(--arch-cols, 5));
+  right: calc(50% / var(--arch-cols, 5));
   height: 2px;
   background: linear-gradient(to right, rgb(8 173 255 / 0.05), rgb(38 2 237 / 0.35), rgb(8 173 255 / 0.05));
+}
+
+#integrations .testro-prod-arch__diagram {
+  width: min(100%, calc(var(--arch-cols, 4) * 15.5rem));
+  margin-inline: auto;
 }
 
 .testro-prod-arch__node {
@@ -18274,10 +18306,6 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   );
 }
 
-.testro-prod-pipeline__stage:last-child .testro-prod-pipeline__connector {
-  background: none;
-}
-
 .testro-prod-pipeline__stage-label {
   margin: 0 0 0.375rem;
   font-size: 0.6875rem;
@@ -18319,6 +18347,19 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.3fr) minmax(0, 1.3fr);
 }
 
+.testro-prod-compare--triple .testro-prod-compare__head,
+.testro-prod-compare--triple .testro-prod-compare__row {
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.testro-prod-compare--text-only .testro-prod-compare__cell {
+  gap: 0;
+}
+
+.testro-prod-compare--text-only .testro-prod-compare__mark {
+  display: none;
+}
+
 .testro-prod-compare__head {
   background: linear-gradient(to right, #f8fbff, #f2f7ff);
   border-bottom: 1px solid var(--color-border);
@@ -18333,6 +18374,15 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 
 .testro-prod-compare__head-cell--modern {
   background: linear-gradient(to right, rgb(38 2 237 / 0.06), rgb(0 255 255 / 0.09));
+}
+
+.testro-prod-compare__head-cell--middle {
+  background: linear-gradient(to right, #fffaf2, #fff7ed);
+}
+
+.testro-prod-compare__head-cell--middle .testro-prod-compare__head-icon {
+  background: #fef3e2;
+  color: #d97706;
 }
 
 .testro-prod-compare__head-icon {
@@ -18395,6 +18445,10 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 
 .testro-prod-compare__cell--modern {
   background: linear-gradient(to right, rgb(38 2 237 / 0.03), rgb(0 255 255 / 0.05));
+}
+
+.testro-prod-compare__cell--middle {
+  background: #fffaf5;
 }
 
 /*
@@ -18584,7 +18638,10 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   display: none;
 }
 
-.testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item {
+.testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item,
+#ai-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item,
+#ai-agents-testing.testro-prod-outcomes .testro-prod-outcomes__item,
+#ai-locator-intelligence.testro-prod-outcomes .testro-prod-outcomes__item {
   background:
     linear-gradient(155deg, rgb(255 255 255 / 0.98), rgb(247 251 255 / 0.94)),
     #fff;
@@ -18592,7 +18649,10 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   box-shadow: 0 14px 32px -26px rgb(38 2 237 / 0.35);
 }
 
-.testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif {
+.testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif,
+#ai-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif,
+#ai-agents-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif,
+#ai-locator-intelligence.testro-prod-outcomes .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif {
   display: block;
   position: absolute;
   right: -0.5rem;
@@ -18606,8 +18666,18 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   pointer-events: none;
 }
 
-.testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item--rich {
+.testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item--rich,
+#ai-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich,
+#ai-agents-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich,
+#ai-locator-intelligence.testro-prod-outcomes .testro-prod-outcomes__item--rich {
   padding-bottom: 1.75rem;
+}
+
+@media (min-width: 641px) {
+  #ai-agents-testing .testro-prod-outcomes__grid,
+  #ai-locator-intelligence .testro-prod-outcomes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Spotlight feature tiles — stronger presence + CSS mini-chart motif */
@@ -18641,6 +18711,12 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 .testro-prod-outcomes__item:hover .testro-prod-outcomes__arrow {
   opacity: 1;
   transform: none;
+}
+
+#ai-backed-authoring .testro-prod-outcomes__arrow,
+#built-to-stay-green .testro-prod-outcomes__arrow,
+#who-its-for .testro-prod-outcomes__arrow {
+  display: none;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -19040,6 +19116,22 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   padding: 0;
   list-style: none;
   align-content: start;
+}
+
+#ai-capabilities .testro-prod-healing__layout,
+.testro-prod-healing--cards-only .testro-prod-healing__layout {
+  display: flex;
+  justify-content: center;
+}
+
+#ai-capabilities .testro-prod-healing__cards,
+.testro-prod-healing--cards-only .testro-prod-healing__cards {
+  width: 100%;
+  max-width: 38rem;
+}
+
+.testro-prod-section--brand .testro-prod-features__outro {
+  color: #fff;
 }
 
 .testro-prod-healing__card {
@@ -19874,6 +19966,14 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 
   .testro-prod-compare__cell--modern {
     background: linear-gradient(to right, rgb(38 2 237 / 0.06), rgb(0 255 255 / 0.09));
+  }
+
+  .testro-prod-compare__cell--middle {
+    background: #fffaf5;
+  }
+
+  .testro-prod-compare__cell--middle .testro-prod-compare__cell-label {
+    color: #d97706;
   }
 
   .testro-prod-compare__cell-label {
@@ -20797,6 +20897,22 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
   width: 100%;
 }
 
+.testro-overview__headline {
+  margin: 1rem auto 0;
+  max-width: 36rem;
+  width: 100%;
+}
+
+.testro-overview__paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.testro-overview__paragraph {
+  margin: 0;
+}
+
 .testro-overview__highlights {
   list-style: none;
   margin: 0;
@@ -21497,12 +21613,16 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 @media (min-width: 1024px) {
   .testro-resources__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 72rem;
+    margin-inline: auto;
   }
 }
 
 @media (min-width: 1280px) {
   .testro-resources__grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 72rem;
+    margin-inline: auto;
   }
 }
 
@@ -21576,6 +21696,12 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 .testro-resources__card:focus-visible .testro-resources__arrow {
   opacity: 1;
   transform: translateX(3px);
+}
+
+.testro-resources__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

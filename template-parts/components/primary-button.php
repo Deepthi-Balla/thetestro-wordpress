@@ -21,14 +21,21 @@ if ( '' === $label ) {
 	return;
 }
 
+$class_attr  = isset( $attrs['class'] ) ? (string) $attrs['class'] : '';
+$is_outline  = false !== strpos( $class_attr, 'testro-btn--outline' );
+
 if ( empty( $attrs['class'] ) ) {
-	$attrs['class'] = 'primary-button';
-} elseif ( false === strpos( $attrs['class'], 'primary-button' ) ) {
+	$attrs['class'] = $is_outline ? 'testro-btn testro-btn--outline' : 'primary-button';
+} elseif ( ! $is_outline && false === strpos( $attrs['class'], 'primary-button' ) ) {
 	$attrs['class'] .= ' primary-button';
 }
 
-if ( false === strpos( $attrs['class'], 'group' ) ) {
-	$attrs['class'] .= ' group relative overflow-hidden';
+if ( ! $is_outline ) {
+	if ( false === strpos( $attrs['class'], 'group' ) ) {
+		$attrs['class'] .= ' group relative overflow-hidden';
+	}
+} elseif ( false === strpos( $attrs['class'], 'testro-btn--outline' ) ) {
+	$attrs['class'] .= ' testro-btn testro-btn--outline';
 }
 
 $attr_string = '';
@@ -44,17 +51,25 @@ foreach ( $attrs as $key => $value ) {
 }
 
 ob_start();
-?>
+if ( $is_outline ) :
+	?>
+<span class="testro-btn__label"><?php echo esc_html( $label ); ?></span>
+	<?php
+else :
+	?>
 <span class="primary-button__label relative block h-6 overflow-hidden">
 	<span class="primary-button__label-a block transition-transform duration-300 group-hover:-translate-y-full"><?php echo esc_html( $label ); ?></span>
 	<span class="primary-button__label-b absolute inset-0 translate-y-full transition-transform duration-300 group-hover:translate-y-0" aria-hidden="true"><?php echo esc_html( $label ); ?></span>
 </span>
-<?php if ( $with_arrow ) : ?>
-	<svg class="primary-button__arrow ml-3 w-6 h-6" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-		<path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-	</svg>
-<?php endif; ?>
-<?php
+	<?php
+endif;
+if ( $with_arrow ) :
+	?>
+<svg class="primary-button__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+	<path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+	<?php
+endif;
 $inner = ob_get_clean();
 
 if ( $href ) {
