@@ -1018,28 +1018,32 @@ function testro_get_product_pages() {
 					'heading_level' => 3,
 					'items'         => array(
 						array(
-							'name'     => __( 'Chrome', 'testro' ),
-							'status'   => __( 'Running', 'testro' ),
-							'progress' => 78,
-							'tone'     => 'running',
+							'name'        => __( 'Chrome', 'testro' ),
+							'status'      => __( 'Running', 'testro' ),
+							'progress'    => 78,
+							'tone'        => 'running',
+							'description' => __( 'Test on the browser most of your users already have open.', 'testro' ),
 						),
 						array(
-							'name'     => __( 'Edge', 'testro' ),
-							'status'   => __( 'Passed', 'testro' ),
-							'progress' => 100,
-							'tone'     => 'passed',
+							'name'        => __( 'Edge', 'testro' ),
+							'status'      => __( 'Passed', 'testro' ),
+							'progress'    => 100,
+							'tone'        => 'passed',
+							'description' => __( 'Cover Microsoft\'s default browser without extra setup.', 'testro' ),
 						),
 						array(
-							'name'     => __( 'Firefox', 'testro' ),
-							'status'   => __( 'Running', 'testro' ),
-							'progress' => 64,
-							'tone'     => 'running',
+							'name'        => __( 'Firefox', 'testro' ),
+							'status'      => __( 'Running', 'testro' ),
+							'progress'    => 64,
+							'tone'        => 'running',
+							'description' => __( 'Catch rendering issues Chrome alone won\'t show you.', 'testro' ),
 						),
 						array(
-							'name'     => __( 'Safari', 'testro' ),
-							'status'   => __( 'Visual check', 'testro' ),
-							'progress' => 91,
-							'tone'     => 'visual',
+							'name'        => __( 'Safari', 'testro' ),
+							'status'      => __( 'Visual check', 'testro' ),
+							'progress'    => 91,
+							'tone'        => 'visual',
+							'description' => __( 'Make sure Mac and iPhone users get the same experience.', 'testro' ),
 						),
 					),
 					'parallel'      => array(
@@ -1153,22 +1157,22 @@ function testro_get_product_pages() {
 						array(
 							'icon'        => 'infinity',
 							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => '',
+							'description' => __( 'Run tests automatically as part of your existing pipeline.', 'testro' ),
 						),
 						array(
 							'icon'        => 'git-branch',
 							'title'       => __( 'GitHub Actions', 'testro' ),
-							'description' => '',
+							'description' => __( 'Trigger tests on every push or pull request.', 'testro' ),
 						),
 						array(
 							'icon'        => 'cloud',
 							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => '',
+							'description' => __( 'Fit testing right into your existing workflows.', 'testro' ),
 						),
 						array(
 							'icon'        => 'folder-tree',
 							'title'       => __( 'GitLab', 'testro' ),
-							'description' => '',
+							'description' => __( 'Run tests as part of your CI/CD pipeline, no extra setup.', 'testro' ),
 						),
 						array(
 							'icon'        => 'plug',
@@ -2872,20 +2876,24 @@ function testro_get_product_pages() {
 					),
 					'items'         => array(
 						array(
-							'icon'  => 'server',
-							'title' => __( 'Jenkins', 'testro' ),
+							'icon'        => 'server',
+							'title'       => __( 'Jenkins', 'testro' ),
+							'description' => __( 'Run self-healing tests automatically as part of your build.', 'testro' ),
 						),
 						array(
-							'icon'  => 'git-branch',
-							'title' => __( 'GitHub Actions', 'testro' ),
+							'icon'        => 'git-branch',
+							'title'       => __( 'GitHub Actions', 'testro' ),
+							'description' => __( 'Trigger self-healing runs on every push or pull request.', 'testro' ),
 						),
 						array(
-							'icon'  => 'cloud',
-							'title' => __( 'Azure DevOps', 'testro' ),
+							'icon'        => 'cloud',
+							'title'       => __( 'Azure DevOps', 'testro' ),
+							'description' => __( 'Fit self-healing tests right into your existing pipeline.', 'testro' ),
 						),
 						array(
-							'icon'  => 'infinity',
-							'title' => __( 'GitLab CI', 'testro' ),
+							'icon'        => 'infinity',
+							'title'       => __( 'GitLab CI', 'testro' ),
+							'description' => __( 'Run tests without extra setup, right in your CI flow.', 'testro' ),
 						),
 						array(
 							'icon'        => 'plug',
@@ -2895,7 +2903,7 @@ function testro_get_product_pages() {
 						array(
 							'icon'        => 'message-text',
 							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Get notified the moment a test needs attention, right where your team already talks. A self-healing test automation tool that lives outside your pipeline just becomes one more dashboard nobody checks. theTestRo sits inside the workflow your team already has.', 'testro' ),
+							'description' => __( 'Get notified the moment a test needs attention, right where your team already talks.', 'testro' ),
 						),
 					),
 				),
@@ -3347,472 +3355,380 @@ function testro_get_product_pages() {
 			),
 		),
 
-		'test-lab' => array(
-			'slug'   => 'test-lab',
+		'test-execution' => array(
+			'slug'   => 'test-execution',
 			'title'  => __( 'AI-Powered Test Execution Platform', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'AI-Powered Test Execution Platform | Parallel & Cloud Test Execution | theTestRo', 'testro' ),
-				'description' => __( 'Execute automated tests faster with theTestRo\'s AI-Powered Test Execution Platform. Run parallel, cloud, and continuous test execution across browsers, devices, environments, and CI/CD pipelines.', 'testro' ),
+				'title'       => __( 'Execute Automated Tests Across Every Environment with AI', 'testro' ),
+				'description' => __( 'Execute automated tests with an AI-powered test execution platform. Run parallel, scheduled, and cross-browser tests to accelerate software delivery.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Test Execution', 'testro' ),
-				'title'    => __( 'AI-Powered Test Execution Platform', 'testro' ),
-				'subtitle' => __( 'Execute automated tests faster with theTestRo\'s AI-Powered Test Execution Platform. Run large-scale test suites across browsers, environments, and devices using intelligent orchestration, cloud execution, parallel processing, and AI-powered insights. Accelerate software delivery with reliable, scalable, and enterprise-ready test execution.', 'testro' ),
-				'badges'   => array(
-					__( 'Parallel Execution', 'testro' ),
-					__( 'Cloud & Local Runs', 'testro' ),
-					__( 'CI/CD Native', 'testro' ),
-					__( 'Real-Time Insights', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'AI-Powered Test Execution for Faster Software Releases', 'testro' ),
+				'subtitle' => __( 'theTestRo is a test execution platform built to cut waiting time out of testing. Run tests in parallel across real browsers and devices. Get results back fast. Stop letting a slow test run hold up your release.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '10X',
-						'label' => __( 'Faster suite runs', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '∞',
-						'label' => __( 'Parallel cloud scale', 'testro' ),
-						'icon'  => 'infinity',
-					),
-					array(
-						'value' => 'AI',
-						'label' => __( 'Orchestration & insights', 'testro' ),
-						'icon'  => 'sparkles',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Why theTestRo for Test Execution ---------------------- */
+				/* 1. A Cloud Full of Real Browsers and Devices ------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'why-test-execution',
-					'eyebrow' => __( 'Why theTestRo', 'testro' ),
-					'title'   => __( 'Why theTestRo for Test Execution', 'testro' ),
-					'intro'   => __( 'Execute smarter at every stage of delivery—across environments, in parallel, and continuously—so releases move faster without sacrificing quality.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-browsers-and-devices',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'A Cloud Full of Real Browsers and Devices', 'testro' ),
+					'intro'         => __( 'Maintaining your own browser and device lab costs time your team doesn\'t have.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'server',
-							'stage'       => __( 'Environments', 'testro' ),
-							'title'       => __( 'Execute Tests Faster Across Multiple Environments', 'testro' ),
-							'description' => __( 'Run automated tests seamlessly across development, staging, and production environments with intelligent execution management.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'Parallel', 'testro' ),
-							'title'       => __( 'Run Large Test Suites in Parallel', 'testro' ),
-							'description' => __( 'Reduce execution time significantly by running multiple test suites simultaneously across browsers and environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Continuous', 'testro' ),
-							'title'       => __( 'Accelerate Continuous Testing', 'testro' ),
-							'description' => __( 'Integrate continuous execution into every software release to ensure rapid feedback and higher software quality.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. Intelligent Test Execution Platform ------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'intelligent-test-execution-platform',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Intelligent Test Execution Platform', 'testro' ),
-					'title'   => __( 'Orchestrate, Optimize, and Observe Every Run', 'testro' ),
-					'intro'   => __( 'Execute anywhere, optimize every run, embed continuous testing in delivery, and turn live execution data into release-ready insights—all from one AI-powered platform.', 'testro' ),
-					'groups'  => array(
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Execute Tests Anywhere', 'testro' ),
-							'description' => __( 'Cloud, local, cross-browser, and cross-platform execution without infrastructure friction.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'cloud',
-									'title'       => __( 'Cloud-Based Test Execution', 'testro' ),
-									'description' => __( 'Execute automated tests on scalable cloud infrastructure without managing hardware.', 'testro' ),
-								),
-								array(
-									'icon'        => 'server',
-									'title'       => __( 'Local Test Execution', 'testro' ),
-									'description' => __( 'Run tests securely within local environments whenever required.', 'testro' ),
-								),
-								array(
-									'icon'        => 'browsers',
-									'title'       => __( 'Cross-Browser Execution', 'testro' ),
-									'description' => __( 'Validate applications across Chrome, Firefox, Edge, Safari, and more.', 'testro' ),
-								),
-								array(
-									'icon'        => 'layout-grid',
-									'title'       => __( 'Cross-Platform Testing', 'testro' ),
-									'description' => __( 'Execute tests across Windows, macOS, Linux, and enterprise environments.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Optimize Test Runs', 'testro' ),
-							'description' => __( 'Parallelize, schedule, and trigger executions so suites finish faster with less waiting.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'infinity',
-									'title'       => __( 'Parallel Execution', 'testro' ),
-									'description' => __( 'Execute multiple tests simultaneously to reduce execution time.', 'testro' ),
-								),
-								array(
-									'icon'        => 'calendar-sync',
-									'title'       => __( 'Scheduled Test Runs', 'testro' ),
-									'description' => __( 'Automatically execute tests on predefined schedules.', 'testro' ),
-								),
-								array(
-									'icon'        => 'zap',
-									'title'       => __( 'On-Demand Execution', 'testro' ),
-									'description' => __( 'Launch test executions instantly whenever required.', 'testro' ),
-								),
-								array(
-									'icon'        => 'git-branch',
-									'title'       => __( 'Build Triggered Execution', 'testro' ),
-									'description' => __( 'Automatically trigger test execution after every software build.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Continuous Test Execution', 'testro' ),
-							'description' => __( 'Keep quality gates running inside every pipeline, regression, and smoke check.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'plug',
-									'title'       => __( 'CI/CD Integration', 'testro' ),
-									'description' => __( 'Integrate automated execution into modern DevOps pipelines.', 'testro' ),
-								),
-								array(
-									'icon'        => 'rocket',
-									'title'       => __( 'Automated Pipeline Execution', 'testro' ),
-									'description' => __( 'Validate every deployment using continuous automated execution.', 'testro' ),
-								),
-								array(
-									'icon'        => 'refresh',
-									'title'       => __( 'Regression Test Execution', 'testro' ),
-									'description' => __( 'Automatically execute regression suites before every release.', 'testro' ),
-								),
-								array(
-									'icon'        => 'activity',
-									'title'       => __( 'Smoke Test Execution', 'testro' ),
-									'description' => __( 'Quickly verify application health after every deployment.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Execution Insights & Analytics', 'testro' ),
-							'description' => __( 'Monitor progress, evidence, and AI diagnostics that prove release readiness.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'activity',
-									'title'       => __( 'Real-Time Execution Dashboard', 'testro' ),
-									'description' => __( 'Monitor execution progress and system health in real time.', 'testro' ),
-								),
-								array(
-									'icon'        => 'folder-tree',
-									'title'       => __( 'Execution Logs', 'testro' ),
-									'description' => __( 'Review detailed execution logs for every test run.', 'testro' ),
-								),
-								array(
-									'icon'        => 'scan-eye',
-									'title'       => __( 'Screenshots & Video Recording', 'testro' ),
-									'description' => __( 'Capture complete visual evidence for every execution.', 'testro' ),
-								),
-								array(
-									'icon'        => 'microscope',
-									'title'       => __( 'AI Failure Analysis', 'testro' ),
-									'description' => __( 'Identify root causes faster using AI-powered diagnostics.', 'testro' ),
-								),
-								array(
-									'icon'        => 'badge-check',
-									'title'       => __( 'Release Readiness Reports', 'testro' ),
-									'description' => __( 'Determine whether applications are ready for production deployment.', 'testro' ),
-								),
-							),
-						),
-					),
-				),
-
-				/* 3. Live analytics proof ---------------------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'live-execution-insights',
-					'eyebrow'   => __( 'Live Execution Insights', 'testro' ),
-					'title'     => __( 'See Parallel Progress, Queue Health, and Release Readiness in Real Time', 'testro' ),
-					'intro'     => __( 'Track running tests, browser and environment status, queue depth, and AI monitoring from a premium execution dashboard built for enterprise continuous testing.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Running Tests & Progress', 'testro' ),
-							'description' => __( 'Watch live suite progress with animated status across every active run.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Parallel Execution View', 'testro' ),
-							'description' => __( 'Visualize how concurrent suites share cloud capacity without blocking releases.', 'testro' ),
+							'icon'        => 'smartphone',
+							'title'       => __( 'Real Devices, Not Emulators', 'testro' ),
+							'description' => __( 'Test on actual hardware. Not a simulated approximation that misses real quirks.', 'testro' ),
 						),
 						array(
 							'icon'        => 'browsers',
-							'title'       => __( 'Browser & Environment Status', 'testro' ),
-							'description' => __( 'Confirm browser and environment health before and during every execution.', 'testro' ),
+							'title'       => __( 'Broad Browser Coverage', 'testro' ),
+							'description' => __( 'Chrome, Safari, Firefox, and Edge. Every major version your users might have.', 'testro' ),
 						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Queue Manager', 'testro' ),
-							'description' => __( 'Prioritize and throttle queued runs so critical releases always go first.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI Monitoring', 'testro' ),
-							'description' => __( 'Surface anomalies and flaky patterns while executions are still in flight.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Execution Control', 'testro' ),
-						'build'     => __( 'Release 3.1 · Parallel grid', 'testro' ),
-						'status'    => __( 'Executing', 'testro' ),
-						'score'     => 94,
-						'tiles'     => array(
-							array(
-								'label' => __( 'Running', 'testro' ),
-								'value' => '128',
-								'trend' => __( 'Live now', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Parallel', 'testro' ),
-								'value' => '32x',
-								'trend' => __( 'Cloud nodes', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Queued', 'testro' ),
-								'value' => '14',
-								'trend' => __( 'Next window', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Readiness', 'testro' ),
-								'value' => '94%',
-								'trend' => __( 'Gate ready', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Execution throughput', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 68,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 76,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 84,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 91,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 94,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 72,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 81,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'Chrome grid', 'testro' ),
-								'value' => 97,
-								'tone'  => 'healthy',
-							),
-							array(
-								'label' => __( 'Staging env', 'testro' ),
-								'value' => 93,
-								'tone'  => 'healthy',
-							),
-							array(
-								'label' => __( 'Queue depth', 'testro' ),
-								'value' => 78,
-								'tone'  => 'warning',
-							),
-						),
-					),
-				),
-
-				/* 4. Execute Across Every Testing Environment -------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'execute-across-environments',
-					'eyebrow' => __( 'Multi-Platform Execution', 'testro' ),
-					'title'   => __( 'Execute Across Every Testing Environment', 'testro' ),
-					'intro'   => __( 'One AI Test Execution hub orchestrates web, mobile, API, enterprise, and cross-browser runs—with live execution indicators for every surface.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'zap',
-						'label' => __( 'AI Test Execution', 'testro' ),
-						'sub'   => __( 'Unified execution hub', 'testro' ),
-					),
-					'items'   => array(
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Execute automated web tests across multiple browsers.', 'testro' ),
+							'title'       => __( 'Desktop and Mobile Together', 'testro' ),
+							'description' => __( 'Cover both in the same run. No switching to a separate tool.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Automated test execution only means something if it happens on environments that match what your users actually run.', 'testro' ),
+				),
+
+				/* 2. How Test Execution Works ------------------------------ */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'how-test-execution-works',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'How Test Execution Works', 'testro' ),
+					'intro'         => __( 'From Trigger to Result in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Select or Schedule', 'testro' ),
+							'description' => __( 'Choose which tests to run, or let a CI/CD trigger start them on its own.', 'testro' ),
 						),
 						array(
 							'icon'        => 'cloud',
-							'title'       => __( 'Mobile Applications', 'testro' ),
-							'description' => __( 'Run reliable mobile automation across Android and iOS devices.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'APIs', 'testro' ),
-							'description' => __( 'Execute backend API automation independently or alongside UI testing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Enterprise Applications', 'testro' ),
-							'description' => __( 'Support large-scale ERP, CRM, and enterprise platforms.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Validate user experiences consistently across every supported browser.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. DevOps workflow --------------------------------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'devops-execution-workflow',
-					'eyebrow' => __( 'DevOps Workflow', 'testro' ),
-					'title'   => __( 'From Commit to Release with AI Test Execution', 'testro' ),
-					'intro'   => __( 'Animate quality through every delivery step—developers commit, pipelines trigger, AI Test Execution validates, and releases ship with confidence.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Developer', 'testro' ),
-							'description' => __( 'Engineers push changes knowing automated execution will guard every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Commit', 'testro' ),
-							'title'       => __( 'Commit Code', 'testro' ),
-							'description' => __( 'Source control events kick off continuous quality without manual handoffs.', 'testro' ),
+							'title'       => __( 'Distribute Across Environments', 'testro' ),
+							'description' => __( 'theTestRo spreads tests across cloud devices, local machines, or both.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'CI/CD Pipeline', 'testro' ),
-							'description' => __( 'Pipelines invoke theTestRo as a first-class quality gate in delivery.', 'testro' ),
+							'title'       => __( 'Run in Parallel', 'testro' ),
+							'description' => __( 'Tests run at the same time instead of waiting in a queue.', 'testro' ),
 						),
 						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'Execute', 'testro' ),
-							'title'       => __( 'AI Test Execution', 'testro' ),
-							'description' => __( 'Intelligent orchestration runs suites in parallel with live monitoring.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release', 'testro' ),
-							'description' => __( 'Teams ship when readiness reports confirm quality with confidence.', 'testro' ),
+							'icon'        => 'video',
+							'title'       => __( 'Review Results Fast', 'testro' ),
+							'description' => __( 'See pass/fail status, logs, and video replays as soon as the run finishes.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. Integrate with DevOps ecosystem ----------------------- */
+				/* 3. Who Relies on Fast Test Execution --------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'integrate-devops-ecosystem',
-					'eyebrow' => __( 'DevOps Integration', 'testro' ),
-					'title'   => __( 'Integrate with Your DevOps Ecosystem', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your existing DevOps workflow to automate test execution throughout your software delivery lifecycle. Execute tests automatically after every build, deployment, or release while keeping development and QA teams fully synchronized.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'infinity',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Execution hub', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-relies-on-fast-test-execution',
+					'columns'       => 4,
+					'title'         => __( 'Who Relies on Fast Test Execution', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Sync defects, stories, and execution outcomes with engineering trackers.', 'testro' ),
+							'icon'        => 'rocket',
+							'title'       => __( 'Release Engineers', 'testro' ),
+							'description' => __( 'Ship with confidence when a full regression suite finishes in minutes, not hours.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger and report automated runs from pull requests and repositories.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Teams', 'testro' ),
+							'description' => __( 'Cover more browsers and devices without adding headcount to manage them.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'DevOps Teams', 'testro' ),
+							'description' => __( 'Keep pipelines fast even as test coverage grows. Test time doesn\'t become the bottleneck.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Engineering Managers', 'testro' ),
+							'description' => __( 'Get a clear read on release readiness. No need to wait on a status meeting.', 'testro' ),
+						),
+					),
+				),
+
+				/* 4. Cross-Browser and Cross-Device Coverage --------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'cross-browser-cross-device-coverage',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Cross-Browser and Cross-Device Coverage', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'sparkles',
+							'title'       => __( 'AI-Generated Coverage Scenarios', 'testro' ),
+							'description' => __( 'theTestRo suggests which browser and OS combinations matter most. Based on your actual traffic patterns.', 'testro' ),
+						),
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Native and Hybrid App Support', 'testro' ),
+							'description' => __( 'Test apps built with standard frameworks or hybrid tools like Flutter. No separate setup needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Version Coverage', 'testro' ),
+							'description' => __( 'Test against the newest browser releases and older versions your users may still run.', 'testro' ),
+						),
+					),
+				),
+
+				/* 5. Parallel Test Execution at Scale ---------------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'parallel-test-execution-at-scale',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Parallel Test Execution at Scale', 'testro' ),
+					'intro'         => __( 'Stop Waiting for Tests to Run One at a Time', 'testro' ),
+					'intro_extra'   => __( 'Sequential test runs are the single biggest drag on release speed.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Massively Parallel Runs', 'testro' ),
+							'description' => __( 'Run hundreds or thousands of tests at once. Not one after another.', 'testro' ),
 						),
 						array(
 							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Launch parallel suites from Jenkins jobs on every build.', 'testro' ),
+							'title'       => __( 'Distributed Across Environments', 'testro' ),
+							'description' => __( 'Spread tests across cloud devices, local machines, or a mix of both.', 'testro' ),
 						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Built-In Inventory Management', 'testro' ),
+							'description' => __( 'Track and manage local devices used in parallel runs, all from one dashboard.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Parallel test execution turns a multi-hour regression suite into a coffee-break-length wait.', 'testro' ),
+				),
+
+				/* 6. Custom Test Suites, Scheduled Your Way ---------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'custom-test-suites',
+					'columns'       => 3,
+					'title'         => __( 'Custom Test Suites, Scheduled Your Way', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Custom Test Suite Builder', 'testro' ),
+							'description' => __( 'Group tests by feature, priority, or release stage.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Partial or Full Re-Runs', 'testro' ),
+							'description' => __( 'Rerun just the tests that matter after a small fix. No need to run the whole suite every time.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Flexible Scheduling', 'testro' ),
+							'description' => __( 'Set tests to run nightly, on a fixed schedule, or triggered by a specific event.', 'testro' ),
+						),
+					),
+				),
+
+				/* 7. Continuous Test Execution in Your Pipeline ------------ */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'continuous-test-execution',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Continuous Test Execution in Your Pipeline', 'testro' ),
+					'intro'         => __( 'Continuous test execution means tests fire the moment code changes. Not whenever someone remembers to click run.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'CI/CD-Triggered Runs', 'testro' ),
+							'description' => __( 'New code merges, and a test run kicks off on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Merge-Time Compatibility Checks', 'testro' ),
+							'description' => __( 'Catch a browser-specific or environment-specific issue before it reaches production.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Fits Your Existing Pipeline', 'testro' ),
+							'description' => __( 'Connects with Jenkins, GitHub Actions, Azure DevOps, and GitLab. Nothing extra to bolt on.', 'testro' ),
+						),
+					),
+				),
+
+				/* 8. Real-Time Debugging ----------------------------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-time-debugging',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Real-Time Debugging, Not Just a Pass or Fail', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'microscope',
+							'title'       => __( 'Interactive Debugging', 'testro' ),
+							'description' => __( 'Step through a failed run to see exactly where it went wrong.', 'testro' ),
+						),
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Visual Regression Checks', 'testro' ),
+							'description' => __( 'Catch layout and styling breaks. Fine controls over what counts as a real change.', 'testro' ),
+						),
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'One-Click Bug Reports', 'testro' ),
+							'description' => __( 'File a bug with logs, screenshots, and repro steps already attached.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A test that just says "failed" wastes your team\'s time. A test that shows exactly where and why gets fixed in minutes instead of an afternoon.', 'testro' ),
+				),
+
+				/* 9. Local and Cloud Execution ----------------------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'local-and-cloud-execution',
+					'columns'       => 3,
+					'title'         => __( 'Local and Cloud Execution, Working Together', 'testro' ),
+					'intro'         => __( 'theTestRo doesn\'t force an all-cloud or all-local setup.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed execution gates inside Azure pipelines and release stages.', 'testro' ),
+							'title'       => __( 'Cloud Device Farm', 'testro' ),
+							'description' => __( 'Scale up right away. No provisioning needed on your end.', 'testro' ),
 						),
 						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify teams instantly when runs fail, recover, or clear release gates.', 'testro' ),
+							'icon'        => 'server',
+							'title'       => __( 'Local Execution Support', 'testro' ),
+							'description' => __( 'Run tests against internal environments the cloud can\'t reach.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Agent-Based Control', 'testro' ),
+							'description' => __( 'Manage a mix of local and cloud test runners from one place.', 'testro' ),
+						),
+					),
+				),
+
+				/* 10. Sequential vs. Parallel Execution -------------------- */
+				array(
+					'type'          => 'comparison',
+					'id'            => 'sequential-vs-parallel-execution',
+					'title'         => __( 'Sequential vs. Parallel Execution', 'testro' ),
+					'intro'         => __( 'What Parallel Execution Actually Saves You', 'testro' ),
+					'heading_level' => 5,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Sequential Execution', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'theTestRo Parallel Execution', 'testro' ),
+					),
+					'rows'          => array(
+						array(
+							'aspect' => __( '500 tests at 30 seconds each', 'testro' ),
+							'legacy' => __( '~4 hours', 'testro' ),
+							'modern' => __( 'Minutes', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Feedback after a code change', 'testro' ),
+							'legacy' => __( 'Hours later', 'testro' ),
+							'modern' => __( 'Near real-time', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Browser coverage', 'testro' ),
+							'legacy' => __( 'One at a time', 'testro' ),
+							'modern' => __( 'All browsers at once', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Scaling to more tests', 'testro' ),
+							'legacy' => __( 'Wait time grows', 'testro' ),
+							'modern' => __( 'Wait time stays flat', 'testro' ),
+						),
+					),
+				),
+
+				/* 11. Execution Insights That Actually Help ---------------- */
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'execution-insights',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Execution Insights That Actually Help', 'testro' ),
+					'intro'         => __( 'An AI test execution platform should tell you more than just which tests failed. It should tell you why the suite is slow, and where.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'trending-up',
+							'title'       => __( 'Execution Trends Over Time', 'testro' ),
+							'description' => __( 'See whether your suite is getting faster or slower, release over release.', 'testro' ),
+						),
+						array(
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Flaky Test Detection', 'testro' ),
+							'description' => __( 'Spot tests that fail on and off. Get them fixed instead of ignored.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Coverage Gaps by Environment', 'testro' ),
+							'description' => __( 'Know which browser or device combinations have the thinnest coverage.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Scaling Enterprise Test Execution', 'testro' ),
-					'intro'   => __( 'QA and engineering organizations rely on theTestRo to execute larger suites faster, improve reliability, and accelerate continuous testing.', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'test-execution',
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Execute Faster and Release with Confidence', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo\'s Test Execution Platform to execute larger test suites faster, reduce release cycles, improve execution reliability, scale enterprise automation, accelerate continuous testing, and increase software quality.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Test Execution FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'test-lab',
-				),
-
-				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-test-execution',
-					'title'      => __( 'Execute Smarter. Release Faster. Deliver Quality with Confidence.', 'testro' ),
-					'intro'      => __( 'Scale your software testing with theTestRo\'s AI-Powered Test Execution Platform. Execute tests across browsers, environments, and applications using intelligent automation, real-time monitoring, and enterprise-grade execution infrastructure to accelerate every software release.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'start-executing-tests-faster',
+					'title'         => __( 'Start Executing Tests Faster Today', 'testro' ),
+					'intro'         => __( 'Stop Letting Test Runs Slow Down Your Releases', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s test platform. Run more tests in less time. Do it across every environment that matters.', 'testro' ),
+					'body_extra'    => __( 'Fewer bottlenecks. Faster releases. Real confidence in every green checkmark.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -3820,1328 +3736,746 @@ function testro_get_product_pages() {
 
 		'ci-cd-integration' => array(
 			'slug'   => 'ci-cd-integration',
-			'title'  => __( 'AI-Powered CI/CD Integration for Continuous Testing', 'testro' ),
+			'title'  => __( 'AI-Powered CI/CD Integration for Continuous Test Automation', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'AI-Powered CI/CD Integration | Continuous Testing & Pipeline Automation | theTestRo', 'testro' ),
-				'description' => __( 'AI-Powered CI/CD Integration for Continuous Testing with theTestRo. Automate CI/CD Test Automation, DevOps Testing, Continuous Quality, and Pipeline Automation—trigger tests on every commit, enforce quality gates, and accelerate releases.', 'testro' ),
+				'title'       => __( 'Automate CI/CD Testing for Continuous Software Delivery', 'testro' ),
+				'description' => __( 'Integrate test automation into your CI/CD pipelines with theTestRo. Automate continuous testing across Jenkins, GitHub, Azure DevOps, and more.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered CI/CD Integration', 'testro' ),
-				'title'    => __( 'AI-Powered CI/CD Integration for Continuous Testing', 'testro' ),
-				'subtitle' => __( 'Accelerate software delivery with theTestRo\'s AI-powered CI/CD Integration platform. Automate testing across every code commit, build, and deployment using intelligent pipeline orchestration, continuous quality validation, AI-powered test execution, and enterprise DevOps integrations. Deliver faster releases with greater confidence while reducing manual effort and improving software quality.', 'testro' ),
-				'badges'   => array(
-					__( 'Pipeline Automation', 'testro' ),
-					__( 'Quality Gates', 'testro' ),
-					__( 'AI Test Execution', 'testro' ),
-					__( 'DevOps Native', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'          => __( 'AI-Powered CI/CD Integration for Continuous Test Automation', 'testro' ),
+				'subtitle'       => __( 'theTestRo is a CI/CD test automation platform that runs tests the moment code changes. Not whenever someone remembers to trigger them.', 'testro' ),
+				'subtitle_extra' => __( 'Connect your pipeline once. After that, we test every commit, build, and merge on its own. No more waiting until the end of a sprint to learn something broke.', 'testro' ),
+				'actions'        => array(
 					array(
-						'value' => '50%',
-						'label' => __( 'Faster releases', 'testro' ),
-						'icon'  => 'rocket',
-					),
-					array(
-						'value' => 'Auto',
-						'label' => __( 'Commit & build triggers', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '98%',
-						'label' => __( 'Quality gate pass rate', 'testro' ),
-						'icon'  => 'badge-check',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Integrate testing into DevOps pipeline ---------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'integrate-devops-pipeline',
-					'eyebrow' => __( 'Integrate Automated Testing into Your DevOps Pipeline', 'testro' ),
-					'title'   => __( 'Connect Testing with Development Workflows', 'testro' ),
-					'intro'   => __( 'Seamlessly integrate automated testing into your existing software development lifecycle.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Developer', 'testro' ),
-							'description' => __( 'Connect testing with development workflows so engineers ship changes with continuous quality in the loop.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'what-cicd-testing-means',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'What CI/CD Testing Actually Means', 'testro' ),
+					'intro'         => __( 'Testing That Happens With Every Code Change, Not After', 'testro' ),
+					'intro_extra'   => __( 'CI/CD testing means running automated tests continuously. Every time we integrate, build, or deploy code. Not saving quality checks for the end of a sprint.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'git-branch',
-							'stage'       => __( 'Git Commit', 'testro' ),
-							'title'       => __( 'Automate Test Execution on Code Changes', 'testro' ),
-							'description' => __( 'Automatically trigger tests whenever developers commit code or create pull requests.', 'testro' ),
+							'title'       => __( 'Continuous Integration Testing', 'testro' ),
+							'description' => __( 'Every code merge triggers unit and integration tests on its own. Conflicts get caught early.', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'stage'       => __( 'Build', 'testro' ),
-							'title'       => __( 'Build', 'testro' ),
-							'description' => __( 'Pipeline builds invoke automated testing as a first-class quality step in delivery.', 'testro' ),
+							'icon'        => 'rocket',
+							'title'       => __( 'Continuous Delivery Testing', 'testro' ),
+							'description' => __( 'Tests run again as code moves toward deployment. Nothing reaches staging untested.', 'testro' ),
+						),
+						array(
+							'icon'        => 'clock',
+							'title'       => __( 'Feedback in Minutes, Not Days', 'testro' ),
+							'description' => __( 'Developers learn about a broken build while the change is still fresh in their mind.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A real CI/CD test automation platform is supposed to do this. Close the gap between writing code and knowing whether it works.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'how-testro-connects-to-your-pipeline',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'How theTestRo Connects to Your Pipeline', 'testro' ),
+					'intro'         => __( 'Set Up Once. Test Automatically After That.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Connect Your CI/CD Tool', 'testro' ),
+							'description' => __( 'Link Jenkins, GitHub Actions, GitLab, or another pipeline tool. Just a few clicks.', 'testro' ),
 						),
 						array(
 							'icon'        => 'zap',
-							'stage'       => __( 'Testing', 'testro' ),
-							'title'       => __( 'Automated Testing', 'testro' ),
-							'description' => __( 'AI-powered suites execute across environments the moment the pipeline needs validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'stage'       => __( 'Validation', 'testro' ),
-							'title'       => __( 'Enable Continuous Quality Validation', 'testro' ),
-							'description' => __( 'Ensure every software build meets quality standards before deployment.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Deploy', 'testro' ),
-							'title'       => __( 'Deployment', 'testro' ),
-							'description' => __( 'Approved builds proceed to deployment with continuous quality baked into the release path.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. Automated test execution across pipelines ------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'automated-pipeline-execution',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Pipeline Automation', 'testro' ),
-					'title'   => __( 'Automated Test Execution Across CI/CD Pipelines', 'testro' ),
-					'intro'   => __( 'Trigger, execute, and validate tests at every pipeline milestone—from the first commit through final release.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Commit-Based Test Triggers', 'testro' ),
-							'description' => __( 'Automatically execute tests whenever code changes are committed.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Build-Based Test Execution', 'testro' ),
-							'description' => __( 'Run validation suites immediately after every successful build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Deployment Validation', 'testro' ),
-							'description' => __( 'Verify application quality before deployment to production.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Release Pipeline Testing', 'testro' ),
-							'description' => __( 'Continuously validate releases across every stage of the pipeline.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. Seamless DevOps tool integration ---------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'seamless-devops-tools',
-					'eyebrow' => __( 'DevOps Tools', 'testro' ),
-					'title'   => __( 'Seamless Integration with DevOps Tools', 'testro' ),
-					'intro'   => __( 'Connect seamlessly with your existing DevOps ecosystem to automate testing across every build, deployment, and release pipeline.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'infinity',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Continuous Testing', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Launch automated suites from Jenkins jobs on every build and promotion.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub Actions', 'testro' ),
-							'description' => __( 'Trigger and report continuous testing from pull requests and workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'GitLab CI/CD', 'testro' ),
-							'description' => __( 'Embed quality gates inside GitLab pipelines and merge-request checks.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Wire theTestRo into Azure pipelines and release stages as a native gate.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'CircleCI', 'testro' ),
-							'description' => __( 'Orchestrate parallel test runs from CircleCI workflows with live feedback.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Bamboo', 'testro' ),
-							'description' => __( 'Connect Bamboo plans so continuous testing protects every deployment path.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. AI continuous testing workflow ------------------------ */
-				array(
-					'type'    => 'lifecycle',
-					'id'      => 'ai-continuous-testing-workflow',
-					'eyebrow' => __( 'AI-Powered Continuous Testing Workflow', 'testro' ),
-					'title'   => __( 'AI-Powered Continuous Testing Workflow', 'testro' ),
-					'intro'   => __( 'Generate, execute, analyze, and self-heal tests inside every pipeline—so releases move forward with continuous confidence.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI Test Generation', 'testro' ),
-							'description' => __( 'Automatically generate optimized test scenarios using AI.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Automated Regression Execution', 'testro' ),
-							'description' => __( 'Run regression suites automatically during every pipeline execution.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Intelligent Test Selection', 'testro' ),
-							'description' => __( 'Execute only the most relevant tests based on recent code changes.', 'testro' ),
-						),
-						array(
-							'icon'        => 'alert-octagon',
-							'title'       => __( 'Failure Detection', 'testro' ),
-							'description' => __( 'Detect failures immediately using AI-powered diagnostics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Test Maintenance Automation', 'testro' ),
-							'description' => __( 'Reduce maintenance effort through intelligent automation and self-healing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'circle-check',
-							'title'       => __( 'Ready for Release', 'testro' ),
-							'description' => __( 'Advance only when continuous testing signals confirm release readiness.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Quality gates analytics ------------------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'quality-gates-faster-releases',
-					'eyebrow'   => __( 'Quality Gates', 'testro' ),
-					'title'     => __( 'Quality Gates for Faster Releases', 'testro' ),
-					'intro'     => __( 'Enforce automated build validation, clear pass/fail criteria, and release risk insights so only production-ready builds advance.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Automated Build Validation', 'testro' ),
-							'description' => __( 'Automatically verify software quality before deployment.', 'testro' ),
-						),
-						array(
-							'icon'        => 'circle-check',
-							'title'       => __( 'Pass/Fail Criteria Management', 'testro' ),
-							'description' => __( 'Define custom quality gates based on business requirements.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Release Risk Assessment', 'testro' ),
-							'description' => __( 'Evaluate release risk using intelligent analytics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Deployment Approval Insights', 'testro' ),
-							'description' => __( 'Provide AI-powered recommendations before approving production deployments.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Quality Gate', 'testro' ),
-						'build'     => __( 'Release 4.2 · Pipeline gate', 'testro' ),
-						'status'    => __( 'Approved', 'testro' ),
-						'score'     => 96,
-						'tiles'     => array(
-							array(
-								'label' => __( 'Gate score', 'testro' ),
-								'value' => '96%',
-								'trend' => __( 'Release ready', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Build checks', 'testro' ),
-								'value' => 'Pass',
-								'trend' => __( 'All green', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Failed suites', 'testro' ),
-								'value' => '0',
-								'trend' => __( 'Blocking clear', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Risk level', 'testro' ),
-								'value' => 'Low',
-								'trend' => __( 'Deploy approved', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Gate pass rate', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 88,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 91,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 94,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 96,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 97,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 93,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 95,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'Regression pack', 'testro' ),
-								'value' => 98,
-								'tone'  => 'healthy',
-							),
-							array(
-								'label' => __( 'Smoke checks', 'testro' ),
-								'value' => 100,
-								'tone'  => 'healthy',
-							),
-							array(
-								'label' => __( 'Flaky rate', 'testro' ),
-								'value' => 82,
-								'tone'  => 'warning',
-							),
-						),
-					),
-				),
-
-				/* 6. Test orchestration ------------------------------------ */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'test-orchestration-management',
-					'variant' => 'tint',
-					'columns' => 4,
-					'eyebrow' => __( 'Orchestration', 'testro' ),
-					'title'   => __( 'Test Orchestration & Execution Management', 'testro' ),
-					'intro'   => __( 'Schedule, parallelize, and control pipeline test runs across every environment your release path touches.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'calendar-sync',
-							'title'       => __( 'Scheduled Pipeline Runs', 'testro' ),
-							'description' => __( 'Automatically execute pipelines on predefined schedules.', 'testro' ),
+							'title'       => __( 'Set Your Triggers', 'testro' ),
+							'description' => __( 'Choose what kicks off a test run. A commit, a pull request, a scheduled time, or a deployment event.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Reduce execution time by running tests simultaneously.', 'testro' ),
+							'title'       => __( 'Tests Run on Their Own', 'testro' ),
+							'description' => __( 'Code changes, and theTestRo runs the right tests. Nobody clicks a button.', 'testro' ),
 						),
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Multi-Environment Testing', 'testro' ),
-							'description' => __( 'Validate builds across development, staging, and production.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Test Execution Control', 'testro' ),
-							'description' => __( 'Manage execution priorities, queues, and orchestration centrally.', 'testro' ),
+							'icon'        => 'activity',
+							'title'       => __( 'Results Flow Back Automatically', 'testro' ),
+							'description' => __( 'Pass/fail status appears right inside your pipeline tool. No separate dashboard to remember and check.', 'testro' ),
 						),
 					),
 				),
 
-				/* 7. Real-time feedback analytics -------------------------- */
 				array(
-					'type'      => 'analytics',
-					'id'        => 'realtime-pipeline-feedback',
-					'eyebrow'   => __( 'Real-Time Feedback', 'testro' ),
-					'title'     => __( 'Real-Time Test Feedback & Analytics', 'testro' ),
-					'intro'     => __( 'Give engineering and QA instant visibility into pipeline execution results, failures, evidence, and trends—while runs are still in flight.', 'testro' ),
-					'items'     => array(
+					'type'          => 'comparison',
+					'id'            => 'manual-vs-cicd-test-automation',
+					'title'         => __( 'Manual Testing Cycles vs. CI/CD Test Automation', 'testro' ),
+					'heading_level' => 3,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Manual Testing Cycle', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'theTestRo CI/CD Testing', 'testro' ),
+					),
+					'rows'          => array(
+						array(
+							'aspect' => __( 'When tests run', 'testro' ),
+							'legacy' => __( 'End of sprint, or before release', 'testro' ),
+							'modern' => __( 'Every commit, automatically', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Who triggers it', 'testro' ),
+							'legacy' => __( 'A person, manually', 'testro' ),
+							'modern' => __( 'Pipeline events, on their own', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Feedback speed', 'testro' ),
+							'legacy' => __( 'Days', 'testro' ),
+							'modern' => __( 'Minutes', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Bugs caught', 'testro' ),
+							'legacy' => __( 'Late, often in staging', 'testro' ),
+							'modern' => __( 'Early, at the commit stage', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Team dependency', 'testro' ),
+							'legacy' => __( 'Blocked on QA bandwidth', 'testro' ),
+							'modern' => __( 'Runs independent of QA availability', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-benefits-from-cicd-test-automation',
+					'columns'       => 4,
+					'title'         => __( 'Who Benefits Most From CI/CD Test Automation', 'testro' ),
+					'intro'         => __( 'Built for Teams Shipping Fast', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Development Teams', 'testro' ),
+							'description' => __( 'Get instant feedback on a commit. No context-switching to the next task first.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Teams', 'testro' ),
+							'description' => __( 'Spend less time manually triggering runs. More time on exploratory and edge-case testing.', 'testro' ),
+						),
+						array(
+							'icon'        => 'server',
+							'title'       => __( 'DevOps Engineers', 'testro' ),
+							'description' => __( 'Keep the pipeline itself the single source of truth for release readiness.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Engineering Leadership', 'testro' ),
+							'description' => __( 'See release confidence as a real number. Not a gut feeling from a status meeting.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'architecture',
+					'id'            => 'native-integrations',
+					'title'         => __( 'Native Integrations With the Tools You Already Use', 'testro' ),
+					'intro'         => __( 'No Extra Glue Code Required', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects natively with the CI/CD and DevOps tools most teams already run. No custom scripting needed to get started:', 'testro' ),
+					'heading_level' => 3,
+					'hub'           => array(
+						'icon'  => 'infinity',
+						'label' => __( 'theTestRo', 'testro' ),
+						'sub'   => __( 'CI/CD Integration', 'testro' ),
+					),
+					'items'         => array(
+						array(
+							'icon'  => 'server',
+							'title' => __( 'Jenkins', 'testro' ),
+						),
+						array(
+							'icon'  => 'git-branch',
+							'title' => __( 'GitHub Actions', 'testro' ),
+						),
+						array(
+							'icon'  => 'infinity',
+							'title' => __( 'GitLab CI', 'testro' ),
+						),
+						array(
+							'icon'  => 'cloud',
+							'title' => __( 'Azure DevOps', 'testro' ),
+						),
+						array(
+							'icon'  => 'zap',
+							'title' => __( 'CircleCI', 'testro' ),
+						),
+						array(
+							'icon'  => 'layers-api',
+							'title' => __( 'Bamboo', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A CI/CD integration that requires custom scripts for every tool just adds another thing to maintain. theTestRo plugs in directly. No developer needs to write connector code first.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'testing-at-every-stage',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Testing at Every Stage, Not Just at the End', 'testro' ),
+					'intro'         => __( 'Shift Left. Shift Right. Cover Both Ends.', 'testro' ),
+					'intro_extra'   => __( 'Waiting until the end of a sprint to test makes bugs expensive to fix. theTestRo supports testing across the whole pipeline:', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Shift-Left Testing', 'testro' ),
+							'description' => __( 'Run tests as early as possible, right when code is committed. Issues surface before they pile up.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Regression Testing on Every Build', 'testro' ),
+							'description' => __( 'Confirm new changes haven\'t broken existing features. This happens on its own.', 'testro' ),
+						),
 						array(
 							'icon'        => 'activity',
-							'title'       => __( 'Pipeline Execution Results', 'testro' ),
-							'description' => __( 'Track every pipeline execution in real time.', 'testro' ),
+							'title'       => __( 'Shift-Right Monitoring', 'testro' ),
+							'description' => __( 'Keep testing after deployment too. We catch production issues fast, not users.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'trigger-based-and-scheduled-runs',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Trigger-Based and Scheduled Test Runs', 'testro' ),
+					'intro'         => __( 'Run Tests However Your Team Actually Works', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Commit-Triggered Runs', 'testro' ),
+							'description' => __( 'A push to a branch kicks off relevant tests on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Pull Request Checks', 'testro' ),
+							'description' => __( 'Block a merge until tests pass. Broken code doesn\'t reach the main branch.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Scheduled Regression Runs', 'testro' ),
+							'description' => __( 'Set a full suite to run nightly or on a fixed interval, independent of code changes.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Automated CI/CD pipeline testing works best when it matches how your team ships code. Not a rigid one-size-fits-all schedule.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'built-in-best-practices',
+					'columns'       => 3,
+					'title'         => __( 'Built-In Best Practices, Not Bolted On', 'testro' ),
+					'intro'         => __( 'Smarter Defaults for Faster Pipelines', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Parallel Execution', 'testro' ),
+							'description' => __( 'Tests run at the same time across environments. Pipeline speed doesn\'t drop as coverage grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Headless Test Runs', 'testro' ),
+							'description' => __( 'Don\'t render a full browser UI when you don\'t need it. Less resource use, faster runs.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Smart Test Selection', 'testro' ),
+							'description' => __( 'Run only the tests affected by a specific change, not the entire suite every single time.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-time-feedback-and-reporting',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Real-Time Feedback and Reporting', 'testro' ),
+					'intro'         => __( 'Know the Moment Something Breaks', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Live Pipeline Status', 'testro' ),
+							'description' => __( 'See test results right when a run finishes, inside your CI/CD tool.', 'testro' ),
 						),
 						array(
 							'icon'        => 'alert-octagon',
-							'title'       => __( 'Failure Reports', 'testro' ),
-							'description' => __( 'Access detailed failure diagnostics immediately.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Execution Logs', 'testro' ),
-							'description' => __( 'Review comprehensive execution logs for every pipeline.', 'testro' ),
-						),
-						array(
-							'icon'        => 'scan-eye',
-							'title'       => __( 'Screenshots & Videos', 'testro' ),
-							'description' => __( 'Capture complete visual evidence for failed executions.', 'testro' ),
+							'title'       => __( 'Failure Alerts', 'testro' ),
+							'description' => __( 'Get notified in Slack or your issue tracker the moment a test fails.', 'testro' ),
 						),
 						array(
 							'icon'        => 'trending-up',
-							'title'       => __( 'Test Trend Analysis', 'testro' ),
-							'description' => __( 'Monitor quality improvements and testing trends over time.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Pipeline Analytics', 'testro' ),
-						'build'     => __( 'main · CI run #1842', 'testro' ),
-						'status'    => __( 'Running', 'testro' ),
-						'score'     => 91,
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pipeline', 'testro' ),
-								'value' => 'Live',
-								'trend' => __( 'Status green', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Success rate', 'testro' ),
-								'value' => '91%',
-								'trend' => __( '7-day trend', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Failures', 'testro' ),
-								'value' => '3',
-								'trend' => __( 'Needs review', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'AI insights', 'testro' ),
-								'value' => '12',
-								'trend' => __( 'Active signals', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Execution timeline', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 72,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 81,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 86,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 90,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 91,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 78,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 84,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'Test trends', 'testro' ),
-								'value' => 91,
-								'tone'  => 'healthy',
-							),
-							array(
-								'label' => __( 'Failure reports', 'testro' ),
-								'value' => 74,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'AI insights', 'testro' ),
-								'value' => 88,
-								'tone'  => 'healthy',
-							),
+							'title'       => __( 'Historical Trends', 'testro' ),
+							'description' => __( 'Track pass rates and pipeline stability over time. Not just the last run.', 'testro' ),
 						),
 					),
 				),
 
-				/* 8. Developer-centric experience -------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'developer-centric-testing',
-					'eyebrow' => __( 'Developer Experience', 'testro' ),
-					'title'   => __( 'Developer-Centric Testing Experience', 'testro' ),
-					'intro'   => __( 'Create seamless collaboration throughout the software delivery lifecycle—from pull request validation to merge.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Developer', 'testro' ),
-							'description' => __( 'Engineers get continuous testing feedback without leaving their delivery workflow.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'devops-test-automation-at-scale',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'DevOps Test Automation at Scale', 'testro' ),
+					'intro'         => __( 'Built for Teams Shipping Multiple Times a Day', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
 							'icon'        => 'git-branch',
-							'stage'       => __( 'Pull Request', 'testro' ),
-							'title'       => __( 'Pull Request Validation', 'testro' ),
-							'description' => __( 'Automatically validate pull requests before merging.', 'testro' ),
+							'title'       => __( 'Multi-Branch Support', 'testro' ),
+							'description' => __( 'Test across feature branches, release branches, and main. Each one independently.', 'testro' ),
 						),
-						array(
-							'icon'        => 'sparkles',
-							'stage'       => __( 'AI Testing', 'testro' ),
-							'title'       => __( 'Faster Debugging', 'testro' ),
-							'description' => __( 'Reduce investigation time using AI-powered diagnostics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'stage'       => __( 'Review', 'testro' ),
-							'title'       => __( 'Instant Failure Notifications', 'testro' ),
-							'description' => __( 'Notify developers immediately when failures occur.', 'testro' ),
-						),
-						array(
-							'icon'        => 'circle-check',
-							'stage'       => __( 'Merge', 'testro' ),
-							'title'       => __( 'Collaboration Between QA & Development', 'testro' ),
-							'description' => __( 'Create seamless collaboration throughout the software delivery lifecycle.', 'testro' ),
-						),
-					),
-				),
-
-				/* 9. Enterprise CI/CD automation --------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-cicd-automation',
-					'variant' => 'brand',
-					'columns' => 4,
-					'eyebrow' => __( 'Enterprise Ready', 'testro' ),
-					'title'   => __( 'Enterprise CI/CD Automation', 'testro' ),
-					'intro'   => __( 'Scale continuous testing across projects, teams, and security boundaries without sacrificing pipeline speed.', 'testro' ),
-					'items'   => array(
 						array(
 							'icon'        => 'server',
-							'title'       => __( 'Scalable Test Infrastructure', 'testro' ),
-							'description' => __( 'Scale automated testing across enterprise pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Secure Pipeline Integration', 'testro' ),
-							'description' => __( 'Protect development pipelines using enterprise-grade security.', 'testro' ),
+							'title'       => __( 'Environment Management', 'testro' ),
+							'description' => __( 'Run the right tests against the right environment on their own. Dev, staging, or production.', 'testro' ),
 						),
 						array(
 							'icon'        => 'user-check',
-							'title'       => __( 'Role-Based Access Control', 'testro' ),
-							'description' => __( 'Manage permissions securely across multiple teams.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Multi-Project Management', 'testro' ),
-							'description' => __( 'Support multiple products and projects from a centralized platform.', 'testro' ),
-						),
-					),
-				),
-
-				/* 10. Supported integrations ------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'supported-cicd-integrations',
-					'eyebrow' => __( 'Integrations', 'testro' ),
-					'title'   => __( 'Supported CI/CD Integrations', 'testro' ),
-					'intro'   => __( 'Integrate effortlessly with your preferred CI/CD, DevOps, collaboration, and project management tools to build a fully automated continuous testing pipeline.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'plug',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'CI/CD Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Native job triggers and status reporting for classic and modern Jenkins fleets.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub Actions', 'testro' ),
-							'description' => __( 'Workflow checks, PR annotations, and branch protection friendly results.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'GitLab CI/CD', 'testro' ),
-							'description' => __( 'Pipeline jobs and merge-request quality signals inside GitLab.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Build and release stage gates across Azure DevOps projects.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'CircleCI', 'testro' ),
-							'description' => __( 'Workflow-aware continuous testing for CircleCI delivery pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Sync defects, stories, and pipeline outcomes with engineering trackers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify channels instantly when gates fail, recover, or clear for deploy.', 'testro' ),
+							'title'       => __( 'Team-Wide Visibility', 'testro' ),
+							'description' => __( 'Everyone from developers to QA leads sees the same pipeline status. No need to ask around.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Automating Continuous Quality in CI/CD', 'testro' ),
-					'intro'   => __( 'Engineering, DevOps, and QA organizations rely on theTestRo to embed continuous testing in pipelines, enforce quality gates, and accelerate every release.', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'ci-cd-integration',
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Ship Faster with Continuous Testing in the Pipeline', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo CI/CD Integration to automate pipeline testing, enforce quality gates, reduce release risk, accelerate DevOps feedback, and deliver continuous quality at scale.', 'testro' ),
-				),
-
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'CI/CD Integration FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'ci-cd-integration',
-				),
-
-				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-cicd-integration',
-					'title'      => __( 'Accelerate Software Delivery with Continuous AI-Powered Testing', 'testro' ),
-					'intro'      => __( 'Transform your DevOps workflow with theTestRo\'s AI-powered CI/CD Integration platform. Automate testing across every build, deployment, and release while improving software quality, accelerating delivery, and enabling continuous confidence through intelligent automation.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'start-automating-cicd-testing',
+					'title'         => __( 'Start Automating CI/CD Testing Today', 'testro' ),
+					'intro'         => __( 'Connect Your Pipeline. Let Tests Run Themselves.', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s CI/CD test automation to catch issues on every commit, without slowing down releases. Ship faster. Catch more. Sleep better before every deploy.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
+
 		'playwright-test-automation' => array(
 			'slug'   => 'playwright-test-automation',
 			'title'  => __( 'Playwright Testing Automation Platform', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'Playwright Testing Automation Platform | Playwright Export & AI Test Code Generation | theTestRo', 'testro' ),
-				'description' => __( 'theTestRo Playwright Export turns AI visual test creation into production-ready TypeScript Playwright scripts. Build automation visually, export developer-ready code, run cross-browser suites, integrate Playwright CI/CD pipelines, and maintain tests with AI self-healing.', 'testro' ),
+				'title'       => __( 'Automate Playwright Testing with AI for Faster Releases', 'testro' ),
+				'description' => __( 'Create automated tests with theTestRo and export them to Playwright-compatible frameworks. Accelerate Playwright testing with AI-powered test automation.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Playwright Export', 'testro' ),
-				'title'    => __( 'Playwright Testing Automation Platform', 'testro' ),
-				'subtitle' => __( 'Create automated tests visually using AI and instantly export them into production-ready Playwright-compatible frameworks. Bridge the gap between no-code automation and developer-first workflows while maintaining complete flexibility, scalability, and enterprise-grade testing capabilities.', 'testro' ),
-				'badges'   => array(
-					__( 'AI Visual Builder', 'testro' ),
-					__( 'Instant Playwright Export', 'testro' ),
-					__( 'TypeScript Ready', 'testro' ),
-					__( 'CI/CD Native', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'           => __( 'Playwright Testing Automation Platform', 'testro' ),
+				'subtitle'        => __( 'theTestRo is a Playwright testing automation platform that lets you build tests visually or in plain English. Export clean, readable Playwright code whenever you need it. No lock-in.', 'testro' ),
+				'subtitle_extra'  => __( 'No black box. Just your test logic, in a format your engineers already know. This is what a modern Playwright testing platform should feel like.', 'testro' ),
+				'actions'         => array(
 					array(
-						'value' => '1-Click',
-						'label' => __( 'Playwright export', 'testro' ),
-						'icon'  => 'code',
-					),
-					array(
-						'value' => '−70%',
-						'label' => __( 'Scripting effort', 'testro' ),
-						'icon'  => 'trending-up',
-					),
-					array(
-						'value' => 'TypeScript',
-						'label' => __( 'Playwright ready', 'testro' ),
-						'icon'  => 'sparkles',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Visual to Playwright pipeline ------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'visual-to-playwright',
-					'eyebrow' => __( 'From Visual to Playwright', 'testro' ),
-					'title'   => __( 'Build Tests Visually, Export Developer-Ready Code', 'testro' ),
-					'intro'   => __( 'Create complete automation workflows with AI-powered visual test creation, then export clean Playwright code developers can customize and run anywhere.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'layout-grid',
-							'stage'       => __( 'Visual Builder', 'testro' ),
-							'title'       => __( 'Create Tests Without Writing Scripts', 'testro' ),
-							'description' => __( 'Build complete automation workflows using AI-powered visual test creation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'stage'       => __( 'AI Generates Workflow', 'testro' ),
-							'title'       => __( 'Convert Automated Workflows into Playwright Code', 'testro' ),
-							'description' => __( 'Instantly generate clean, structured Playwright-compatible code from visual automation.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'what-playwright-export-actually-means',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'What Playwright Export Actually Means', 'testro' ),
+					'intro'         => __( 'Your Tests, Not Trapped Inside a Tool', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'code',
-							'stage'       => __( 'Playwright Code', 'testro' ),
-							'title'       => __( 'Production-Ready Scripts', 'testro' ),
-							'description' => __( 'Export TypeScript Playwright tests following modern framework best practices.', 'testro' ),
+							'title'       => __( 'Real, Runnable Code', 'testro' ),
+							'description' => __( 'Export tests to Playwright as actual TypeScript or JavaScript. Not a screenshot of steps.', 'testro' ),
 						),
 						array(
-							'icon'        => 'pen-square',
-							'stage'       => __( 'Developer Customization', 'testro' ),
-							'title'       => __( 'Maintain Developer Flexibility', 'testro' ),
-							'description' => __( 'Allow developers to customize exported Playwright scripts without restrictions.', 'testro' ),
+							'icon'        => 'infinity',
+							'title'       => __( 'No Vendor Lock-In', 'testro' ),
+							'description' => __( 'Take your exported tests and run them anywhere Playwright runs. With or without theTestRo.', 'testro' ),
 						),
 						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Execution', 'testro' ),
-							'title'       => __( 'Bridge No-Code and Code-Based Automation', 'testro' ),
-							'description' => __( 'Combine business-user accessibility with developer-grade automation frameworks.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Two Ways to Build', 'testro' ),
+							'description' => __( 'Use theTestRo\'s no-code builder for speed. Or work directly with exported code when you need full control.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This is what a real Playwright testing automation platform should offer: speed without giving up ownership of your own test suite.', 'testro' ),
 				),
 
-				/* 2. AI Playwright code generation ------------------------- */
 				array(
-					'type'          => 'request-response',
-					'id'            => 'ai-playwright-code-generation',
-					'eyebrow'       => __( 'AI Test Code Generation', 'testro' ),
-					'title'         => __( 'Convert Visual Workflows into Playwright Scripts', 'testro' ),
-					'intro'         => __( 'Instantly generate clean, structured Playwright-compatible TypeScript from visual automation—ready for IDE customization and CI/CD.', 'testro' ),
-					'process_label' => __( 'AI Code Generation', 'testro' ),
-					'request_label' => __( 'Visual Builder', 'testro' ),
-					'response_label' => __( 'Playwright Export', 'testro' ),
-					'pass_label'    => __( 'Exported', 'testro' ),
-					'flow_aria'     => __( 'Visual test builder converting into exported Playwright TypeScript', 'testro' ),
-					'request'       => array(
-						'method' => 'VISUAL',
-						'path'   => 'login-checkout.flow',
-						'body'   => array(
-							'1. Open /login',
-							'2. Fill email & password',
-							'3. Click Sign in',
-							'4. Expect /dashboard',
-							'5. Assert welcome banner',
-						),
-					),
-					'response'      => array(
-						'status' => 'login.spec.ts',
-						'body'   => array(
-							"import { test, expect } from '@playwright/test';",
-							'',
-							"test('user can sign in', async ({ page }) => {",
-							"  await page.goto('/login');",
-							"  await page.getByLabel('Email').fill('qa@example.com');",
-							"  await page.getByLabel('Password').fill('••••••••');",
-							"  await page.getByRole('button', { name: 'Sign in' }).click();",
-							"  await expect(page).toHaveURL('/dashboard');",
-							"  await expect(page.getByRole('banner')).toContainText('Welcome');",
-							'});',
-						),
-					),
+					'type'          => 'feature-grid',
+					'id'            => 'how-export-works',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'How Export Works', 'testro' ),
+					'intro'         => __( 'From No-Code Test to Playwright Script in Four Steps', 'testro' ),
+					'heading_level' => 2,
 					'items'         => array(
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Create Tests Without Writing Scripts', 'testro' ),
-							'description' => __( 'Build complete automation workflows using AI-powered visual test creation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Convert Automated Workflows into Playwright Code', 'testro' ),
-							'description' => __( 'Instantly generate clean, structured Playwright-compatible code from visual automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'pen-square',
-							'title'       => __( 'Maintain Developer Flexibility', 'testro' ),
-							'description' => __( 'Allow developers to customize exported Playwright scripts without restrictions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Bridge No-Code and Code-Based Automation', 'testro' ),
-							'description' => __( 'Combine business-user accessibility with developer-grade automation frameworks.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. Scalable Playwright scripts --------------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'scalable-playwright-scripts',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Generate Scalable Playwright Test Scripts', 'testro' ),
-					'title'   => __( 'AI-Assisted Playwright Code Built for Enterprise Scale', 'testro' ),
-					'intro'   => __( 'Generate optimized, modular Playwright assets that stay maintainable as suites grow.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI-Assisted Test Code Generation', 'testro' ),
-							'description' => __( 'Generate clean Playwright TypeScript from visual workflows with AI recommendations that follow modern testing patterns.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'Playwright Test Framework Compatibility', 'testro' ),
-							'description' => __( 'Export scripts aligned with the official Playwright Test runner, fixtures, and project configuration conventions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Reusable Test Components', 'testro' ),
-							'description' => __( 'Modularize page objects, shared steps, and helper utilities so exported suites scale without duplication.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Structured Test Automation Assets', 'testro' ),
-							'description' => __( 'Organize specs, fixtures, and data files into a predictable folder structure developers can adopt immediately.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Cross-browser Playwright execution -------------------- */
-				array(
-					'type'    => 'browsers',
-					'id'      => 'playwright-cross-browser',
-					'eyebrow' => __( 'Run Across Browsers & Platforms', 'testro' ),
-					'title'   => __( 'Run Playwright Tests Across Browsers & Platforms', 'testro' ),
-					'intro'   => __( 'Execute exported Playwright automation consistently across Chromium, Firefox, WebKit, desktop browsers, and operating systems with parallel cloud execution.', 'testro' ),
-					'items'   => array(
-						array(
-							'name'     => __( 'Chromium', 'testro' ),
-							'status'   => __( 'Running', 'testro' ),
-							'progress' => 92,
-							'tone'     => 'running',
-						),
-						array(
-							'name'     => __( 'Firefox', 'testro' ),
-							'status'   => __( 'Queued', 'testro' ),
-							'progress' => 64,
-							'tone'     => 'queued',
-						),
-						array(
-							'name'     => __( 'WebKit', 'testro' ),
-							'status'   => __( 'Passed', 'testro' ),
-							'progress' => 100,
-							'tone'     => 'passed',
-						),
-						array(
-							'name'     => __( 'Desktop', 'testro' ),
-							'status'   => __( 'Running', 'testro' ),
-							'progress' => 78,
-							'tone'     => 'running',
-						),
-					),
-					'parallel' => array(
-						'title'       => __( 'Parallel Execution', 'testro' ),
-						'description' => __( 'Fan Playwright suites across cloud workers for faster feedback.', 'testro' ),
-						'stat'        => '4×',
-						'stat_label'  => __( 'Faster suites', 'testro' ),
-					),
-				),
-
-				/* 5. Enterprise Playwright cloud scale --------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'enterprise-playwright-scale',
-					'eyebrow' => __( 'Execute at Enterprise Scale', 'testro' ),
-					'title'   => __( 'Execute Playwright Tests at Enterprise Scale', 'testro' ),
-					'intro'   => __( 'Run Playwright automation on scalable cloud infrastructure with parallel workers and unified results.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'cloud',
-						'label' => __( 'theTestRo Cloud', 'testro' ),
-						'sub'   => __( 'Parallel Execution', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Run hundreds of Playwright specs simultaneously across cloud workers to shrink feedback loops.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Cloud-Based Execution', 'testro' ),
-							'description' => __( 'Execute exported Playwright suites on elastic infrastructure without managing browser grids yourself.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Distributed Test Runs', 'testro' ),
-							'description' => __( 'Shard large Playwright projects across workers and environments for consistent, repeatable results.', 'testro' ),
-						),
-						array(
-							'icon'        => 'clock',
-							'title'       => __( 'Reduced Execution Time', 'testro' ),
-							'description' => __( 'Cut suite duration with intelligent orchestration and parallel fan-out across browser targets.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Scalable Test Infrastructure', 'testro' ),
-							'description' => __( 'Scale Playwright automation from smoke packs to enterprise regression without re-architecting your pipeline.', 'testro' ),
-						),
-					),
-				),
-
-				/* 6. Playwright CI/CD workflow ----------------------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'playwright-cicd-workflow',
-					'eyebrow' => __( 'Integrate into CI/CD', 'testro' ),
-					'title'   => __( 'Integrate Playwright Tests into CI/CD Pipelines', 'testro' ),
-					'intro'   => __( 'Wire exported Playwright suites into your DevOps workflow—from developer commit through release.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Developer', 'testro' ),
-							'description' => __( 'Authors and exports Playwright specs from visual workflows, then commits them alongside application code.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'GitHub', 'testro' ),
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Pull requests trigger Playwright validation so every change is checked before merge.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'CI/CD', 'testro' ),
-							'description' => __( 'Pipeline jobs orchestrate exported Playwright suites as a native quality gate on every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'Playwright Execution', 'testro' ),
-							'title'       => __( 'Playwright Execution', 'testro' ),
-							'description' => __( 'AI-powered cloud execution runs Playwright tests in parallel across browsers and environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release', 'testro' ),
-							'description' => __( 'Approved builds advance to production with continuous Playwright confidence baked into delivery.', 'testro' ),
-						),
-					),
-				),
-
-				/* 7. Playwright DevOps integrations ------------------------ */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'playwright-devops-integrations',
-					'eyebrow' => __( 'DevOps Integrations', 'testro' ),
-					'title'   => __( 'Native CI/CD Integrations for Playwright Automation', 'testro' ),
-					'intro'   => __( 'Automate Playwright execution across the delivery tools your teams already use.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'plug',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Playwright Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Trigger exported Playwright suites from Jenkins jobs on every build and promotion.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub Actions', 'testro' ),
-							'description' => __( 'Run Playwright checks on pull requests and deployment workflows with native status reporting.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'GitLab CI/CD', 'testro' ),
-							'description' => __( 'Embed Playwright quality gates inside GitLab pipelines and merge-request validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Wire theTestRo into Azure pipelines and release stages as a Playwright automation gate.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Automated Build Validation', 'testro' ),
-							'description' => __( 'Validate every build before deployment using automated Playwright testing.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. Debug Playwright failures ----------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'debug-playwright-failures',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Faster Debugging', 'testro' ),
-					'title'   => __( 'Debug Playwright Test Failures Faster', 'testro' ),
-					'intro'   => __( 'Investigate failures with rich diagnostics—logs, screenshots, video, network, console, and traces.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Execution Logs', 'testro' ),
-							'description' => __( 'Inspect step-level Playwright commands, assertions, and timing details without leaving the platform.', 'testro' ),
+							'title'       => __( 'Build the Test', 'testro' ),
+							'description' => __( 'Record a flow, or describe it in plain English.', 'testro' ),
 						),
 						array(
 							'icon'        => 'scan-eye',
-							'title'       => __( 'Screenshots', 'testro' ),
-							'description' => __( 'Capture the exact UI state at every failing step across Chromium, Firefox, and WebKit runs.', 'testro' ),
+							'title'       => __( 'Review the Steps', 'testro' ),
+							'description' => __( 'Check the test in theTestRo\'s visual editor before exporting anything.', 'testro' ),
 						),
 						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Video Recordings', 'testro' ),
-							'description' => __( 'Replay full Playwright sessions to reproduce navigation, timing, and interaction issues quickly.', 'testro' ),
+							'icon'        => 'code',
+							'title'       => __( 'Export to Playwright', 'testro' ),
+							'description' => __( 'Click export, and get a clean TypeScript or JavaScript Playwright file.', 'testro' ),
 						),
 						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'Network Logs', 'testro' ),
-							'description' => __( 'Review HTTP requests and responses captured during Playwright execution for API-related failures.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Console Logs', 'testro' ),
-							'description' => __( 'Surface browser console errors and warnings alongside test steps for faster root-cause analysis.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Test Trace Analysis', 'testro' ),
-							'description' => __( 'Open Playwright trace artifacts to inspect DOM snapshots, network activity, and step timelines in one view.', 'testro' ),
+							'icon'        => 'git-branch',
+							'title'       => __( 'Commit and Run', 'testro' ),
+							'description' => __( 'Drop the file into your repo and run it in your own environment or pipeline.', 'testro' ),
 						),
 					),
 				),
 
-				/* 9. AI Playwright maintenance ----------------------------- */
 				array(
-					'type'    => 'healing',
-					'id'      => 'ai-playwright-maintenance',
-					'eyebrow' => __( 'Intelligent Test Maintenance', 'testro' ),
-					'title'   => __( 'Intelligent Test Maintenance with AI', 'testro' ),
-					'intro'   => __( 'Keep exported Playwright scripts healthy as UIs change—detect broken locators, update them automatically, and continue execution.', 'testro' ),
-					'steps'   => array(
+					'type'          => 'comparison',
+					'id'            => 'playwright-export-vs-writing-scripts',
+					'title'         => __( 'Playwright Export vs. Writing Scripts by Hand', 'testro' ),
+					'intro'         => __( 'What You Save With AI-Assisted Generation', 'testro' ),
+					'heading_level' => 3,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Writing Playwright by Hand', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'theTestRo Playwright Export', 'testro' ),
+					),
+					'rows'          => array(
 						array(
-							'icon'  => 'alert-octagon',
-							'label' => __( 'Broken Locator', 'testro' ),
+							'aspect' => __( 'Time to first test', 'testro' ),
+							'legacy' => __( 'Hours', 'testro' ),
+							'modern' => __( 'Minutes', 'testro' ),
 						),
 						array(
-							'icon'  => 'scan-eye',
-							'label' => __( 'AI Detection', 'testro' ),
+							'aspect' => __( 'Coding skill required', 'testro' ),
+							'legacy' => __( 'Yes, always', 'testro' ),
+							'modern' => __( 'Optional', 'testro' ),
 						),
 						array(
-							'icon'  => 'wand',
-							'label' => __( 'Locator Update', 'testro' ),
+							'aspect' => __( 'Locator strategy', 'testro' ),
+							'legacy' => __( 'Manual, error-prone', 'testro' ),
+							'modern' => __( 'AI-assisted, self-healing', 'testro' ),
 						),
 						array(
-							'icon'  => 'code',
-							'label' => __( 'Playwright Script Updated', 'testro' ),
+							'aspect' => __( 'Reusable components', 'testro' ),
+							'legacy' => __( 'Built manually', 'testro' ),
+							'modern' => __( 'Generated automatically', 'testro' ),
 						),
 						array(
-							'icon'  => 'circle-check',
-							'label' => __( 'Successful Execution', 'testro' ),
+							'aspect' => __( 'Ongoing maintenance', 'testro' ),
+							'legacy' => __( 'Fully manual', 'testro' ),
+							'modern' => __( 'Reduced with self-healing', 'testro' ),
 						),
 					),
-					'items'   => array(
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'what-sets-testro-export-apart',
+					'variant'       => 'brand',
+					'columns'       => 3,
+					'title'         => __( 'What Sets theTestRo\'s Export Apart', 'testro' ),
+					'intro'         => __( 'Not Every Export Feature Is Built the Same', 'testro' ),
+					'intro_extra'   => __( 'A lot of no-code tools claim to "export to code." Not all of them mean the same thing by it.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Self-Healing Locators', 'testro' ),
-							'description' => __( 'Automatically repair broken locators in exported Playwright scripts when the UI shifts.', 'testro' ),
+							'icon'        => 'layers-api',
+							'title'       => __( 'Full Test Logic, Not Just Steps', 'testro' ),
+							'description' => __( 'Exports include assertions, waits, and data handling. Not just a list of clicks.', 'testro' ),
 						),
 						array(
-							'icon'        => 'crosshair',
-							'title'       => __( 'Dynamic Element Detection', 'testro' ),
-							'description' => __( 'Identify updated elements using multiple locator strategies so Playwright steps stay resilient.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Reduced Script Maintenance', 'testro' ),
-							'description' => __( 'Cut manual locator rework and keep Playwright suites trustworthy across every release.', 'testro' ),
+							'icon'        => 'pen-square',
+							'title'       => __( 'Editable From Day One', 'testro' ),
+							'description' => __( 'Exported code isn\'t a dead end. Open it in your IDE and keep building right away.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
-							'title'       => __( 'Automatic Failure Recovery', 'testro' ),
-							'description' => __( 'Recover failed Playwright steps mid-run and persist healed locators for the next execution.', 'testro' ),
+							'title'       => __( 'Stays in Sync', 'testro' ),
+							'description' => __( 'Update the test in theTestRo, and re-export whenever you need the latest version.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This matters because a lot of "export" features quietly break the moment you touch the code. theTestRo\'s export is built to be a real starting point. Not a one-time snapshot.', 'testro' ),
 				),
 
-				/* 10. Playwright analytics ----------------------------------- */
 				array(
-					'type'      => 'analytics',
-					'id'        => 'playwright-analytics',
-					'eyebrow'   => __( 'Unified Analytics', 'testro' ),
-					'title'     => __( 'Unified Test Analytics & Reporting', 'testro' ),
-					'intro'     => __( 'Monitor Playwright executions, pass rates, browser analytics, failure insights, and historical trends from one dashboard.', 'testro' ),
-					'items'     => array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-playwright-test-generator',
+					'variant'       => 'default',
+					'columns'       => 3,
+					'title'         => __( 'AI Playwright Test Generator', 'testro' ),
+					'intro'         => __( 'Describe It. Get Playwright Code Back.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Execution Dashboard', 'testro' ),
-							'description' => __( 'Track live and historical Playwright runs with pass rates, duration, and export activity in one view.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Test Result Insights', 'testro' ),
-							'description' => __( 'Surface pass/fail trends, flaky patterns, and browser-specific signals from every Playwright execution.', 'testro' ),
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain English to Playwright', 'testro' ),
+							'description' => __( 'Type "Log in and add an item to the cart." Get a working Playwright test back.', 'testro' ),
 						),
 						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Failure Analysis', 'testro' ),
-							'description' => __( 'Drill into failed Playwright specs with logs, screenshots, traces, and AI-assisted classification.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Historical Execution Trends', 'testro' ),
-							'description' => __( 'Compare Playwright suite health over time to measure coverage growth and maintenance impact.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Playwright Execution', 'testro' ),
-						'score'     => 97,
-						'status'    => __( 'Ready to ship', 'testro' ),
-						'build'     => __( 'Build #5208 · main', 'testro' ),
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '98.7%',
-								'trend' => __( '+2.1 pts', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Browsers green', 'testro' ),
-								'value' => '3/3',
-								'trend' => __( 'All engines', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Exports today', 'testro' ),
-								'value' => '42',
-								'trend' => __( 'Specs generated', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Suite duration', 'testro' ),
-								'value' => '2m 18s',
-								'trend' => __( 'Parallel run', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Last 7 Playwright runs', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 72,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 78,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 84,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 88,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 92,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 89,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 96,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'Chromium pass', 'testro' ),
-								'value' => 99,
-								'tone'  => 'healthy',
-							),
-							array(
-								'label' => __( 'Firefox pass', 'testro' ),
-								'value' => 97,
-								'tone'  => 'healthy',
-							),
-							array(
-								'label' => __( 'WebKit pass', 'testro' ),
-								'value' => 96,
-								'tone'  => 'healthy',
-							),
-						),
-					),
-				),
-
-				/* 11. Enterprise Playwright automation --------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-playwright',
-					'variant' => 'tint',
-					'columns' => 4,
-					'eyebrow' => __( 'Enterprise-Ready', 'testro' ),
-					'title'   => __( 'Enterprise-Ready Playwright Automation', 'testro' ),
-					'intro'   => __( 'Secure execution, collaboration, environment control, and scalable workflows for enterprise teams.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Secure Test Execution', 'testro' ),
-							'description' => __( 'Run Playwright automation with enterprise-grade security, encrypted credentials, and controlled access.', 'testro' ),
+							'icon'        => 'activity',
+							'title'       => __( 'Record-and-Generate', 'testro' ),
+							'description' => __( 'Click through a flow once. theTestRo\'s Playwright test generator writes the matching script on its own.', 'testro' ),
 						),
 						array(
 							'icon'        => 'user-check',
-							'title'       => __( 'Team Collaboration', 'testro' ),
-							'description' => __( 'Share visual workflows, exported specs, and results so QA and engineering work from one source of truth.', 'testro' ),
+							'title'       => __( 'AI Playwright Testing at Any Skill Level', 'testro' ),
+							'description' => __( 'Non-coders build tests visually. Engineers export and extend the code directly.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'clean-readable-playwright-code-export',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Clean, Readable Playwright Code Export', 'testro' ),
+					'intro'         => __( 'Code Your Engineers Will Actually Want to Maintain', 'testro' ),
+					'intro_extra'   => __( 'Generated code is only useful if a person can read it without decoding it first.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Human-Readable Output', 'testro' ),
+							'description' => __( 'Exported scripts follow standard Playwright conventions. Not auto-generated spaghetti.', 'testro' ),
 						),
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Environment Management', 'testro' ),
-							'description' => __( 'Manage dev, staging, and production targets for Playwright runs with environment-scoped configuration.', 'testro' ),
+							'icon'        => 'crosshair',
+							'title'       => __( 'Structured Locators', 'testro' ),
+							'description' => __( 'theTestRo exports strong, well-labeled selectors instead of brittle auto-IDs.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Reusable Functions', 'testro' ),
+							'description' => __( 'Common steps export as reusable functions. Not duplicated blocks across every test file.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'run-exported-tests-anywhere',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Run Exported Tests Anywhere', 'testro' ),
+					'intro'         => __( 'Your Code, Your Infrastructure, Your Choice', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Local Execution', 'testro' ),
+							'description' => __( 'Run exported Playwright tests in your own environment. No dependency on theTestRo\'s platform.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
-							'title'       => __( 'Scalable Automation Workflows', 'testro' ),
-							'description' => __( 'Scale Playwright export and execution across projects, teams, and release trains without tool sprawl.', 'testro' ),
+							'title'       => __( 'Your Existing CI/CD', 'testro' ),
+							'description' => __( 'Drop exported tests straight into Jenkins, GitHub Actions, GitLab, or any pipeline already running Playwright.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Version Control Friendly', 'testro' ),
+							'description' => __( 'Commit exported tests to your repo like any other code. Full diff visibility on every change.', 'testro' ),
 						),
 					),
 				),
 
-				/* 12. Why choose Playwright export ------------------------- */
 				array(
-					'type'    => 'comparison',
-					'id'      => 'why-choose-playwright-export',
-					'eyebrow' => __( 'Why Choose theTestRo', 'testro' ),
-					'title'   => __( 'Why Choose theTestRo Playwright Export?', 'testro' ),
-					'intro'   => __( 'Organizations choose theTestRo because it combines AI-powered visual automation with production-ready Playwright code generation. Teams can accelerate automation development, reduce scripting effort, improve collaboration between QA and developers, and seamlessly integrate exported Playwright tests into enterprise DevOps workflows.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Traditional Playwright Development', 'testro' ),
-						'note'  => __( 'Manual coding with higher maintenance', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'theTestRo', 'testro' ),
-						'note'  => __( 'AI visual creation with instant Playwright export', 'testro' ),
-					),
-					'rows'    => array(
+					'type'          => 'feature-grid',
+					'id'            => 'scale-playwright-testing',
+					'variant'       => 'default',
+					'columns'       => 3,
+					'title'         => __( 'Scale Playwright Testing Across Real Browsers and Devices', 'testro' ),
+					'intro'         => __( 'Beyond What Playwright Offers Alone', 'testro' ),
+					'intro_extra'   => __( 'Playwright covers a lot out of the box. theTestRo\'s Playwright test automation adds what it doesn\'t.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'aspect' => __( 'Test creation', 'testro' ),
-							'legacy' => __( 'Manual Coding', 'testro' ),
-							'modern' => __( 'AI Visual Test Creation', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Export', 'testro' ),
-							'legacy' => __( 'Longer Development Time', 'testro' ),
-							'modern' => __( 'Instant Playwright Export', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Code quality', 'testro' ),
-							'legacy' => __( 'Limited Visual Creation', 'testro' ),
-							'modern' => __( 'Clean Developer-Ready Code', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Maintenance', 'testro' ),
-							'legacy' => __( 'Higher Maintenance', 'testro' ),
-							'modern' => __( 'Self-Healing Automation', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Scale', 'testro' ),
-							'legacy' => __( 'Slower Automation Adoption', 'testro' ),
-							'modern' => __( 'Enterprise Execution', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Delivery', 'testro' ),
-							'legacy' => __( 'No AI Assistance', 'testro' ),
-							'modern' => __( 'CI/CD Ready + AI Test Maintenance', 'testro' ),
-						),
-					),
-				),
-
-				/* 13. Playwright productivity gains ------------------------ */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'playwright-productivity-gains',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Measurable Impact', 'testro' ),
-					'title'   => __( 'Accelerate Automation. Reduce Scripting Effort.', 'testro' ),
-					'intro'   => __( 'Teams using Playwright Export ship coverage faster with less hand-written code and stronger QA–developer collaboration.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( '70% Less Scripting Effort', 'testro' ),
-							'description' => __( 'Replace manual Playwright boilerplate with AI-generated TypeScript exported from visual workflows.', 'testro' ),
+							'icon'        => 'browsers',
+							'title'       => __( 'Real Device Coverage', 'testro' ),
+							'description' => __( 'Run exported Playwright tests against real browsers and devices. Not just local emulation.', 'testro' ),
 						),
 						array(
 							'icon'        => 'zap',
-							'title'       => __( '5× Faster Test Creation', 'testro' ),
-							'description' => __( 'Author critical journeys visually and export runnable Playwright specs in minutes—not sprints.', 'testro' ),
+							'title'       => __( 'Massively Parallel Execution', 'testro' ),
+							'description' => __( 'Scale to hundreds of concurrent Playwright runs. No custom scaling logic needed.', 'testro' ),
 						),
 						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Seamless QA–Developer Handoff', 'testro' ),
-							'description' => __( 'QA builds coverage visually while developers receive clean, editable Playwright code they trust.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Ready from Day One', 'testro' ),
-							'description' => __( 'Drop exported Playwright suites straight into Jenkins, GitHub Actions, GitLab, or Azure DevOps pipelines.', 'testro' ),
+							'icon'        => 'badge-check',
+							'title'       => __( 'Cross-Browser Consistency', 'testro' ),
+							'description' => __( 'Validate the same exported test across Chrome, Firefox, Safari, and Edge from one platform.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Bridging No-Code and Playwright', 'testro' ),
-					'intro'   => __( 'QA and engineering teams rely on theTestRo Playwright Export to accelerate automation, reduce scripting effort, and deliver developer-ready tests at enterprise scale.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'self-healing-exported-playwright-tests',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Self-Healing for Exported Playwright Tests', 'testro' ),
+					'intro'         => __( 'Locators That Adapt, Even After Export', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'AI-Powered Locator Healing', 'testro' ),
+							'description' => __( 'theTestRo\'s self-healing agent spots and fixes broken locators at runtime. Exported tests stay stable.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Fewer Flaky Runs', 'testro' ),
+							'description' => __( 'Structural UI changes get absorbed on their own. Your Playwright suite doesn\'t break on every release.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wrench',
+							'title'       => __( 'Stability Without Manual Fixes', 'testro' ),
+							'description' => __( 'Your engineers spend less time patching selectors after every export.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Export Playwright Faster with AI', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to build tests visually, export production-ready Playwright TypeScript, integrate CI/CD pipelines, and maintain automation with AI self-healing.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'unified-debugging-and-reporting',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Unified Debugging and Reporting', 'testro' ),
+					'intro'         => __( 'See Exactly What Happened, Every Run', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'microscope',
+							'title'       => __( 'Trace Viewer Integration', 'testro' ),
+							'description' => __( 'Combine theTestRo\'s execution data with Playwright\'s native trace logs in one dashboard.', 'testro' ),
+						),
+						array(
+							'icon'        => 'video',
+							'title'       => __( 'Video and Console Logs', 'testro' ),
+							'description' => __( 'Every run captures video, network logs, and console output on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Failure Categorization', 'testro' ),
+							'description' => __( 'AI groups failures by root cause. Your team debugs the pattern, not each failure one by one.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Debugging a failed test shouldn\'t mean digging through five different log files to piece together what happened. theTestRo puts everything in one place, exported test or not.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Playwright Export FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'playwright-test-automation',
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-playwright-export',
+					'variant'       => 'default',
+					'columns'       => 2,
+					'title'         => __( 'Who Uses Playwright Export', 'testro' ),
+					'intro'         => __( 'Built for Teams That Want Speed and Ownership', 'testro' ),
+					'intro_extra'   => __( 'Different teams get value from Playwright export in different ways, based on their roles in QA and engineering.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Teams Without Deep Coding Skills', 'testro' ),
+							'description' => __( 'Build tests visually. Hand off clean Playwright code to engineering when needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Engineering Teams Standardizing on Playwright', 'testro' ),
+							'description' => __( 'Adopt a single testing framework across the org. Fed by both code and no-code test creation.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Teams Migrating Off Other Tools', 'testro' ),
+							'description' => __( 'Move existing manual test cases into Playwright without writing every script from scratch.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Platform Teams Managing CI/CD', 'testro' ),
+							'description' => __( 'Keep tests in version control. Run them through the same pipeline as application code.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-playwright-export',
-					'title'      => __( 'Create Tests Visually. Export Playwright Code Instantly.', 'testro' ),
-					'intro'      => __( 'Bridge the gap between no-code automation and developer-first testing with theTestRo\'s AI-powered Playwright Export. Build tests visually, generate production-ready Playwright scripts, integrate seamlessly into your DevOps pipeline, and accelerate software delivery with enterprise-grade automation.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'playwright-test-automation',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'get-started-playwright-export',
+					'title'         => __( 'Start Building Playwright Tests Today', 'testro' ),
+					'intro'         => __( 'Speed to Build. Freedom to Own.', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s Playwright automation tool to build faster, without giving up control of their test suite. Speed when you need it. Real code when you want it.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -5149,2123 +4483,1604 @@ function testro_get_product_pages() {
 
 		'reporting-analytics' => array(
 			'slug'   => 'reporting-analytics',
-			'title'  => __( 'Reports & Analytics', 'testro' ),
+			'title'  => __( 'AI-Powered Test Reports & Analytics Platform', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'AI Test Reports & Analytics | Test Reporting Software | theTestRo', 'testro' ),
-				'description' => __( 'theTestRo AI-Powered Test Reports & Analytics Platform delivers real-time dashboards, intelligent failure analysis, quality intelligence, and enterprise reporting so QA and DevOps teams release with confidence.', 'testro' ),
+				'title'       => __( 'AI-Powered Test Reports & Analytics for Smarter QA', 'testro' ),
+				'description' => __( 'Accelerate defect analysis with theTestRo\'s AI-powered test reports and analytics. Track test execution, identify root causes, and improve release quality.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Reporting & Analytics', 'testro' ),
-				'title'    => __( 'AI-Powered Test Reports & Analytics Platform', 'testro' ),
-				'subtitle' => __( 'Transform test execution data into actionable insights with theTestRo\'s AI-Powered Reports & Analytics Platform. Monitor quality in real time, analyze execution trends, identify failures instantly, and make confident release decisions using intelligent dashboards, enterprise reporting, and AI-driven analytics.', 'testro' ),
-				'badges'   => array(
-					__( 'Real-Time Dashboards', 'testro' ),
-					__( 'AI Failure Analysis', 'testro' ),
-					__( 'Release Readiness Scoring', 'testro' ),
-					__( 'Enterprise Reporting', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'AI-Powered Test Reporting for Faster Root Cause Analysis', 'testro' ),
+				'subtitle' => __( 'theTestRo doesn\'t just tell you a test failed. It tells you why. Screenshots, logs, and AI-driven root cause analysis land in one dashboard. This test reporting platform means your team spends time fixing issues, not hunting for them.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '360°',
-						'label' => __( 'Release visibility', 'testro' ),
-						'icon'  => 'gauge',
-					),
-					array(
-						'value' => '90%',
-						'label' => __( 'Faster root cause', 'testro' ),
-						'icon'  => 'microscope',
-					),
-					array(
-						'value' => 'Live',
-						'label' => __( 'Executive dashboards', 'testro' ),
-						'icon'  => 'activity',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Gain Complete Visibility -------------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'complete-test-visibility',
-					'eyebrow' => __( 'Centralized Analytics Command Center', 'testro' ),
-					'title'   => __( 'Gain Complete Visibility into Test Execution', 'testro' ),
-					'intro'   => __( 'Manage execution insights from one unified dashboard—track running tests live, visualize quality KPIs, and understand release confidence through AI-powered scoring.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'the-problem-with-most-test-reports',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'The Problem With Most Test Reports', 'testro' ),
+					'intro'         => __( 'A Test Fails. Then the Real Work Starts.', 'testro' ),
+					'intro_extra'   => __( 'Most test reporting stops at pass or fail. The actual investigation gets left to a person.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'Execution', 'testro' ),
-							'title'       => __( 'Centralized Testing Dashboard', 'testro' ),
-							'description' => __( 'Manage all execution insights from one unified dashboard.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'stage'       => __( 'Analytics', 'testro' ),
-							'title'       => __( 'Real-Time Execution Monitoring', 'testro' ),
-							'description' => __( 'Track running tests and execution progress live.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'stage'       => __( 'AI Insights', 'testro' ),
-							'title'       => __( 'Quality Metrics Overview', 'testro' ),
-							'description' => __( 'Visualize software quality using meaningful KPIs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'stage'       => __( 'Release Readiness', 'testro' ),
-							'title'       => __( 'Release Readiness Insights', 'testro' ),
-							'description' => __( 'Understand release confidence through AI-powered quality scoring.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. Intelligent Test Execution Analytics -------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'test-execution-analytics',
-					'eyebrow'   => __( 'Intelligent Test Execution Analytics', 'testro' ),
-					'title'     => __( 'Turn Every Run into Trends, Duration, and Stability Signals', 'testro' ),
-					'intro'     => __( 'Analyze execution performance across every release with pass/fail trends, duration tracking, failure-rate analysis, and long-term automation stability metrics.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Test Run Analysis', 'testro' ),
-							'description' => __( 'Analyze execution performance across every release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Pass/Fail Trends', 'testro' ),
-							'description' => __( 'Monitor execution success rates over time.', 'testro' ),
-						),
-						array(
-							'icon'        => 'clock',
-							'title'       => __( 'Execution Duration Tracking', 'testro' ),
-							'description' => __( 'Measure execution efficiency and identify bottlenecks.', 'testro' ),
-						),
-						array(
-							'icon'        => 'alert-octagon',
-							'title'       => __( 'Failure Rate Analysis', 'testro' ),
-							'description' => __( 'Identify recurring failure patterns quickly.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Test Stability Metrics', 'testro' ),
-							'description' => __( 'Track automation reliability and long-term stability.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Execution Analytics', 'testro' ),
-						'build'     => __( 'Build #2148 · Main', 'testro' ),
-						'status'    => __( 'Healthy', 'testro' ),
-						'score'     => 94,
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '98.6%',
-								'trend' => __( '+1.4%', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Avg duration', 'testro' ),
-								'value' => '4m 12s',
-								'trend' => __( '−18s', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Flaky rate', 'testro' ),
-								'value' => '0.6%',
-								'trend' => __( 'Stable', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Coverage', 'testro' ),
-								'value' => '92%',
-								'trend' => __( '+3%', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Pass rate · last 7 runs', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'R1', 'testro' ),
-									'value' => 78,
-								),
-								array(
-									'label' => __( 'R2', 'testro' ),
-									'value' => 84,
-								),
-								array(
-									'label' => __( 'R3', 'testro' ),
-									'value' => 81,
-								),
-								array(
-									'label' => __( 'R4', 'testro' ),
-									'value' => 90,
-								),
-								array(
-									'label' => __( 'R5', 'testro' ),
-									'value' => 93,
-								),
-								array(
-									'label' => __( 'R6', 'testro' ),
-									'value' => 95,
-								),
-								array(
-									'label' => __( 'R7', 'testro' ),
-									'value' => 98,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'UI change', 'testro' ),
-								'value' => 42,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Test data', 'testro' ),
-								'value' => 31,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Environment', 'testro' ),
-								'value' => 27,
-								'tone'  => 'healthy',
-							),
-						),
-					),
-				),
-
-				/* 3. AI-Powered Failure Analysis ----------------------------- */
-				array(
-					'type'    => 'traceability',
-					'id'      => 'ai-failure-analysis',
-					'eyebrow' => __( 'AI-Powered Failure Analysis', 'testro' ),
-					'title'   => __( 'From Failure to Resolution with Intelligent Diagnostics', 'testro' ),
-					'intro'   => __( 'Classify failures automatically, surface root causes faster, detect recurring error patterns, and receive AI-driven recommendations that improve testing efficiency.', 'testro' ),
-					'stages'  => array(
-						array(
-							'icon'  => 'alert-octagon',
-							'label' => __( 'Failure', 'testro' ),
-						),
-						array(
-							'icon'  => 'sparkles',
-							'label' => __( 'AI Analysis', 'testro' ),
-						),
-						array(
-							'icon'  => 'filter-check',
-							'label' => __( 'Classification', 'testro' ),
-						),
-						array(
-							'icon'  => 'wand',
-							'label' => __( 'Recommendation', 'testro' ),
-						),
-						array(
-							'icon'  => 'circle-check',
-							'label' => __( 'Resolution', 'testro' ),
-						),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Automated Failure Classification', 'testro' ),
-							'description' => __( 'Categorize failures automatically using AI.', 'testro' ),
+							'icon'        => 'file-text',
+							'title'       => __( 'Raw Log Dumps', 'testro' ),
+							'description' => __( 'Traditional tools hand you logs with no context. No clear starting point either.', 'testro' ),
 						),
 						array(
 							'icon'        => 'microscope',
-							'title'       => __( 'Root Cause Insights', 'testro' ),
-							'description' => __( 'Identify underlying issues faster.', 'testro' ),
-						),
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Error Pattern Detection', 'testro' ),
-							'description' => __( 'Recognize recurring failure patterns across executions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Failure Trend Identification', 'testro' ),
-							'description' => __( 'Analyze long-term automation health.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'Intelligent Recommendations', 'testro' ),
-							'description' => __( 'Receive AI-driven suggestions to improve testing efficiency.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Real-Time Test Dashboards ------------------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'real-time-dashboards',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Real-Time Test Dashboards', 'testro' ),
-					'title'   => __( 'Live Views for Execution, Coverage, Regression, and Teams', 'testro' ),
-					'intro'   => __( 'Give every role the dashboard they need—monitor live runs, visualize coverage, track regression performance, and measure QA productivity from one analytics platform.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Execution Status Dashboard', 'testro' ),
-							'description' => __( 'Monitor running, completed, and failed executions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'pie-chart',
-							'title'       => __( 'Test Coverage Dashboard', 'testro' ),
-							'description' => __( 'Visualize automation coverage across applications.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Regression Testing Dashboard', 'testro' ),
-							'description' => __( 'Track regression execution performance.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Team Performance Metrics', 'testro' ),
-							'description' => __( 'Measure QA productivity and execution efficiency.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Detailed Test Execution Reports ------------------------- */
-				array(
-					'type'      => 'lifecycle',
-					'id'        => 'test-execution-reports',
-					'eyebrow'   => __( 'Detailed Test Execution Reports', 'testro' ),
-					'title'     => __( 'Complete Evidence from Steps to Screenshots, Logs, and Videos', 'testro' ),
-					'intro'     => __( 'Review every execution step in detail with visual evidence, session replay, technical logs, and environment context—so debugging and release proof share the same trail.', 'testro' ),
-					'loop_note' => __( 'Every run keeps a complete, shareable evidence trail — from the first step to the final video.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Step-Level Execution Reports', 'testro' ),
-							'description' => __( 'Review every execution step in detail.', 'testro' ),
+							'title'       => __( 'Manual Root Cause Hunting', 'testro' ),
+							'description' => __( 'Someone has to piece together what actually broke, step by step.', 'testro' ),
 						),
 						array(
 							'icon'        => 'scan-eye',
-							'title'       => __( 'Screenshots', 'testro' ),
-							'description' => __( 'Capture visual evidence for every execution.', 'testro' ),
-						),
-						array(
-							'icon'        => 'video',
-							'title'       => __( 'Video Recordings', 'testro' ),
-							'description' => __( 'Replay complete test sessions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'file-text',
-							'title'       => __( 'Logs & Error Details', 'testro' ),
-							'description' => __( 'Analyze execution logs and technical details.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Environment Information', 'testro' ),
-							'description' => __( 'View execution environments, browser versions, and configurations.', 'testro' ),
+							'title'       => __( 'Screenshots Without Answers', 'testro' ),
+							'description' => __( 'A picture of a failure isn\'t the same as knowing why it happened.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'theTestRo\'s AI test analytics is built to skip that manual step entirely. Instead of a person spending an afternoon piecing together clues, the platform does that work the moment a test fails.', 'testro' ),
 				),
 
-				/* 6. Quality Intelligence ------------------------------------ */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'quality-intelligence',
-					'variant' => 'tint',
-					'columns' => 4,
-					'eyebrow' => __( 'Quality Intelligence for Faster Decisions', 'testro' ),
-					'title'   => __( 'Risk, Readiness, Health, and Recommendations in One View', 'testro' ),
-					'intro'   => __( 'Identify high-risk modules before release, understand production impact, track quality trends, and continuously monitor automation health with AI.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'how-ai-test-analytics-works',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'How AI Test Analytics Works', 'testro' ),
+					'intro'         => __( 'From Test Failure to Root Cause in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Risk-Based Insights', 'testro' ),
-							'description' => __( 'Identify high-risk modules before release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Release Impact Analysis', 'testro' ),
-							'description' => __( 'Understand how failures affect production readiness.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Quality Trends', 'testro' ),
-							'description' => __( 'Track quality improvements across releases.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Test Health Monitoring', 'testro' ),
-							'description' => __( 'Continuously monitor automation health using AI.', 'testro' ),
-						),
-					),
-				),
-
-				/* 7. Enterprise Reporting Capabilities ----------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-reporting',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Enterprise Reporting Capabilities', 'testro' ),
-					'title'   => __( 'Custom, Scheduled, and Role-Based Reports for Every Stakeholder', 'testro' ),
-					'intro'   => __( 'Create tailored reports, distribute them on a schedule, export in the formats stakeholders need, and give QA, developers, managers, and executives the dashboards they rely on.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'pen-square',
-							'title'       => __( 'Custom Reports', 'testro' ),
-							'description' => __( 'Create customized reports tailored to business needs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'calendar-sync',
-							'title'       => __( 'Scheduled Reports', 'testro' ),
-							'description' => __( 'Automatically generate and distribute reports.', 'testro' ),
-						),
-						array(
-							'icon'        => 'download',
-							'title'       => __( 'Export Reports', 'testro' ),
-							'description' => __( 'Export reports in multiple formats for stakeholders.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Role-Based Dashboards', 'testro' ),
-							'description' => __( 'Provide customized dashboards for QA, developers, managers, and executives.', 'testro' ),
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'A Test Fails', 'testro' ),
+							'description' => __( 'theTestRo captures the moment automatically. No manual screenshot needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'folder-tree',
-							'title'       => __( 'Multi-Project Analytics', 'testro' ),
-							'description' => __( 'Monitor testing performance across multiple products and projects.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. DevOps Integrations ------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'reporting-integrations',
-					'eyebrow' => __( 'Integrate Analytics into DevOps Workflows', 'testro' ),
-					'title'   => __( 'Push Quality Signals into the Tools Your Delivery Teams Already Use', 'testro' ),
-					'intro'   => __( 'Integrate reporting and analytics directly into your DevOps ecosystem to provide continuous visibility into software quality throughout the development lifecycle.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Reports & Analytics', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Return execution summaries and quality gates to Jenkins jobs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub Actions', 'testro' ),
-							'description' => __( 'Surface pass/fail analytics and readiness scores on every workflow run.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Feed pipeline reporting and release evidence into Azure DevOps boards.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Push failure summaries and linked defects into Jira for faster triage.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Post release-readiness alerts and AI insights into team channels.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Pipeline Reporting', 'testro' ),
-							'description' => __( 'Embed continuous quality reporting across your delivery toolchain.', 'testro' ),
-						),
-					),
-				),
-
-				/* 9. AI-Driven Test Optimization ----------------------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'ai-test-optimization',
-					'eyebrow' => __( 'AI-Driven Test Optimization', 'testro' ),
-					'title'   => __( 'From Test Results to a Leaner, Faster Automation Suite', 'testro' ),
-					'intro'   => __( 'Detect flaky tests, recommend suite improvements, flag maintenance issues, and continuously optimize execution performance with AI.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'database',
-							'stage'       => __( 'Test Results', 'testro' ),
-							'title'       => __( 'Identify Flaky Tests', 'testro' ),
-							'description' => __( 'Automatically detect unstable tests affecting execution quality.', 'testro' ),
+							'title'       => __( 'Evidence Gets Gathered', 'testro' ),
+							'description' => __( 'Screenshots, network logs, and console output collect on their own.', 'testro' ),
 						),
 						array(
 							'icon'        => 'sparkles',
-							'stage'       => __( 'AI Analysis', 'testro' ),
-							'title'       => __( 'Optimize Test Suites', 'testro' ),
-							'description' => __( 'Recommend improvements to increase efficiency.', 'testro' ),
+							'title'       => __( 'AI Analyzes the Pattern', 'testro' ),
+							'description' => __( 'theTestRo compares this failure against known patterns and past runs.', 'testro' ),
 						),
 						array(
-							'icon'        => 'wrench',
-							'stage'       => __( 'Optimization', 'testro' ),
-							'title'       => __( 'Detect Maintenance Issues', 'testro' ),
-							'description' => __( 'Identify automation assets requiring updates.', 'testro' ),
+							'icon'        => 'circle-check',
+							'title'       => __( 'You Get an Answer', 'testro' ),
+							'description' => __( 'A likely root cause and suggested fix land in your dashboard, ready to review.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-root-cause-analysis',
+					'columns'       => 3,
+					'title'         => __( 'AI Root Cause Analysis', 'testro' ),
+					'intro'         => __( 'Know Why in Seconds, Not Hours', 'testro' ),
+					'intro_extra'   => __( 'Every test failure comes with real diagnostic evidence, generated on its own.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Screenshots at the Moment of Failure', 'testro' ),
+							'description' => __( 'See the exact UI state when something broke.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Network and Console Logs', 'testro' ),
+							'description' => __( 'Check API responses, timing, and JavaScript errors. No digging needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'AI-Suggested Fixes', 'testro' ),
+							'description' => __( 'theTestRo flags likely causes and next steps. Not just a red X.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is what turns test automation reporting from a chore into something your team actually uses. A red status alone tells you something\'s wrong. It doesn\'t tell you what to do next. theTestRo aims to close that gap every single time a test fails.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-time-dashboards',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Real-Time Dashboards for Every Stakeholder', 'testro' ),
+					'intro'         => __( 'The Same Data, Framed for Who\'s Looking at It', 'testro' ),
+					'intro_extra'   => __( 'Not everyone needs the same view.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Teams', 'testro' ),
+							'description' => __( 'See pass rates and trends across every run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Developers', 'testro' ),
+							'description' => __( 'See failed steps and errors, fast.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Leadership', 'testro' ),
+							'description' => __( 'See coverage and release readiness. No raw data to dig through.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'One dashboard. Three views. No manual work to set it up. This is what a real test analytics dashboard should offer every team, not just one.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'step-level-execution-details',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Step-Level Execution Details', 'testro' ),
+					'intro'         => __( 'See What Happened at Every Single Step', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'clock',
+							'title'       => __( 'Full Execution Timeline', 'testro' ),
+							'description' => __( 'Review each step in sequence. Not just a final summary.', 'testro' ),
+						),
+						array(
+							'icon'        => 'crosshair',
+							'title'       => __( 'Element and Locator Changes', 'testro' ),
+							'description' => __( 'See exactly what shifted if a self-healing action kicked in mid-run.', 'testro' ),
 						),
 						array(
 							'icon'        => 'filter-check',
-							'stage'       => __( 'Improved Suite', 'testro' ),
-							'title'       => __( 'Improve Automation Efficiency', 'testro' ),
-							'description' => __( 'Continuously optimize execution performance using AI.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'Better Performance', 'testro' ),
-							'title'       => __( 'Faster Feedback Loops', 'testro' ),
-							'description' => __( 'Ship with leaner suites and clearer quality signals on every build.', 'testro' ),
+							'title'       => __( 'Pass, Fail, and Skip Breakdown', 'testro' ),
+							'description' => __( 'Know precisely how many tests ran, and what happened to each one. Test execution reports break this down clearly, not buried in raw logs.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'None of this replaces judgment. It just means your team spends time deciding what to do about a failure, not hunting for basic facts about what happened.', 'testro' ),
 				),
 
-				/* 10. Why Choose --------------------------------------------- */
 				array(
-					'type'    => 'comparison',
-					'id'      => 'why-choose-reports-analytics',
-					'eyebrow' => __( 'Why Choose theTestRo Reports & Analytics?', 'testro' ),
-					'title'   => __( 'Intelligent Insights Instead of Static Spreadsheets', 'testro' ),
-					'intro'   => __( 'Organizations choose theTestRo because it transforms raw execution data into intelligent insights. AI-powered analytics, enterprise dashboards, real-time monitoring, and actionable recommendations help engineering teams improve software quality, reduce release risk, and make faster, data-driven decisions.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Traditional Reporting', 'testro' ),
-						'note'  => __( 'Static exports and manual triage', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'theTestRo', 'testro' ),
-						'note'  => __( 'AI analytics on one platform', 'testro' ),
-					),
-					'rows'    => array(
+					'type'          => 'feature-grid',
+					'id'            => 'isolate-issues-by-environment',
+					'columns'       => 3,
+					'title'         => __( 'Isolate Issues by Environment and Suite', 'testro' ),
+					'intro'         => __( 'Find Patterns, Not Just Single Failures', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'aspect' => __( 'Analytics depth', 'testro' ),
-							'legacy' => __( 'Static Reports', 'testro' ),
-							'modern' => __( 'AI-Powered Analytics', 'testro' ),
+							'icon'        => 'browsers',
+							'title'       => __( 'Environment Insights', 'testro' ),
+							'description' => __( 'Spot issues tied to one browser, OS, or device.', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Visibility', 'testro' ),
-							'legacy' => __( 'Delayed Insights', 'testro' ),
-							'modern' => __( 'Real-Time Dashboards', 'testro' ),
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Test Suite Grouping', 'testro' ),
+							'description' => __( 'Sort results by feature. See where problems pile up.', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Failure triage', 'testro' ),
-							'legacy' => __( 'Manual Analysis', 'testro' ),
-							'modern' => __( 'Intelligent Failure Analysis', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Release decisions', 'testro' ),
-							'legacy' => __( 'Limited Visibility', 'testro' ),
-							'modern' => __( 'Release Readiness Insights', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Stakeholder reporting', 'testro' ),
-							'legacy' => __( 'Basic Metrics', 'testro' ),
-							'modern' => __( 'Enterprise Reporting', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Scale', 'testro' ),
-							'legacy' => __( 'Single-project views', 'testro' ),
-							'modern' => __( 'Multi-Project Visibility', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Continuous improvement', 'testro' ),
-							'legacy' => __( 'No AI Recommendations', 'testro' ),
-							'modern' => __( 'AI Test Optimization', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Compare Builds', 'testro' ),
+							'description' => __( 'Check this run against past ones. Catch new bugs fast.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'reports-analytics-outcomes',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Measurable Impact', 'testro' ),
-					'title'   => __( 'Visibility, Speed, Confidence, and Efficiency', 'testro' ),
-					'intro'   => __( 'Teams using theTestRo Reports & Analytics improve release visibility, debug failures faster, reduce release risk, and keep automation efficient with AI recommendations.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'requirement-traceability',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Requirement Traceability', 'testro' ),
+					'intro'         => __( 'Know What\'s Actually Been Tested', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Improved visibility', 'testro' ),
-							'description' => __( 'One live source of truth for execution health across every release.', 'testro' ),
+							'icon'        => 'git-branch',
+							'title'       => __( 'Test-to-Story Links', 'testro' ),
+							'description' => __( 'Tie every test back to the story it covers.', 'testro' ),
 						),
 						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Faster debugging', 'testro' ),
-							'description' => __( 'AI classification and root-cause insights cut triage time dramatically.', 'testro' ),
+							'icon'        => 'target',
+							'title'       => __( 'See Gaps Right Away', 'testro' ),
+							'description' => __( 'Know what\'s untested before a release ships.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-check',
-							'title'       => __( 'Reduced release risk', 'testro' ),
-							'description' => __( 'Readiness scoring and risk signals support confident go/no-go decisions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Increased automation efficiency', 'testro' ),
-							'description' => __( 'Flaky detection and suite optimization keep runs lean and reliable.', 'testro' ),
+							'title'       => __( 'Records Ready for Audit', 'testro' ),
+							'description' => __( 'Full traceability makes audits far less painful.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise QA Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Engineering and QA organizations rely on theTestRo to turn execution data into release-ready intelligence.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'exportable-reports',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Exportable Reports in the Format You Need', 'testro' ),
+					'intro'         => __( 'Share Results However Your Team Works', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'PDF Reports', 'testro' ),
+							'description' => __( 'Build summaries for people outside your team.', 'testro' ),
+						),
+						array(
+							'icon'        => 'download',
+							'title'       => __( 'Excel and CSV Exports', 'testro' ),
+							'description' => __( 'Pull raw data for a deeper look, or for an audit.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Custom Filters', 'testro' ),
+							'description' => __( 'Build the exact report you need. No manual formatting.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Teams Making Faster Quality Decisions with AI Analytics', 'testro' ),
-					'intro'   => __( 'See how modern QA and DevOps teams use theTestRo Reports & Analytics for real-time visibility, intelligent failure analysis, and confident releases.', 'testro' ),
+					'type'          => 'comparison',
+					'id'            => 'manual-investigation-vs-ai-test-analytics',
+					'title'         => __( 'Manual Investigation vs. AI Test Analytics', 'testro' ),
+					'intro'         => __( 'What Changes When Reports Explain Themselves', 'testro' ),
+					'heading_level' => 4,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Manual Investigation', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'theTestRo AI Test Analytics', 'testro' ),
+					),
+					'rows'          => array(
+						array(
+							'aspect' => __( 'Finding the cause', 'testro' ),
+							'legacy' => __( 'A person digs through logs', 'testro' ),
+							'modern' => __( 'AI shows it right away', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Time to root cause', 'testro' ),
+							'legacy' => __( 'Hours', 'testro' ),
+							'modern' => __( 'Minutes', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Evidence gathered', 'testro' ),
+							'legacy' => __( 'Whatever gets remembered', 'testro' ),
+							'modern' => __( 'Screenshots and logs every time', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Report building', 'testro' ),
+							'legacy' => __( 'Manual, one at a time', 'testro' ),
+							'modern' => __( 'Ready to export, any format', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Coverage view', 'testro' ),
+							'legacy' => __( 'Old spreadsheet', 'testro' ),
+							'modern' => __( 'Live and current', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Test Reports & Analytics FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'reporting-analytics',
+					'type'          => 'feature-grid',
+					'id'            => 'getting-started-with-reports',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Getting Started With Reports', 'testro' ),
+					'intro'         => __( 'From First Test Run to Your First Report', 'testro' ),
+					'intro_extra'   => __( 'Setting up test reporting shouldn\'t be its own project.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Run a Test', 'testro' ),
+							'description' => __( 'Execute a single test or a full suite, however you already work.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Reports Build Automatically', 'testro' ),
+							'description' => __( 'theTestRo captures results, screenshots, and logs without extra setup.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Pick Your View', 'testro' ),
+							'description' => __( 'Switch between the QA, developer, or leadership dashboard depending on who\'s looking.', 'testro' ),
+						),
+						array(
+							'icon'        => 'download',
+							'title'       => __( 'Export or Share', 'testro' ),
+							'description' => __( 'Send a PDF, drop a CSV into a spreadsheet, or push results straight to Slack.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'No separate reporting tool to configure, and no template to build from scratch every sprint. The reporting layer is part of the platform from the first test you run, not something bolted on afterward.', 'testro' ),
 				),
 
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-reports-analytics',
-					'title'      => __( 'Turn Every Test Execution into Actionable Intelligence', 'testro' ),
-					'intro'      => __( 'Gain complete visibility into software quality with theTestRo\'s AI-Powered Reports & Analytics Platform. Monitor execution in real time, identify risks faster, optimize automation with AI, and deliver high-quality software with confidence.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'alerts-and-collaboration',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Alerts and Collaboration Built In', 'testro' ),
+					'intro'         => __( 'Get Results Where Your Team Already Works', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Slack and Chat Notifications', 'testro' ),
+							'description' => __( 'Send test results straight to a channel after every scheduled run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'One-Click Bug Filing', 'testro' ),
+							'description' => __( 'Turn a failure into a Jira or issue-tracker ticket without leaving the report.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Tag Teammates Directly', 'testro' ),
+							'description' => __( 'Comment on a specific step or failure. Context never gets lost in a separate thread.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-relies-on-test-reporting',
+					'columns'       => 3,
+					'title'         => __( 'Who Relies on Test Reporting and Analytics', 'testro' ),
+					'intro'         => __( 'Built for Every Role That Touches Quality', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Engineers', 'testro' ),
+							'description' => __( 'Debug faster with full context, not a bare pass/fail line.', 'testro' ),
+						),
+						array(
+							'icon'        => 'gauge',
+							'title'       => __( 'Engineering Managers', 'testro' ),
+							'description' => __( 'Track trends over time. Not just the latest build.', 'testro' ),
+						),
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Product and Release Teams', 'testro' ),
+							'description' => __( 'Check coverage gaps before shipping a release.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Compliance and Audit Teams', 'testro' ),
+							'description' => __( 'Export clear, traceable records whenever needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'stethoscope',
+							'title'       => __( 'Support and Customer Success Teams', 'testro' ),
+							'description' => __( 'Pull up exactly what was tested when a customer reports an issue, instead of guessing.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'reporting-analytics',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-making-sense-of-test-data',
+					'title'         => __( 'Start Making Sense of Your Test Data', 'testro' ),
+					'intro'         => __( 'Stop Investigating Failures. Start Fixing Them.', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s test reporting and analytics to cut debugging time. Ship with real visibility into quality, not guesswork. See what broke, why it broke, and what to do about it, all in one place.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
 
-		/* ------------------------------------------------------------------ */
-		/* Regression Test Automation                                         */
-		/* ------------------------------------------------------------------ */
 		'regression-test-automation' => array(
 			'slug'   => 'regression-test-automation',
 			'title'  => __( 'Regression Test Automation', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'Automated Regression Testing Software | AI Regression Test Automation | theTestRo', 'testro' ),
-				'description' => __( 'Automated Regression Testing Software from theTestRo. AI Regression Testing and Continuous Regression Testing on one Regression Testing Platform—self-healing suites, parallel execution, CI/CD integration, and release-ready analytics.', 'testro' ),
+				'title'       => __( 'Best Automated Regression Testing Software for QA Teams', 'testro' ),
+				'description' => __( 'Best automated regression testing software for faster releases. Detect application changes, reduce maintenance, improve coverage, and ensure software quality', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Regression Testing', 'testro' ),
 				'title'    => __( 'Best Automated Regression Testing Software', 'testro' ),
-				'subtitle' => __( 'Ensure every software release is reliable with theTestRo\'s AI-powered Regression Testing Platform. Automatically validate existing functionality after every code change using intelligent automation, continuous regression execution, AI-powered maintenance, and enterprise-grade analytics. Deliver high-quality software faster while reducing manual testing effort and release risks.', 'testro' ),
-				'badges'   => array(
-					__( 'Continuous Regression', 'testro' ),
-					__( 'AI Self-Healing', 'testro' ),
-					__( 'Parallel Execution', 'testro' ),
-					__( 'Release Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'subtitle' => __( 'theTestRo brings AI regression testing to every release. Build tests in plain English, run them in parallel across real browsers, and let self-healing keep your suite stable. Ship with confidence, not a maintenance headache.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '60%',
-						'label' => __( 'Faster regression cycles', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '3×',
-						'label' => __( 'Coverage uplift', 'testro' ),
-						'icon'  => 'layout-grid',
-					),
-					array(
-						'value' => '70%',
-						'label' => __( 'Maintenance reduction', 'testro' ),
-						'icon'  => 'wrench',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Why theTestRo for Regression Testing ------------------ */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'why-regression-testing',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Why theTestRo', 'testro' ),
-					'title'   => __( 'Why theTestRo for Regression Testing', 'testro' ),
-					'intro'   => __( 'Generate, execute, and maintain regression suites with AI so every code change is validated before it reaches production.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI-Powered Test Creation', 'testro' ),
-							'description' => __( 'Automatically generate comprehensive regression test scenarios using AI, reducing manual effort and improving test coverage.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Continuous Regression Execution', 'testro' ),
-							'description' => __( 'Execute regression suites automatically after every build, deployment, or release to identify issues early in the development lifecycle.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Intelligent Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce maintenance overhead with self-healing automation, automatic locator updates, and AI-powered test optimization.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. AI-Powered Regression Testing Platform ---------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'ai-regression-platform',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Regression Testing Platform', 'testro' ),
-					'title'   => __( 'Build, Accelerate, and Prove Every Regression Run', 'testro' ),
-					'intro'   => __( 'Create end-to-end suites, run continuous regression inside delivery, drive data-powered scenarios, and turn every execution into release-ready intelligence.', 'testro' ),
-					'groups'  => array(
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Build Reliable End-to-End Regression Suites', 'testro' ),
-							'description' => __( 'Cover complete journeys across every layer so mission-critical workflows stay green after every update.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'browsers',
-									'title'       => __( 'Web, Mobile & API Regression', 'testro' ),
-									'description' => __( 'Validate complete user journeys across web, mobile, and API layers using one unified testing platform.', 'testro' ),
-								),
-								array(
-									'icon'        => 'layout-grid',
-									'title'       => __( 'Business Workflow Validation', 'testro' ),
-									'description' => __( 'Ensure mission-critical business processes continue functioning after every software update.', 'testro' ),
-								),
-								array(
-									'icon'        => 'target',
-									'title'       => __( 'Maximum Test Coverage', 'testro' ),
-									'description' => __( 'Increase automation coverage across applications while minimizing manual testing effort.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate Continuous Regression Testing', 'testro' ),
-							'description' => __( 'Trigger, parallelize, and schedule regression so feedback arrives before the next deployment.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'plug',
-									'title'       => __( 'CI/CD Pipeline Integration', 'testro' ),
-									'description' => __( 'Automatically execute regression suites within your DevOps workflow.', 'testro' ),
-								),
-								array(
-									'icon'        => 'badge-check',
-									'title'       => __( 'Automated Build Validation', 'testro' ),
-									'description' => __( 'Validate every software build before deployment using AI-powered regression testing.', 'testro' ),
-								),
-								array(
-									'icon'        => 'infinity',
-									'title'       => __( 'Parallel Test Execution', 'testro' ),
-									'description' => __( 'Reduce execution time by running multiple regression suites simultaneously.', 'testro' ),
-								),
-								array(
-									'icon'        => 'calendar-sync',
-									'title'       => __( 'Scheduled Regression Runs', 'testro' ),
-									'description' => __( 'Automatically execute regression tests based on predefined schedules.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Data-Driven Regression Testing', 'testro' ),
-							'description' => __( 'Parameterize scenarios, manage dynamic data, and reuse assets without duplicating cases.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'filter-check',
-									'title'       => __( 'Parameterized Test Execution', 'testro' ),
-									'description' => __( 'Run regression scenarios using multiple datasets without duplicating test cases.', 'testro' ),
-								),
-								array(
-									'icon'        => 'database',
-									'title'       => __( 'Dynamic Test Data Management', 'testro' ),
-									'description' => __( 'Manage test data efficiently across different environments.', 'testro' ),
-								),
-								array(
-									'icon'        => 'folder-tree',
-									'title'       => __( 'Reusable Test Assets', 'testro' ),
-									'description' => __( 'Create reusable components that simplify regression maintenance.', 'testro' ),
-								),
-								array(
-									'icon'        => 'sparkles',
-									'title'       => __( 'Intelligent Test Data Handling', 'testro' ),
-									'description' => __( 'Leverage AI to optimize test data usage across automated regression suites.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'AI-Powered Test Reports & Analytics', 'testro' ),
-							'description' => __( 'Monitor runs live, diagnose failures faster, and measure release readiness with AI.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'activity',
-									'title'       => __( 'Regression Execution Dashboard', 'testro' ),
-									'description' => __( 'Monitor regression execution in real time through centralized dashboards.', 'testro' ),
-								),
-								array(
-									'icon'        => 'chart-bar',
-									'title'       => __( 'Test Result Analysis', 'testro' ),
-									'description' => __( 'Analyze execution outcomes using AI-powered insights.', 'testro' ),
-								),
-								array(
-									'icon'        => 'microscope',
-									'title'       => __( 'Failure Insights', 'testro' ),
-									'description' => __( 'Identify recurring issues and understand failure patterns quickly.', 'testro' ),
-								),
-								array(
-									'icon'        => 'message-text',
-									'title'       => __( 'Real-Time Notifications', 'testro' ),
-									'description' => __( 'Receive instant alerts whenever regression failures occur.', 'testro' ),
-								),
-								array(
-									'icon'        => 'badge-check',
-									'title'       => __( 'Release Readiness Metrics', 'testro' ),
-									'description' => __( 'Measure software quality before every deployment using intelligent release insights.', 'testro' ),
-								),
-							),
-						),
-					),
-				),
-
-				/* 3. Unified Test Automation Platform ---------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'unified-regression-platform',
-					'eyebrow' => __( 'Unified Test Automation Platform', 'testro' ),
-					'title'   => __( 'One Regression Hub Across Web, Mobile, API, and Browsers', 'testro' ),
-					'intro'   => __( 'Validate every layer of your application through one unified AI-powered regression testing platform. Execute comprehensive regression suites across web, mobile, APIs, browsers, and enterprise environments without switching tools.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'refresh',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Regression Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Application Testing', 'testro' ),
-							'description' => __( 'Automate end-to-end regression across modern web applications and critical UI journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Application Testing', 'testro' ),
-							'description' => __( 'Validate mobile experiences and native flows as part of every regression cycle.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Protect contracts and service layers with automated API regression on every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Confirm critical paths stay reliable across Chrome, Firefox, Edge, Safari, and more.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Cross-Platform Testing', 'testro' ),
-							'description' => __( 'Execute regression across platforms and environments without toolchain fragmentation.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4A. DevOps pipeline -------------------------------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'regression-devops-pipeline',
-					'eyebrow' => __( 'Seamless DevOps Integration', 'testro' ),
-					'title'   => __( 'Continuous Regression Inside Every Delivery Path', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your existing DevOps ecosystem to automate regression testing throughout your software delivery lifecycle. Trigger regression suites after every commit, build, or deployment while providing continuous quality feedback to development teams.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Commit', 'testro' ),
-							'title'       => __( 'Developer Commit', 'testro' ),
-							'description' => __( 'Code changes enter the pipeline and queue continuous regression validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'CI/CD Pipeline', 'testro' ),
-							'description' => __( 'Builds and pull requests automatically trigger the right regression packs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'stage'       => __( 'AI Testing', 'testro' ),
-							'title'       => __( 'AI Regression Testing', 'testro' ),
-							'description' => __( 'AI-powered suites execute in parallel with self-healing maintenance in the loop.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'stage'       => __( 'Analytics', 'testro' ),
-							'title'       => __( 'Analytics', 'testro' ),
-							'description' => __( 'Teams get live results, failure insights, and release readiness signals.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release', 'testro' ),
-							'description' => __( 'Approved builds ship with continuous quality confidence baked in.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4B. Enterprise tool integrations ------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'regression-enterprise-integrations',
-					'eyebrow' => __( 'Enterprise Integrations', 'testro' ),
-					'title'   => __( 'Connect Regression to the Tools Your Teams Already Use', 'testro' ),
-					'intro'   => __( 'Wire theTestRo into Jira, Jenkins, GitHub, Azure DevOps, Slack, and Bamboo so regression status, defects, and alerts flow through your delivery toolchain.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'plug',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'DevOps Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Sync defects and regression outcomes with engineering trackers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Launch regression suites from Jenkins jobs on every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger and report continuous regression from pull requests and workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed regression gates inside Azure pipelines and release stages.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify channels instantly when regression fails, recovers, or clears.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Bamboo', 'testro' ),
-							'description' => __( 'Connect Bamboo plans so continuous regression protects every deployment path.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Optional analytics enrichment ------------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'regression-execution-dashboard',
-					'eyebrow'   => __( 'Regression Execution Dashboard', 'testro' ),
-					'title'     => __( 'See Suite Health, Pass Rates, and Release Risk in Real Time', 'testro' ),
-					'intro'     => __( 'Track continuous regression performance with live KPIs, pass/fail trends, coverage signals, and AI-assisted failure insights—so release decisions stay evidence-based.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Live suite progress', 'testro' ),
-							'description' => __( 'Monitor running regression packs across browsers and environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Pass/fail trends', 'testro' ),
-							'description' => __( 'Spot stability shifts before they become release blockers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Failure pattern insights', 'testro' ),
-							'description' => __( 'Classify recurring issues faster with AI-powered diagnostics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Release readiness scoring', 'testro' ),
-							'description' => __( 'Quantify confidence before promoting the next build.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Regression Analytics', 'testro' ),
-						'build'     => __( 'Release 5.1 · Nightly + CI', 'testro' ),
-						'status'    => __( 'Healthy', 'testro' ),
-						'score'     => 97,
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '98.4%',
-								'trend' => __( '+2.1%', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Coverage', 'testro' ),
-								'value' => '94%',
-								'trend' => __( '+6%', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Failed tests', 'testro' ),
-								'value' => '8',
-								'trend' => __( '2 critical', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Maintenance', 'testro' ),
-								'value' => '−70%',
-								'trend' => __( 'Self-healed', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Regression pass rate · 7 runs', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'R1', 'testro' ),
-									'value' => 84,
-								),
-								array(
-									'label' => __( 'R2', 'testro' ),
-									'value' => 88,
-								),
-								array(
-									'label' => __( 'R3', 'testro' ),
-									'value' => 91,
-								),
-								array(
-									'label' => __( 'R4', 'testro' ),
-									'value' => 93,
-								),
-								array(
-									'label' => __( 'R5', 'testro' ),
-									'value' => 95,
-								),
-								array(
-									'label' => __( 'R6', 'testro' ),
-									'value' => 96,
-								),
-								array(
-									'label' => __( 'R7', 'testro' ),
-									'value' => 98,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'UI change', 'testro' ),
-								'value' => 38,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Test data', 'testro' ),
-								'value' => 29,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Environment', 'testro' ),
-								'value' => 33,
-								'tone'  => 'healthy',
-							),
-						),
-					),
-				),
-
-				/* 6. Customer success outcomes ----------------------------- */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'regression-customer-success',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Customer Success', 'testro' ),
-					'title'   => __( 'Less Effort. Faster Releases. Higher Confidence.', 'testro' ),
-					'intro'   => __( 'Organizations use theTestRo to reduce regression effort, accelerate releases, improve quality, expand coverage, catch issues earlier, and lower release risk.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'the-regression-testing-trap',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'The Regression Testing Trap', 'testro' ),
+					'intro'         => __( 'Most Teams Don\'t Have a Testing Problem. They Have a Maintenance Problem.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'wrench',
-							'title'       => __( 'Reduce regression testing effort', 'testro' ),
-							'description' => __( 'AI authoring and self-healing cut the manual work that keeps suites running.', 'testro' ),
+							'title'       => __( 'Maintenance Eats the Budget', 'testro' ),
+							'description' => __( 'Most scripted regression suites spend the bulk of QA time on upkeep, not new coverage.', 'testro' ),
 						),
 						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate software releases', 'testro' ),
-							'description' => __( 'Parallel continuous regression returns feedback in time for every commit.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Improve software quality', 'testro' ),
-							'description' => __( 'Validate existing functionality after every change before customers feel it.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Increase automation coverage', 'testro' ),
-							'description' => __( 'Expand web, mobile, and API regression without growing headcount.', 'testro' ),
+							'icon'        => 'clock',
+							'title'       => __( 'Slow Cycles Can\'t Keep Up', 'testro' ),
+							'description' => __( 'Manual regression cycles that take days don\'t fit a team shipping weekly or daily.', 'testro' ),
 						),
 						array(
 							'icon'        => 'alert-octagon',
-							'title'       => __( 'Detect production issues earlier', 'testro' ),
-							'description' => __( 'Catch regressions in CI instead of after the release window opens.', 'testro' ),
+							'title'       => __( 'One UI Change Breaks Ten Tests', 'testro' ),
+							'description' => __( 'When a small update cascades into a dozen broken scripts, the suite stops being an asset. It becomes the bottleneck.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Regression test automation is supposed to solve this. Too often, it just moves the problem somewhere else.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-regression-testing-that-fixes-itself',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'AI Regression Testing That Fixes Itself', 'testro' ),
+					'intro'         => __( 'Self-Healing Built In, Not Bolted On', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Automatic Locator Updates', 'testro' ),
+							'description' => __( 'theTestRo spots a changed element and updates the test on its own. No manual fix needed.', 'testro' ),
 						),
 						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Reduce release risks', 'testro' ),
-							'description' => __( 'Release readiness metrics and quality gates protect every promotion.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Multi-Signal Recognition', 'testro' ),
+							'description' => __( 'Elements get identified using more than one signal. A single ID change won\'t break the whole step.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Real Maintenance Reduction', 'testro' ),
+							'description' => __( 'Less time spent patching broken tests after every release. More time on real coverage.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is what ai regression testing should mean: your suite adapts instead of breaking every time the app changes.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'end-to-end-regression-testing',
+					'columns'       => 3,
+					'title'         => __( 'End to End Regression Testing Across Your Stack', 'testro' ),
+					'intro'         => __( 'Web, Mobile, and API, All From One Platform', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'Full-Stack Coverage', 'testro' ),
+							'description' => __( 'Combine UI and API checks in the same test, for the truest reflection of a real user journey.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Cross-Browser and Cross-Device', 'testro' ),
+							'description' => __( 'Run the same regression suite across thousands of browser and device combinations.', 'testro' ),
+						),
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'Data-Driven Testing', 'testro' ),
+							'description' => __( 'Run one test against many input sets, so edge cases get covered without writing duplicate tests.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'End to end regression testing only works if it actually covers the full path. Not just the UI, and not just the API in isolation.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'build-regression-tests-fast',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Build Regression Tests Fast, Without a Script', 'testro' ),
+					'intro'         => __( 'From Idea to Working Test in Minutes, Not Days', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'Describe a flow, and get a working regression test back. No coding required.', 'testro' ),
+						),
+						array(
+							'icon'        => 'video',
+							'title'       => __( 'Record-and-Convert', 'testro' ),
+							'description' => __( 'Click through a flow once, and theTestRo turns it into a repeatable test automatically.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Any Skill Level Can Contribute', 'testro' ),
+							'description' => __( 'Manual testers and engineers both build coverage in the same simple interface.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A 30-step regression test that takes hours to script by hand can take minutes to build this way. That difference compounds fast across a whole suite.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-root-cause-analysis',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'AI Root Cause Analysis', 'testro' ),
+					'intro'         => __( 'Know Why a Test Failed, Not Just That It Did', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Screenshots and Video', 'testro' ),
+							'description' => __( 'See the exact moment a step failed. Every time.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Network and Console Logs', 'testro' ),
+							'description' => __( 'Check API responses and errors. No digging through separate tools.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Real Bugs, Filtered From Noise', 'testro' ),
+							'description' => __( 'AI tells a genuine regression apart from a flaky, unrelated failure.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'No more hours of manual triage. No more "it passed on my machine."', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'parallel-execution-enterprise-scale',
+					'columns'       => 3,
+					'title'         => __( 'Parallel Execution at Enterprise Scale', 'testro' ),
+					'intro'         => __( 'Full Regression Suites in Minutes, Not Overnight', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Massively Parallel Runs', 'testro' ),
+							'description' => __( 'Run hundreds of tests at the same time. Not one after another.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Fast Feedback on Every Build', 'testro' ),
+							'description' => __( 'A suite that used to take hours reports back before your coffee\'s done.', 'testro' ),
+						),
+						array(
+							'icon'        => 'gauge',
+							'title'       => __( 'Scales With Your Suite', 'testro' ),
+							'description' => __( 'Wait time stays flat as coverage grows. It doesn\'t climb every sprint.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Automating Continuous Regression', 'testro' ),
-					'intro'   => __( 'QA, engineering, and DevOps organizations rely on theTestRo to keep regression suites green, accelerate delivery, and protect every release.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'automated-regression-testing-best-practices',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Automated Regression Testing Best Practices', 'testro' ),
+					'intro'         => __( 'What Actually Makes a Regression Suite Work', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Automate the Repeatable, Not Everything', 'testro' ),
+							'description' => __( 'Automate stable, high-value flows. Leave true exploratory testing to a person.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Update Shared Components Once', 'testro' ),
+							'description' => __( 'Reusable step groups mean a login flow update applies everywhere it\'s used, on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Run Regression on Every Commit', 'testro' ),
+							'description' => __( 'Waiting until the end of a sprint to test makes bugs expensive to fix.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Track Trends, Not Just Pass or Fail', 'testro' ),
+							'description' => __( 'Watch flakiness and cycle time over time. Not just the latest run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Keep the Suite Lean', 'testro' ),
+							'description' => __( 'Retire tests that no longer add value. The suite stays fast and trustworthy.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Automated regression testing best practices come down to one idea. Automate on purpose, and keep the suite healthy as it grows.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Ship Faster with AI-Powered Regression', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo Regression Test Automation to cut maintenance, expand coverage, integrate continuous regression into CI/CD, and release with confidence.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'cicd-integration-built-in',
+					'variant'       => 'tint',
+					'title'         => __( 'CI/CD Integration Built In', 'testro' ),
+					'intro'         => __( 'Regression That Runs Itself, On Every Build', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jenkins, GitHub Actions, GitLab, Azure DevOps, and CircleCI.', 'testro' ),
+					'intro_body'    => __( 'A commit or pull request can start a full run on its own. Results gate the deployment before a risky change reaches production.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(),
 				),
 
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Regression Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'regression-test-automation',
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-regression-testing-by-use-case',
+					'columns'       => 4,
+					'title'         => __( 'Enterprise Regression Testing, By Use Case', 'testro' ),
+					'intro'         => __( 'Regression Testing That Fits How Your Systems Actually Work', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'ERP and Business Systems', 'testro' ),
+							'description' => __( 'Cover complex workflows across finance, payroll, and supply chain. No need to rebuild the suite every upgrade.', 'testro' ),
+						),
+						array(
+							'icon'        => 'retail',
+							'title'       => __( 'Retail and E-Commerce', 'testro' ),
+							'description' => __( 'Keep coverage steady through fast releases and seasonal traffic spikes.', 'testro' ),
+						),
+						array(
+							'icon'        => 'stethoscope',
+							'title'       => __( 'Healthcare and Insurance', 'testro' ),
+							'description' => __( 'Generate audit-ready evidence on its own at every run. Screenshots, logs, and step records included.', 'testro' ),
+						),
+						array(
+							'icon'        => 'cloud',
+							'title'       => __( 'SaaS and Software Vendors', 'testro' ),
+							'description' => __( 'Run full regression on every pull request. A broken release is a support ticket and a churn risk.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Enterprise regression testing has to hold up across all of these at once. Not just one team\'s use case.', 'testro' ),
 				),
 
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-regression-test-automation',
-					'title'      => __( 'Automate Regression Testing. Accelerate Every Release.', 'testro' ),
-					'intro'      => __( 'Deliver software with confidence using theTestRo\'s AI-powered Regression Testing Platform. Automate regression suites, integrate seamlessly into your DevOps pipeline, reduce maintenance through AI, and ensure every release is stable, reliable, and production-ready.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'reporting-that-actually-helps',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Reporting That Actually Helps', 'testro' ),
+					'intro'         => __( 'Comprehensive Results for Every Release', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Real-Time Dashboards', 'testro' ),
+							'description' => __( 'Track pass rates and history on every run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Instant Alerts', 'testro' ),
+							'description' => __( 'Get notified in Slack or email the moment a run fails.', 'testro' ),
+						),
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'Shareable Reports', 'testro' ),
+							'description' => __( 'Give the whole team a clear view of release readiness. No manual status update needed.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-regression-testing',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for Regression Testing', 'testro' ),
+					'intro'         => __( 'Built for Every Role in the QA Chain', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'QA Managers', 'testro' ),
+							'description' => __( 'Get pass rates, coverage, and stability trends on their own. No spreadsheet needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Practitioners and Manual Testers', 'testro' ),
+							'description' => __( 'Automate what you already know how to test. No scripting language to learn.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Automation Engineers', 'testro' ),
+							'description' => __( 'Spend less time fixing broken locators. More time on real coverage design.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'DevOps Engineers', 'testro' ),
+							'description' => __( 'Trigger regression on its own on every commit. Gate deployments on the results.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'regression-test-automation',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-automating-regression-testing',
+					'title'         => __( 'Start Automating Regression Testing Today', 'testro' ),
+					'intro'         => __( 'Ship Every Release With Confidence', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s regression test automation. Cut maintenance time. Catch real bugs before they reach production.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
 
-		/* ------------------------------------------------------------------ */
-		/* AI Automated Sanity Testing                                        */
-		/* ------------------------------------------------------------------ */
 		'ai-automated-sanity-testing' => array(
 			'slug'   => 'ai-automated-sanity-testing',
 			'title'  => __( 'AI Automated Sanity Testing', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'Automated Sanity Testing Tool | AI Sanity Testing | Continuous Sanity Testing | theTestRo', 'testro' ),
-				'description' => __( 'Automated Sanity Testing Tool from theTestRo. AI Sanity Testing and Continuous Sanity Testing for Build Validation Testing—critical-path automation, cloud execution, self-healing Sanity Test Automation, and release-ready analytics.', 'testro' ),
+				'title'       => __( 'Best Tool for Automated Sanity Testing | AI-Powered QA', 'testro' ),
+				'description' => __( 'Find the best tool for automated sanity testing to validate critical functionality, reduce manual testing, accelerate releases, and improve software quality.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Sanity Testing', 'testro' ),
-				'title'    => __( 'Best Tool for Automated Sanity Testing', 'testro' ),
-				'subtitle' => __( 'Quickly validate critical application functionality after every bug fix or feature update with theTestRo\'s AI-powered Sanity Testing Platform. Automatically verify essential workflows, accelerate release validation, and ensure application stability using intelligent automation, cloud execution, and AI-driven quality insights.', 'testro' ),
-				'badges'   => array(
-					__( 'Critical Path Validation', 'testro' ),
-					__( 'AI Automation', 'testro' ),
-					__( 'Cloud Execution', 'testro' ),
-					__( 'Release Confidence', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'          => __( 'Best Tool for Automated Sanity Testing', 'testro' ),
+				'subtitle'       => __( 'theTestRo brings automated sanity testing to every release. Verify that a fix or new feature works in minutes.', 'testro' ),
+				'subtitle_extra' => __( 'No one has to click through the same checks by hand every time.', 'testro' ),
+				'actions'        => array(
 					array(
-						'value' => '80%',
-						'label' => __( 'Faster critical validation', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '5×',
-						'label' => __( 'Quicker release gates', 'testro' ),
-						'icon'  => 'rocket',
-					),
-					array(
-						'value' => '65%',
-						'label' => __( 'Less manual sanity effort', 'testro' ),
-						'icon'  => 'wrench',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Why theTestRo for Sanity Testing ---------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'why-sanity-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Why theTestRo', 'testro' ),
-					'title'   => __( 'Why theTestRo for Sanity Testing', 'testro' ),
-					'intro'   => __( 'Validate critical paths after every bug fix or minor change—so teams get release confidence fast without waiting on a full regression cycle.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI-Powered Validation', 'testro' ),
-							'description' => __( 'Use AI to prioritize and execute the critical checks that matter after each change—so Automated Sanity Testing stays focused, fast, and reliable.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Faster Release Confidence', 'testro' ),
-							'description' => __( 'Clear build gates quickly with Continuous Sanity Testing that confirms essential workflows before promoting a release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Reduced Manual Testing', 'testro' ),
-							'description' => __( 'Replace repetitive post-fix and smoke checks with Sanity Test Automation that runs consistently across every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Continuous Quality Assurance', 'testro' ),
-							'description' => __( 'Keep critical-path coverage always on with trigger-based AI Sanity Testing embedded in your delivery workflow.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. AI-Powered Sanity Testing Platform -------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'ai-sanity-platform',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Sanity Testing Platform', 'testro' ),
-					'title'   => __( 'Validate Critical Changes Before Full Regression', 'testro' ),
-					'intro'   => __( 'Confirm what just changed—critical paths, new features, bug fixes, and overall stability—so teams ship with confidence without waiting on full-suite regression.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'what-sanity-testing-actually-checks',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'What Sanity Testing Actually Checks', 'testro' ),
+					'intro'         => __( 'A Quick Check, Not a Deep One', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'target',
-							'title'       => __( 'Validate Critical Application Changes', 'testro' ),
-							'description' => __( 'Focus Automated Sanity Testing on the highest-risk journeys so every bug fix and code tweak is verified before broader regression.', 'testro' ),
+							'title'       => __( 'Focused, Not Exhaustive', 'testro' ),
+							'description' => __( 'Sanity tests cover the specific area that changed. Not the whole application.', 'testro' ),
 						),
 						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Verify New Features', 'testro' ),
-							'description' => __( 'Confirm newly shipped capabilities behave as expected with targeted AI Sanity Testing packs that protect happy paths and entry points.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Validate Bug Fixes', 'testro' ),
-							'description' => __( 'Prove defects stay fixed with Build Validation Testing that re-checks the affected flows after every patch.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Ensure Application Stability', 'testro' ),
-							'description' => __( 'Detect early instability signals across essential workflows so releases stay stable between deeper regression cycles.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. Cloud-Based Platform for Sanity Testing --------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'cloud-sanity-platform',
-					'eyebrow' => __( 'Cloud-Based Platform for Sanity Testing', 'testro' ),
-					'title'   => __( 'Centralize, Scale, and Parallelize Every Sanity Gate', 'testro' ),
-					'intro'   => __( 'Run Continuous Sanity Testing on enterprise cloud infrastructure—manage suites centrally, execute in the cloud, scale capacity on demand, and parallelize critical checks for faster feedback.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'layout-grid',
-							'stage'       => __( 'Manage', 'testro' ),
-							'title'       => __( 'Cloud Platform', 'testro' ),
-							'description' => __( 'Centralized test management keeps sanity packs organized, versioned, and ready for every build gate.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'stage'       => __( 'Execute', 'testro' ),
-							'title'       => __( 'Test Execution', 'testro' ),
-							'description' => __( 'Cloud test execution runs critical sanity checks without local bottlenecks or fragile agent farms.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'Scale', 'testro' ),
-							'title'       => __( 'Parallel Workers', 'testro' ),
-							'description' => __( 'Scalable infrastructure and parallel test execution cut gate time while covering more critical paths.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'stage'       => __( 'Decide', 'testro' ),
-							'title'       => __( 'Results Dashboard', 'testro' ),
-							'description' => __( 'Live results dashboards surface pass/fail signals so teams clear or block releases with evidence.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Continuous Sanity Testing ----------------------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'continuous-sanity-testing',
-					'eyebrow' => __( 'Continuous Sanity Testing', 'testro' ),
-					'title'   => __( 'From Commit to Release Decision in One Automated Loop', 'testro' ),
-					'intro'   => __( 'Integrate Continuous Sanity Testing into CI/CD so every developer commit triggers build validation, automated sanity packs, AI validation, and a clear release decision.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Commit', 'testro' ),
-							'title'       => __( 'Developer Commit', 'testro' ),
-							'description' => __( 'Code changes enter delivery and queue critical-path sanity validation immediately.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Build', 'testro' ),
-							'title'       => __( 'Build', 'testro' ),
-							'description' => __( 'CI/CD integration kicks Build Validation Testing as soon as the artifact is ready.', 'testro' ),
+							'icon'        => 'filter-check',
+							'title'       => __( 'A Gate Before Deeper Testing', 'testro' ),
+							'description' => __( 'A passing sanity check clears the way for full regression or QA. A failing one stops it there.', 'testro' ),
 						),
 						array(
 							'icon'        => 'zap',
-							'stage'       => __( 'Sanity', 'testro' ),
-							'title'       => __( 'Sanity Tests', 'testro' ),
-							'description' => __( 'Automated trigger-based execution runs the focused sanity pack across critical workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'stage'       => __( 'AI', 'testro' ),
-							'title'       => __( 'AI Validation', 'testro' ),
-							'description' => __( 'AI Sanity Testing scores outcomes, highlights risk, and recommends gate actions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release Decision', 'testro' ),
-							'description' => __( 'Release readiness signals tell teams whether to promote, hold, or escalate before full regression.', 'testro' ),
+							'title'       => __( 'Fast by Design', 'testro' ),
+							'description' => __( 'These checks should run in minutes, not hours. A team isn\'t blocked waiting on results.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Automated sanity testing keeps that speed intact, even as a codebase grows and builds ship more often.', 'testro' ),
 				),
 
-				/* 5. Intelligent Test Maintenance -------------------------- */
 				array(
-					'type'    => 'healing',
-					'id'      => 'intelligent-sanity-maintenance',
-					'eyebrow' => __( 'Intelligent Test Maintenance', 'testro' ),
-					'title'   => __( 'Keep Sanity Packs Green as Applications Evolve', 'testro' ),
-					'intro'   => __( 'AI creates, heals, and updates sanity assets so Continuous Sanity Testing stays reliable after UI and workflow changes—without manual script churn.', 'testro' ),
-					'steps'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-powered-sanity-testing-at-every-build',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'AI-Powered Sanity Testing at Every Build', 'testro' ),
+					'intro'         => __( 'Verification That Keeps Up With Your Release Pace', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'  => 'refresh',
-							'label' => __( 'Application Update', 'testro' ),
+							'icon'        => 'rocket',
+							'title'       => __( 'Runs on Every New Build', 'testro' ),
+							'description' => __( 'theTestRo checks the changed area on its own, the moment a new build is ready.', 'testro' ),
 						),
-						array(
-							'icon'  => 'scan-eye',
-							'label' => __( 'AI Detection', 'testro' ),
-						),
-						array(
-							'icon'  => 'wand',
-							'label' => __( 'Self-Healing', 'testro' ),
-						),
-						array(
-							'icon'  => 'pen-square',
-							'label' => __( 'Updated Tests', 'testro' ),
-						),
-						array(
-							'icon'  => 'circle-check',
-							'label' => __( 'Successful Execution', 'testro' ),
-						),
-					),
-					'items'   => array(
 						array(
 							'icon'        => 'sparkles',
-							'title'       => __( 'AI Test Creation', 'testro' ),
-							'description' => __( 'Generate focused sanity scenarios with AI so critical-path coverage expands without slow manual authoring.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Self-Healing Automation', 'testro' ),
-							'description' => __( 'Repair broken locators mid-run so Sanity Test Automation keeps clearing gates after UI drift.', 'testro' ),
+							'title'       => __( 'AI Flags What to Test', 'testro' ),
+							'description' => __( 'Instead of a person guessing which checks matter most, AI points to the areas a recent change likely affects.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
-							'title'       => __( 'Smart Test Updates', 'testro' ),
-							'description' => __( 'Persist healed steps and adaptive updates so tomorrow\'s sanity pack starts already stable.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Reusable Test Assets', 'testro' ),
-							'description' => __( 'Share components across sanity packs to reduce duplication and accelerate maintenance.', 'testro' ),
+							'title'       => __( 'Consistent Results, Every Time', 'testro' ),
+							'description' => __( 'No variation from one tester\'s judgment to another\'s. The same checks run the same way, every build.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This is what ai automated sanity testing is supposed to solve. The manual guesswork that comes with deciding what to check and when.', 'testro' ),
 				),
 
-				/* 6. Test Execution Reports & Analytics -------------------- */
 				array(
-					'type'      => 'analytics',
-					'id'        => 'sanity-execution-analytics',
-					'eyebrow'   => __( 'Test Execution Reports & Analytics', 'testro' ),
-					'title'     => __( 'See Critical Checks, Pass Rates, and Gate Risk in Real Time', 'testro' ),
-					'intro'     => __( 'Monitor Automated Sanity Testing with live execution status, pass rates, failure trends, AI insights, quality scores, and release dashboards tailored to smaller critical suites—not full regression volume.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Real-Time Dashboards', 'testro' ),
-							'description' => __( 'Track live execution status across critical sanity packs as builds progress.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Execution Reports', 'testro' ),
-							'description' => __( 'Share concise Build Validation Testing reports that teams can act on immediately.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Failure Analysis', 'testro' ),
-							'description' => __( 'Classify failed critical checks quickly so blockers never hide in noise.', 'testro' ),
-						),
-						array(
-							'icon'        => 'stethoscope',
-							'title'       => __( 'Root Cause Insights', 'testro' ),
-							'description' => __( 'Use AI insights to pinpoint whether failures stem from code, data, or environment risk.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Sanity Analytics', 'testro' ),
-						'build'     => __( 'Build #5124 · Critical Gate', 'testro' ),
-						'status'    => __( 'Gate Clear', 'testro' ),
-						'score'     => 96,
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '100%',
-								'trend' => __( 'Critical clear', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Critical checks', 'testro' ),
-								'value' => '42',
-								'trend' => __( 'Focused suite', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Failed checks', 'testro' ),
-								'value' => '0',
-								'trend' => __( '0 blockers', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Gate time', 'testro' ),
-								'value' => '4m 12s',
-								'trend' => __( '−68%', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Sanity pass rate · 7 builds', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'B1', 'testro' ),
-									'value' => 92,
-								),
-								array(
-									'label' => __( 'B2', 'testro' ),
-									'value' => 94,
-								),
-								array(
-									'label' => __( 'B3', 'testro' ),
-									'value' => 96,
-								),
-								array(
-									'label' => __( 'B4', 'testro' ),
-									'value' => 95,
-								),
-								array(
-									'label' => __( 'B5', 'testro' ),
-									'value' => 98,
-								),
-								array(
-									'label' => __( 'B6', 'testro' ),
-									'value' => 99,
-								),
-								array(
-									'label' => __( 'B7', 'testro' ),
-									'value' => 100,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'Critical path', 'testro' ),
-								'value' => 48,
-								'tone'  => 'healthy',
-							),
-							array(
-								'label' => __( 'Bug-fix verify', 'testro' ),
-								'value' => 27,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Build / env', 'testro' ),
-								'value' => 25,
-								'tone'  => 'warning',
-							),
-						),
-					),
-				),
-
-				/* 7. Unified Test Automation Platform ---------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'unified-sanity-platform',
-					'eyebrow' => __( 'Unified Test Automation Platform', 'testro' ),
-					'title'   => __( 'One Sanity Hub Across Web, Mobile, API, and Browsers', 'testro' ),
-					'intro'   => __( 'Run Automated Sanity Testing across every layer of your application through one unified AI-powered platform. Validate critical web, mobile, API, and cross-browser paths without switching tools.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'zap',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Sanity Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Testing', 'testro' ),
-							'description' => __( 'Sanity-check critical UI journeys on modern web applications after every change.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Testing', 'testro' ),
-							'description' => __( 'Validate essential mobile flows as part of every post-fix and build gate.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Confirm service health and contracts with focused API Sanity Test Automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Prove critical paths stay reliable across Chrome, Firefox, Edge, Safari, and more.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. Enterprise Integrations ------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'sanity-enterprise-integrations',
-					'eyebrow' => __( 'Enterprise Integrations', 'testro' ),
-					'title'   => __( 'Connect Sanity Gates to the Tools Your Teams Already Use', 'testro' ),
-					'intro'   => __( 'Wire theTestRo into your DevOps ecosystem so Continuous Sanity Testing status, defects, and alerts flow through Jira, Jenkins, GitHub, Azure DevOps, Slack, and Bamboo.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'plug',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'DevOps Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Sync defects and sanity gate outcomes with engineering trackers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Launch sanity packs from Jenkins jobs on every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger and report Continuous Sanity Testing from pull requests and workflows.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'sanity-smoke-regression-clarified',
+					'columns'       => 3,
+					'title'         => __( 'Sanity Testing, Smoke Testing, and Regression, Clarified', 'testro' ),
+					'intro'         => __( 'Where Sanity Testing Fits in the Bigger Picture', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed sanity gates inside Azure pipelines and release stages.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify channels instantly when critical checks fail, recover, or clear.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Bamboo', 'testro' ),
-							'description' => __( 'Connect Bamboo plans so Automated Sanity Testing protects every deployment path.', 'testro' ),
-						),
-					),
-				),
-
-				/* 9. Customer success outcomes ----------------------------- */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'sanity-customer-success',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Customer Success', 'testro' ),
-					'title'   => __( 'Faster Gates. Less Manual Effort. Higher Confidence.', 'testro' ),
-					'intro'   => __( 'Organizations use theTestRo to accelerate release validation, reduce manual sanity testing, improve software quality, increase deployment confidence, and detect critical issues earlier.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate release validation', 'testro' ),
-							'description' => __( 'Clear critical gates in minutes so teams promote builds without waiting on full regression.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Reduce manual sanity testing', 'testro' ),
-							'description' => __( 'Replace repetitive post-fix smoke checks with reliable Sanity Test Automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Improve software quality', 'testro' ),
-							'description' => __( 'Catch broken critical paths before customers feel instability in production.', 'testro' ),
+							'title'       => __( 'Smoke Testing Comes First', 'testro' ),
+							'description' => __( 'It checks whether a build is stable enough to test at all.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
-							'title'       => __( 'Increase deployment confidence', 'testro' ),
-							'description' => __( 'Ship with evidence-backed Build Validation Testing after every bug fix or minor change.', 'testro' ),
+							'title'       => __( 'Sanity Testing Comes Next', 'testro' ),
+							'description' => __( 'It confirms a specific fix or feature works, after smoke testing passes.', 'testro' ),
 						),
 						array(
-							'icon'        => 'alert-octagon',
-							'title'       => __( 'Detect critical issues earlier', 'testro' ),
-							'description' => __( 'Surface blockers in CI instead of discovering them late in the release window.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Regression Testing Goes Deeper', 'testro' ),
+							'description' => __( 'It checks that the rest of the system still works too. Not just the changed part.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'theTestRo automates all three from the same platform. A team doesn\'t need separate tools for each stage.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-automated-sanity-testing-works',
+					'title'         => __( 'How Automated Sanity Testing Works', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'plug',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'A New Build Lands', 'testro' ),
+							'description' => __( 'theTestRo detects it automatically, or picks it up from a CI/CD trigger.', 'testro' ),
+						),
+						array(
+							'icon'        => 'sparkles',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'AI Identifies What Changed', 'testro' ),
+							'description' => __( 'The relevant sanity checks get selected based on the actual code or fix that shipped.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Checks Run in Minutes', 'testro' ),
+							'description' => __( 'theTestRo executes the focused test set, not the whole regression suite.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'A Clear Signal Comes Back', 'testro' ),
+							'description' => __( 'Pass or fail, with detail, so the team knows whether to proceed.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Automating Continuous Sanity Testing', 'testro' ),
-					'intro'   => __( 'QA, engineering, and DevOps organizations rely on theTestRo to clear critical-path gates, accelerate delivery, and protect every release between full regression cycles.', 'testro' ),
+					'type'          => 'comparison',
+					'id'            => 'manual-vs-automated-sanity-testing',
+					'title'         => __( 'Manual Sanity Checks vs. Automated Sanity Testing', 'testro' ),
+					'intro'         => __( 'What Changes When a Person Isn\'t Doing It By Hand', 'testro' ),
+					'heading_level' => 3,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Manual Sanity Checks', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'Automated Sanity Testing', 'testro' ),
+					),
+					'rows'          => array(
+						array(
+							'aspect' => __( 'Speed', 'testro' ),
+							'legacy' => __( 'A manual sanity pass takes as long as a person needs.', 'testro' ),
+							'modern' => __( 'Automated sanity testing runs in a fixed, predictable window.', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Consistency', 'testro' ),
+							'legacy' => __( 'A tired tester on a Friday afternoon might skip a step.', 'testro' ),
+							'modern' => __( 'An automated check never does.', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Coverage Over Time', 'testro' ),
+							'legacy' => __( 'Manual checks tend to shrink under deadline pressure.', 'testro' ),
+							'modern' => __( 'Automated ones don\'t.', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Who Can Do It', 'testro' ),
+							'legacy' => __( 'Manual sanity testing needs an available tester.', 'testro' ),
+							'modern' => __( 'Automated sanity testing runs whether anyone\'s watching or not.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Manual sanity checks still have a place, especially for genuinely new, unscripted exploration. But the repeatable part of the job is exactly where automation earns its keep.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Ship Faster with AI-Powered Sanity Testing', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo Automated Sanity Testing to cut manual effort, validate critical changes after every build, integrate Continuous Sanity Testing into CI/CD, and release with confidence.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'build-sanity-tests-in-plain-english',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Build Sanity Tests in Plain English', 'testro' ),
+					'intro'         => __( 'No Scripts, No Waiting on an Engineer', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'Describe what should happen after a fix. Get a working sanity test back.', 'testro' ),
+						),
+						array(
+							'icon'        => 'video',
+							'title'       => __( 'Record-and-Convert', 'testro' ),
+							'description' => __( 'Click through the flow once. theTestRo turns it into a repeatable check.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Any Tester Can Build One', 'testro' ),
+							'description' => __( 'QA staff without a coding background can build and maintain sanity checks directly.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A sanity test built this way can be ready before the next standup. Not the next sprint.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Sanity Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'ai-automated-sanity-testing',
+					'type'          => 'feature-grid',
+					'id'            => 'self-healing-keeps-sanity-checks-stable',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Self-Healing Keeps Sanity Checks Stable', 'testro' ),
+					'intro'         => __( 'Checks That Don\'t Break Just Because the UI Moved', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Automatic Adjustment', 'testro' ),
+							'description' => __( 'A small UI shift doesn\'t break a check theTestRo can still resolve on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wrench',
+							'title'       => __( 'Less Time on False Failures', 'testro' ),
+							'description' => __( 'A team spends time on real problems. Not chasing down a test that broke for the wrong reason.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Reliable Over Many Builds', 'testro' ),
+							'description' => __( 'A sanity suite stays trustworthy release after release. Not just the week it was written.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-ai-automated-sanity-testing',
-					'title'      => __( 'Validate Critical Changes Faster with AI-Powered Sanity Testing', 'testro' ),
-					'intro'      => __( 'Accelerate software delivery with theTestRo\'s AI-powered Sanity Testing Platform. Quickly validate critical application functionality, automate build verification, integrate seamlessly into your DevOps pipeline, and release software with greater confidence through intelligent automation.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'continuous-sanity-testing-in-your-pipeline',
+					'columns'       => 3,
+					'title'         => __( 'Continuous Sanity Testing in Your Pipeline', 'testro' ),
+					'intro'         => __( 'Verification That Happens Without Anyone Asking For It', 'testro' ),
+					'intro_extra'   => __( 'Continuous sanity testing means a check runs the moment a build is ready. Not whenever someone remembers to run it by hand.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'CI/CD-Triggered Runs', 'testro' ),
+							'description' => __( 'A new build kicks off the relevant sanity checks on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'clock',
+							'title'       => __( 'Fast Pass or Fail Signal', 'testro' ),
+							'description' => __( 'A team knows within minutes whether a fix actually works.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Fits Existing Tools', 'testro' ),
+							'description' => __( 'theTestRo connects with Jenkins, GitHub Actions, GitLab, and Azure DevOps. Nothing extra to bolt on.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'core-sanity-test-scenarios',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Core Sanity Test Scenarios', 'testro' ),
+					'intro'         => __( 'What Gets Checked, and Why It Matters', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Fix Verification', 'testro' ),
+							'description' => __( 'Confirm the specific bug that was reported is actually fixed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Critical Path Checks', 'testro' ),
+							'description' => __( 'Test login, checkout, or another core flow that touches almost everyone.', 'testro' ),
+						),
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'Data Flow Checks', 'testro' ),
+							'description' => __( 'Confirm inputs and outputs still work right after a backend change.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'Integration Checks', 'testro' ),
+							'description' => __( 'Check that a change hasn\'t quietly broken a connected system or API.', 'testro' ),
+						),
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'UI Spot Checks', 'testro' ),
+							'description' => __( 'Confirm buttons, forms, and layout still behave as expected around the change.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'fast-reporting-for-fast-decisions',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Fast Reporting for Fast Decisions', 'testro' ),
+					'intro'         => __( 'Know in Minutes Whether to Proceed', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Instant Pass or Fail', 'testro' ),
+							'description' => __( 'See results the moment a sanity run finishes. No manual write-up needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Clear Failure Detail', 'testro' ),
+							'description' => __( 'Screenshots and logs show exactly what broke. A team isn\'t debugging blind.', 'testro' ),
+						),
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Shareable With the Team', 'testro' ),
+							'description' => __( 'Results post to Slack or email on their own. Nobody has to ask for a status update.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'automated-sanity-testing-best-practices',
+					'columns'       => 4,
+					'title'         => __( 'Automated Sanity Testing Best Practices', 'testro' ),
+					'intro'         => __( 'What Makes a Sanity Suite Actually Useful', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Keep It Narrow', 'testro' ),
+							'description' => __( 'Sanity tests exist to be fast. Too much scope turns them into a slow regression suite.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Update Checks as Features Change', 'testro' ),
+							'description' => __( 'A sanity test tied to an outdated flow gives false confidence. Not real verification.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Run on Every Build, Not Just Before Release', 'testro' ),
+							'description' => __( 'Waiting until the end of a sprint defeats the purpose of a quick check.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Pair With Smoke and Regression', 'testro' ),
+							'description' => __( 'Sanity testing works best as one layer in a full testing strategy. Not a replacement for the others.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-sanity-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for Sanity Testing', 'testro' ),
+					'intro'         => __( 'Built for Teams That Ship Often', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Teams', 'testro' ),
+							'description' => __( 'Verify fixes fast, without pulling focus from deeper testing work.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Developers', 'testro' ),
+							'description' => __( 'Confirm a fix actually works before handing it off. No waiting on a full QA cycle.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Release Managers', 'testro' ),
+							'description' => __( 'Get a fast go or no-go signal before a build moves forward.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'DevOps Engineers', 'testro' ),
+							'description' => __( 'Keep sanity checks running on their own as part of the pipeline. No manual trigger needed.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'ai-automated-sanity-testing',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-automating-sanity-testing',
+					'title'         => __( 'Start Automating Sanity Testing Today', 'testro' ),
+					'intro'         => __( 'Know a Fix Works, in Minutes', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s automated sanity tests to verify builds faster. Catch broken fixes before they reach a release.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
 
-		/* ------------------------------------------------------------------ */
-		/* Automated Functional Testing                                       */
-		/* ------------------------------------------------------------------ */
 		'automated-functional-testing' => array(
 			'slug'   => 'automated-functional-testing',
 			'title'  => __( 'Automated Functional Testing', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'Best Automation Tools for Functional Testing | AI Functional Testing | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Functional Testing Platform from theTestRo. Automate end-to-end functional testing across web, mobile, APIs, and enterprise apps with intelligent test creation, continuous execution, self-healing automation, and quality analytics.', 'testro' ),
+				'title'       => __( 'Best Automation Tools for Functional Testing', 'testro' ),
+				'description' => __( 'Discover the best automation tools for functional testing. Validate business workflows, improve test coverage, accelerate releases, and ensure software quality.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Functional Testing', 'testro' ),
-				'title'    => __( 'Best Automation Tools for Functional Testing', 'testro' ),
-				'subtitle' => __( 'Validate every business workflow with theTestRo\'s AI-powered Functional Testing Platform. Automate end-to-end functional testing across web, mobile, APIs, and enterprise applications using intelligent test creation, continuous execution, self-healing automation, and AI-driven quality insights. Deliver reliable software faster with complete confidence.', 'testro' ),
-				'badges'   => array(
-					__( 'End-to-End Workflows', 'testro' ),
-					__( 'AI Test Creation', 'testro' ),
-					__( 'Self-Healing', 'testro' ),
-					__( 'Release Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Automated Functional Testing That Ships 10x Faster', 'testro' ),
+				'subtitle' => __( 'theTestRo brings AI-powered functional testing to every workflow your app supports. Build tests in plain English. Run them across web, mobile, and API. Let self-healing keep them stable release after release.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '10×',
-						'label' => __( 'Faster test authoring', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '85%',
-						'label' => __( 'Less maintenance effort', 'testro' ),
-						'icon'  => 'wrench',
-					),
-					array(
-						'value' => '3×',
-						'label' => __( 'Broader functional coverage', 'testro' ),
-						'icon'  => 'layout-grid',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Why theTestRo for Functional Test Automation ---------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'why-functional-testing',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Why theTestRo', 'testro' ),
-					'title'   => __( 'Why theTestRo for Functional Test Automation', 'testro' ),
-					'intro'   => __( 'Author, execute, and maintain functional suites with AI so every business workflow is validated with speed, reliability, and confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'why-teams-choose-testro-for-functional-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Why Teams Choose theTestRo for Functional Testing', 'testro' ),
+					'intro'         => __( 'Speed, Stability, and Scale, in One Platform', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'sparkles',
-							'title'       => __( '10X Faster Test Authoring & Development', 'testro' ),
-							'description' => __( 'Accelerate test creation using AI-powered automation, low-code capabilities, and reusable test assets.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Faster Test Authoring', 'testro' ),
+							'description' => __( 'Build tests from a user story, a design file, or a plain-English line. No coding, no learning curve.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
-							'title'       => __( 'Continuous Test Execution Across Every Release', 'testro' ),
-							'description' => __( 'Automatically validate functional workflows after every build, deployment, and release.', 'testro' ),
+							'title'       => __( 'Continuous Execution', 'testro' ),
+							'description' => __( 'Schedule runs across environments, or start them right from your CI/CD pipeline on every build.', 'testro' ),
 						),
 						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'AI-Powered Self-Healing & Intelligent Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce maintenance effort through automatic locator recovery, AI-powered updates, and intelligent automation.', 'testro' ),
+							'icon'        => 'wand',
+							'title'       => __( 'AI-Powered Maintenance', 'testro' ),
+							'description' => __( 'Locators update on their own when the UI changes. A test suite doesn\'t quietly fall apart between releases.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This is what functional test automation should feel like. Fast to build, reliable to run, and light on upkeep.', 'testro' ),
 				),
 
-				/* 2. AI-Powered Functional Testing Platform ---------------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'ai-functional-platform',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Functional Testing Platform', 'testro' ),
-					'title'   => __( 'Build, Accelerate, and Prove Every Functional Workflow', 'testro' ),
-					'intro'   => __( 'Create end-to-end functional suites, run continuous validation inside delivery, drive data-powered scenarios, and turn every execution into release-ready intelligence.', 'testro' ),
-					'groups'  => array(
+					'type'          => 'pipeline',
+					'id'            => 'how-it-works',
+					'title'         => __( 'How It Works', 'testro' ),
+					'intro'         => __( 'From Requirement to Passing Test in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Build Reliable End-to-End Functional Tests', 'testro' ),
-							'description' => __( 'Cover complete journeys across every layer so mission-critical workflows stay green after every update.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'browsers',
-									'title'       => __( 'Automate Complete Business Workflows', 'testro' ),
-									'description' => __( 'Validate complete user journeys from start to finish across multiple applications.', 'testro' ),
-								),
-								array(
-									'icon'        => 'server',
-									'title'       => __( 'UI & API Validation', 'testro' ),
-									'description' => __( 'Ensure frontend functionality and backend services work together seamlessly.', 'testro' ),
-								),
-								array(
-									'icon'        => 'target',
-									'title'       => __( 'Comprehensive Functional Test Coverage', 'testro' ),
-									'description' => __( 'Increase confidence with extensive automation coverage across critical business functions.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate Continuous Functional Testing', 'testro' ),
-							'description' => __( 'Trigger, parallelize, and schedule functional tests so feedback arrives before the next deployment.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'plug',
-									'title'       => __( 'CI/CD Pipeline Integration', 'testro' ),
-									'description' => __( 'Automatically execute functional tests throughout your DevOps workflow.', 'testro' ),
-								),
-								array(
-									'icon'        => 'infinity',
-									'title'       => __( 'Parallel Test Execution', 'testro' ),
-									'description' => __( 'Reduce execution time by running multiple functional tests simultaneously.', 'testro' ),
-								),
-								array(
-									'icon'        => 'calendar-sync',
-									'title'       => __( 'Scheduled Test Runs', 'testro' ),
-									'description' => __( 'Schedule recurring test executions to maintain continuous quality.', 'testro' ),
-								),
-								array(
-									'icon'        => 'cloud',
-									'title'       => __( 'Multi-Environment Validation', 'testro' ),
-									'description' => __( 'Validate application behavior consistently across development, QA, staging, and production.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Dynamic Data-Driven Functional Testing', 'testro' ),
-							'description' => __( 'Parameterize scenarios, manage dynamic data, and reuse datasets without duplicating cases.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'filter-check',
-									'title'       => __( 'Parameterized Test Execution', 'testro' ),
-									'description' => __( 'Execute functional tests with multiple datasets using reusable scenarios.', 'testro' ),
-								),
-								array(
-									'icon'        => 'database',
-									'title'       => __( 'Dynamic Test Data Management', 'testro' ),
-									'description' => __( 'Manage test data intelligently across multiple environments.', 'testro' ),
-								),
-								array(
-									'icon'        => 'folder-tree',
-									'title'       => __( 'Reusable Test Data Sets', 'testro' ),
-									'description' => __( 'Reduce duplication with centralized reusable datasets.', 'testro' ),
-								),
-								array(
-									'icon'        => 'sparkles',
-									'title'       => __( 'Data-Driven Test Coverage', 'testro' ),
-									'description' => __( 'Expand automation coverage by validating multiple business scenarios with dynamic data.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Built-in Reports & Quality Analytics', 'testro' ),
-							'description' => __( 'Monitor runs live, diagnose failures faster, and measure release readiness with AI.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'activity',
-									'title'       => __( 'Real-Time Execution Dashboard', 'testro' ),
-									'description' => __( 'Monitor every functional test execution in real time.', 'testro' ),
-								),
-								array(
-									'icon'        => 'microscope',
-									'title'       => __( 'AI-Powered Failure Analysis', 'testro' ),
-									'description' => __( 'Identify failures instantly with intelligent diagnostics and root cause analysis.', 'testro' ),
-								),
-								array(
-									'icon'        => 'scan-eye',
-									'title'       => __( 'Step-Level Logs & Screenshots', 'testro' ),
-									'description' => __( 'Capture detailed logs, screenshots, and execution evidence for every test.', 'testro' ),
-								),
-								array(
-									'icon'        => 'badge-check',
-									'title'       => __( 'Quality Metrics & Release Insights', 'testro' ),
-									'description' => __( 'Measure software quality and release readiness using AI-powered analytics.', 'testro' ),
-								),
-							),
-						),
-					),
-				),
-
-				/* 3. Cloud-Based Platform ---------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'cloud-functional-platform',
-					'eyebrow' => __( 'Cloud-Based Platform for End-to-End Functional Testing', 'testro' ),
-					'title'   => __( 'One Functional Hub Across Every Application Layer', 'testro' ),
-					'intro'   => __( 'Execute end-to-end functional testing across every application layer using one centralized AI-powered cloud platform. Validate web applications, mobile apps, APIs, browsers, and enterprise systems through intelligent automation and scalable cloud infrastructure.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'zap',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Functional Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Application Testing', 'testro' ),
-							'description' => __( 'Automate end-to-end functional journeys across modern web applications and critical UI flows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Application Testing', 'testro' ),
-							'description' => __( 'Validate mobile experiences and native flows as part of every functional cycle.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Protect contracts and service layers with automated API functional testing on every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Confirm functional paths stay reliable across Chrome, Firefox, Edge, Safari, and more.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Enterprise Application Testing', 'testro' ),
-							'description' => __( 'Validate enterprise systems and complex business processes on scalable cloud infrastructure.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4A. DevOps pipeline -------------------------------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'functional-devops-pipeline',
-					'eyebrow' => __( 'Fits Seamlessly into Your DevOps Workflow', 'testro' ),
-					'title'   => __( 'Continuous Functional Testing Inside Every Delivery Path', 'testro' ),
-					'intro'   => __( 'Integrate functional testing directly into your DevOps pipeline to automate validation after every code change, build, or deployment. Receive immediate feedback, accelerate releases, and maintain continuous software quality across the entire development lifecycle.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'user-check',
-							'stage'       => __( 'Commit', 'testro' ),
-							'title'       => __( 'Developer Commit', 'testro' ),
-							'description' => __( 'Code changes enter the pipeline and queue continuous functional validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Build', 'testro' ),
-							'title'       => __( 'Build', 'testro' ),
-							'description' => __( 'CI/CD builds automatically trigger the right functional test packs.', 'testro' ),
+							'icon'        => 'file-text',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Feed in a Requirement', 'testro' ),
+							'description' => __( 'Point theTestRo at a Jira story, a Figma file, or just a plain description.', 'testro' ),
 						),
 						array(
 							'icon'        => 'sparkles',
-							'stage'       => __( 'AI Testing', 'testro' ),
-							'title'       => __( 'AI Functional Testing', 'testro' ),
-							'description' => __( 'AI-powered suites execute in parallel with self-healing maintenance in the loop.', 'testro' ),
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'AI Drafts the Test', 'testro' ),
+							'description' => __( 'A working test comes back in seconds, with steps and checks included.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'stage'       => __( 'Quality', 'testro' ),
-							'title'       => __( 'Quality Validation', 'testro' ),
-							'description' => __( 'Teams get live results, failure insights, and release readiness signals.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Review and Adjust', 'testro' ),
+							'description' => __( 'Check the draft, tweak anything that needs it, and approve it.', 'testro' ),
 						),
 						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release', 'testro' ),
-							'description' => __( 'Approved builds ship with continuous quality confidence baked in.', 'testro' ),
+							'icon'        => 'refresh',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run and Repeat', 'testro' ),
+							'description' => __( 'The test runs on every future build and heals itself when the app changes.', 'testro' ),
 						),
 					),
 				),
 
-				/* 4B. Enterprise tool integrations ------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'functional-enterprise-integrations',
-					'eyebrow' => __( 'Enterprise Integrations', 'testro' ),
-					'title'   => __( 'Connect Functional Testing to the Tools Your Teams Already Use', 'testro' ),
-					'intro'   => __( 'Wire theTestRo into Jira, Jenkins, GitHub, Azure DevOps, Slack, and Bamboo so functional testing status, defects, and alerts flow through your delivery toolchain.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'plug',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'DevOps Hub', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'manual-vs-automated-functional-testing',
+					'columns'       => 4,
+					'title'         => __( 'Manual Testing vs. Automated Functional Testing', 'testro' ),
+					'intro'         => __( 'What Changes When a Test Runs Itself', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Embed functional gates inside any modern continuous delivery pipeline.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'A person re-runs the same checks by hand, every time. Automated tests run on demand, day or night.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'Manual results shift with who\'s testing and how tired they are. Automated checks run the same way, every time.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Sync defects and functional outcomes with engineering trackers.', 'testro' ),
+							'title'       => __( 'Coverage', 'testro' ),
+							'description' => __( 'Available hours cap manual testing. Automation scales to hundreds of scenarios without adding staff.', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Launch functional suites from Jenkins jobs on every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger and report continuous functional testing from pull requests and workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed functional gates inside Azure pipelines and release stages.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify channels instantly when functional tests fail, recover, or clear.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Bamboo', 'testro' ),
-							'description' => __( 'Connect Bamboo plans so continuous functional testing protects every deployment path.', 'testro' ),
+							'icon'        => 'coins',
+							'title'       => __( 'Cost Over Time', 'testro' ),
+							'description' => __( 'A manual process gets more expensive as an app grows. An automated one gets more valuable.', 'testro' ),
 						),
 					),
 				),
 
-				/* 5. Analytics enrichment ---------------------------------- */
 				array(
-					'type'      => 'analytics',
-					'id'        => 'functional-execution-dashboard',
-					'eyebrow'   => __( 'Quality Analytics', 'testro' ),
-					'title'     => __( 'See Workflow Health, Pass Rates, and Release Risk in Real Time', 'testro' ),
-					'intro'     => __( 'Track continuous functional testing with live KPIs, pass/fail trends, coverage signals, and AI-assisted failure insights—so release decisions stay evidence-based.', 'testro' ),
-					'items'     => array(
+					'type'          => 'feature-grid',
+					'id'            => 'what-automated-functional-testing-actually-checks',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'What Automated Functional Testing Actually Checks', 'testro' ),
+					'intro'         => __( 'Confirming the App Does What It\'s Supposed To', 'testro' ),
+					'intro_extra'   => __( 'Functional testing checks that a feature behaves the way it was designed to. Seen from the user\'s point of view.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Live workflow progress', 'testro' ),
-							'description' => __( 'Monitor running functional packs across browsers and environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Pass/fail trends', 'testro' ),
-							'description' => __( 'Spot stability shifts before they become release blockers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'AI failure insights', 'testro' ),
-							'description' => __( 'Classify recurring issues faster with AI-powered diagnostics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Release readiness scoring', 'testro' ),
-							'description' => __( 'Quantify confidence before promoting the next build.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Functional Analytics', 'testro' ),
-						'build'     => __( 'Release 5.2 · CI + Nightly', 'testro' ),
-						'status'    => __( 'Healthy', 'testro' ),
-						'score'     => 98,
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '99.1%',
-								'trend' => __( '+1.8%', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Coverage', 'testro' ),
-								'value' => '96%',
-								'trend' => __( '+8%', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Failed tests', 'testro' ),
-								'value' => '5',
-								'trend' => __( '1 critical', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Maintenance', 'testro' ),
-								'value' => '−85%',
-								'trend' => __( 'Self-healed', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Functional pass rate · 7 runs', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'R1', 'testro' ),
-									'value' => 88,
-								),
-								array(
-									'label' => __( 'R2', 'testro' ),
-									'value' => 91,
-								),
-								array(
-									'label' => __( 'R3', 'testro' ),
-									'value' => 93,
-								),
-								array(
-									'label' => __( 'R4', 'testro' ),
-									'value' => 95,
-								),
-								array(
-									'label' => __( 'R5', 'testro' ),
-									'value' => 96,
-								),
-								array(
-									'label' => __( 'R6', 'testro' ),
-									'value' => 98,
-								),
-								array(
-									'label' => __( 'R7', 'testro' ),
-									'value' => 99,
-								),
-							),
-						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'UI change', 'testro' ),
-								'value' => 34,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Test data', 'testro' ),
-								'value' => 28,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Environment', 'testro' ),
-								'value' => 38,
-								'tone'  => 'healthy',
-							),
-						),
-					),
-				),
-
-				/* 6. Customer success outcomes ----------------------------- */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'functional-customer-success',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Customer Success', 'testro' ),
-					'title'   => __( 'Faster Releases. Higher Coverage. Lower Risk.', 'testro' ),
-					'intro'   => __( 'Organizations use theTestRo to accelerate functional testing, improve software quality, increase automation coverage, reduce release risks, minimize manual testing effort, and deliver faster software releases.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate functional testing', 'testro' ),
-							'description' => __( 'AI authoring and parallel execution cut the time it takes to validate complete business workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Improve software quality', 'testro' ),
-							'description' => __( 'Validate user journeys, APIs, and application functionality before customers feel defects.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Increase automation coverage', 'testro' ),
-							'description' => __( 'Expand web, mobile, and API functional coverage without growing headcount.', 'testro' ),
+							'icon'        => 'target',
+							'title'       => __( 'User Workflows, Not Just Code Paths', 'testro' ),
+							'description' => __( 'A functional test checks whether a real task, like checkout or sign-up, works start finishing.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
-							'title'       => __( 'Reduce release risks', 'testro' ),
-							'description' => __( 'Release readiness metrics and quality gates protect every promotion.', 'testro' ),
+							'title'       => __( 'Expected Outcomes, Every Time', 'testro' ),
+							'description' => __( 'Given a specific input, does the app give back the right result?', 'testro' ),
 						),
 						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Minimize manual testing effort', 'testro' ),
-							'description' => __( 'Replace repetitive functional checks with reliable AI-powered automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Deliver faster software releases', 'testro' ),
-							'description' => __( 'Continuous functional feedback returns in time for every commit and deployment.', 'testro' ),
+							'icon'        => 'layers-api',
+							'title'       => __( 'Coverage Across the Whole Stack', 'testro' ),
+							'description' => __( 'UI and API checks together give a truer picture than testing either layer alone.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Automating Functional Testing', 'testro' ),
-					'intro'   => __( 'QA, engineering, and DevOps organizations rely on theTestRo to keep functional suites green, accelerate delivery, and protect every release.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'ai-functional-testing-at-every-stage',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'AI Functional Testing at Every Stage', 'testro' ),
+					'intro'         => __( 'AI Support From Test Creation to Maintenance', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'sparkles',
+							'title'       => __( 'AI-Assisted Test Generation', 'testro' ),
+							'description' => __( 'Turn a Jira story, a design file, or a plain description into a working test.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Self-Healing Locators', 'testro' ),
+							'description' => __( 'A UI shift doesn\'t break a test theTestRo can still work out on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'microscope',
+							'title'       => __( 'Smart Failure Diagnose', 'testro' ),
+							'description' => __( 'A test fails, and AI helps tell a real bug apart from a flaky, unrelated glitch.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'AI functional testing should deliver this. Less manual scripting, less manual triage, more real test coverage.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Ship Faster with AI-Powered Functional Testing', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to accelerate functional testing, improve software quality, increase automation coverage, reduce release risks, minimize manual testing effort, and deliver faster software releases.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'build-end-to-end-functional-tests',
+					'columns'       => 3,
+					'title'         => __( 'Build End-to-End Functional Tests', 'testro' ),
+					'intro'         => __( 'Full Workflows, Not Just Isolated Screens', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'Combine UI and API Checks', 'testro' ),
+							'description' => __( 'Check a complete user story. Not a single page on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Reusable Test Components', 'testro' ),
+							'description' => __( 'Turn common steps like login into blocks you use across every test.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Full Feature Coverage', 'testro' ),
+							'description' => __( 'We test every workflow that matters to users. Not just the easy ones to script.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Functional Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'automated-functional-testing',
+					'type'          => 'feature-grid',
+					'id'            => 'continuous-functional-testing-in-your-pipeline',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Continuous Functional Testing in Your Pipeline', 'testro' ),
+					'intro'         => __( 'Testing That Runs With Every Build, Not After It', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'CI/CD-Triggered Runs', 'testro' ),
+							'description' => __( 'A new build kicks off the right tests on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Parallel Execution', 'testro' ),
+							'description' => __( 'Run tests across environments and devices at once. Feedback lands in minutes.', 'testro' ),
+						),
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Faster Release Cycles', 'testro' ),
+							'description' => __( 'Continuous checks mean fewer surprises right before a launch.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-automated-functional-testing',
-					'title'      => __( 'Automate Functional Testing with AI. Deliver Quality Faster.', 'testro' ),
-					'intro'      => __( 'Transform your software quality process with theTestRo\'s AI-powered Functional Testing Platform. Automate complete business workflows, integrate seamlessly into your DevOps pipeline, reduce maintenance with AI, and deliver reliable software faster through intelligent end-to-end functional testing.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'data-driven-functional-testing',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Data-Driven Functional Testing', 'testro' ),
+					'intro'         => __( 'One Test, Every Scenario That Matters', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Parameterized Test Runs', 'testro' ),
+							'description' => __( 'Run one test against many different inputs. No need to write a new test for each.', 'testro' ),
+						),
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'Realistic Test Data on Demand', 'testro' ),
+							'description' => __( 'Make believable data on its own, or pull it from a spreadsheet.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Broader Coverage, Less Manual Work', 'testro' ),
+							'description' => __( 'Your suite covers edge cases without growing in size.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'reporting-built-for-fast-decisions',
+					'columns'       => 3,
+					'title'         => __( 'Reporting Built for Fast Decisions', 'testro' ),
+					'intro'         => __( 'Know What Happened, and Why, Right Away', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Step-Level Detail', 'testro' ),
+							'description' => __( 'See logs, screenshots, and video for every step of every run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Shareable Dashboards', 'testro' ),
+							'description' => __( 'Give the whole team the same view of test health. No manual status update needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Instant Alerts', 'testro' ),
+							'description' => __( 'Receive a Slack or email notification the moment a functional test fails.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'one-platform-for-authoring-management-and-execution',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'One Platform for Authoring, Management, and Execution', 'testro' ),
+					'intro'         => __( 'Everything in One Place, Not Five Separate Tools', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'pen-square',
+							'title'       => __( 'Test Authoring', 'testro' ),
+							'description' => __( 'Recorder, plain-English tests, an element list, and reusable steps.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Test Management', 'testro' ),
+							'description' => __( 'Version control, review flows, role-based access, and test data.', 'testro' ),
+						),
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Test Execution', 'testro' ),
+							'description' => __( 'Cloud device coverage, local testing, parallel runs, and set schedules.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Functional testing software split across separate tools just adds friction. theTestRo keeps the full workflow in one spot.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'fits-into-your-existing-workflow',
+					'variant'       => 'tint',
+					'title'         => __( 'Fits Into Your Existing Workflow', 'testro' ),
+					'intro'         => __( 'No New Process to Learn', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jira, Jenkins, GitHub Actions, Azure DevOps, and GitLab. Functional testing plugs right into the tools your team already uses. Results flow back where your team already looks. Not into a separate dashboard nobody checks.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-functional-testing-at-scale',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise Functional Testing at Scale', 'testro' ),
+					'intro'         => __( 'Built for Teams Shipping Constantly', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Cross-Team Visibility', 'testro' ),
+							'description' => __( 'Every team touching a shared feature sees the same results and coverage.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Role-Based Access', 'testro' ),
+							'description' => __( 'Control who can build, edit, and approve tests across a growing org.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Audit-Ready Records', 'testro' ),
+							'description' => __( 'Clear links between requirements, tests, and results back up compliance reviews. No extra work needed.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Enterprise functional testing has to hold up across many teams and releases at once. Not just a single small app.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-functional-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Who Uses theTestRo for Functional Testing', 'testro' ),
+					'intro'         => __( 'Built for Every Role That Touches Quality', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Engineers', 'testro' ),
+							'description' => __( 'Build wider coverage. No need to write every test by hand.', 'testro' ),
+						),
+						array(
+							'icon'        => 'pen-square',
+							'title'       => __( 'Manual Testers', 'testro' ),
+							'description' => __( 'Turn old test cases into automated ones. No scripting needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Developers', 'testro' ),
+							'description' => __( 'Confirm a feature works before handing it off for a deeper look.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Engineering Managers', 'testro' ),
+							'description' => __( 'Get a clear, current view of coverage across the whole product.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Release Managers', 'testro' ),
+							'description' => __( 'Get a fast go or no-go signal before a build ships.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'automated-functional-testing',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-automating-functional-testing',
+					'title'         => __( 'Start Automating Functional Testing Today', 'testro' ),
+					'intro'         => __( 'Ship Every Feature With Confidence', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo. Build faster. Test more. Maintain less.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -7278,525 +6093,401 @@ function testro_get_product_pages() {
 			'slug'   => 'end-to-end-testing',
 			'title'  => __( 'End-to-End Testing', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'Best Automated End-to-End Testing Tool | AI E2E Testing | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered End-to-End Testing Platform from theTestRo. Automate complete business workflows across web, mobile, APIs, databases, and enterprise systems with intelligent automation, self-healing technology, cloud execution, and AI-driven quality insights.', 'testro' ),
+				'title'       => __( 'Best Automated End-to-End Testing Tool for QA Teams', 'testro' ),
+				'description' => __( 'Discover the best automated end-to-end testing tool to validate complete user journeys, automate workflows, accelerate releases, and improve software quality.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered End-to-End Testing', 'testro' ),
-				'title'    => __( 'Best Automated End-to-End Testing Tool', 'testro' ),
-				'subtitle' => __( 'Validate complete business workflows with theTestRo\'s AI-powered End-to-End Testing Platform. Automate user journeys across web applications, mobile apps, APIs, databases, and enterprise systems using intelligent automation, self-healing technology, cloud execution, and AI-driven quality insights. Deliver reliable software faster while ensuring every business process works flawlessly.', 'testro' ),
-				'badges'   => array(
-					__( 'Business Workflows', 'testro' ),
-					__( 'AI Automation', 'testro' ),
-					__( 'Self-Healing', 'testro' ),
-					__( 'Cloud Execution', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Automated End-to-End Testing That Heals Itself', 'testro' ),
+				'subtitle' => __( 'theTestRo builds, runs, and maintains end-to-end tests. Your team spends time finding real bugs. Not chasing broken locators. Replace fragile scripts with an AI end-to-end testing platform that adapts as your app changes.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '10×',
-						'label' => __( 'Faster E2E authoring', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '85%',
-						'label' => __( 'Less maintenance effort', 'testro' ),
-						'icon'  => 'wrench',
-					),
-					array(
-						'value' => '3×',
-						'label' => __( 'Broader journey coverage', 'testro' ),
-						'icon'  => 'layout-grid',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Why theTestRo for End-to-End Test Automation ---------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'why-end-to-end-testing',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Why theTestRo', 'testro' ),
-					'title'   => __( 'Why theTestRo for End-to-End Test Automation', 'testro' ),
-					'intro'   => __( 'Create, validate, and maintain complete business journeys with AI so every cross-system workflow stays reliable from commit to production.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'why-teams-choose-testro-for-end-to-end-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Why Teams Choose theTestRo for End-to-End Testing', 'testro' ),
+					'intro'         => __( 'From Days of Regression to Minutes of Automation', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Accelerate End-to-End Test Creation with AI', 'testro' ),
-							'description' => __( 'Automatically generate comprehensive end-to-end scenarios using AI, dramatically reducing manual scripting and setup time.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Faster Regression Cycles', 'testro' ),
+							'description' => __( 'Turn a regression pass that used to take days into a run that finishes while you grab coffee.', 'testro' ),
 						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Validate Complete Business Workflows', 'testro' ),
-							'description' => __( 'Ensure every customer journey and business process works seamlessly across multiple applications and integrated systems.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Reduce Test Maintenance with Self-Healing Automation', 'testro' ),
-							'description' => __( 'Automatically recover from UI and application changes using AI-powered self-healing technology and intelligent maintenance.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. AI-Powered End-to-End Testing Platform ---------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'ai-e2e-platform',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered End-to-End Testing Platform', 'testro' ),
-					'title'   => __( 'Create, Execute, and Prove Complete Business Journeys', 'testro' ),
-					'intro'   => __( 'Author comprehensive end-to-end scenarios, run them at enterprise scale, manage data-driven workflows, and turn every execution into release-ready intelligence.', 'testro' ),
-					'groups'  => array(
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Create Comprehensive End-to-End Test Scenarios', 'testro' ),
-							'description' => __( 'Cover complete journeys across applications and services so mission-critical workflows stay green after every update.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'browsers',
-									'title'       => __( 'Automate Multi-Step Business Processes', 'testro' ),
-									'description' => __( 'Validate complete workflows spanning multiple applications and services.', 'testro' ),
-								),
-								array(
-									'icon'        => 'server',
-									'title'       => __( 'Validate Cross-System Workflows', 'testro' ),
-									'description' => __( 'Ensure seamless communication between frontend applications, APIs, databases, and enterprise platforms.', 'testro' ),
-								),
-								array(
-									'icon'        => 'target',
-									'title'       => __( 'Ensure End-to-End User Journey Coverage', 'testro' ),
-									'description' => __( 'Cover every critical customer interaction from login to transaction completion.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Execute End-to-End Tests at Scale', 'testro' ),
-							'description' => __( 'Parallelize, schedule, and cloud-execute E2E suites so feedback arrives before the next deployment.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'infinity',
-									'title'       => __( 'Parallel Test Execution', 'testro' ),
-									'description' => __( 'Reduce execution time by running multiple end-to-end workflows simultaneously.', 'testro' ),
-								),
-								array(
-									'icon'        => 'layout-grid',
-									'title'       => __( 'Cross-Browser & Cross-Platform Testing', 'testro' ),
-									'description' => __( 'Validate user journeys across browsers, operating systems, and devices.', 'testro' ),
-								),
-								array(
-									'icon'        => 'cloud',
-									'title'       => __( 'Cloud-Based Test Execution', 'testro' ),
-									'description' => __( 'Execute enterprise-scale testing through secure cloud infrastructure.', 'testro' ),
-								),
-								array(
-									'icon'        => 'calendar-sync',
-									'title'       => __( 'Scheduled & Trigger-Based Test Runs', 'testro' ),
-									'description' => __( 'Automatically execute tests after deployments, builds, or scheduled intervals.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'AI-Driven Test Data & Workflow Management', 'testro' ),
-							'description' => __( 'Manage dynamic data, reuse modular workflows, and keep suites healthy with intelligent maintenance.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'database',
-									'title'       => __( 'Dynamic Test Data Handling', 'testro' ),
-									'description' => __( 'Manage test data intelligently across multiple testing environments.', 'testro' ),
-								),
-								array(
-									'icon'        => 'puzzle',
-									'title'       => __( 'Reusable Test Components', 'testro' ),
-									'description' => __( 'Build modular workflows that simplify long-term maintenance.', 'testro' ),
-								),
-								array(
-									'icon'        => 'filter-check',
-									'title'       => __( 'Parameterized Test Execution', 'testro' ),
-									'description' => __( 'Execute the same workflows using multiple datasets without duplication.', 'testro' ),
-								),
-								array(
-									'icon'        => 'heart-pulse',
-									'title'       => __( 'Intelligent Test Maintenance', 'testro' ),
-									'description' => __( 'Leverage AI-powered self-healing to minimize maintenance effort.', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Advanced Test Reports & Execution Insights', 'testro' ),
-							'description' => __( 'Monitor runs live, diagnose failures faster, and measure release readiness with AI.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'        => 'activity',
-									'title'       => __( 'Real-Time Execution Dashboard', 'testro' ),
-									'description' => __( 'Monitor end-to-end execution progress through centralized dashboards.', 'testro' ),
-								),
-								array(
-									'icon'        => 'microscope',
-									'title'       => __( 'AI-Powered Failure Analysis', 'testro' ),
-									'description' => __( 'Identify failures instantly with intelligent diagnostics and recommendations.', 'testro' ),
-								),
-								array(
-									'icon'        => 'file-text',
-									'title'       => __( 'Step-by-Step Execution Logs', 'testro' ),
-									'description' => __( 'Access detailed execution history for every workflow.', 'testro' ),
-								),
-								array(
-									'icon'        => 'video',
-									'title'       => __( 'Screenshots & Video Recording', 'testro' ),
-									'description' => __( 'Capture complete visual evidence for every execution.', 'testro' ),
-								),
-								array(
-									'icon'        => 'badge-check',
-									'title'       => __( 'Release Readiness Insights', 'testro' ),
-									'description' => __( 'Measure deployment confidence using AI-powered quality intelligence.', 'testro' ),
-								),
-							),
-						),
-					),
-				),
-
-				/* 3. Cloud-Based Platform ---------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'cloud-e2e-platform',
-					'eyebrow' => __( 'Cloud-Based Platform for End-to-End Testing', 'testro' ),
-					'title'   => __( 'One E2E Hub Across Every Application Layer', 'testro' ),
-					'intro'   => __( 'Execute comprehensive end-to-end testing across every application layer from one unified AI-powered cloud platform. Validate complete user journeys spanning frontend interfaces, backend services, APIs, enterprise applications, and third-party integrations.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'zap',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'E2E Hub', 'testro' ),
-					),
-					'items'   => array(
 						array(
 							'icon'        => 'browsers',
-							'title'       => __( 'Web Application Testing', 'testro' ),
-							'description' => __( 'Automate end-to-end journeys across modern web applications and critical UI flows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Frontend Testing', 'testro' ),
-							'description' => __( 'Validate interface behavior and customer-facing steps within complete business workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Backend Testing', 'testro' ),
-							'description' => __( 'Confirm business services and data layers stay aligned through every end-to-end path.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Application Testing', 'testro' ),
-							'description' => __( 'Validate mobile experiences and native flows as part of every end-to-end cycle.', 'testro' ),
+							'title'       => __( 'Cross-Browser Coverage Without the Repetition', 'testro' ),
+							'description' => __( 'Deliver the same experience across browsers, devices, and regions. No need to re-test the same flow by hand five times.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layers-api',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Protect contracts and service layers with automated API validation on every journey.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Confirm end-to-end paths stay reliable across Chrome, Firefox, Edge, Safari, and more.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Enterprise Application Testing', 'testro' ),
-							'description' => __( 'Validate enterprise systems and complex business processes on scalable cloud infrastructure.', 'testro' ),
+							'title'       => __( 'Full Workflows, Not Isolated Screens', 'testro' ),
+							'description' => __( 'Test UI actions and the API calls behind them together. Integration issues surface before a release, not after.', 'testro' ),
 						),
 					),
 				),
 
-				/* 4A. DevOps pipeline -------------------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'e2e-devops-pipeline',
-					'eyebrow' => __( 'Integrate with Your DevOps Ecosystem', 'testro' ),
-					'title'   => __( 'Continuous End-to-End Testing Inside Every Delivery Path', 'testro' ),
-					'intro'   => __( 'Integrate end-to-end testing seamlessly into your DevOps workflow to automatically validate complete business processes after every code change, build, or deployment. Accelerate software delivery while maintaining continuous quality and release confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'what-end-to-end-testing-actually-validates',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'What End-to-End Testing Actually Validates', 'testro' ),
+					'intro'         => __( 'The Whole Journey, Not Just One Step', 'testro' ),
+					'intro_extra'   => __( 'End-to-end testing checks that a complete workflow, not a single screen, works right from starting to finishing.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'user-check',
-							'stage'       => __( 'Commit', 'testro' ),
-							'title'       => __( 'Developer Commit', 'testro' ),
-							'description' => __( 'Code changes enter the pipeline and queue continuous end-to-end validation.', 'testro' ),
+							'title'       => __( 'Real User Scenarios', 'testro' ),
+							'description' => __( 'Logging in, completing a purchase, submitting a form. The paths a real person actually takes.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Build', 'testro' ),
-							'title'       => __( 'Build', 'testro' ),
-							'description' => __( 'CI/CD builds automatically trigger the right end-to-end workflow packs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'stage'       => __( 'AI Testing', 'testro' ),
-							'title'       => __( 'AI End-to-End Testing', 'testro' ),
-							'description' => __( 'AI-powered journeys execute in parallel with self-healing maintenance in the loop.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'stage'       => __( 'Quality', 'testro' ),
-							'title'       => __( 'Quality Validation', 'testro' ),
-							'description' => __( 'Teams get live results, failure insights, and release readiness signals.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Deploy', 'testro' ),
-							'title'       => __( 'Deployment', 'testro' ),
-							'description' => __( 'Approved builds promote with continuous quality confidence baked in.', 'testro' ),
+							'icon'        => 'layers-api',
+							'title'       => __( 'Every Involved Layer', 'testro' ),
+							'description' => __( 'We check every involved layer together—UI, APIs, databases, and any connected service.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
-							'stage'       => __( 'Live', 'testro' ),
-							'title'       => __( 'Production', 'testro' ),
-							'description' => __( 'Business workflows stay proven as software reaches customers.', 'testro' ),
+							'title'       => __( 'Confidence Before Release', 'testro' ),
+							'description' => __( 'A passing end-to-end test means the whole journey works. Not just a piece of it.', 'testro' ),
 						),
 					),
 				),
 
-				/* 4B. Enterprise tool integrations ------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'e2e-enterprise-integrations',
-					'eyebrow' => __( 'Enterprise Integrations', 'testro' ),
-					'title'   => __( 'Connect End-to-End Testing to the Tools Your Teams Already Use', 'testro' ),
-					'intro'   => __( 'Wire theTestRo into Jira, Jenkins, GitHub, Azure DevOps, Slack, and Bamboo so end-to-end testing status, defects, and alerts flow through your delivery toolchain.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'plug',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'DevOps Hub', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-end-to-end-testing-at-every-stage',
+					'columns'       => 3,
+					'title'         => __( 'AI End-to-End Testing at Every Stage', 'testro' ),
+					'intro'         => __( 'AI Support From First Test to Last Fix', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Embed end-to-end gates inside any modern continuous delivery pipeline.', 'testro' ),
+							'icon'        => 'sparkles',
+							'title'       => __( 'Generate Tests From What You Already Have', 'testro' ),
+							'description' => __( 'Turn a Jira ticket, a design file, or a screenshot into a working test on its own.', 'testro' ),
 						),
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Sync defects and E2E outcomes with engineering trackers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Launch end-to-end suites from Jenkins jobs on every build.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger and report continuous E2E testing from pull requests and workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed end-to-end gates inside Azure pipelines and release stages.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Notify channels instantly when end-to-end tests fail, recover, or clear.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Bamboo', 'testro' ),
-							'description' => __( 'Connect Bamboo plans so continuous E2E testing protects every deployment path.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Analytics enrichment ---------------------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'e2e-execution-dashboard',
-					'eyebrow'   => __( 'Quality Analytics', 'testro' ),
-					'title'     => __( 'See Journey Health, Pass Rates, and Release Risk in Real Time', 'testro' ),
-					'intro'     => __( 'Track continuous end-to-end testing with live KPIs, pass/fail trends, coverage signals, and AI-assisted failure insights—so release decisions stay evidence-based.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Live journey progress', 'testro' ),
-							'description' => __( 'Monitor running end-to-end packs across browsers and environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Pass/fail trends', 'testro' ),
-							'description' => __( 'Spot stability shifts before they become release blockers.', 'testro' ),
+							'icon'        => 'wand',
+							'title'       => __( 'Self-Healing During Execution', 'testro' ),
+							'description' => __( 'A locator breaks mid-run. theTestRo finds the right element and keeps going.', 'testro' ),
 						),
 						array(
 							'icon'        => 'microscope',
-							'title'       => __( 'AI failure insights', 'testro' ),
-							'description' => __( 'Classify recurring issues faster with AI-powered diagnostics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Release readiness scoring', 'testro' ),
-							'description' => __( 'Quantify confidence before promoting the next build.', 'testro' ),
+							'title'       => __( 'Root Cause, Not Just a Red X', 'testro' ),
+							'description' => __( 'A test fails, and AI helps figure out if it\'s a real bug, a flaky step, or an environment issue.', 'testro' ),
 						),
 					),
-					'dashboard' => array(
-						'label'     => __( 'E2E Analytics', 'testro' ),
-						'build'     => __( 'Release 5.2 · CI + Nightly', 'testro' ),
-						'status'    => __( 'Healthy', 'testro' ),
-						'score'     => 98,
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '99.2%',
-								'trend' => __( '+2.1%', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Coverage', 'testro' ),
-								'value' => '97%',
-								'trend' => __( '+9%', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Failed journeys', 'testro' ),
-								'value' => '3',
-								'trend' => __( '1 critical', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Maintenance', 'testro' ),
-								'value' => '−85%',
-								'trend' => __( 'Self-healed', 'testro' ),
-								'tone'  => 'up',
-							),
+					'outro'         => __( 'This is what ai end-to-end testing should deliver. Less time maintaining tests. More time spent trusting them.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-it-works',
+					'title'         => __( 'How It Works', 'testro' ),
+					'intro'         => __( 'From Requirement to Passing Test in Four Steps', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'file-text',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Feed in a Requirement', 'testro' ),
+							'description' => __( 'Point theTestRo at a Jira ticket, a design file, or a plain-English description.', 'testro' ),
 						),
-						'chart'     => array(
-							'title' => __( 'E2E pass rate · 7 runs', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'R1', 'testro' ),
-									'value' => 89,
-								),
-								array(
-									'label' => __( 'R2', 'testro' ),
-									'value' => 91,
-								),
-								array(
-									'label' => __( 'R3', 'testro' ),
-									'value' => 94,
-								),
-								array(
-									'label' => __( 'R4', 'testro' ),
-									'value' => 95,
-								),
-								array(
-									'label' => __( 'R5', 'testro' ),
-									'value' => 97,
-								),
-								array(
-									'label' => __( 'R6', 'testro' ),
-									'value' => 98,
-								),
-								array(
-									'label' => __( 'R7', 'testro' ),
-									'value' => 99,
-								),
-							),
+						array(
+							'icon'        => 'sparkles',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'AI Builds the Test', 'testro' ),
+							'description' => __( 'A working end-to-end test comes back in seconds, spanning UI and API steps.', 'testro' ),
 						),
-						'breakdown' => array(
-							array(
-								'label' => __( 'UI change', 'testro' ),
-								'value' => 32,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Integration', 'testro' ),
-								'value' => 30,
-								'tone'  => 'warning',
-							),
-							array(
-								'label' => __( 'Environment', 'testro' ),
-								'value' => 38,
-								'tone'  => 'healthy',
-							),
+						array(
+							'icon'        => 'scan-eye',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Review and Approve', 'testro' ),
+							'description' => __( 'Check the draft, adjust anything that needs it, and approve it for your suite.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run and Let It Heal', 'testro' ),
+							'description' => __( 'The test runs on every future build, and adapts on its own when the app changes underneath it.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. Customer success outcomes ----------------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'e2e-customer-success',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Customer Success', 'testro' ),
-					'title'   => __( 'Faster Journeys. Higher Reliability. Lower Risk.', 'testro' ),
-					'intro'   => __( 'Organizations use theTestRo to accelerate end-to-end testing, improve business workflow reliability, reduce release risks, increase automation coverage, minimize maintenance effort, and deliver better customer experiences.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'manual-vs-automated-end-to-end-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Manual Testing vs. Automated End-to-End Testing', 'testro' ),
+					'intro'         => __( 'What Actually Changes When a Test Runs Itself', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate end-to-end testing', 'testro' ),
-							'description' => __( 'AI authoring and parallel execution cut the time it takes to validate complete business workflows.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'A person walks through the same workflow by hand, every time. Automated end-to-end testing runs on demand, day or night.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Improve business workflow reliability', 'testro' ),
-							'description' => __( 'Validate cross-system journeys before customers feel defects in critical processes.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Reduce release risks', 'testro' ),
-							'description' => __( 'Release readiness metrics and quality gates protect every promotion.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'Manual results shift depending on who\'s testing and how much time they have. Automated tests run the same steps the same way, every time.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Increase automation coverage', 'testro' ),
-							'description' => __( 'Expand web, mobile, API, and enterprise journey coverage without growing headcount.', 'testro' ),
+							'title'       => __( 'Coverage', 'testro' ),
+							'description' => __( 'Available hours and staffing cap manual testing. Automation scales to dozens of workflows without adding headcount.', 'testro' ),
 						),
 						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Minimize maintenance effort', 'testro' ),
-							'description' => __( 'Self-healing automation keeps long end-to-end suites stable as applications evolve.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Deliver better customer experiences', 'testro' ),
-							'description' => __( 'Prove every critical user journey works flawlessly before it reaches production.', 'testro' ),
+							'icon'        => 'shield-check',
+							'title'       => __( 'Confidence Over Time', 'testro' ),
+							'description' => __( 'A manual process gets harder to trust as an app grows more complex. An automated one gets more valuable.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Automating End-to-End Testing', 'testro' ),
-					'intro'   => __( 'QA, engineering, and DevOps organizations rely on theTestRo to keep end-to-end journeys green, accelerate delivery, and protect every release.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'codeless-test-automation-for-the-whole-qa-team',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Codeless Test Automation for the Whole QA Team', 'testro' ),
+					'intro'         => __( 'Every Tester Can Build Coverage, Not Just Engineers', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'Describe a workflow. Get a working test back. No scripting needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Faster Onboarding', 'testro' ),
+							'description' => __( 'New testers add real coverage in days. Not months.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Less Dependence on a Few Experts', 'testro' ),
+							'description' => __( 'Coverage doesn\'t bottleneck on one or two people who know the framework.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Ship Faster with AI-Powered End-to-End Testing', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to accelerate end-to-end testing, improve business workflow reliability, reduce release risks, increase automation coverage, minimize maintenance effort, and deliver better customer experiences.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'one-platform-instead-of-five-separate-tools',
+					'columns'       => 3,
+					'title'         => __( 'One Platform Instead of Five Separate Tools', 'testro' ),
+					'intro'         => __( 'Stop Managing Tool Sprawl', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Automation, Devices, and APIs Together', 'testro' ),
+							'description' => __( 'Web, mobile, and API testing live in one platform. Not three separate subscriptions.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Test Management Built In', 'testro' ),
+							'description' => __( 'Requirements, version control, and review flows sit right next to the tests themselves. This is end-to-end testing software built as one system, not five bolted together.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Less Switching, More Doing', 'testro' ),
+							'description' => __( 'One end-to-end testing platform means less time moving data between disconnected tools.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'End-to-End Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'end-to-end-testing',
+					'type'          => 'feature-grid',
+					'id'            => 'self-healing-tests-that-adapt-to-ui-changes',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Self-Healing Tests That Adapt to UI Changes', 'testro' ),
+					'intro'         => __( 'A UI Update Shouldn\'t Mean a Broken Suite', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Automatic Locator Detection', 'testro' ),
+							'description' => __( 'theTestRo spots a changed element during a run and finds the right one on its own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Execution Continues', 'testro' ),
+							'description' => __( 'A test doesn\'t stop cold the moment something shifts. It adapts and keeps going.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Stability That Holds Up Over Time', 'testro' ),
+							'description' => __( 'A suite built this way stays reliable release after release. Not just the week it launched.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-end-to-end-testing',
-					'title'      => __( 'Automate Complete Business Workflows with AI-Powered End-to-End Testing', 'testro' ),
-					'intro'      => __( 'Transform your software quality process with theTestRo\'s AI-powered End-to-End Testing Platform. Validate complete user journeys across web, mobile, APIs, databases, and enterprise applications while reducing maintenance, accelerating releases, and delivering exceptional software experiences with confidence.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'cloud-execution-without-the-infrastructure',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Cloud Execution Without the Infrastructure', 'testro' ),
+					'intro'         => __( 'Run End-to-End Tests Without Managing Servers', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'cloud',
+							'title'       => __( 'Zero Setup, Instant Access', 'testro' ),
+							'description' => __( 'Start testing with no software to install and no environment to configure.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Scale on Demand', 'testro' ),
+							'description' => __( 'Run more tests in parallel during a heavy release week. No extra infrastructure needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Built for Distributed Teams', 'testro' ),
+							'description' => __( 'One shared workspace, no matter where each tester is working from.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'cross-platform-end-to-end-testing',
+					'columns'       => 3,
+					'title'         => __( 'Cross-Platform End-to-End Testing', 'testro' ),
+					'intro'         => __( 'Web, Mobile, and API, in the Same Workflow', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Real Devices, Not Emulators', 'testro' ),
+							'description' => __( 'Test iOS and Android apps on real hardware alongside your web app.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Thousands of Browser and OS Combinations', 'testro' ),
+							'description' => __( 'Cover the real spread of environments your users are on.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'One Test, Multiple Layers', 'testro' ),
+							'description' => __( 'A single end-to-end test can span UI and API checks. No splitting coverage across separate suites.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-end-to-end-testing-at-scale',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise End-to-End Testing at Scale', 'testro' ),
+					'intro'         => __( 'Built for Organizations With a Lot Riding on Every Release', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Parallel Execution at Volume', 'testro' ),
+							'description' => __( 'Run large test suites across environments. No multi-hour wait for results.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Role-Based Access and Governance', 'testro' ),
+							'description' => __( 'Control who can build, edit, and approve tests across a growing org.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Audit-Ready Records', 'testro' ),
+							'description' => __( 'Clear links between requirements, tests, and results back up compliance reviews. No extra work needed.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Enterprise end-to-end testing has to hold up across many products, teams, and releases at once. Not just a single small app.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'fits-into-your-existing-workflow',
+					'variant'       => 'tint',
+					'title'         => __( 'Fits Into Your Existing Workflow', 'testro' ),
+					'intro'         => __( 'No New Process to Learn', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jira, Jenkins, GitHub Actions, Azure DevOps, and GitLab. End-to-end tests plug right into the pipeline your team already runs. Results land where your team already looks. Not in a separate dashboard nobody checks.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-end-to-end-testing',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for End-to-End Testing', 'testro' ),
+					'intro'         => __( 'Built for Every Role Touching Release Quality', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Engineers', 'testro' ),
+							'description' => __( 'Build full-journey coverage without hand-scripting every step.', 'testro' ),
+						),
+						array(
+							'icon'        => 'pen-square',
+							'title'       => __( 'Manual Testers', 'testro' ),
+							'description' => __( 'Turn known workflows into automated tests. No coding background needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'DevOps Teams', 'testro' ),
+							'description' => __( 'Trigger end-to-end runs on their own as part of the release pipeline.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Engineering Managers', 'testro' ),
+							'description' => __( 'Get a clear signal on release readiness before code reaches production.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'end-to-end-testing',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-automating-end-to-end-testing',
+					'title'         => __( 'Start Automating End-to-End Testing Today', 'testro' ),
+					'intro'         => __( 'Ship Full Workflows With Confidence', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s end-to-end test automation. Catch real issues early across every layer of the stack.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -7809,15 +6500,13 @@ function testro_get_product_pages() {
 			'slug'   => 'use-cases',
 			'title'  => __( 'Software Testing Use Cases', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'Software Testing Use Cases | AI Test Automation Hub | theTestRo', 'testro' ),
-				'description' => __( 'Explore software testing use cases for modern QA teams. Automate regression, functional, integration, end-to-end, frontend, and backend testing with AI-powered test automation from theTestRo.', 'testro' ),
+				'title'       => __( 'Software Testing Use Cases | theTestRo', 'testro' ),
+				'description' => __( 'Explore software testing use cases including regression, smoke, sanity, functional, integration, end-to-end, frontend, backend, API, and UI testing.', 'testro' ),
 			),
 
 			'hero' => array(
-				'logos'    => true,
-				'eyebrow'  => __( 'Software Testing Solutions', 'testro' ),
 				'title'    => __( 'Software Testing Use Cases for Modern QA Teams', 'testro' ),
-				'subtitle' => __( 'Discover how theTestRo helps QA teams automate every stage of software testing using AI-powered automation, no-code testing, self-healing technology, intelligent analytics, and enterprise-grade execution. From regression testing to end-to-end validation, explore purpose-built testing solutions designed to accelerate software delivery while improving quality and reducing maintenance.', 'testro' ),
+				'subtitle' => __( 'theTestRo supports every stage of software testing, from a quick sanity check to a full end-to-end run. Explore the software testing use cases your team handles every day, and see how AI makes each one faster.', 'testro' ),
 				'actions'  => array(
 					array(
 						'label' => __( 'Start Free Trial', 'testro' ),
@@ -7836,55 +6525,57 @@ function testro_get_product_pages() {
 			'sections' => array(
 
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'why-software-testing-use-cases-matter',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Why It Matters', 'testro' ),
-					'title'   => __( 'Why Software Testing Use Cases Matter', 'testro' ),
-					'intro'   => __( 'Purpose-built testing use cases help QA teams improve software quality, accelerate releases, and embed continuous validation across every DevOps stage.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'why-software-testing-use-cases-matter',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Why Software Testing Use Cases Matter', 'testro' ),
+					'intro'         => __( 'Every Use Case Solves a Different Problem', 'testro' ),
+					'intro_extra'   => __( 'Not every test serves the same purpose. Knowing which one to run, and when, is what separates a fast, reliable release process from a slow, risky one.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'shield-check',
 							'title'       => __( 'Improve Software Quality', 'testro' ),
-							'description' => __( 'Detect defects earlier and deliver more reliable applications.', 'testro' ),
+							'description' => __( 'Catch issues before they reach a real user, not after.', 'testro' ),
 						),
 						array(
 							'icon'        => 'rocket',
 							'title'       => __( 'Accelerate Release Cycles', 'testro' ),
-							'description' => __( 'Automate repetitive testing to ship software faster.', 'testro' ),
+							'description' => __( 'Spend less time waiting on manual checks between builds.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
 							'title'       => __( 'Reduce Production Defects', 'testro' ),
-							'description' => __( 'Catch issues before they impact end users.', 'testro' ),
+							'description' => __( 'Fewer bugs slip through when the right test runs at the right stage.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
 							'title'       => __( 'Increase Test Coverage', 'testro' ),
-							'description' => __( 'Validate every business workflow across applications and environments.', 'testro' ),
+							'description' => __( 'Cover more of the app without multiplying manual effort.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
 							'title'       => __( 'Enable Continuous Testing', 'testro' ),
-							'description' => __( 'Integrate testing into every stage of your DevOps pipeline.', 'testro' ),
+							'description' => __( 'Keep quality checks running on their own, not just before a major production release.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Software testing scenarios differ in scope and timing, but they all point toward the same goal: shipping with confidence.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'use-case-grid',
-					'id'      => 'explore-software-testing-use-cases',
-					'variant' => 'tint',
-					'columns' => 3,
-					'eyebrow' => __( 'Explore Solutions', 'testro' ),
-					'title'   => __( 'Explore Software Testing Use Cases', 'testro' ),
-					'intro'   => __( 'Browse AI-powered testing solutions purpose-built for every stage of quality engineering—from smoke validation to enterprise end-to-end journeys.', 'testro' ),
-					'items'   => array(
+					'type'          => 'use-case-grid',
+					'id'            => 'explore-software-testing-use-cases',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Explore Software Testing Use Cases', 'testro' ),
+					'intro'         => __( 'Find the Right Test for the Right Moment', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'refresh',
 							'title'       => __( 'Regression Testing', 'testro' ),
-							'description' => __( 'Automatically validate existing functionality after every release using AI-powered regression testing, continuous execution, and intelligent maintenance.', 'testro' ),
+							'description' => __( 'Confirm that new code hasn\'t broken what already worked. Regression testing is the safety net every release depends on.', 'testro' ),
 							'href'        => testro_nav_url( 'regression-test-automation' ),
 							'cta'         => __( 'Learn More', 'testro' ),
 							'motif'       => 'regression',
@@ -7892,15 +6583,13 @@ function testro_get_product_pages() {
 						array(
 							'icon'        => 'zap',
 							'title'       => __( 'Smoke Testing', 'testro' ),
-							'description' => __( 'Verify the stability of every new build by validating the most critical application functionality before deeper testing begins.', 'testro' ),
-							'href'        => testro_nav_url( 'ai-automated-sanity-testing' ),
-							'cta'         => __( 'Learn More', 'testro' ),
+							'description' => __( 'Check that a build is stable enough to test at all. A quick pass before deeper testing begins.', 'testro' ),
 							'motif'       => 'smoke',
 						),
 						array(
 							'icon'        => 'circle-check',
 							'title'       => __( 'Sanity Testing', 'testro' ),
-							'description' => __( 'Quickly validate bug fixes and newly added features with AI-powered sanity testing to ensure applications remain stable after changes.', 'testro' ),
+							'description' => __( 'Verify that a specific fix or feature works, right after a change. Fast, focused, and narrow by design.', 'testro' ),
 							'href'        => testro_nav_url( 'ai-automated-sanity-testing' ),
 							'cta'         => __( 'Learn More', 'testro' ),
 							'motif'       => 'sanity',
@@ -7908,7 +6597,7 @@ function testro_get_product_pages() {
 						array(
 							'icon'        => 'layout-grid',
 							'title'       => __( 'Functional Testing', 'testro' ),
-							'description' => __( 'Automate complete business workflows across web, mobile, APIs, and enterprise applications with intelligent functional testing.', 'testro' ),
+							'description' => __( 'Confirm a feature behaves the way it was built to, from a real user\'s point of view.', 'testro' ),
 							'href'        => testro_nav_url( 'automated-functional-testing' ),
 							'cta'         => __( 'Learn More', 'testro' ),
 							'motif'       => 'functional',
@@ -7916,7 +6605,7 @@ function testro_get_product_pages() {
 						array(
 							'icon'        => 'plug',
 							'title'       => __( 'Integration Testing', 'testro' ),
-							'description' => __( 'Validate APIs, microservices, databases, and third-party integrations using AI-powered integration testing and intelligent automation.', 'testro' ),
+							'description' => __( 'Check that separate systems, services, and APIs actually work together. Not just on their own.', 'testro' ),
 							'href'        => testro_nav_url( 'ai-powered-integration-testing' ),
 							'cta'         => __( 'Learn More', 'testro' ),
 							'motif'       => 'integration',
@@ -7924,7 +6613,7 @@ function testro_get_product_pages() {
 						array(
 							'icon'        => 'infinity',
 							'title'       => __( 'End-to-End Testing', 'testro' ),
-							'description' => __( 'Automate complete customer journeys across multiple systems, applications, and platforms using enterprise-grade end-to-end testing.', 'testro' ),
+							'description' => __( 'Check a complete workflow, starting to finishing, across UI, APIs, and every connected layer.', 'testro' ),
 							'href'        => testro_nav_url( 'end-to-end-testing' ),
 							'cta'         => __( 'Learn More', 'testro' ),
 							'motif'       => 'e2e',
@@ -7932,185 +6621,238 @@ function testro_get_product_pages() {
 						array(
 							'icon'        => 'browsers',
 							'title'       => __( 'Frontend Testing', 'testro' ),
-							'description' => __( 'Ensure flawless user experiences by validating UI behavior, layouts, responsiveness, accessibility, and browser compatibility.', 'testro' ),
-							'href'        => testro_nav_url( 'automated-web-application-testing' ),
-							'cta'         => __( 'Learn More', 'testro' ),
+							'description' => __( 'Test what users actually see and click: layout, responsiveness, and every interactive element.', 'testro' ),
 							'motif'       => 'frontend',
 						),
 						array(
 							'icon'        => 'server',
 							'title'       => __( 'Backend Testing', 'testro' ),
-							'description' => __( 'Validate APIs, databases, business logic, authentication, and backend services using intelligent AI-powered backend testing.', 'testro' ),
-							'href'        => testro_nav_url( 'automated-api-testing' ),
-							'cta'         => __( 'Learn More', 'testro' ),
+							'description' => __( 'Check the logic, data, and services running behind the interface, where most real bugs start.', 'testro' ),
 							'motif'       => 'backend',
 						),
 					),
+					'outro'         => __( 'These test automation use cases cover the full path from a single fix to a complete release. All from one platform.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'bento',
-					'id'      => 'why-choose-thetestro-use-cases',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Why theTestRo', 'testro' ),
-					'title'   => __( 'Why Choose theTestRo for Every Testing Use Case', 'testro' ),
-					'intro'   => __( 'One AI-powered quality platform for authoring, execution, self-healing maintenance, and release intelligence across every software testing use case.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'how-to-pick-the-right-use-case',
+					'columns'       => 3,
+					'title'         => __( 'How to Pick the Right Use Case', 'testro' ),
+					'intro'         => __( 'Matching the Test to the Moment', 'testro' ),
+					'intro_extra'   => __( 'Different software testing scenarios exist because different moments call for different checks.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Right After a Fix', 'testro' ),
+							'description' => __( 'Sanity testing gives a fast answer without a full test cycle.', 'testro' ),
+						),
+						array(
+							'icon'        => 'cloud',
+							'title'       => __( 'Before Deeper Testing Begins', 'testro' ),
+							'description' => __( 'Smoke testing confirms a build is stable enough to test at all.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Before Every Release', 'testro' ),
+							'description' => __( 'Regression testing protects everything that already worked.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'When Validating a New Feature', 'testro' ),
+							'description' => __( 'Functional testing confirms that it does what developers built it to do.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'When Systems Talk to Each Other', 'testro' ),
+							'description' => __( 'Integration testing catches broken handoffs between services.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Before a Major Launch', 'testro' ),
+							'description' => __( 'End-to-end testing checks the full journey, start to finish.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Most teams don\'t pick just one. A healthy QA process layers several of these use cases together, running at different points in the pipeline.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'why-choose-thetestro-for-every-testing-use-case',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Why Choose theTestRo for Every Testing Use Case', 'testro' ),
+					'intro'         => __( 'One Platform, Every Kind of Test', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'sparkles',
 							'title'       => __( 'AI-Powered Test Automation', 'testro' ),
-							'description' => __( 'Automatically generate and execute intelligent test scenarios.', 'testro' ),
+							'description' => __( 'Build, run, and maintain tests with AI support at every step.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
 							'title'       => __( 'No-Code Test Creation', 'testro' ),
-							'description' => __( 'Build automated tests without writing code.', 'testro' ),
+							'description' => __( 'Write tests in plain English. No scripting background needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
 							'title'       => __( 'Self-Healing Tests', 'testro' ),
-							'description' => __( 'Automatically recover from UI and application changes.', 'testro' ),
+							'description' => __( 'Tests adjust on their own when the UI changes. No more broken suites.', 'testro' ),
 						),
 						array(
 							'icon'        => 'browsers',
 							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Validate applications across Chrome, Edge, Firefox, Safari, and more.', 'testro' ),
+							'description' => __( 'Run the same test across every major browser and device combo.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layers-api',
 							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Automate API validation alongside UI testing from one platform.', 'testro' ),
+							'description' => __( 'Check endpoints and data flow alongside your UI checks.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
 							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Execute thousands of tests simultaneously to reduce execution time.', 'testro' ),
+							'description' => __( 'Run hundreds of tests at once. Hours turn into minutes.', 'testro' ),
 						),
 						array(
-							'icon'        => 'plug',
+							'icon'        => 'git-branch',
 							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Integrate automated testing into every software delivery pipeline.', 'testro' ),
+							'description' => __( 'Trigger tests on their own on every build. No manual step needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'chart-bar',
 							'title'       => __( 'Reports & Analytics', 'testro' ),
-							'description' => __( 'Gain real-time insights through AI-powered dashboards and detailed reporting.', 'testro' ),
+							'description' => __( 'See what passed, what failed, and why. All in one clear dashboard.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Whatever the use case, theTestRo handles it from the same platform. Not a patchwork of separate tools.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'built-for-the-way-teams-actually-test',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Built for the Way Teams Actually Test', 'testro' ),
+					'intro'         => __( 'From a Single Fix to a Full Release Cycle', 'testro' ),
+					'intro_extra'   => __( 'A test suite that only handles one use case forces a team to stitch together separate tools for everything else. theTestRo covers the full spread instead.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Start Small', 'testro' ),
+							'description' => __( 'A single sanity check or smoke test takes minutes to set up.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Grow the Suite', 'testro' ),
+							'description' => __( 'Add regression, functional, and integration coverage as your app grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Scale to Full Releases', 'testro' ),
+							'description' => __( 'Run a complete end-to-end suite before every major launch, without rebuilding it from scratch each time.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'architecture',
-					'id'      => 'supported-platforms',
-					'eyebrow' => __( 'Supported Platforms', 'testro' ),
-					'title'   => __( 'One Platform for Every Testing Surface', 'testro' ),
-					'intro'   => __( 'Run every testing use case from one unified AI-powered testing platform across web, APIs, enterprise software, and cloud-native applications.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'AI Test Automation', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'supported-platforms',
+					'columns'       => 4,
+					'title'         => __( 'Supported Platforms', 'testro' ),
+					'intro'         => __( 'Test Wherever Your Application Lives', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'browsers',
 							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Automate UI journeys, responsiveness, and browser compatibility for modern web apps.', 'testro' ),
+							'description' => __( 'Cover every major browser and device your users actually rely on.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layers-api',
 							'title'       => __( 'APIs', 'testro' ),
-							'description' => __( 'Validate contracts, authentication, payloads, and service interactions at scale.', 'testro' ),
+							'description' => __( 'Check REST and other API types alongside your UI tests.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-lock',
 							'title'       => __( 'Enterprise Applications', 'testro' ),
-							'description' => __( 'Cover ERP, CRM, and mission-critical enterprise workflows with resilient automation.', 'testro' ),
+							'description' => __( 'Handle complex, multi-system workflows without extra setup.', 'testro' ),
 						),
 						array(
 							'icon'        => 'cloud',
 							'title'       => __( 'Cloud Applications', 'testro' ),
-							'description' => __( 'Execute cloud-native suites with parallel capacity and continuous delivery feedback.', 'testro' ),
+							'description' => __( 'Test SaaS products and cloud-hosted systems with the same ease as anything else.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'No matter where your application runs, the same AI-powered engine runs the tests. Your team won\'t need to learn a new tool.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'benefits-ai-powered-test-automation',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Business Impact', 'testro' ),
-					'title'   => __( 'Benefits of AI-Powered Test Automation', 'testro' ),
-					'intro'   => __( 'Turn every testing use case into measurable delivery outcomes—faster execution, lower maintenance, broader coverage, and higher release confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'benefits-of-ai-powered-test-automation',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Benefits of AI-Powered Test Automation', 'testro' ),
+					'intro'         => __( 'What Teams Actually Gain', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'zap',
 							'title'       => __( 'Faster Test Execution', 'testro' ),
-							'description' => __( 'Execute more tests in less time through intelligent automation.', 'testro' ),
+							'description' => __( 'Get results back in minutes. Not hours or days.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wrench',
 							'title'       => __( 'Reduced Maintenance', 'testro' ),
-							'description' => __( 'Reduce manual updates with self-healing automation.', 'testro' ),
+							'description' => __( 'Self-healing tests mean less time patching broken scripts.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
 							'title'       => __( 'Higher Test Coverage', 'testro' ),
-							'description' => __( 'Increase automation coverage across every business workflow.', 'testro' ),
+							'description' => __( 'Cover more scenarios without growing your QA headcount.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-check',
 							'title'       => __( 'Reliable Test Results', 'testro' ),
-							'description' => __( 'Improve testing consistency using AI-powered execution.', 'testro' ),
+							'description' => __( 'Fewer false failures. Your team can trust a red status when it happens.', 'testro' ),
 						),
 						array(
 							'icon'        => 'rocket',
 							'title'       => __( 'Faster Software Releases', 'testro' ),
-							'description' => __( 'Release software with greater confidence and fewer production defects.', 'testro' ),
+							'description' => __( 'Testing stops being the bottleneck between a build and a release.', 'testro' ),
 						),
 						array(
 							'icon'        => 'sparkles',
 							'title'       => __( 'Improved QA Productivity', 'testro' ),
-							'description' => __( 'Allow QA teams to focus on innovation instead of repetitive testing.', 'testro' ),
+							'description' => __( 'Your team spends time on real problems. Not repetitive manual checks.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Together, these benefits set apart a QA process that keeps up with fast releases from one that plays catch-up.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Automating Every Testing Use Case', 'testro' ),
-					'intro'   => __( 'QA, engineering, and DevOps organizations rely on theTestRo to automate regression, functional, integration, and end-to-end testing with AI-powered quality engineering.', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'use-cases',
 				),
 
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Use Cases FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'use-cases',
-				),
-
-				array(
-					'type'       => 'cta',
-					'id'         => 'automate-every-testing-use-case',
-					'title'      => __( 'Automate Every Testing Use Case with AI-Powered Quality Engineering', 'testro' ),
-					'intro'      => __( 'Whether you\'re validating a new feature, running regression tests, verifying APIs, or automating complete business workflows, theTestRo provides one intelligent AI-powered platform for every software testing need. Deliver faster releases, reduce maintenance, and improve software quality with enterprise-grade automation.', 'testro' ),
-					'actions'    => array(
+					'type'          => 'cta',
+					'id'            => 'ready-to-automate-every-testing-use-case',
+					'title'         => __( 'Ready to Automate Every Testing Use Case?', 'testro' ),
+					'intro'         => __( 'One Platform for Every Test Your Team Runs', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo for all software testing needs. Run quick sanity checks or manage full release cycles without switching tools.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
 						array(
-							'label' => __( 'Start Free Trial', 'testro' ),
+							'label' => __( 'Schedule a Demo', 'testro' ),
 							'style' => 'primary',
 							'modal' => 'demo-modal',
 						),
-						array(
-							'label' => __( 'Schedule a Demo', 'testro' ),
-							'style' => 'outline',
-							'modal' => 'demo-modal',
-							'icon'  => 'arrow-right',
-						),
-					),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
 					),
 				),
 			),
@@ -8123,387 +6865,386 @@ function testro_get_product_pages() {
 			'slug'   => 'ai-powered-integration-testing',
 			'title'  => __( 'AI-Powered Integration Testing', 'testro' ),
 			'seo'    => array(
-				'title'       => __( 'AI Integration Testing Tool | API & Microservices Testing | theTestRo', 'testro' ),
-				'description' => __( 'AI Integration Testing Tool from theTestRo. Automate API Integration Testing, Microservices Testing, and No-Code Integration Testing across databases, enterprise apps, and third-party systems with self-healing Automated Integration Testing.', 'testro' ),
+				'title'       => __( 'Best AI Integration Testing Tool for Enterprise QA', 'testro' ),
+				'description' => __( 'Automate integration testing with the best AI integration testing tool. Validate APIs, services, and workflows to accelerate releases and improve quality.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'AI-Powered Integration Testing', 'testro' ),
-				'title'    => __( 'Best AI Integration Testing Tool', 'testro' ),
-				'subtitle' => __( 'Validate every connection across your software ecosystem with theTestRo\'s AI-powered Integration Testing Platform. Automate testing between APIs, microservices, databases, enterprise applications, and third-party systems using intelligent automation, no-code workflows, and AI-driven quality engineering. Ensure seamless data flow, reliable integrations, and faster software releases with confidence.', 'testro' ),
-				'badges'   => array(
-					__( 'API Validation', 'testro' ),
-					__( 'Self-Healing AI', 'testro' ),
-					__( 'No-Code Workflows', 'testro' ),
-					__( 'Enterprise Scale', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Integration Test Automation That Verifies Real Handoffs', 'testro' ),
+				'subtitle' => __( 'theTestRo brings AI integration testing to every connection point in your system. Check that UI, APIs, and services actually work together. Not just on their own. Keep those checks stable as your systems change.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '75%',
-						'label' => __( 'Faster integration validation', 'testro' ),
-						'icon'  => 'zap',
-					),
-					array(
-						'value' => '4×',
-						'label' => __( 'Broader connection coverage', 'testro' ),
-						'icon'  => 'layout-grid',
-					),
-					array(
-						'value' => '65%',
-						'label' => __( 'Less integration maintenance', 'testro' ),
-						'icon'  => 'wrench',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Scale Integration Test Automation --------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'scale-integration-automation',
-					'eyebrow' => __( 'AI & No-Code Automation', 'testro' ),
-					'title'   => __( 'Scale Integration Test Automation with AI & No-Code', 'testro' ),
-					'intro'   => __( 'Define critical connections, create no-code integration tests, validate API contracts, execute in parallel, and keep suites healthy with self-healing AI—so Automated Integration Testing scales with your ecosystem.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'target',
-							'stage'       => __( 'Integration Scope', 'testro' ),
-							'title'       => __( 'Define Integration Scope', 'testro' ),
-							'description' => __( 'Identify critical application interactions and business workflows that require validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wand',
-							'stage'       => __( 'AI Test Creation', 'testro' ),
-							'title'       => __( 'Create Integration Tests Without Coding', 'testro' ),
-							'description' => __( 'Build powerful integration tests using AI-assisted visual automation without writing code.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'stage'       => __( 'Validation', 'testro' ),
-							'title'       => __( 'Validate API Contracts', 'testro' ),
-							'description' => __( 'Ensure APIs consistently meet functional and business requirements.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'Execution', 'testro' ),
-							'title'       => __( 'Execute Integration Tests in Parallel', 'testro' ),
-							'description' => __( 'Accelerate testing across multiple integrations simultaneously.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'stage'       => __( 'AI Analytics', 'testro' ),
-							'title'       => __( 'Reduce Test Maintenance with Self-Healing AI', 'testro' ),
-							'description' => __( 'Automatically adapt to changing APIs and connected systems using intelligent self-healing automation.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. Why Teams Choose theTestRo ---------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'why-integration-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Why theTestRo', 'testro' ),
-					'title'   => __( 'Why Teams Choose theTestRo for Integration Testing', 'testro' ),
-					'intro'   => __( 'Accelerate verification across interconnected systems with AI Integration Testing that creates scenarios faster, heals itself, and keeps every deployment under continuous validation.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Faster Integration Validation', 'testro' ),
-							'description' => __( 'Accelerate verification across interconnected systems using AI-powered automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI-Driven Test Creation', 'testro' ),
-							'description' => __( 'Generate intelligent integration test scenarios with minimal manual effort.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Lower Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce maintenance using self-healing automation and reusable test assets.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Continuous Quality Across Connected Systems', 'testro' ),
-							'description' => __( 'Maintain software quality throughout every deployment by continuously validating integrations.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. Integration Testing Types ----------------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'integration-testing-types',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Integration Testing Types', 'testro' ),
-					'title'   => __( 'Cover Every Connection Across Your Software Ecosystem', 'testro' ),
-					'intro'   => __( 'From component and API Integration Testing to microservices, contracts, events, and third-party systems—validate every interaction with one AI-powered Integration Testing Tool.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'what-automated-integration-testing-actually-checks',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'What Automated Integration Testing Actually Checks', 'testro' ),
+					'intro'         => __( 'Not Just That Each Piece Works. That They Work Together.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'puzzle',
-							'title'       => __( 'Component Integration Testing', 'testro' ),
-							'description' => __( 'Validate communication between application modules.', 'testro' ),
+							'title'       => __( 'Beyond Isolated Checks', 'testro' ),
+							'description' => __( 'Integration tests catch problems that only appear when pieces meet.', 'testro' ),
+						),
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'Real Data, Real Connections', 'testro' ),
+							'description' => __( 'Test requests and workflows the way they truly happen. Not faked in a vacuum.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layers-api',
-							'title'       => __( 'API Integration Testing', 'testro' ),
-							'description' => __( 'Ensure reliable communication across REST, SOAP, GraphQL, and enterprise APIs.', 'testro' ),
+							'title'       => __( 'A Different Layer Than Unit Testing', 'testro' ),
+							'description' => __( 'A unit test confirms one piece works. An integration test confirms the system around it does too.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'types-of-integration-testing',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'The Types of Integration Testing theTestRo Covers', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Component Testing', 'testro' ),
+							'description' => __( 'Check how internal parts work together. Like cart, inventory, and payment as one.', 'testro' ),
 						),
 						array(
-							'icon'        => 'browsers',
+							'icon'        => 'layers-api',
+							'title'       => __( 'API Testing', 'testro' ),
+							'description' => __( 'Check endpoints, payloads, status codes, and error handling between services.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
 							'title'       => __( 'UI-to-API Workflow Testing', 'testro' ),
-							'description' => __( 'Verify complete business workflows from frontend to backend services.', 'testro' ),
+							'description' => __( 'Confirm a click actually triggers the right backend call and the right result.', 'testro' ),
 						),
 						array(
 							'icon'        => 'plug',
-							'title'       => __( 'Third-Party Integration Testing', 'testro' ),
-							'description' => __( 'Validate integrations with payment gateways, CRM systems, ERP platforms, authentication providers, and external services.', 'testro' ),
+							'title'       => __( 'Third-Party Testing', 'testro' ),
+							'description' => __( 'Check links to payment gateways, CRMs, and other outside systems your app relies on.', 'testro' ),
 						),
 						array(
 							'icon'        => 'file-text',
 							'title'       => __( 'Contract Testing', 'testro' ),
-							'description' => __( 'Ensure service contracts remain compatible across evolving systems.', 'testro' ),
+							'description' => __( 'Catch a breaking change between services before it hits live use.', 'testro' ),
 						),
 						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Event-Driven Integration Testing', 'testro' ),
-							'description' => __( 'Validate asynchronous messaging and event-based architectures.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Database Integration Testing', 'testro' ),
-							'description' => __( 'Verify database interactions, transactions, and data integrity.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Microservices Integration Testing', 'testro' ),
-							'description' => __( 'Ensure reliable communication across distributed microservices.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Event-Driven Testing', 'testro' ),
+							'description' => __( 'Check flows set off by queues, streams, or async events. A UI test often misses these.', 'testro' ),
 						),
 					),
 				),
 
-				/* 4. Benefits ---------------------------------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'integration-testing-benefits',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Benefits', 'testro' ),
-					'title'   => __( 'Benefits of AI-Powered Integration Testing', 'testro' ),
-					'intro'   => __( 'Teams use Automated Integration Testing to catch defects earlier, broaden coverage, tighten CI/CD gates, and lower release risk across every system connection.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-integration-testing-that-adapts',
+					'columns'       => 3,
+					'title'         => __( 'AI Integration Testing That Adapts', 'testro' ),
+					'intro'         => __( 'Tests That Stay Stable as Systems Change', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'alert-octagon',
-							'title'       => __( 'Faster Defect Detection', 'testro' ),
-							'description' => __( 'Identify integration failures before they impact production.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Higher Confidence Across Business Workflows', 'testro' ),
-							'description' => __( 'Validate complete business processes across interconnected applications.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Better CI/CD Integration', 'testro' ),
-							'description' => __( 'Automate integration validation within modern DevOps pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Broader Test Coverage', 'testro' ),
-							'description' => __( 'Cover APIs, databases, services, and user workflows from a unified platform.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wrench',
-							'title'       => __( 'Reduced Test Maintenance', 'testro' ),
-							'description' => __( 'Leverage AI-powered automation to reduce ongoing maintenance.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Lower Release Risk', 'testro' ),
-							'description' => __( 'Release software confidently by validating every critical integration point.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. AI-Powered vs Traditional ----------------------------- */
-				array(
-					'type'    => 'comparison',
-					'id'      => 'ai-vs-traditional-integration',
-					'eyebrow' => __( 'AI-Powered vs Traditional', 'testro' ),
-					'title'   => __( 'AI-Powered vs Traditional Integration Testing', 'testro' ),
-					'intro'   => __( 'Compare modern AI-powered integration testing with traditional approaches, emphasizing faster execution, broader coverage, intelligent automation, lower maintenance, and improved release confidence.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Traditional Integration Testing', 'testro' ),
-						'note'  => __( 'Manual creation, fragile scripts, slower validation', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'theTestRo AI Integration Testing', 'testro' ),
-						'note'  => __( 'No-code automation that scales with every connection', 'testro' ),
-					),
-					'rows'    => array(
-						array(
-							'aspect' => __( 'Test creation', 'testro' ),
-							'legacy' => __( 'Manual Test Creation', 'testro' ),
-							'modern' => __( 'AI Test Creation', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Automation model', 'testro' ),
-							'legacy' => __( 'Limited Automation', 'testro' ),
-							'modern' => __( 'No-Code Automation', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Maintenance', 'testro' ),
-							'legacy' => __( 'High Maintenance', 'testro' ),
-							'modern' => __( 'Self-Healing Tests', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Validation cadence', 'testro' ),
-							'legacy' => __( 'Slower Validation', 'testro' ),
-							'modern' => __( 'Continuous Validation', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Execution speed', 'testro' ),
-							'legacy' => __( 'Slower, sequential runs', 'testro' ),
-							'modern' => __( 'Faster Execution', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Scale', 'testro' ),
-							'legacy' => __( 'Limited Scalability', 'testro' ),
-							'modern' => __( 'Enterprise Scalability', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Insights', 'testro' ),
-							'legacy' => __( 'Manual Analysis', 'testro' ),
-							'modern' => __( 'Intelligent Analytics', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Release risk', 'testro' ),
-							'legacy' => __( 'Higher Release Risk', 'testro' ),
-							'modern' => __( 'Lower Release Risk', 'testro' ),
-						),
-					),
-				),
-
-				/* 6. How theTestRo Automates Integration Testing ----------- */
-				array(
-					'type'    => 'lifecycle',
-					'id'      => 'how-integration-testing-works',
-					'eyebrow' => __( 'How It Works', 'testro' ),
-					'title'   => __( 'How theTestRo Automates Integration Testing', 'testro' ),
-					'intro'   => __( 'Identify connections, define scenarios, generate AI-powered tests, execute in CI/CD, validate business rules, and expand coverage with continuous insights.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'scan-eye',
-							'title'       => __( 'Identify Integration Points', 'testro' ),
-							'description' => __( 'Automatically identify systems and workflows that require validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Define Test Scenarios & Test Data', 'testro' ),
-							'description' => __( 'Create reusable scenarios with intelligent data management.', 'testro' ),
+							'icon'        => 'wand',
+							'title'       => __( 'Self-Healing Across Integration Points', 'testro' ),
+							'description' => __( 'A UI shift or a small API change doesn\'t have to break the whole test.', 'testro' ),
 						),
 						array(
 							'icon'        => 'sparkles',
-							'title'       => __( 'Generate AI-Powered Integration Tests', 'testro' ),
-							'description' => __( 'Use AI to build scalable integration automation.', 'testro' ),
+							'title'       => __( 'AI-Assisted Test Generation', 'testro' ),
+							'description' => __( 'Describe a flow. Get a working test back. No hand-writing every step.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Execute Tests in CI/CD Pipelines', 'testro' ),
-							'description' => __( 'Run integration tests automatically after every build or deployment.', 'testro' ),
+							'icon'        => 'filter-check',
+							'title'       => __( 'Fewer False Failures', 'testro' ),
+							'description' => __( 'Less time chasing a test that broke for the wrong reason. More time on real coverage.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'AI integration testing should mean this: checks that still work, even when the systems below keep changing.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'build-integration-tests-fast',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Build Integration Tests Fast, No Code Required', 'testro' ),
+					'intro'         => __( 'From Flow to Working Test in Minutes', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'Describe a scenario. theTestRo builds the steps for you.', 'testro' ),
 						),
 						array(
-							'icon'        => 'circle-check',
-							'title'       => __( 'Validate Responses & Business Rules', 'testro' ),
-							'description' => __( 'Verify responses, business logic, and data consistency.', 'testro' ),
+							'icon'        => 'puzzle',
+							'title'       => __( 'Reusable Components', 'testro' ),
+							'description' => __( 'Common flows like login or data setup become blocks you reuse.', 'testro' ),
 						),
 						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Monitor Results & Expand Test Coverage', 'testro' ),
-							'description' => __( 'Use AI insights to continuously improve testing effectiveness.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'Any Skill Level Can Contribute', 'testro' ),
+							'description' => __( 'QA staff with little API knowledge can still build real coverage.', 'testro' ),
 						),
 					),
 				),
 
-				/* 7. Integration ecosystem architecture -------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'integration-ecosystem-hub',
-					'eyebrow' => __( 'Integration Ecosystem', 'testro' ),
-					'title'   => __( 'One Hub Across APIs, Data, Microservices, and Enterprise Systems', 'testro' ),
-					'intro'   => __( 'Validate the full integration map—APIs, databases, microservices, ERP/CRM platforms, payments, and authentication—through one AI-powered Integration Testing Platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'plug',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Integration Hub', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'manual-vs-automated-integration-testing',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Manual Integration Checks vs. Automated Integration Testing', 'testro' ),
+					'intro'         => __( 'What Actually Changes When You Automate', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'APIs', 'testro' ),
-							'description' => __( 'Exercise REST, SOAP, GraphQL, and enterprise API contracts on every change.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'Manual checks mean doing the same steps by hand, every time. Automated tests run on demand, right inside CI/CD.', 'testro' ),
 						),
 						array(
-							'icon'        => 'database',
-							'title'       => __( 'Databases', 'testro' ),
-							'description' => __( 'Confirm transactions, data integrity, and persistence across connected services.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Microservices', 'testro' ),
-							'description' => __( 'Prove distributed service communication stays reliable under release pressure.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'Manual results shift with who\'s testing and how much time they have. Automated tests run the same way, every run.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'ERP / CRM', 'testro' ),
-							'description' => __( 'Validate enterprise application integrations that power critical business workflows.', 'testro' ),
+							'title'       => __( 'Coverage', 'testro' ),
+							'description' => __( 'Manual testing is limited by time and people. Automation covers more flows and links. No extra headcount needed.', 'testro' ),
 						),
 						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Payments', 'testro' ),
-							'description' => __( 'Protect payment gateway paths and financial handoffs with Automated Integration Testing.', 'testro' ),
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Teamwork', 'testro' ),
+							'description' => __( 'Manual findings often live scattered across tickets and docs. Automated results stay tied to the test that made them.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A manual process that works at a small scale often breaks down as a system grows. It can add more services, more external links, or more weekly releases.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-to-automate-integration-testing',
+					'title'         => __( 'How to Automate Integration Testing', 'testro' ),
+					'intro'         => __( 'From First Test to Full Coverage in Five Steps', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'target',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Identify Integration Points', 'testro' ),
+							'description' => __( 'List the key handoffs between modules, APIs, databases, and outside services.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Authentication', 'testro' ),
-							'description' => __( 'Verify SSO, identity providers, and secure access across system boundaries.', 'testro' ),
+							'icon'        => 'file-text',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Define Scenarios and Data', 'testro' ),
+							'description' => __( 'Write scenarios that mirror real workflows. Prepare stable, reusable data for each path.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Build the Tests', 'testro' ),
+							'description' => __( 'Create tests that check requests, responses, and real outcomes. Not just a status code.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run in CI/CD', 'testro' ),
+							'description' => __( 'Trigger tests on every commit or deploy. Failures show up while they\'re still cheap to fix.', 'testro' ),
+						),
+						array(
+							'icon'        => 'trending-up',
+							'stage'       => __( 'Step 5', 'testro' ),
+							'title'       => __( 'Monitor and Expand Coverage', 'testro' ),
+							'description' => __( 'Review failures, update tests as things change, and grow coverage sprint over sprint.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted By', 'testro' ),
-					'title'   => __( 'Chosen by Teams Automating Integration Testing at Scale', 'testro' ),
-					'intro'   => __( 'QA, SDET, DevOps, and engineering leaders rely on theTestRo to validate APIs, microservices, databases, and third-party systems with continuous AI-powered Integration Testing.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'integration-testing-best-practices',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Integration Testing Best Practices', 'testro' ),
+					'intro'         => __( 'What Separates a Reliable Suite From a Fragile One', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Prioritize High-Risk Connections First', 'testro' ),
+							'description' => __( 'Test the links that touch revenue or compliance before the low-stakes ones.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Test Failure Paths, Not Just Success', 'testro' ),
+							'description' => __( 'Timeouts, retries, and bad input matter as much as the smooth path.', 'testro' ),
+						),
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'Keep Test Data Stable', 'testro' ),
+							'description' => __( 'A flaky integration test is often a data problem. Not a code problem.', 'testro' ),
+						),
+						array(
+							'icon'        => 'server',
+							'title'       => __( 'Isolate Outside Dependencies When Needed', 'testro' ),
+							'description' => __( 'Mock a third-party service when its own hiccups shouldn\'t block your pipeline.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Review and Retire Old Tests', 'testro' ),
+							'description' => __( 'A test tied to a connection that no longer exists just adds noise.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Integration testing best practices come down to testing real handoffs, under real conditions. Without letting the suite grow out of control.', 'testro' ),
 				),
 
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'How Teams Ship Reliable Integrations Faster', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo AI Integration Testing to cut maintenance, expand API and microservices coverage, embed Automated Integration Testing in CI/CD, and release connected systems with confidence.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'what-makes-the-best-integration-testing-framework',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'What Makes the Best Integration Testing Framework', 'testro' ),
+					'intro'         => __( 'What to Actually Look For', 'testro' ),
+					'intro_extra'   => __( 'Plenty of tools claim to handle integration testing. Not all of them do it the same way.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'Coverage Across Layers', 'testro' ),
+							'description' => __( 'The best integration testing framework covers UI, API, and data as one. Not just a single layer.', 'testro' ),
+						),
+						array(
+							'icon'        => 'clock',
+							'title'       => __( 'Low Setup Cost', 'testro' ),
+							'description' => __( 'A framework that takes weeks to set up delays the coverage you need.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Built-In Stability', 'testro' ),
+							'description' => __( 'Self-healing and smart waits matter more here than almost anywhere. Integration points change a lot.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Real CI/CD Fit', 'testro' ),
+							'description' => __( 'A framework that doesn\'t plug into your pipeline cleanly turns into a step nobody remembers to run.', 'testro' ),
+						),
+					),
 				),
 
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Integration Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'ai-powered-integration-testing',
+					'type'          => 'feature-grid',
+					'id'            => 'cicd-integration-built-in',
+					'title'         => __( 'CI/CD Integration Built In', 'testro' ),
+					'intro'         => __( 'Integration Tests That Run on Every Build', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jenkins, GitHub Actions, GitLab, and Azure DevOps. A commit or pull request can start the right tests on its own. Code review catches a broken link between services. Not in production.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(),
 				),
 
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-ai-powered-integration-testing',
-					'title'      => __( 'Validate Every System Connection with AI-Powered Integration Testing', 'testro' ),
-					'intro'      => __( 'Ensure your applications, APIs, databases, and enterprise systems work together seamlessly with theTestRo\'s AI-powered Integration Testing Platform. Automate integration validation, accelerate DevOps pipelines, reduce maintenance, and deliver reliable software with confidence.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-integration-testing-at-scale',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise Integration Testing at Scale', 'testro' ),
+					'intro'         => __( 'Built for Systems With Many Moving Parts', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Parallel Execution', 'testro' ),
+							'description' => __( 'Run tests across thousands of scenarios. No hours-long wait for results.', 'testro' ),
+						),
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Cross-Team Visibility', 'testro' ),
+							'description' => __( 'Give every team touching a shared service the same view of health.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Audit-Ready Records', 'testro' ),
+							'description' => __( 'Clear links between requirements, tests, and results back up compliance reviews. No extra work needed.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Enterprise integration testing has to hold up across dozens of services and teams at once. Not just a single app.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-integration-testing',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for Integration Testing', 'testro' ),
+					'intro'         => __( 'Built for Every Role That Touches a Connected System', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Engineers', 'testro' ),
+							'description' => __( 'Build integration coverage without needing deep script skills for every API. This is integration test automation built for QA teams, not just developers.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Backend Developers', 'testro' ),
+							'description' => __( 'Confirm a new endpoint plays well with the rest of the system before it ships.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'DevOps Teams', 'testro' ),
+							'description' => __( 'Trigger integration tests on their own as part of the pipeline. Results gate risky deployments.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Engineering Managers', 'testro' ),
+							'description' => __( 'Get a clear view of integration health across services. Not just one team\'s suite.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'ai-powered-integration-testing',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-automating-integration-testing',
+					'title'         => __( 'Start Automating Integration Testing Today', 'testro' ),
+					'intro'         => __( 'Verify the Handoffs That Actually Break Things', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo. Catch broken connections early. Before they reach production.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -8516,448 +7257,396 @@ function testro_get_product_pages() {
 			'slug'  => 'retail-ecommerce',
 			'title' => __( 'Retail & E-commerce', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'Retail Testing | E-commerce Test Automation | AI Retail Testing | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered retail and e-commerce testing for storefronts, checkout, payments, POS, OMS/WMS, and omnichannel journeys. Automate retail software testing with continuous quality engineering from theTestRo.', 'testro' ),
+				'title'       => __( 'Automated Testing Tool for Retail & E-commerce Industry', 'testro' ),
+				'description' => __( 'Automate retail and e-commerce testing across web, mobile, APIs, POS systems, and self-checkout kiosks to deliver seamless digital shopping experiences.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Retail & E-commerce Testing', 'testro' ),
-				'title'    => __( 'Automated Testing Tool for Retail & E-commerce Industry', 'testro' ),
-				'subtitle' => __( 'Deliver flawless shopping experiences with theTestRo\'s AI-powered Retail & E-commerce Testing Platform. Automate testing across websites, mobile commerce apps, APIs, payment gateways, POS systems, and enterprise retail applications. Ensure every customer journey performs seamlessly while accelerating digital commerce releases with intelligent automation and continuous quality engineering.', 'testro' ),
-				'badges'   => array(
-					__( 'Omnichannel Coverage', 'testro' ),
-					__( 'Checkout Reliability', 'testro' ),
-					__( 'AI Self-Healing', 'testro' ),
-					__( 'Peak-Season Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'          => __( 'Automated Testing Tool for Retail & E-commerce Industry', 'testro' ),
+				'subtitle'       => __( 'theTestRo is an automated testing tool for the retail and e-commerce industry. Cover search, cart, checkout, and returns. Test across web, mobile, and in-store systems.', 'testro' ),
+				'subtitle_extra' => __( 'Ship faster, even during your busiest sale of the year. This is retail and e-commerce testing built for the speed at which your catalog actually changes.', 'testro' ),
+				'actions'        => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster commerce releases', 'testro' ),
-						'icon'  => 'rocket',
-					),
-					array(
-						'value' => '99.2%',
-						'label' => __( 'Checkout pass rate', 'testro' ),
-						'icon'  => 'badge-check',
-					),
-					array(
-						'value' => '8+',
-						'label' => __( 'Journey stages covered', 'testro' ),
-						'icon'  => 'infinity',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Why choose ---------------------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'why-retail-teams-choose',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Why Retail & E-commerce Teams Choose theTestRo', 'testro' ),
-					'title'   => __( 'Built for Digital Commerce Quality at Speed', 'testro' ),
-					'intro'   => __( 'Retail and e-commerce teams rely on theTestRo to ship promotions faster, keep every channel consistent, and sustain quality with AI-powered continuous testing.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-challenges-in-retail-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'The Real Challenges in Retail Testing', 'testro' ),
+					'intro'         => __( 'Why Retail QA Is Harder Than It Looks', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate Digital Commerce Releases', 'testro' ),
-							'description' => __( 'Release new features, promotions, and storefront updates faster with intelligent automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Deliver Consistent Omnichannel Experiences', 'testro' ),
-							'description' => __( 'Ensure customers enjoy seamless shopping experiences across web, mobile, POS, and in-store systems.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'AI-Driven Quality Engineering', 'testro' ),
-							'description' => __( 'Leverage AI-powered automation to improve quality while reducing manual testing effort.', 'testro' ),
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Traffic Spikes Break Checkout', 'testro' ),
+							'description' => __( 'One bottleneck during a big sale sends carts straight to abandonment.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
-							'title'       => __( 'Continuous Testing Across Retail Applications', 'testro' ),
-							'description' => __( 'Continuously validate every customer touchpoint throughout the software delivery lifecycle.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. Challenges → solutions ---------------------------------- */
-				array(
-					'type'    => 'comparison',
-					'id'      => 'retail-challenges-solutions',
-					'eyebrow' => __( 'Retail & E-commerce Testing Challenges', 'testro' ),
-					'title'   => __( 'From Commerce Friction to AI-Powered Confidence', 'testro' ),
-					'intro'   => __( 'Modern retail platforms change constantly—catalogs, promotions, checkout, and omnichannel journeys all need continuous validation. theTestRo turns those challenges into automated, self-healing coverage.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Retail Challenges', 'testro' ),
-						'note'  => __( 'Where quality breaks under release pressure', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'How theTestRo Solves Them', 'testro' ),
-						'note'  => __( 'AI automation built for commerce', 'testro' ),
-					),
-					'rows'    => array(
-						array(
-							'aspect' => __( 'Frequent Product & Feature Releases', 'testro' ),
-							'legacy' => __( 'Rapid releases require continuous validation without slowing delivery.', 'testro' ),
-							'modern' => __( 'Continuous AI automation validates every release without blocking commerce velocity.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Dynamic UI & Catalog Changes', 'testro' ),
-							'legacy' => __( 'Product catalogs and storefronts change faster than scripts can keep up.', 'testro' ),
-							'modern' => __( 'Self-healing locators adapt automatically as catalogs and storefront UIs evolve.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Omnichannel Customer Journeys', 'testro' ),
-							'legacy' => __( 'Shoppers bounce between web, mobile, POS, and in-store systems.', 'testro' ),
-							'modern' => __( 'Unified suites cover every digital and physical channel in one customer journey.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Payment & Checkout Reliability', 'testro' ),
-							'legacy' => __( 'Checkout failures directly impact revenue and brand trust.', 'testro' ),
-							'modern' => __( 'End-to-end checkout and payment gateway tests catch issues before shoppers do.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Cross-Browser & Cross-Device Compatibility', 'testro' ),
-							'legacy' => __( 'Inconsistent experiences across browsers and devices erode conversion.', 'testro' ),
-							'modern' => __( 'Parallel cloud execution validates major browsers, OS targets, and devices at scale.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Peak Traffic & Seasonal Sales Readiness', 'testro' ),
-							'legacy' => __( 'Holiday and promo peaks expose performance and regression risk.', 'testro' ),
-							'modern' => __( 'Performance and regression suites harden apps for seasonal demand and flash sales.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. What you can test --------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'what-you-can-test-retail',
-					'eyebrow' => __( 'What You Can Test with theTestRo', 'testro' ),
-					'title'   => __( 'One AI Platform Across the Retail Technology Stack', 'testro' ),
-					'intro'   => __( 'Automate testing across every customer-facing and backend retail system using one unified AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Retail Quality Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Platforms — validate core retail web apps and admin experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'APIs', 'testro' ),
-							'description' => __( 'Platforms — exercise commerce, inventory, and payment APIs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'POS Systems', 'testro' ),
-							'description' => __( 'Platforms — cover in-store point-of-sale and associate workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'retail',
-							'title'       => __( 'E-commerce Websites', 'testro' ),
-							'description' => __( 'Retail apps — storefront, catalog, and promotion experiences.', 'testro' ),
+							'title'       => __( 'Catalog Changes Break Tests', 'testro' ),
+							'description' => __( 'Prices, promotions, and layouts shift constantly. Test upkeep eats more time than real testing.', 'testro' ),
 						),
 						array(
 							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Commerce Apps', 'testro' ),
-							'description' => __( 'Retail apps — Android and iOS shopping journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Customer Portals', 'testro' ),
-							'description' => __( 'Retail apps — accounts, orders, and self-service portals.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Order Management Systems (OMS)', 'testro' ),
-							'description' => __( 'Operations — validate order capture, routing, and fulfillment states.', 'testro' ),
-						),
-						array(
-							'icon'        => 'package',
-							'title'       => __( 'Warehouse Management Systems (WMS)', 'testro' ),
-							'description' => __( 'Operations — verify warehouse and fulfillment system flows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Inventory Management Systems', 'testro' ),
-							'description' => __( 'Operations — keep stock, availability, and sync logic reliable.', 'testro' ),
-						),
-						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'CRM & ERP Applications', 'testro' ),
-							'description' => __( 'Enterprise — connect customer and back-office system quality.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Payment Gateways', 'testro' ),
-							'description' => __( 'Enterprise — secure payment authorization and settlement paths.', 'testro' ),
+							'title'       => __( 'Device Fragmentation Hides Bugs', 'testro' ),
+							'description' => __( 'Shoppers use hundreds of device and browser combos. Thin coverage means bugs slip through.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Retail test automation has to handle all three. Not just one. A tool built for one problem and not the others leaves real gaps in coverage.', 'testro' ),
 				),
 
-				/* 4. AI capabilities (bento) --------------------------------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'retail-ai-capabilities',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Testing Capabilities', 'testro' ),
-					'title'   => __( 'Intelligent Automation Built for Commerce Journeys', 'testro' ),
-					'intro'   => __( 'Cover the full retail quality stack—from storefront and mobile commerce to APIs, regression, and peak-season performance—with AI-assisted automation.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Test Automation', 'testro' ),
-							'description' => __( 'Validate modern e-commerce websites with intelligent automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Test Automation', 'testro' ),
-							'description' => __( 'Ensure consistent shopping experiences across Android and iOS.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Verify APIs powering payments, inventory, customer accounts, and order processing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'End-to-End Testing', 'testro' ),
-							'description' => __( 'Automate complete shopping journeys from login to checkout.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'test-every-customer-touchpoint',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Test Every Customer Touchpoint', 'testro' ),
+					'intro'         => __( 'One Platform for Every Channel', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Validate consistent user experiences across all major browsers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Regression Testing', 'testro' ),
-							'description' => __( 'Prevent new releases from impacting existing functionality.', 'testro' ),
-						),
-						array(
-							'icon'        => 'gauge',
-							'title'       => __( 'Performance Testing', 'testro' ),
-							'description' => __( 'Evaluate application performance during peak traffic and seasonal events.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. End-to-end workflows (lifecycle) ------------------------ */
-				array(
-					'type'      => 'lifecycle',
-					'id'        => 'retail-customer-journeys',
-					'eyebrow'   => __( 'Validate End-to-End Retail Workflows', 'testro' ),
-					'title'     => __( 'Automate the Complete Omnichannel Customer Journey', 'testro' ),
-					'intro'     => __( 'From registration through loyalty, cover every revenue-critical step shoppers take—so promotions, checkout, fulfillment, and returns stay reliable release after release.', 'testro' ),
-					'loop_note' => __( 'Every journey stage feeds the next — continuous retail quality compounds with each release.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Customer Registration & Login', 'testro' ),
-							'description' => __( 'Ensure secure account creation and authentication.', 'testro' ),
-						),
-						array(
-							'icon'        => 'scan-eye',
-							'title'       => __( 'Product Search & Catalog Validation', 'testro' ),
-							'description' => __( 'Validate search functionality, filters, and dynamic catalogs.', 'testro' ),
+							'title'       => __( 'Web and Mobile Together', 'testro' ),
+							'description' => __( 'Cover your storefront and app from one platform. Not separate tools for each.', 'testro' ),
 						),
 						array(
 							'icon'        => 'retail',
-							'title'       => __( 'Shopping Cart', 'testro' ),
-							'description' => __( 'Verify pricing, promotions, and cart management.', 'testro' ),
+							'title'       => __( 'POS and Kiosk Testing', 'testro' ),
+							'description' => __( 'Check in-store checkout systems and self-service kiosks alongside your digital channels.', 'testro' ),
 						),
 						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Checkout & Payment Processing', 'testro' ),
-							'description' => __( 'Ensure reliable and secure checkout experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Order Management', 'testro' ),
-							'description' => __( 'Validate complete order processing workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'package',
-							'title'       => __( 'Shipping & Delivery Tracking', 'testro' ),
-							'description' => __( 'Verify shipment tracking and delivery updates.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Returns & Refunds', 'testro' ),
-							'description' => __( 'Test return workflows and refund processing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Loyalty Programs & Promotions', 'testro' ),
-							'description' => __( 'Validate reward points, coupons, offers, and promotional campaigns.', 'testro' ),
+							'icon'        => 'layers-api',
+							'title'       => __( 'API and Backend Sync', 'testro' ),
+							'description' => __( 'Confirm inventory, pricing, and order systems stay in sync with what customers see.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This is real omnichannel retail testing. Every touchpoint, one place to manage it all.', 'testro' ),
 				),
 
-				/* 6. Continuous QE (pipeline) -------------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'retail-continuous-qe',
-					'eyebrow' => __( 'Continuous Quality Engineering', 'testro' ),
-					'title'   => __( 'AI → Generate → Execute → Analyze → Self-Heal → Optimize', 'testro' ),
-					'intro'   => __( 'Keep retail quality continuous across every release with an AI-powered workflow that creates tests, runs them in parallel, analyzes results, heals broken automation, and feeds insights back into delivery.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'how-retail-teams-get-started',
+					'columns'       => 4,
+					'title'         => __( 'How Retail Teams Get Started', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'wand',
-							'stage'       => __( 'Generate', 'testro' ),
-							'title'       => __( 'AI Test Creation', 'testro' ),
-							'description' => __( 'Automatically generate intelligent retail test scenarios.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'Execute', 'testro' ),
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Execute thousands of retail test cases simultaneously.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'stage'       => __( 'Analyze', 'testro' ),
-							'title'       => __( 'Intelligent Test Analytics', 'testro' ),
-							'description' => __( 'Gain actionable insights through AI-powered reporting and analytics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'stage'       => __( 'Self-Heal', 'testro' ),
-							'title'       => __( 'Self-Healing Automation', 'testro' ),
-							'description' => __( 'Adapt to UI changes without manual maintenance.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'Optimize', 'testro' ),
-							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Integrate continuous testing into every software release.', 'testro' ),
-						),
-					),
-				),
-
-				/* 7. Enterprise outcomes ------------------------------------- */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'retail-enterprise-outcomes',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Enterprise Retail Outcomes', 'testro' ),
-					'title'   => __( 'Measurable Impact on Commerce Quality and Speed', 'testro' ),
-					'intro'   => __( 'Retail organizations use theTestRo to ship faster, protect checkout revenue, expand automation coverage, and lower maintenance cost with AI.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster Release Cycles', 'testro' ),
-							'description' => __( 'Accelerate digital commerce innovation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Reduced Production Defects', 'testro' ),
-							'description' => __( 'Catch issues before they impact customers.', 'testro' ),
+							'icon'        => 'plug',
+							'title'       => __( 'Connect Your Storefront', 'testro' ),
+							'description' => __( 'Point theTestRo at your web, mobile, or in-store systems.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
-							'title'       => __( 'Higher Test Coverage', 'testro' ),
-							'description' => __( 'Increase confidence through comprehensive automation.', 'testro' ),
+							'title'       => __( 'Build Core Flows First', 'testro' ),
+							'description' => __( 'Start with search, cart, and checkout. The paths that drive the most revenue.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Layer in Edge Cases', 'testro' ),
+							'description' => __( 'Add coupon logic, returns, and BOPIS flows as coverage grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Run Before Every Release', 'testro' ),
+							'description' => __( 'Trigger a full suite on its own before code ships. Sale season or not.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'comparison',
+					'id'            => 'manual-qa-vs-retail-test-automation',
+					'title'         => __( 'Manual QA vs. Retail Test Automation', 'testro' ),
+					'intro'         => __( 'What Changes When Testing Scales With Your Catalog', 'testro' ),
+					'heading_level' => 3,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Manual Retail QA', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'theTestRo Retail Test Automation', 'testro' ),
+					),
+					'rows'          => array(
+						array(
+							'aspect' => __( 'Catalog updates', 'testro' ),
+							'legacy' => __( 'Re-test by hand, every time', 'testro' ),
+							'modern' => __( 'Self-healing tests adapt on their own', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Peak sale readiness', 'testro' ),
+							'legacy' => __( 'Rushed, last-minute checks', 'testro' ),
+							'modern' => __( 'Full regression, run in advance', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Who can test', 'testro' ),
+							'legacy' => __( 'QA team only', 'testro' ),
+							'modern' => __( 'QA plus merchandisers and PMs', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Device coverage', 'testro' ),
+							'legacy' => __( 'Limited to what\'s on hand', 'testro' ),
+							'modern' => __( 'Real devices, thousands of combos', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Omnichannel checks', 'testro' ),
+							'legacy' => __( 'Separate process per channel', 'testro' ),
+							'modern' => __( 'One platform, every touchpoint', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'build-tests-in-plain-english',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Build Tests in Plain English, No Code Needed', 'testro' ),
+					'intro'         => __( 'Let Your Whole Team Contribute to Quality', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'Merchandisers and product managers can build a test with no script needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'sparkles',
+							'title'       => __( 'AI-Assisted Test Generation', 'testro' ),
+							'description' => __( 'Describe a flow, like "add an item to cart and apply a coupon." Get a working test back.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA Stays in Control', 'testro' ),
+							'description' => __( 'Non-technical people add coverage. QA reviews and owns quality overall.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'self-healing-tests-dynamic-storefronts',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Self-Healing Tests for Dynamic Storefronts', 'testro' ),
+					'intro'         => __( 'Tests That Keep Up With Every Catalog Update', 'testro' ),
+					'intro_extra'   => __( 'E-commerce sites change all the time. New banners, new product pages, seasonal layouts.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Automatic Locator Updates', 'testro' ),
+							'description' => __( 'Tests adjust on their own when your storefront\'s UI shifts.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wrench',
+							'title'       => __( 'Fewer Broken Tests After Every Release', 'testro' ),
+							'description' => __( 'Your team spends less time fixing tests. More time finding real bugs.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
-							'title'       => __( 'Improved Customer Experience', 'testro' ),
-							'description' => __( 'Deliver consistent shopping experiences across every channel.', 'testro' ),
+							'title'       => __( 'Stable Coverage Through Every Redesign', 'testro' ),
+							'description' => __( 'A new homepage layout doesn\'t mean rebuilding your whole suite.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-device-and-cross-browser',
+					'columns'       => 3,
+					'title'         => __( 'Real Device and Cross-Browser Coverage', 'testro' ),
+					'intro'         => __( 'Test the Devices Your Shoppers Actually Use', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Real Devices, Not Emulators', 'testro' ),
+							'description' => __( 'Check performance and UI on real hardware. Not a simulated guess.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Thousands of Browser and OS Combos', 'testro' ),
+							'description' => __( 'Cover the full spread of devices your traffic data shows people using. This is retail software testing built around real usage, not guesswork.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Network Condition Testing', 'testro' ),
+							'description' => __( 'See how your storefront runs on a slow connection, not just fast office Wi-Fi.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'built-for-peak-sale-events',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Built for Peak Sale Events', 'testro' ),
+					'intro'         => __( 'Ready Before Black Friday, Not During It', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Full Regression Before Big Sale Days', 'testro' ),
+							'description' => __( 'Run a complete test suite fast, ahead of high-traffic events.', 'testro' ),
 						),
 						array(
 							'icon'        => 'coins',
-							'title'       => __( 'Lower Test Maintenance Costs', 'testro' ),
-							'description' => __( 'Reduce manual effort using AI-powered automation.', 'testro' ),
+							'title'       => __( 'Promo and Coupon Logic Validation', 'testro' ),
+							'description' => __( 'Confirm discount codes and pricing rules calculate right under load.', 'testro' ),
+						),
+						array(
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Checkout Flow Stress Points', 'testro' ),
+							'description' => __( 'Catch payment and cart issues before a flash sale exposes them to real shoppers.', 'testro' ),
 						),
 					),
 				),
 
-				/* 8. Trust logos --------------------------------------------- */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Digital Commerce Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Retail and e-commerce organizations rely on theTestRo to protect storefront quality and accelerate online releases.', 'testro' ),
-				),
-
-				/* 9. Customer success ---------------------------------------- */
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Retail Teams Shipping Better Shopping Experiences', 'testro' ),
-					'intro'   => __( 'See how organizations accelerate online releases, improve shopping experiences, reduce checkout issues, increase automation coverage, and raise software quality with theTestRo.', 'testro' ),
-				),
-
-				/* 10. Integrations ------------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'retail-integrations',
-					'eyebrow' => __( 'Supported Integrations', 'testro' ),
-					'title'   => __( 'Connect Retail Quality into Your DevOps Ecosystem', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your existing DevOps, collaboration, and project management tools to automate retail software quality throughout the delivery lifecycle.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'core-retail-ecommerce-scenarios',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Core Retail and E-commerce Test Scenarios', 'testro' ),
+					'intro'         => __( 'What theTestRo Covers Out of the Box', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and retail quality signals to delivery work items.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Search, Filter, and Catalog Browsing', 'testro' ),
+							'description' => __( 'Confirm shoppers can find what they want with no friction.', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous retail suites inside Jenkins pipelines.', 'testro' ),
+							'icon'        => 'package',
+							'title'       => __( 'Cart, Wishlist, and Checkout', 'testro' ),
+							'description' => __( 'Check the full purchase path, from product page to a confirmed order.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger commerce regression on every pull request and release.', 'testro' ),
+							'icon'        => 'coins',
+							'title'       => __( 'Coupons and Promotions', 'testro' ),
+							'description' => __( 'Test discount logic. Pricing stays accurate at checkout, every time.', 'testro' ),
 						),
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed quality gates into Azure boards and release pipelines.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Order Tracking, Returns, and Refunds', 'testro' ),
+							'description' => __( 'Check that post-purchase flows work smoothly, from request to resolution.', 'testro' ),
 						),
 						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when checkout or journey suites fail.', 'testro' ),
+							'icon'        => 'map-pin',
+							'title'       => __( 'BOPIS and Curbside Pickup', 'testro' ),
+							'description' => __( 'Test buy-online-pickup-in-store flows and real-time inventory across channels.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'This is real e-commerce website testing. Covering the full purchase journey, not just the homepage.', 'testro' ),
 				),
 
-				/* 11. FAQ ---------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Retail & E-commerce FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'retail-ecommerce',
+					'type'          => 'feature-grid',
+					'id'            => 'visual-regression-promotions',
+					'columns'       => 3,
+					'title'         => __( 'Visual Regression for Promotions and Layouts', 'testro' ),
+					'intro'         => __( 'Catch Broken Layouts Before Customers Do', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Automated Visual Checks', 'testro' ),
+							'description' => __( 'Spot layout shifts and broken banners on every deployment.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Smart Change Detection', 'testro' ),
+							'description' => __( 'Tell a real bug apart from an intentional promo update. No chasing false alarms.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Design File Comparison', 'testro' ),
+							'description' => __( 'Check live pages against your Figma files to catch drift you didn\'t mean to ship.', 'testro' ),
+						),
+					),
 				),
 
-				/* 12. Final CTA ---------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-retail-ecommerce',
-					'title'      => __( 'Deliver Exceptional Shopping Experiences with AI-Powered Retail Testing', 'testro' ),
-					'intro'      => __( 'Accelerate digital commerce innovation with theTestRo\'s AI-powered Retail & E-commerce Testing Platform. Automate customer journeys, validate critical retail workflows, reduce production risks, and deliver seamless omnichannel experiences with enterprise-grade intelligent automation.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'fits-existing-workflow',
+					'variant'       => 'spotlight',
+					'title'         => __( 'Fits Into Your Existing Workflow', 'testro' ),
+					'intro'         => __( 'No New Process to Learn', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with the tools retail teams already use. Jenkins, GitHub Actions, Jira, and Slack, among others. Every build gets tested on its own. Results land right where your team already looks.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-in-retail',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo in Retail', 'testro' ),
+					'intro'         => __( 'Built for Every Role in Retail QA', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'E-commerce QA Teams', 'testro' ),
+							'description' => __( 'Cover checkout, catalog, and payment flows. No growing backlog of manual tests.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Merchandising and Product Teams', 'testro' ),
+							'description' => __( 'Check new promotions or layout changes without waiting on engineering.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'DevOps and Release Teams', 'testro' ),
+							'description' => __( 'Keep releases on schedule. Even during peak season code freezes.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Enterprise Retail Brands', 'testro' ),
+							'description' => __( 'Manage testing across multiple brands, regions, or storefronts from one platform.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Whatever your role, retail application testing works best when the whole team can pitch in. Not just a handful of automation engineers. A merchandiser who spots a broken promo banner can flag it the same day, instead of waiting for the next QA sprint to catch it.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'retail-ecommerce',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-testing-retail-experience',
+					'title'         => __( 'Start Testing Your Retail Experience Today', 'testro' ),
+					'intro'         => __( 'Ship Faster, Even During Your Busiest Season', 'testro' ),
+					'body'          => __( 'Join retail and e-commerce teams already using theTestRo to catch bugs early and keep checkout running. No matter how big the sale.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -8967,1237 +7656,660 @@ function testro_get_product_pages() {
 			'slug'  => 'healthcare',
 			'title' => __( 'Healthcare', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'Healthcare Software Testing | AI Healthcare Test Automation | EHR Testing | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Healthcare Software Testing and Healthcare Test Automation for EHR Testing, clinical workflows, patient portals, and APIs. Accelerate Healthcare Quality Engineering with AI Testing for Healthcare and Healthcare Automation Testing from theTestRo.', 'testro' ),
+				'title'       => __( 'AI Testing Automation for Modern Healthcare Industry', 'testro' ),
+				'description' => __( 'Deliver reliable digital healthcare experiences with AI test automation for healthcare applications, APIs, patient portals, and enterprise healthcare systems.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Healthcare Testing Solutions', 'testro' ),
-				'title'    => __( 'AI Testing Automation for Healthcare Industry', 'testro' ),
-				'subtitle' => __( 'Deliver reliable, secure, and compliant healthcare software with theTestRo\'s AI-powered Healthcare Testing Platform. Automate testing across EHR systems, patient portals, telemedicine platforms, APIs, and enterprise healthcare applications while accelerating digital healthcare innovation through intelligent automation and continuous quality engineering.', 'testro' ),
-				'badges'   => array(
-					__( 'HIPAA-Ready Testing', 'testro' ),
-					__( 'EHR & FHIR Coverage', 'testro' ),
-					__( 'AI Self-Healing', 'testro' ),
-					__( 'Clinical Workflow QA', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'          => __( 'AI Testing Automation for Healthcare Industry', 'testro' ),
+				'subtitle'       => __( 'theTestRo brings AI testing automation to the healthcare industry, built for systems where a bug isn\'t just an inconvenience, it can delay care.', 'testro' ),
+				'subtitle_extra' => __( 'Test EHR and EMR workflows, patient portals, telehealth apps, and clinical APIs from one platform, with compliance built in from day one, not bolted on after. This is AI testing automation for healthcare industry teams who can\'t afford to guess.', 'testro' ),
+				'actions'        => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster clinical releases', 'testro' ),
-						'icon'  => 'rocket',
-					),
-					array(
-						'value' => '99.4%',
-						'label' => __( 'Workflow pass rate', 'testro' ),
-						'icon'  => 'badge-check',
-					),
-					array(
-						'value' => '70%',
-						'label' => __( 'Lower test maintenance', 'testro' ),
-						'icon'  => 'heart-pulse',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Modernize Healthcare QE --------------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'modernize-healthcare-qe',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Modernize Healthcare Quality Engineering', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Clinical Software at Scale', 'testro' ),
-					'intro'   => __( 'Healthcare organizations rely on theTestRo to accelerate digital transformation, protect patient experiences, and sustain regulatory-ready quality with intelligent automation.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate Digital Healthcare Innovation', 'testro' ),
-							'description' => __( 'Release healthcare applications faster without compromising patient safety or software quality.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Deliver Reliable Clinical Experiences', 'testro' ),
-							'description' => __( 'Ensure seamless patient interactions and uninterrupted clinical workflows across every healthcare platform.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Ensure Regulatory-Ready Software Quality', 'testro' ),
-							'description' => __( 'Build confidence with continuous testing that supports healthcare compliance and quality standards.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'why-healthcare-software-is-harder',
+					'variant'       => 'spotlight',
+					'title'         => __( 'Why Healthcare Software Is Harder to Test', 'testro' ),
+					'heading_level' => 2,
+					'paragraphs'    => array(
+						__( 'Healthcare systems carry a weight most other industries don\'t have to think about.', 'testro' ),
+						__( 'Patient data is sensitive. A security gap can mean real harm, not just a bad review. Clinical workflows involve many systems talking to each other.', 'testro' ),
+						__( 'EHR platforms, lab systems, billing, insurance. A broken handoff between any two can delay a diagnosis or a payment. Healthcare teams often run on legacy infrastructure too. That wasn\'t built with modern testing in mind, which makes automation harder to adopt, not easier.', 'testro' ),
+						__( 'This is why generic healthcare software testing tools fall short. Healthcare needs a platform built around these constraints. Not one that treats them as an afterthought, added on once the core product is already built.', 'testro' ),
+						__( 'The teams that get this right start with compliance and stability as first-class requirements, not a checklist item at the end of a sprint.', 'testro' ),
 					),
+					'items'         => array(),
 				),
 
-				/* 2. Challenges → solutions ---------------------------------- */
 				array(
-					'type'    => 'comparison',
-					'id'      => 'healthcare-challenges-solutions',
-					'eyebrow' => __( 'Healthcare Testing Challenges', 'testro' ),
-					'title'   => __( 'From Clinical Risk to AI-Powered Confidence', 'testro' ),
-					'intro'   => __( 'Healthcare platforms evolve constantly—EHR updates, interoperability, and compliance pressures all demand continuous validation. theTestRo turns those challenges into automated, self-healing coverage.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Healthcare Challenges', 'testro' ),
-						'note'  => __( 'Where quality breaks under clinical pressure', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'How theTestRo Solves Them', 'testro' ),
-						'note'  => __( 'AI automation built for healthcare', 'testro' ),
-					),
-					'rows'    => array(
+					'type'          => 'feature-grid',
+					'id'            => 'what-testro-automates',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'What theTestRo Automates', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'aspect' => __( 'Complex Clinical Workflows', 'testro' ),
-							'legacy' => __( 'Intricate patient care processes span multiple systems and roles.', 'testro' ),
-							'modern' => __( 'Validate intricate patient care processes with intelligent end-to-end automation.', 'testro' ),
+							'icon'        => 'folder-tree',
+							'title'       => __( 'EHR and EMR Testing', 'testro' ),
+							'description' => __( 'Automate core flows. Patient registration, order entry, medication management, clinical notes. theTestRo handles tricky logins too. SSO, MFA, Citrix/VDI setups included. Tests don\'t break every time a workflow shifts.', 'testro' ),
 						),
 						array(
-							'aspect' => __( 'Legacy Healthcare Systems', 'testro' ),
-							'legacy' => __( 'Modern apps must integrate reliably with aging healthcare infrastructure.', 'testro' ),
-							'modern' => __( 'Ensure modern applications integrate reliably with existing healthcare infrastructure.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Regulatory & Compliance Requirements', 'testro' ),
-							'legacy' => __( 'Audit trails and quality evidence are hard to sustain under release pressure.', 'testro' ),
-							'modern' => __( 'Support compliance initiatives with automated quality validation and audit-ready reporting.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Patient Data Security', 'testro' ),
-							'legacy' => __( 'Sensitive health data requires careful handling during every test cycle.', 'testro' ),
-							'modern' => __( 'Test healthcare applications while maintaining secure handling of sensitive data.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Interoperability Across Healthcare Systems', 'testro' ),
-							'legacy' => __( 'EHRs, labs, billing, and third-party platforms rarely stay in sync.', 'testro' ),
-							'modern' => __( 'Validate integrations between EHRs, APIs, laboratory systems, billing systems, and third-party healthcare platforms.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Continuous Digital Transformation', 'testro' ),
-							'legacy' => __( 'Continuous delivery must not risk clinical reliability.', 'testro' ),
-							'modern' => __( 'Support continuous software delivery while maintaining clinical reliability.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. What you can test --------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'what-you-can-test-healthcare',
-					'eyebrow' => __( 'Everything You Can Test', 'testro' ),
-					'title'   => __( 'One AI Platform Across the Healthcare Technology Stack', 'testro' ),
-					'intro'   => __( 'Automate testing across every healthcare platform, application, and workflow from one unified AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Healthcare Quality Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Platforms — validate clinical and administrative web experiences.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Patient Portal and Telehealth Testing', 'testro' ),
+							'description' => __( 'Cover the full virtual-care journey. From login, to booking, to a finished visit. Tests stay steady even as portal screens and telehealth flows change release over release.', 'testro' ),
 						),
 						array(
 							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Applications', 'testro' ),
-							'description' => __( 'Platforms — cover Android and iOS healthcare journeys.', 'testro' ),
+							'title'       => __( 'Healthcare Mobile App Testing', 'testro' ),
+							'description' => __( 'Check real patient journeys on iOS and Android. Appointment scheduling, vitals tracking, lab results, medication reminders, push notifications. All tested on real devices.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layers-api',
-							'title'       => __( 'APIs', 'testro' ),
-							'description' => __( 'Platforms — exercise FHIR, HL7, and healthcare service APIs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Enterprise Healthcare Systems', 'testro' ),
-							'description' => __( 'Platforms — cover hospital and health-system back-office stacks.', 'testro' ),
-						),
-						array(
-							'icon'        => 'stethoscope',
-							'title'       => __( 'EHR / EMR Systems', 'testro' ),
-							'description' => __( 'Healthcare apps — core clinical record management workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Patient Portals', 'testro' ),
-							'description' => __( 'Healthcare apps — registration, records, and self-service access.', 'testro' ),
-						),
-						array(
-							'icon'        => 'video',
-							'title'       => __( 'Telemedicine Platforms', 'testro' ),
-							'description' => __( 'Healthcare apps — virtual visit and remote care experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Hospital Management Systems', 'testro' ),
-							'description' => __( 'Healthcare apps — admissions, scheduling, and operations.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Laboratory Information Systems', 'testro' ),
-							'description' => __( 'Healthcare apps — lab orders, results, and reporting flows.', 'testro' ),
+							'title'       => __( 'Healthcare API Testing', 'testro' ),
+							'description' => __( 'Generate and run API tests fast. Check HL7 and FHIR payloads. Confirm clean, accurate data flow between systems. Catch a broken link before it quietly corrupts patient records.', 'testro' ),
 						),
 						array(
 							'icon'        => 'file-text',
-							'title'       => __( 'Medical Billing & Claims', 'testro' ),
-							'description' => __( 'Healthcare apps — insurance verification and claims processing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Automation', 'testro' ),
-							'description' => __( 'Capabilities — generate and heal healthcare suites with AI.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'End-to-End Testing', 'testro' ),
-							'description' => __( 'Capabilities — validate complete patient care journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Regression Testing', 'testro' ),
-							'description' => __( 'Capabilities — protect clinical reliability after every update.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. AI capabilities (bento) --------------------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'healthcare-ai-capabilities',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Healthcare Quality Engineering', 'testro' ),
-					'title'   => __( 'Intelligent Automation Built for Clinical Software', 'testro' ),
-					'intro'   => __( 'Cover the full healthcare quality stack—from EHR and patient portals to APIs, regression, and release readiness—with AI-assisted automation.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Creation', 'testro' ),
-							'description' => __( 'Generate healthcare-specific test cases intelligently using AI.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Self-Healing Automation', 'testro' ),
-							'description' => __( 'Automatically adapt to changing healthcare applications without manual maintenance.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Intelligent Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce maintenance effort through AI-driven automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Continuous Regression Testing', 'testro' ),
-							'description' => __( 'Continuously validate critical healthcare workflows after every update.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Accelerate validation of healthcare applications through enterprise-scale parallel execution.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Clinical workflows (lifecycle) -------------------------- */
-				array(
-					'type'      => 'lifecycle',
-					'id'        => 'healthcare-clinical-workflows',
-					'eyebrow'   => __( 'Validate End-to-End Clinical Workflows', 'testro' ),
-					'title'     => __( 'Automate the Complete Patient Care Journey', 'testro' ),
-					'intro'     => __( 'From registration through discharge, cover every care-critical step patients and clinicians take—so EHR, lab, pharmacy, billing, and telehealth stays reliable release after release.', 'testro' ),
-					'loop_note' => __( 'Every care stage feeds the next — continuous clinical quality compounds with each release.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Patient Registration', 'testro' ),
-							'description' => __( 'Validate patient onboarding workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'calendar-sync',
-							'title'       => __( 'Appointment Scheduling', 'testro' ),
-							'description' => __( 'Ensure scheduling systems function reliably.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Patient Login & Authentication', 'testro' ),
-							'description' => __( 'Verify secure patient authentication.', 'testro' ),
-						),
-						array(
-							'icon'        => 'stethoscope',
-							'title'       => __( 'Electronic Health Record (EHR) Workflows', 'testro' ),
-							'description' => __( 'Test core clinical record management.', 'testro' ),
-						),
-						array(
-							'icon'        => 'file-text',
-							'title'       => __( 'Clinical Documentation', 'testro' ),
-							'description' => __( 'Validate physician documentation workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Laboratory Orders & Results', 'testro' ),
-							'description' => __( 'Ensure accurate lab request and reporting processes.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Prescription Management', 'testro' ),
-							'description' => __( 'Validate medication ordering and pharmacy integration.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Medical Billing & Insurance Claims', 'testro' ),
-							'description' => __( 'Test insurance verification and claims processing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'video',
-							'title'       => __( 'Telehealth Consultations', 'testro' ),
-							'description' => __( 'Ensure virtual healthcare experiences remain reliable.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Patient Discharge Workflows', 'testro' ),
-							'description' => __( 'Validate discharge planning and follow-up processes.', 'testro' ),
-						),
-					),
-				),
-
-				/* 6. Compliance & secure testing ----------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'healthcare-compliance-secure-testing',
-					'variant' => 'spotlight',
-					'columns' => 5,
-					'eyebrow' => __( 'Healthcare Compliance & Secure Testing', 'testro' ),
-					'title'   => __( 'Quality Engineering Aligned with Healthcare Standards', 'testro' ),
-					'intro'   => __( 'Strengthen confidence across privacy, interoperability, access control, and audit readiness while you automate clinical software quality.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'HIPAA-Ready Testing', 'testro' ),
-							'description' => __( 'Support secure testing practices aligned with healthcare privacy requirements.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'HL7 & FHIR Validation', 'testro' ),
-							'description' => __( 'Validate interoperability standards across healthcare systems.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Secure Test Data Management', 'testro' ),
-							'description' => __( 'Protect healthcare data throughout testing activities.', 'testro' ),
-						),
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Role-Based Access Control', 'testro' ),
-							'description' => __( 'Secure access to testing assets and execution environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Audit & Compliance Support', 'testro' ),
-							'description' => __( 'Maintain audit trails and compliance-ready reporting.', 'testro' ),
-						),
-					),
-				),
-
-				/* 7. Continuous healthcare delivery (pipeline) --------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'healthcare-continuous-delivery',
-					'eyebrow' => __( 'Continuous Healthcare Delivery', 'testro' ),
-					'title'   => __( 'Development → CI/CD → Testing → Validation → Release', 'testro' ),
-					'intro'   => __( 'Keep healthcare quality continuous across every release with an AI-powered workflow that integrates into delivery pipelines, validates clinical readiness, and reduces release risk.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Development', 'testro' ),
-							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Integrate automated healthcare testing into continuous delivery pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'Release Validation', 'testro' ),
-							'description' => __( 'Ensure software quality before production deployment.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'stage'       => __( 'Testing', 'testro' ),
-							'title'       => __( 'Regression Automation', 'testro' ),
-							'description' => __( 'Continuously validate healthcare applications with every release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'stage'       => __( 'Validation', 'testro' ),
-							'title'       => __( 'Multi-Environment Testing', 'testro' ),
-							'description' => __( 'Test across development, staging, QA, and production environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release Readiness', 'testro' ),
-							'description' => __( 'Gain confidence before every software deployment.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. Quality intelligence (analytics) ------------------------ */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'healthcare-quality-intelligence',
-					'eyebrow'   => __( 'Healthcare Quality Intelligence', 'testro' ),
-					'title'     => __( 'Turn Clinical Test Results into Release Decisions', 'testro' ),
-					'intro'     => __( 'Monitor AI insights, quality scores, coverage, risk signals, and release readiness from a healthcare-focused analytics experience.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'AI Failure Analysis', 'testro' ),
-							'description' => __( 'Automatically identify the root causes of failed healthcare tests.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Test Analytics', 'testro' ),
-							'description' => __( 'Gain real-time visibility into healthcare software quality.', 'testro' ),
+							'title'       => __( 'Billing and Claims Testing', 'testro' ),
+							'description' => __( 'Automate insurance and claims workflows start to finish. API and database checks confirm billing is accurate.', 'testro' ),
 						),
 						array(
 							'icon'        => 'activity',
-							'title'       => __( 'Release Insights', 'testro' ),
-							'description' => __( 'Understand deployment readiness using AI-powered analytics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Quality Dashboards', 'testro' ),
-							'description' => __( 'Monitor application health through centralized dashboards.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Test Coverage Analysis', 'testro' ),
-							'description' => __( 'Measure testing completeness across healthcare applications.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Clinical release readiness', 'testro' ),
-						'score'     => 97,
-						'status'    => __( 'Ready for go-live', 'testro' ),
-						'build'     => __( 'Build #3184 · main', 'testro' ),
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '99.1%',
-								'trend' => __( '+1.6 pts', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Coverage', 'testro' ),
-								'value' => '94%',
-								'trend' => __( 'Critical journeys', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Compliance score', 'testro' ),
-								'value' => 'A+',
-								'trend' => __( 'Audit-ready', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Risk alerts', 'testro' ),
-								'value' => '2',
-								'trend' => __( '−5 vs last release', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Last 7 executions', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 68,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 76,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 71,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 84,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 88,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 79,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 91,
-								),
-							),
+							'title'       => __( 'Wearable and IoT Device Testing', 'testro' ),
+							'description' => __( 'Test device pairing, connectivity, and data sync. From wearables and remote monitors to patient apps and clinician dashboards.', 'testro' ),
 						),
 					),
 				),
 
-				/* 9. Why choose (outcomes) ----------------------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'healthcare-enterprise-outcomes',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Why Healthcare Organizations Choose theTestRo', 'testro' ),
-					'title'   => __( 'Measurable Impact on Clinical Software Quality', 'testro' ),
-					'intro'   => __( 'Hospitals, health systems, EHR vendors, and healthtech teams use theTestRo to ship faster, expand automation coverage, and lower maintenance cost with AI.', 'testro' ),
-					'items'   => array(
+					'type'          => 'comparison',
+					'id'            => 'compliance-built-in',
+					'title'         => __( 'Compliance Isn\'t an Add-On, It\'s Built In', 'testro' ),
+					'intro'         => __( 'A platform that treats compliance as a separate module will eventually get it wrong. theTestRo builds it into the core instead.', 'testro' ),
+					'heading_level' => 3,
+					'text_only'     => true,
+					'two_column'    => true,
+					'first_label'   => __( 'Requirement', 'testro' ),
+					'modern'        => array(
+						'label' => __( 'How theTestRo Handles It', 'testro' ),
+					),
+					'rows'          => array(
 						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster Clinical Software Releases', 'testro' ),
-							'description' => __( 'Accelerate innovation while maintaining software quality.', 'testro' ),
+							'aspect' => __( 'HIPAA', 'testro' ),
+							'modern' => __( 'Clear, audit-ready records and access controls built for regulated teams', 'testro' ),
 						),
 						array(
-							'icon'        => 'target',
-							'title'       => __( 'Higher Test Coverage', 'testro' ),
-							'description' => __( 'Improve confidence across healthcare applications.', 'testro' ),
+							'aspect' => __( 'PHI Protection', 'testro' ),
+							'modern' => __( 'PHI gets masked in test steps and reports. Sensitive data never sits exposed', 'testro' ),
 						),
 						array(
-							'icon'        => 'wand',
-							'title'       => __( 'Reduced Manual Testing', 'testro' ),
-							'description' => __( 'Increase automation through AI-powered testing.', 'testro' ),
+							'aspect' => __( 'GDPR', 'testro' ),
+							'modern' => __( 'Ready-made controls for teams working across regions', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Improved Software Reliability', 'testro' ),
-							'description' => __( 'Deliver stable and secure clinical systems.', 'testro' ),
+							'aspect' => __( 'FDA 21 CFR Part 11', 'testro' ),
+							'modern' => __( 'Audit trails built to support regulated software delivery', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Deployment Choice', 'testro' ),
+							'modern' => __( 'Run in the cloud, on-premise, or in a private setup. Your call, based on your policy', 'testro' ),
+						),
+						array(
+							'aspect' => __( 'Access Control', 'testro' ),
+							'modern' => __( 'Role-based rules for who can view data, edit suites, and run tests', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This matters because healthcare application testing isn\'t just about finding bugs. It\'s about proving you found them the right way. A clean audit trail behind every test, ready the moment an auditor asks for it.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-clinical-workflows',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'AI That Understands Clinical Workflows, Not Just Clicks', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'QA teams and clinical experts build tests with no scripts. A nurse informaticist can describe a workflow just as easily as an engineer can.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
-							'title'       => __( 'Lower Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce ongoing maintenance using intelligent automation.', 'testro' ),
+							'title'       => __( 'Self-Healing for Dynamic Dashboards', 'testro' ),
+							'description' => __( 'A patient or doctor dashboard changes, and tests adapt on their own. Your whole suite doesn\'t break because one screen moved.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Reusable Components for Repetitive Flows', 'testro' ),
+							'description' => __( 'Turn login, patient search, and order entry into building blocks. Update once. It applies everywhere those blocks get used.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is what separates real healthcare test automation from a generic tool with a healthcare label slapped on.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'testing-across-every-device',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Testing Across Every Device Patients and Clinicians Use', 'testro' ),
+					'intro'         => __( 'Healthcare software gets used on hospital tablets, personal phones, and everything in between. A patient portal that works great on a clinic\'s iPad might fail on an older Android phone. That gap is exactly what real coverage needs to catch.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Real Device Coverage', 'testro' ),
+							'description' => __( 'Test on actual hardware. Not emulators that miss real rendering and speed issues.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Accessibility Checks Built In', 'testro' ),
+							'description' => __( 'Confirm patient-facing apps meet WCAG standards. Care stays accessible, regardless of ability.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Cross-Browser and Cross-OS Testing', 'testro' ),
+							'description' => __( 'Cover the mix of browsers and systems your patient population actually uses.', 'testro' ),
 						),
 					),
 				),
 
-				/* 10. Trust logos -------------------------------------------- */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Healthcare Digitization Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Healthcare organizations rely on theTestRo to protect clinical software quality and accelerate digital health releases.', 'testro' ),
-				),
-
-				/* 11. Customer success --------------------------------------- */
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Healthcare Teams Shipping Safer Digital Experiences', 'testro' ),
-					'intro'   => __( 'See how organizations accelerate digital healthcare transformation, improve software quality, reduce release risks, increase automation coverage, and deliver better patient experiences with theTestRo.', 'testro' ),
-				),
-
-				/* 12. Integrations ------------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'healthcare-integrations',
-					'eyebrow' => __( 'Supported Integrations', 'testro' ),
-					'title'   => __( 'Connect Healthcare Quality into Your DevOps Ecosystem', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your existing healthcare DevOps ecosystem to automate quality engineering across every release.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'appointment-spikes-and-peak-load',
+					'columns'       => 3,
+					'title'         => __( 'Built to Handle Appointment Spikes and Peak Load', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and clinical quality signals to delivery work items.', 'testro' ),
+							'icon'        => 'gauge',
+							'title'       => __( 'Stress-Test Scheduling and Check-In', 'testro' ),
+							'description' => __( 'Run parallel load against search, scheduling, and check-in. A surge in appointments doesn\'t break patient access.', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous healthcare suites inside Jenkins pipelines.', 'testro' ),
+							'icon'        => 'clock',
+							'title'       => __( 'API Latency Checks', 'testro' ),
+							'description' => __( 'Check response times for HL7/FHIR and other key integrations, in every build.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger clinical regression on every pull request and release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed quality gates into Azure boards and release pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when clinical or compliance suites fail.', 'testro' ),
+							'icon'        => 'activity',
+							'title'       => __( 'Bottleneck Detection Across the Stack', 'testro' ),
+							'description' => __( 'Track timing across EHR tasks. Find out if a slowdown is UI, API, or a downstream system.', 'testro' ),
 						),
 					),
 				),
 
-				/* 13. FAQ ---------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Healthcare FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'healthcare',
+					'type'          => 'feature-grid',
+					'id'            => 'built-for-every-healthcare-it-team',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Built for Every Team in Healthcare IT', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'stethoscope',
+							'title'       => __( 'Hospital and Health System QA Teams', 'testro' ),
+							'description' => __( 'Cover EHR, patient portal, and billing systems from one platform. Not a different tool for each.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Digital Health Startups', 'testro' ),
+							'description' => __( 'Move fast on new features. Still meet the compliance bar larger competitors have already cleared.', 'testro' ),
+						),
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'Health Insurance and Payer Teams', 'testro' ),
+							'description' => __( 'Test claims and billing workflows with the same rigor as clinical systems.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Clinical Informatics Teams', 'testro' ),
+							'description' => __( 'Contribute to test coverage directly. No need to learn a scripting language first.', 'testro' ),
+						),
+					),
 				),
 
-				/* 14. Final CTA ---------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-healthcare',
-					'title'      => __( 'Deliver Reliable, Secure, and Compliant Healthcare Software with AI', 'testro' ),
-					'intro'      => __( 'Accelerate healthcare innovation with theTestRo\'s AI-powered Healthcare Testing Platform. Automate clinical workflows, validate healthcare applications, strengthen compliance, and deliver exceptional patient experiences through intelligent quality engineering.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'fits-existing-toolchain',
+					'variant'       => 'tint',
+					'title'         => __( 'Fits Into the Toolchain You Already Run', 'testro' ),
+					'intro'         => __( 'theTestRo connects with Jira, Jenkins, GitHub, Azure DevOps, and healthcare data formats like HL7/FHIR in JSON or XML.', 'testro' ),
+					'intro_extra'   => __( 'Trigger tests on their own from your CI/CD pipeline. Keep full traceability between requirements, tests, and results. No manual syncing between tools, and no separate spreadsheet to keep up to date.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'healthcare',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'bring-reliable-testing-clinical-workflows',
+					'title'         => __( 'Bring Reliable Testing to Every Clinical Workflow', 'testro' ),
+					'body'          => __( 'Join healthcare and health-tech teams already using theTestRo to ship safer and faster. Compliance built into every test, not bolted on at the end.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
 
 		'banking-finance' => array(
-			'slug'  => 'banking-finance',
-			'title' => __( 'Banking & Finance', 'testro' ),
-			'seo'   => array(
-				'title'       => __( 'Banking Software Testing | Financial Services Testing | BFSI Test Automation | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Banking Software Testing and Financial Services Testing for payment systems, digital banking, UPI, APIs, and core banking. Accelerate BFSI Test Automation and Digital Banking Quality Engineering with theTestRo.', 'testro' ),
+			'slug'   => 'banking-finance',
+			'title'  => __( 'AI Test Automation for Banking & Financial Services', 'testro' ),
+			'seo'    => array(
+				'title'       => __( 'AI Test Automation for Modern Banking & Financial Services', 'testro' ),
+				'description' => __( 'Accelerate banking and financial software testing with AI test automation. Test core banking, payment systems, APIs, web, and mobile applications with confidence.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Banking & Financial Services Testing', 'testro' ),
-				'title'    => __( 'AI Test Automation for Banking & Financial Services', 'testro' ),
-				'subtitle' => __( 'Accelerate secure digital banking and financial innovation with theTestRo\'s AI-powered Banking & Financial Services Testing Platform. Automate testing across banking portals, payment systems, APIs, mobile banking applications, insurance platforms, and enterprise financial software while ensuring regulatory readiness, transaction reliability, and exceptional customer experiences.', 'testro' ),
-				'badges'   => array(
-					__( 'Audit-Ready Testing', 'testro' ),
-					__( 'Payment & UPI Coverage', 'testro' ),
-					__( 'AI Self-Healing', 'testro' ),
-					__( 'BFSI Compliance', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'          => __( 'AI Test Automation for Banking & Financial Services', 'testro' ),
+				'subtitle'       => __( 'theTestRo is built for teams that can\'t afford a broken payment flow. Automate onboarding, checks, payments, and core banking journeys across web, mobile, and APIs.', 'testro' ),
+				'subtitle_extra' => __( 'Audit-ready evidence is built in from the start. This is banking software testing made for regulated teams. Not a generic tool with a finance label stuck on top.', 'testro' ),
+				'actions'        => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster banking releases', 'testro' ),
-						'icon'  => 'rocket',
-					),
-					array(
-						'value' => '99.5%',
-						'label' => __( 'Payment suite pass rate', 'testro' ),
-						'icon'  => 'badge-check',
-					),
-					array(
-						'value' => '65%',
-						'label' => __( 'Lower test maintenance', 'testro' ),
-						'icon'  => 'coins',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Accelerate digital banking ------------------------------ */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'accelerate-digital-banking',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Accelerate Digital Banking & Financial Innovation', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Mission-Critical Financial Software', 'testro' ),
-					'intro'   => __( 'Banking and financial institutions rely on theTestRo to accelerate digital transformation, protect transaction reliability, and sustain audit-ready quality with intelligent automation.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI-Powered Quality Engineering', 'testro' ),
-							'description' => __( 'Leverage intelligent automation to improve software quality while reducing manual testing effort.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster, Audit-Ready Releases', 'testro' ),
-							'description' => __( 'Deliver software updates quickly with automated validation and complete audit readiness.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Secure & Reliable Financial Software Delivery', 'testro' ),
-							'description' => __( 'Ensure mission-critical financial applications remain secure, stable, and highly available.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. Challenges → solutions ---------------------------------- */
-				array(
-					'type'    => 'comparison',
-					'id'      => 'banking-challenges-solutions',
-					'eyebrow' => __( 'Banking Testing Challenges', 'testro' ),
-					'title'   => __( 'From Financial Risk to AI-Powered Confidence', 'testro' ),
-					'intro'   => __( 'Banking platforms evolve constantly—core upgrades, payment innovation, and compliance pressures all demand continuous validation. theTestRo turns those challenges into automated, self-healing coverage.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Banking Testing Challenges', 'testro' ),
-						'note'  => __( 'Where quality breaks under financial pressure', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'How theTestRo Solves Them', 'testro' ),
-						'note'  => __( 'AI automation built for BFSI', 'testro' ),
-					),
-					'rows'    => array(
-						array(
-							'aspect' => __( 'Complex Financial Workflows', 'testro' ),
-							'legacy' => __( 'Intricate banking processes span multiple systems, channels, and roles.', 'testro' ),
-							'modern' => __( 'Automate intricate financial processes with end-to-end testing.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Regulatory & Compliance Requirements', 'testro' ),
-							'legacy' => __( 'Audit trails and quality evidence are hard to sustain under release pressure.', 'testro' ),
-							'modern' => __( 'Support compliance initiatives through continuous quality validation and audit-ready reporting.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'High-Volume Transaction Processing', 'testro' ),
-							'legacy' => __( 'Peak payment loads expose reliability gaps that manual testing misses.', 'testro' ),
-							'modern' => __( 'Validate applications under high transaction loads while maintaining reliability.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Legacy Core Banking Systems', 'testro' ),
-							'legacy' => __( 'Modern apps must integrate reliably with aging core banking infrastructure.', 'testro' ),
-							'modern' => __( 'Ensure seamless integration with modern banking applications.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'API & Third-Party Integrations', 'testro' ),
-							'legacy' => __( 'Payment providers, banking APIs, and enterprise systems rarely stay in sync.', 'testro' ),
-							'modern' => __( 'Validate integrations across payment providers, banking APIs, and enterprise systems.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Security & Fraud Prevention', 'testro' ),
-							'legacy' => __( 'Security controls and fraud checks must hold through every release cycle.', 'testro' ),
-							'modern' => __( 'Strengthen application reliability through continuous automated testing.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. What you can test --------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'what-you-can-test-banking',
-					'eyebrow' => __( 'Everything You Can Test', 'testro' ),
-					'title'   => __( 'One AI Platform Across the Banking Technology Stack', 'testro' ),
-					'intro'   => __( 'Automate testing across every customer-facing and backend banking application using one unified AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Banking Quality Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Platforms — validate digital banking and administrative web experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Banking Applications', 'testro' ),
-							'description' => __( 'Platforms — cover Android and iOS banking journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'APIs & Microservices', 'testro' ),
-							'description' => __( 'Platforms — exercise banking service APIs and microservice contracts.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Enterprise Banking Systems', 'testro' ),
-							'description' => __( 'Platforms — cover bank and financial-institution back-office stacks.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Core Banking Systems', 'testro' ),
-							'description' => __( 'Banking apps — accounts, ledgers, and core transaction workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Digital Banking Portals', 'testro' ),
-							'description' => __( 'Banking apps — online banking and self-service experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Banking Apps', 'testro' ),
-							'description' => __( 'Banking apps — transfers, cards, and on-the-go account access.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Payment Gateways', 'testro' ),
-							'description' => __( 'Banking apps — authorize, capture, and settlement flows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'UPI & QR Payment Systems', 'testro' ),
-							'description' => __( 'Banking apps — instant payment and QR transaction journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'file-text',
-							'title'       => __( 'Loan Management Systems', 'testro' ),
-							'description' => __( 'Banking apps — origination, underwriting, and servicing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Wealth Management Platforms', 'testro' ),
-							'description' => __( 'Banking apps — portfolio, advisory, and wealth workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Insurance & Claims Portals', 'testro' ),
-							'description' => __( 'Banking apps — policy, claims, and insurance service flows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Trading & Investment Platforms', 'testro' ),
-							'description' => __( 'Banking apps — trade execution and investment journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'CRM & ERP Applications', 'testro' ),
-							'description' => __( 'Banking apps — customer and enterprise operations systems.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Automation', 'testro' ),
-							'description' => __( 'Capabilities — generate and heal banking suites with AI.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Functional Testing', 'testro' ),
-							'description' => __( 'Capabilities — verify banking features behave as expected.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'End-to-End Testing', 'testro' ),
-							'description' => __( 'Capabilities — validate complete customer financial journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Capabilities — exercise contracts across payment and core APIs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Capabilities — confirm banking portals across major browsers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Cross-Platform Testing', 'testro' ),
-							'description' => __( 'Capabilities — cover web and mobile banking experiences together.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Regression Testing', 'testro' ),
-							'description' => __( 'Capabilities — protect transaction reliability after every update.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Mission-critical workflows (lifecycle) ------------------ */
-				array(
-					'type'      => 'lifecycle',
-					'id'        => 'banking-mission-critical-workflows',
-					'eyebrow'   => __( 'Validate Mission-Critical Banking Workflows', 'testro' ),
-					'title'     => __( 'Automate the Complete Digital Banking Journey', 'testro' ),
-					'intro'     => __( 'From onboarding through payments, lending, and self-service, cover every finance-critical step customers take—so portals, UPI, loans, cards, and investments stay reliable release after release.', 'testro' ),
-					'loop_note' => __( 'Every banking stage feeds the next — continuous financial quality compounds with each release.', 'testro' ),
-					'items'     => array(
+					'type'          => 'feature-grid',
+					'id'            => 'automate-core-banking-journeys',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Automate Core Banking and Payment Journeys', 'testro' ),
+					'intro'         => __( 'From Account Opening to Servicing, Covered End to End', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'user-check',
-							'title'       => __( 'Customer Onboarding & KYC', 'testro' ),
-							'description' => __( 'Validate identity, KYC, and account opening workflows.', 'testro' ),
+							'title'       => __( 'Onboarding Checks', 'testro' ),
+							'description' => __( 'Automate customer onboarding. Automate identity checks too. Document checks as well.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-lock',
-							'title'       => __( 'Login, MFA & Biometric Authentication', 'testro' ),
-							'description' => __( 'Verify secure authentication across banking channels.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Account Management', 'testro' ),
-							'description' => __( 'Test balances, statements, and account servicing flows.', 'testro' ),
+							'title'       => __( 'Login and Authentication', 'testro' ),
+							'description' => __( 'Test secure logins. One-time codes. Multi-step checks. Fingerprint and face scans too.', 'testro' ),
 						),
 						array(
 							'icon'        => 'coins',
-							'title'       => __( 'Fund Transfers & Payments', 'testro' ),
-							'description' => __( 'Automate NEFT, RTGS, IMPS, and transfer journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'UPI & QR Transactions', 'testro' ),
-							'description' => __( 'Ensure instant payment and QR experiences remain reliable.', 'testro' ),
+							'title'       => __( 'Payments and Transfers', 'testro' ),
+							'description' => __( 'Check real-time transfers and payments. Cover every channel your customers use.', 'testro' ),
 						),
 						array(
 							'icon'        => 'file-text',
-							'title'       => __( 'Loan Origination & Approval', 'testro' ),
-							'description' => __( 'Validate application, underwriting, and approval workflows.', 'testro' ),
+							'title'       => __( 'Loans and Servicing', 'testro' ),
+							'description' => __( 'Test lending flows. From application through approval. Plus ongoing servicing.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is real banking test automation. It covers the full customer journey, not just a login screen.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'how-teams-get-started',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'How Teams Get Started', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Connect Your Systems', 'testro' ),
+							'description' => __( 'Point theTestRo at your web, mobile, and API layers.', 'testro' ),
 						),
 						array(
-							'icon'        => 'package',
-							'title'       => __( 'Credit Card & Wallet Transactions', 'testro' ),
-							'description' => __( 'Test card payments, wallets, and related authorizations.', 'testro' ),
+							'icon'        => 'target',
+							'title'       => __( 'Start With Core Journeys', 'testro' ),
+							'description' => __( 'Build tests for login, payments, and onboarding first. These carry the most risk.', 'testro' ),
 						),
 						array(
-							'icon'        => 'clock',
-							'title'       => __( 'Bill Payments', 'testro' ),
-							'description' => __( 'Cover biller discovery, payment, and confirmation flows.', 'testro' ),
+							'icon'        => 'shield-check',
+							'title'       => __( 'Add Compliance Checks', 'testro' ),
+							'description' => __( 'Layer in audit trails and access controls as your suite grows.', 'testro' ),
 						),
 						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Investment & Trading Workflows', 'testro' ),
-							'description' => __( 'Validate portfolio, order, and investment journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Customer Self-Service Portals', 'testro' ),
-							'description' => __( 'Ensure self-service banking experiences stay seamless.', 'testro' ),
+							'icon'        => 'rocket',
+							'title'       => __( 'Run Before Every Release', 'testro' ),
+							'description' => __( 'Trigger a full suite automatically, so nothing risky ships untested.', 'testro' ),
 						),
 					),
 				),
 
-				/* 5. AI capabilities (bento) --------------------------------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'banking-ai-capabilities',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Banking Quality Engineering', 'testro' ),
-					'title'   => __( 'Intelligent Automation Built for Financial Software', 'testro' ),
-					'intro'   => __( 'Cover the full banking quality stack—from payments and UPI to APIs, regression, and release readiness—with AI-assisted automation.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-in-banking',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo in Banking and Finance', 'testro' ),
+					'intro'         => __( 'Built for Every Team Touching Financial Software', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Creation', 'testro' ),
-							'description' => __( 'Generate banking-specific test cases intelligently using AI.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'Bank and Credit Union QA Teams', 'testro' ),
+							'description' => __( 'Cover core banking, payments, and servicing from one platform.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'FinTech Product Teams', 'testro' ),
+							'description' => __( 'Move fast on new features. Still meet the compliance bar larger banks expect.', 'testro' ),
+						),
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'Payment Providers', 'testro' ),
+							'description' => __( 'Test gateway hookups and transaction paths under real load.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Risk and Compliance Teams', 'testro' ),
+							'description' => __( 'Get audit-ready logs. No chasing down evidence after every release.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'security-testing-regulated',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Security Testing Built for Regulated Environments', 'testro' ),
+					'intro'         => __( 'Test the Way Banks Actually Operate', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Secure VPN Testing', 'testro' ),
+							'description' => __( 'Run tests inside your bank\'s own network. Data never leaves a controlled space.', 'testro' ),
+						),
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Biometric Checks', 'testro' ),
+							'description' => __( 'Confirm fingerprint and face-scan logins work well. Security doesn\'t get weaker in the process.', 'testro' ),
+						),
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Multi-Step Login Testing', 'testro' ),
+							'description' => __( 'Check every step of a login with more than one factor. Test it across devices too.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Financial software testing that skips this layer isn\'t really testing your product. It\'s testing a simpler, safer version of it. Real customers don\'t get that safer version, so your tests shouldn\'t either.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'payment-gateway-and-qr',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Payment Gateway and QR Code Testing', 'testro' ),
+					'intro'         => __( 'Every Transaction Path, Validated', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'Payment Gateway Testing', 'testro' ),
+							'description' => __( 'Confirm payments go through right. Cover card, bank transfer, and digital wallet paths.', 'testro' ),
+						),
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'QR Code Payment Checks', 'testro' ),
+							'description' => __( 'Test QR-based payments from scan to confirmation.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
-							'title'       => __( 'Self-Healing Automation', 'testro' ),
-							'description' => __( 'Automatically adapt to changing banking applications without manual maintenance.', 'testro' ),
+							'title'       => __( 'What Happens When It Fails', 'testro' ),
+							'description' => __( 'Check declined payments, timeouts, and retries. Not just the smooth, happy path.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'reduce-regression-cycles',
+					'columns'       => 3,
+					'title'         => __( 'Reduce Regression Cycles Without Cutting Corners on Compliance', 'testro' ),
+					'intro'         => __( 'Faster Releases, Same Audit Trail', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Parallel Execution', 'testro' ),
+							'description' => __( 'Swap week-long regression cycles for runs that finish in hours.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Self-Healing Tests', 'testro' ),
+							'description' => __( 'AI keeps suites stable as your UI changes. Maintenance drops a lot.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Records, Ready to Go', 'testro' ),
+							'description' => __( 'Every run saves logs and results on its own. No chasing down evidence when it\'s time for a review.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-device-and-geolocation',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Real Device and Geolocation Testing', 'testro' ),
+					'intro'         => __( 'Test Where Your Customers Actually Bank', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Real Device Coverage', 'testro' ),
+							'description' => __( 'Check performance and usability on real hardware. Not a guess.', 'testro' ),
+						),
+						array(
+							'icon'        => 'map-pin',
+							'title'       => __( 'Geolocation Testing', 'testro' ),
+							'description' => __( 'Test app behavior across regions. A banking app should feel the same in Mumbai or New York.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Network Checks', 'testro' ),
+							'description' => __( 'See how payment flows hold up on 3G, 4G, or a shaky connection. Not just fast office Wi-Fi.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-agents-at-every-stage',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'AI Agents at Every Stage of Testing', 'testro' ),
+					'intro'         => __( 'Faster Test Authoring, Without Losing Control', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'QA teams and business staff build tests. No scripts needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'sparkles',
-							'title'       => __( 'Intelligent Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce maintenance effort through AI-driven automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Accelerate validation of financial applications through enterprise-scale parallel execution.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Continuous Regression Testing', 'testro' ),
-							'description' => __( 'Continuously validate critical banking workflows after every update.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Risk-Based Test Prioritization', 'testro' ),
-							'description' => __( 'Focus automation on high-risk payments, compliance, and customer journeys.', 'testro' ),
-						),
-					),
-				),
-
-				/* 6. Security, compliance & governance ----------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'banking-security-compliance',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Security, Compliance & Governance', 'testro' ),
-					'title'   => __( 'Quality Engineering Aligned with BFSI Standards', 'testro' ),
-					'intro'   => __( 'Strengthen confidence across audit readiness, access control, secure data handling, and enterprise governance while you automate financial software quality.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Audit-Ready Test Evidence', 'testro' ),
-							'description' => __( 'Maintain complete, exportable evidence for audits and regulatory reviews.', 'testro' ),
-						),
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Role-Based Access Control', 'testro' ),
-							'description' => __( 'Secure access to testing assets and execution environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Secure Test Data Management', 'testro' ),
-							'description' => __( 'Protect sensitive financial data throughout testing activities.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Compliance Validation', 'testro' ),
-							'description' => __( 'Support compliance initiatives with continuous quality validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'End-to-End Traceability', 'testro' ),
-							'description' => __( 'Trace requirements, tests, and releases across banking delivery.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Enterprise Governance', 'testro' ),
-							'description' => __( 'Enforce quality gates and governance across BFSI release pipelines.', 'testro' ),
-						),
-					),
-				),
-
-				/* 7. Continuous quality / DevOps (pipeline) ------------------ */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'banking-continuous-quality',
-					'eyebrow' => __( 'Continuous Quality & DevOps', 'testro' ),
-					'title'   => __( 'Development → CI/CD → AI Testing → Validation → Release', 'testro' ),
-					'intro'   => __( 'Keep banking quality continuous across every release with an AI-powered workflow that integrates into delivery pipelines, validates financial readiness, and reduces release risk.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Development', 'testro' ),
-							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Integrate automated banking testing into continuous delivery pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'Automated Release Validation', 'testro' ),
-							'description' => __( 'Ensure software quality before production deployment.', 'testro' ),
+							'title'       => __( 'AI-Assisted Test Generation', 'testro' ),
+							'description' => __( 'Turn a requirement into a working test on its own.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
-							'stage'       => __( 'AI Testing', 'testro' ),
-							'title'       => __( 'Cross-Browser & Cross-Device Testing', 'testro' ),
-							'description' => __( 'Validate banking experiences across browsers and devices at scale.', 'testro' ),
+							'title'       => __( 'Less Manual Upkeep', 'testro' ),
+							'description' => __( 'AI updates tests as your app changes. Your suite doesn\'t quietly fall apart between releases.', 'testro' ),
 						),
-						array(
-							'icon'        => 'server',
-							'stage'       => __( 'Validation', 'testro' ),
-							'title'       => __( 'Multi-Environment Testing', 'testro' ),
-							'description' => __( 'Test across development, staging, QA, and production environments.', 'testro' ),
-						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-security-and-compliance',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise Security and Compliance', 'testro' ),
+					'intro'         => __( 'Certifications That Matter to Regulated Teams', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'badge-check',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release Readiness Assessment', 'testro' ),
-							'description' => __( 'Gain confidence before every financial software deployment.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. Quality intelligence (analytics) ------------------------ */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'banking-quality-intelligence',
-					'eyebrow'   => __( 'Banking Quality Intelligence', 'testro' ),
-					'title'     => __( 'Turn Financial Test Results into Release Decisions', 'testro' ),
-					'intro'     => __( 'Monitor AI insights, transaction quality, coverage, risk signals, and release readiness from a banking-focused analytics experience.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'AI Failure Analysis', 'testro' ),
-							'description' => __( 'Automatically identify the root causes of failed banking tests.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Test Analytics & Dashboards', 'testro' ),
-							'description' => __( 'Gain real-time visibility into financial software quality.', 'testro' ),
-						),
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Root Cause Analysis', 'testro' ),
-							'description' => __( 'Pinpoint defects faster across payments, APIs, and core systems.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Test Coverage Insights', 'testro' ),
-							'description' => __( 'Measure testing completeness across banking applications.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Release Health Metrics', 'testro' ),
-							'description' => __( 'Understand deployment readiness using AI-powered analytics.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Banking release readiness', 'testro' ),
-						'score'     => 98,
-						'status'    => __( 'Ready for go-live', 'testro' ),
-						'build'     => __( 'Build #4217 · main', 'testro' ),
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '99.5%',
-								'trend' => __( '+1.2 pts', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Transaction quality', 'testro' ),
-								'value' => '97%',
-								'trend' => __( 'Payments & UPI', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Compliance score', 'testro' ),
-								'value' => 'A+',
-								'trend' => __( 'Audit-ready', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Risk alerts', 'testro' ),
-								'value' => '1',
-								'trend' => __( '−4 vs last release', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Last 7 executions', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 72,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 78,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 74,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 86,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 91,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 83,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 94,
-								),
-							),
-						),
-					),
-				),
-
-				/* 9. Why choose (outcomes) ----------------------------------- */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'banking-enterprise-outcomes',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Why Banking & Financial Institutions Choose theTestRo', 'testro' ),
-					'title'   => __( 'Measurable Impact on Financial Software Quality', 'testro' ),
-					'intro'   => __( 'Banks, insurers, fintechs, and BFSI digital teams use theTestRo to ship faster, expand automation coverage, and lower maintenance cost with AI.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster Release Cycles', 'testro' ),
-							'description' => __( 'Accelerate innovation while maintaining software quality.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Reduced Operational Risk', 'testro' ),
-							'description' => __( 'Lower release risk across payments, core, and digital channels.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Higher Test Coverage', 'testro' ),
-							'description' => __( 'Improve confidence across banking applications.', 'testro' ),
+							'title'       => __( 'SOC 2', 'testro' ),
+							'description' => __( 'Built for regulated software teams from the ground up.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-check',
-							'title'       => __( 'Improved Software Reliability', 'testro' ),
-							'description' => __( 'Deliver stable and secure financial systems.', 'testro' ),
+							'title'       => __( 'ISO 27001', 'testro' ),
+							'description' => __( 'Strong security controls, already in place.', 'testro' ),
 						),
 						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Lower Test Maintenance Costs', 'testro' ),
-							'description' => __( 'Reduce ongoing maintenance using intelligent automation.', 'testro' ),
-						),
-					),
-				),
-
-				/* 10. Trust logos -------------------------------------------- */
-				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Banking Digitization Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Banking and financial institutions rely on theTestRo to protect financial software quality and accelerate digital banking releases.', 'testro' ),
-				),
-
-				/* 11. Customer success --------------------------------------- */
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'BFSI Teams Shipping Safer Digital Banking Experiences', 'testro' ),
-					'intro'   => __( 'See how organizations accelerate banking modernization, improve release quality, reduce operational risk, increase automation coverage, and deliver secure digital banking experiences with theTestRo.', 'testro' ),
-				),
-
-				/* 12. Integrations ------------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'banking-integrations',
-					'eyebrow' => __( 'Supported Integrations', 'testro' ),
-					'title'   => __( 'Connect Banking Quality into Your DevOps Ecosystem', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your existing DevOps ecosystem to automate quality engineering across every financial software release.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and banking quality signals to delivery work items.', 'testro' ),
+							'icon'        => 'map-pin',
+							'title'       => __( 'GDPR', 'testro' ),
+							'description' => __( 'Ready for teams working across regions.', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous banking suites inside Jenkins pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger financial regression on every pull request and release.', 'testro' ),
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Access Control', 'testro' ),
+							'description' => __( 'You decide who can create, edit, and run tests.', 'testro' ),
 						),
 						array(
 							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed quality gates into Azure boards and release pipelines.', 'testro' ),
+							'title'       => __( 'Deployment Choice', 'testro' ),
+							'description' => __( 'Cloud, on-premise, or a private setup. Your call.', 'testro' ),
 						),
 						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when payment or compliance suites fail.', 'testro' ),
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Full Traceability', 'testro' ),
+							'description' => __( 'Clear logs to back up audits and release checks.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'BFSI testing isn\'t just about catching bugs. It\'s about proving you caught them, with real evidence to show for it.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'built-for-high-transaction-periods',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Built for High-Transaction Periods', 'testro' ),
+					'intro'         => __( 'Stay Stable During Payroll Runs and Peak Load', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Full Regression Before Peak Windows', 'testro' ),
+							'description' => __( 'Run complete test suites fast. Ahead of payroll cycles and big launches too.', 'testro' ),
+						),
+						array(
+							'icon'        => 'gauge',
+							'title'       => __( 'Load Testing', 'testro' ),
+							'description' => __( 'Simulate high transaction volume. Confirm your platform holds up before real customers hit it.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'API and UI Checked Together', 'testro' ),
+							'description' => __( 'Test payment APIs alongside the interface. A backend slowdown doesn\'t quietly break things for the customer.', 'testro' ),
 						),
 					),
 				),
 
-				/* 13. FAQ ---------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Banking & Finance FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'banking-finance',
+					'type'          => 'feature-grid',
+					'id'            => 'core-financial-workflows',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Core Financial Workflows Covered', 'testro' ),
+					'intro'         => __( 'Built Around How Financial Products Actually Work', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Digital Banking Portals', 'testro' ),
+							'description' => __( 'Cover dashboards, account services, transfers, and bill pay. Web and mobile both.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'API and Partner Integrations', 'testro' ),
+							'description' => __( 'Automate APIs straight from a spec. Handle tricky tokens and one-time codes in your tests.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Cross-Channel Journeys', 'testro' ),
+							'description' => __( 'Test flows that span the interface and backend together. Not each on its own.', 'testro' ),
+						),
+					),
 				),
 
-				/* 14. Final CTA ---------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-banking-finance',
-					'title'      => __( 'Power Secure, Reliable, and Intelligent Banking Software with AI', 'testro' ),
-					'intro'      => __( 'Accelerate digital banking transformation with theTestRo\'s AI-powered Banking & Financial Services Testing Platform. Automate mission-critical workflows, validate secure financial transactions, strengthen compliance, and deliver exceptional customer experiences through intelligent quality engineering.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'fits-existing-workflow',
+					'title'         => __( 'Fits Into Your Existing Workflow', 'testro' ),
+					'intro'         => __( 'No Extra Tools to Manage', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jira, Jenkins, GitHub, and Azure DevOps. Trigger test suites right from your build process. Gate releases on the results, so a risky change gets caught before it reaches customers.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'banking-finance',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-automating-banking-tests',
+					'title'         => __( 'Start Automating Banking Tests Today', 'testro' ),
+					'intro'         => __( 'Ship Faster, Stay Audit-Ready', 'testro' ),
+					'body'          => __( 'Join banking and financial teams already using theTestRo. Test critical workflows faster. Skip nothing on security or compliance. This is real banking application testing. Built to hold up under scrutiny, not just a demo.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -10207,1301 +8319,831 @@ function testro_get_product_pages() {
 			'slug'  => 'travel-and-hospitality',
 			'title' => __( 'Travel & Hospitality', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'Travel Software Testing | Hospitality Testing | Travel Test Automation | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Travel & Hospitality Testing for booking engines, hotel reservation systems, travel portals, and payment gateways. Accelerate Travel Quality Engineering and Booking Platform Testing with theTestRo.', 'testro' ),
+				'title'       => __( 'Travel & Hospitality Testing Solutions for Digital Experiences', 'testro' ),
+				'description' => __( 'Deliver seamless travel and hospitality experiences with automated testing for booking engines, travel portals, payment systems, web, mobile, and APIs.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Travel & Hospitality Testing', 'testro' ),
-				'title'    => __( 'Travel & Hospitality Testing Solutions', 'testro' ),
-				'subtitle' => __( 'Deliver exceptional digital travel experiences with theTestRo\'s AI-powered Travel & Hospitality Testing Platform. Automate testing across booking engines, hotel reservation systems, travel portals, mobile applications, payment gateways, and enterprise travel platforms to ensure reliable customer journeys, faster releases, and seamless travel experiences.', 'testro' ),
-				'badges'   => array(
-					__( 'Booking Reliability', 'testro' ),
-					__( 'Peak-Season Ready', 'testro' ),
-					__( 'AI Self-Healing', 'testro' ),
-					__( 'Omnichannel Journeys', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Travel & Hospitality Testing Solutions for Digital Experiences', 'testro' ),
+				'subtitle' => __( 'theTestRo is a travel and hospitality testing solution. Built for the full traveler journey. Test search, booking, check-in, and in-trip flows across web, mobile, and kiosks. Catch bugs before a customer does, not after a bad review.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster travel releases', 'testro' ),
-						'icon'  => 'rocket',
-					),
-					array(
-						'value' => '99.4%',
-						'label' => __( 'Booking suite pass rate', 'testro' ),
-						'icon'  => 'badge-check',
-					),
-					array(
-						'value' => '9+',
-						'label' => __( 'Journey stages covered', 'testro' ),
-						'icon'  => 'infinity',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Deliver exceptional experiences ----------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'deliver-exceptional-travel-experiences',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Deliver Exceptional Digital Travel Experiences', 'testro' ),
-					'title'   => __( 'Accelerate Travel Innovation with Continuous Quality', 'testro' ),
-					'intro'   => __( 'Travel and hospitality teams use AI automation to ship booking features faster while protecting every guest and traveler journey.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-challenges-in-travel-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'The Real Challenges in Travel and Hospitality Testing', 'testro' ),
+					'intro'         => __( 'Why This Industry Is Harder to Test Than It Looks', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate Digital Transformation', 'testro' ),
-							'description' => __( 'Deliver innovative travel experiences faster through intelligent automation and continuous testing.', 'testro' ),
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Apps Run Under Constant Pressure', 'testro' ),
+							'description' => __( 'Booking systems run around the clock, worldwide. One crash during a busy search window means lost bookings and bad reviews.', 'testro' ),
 						),
 						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Enhance Guest & Traveler Experiences', 'testro' ),
-							'description' => __( 'Ensure smooth, reliable interactions across every customer touchpoint.', 'testro' ),
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Security Gaps Break Trust Fast', 'testro' ),
+							'description' => __( 'A payment glitch at checkout doesn\'t just cost one booking. It spreads on social media and hurts the brand.', 'testro' ),
 						),
 						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Release Booking Features with Confidence', 'testro' ),
-							'description' => __( 'Validate booking workflows thoroughly before every release to minimize production issues.', 'testro' ),
+							'icon'        => 'trending-up',
+							'title'       => __( 'Traffic Spikes Around Seasons and Sales', 'testro' ),
+							'description' => __( 'Holiday travel, flash sales, and last-minute bookings push systems to their limit. Often with little warning.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Travel test automation has to handle all three at once. Not just one at a time.', 'testro' ),
 				),
 
-				/* 2. Challenges → solutions -------------------------------- */
 				array(
-					'type'    => 'comparison',
-					'id'      => 'travel-challenges-solutions',
-					'eyebrow' => __( 'Travel & Hospitality Testing Challenges', 'testro' ),
-					'title'   => __( 'From Travel Friction to AI-Powered Confidence', 'testro' ),
-					'intro'   => __( 'Travel platforms evolve constantly—booking engines, peak demand, and multi-channel journeys all demand continuous validation. theTestRo turns those challenges into automated, self-healing coverage.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Travel Industry Challenges', 'testro' ),
-						'note'  => __( 'Where quality breaks under travel pressure', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'How theTestRo Solves Them', 'testro' ),
-						'note'  => __( 'AI-powered quality engineering', 'testro' ),
-					),
-					'rows'    => array(
-						array(
-							'aspect' => __( 'Complex Booking & Reservation Workflows', 'testro' ),
-							'legacy' => __( 'Flights, hotels, and ancillary services span brittle multi-step reservation paths.', 'testro' ),
-							'modern' => __( 'Automate end-to-end booking scenarios across flights, hotels, and travel services.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'High Seasonal Traffic & Peak Demand', 'testro' ),
-							'legacy' => __( 'Holidays and promotions expose stability gaps that manual testing misses.', 'testro' ),
-							'modern' => __( 'Ensure applications remain stable during holidays, promotions, and peak booking periods.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Multi-Channel Customer Journeys', 'testro' ),
-							'legacy' => __( 'Travelers bounce between websites, apps, kiosks, and portals mid-journey.', 'testro' ),
-							'modern' => __( 'Validate seamless experiences across websites, mobile apps, kiosks, and customer portals.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Third-Party Travel Integrations', 'testro' ),
-							'legacy' => __( 'Airlines, hotels, payments, and travel APIs rarely stay in sync.', 'testro' ),
-							'modern' => __( 'Test integrations with airlines, hotels, payment providers, and external travel APIs.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Payment Security & Transaction Reliability', 'testro' ),
-							'legacy' => __( 'Booking payments must stay secure and reliable through every release.', 'testro' ),
-							'modern' => __( 'Verify secure and reliable payment processing for every booking.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Global Device & Browser Fragmentation', 'testro' ),
-							'legacy' => __( 'Inconsistent experiences across browsers and devices erode traveler trust.', 'testro' ),
-							'modern' => __( 'Ensure consistent experiences across browsers, devices, and operating systems worldwide.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. What you can test ------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'what-you-can-test-travel',
-					'eyebrow' => __( 'Everything You Can Test', 'testro' ),
-					'title'   => __( 'One AI Platform Across the Travel Technology Stack', 'testro' ),
-					'intro'   => __( 'Automate testing across every customer-facing and backend travel application from one intelligent AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Travel Quality Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Platforms — validate travel portals and administrative web experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Applications', 'testro' ),
-							'description' => __( 'Platforms — cover Android and iOS travel booking journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'APIs', 'testro' ),
-							'description' => __( 'Platforms — exercise booking, inventory, and payment service APIs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Enterprise Travel Systems', 'testro' ),
-							'description' => __( 'Platforms — cover airline, hotel, and travel-operator back-office stacks.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Flight Booking Platforms', 'testro' ),
-							'description' => __( 'Travel apps — search, fare, and itinerary booking workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'package',
-							'title'       => __( 'Hotel Reservation Systems', 'testro' ),
-							'description' => __( 'Travel apps — room inventory, rates, and reservation journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Travel Portals', 'testro' ),
-							'description' => __( 'Travel apps — OTA and brand portal experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Booking Apps', 'testro' ),
-							'description' => __( 'Travel apps — native and responsive mobile reservation flows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Self Check-In Applications', 'testro' ),
-							'description' => __( 'Travel apps — digital check-in and boarding experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Property Management Systems (PMS)', 'testro' ),
-							'description' => __( 'Travel apps — property operations and guest service systems.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Central Reservation Systems (CRS)', 'testro' ),
-							'description' => __( 'Travel apps — central inventory and distribution workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Loyalty & Rewards Platforms', 'testro' ),
-							'description' => __( 'Travel apps — memberships, points, and promotional offers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Payment Gateways', 'testro' ),
-							'description' => __( 'Travel apps — authorize, capture, and refund booking payments.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'how-teams-get-started',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'How Teams Get Started', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'numbered'      => true,
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'plug',
-							'title'       => __( 'CRM & ERP Applications', 'testro' ),
-							'description' => __( 'Travel apps — guest and enterprise operations systems.', 'testro' ),
+							'title'       => __( 'Connect Your Systems', 'testro' ),
+							'description' => __( 'Point theTestRo at your web, mobile, and kiosk channels.', 'testro' ),
 						),
 						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Automation', 'testro' ),
-							'description' => __( 'Capabilities — generate and heal travel suites with AI.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Functional Testing', 'testro' ),
-							'description' => __( 'Capabilities — verify travel features behave as expected.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'End-to-End Testing', 'testro' ),
-							'description' => __( 'Capabilities — validate complete traveler journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Capabilities — exercise contracts across booking and payment APIs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Capabilities — confirm travel portals across major browsers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Cross-Platform Testing', 'testro' ),
-							'description' => __( 'Capabilities — cover web and mobile booking experiences together.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Regression Testing', 'testro' ),
-							'description' => __( 'Capabilities — protect booking reliability after every update.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Traveler journey (lifecycle) -------------------------- */
-				array(
-					'type'      => 'lifecycle',
-					'id'        => 'travel-end-to-end-workflows',
-					'eyebrow'   => __( 'Validate End-to-End Travel Workflows', 'testro' ),
-					'title'     => __( 'Automate the Complete Traveler Journey', 'testro' ),
-					'intro'     => __( 'From registration through search, booking, payment, check-in, and loyalty, cover every travel-critical step customers take—so portals, apps, and reservations stay reliable release after release.', 'testro' ),
-					'loop_note' => __( 'Every journey stage feeds the next — continuous travel quality compounds with each release.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'User Registration & Login', 'testro' ),
-							'description' => __( 'Validate secure customer onboarding and authentication.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Flight & Hotel Search', 'testro' ),
-							'description' => __( 'Verify search functionality, filters, pricing, and availability.', 'testro' ),
-						),
-						array(
-							'icon'        => 'package',
-							'title'       => __( 'Booking & Reservation', 'testro' ),
-							'description' => __( 'Ensure accurate booking and reservation workflows.', 'testro' ),
+							'icon'        => 'target',
+							'title'       => __( 'Start With Booking Flows First', 'testro' ),
+							'description' => __( 'Search, checkout, and payment carry the most risk. Build these tests first.', 'testro' ),
 						),
 						array(
 							'icon'        => 'puzzle',
-							'title'       => __( 'Seat & Room Selection', 'testro' ),
-							'description' => __( 'Validate seat assignment and room selection experiences.', 'testro' ),
+							'title'       => __( 'Add Edge Cases', 'testro' ),
+							'description' => __( 'Layer in loyalty, cancellations, and multi-region checks as coverage grows.', 'testro' ),
 						),
 						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Payment Processing', 'testro' ),
-							'description' => __( 'Test secure payment transactions across multiple payment methods.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Check-In & Check-Out', 'testro' ),
-							'description' => __( 'Ensure smooth digital check-in and check-out experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Booking Modifications & Cancellations', 'testro' ),
-							'description' => __( 'Validate changes, cancellations, and refund workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Loyalty Program Validation', 'testro' ),
-							'description' => __( 'Verify rewards, memberships, and promotional offers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Notifications & Confirmation Workflows', 'testro' ),
-							'description' => __( 'Ensure customers receive timely confirmations and travel updates.', 'testro' ),
+							'icon'        => 'rocket',
+							'title'       => __( 'Run Before Every Release', 'testro' ),
+							'description' => __( 'Trigger a full suite on its own, so nothing risky ships untested.', 'testro' ),
 						),
 					),
 				),
 
-				/* 5. AI capabilities (bento) ------------------------------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'travel-ai-capabilities',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Quality Engineering', 'testro' ),
-					'title'   => __( 'Intelligent Automation Built for Travel Journeys', 'testro' ),
-					'intro'   => __( 'Cover the full travel quality stack—from booking engines and hotel systems to APIs, regression, and release readiness—with AI-assisted automation.', 'testro' ),
-					'items'   => array(
+					'type'          => 'comparison',
+					'id'            => 'manual-qa-vs-travel-test-automation',
+					'title'         => __( 'Manual QA vs. Travel Test Automation', 'testro' ),
+					'intro'         => __( 'What Changes Testing Scales With Demand', 'testro' ),
+					'heading_level' => 3,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Manual QA', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'theTestRo', 'testro' ),
+					),
+					'rows'          => array(
 						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Creation', 'testro' ),
-							'description' => __( 'Automatically generate intelligent travel testing scenarios.', 'testro' ),
+							'aspect' => __( 'Booking Changes', 'testro' ),
+							'legacy' => __( 'Manual QA means re-testing by hand every time.', 'testro' ),
+							'modern' => __( 'theTestRo\'s self-healing tests adapt on their own.', 'testro' ),
 						),
 						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Self-Healing Automation', 'testro' ),
-							'description' => __( 'Adapt to UI and application changes without manual intervention.', 'testro' ),
+							'aspect' => __( 'Peak Season Readiness', 'testro' ),
+							'legacy' => __( 'Manual checks are often rushed at the last minute.', 'testro' ),
+							'modern' => __( 'theTestRo runs full regression well in advance.', 'testro' ),
 						),
 						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Intelligent Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce maintenance through AI-driven automation.', 'testro' ),
+							'aspect' => __( 'Who Can Test', 'testro' ),
+							'legacy' => __( 'Manual QA limits testing to the QA team.', 'testro' ),
+							'modern' => __( 'theTestRo opens it up to product managers too.', 'testro' ),
 						),
 						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Execute thousands of travel test cases simultaneously.', 'testro' ),
+							'aspect' => __( 'Device Coverage', 'testro' ),
+							'legacy' => __( 'Manual testing covers whatever\'s on hand.', 'testro' ),
+							'modern' => __( 'theTestRo covers real devices at real scale.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A manual process that worked fine at a smaller scale usually breaks down the moment a travel brand adds a new region or a bigger sale calendar.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'test-every-booking-touchpoint',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Test Every Booking Touchpoint', 'testro' ),
+					'intro'         => __( 'One Platform for Every Channel Travelers Use', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Web and Mobile Together', 'testro' ),
+							'description' => __( 'Cover your booking site and app from one platform. Not separate tools for each. This covers travel website testing and travel application testing under one roof.', 'testro' ),
 						),
 						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Continuous Regression Testing', 'testro' ),
-							'description' => __( 'Ensure every release maintains application stability.', 'testro' ),
+							'icon'        => 'retail',
+							'title'       => __( 'Self-Check-In Kiosks', 'testro' ),
+							'description' => __( 'Test airport and hotel kiosks right alongside your digital channels.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'API and Backend Sync', 'testro' ),
+							'description' => __( 'Confirm inventory, pricing, and booking systems stay in sync with what travelers see.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. Real device & cross-platform -------------------------- */
 				array(
-					'type'    => 'browsers',
-					'id'      => 'travel-real-device-cross-platform',
-					'eyebrow' => __( 'Real Device & Cross-Platform Testing', 'testro' ),
-					'title'   => __( 'Validate Travel Experiences Everywhere Travelers Book', 'testro' ),
-					'intro'   => __( 'Run the same booking suites across desktop browsers, tablets, and real mobile devices so multi-screen travel journeys stay reliable worldwide.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'hotel-and-flight-booking-flow-testing',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Hotel and Flight Booking Flow Testing', 'testro' ),
+					'intro'         => __( 'The Moments That Actually Convert', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'name'     => __( 'Desktop Browsers', 'testro' ),
-							'status'   => __( 'Running', 'testro' ),
-							'progress' => 84,
-							'tone'     => 'running',
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Search and Filter Accuracy', 'testro' ),
+							'description' => __( 'Confirm travelers can find the right room, flight, or package. No friction along the way.', 'testro' ),
 						),
 						array(
-							'name'     => __( 'Tablets', 'testro' ),
-							'status'   => __( 'Passed', 'testro' ),
-							'progress' => 100,
-							'tone'     => 'passed',
-						),
-						array(
-							'name'     => __( 'Android Devices', 'testro' ),
-							'status'   => __( 'Running', 'testro' ),
-							'progress' => 71,
-							'tone'     => 'running',
-						),
-						array(
-							'name'     => __( 'iPhones', 'testro' ),
-							'status'   => __( 'Visual check', 'testro' ),
-							'progress' => 93,
-							'tone'     => 'visual',
-						),
-					),
-					'parallel' => array(
-						'title'       => __( 'Parallel Multi-Screen Validation', 'testro' ),
-						'description' => __( 'Fan booking suites across browsers and real devices simultaneously—cut cycle time without sacrificing omnichannel travel coverage.', 'testro' ),
-						'stat'        => '10X',
-						'stat_label'  => __( 'faster suites', 'testro' ),
-					),
-				),
-
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'travel-device-coverage-capabilities',
-					'variant' => 'tint',
-					'columns' => 3,
-					'eyebrow' => __( 'Device & Browser Coverage', 'testro' ),
-					'title'   => __( 'Confidence Across Every Booking Screen', 'testro' ),
-					'intro'   => __( 'Protect traveler experiences with comprehensive browser, device, mobile, responsive, and visual coverage.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Ensure consistent functionality across modern browsers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Real Device Testing', 'testro' ),
-							'description' => __( 'Validate experiences on real mobile devices.', 'testro' ),
+							'icon'        => 'file-text',
+							'title'       => __( 'Hotel Booking Testing', 'testro' ),
+							'description' => __( 'Check the full reservation path. From room selection to a confirmed booking.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Mobile App Validation', 'testro' ),
-							'description' => __( 'Test native and responsive mobile booking experiences.', 'testro' ),
+							'title'       => __( 'Seat Maps and Trip Details', 'testro' ),
+							'description' => __( 'Confirm seat maps, room layouts, and trip details render right on every device.', 'testro' ),
 						),
 						array(
-							'icon'        => 'scan-eye',
-							'title'       => __( 'Responsive UI Testing', 'testro' ),
-							'description' => __( 'Verify layouts across different screen sizes.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Visual Regression Testing', 'testro' ),
-							'description' => __( 'Detect unexpected UI changes before deployment.', 'testro' ),
+							'icon'        => 'coins',
+							'title'       => __( 'Payment and Confirmation Flows', 'testro' ),
+							'description' => __( 'Test successful payments, declines, and retries. Not just the smooth path.', 'testro' ),
 						),
 					),
 				),
 
-				/* 7. Continuous delivery (pipeline) ------------------------ */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'travel-continuous-delivery',
-					'eyebrow' => __( 'Continuous Delivery for Travel Applications', 'testro' ),
-					'title'   => __( 'Development → CI/CD → AI Testing → Validation → Release', 'testro' ),
-					'intro'   => __( 'Keep travel quality continuous across every release with an AI-powered workflow that integrates into delivery pipelines, validates booking readiness, and reduces release risk.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-device-and-network-condition-testing',
+					'columns'       => 3,
+					'title'         => __( 'Real Device and Network Condition Testing', 'testro' ),
+					'intro'         => __( 'Test Where Travelers Actually Are, Not Just Your Office Wi-Fi', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Development', 'testro' ),
-							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Automate testing within continuous delivery pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'Automated Release Validation', 'testro' ),
-							'description' => __( 'Validate every booking release before production.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wand',
-							'stage'       => __( 'AI Testing', 'testro' ),
-							'title'       => __( 'Multi-Environment Testing', 'testro' ),
-							'description' => __( 'Execute tests across development, staging, QA, and production.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'stage'       => __( 'Validation', 'testro' ),
-							'title'       => __( 'Release Readiness', 'testro' ),
-							'description' => __( 'Determine deployment confidence using AI-driven insights.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Quality Gates', 'testro' ),
-							'description' => __( 'Prevent unstable releases through automated quality validation.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. Quality intelligence (analytics) ---------------------- */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'travel-quality-intelligence',
-					'eyebrow'   => __( 'AI-Driven Test Intelligence', 'testro' ),
-					'title'     => __( 'Turn Travel Test Results into Release Decisions', 'testro' ),
-					'intro'     => __( 'Monitor AI insights, booking health, coverage, risk signals, and release readiness from a travel-focused analytics experience.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Root Cause Analysis', 'testro' ),
-							'description' => __( 'Quickly identify and resolve booking workflow failures.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Test Analytics', 'testro' ),
-							'description' => __( 'Monitor execution trends and testing performance.', 'testro' ),
+							'icon'        => 'smartphone',
+							'title'       => __( 'Real Device Coverage', 'testro' ),
+							'description' => __( 'Check performance on real hardware. Not a guess from an emulator.', 'testro' ),
 						),
 						array(
 							'icon'        => 'activity',
-							'title'       => __( 'Quality Dashboards', 'testro' ),
-							'description' => __( 'Track application quality in real time.', 'testro' ),
+							'title'       => __( 'Airport and In-Flight Network Checks', 'testro' ),
+							'description' => __( 'See how booking and check-in hold up on slow airport Wi-Fi. In-flight or abroad too.', 'testro' ),
 						),
 						array(
-							'icon'        => 'target',
-							'title'       => __( 'Release Insights', 'testro' ),
-							'description' => __( 'Measure deployment readiness through intelligent analytics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Test Coverage Metrics', 'testro' ),
-							'description' => __( 'Visualize automation coverage across travel platforms.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Travel release readiness', 'testro' ),
-						'score'     => 98,
-						'status'    => __( 'Ready for peak season', 'testro' ),
-						'build'     => __( 'Build #3842 · main', 'testro' ),
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '99.4%',
-								'trend' => __( '+1.1 pts', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Booking Health', 'testro' ),
-								'value' => '97%',
-								'trend' => __( 'Engines & PMS', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Coverage', 'testro' ),
-								'value' => '92%',
-								'trend' => __( 'Journey stages', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Risk alerts', 'testro' ),
-								'value' => '1',
-								'trend' => __( '−3 vs last release', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Last 7 executions', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 74,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 79,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 76,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 88,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 92,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 85,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 95,
-								),
-							),
+							'icon'        => 'map-pin',
+							'title'       => __( 'Geolocation Testing', 'testro' ),
+							'description' => __( 'Confirm pricing, currency, and content adjust right for travelers in different regions.', 'testro' ),
 						),
 					),
 				),
 
-				/* 9. Why choose (outcomes) --------------------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'travel-enterprise-outcomes',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Why Travel & Hospitality Enterprises Choose theTestRo', 'testro' ),
-					'title'   => __( 'Measurable Impact on Travel Software Quality', 'testro' ),
-					'intro'   => __( 'Airlines, hotels, OTAs, and hospitality digital teams use theTestRo to ship faster, expand automation coverage, and protect booking reliability with AI.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'visual-regression-booking-pages',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Visual Regression for Booking Pages and Itineraries', 'testro' ),
+					'intro'         => __( 'Catch Broken Layouts Before a Traveler Does', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster Release Cycles', 'testro' ),
-							'description' => __( 'Accelerate delivery of new travel features.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Automated Visual Checks', 'testro' ),
+							'description' => __( 'Spot layout shifts and broken parts. On booking pages and confirmation screens.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Smart Change Detection', 'testro' ),
+							'description' => __( 'Tell a real bug apart from a price or count that\'s supposed to change. No chasing false alarms.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Cross-Device Consistency', 'testro' ),
+							'description' => __( 'Confirm seat maps, room photos, and trip details look right on every screen.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'built-for-peak-season',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Built for Peak Season and High-Traffic Events', 'testro' ),
+					'intro'         => __( 'Ready Before the Rush, Not During It', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Full Regression Before Peak Windows', 'testro' ),
+							'description' => __( 'Run a complete test suite fast. Ahead of holiday travel and flash sales.', 'testro' ),
+						),
+						array(
+							'icon'        => 'gauge',
+							'title'       => __( 'Load and Stress Testing', 'testro' ),
+							'description' => __( 'Simulate high booking volume. Confirm your platform holds up before real travelers hit it.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Partner Integration Checks', 'testro' ),
+							'description' => __( 'Check connections to airlines, hotel chains, and payment providers under real load. Not in a demo.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'core-travel-hospitality-scenarios',
+					'columns'       => 3,
+					'title'         => __( 'Core Travel and Hospitality Test Scenarios', 'testro' ),
+					'intro'         => __( 'What theTestRo Covers Out of the Box', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Search, Browse, and Compare', 'testro' ),
+							'description' => __( 'Confirm travelers can explore options with no friction. Flights, hotels, and packages all covered.', 'testro' ),
+						),
+						array(
+							'icon'        => 'package',
+							'title'       => __( 'Booking, Cart, and Checkout', 'testro' ),
+							'description' => __( 'Check the full path from selection to a confirmed booking.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
-							'title'       => __( 'Reliable Booking Experiences', 'testro' ),
-							'description' => __( 'Ensure uninterrupted booking journeys.', 'testro' ),
+							'title'       => __( 'Loyalty and Rewards', 'testro' ),
+							'description' => __( 'Test point accrual, redemption, and tier status. Web and mobile both.', 'testro' ),
+						),
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Check-In and Boarding', 'testro' ),
+							'description' => __( 'Cover mobile check-in, digital boarding passes, and kiosk self-service.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Cancellations and Refunds', 'testro' ),
+							'description' => __( 'Check that post-booking changes work smoothly, from request to resolution.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-powered-no-code-travel-teams',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'AI-Powered, No-Code Testing for Travel Teams', 'testro' ),
+					'intro'         => __( 'Let More of Your Team Contribute to Quality', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'Product managers and QA staff build tests. No scripts needed.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
-							'title'       => __( 'Improved Customer Satisfaction', 'testro' ),
-							'description' => __( 'Deliver smooth and consistent travel experiences.', 'testro' ),
+							'title'       => __( 'Self-Healing Tests', 'testro' ),
+							'description' => __( 'Booking pages change often. theTestRo adapts tests on its own instead of breaking your whole suite.', 'testro' ),
 						),
 						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Reduced Test Maintenance', 'testro' ),
-							'description' => __( 'Minimize maintenance using AI-powered automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Higher Automation Coverage', 'testro' ),
-							'description' => __( 'Increase confidence through broader test coverage.', 'testro' ),
+							'icon'        => 'wand',
+							'title'       => __( 'Faster Coverage, Less Maintenance', 'testro' ),
+							'description' => __( 'Spend less time patching broken tests after every release. More time on real edge cases.', 'testro' ),
 						),
 					),
 				),
 
-				/* 10. Trust logos ------------------------------------------ */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Travel Digitization Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Travel and hospitality organizations rely on theTestRo to protect booking quality and accelerate digital travel releases.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'fits-existing-workflow',
+					'variant'       => 'tint',
+					'title'         => __( 'Fits Into Your Existing Workflow', 'testro' ),
+					'intro'         => __( 'No New Tools to Manage', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jira, Jenkins, GitHub Actions, and Slack. The tools travel and hospitality teams already run. Trigger tests on every build automatically.', 'testro' ),
+					'intro_body'    => __( 'Get results right where your team already looks. This is hospitality software testing that fits your workflow, not one that forces a new one.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(),
 				),
 
-				/* 11. Customer success ------------------------------------- */
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Travel Teams Delivering Better Traveler Experiences', 'testro' ),
-					'intro'   => __( 'See how organizations accelerate digital transformation, improve booking reliability, increase automation coverage, reduce release risks, and deliver better traveler experiences with theTestRo.', 'testro' ),
-				),
-
-				/* 12. Integrations ----------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'travel-integrations',
-					'eyebrow' => __( 'Supported Integrations', 'testro' ),
-					'title'   => __( 'Connect Travel Quality into Your DevOps Ecosystem', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your existing DevOps ecosystem to automate quality engineering throughout every travel software release.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-in-travel',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo in Travel and Hospitality', 'testro' ),
+					'intro'         => __( 'Built for Every Role Touching the Traveler Journey', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and travel quality signals to delivery work items.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'OTA and Booking Platform Teams', 'testro' ),
+							'description' => __( 'Cover search, booking, and payment flows. No growing pile of manual tests.', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous travel suites inside Jenkins pipelines.', 'testro' ),
+							'icon'        => 'badge-check',
+							'title'       => __( 'Hotel and Resort Chains', 'testro' ),
+							'description' => __( 'Test booking systems and loyalty programs across every property and region.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger booking regression on every pull request and release.', 'testro' ),
+							'icon'        => 'rocket',
+							'title'       => __( 'Airlines and Travel Apps', 'testro' ),
+							'description' => __( 'Check check-in, boarding, and in-trip flows across devices and networks.', 'testro' ),
 						),
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed quality gates into Azure boards and release pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when booking or payment suites fail.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'Product and QA Leads', 'testro' ),
+							'description' => __( 'Roll out steady test coverage across teams. No months of onboarding needed.', 'testro' ),
 						),
 					),
 				),
 
-				/* 13. FAQ -------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Travel & Hospitality FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'travel-and-hospitality',
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'travel-and-hospitality',
 				),
 
-				/* 14. Final CTA -------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-travel-and-hospitality',
-					'title'      => __( 'Deliver Exceptional Travel Experiences with AI-Powered Quality Engineering', 'testro' ),
-					'intro'      => __( 'Accelerate digital travel innovation with theTestRo\'s AI-powered Travel & Hospitality Testing Platform. Automate booking workflows, validate mission-critical travel applications, improve customer satisfaction, and release with confidence through intelligent software testing.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'start-testing-travel-experience',
+					'title'         => __( 'Start Testing Your Travel Experience Today', 'testro' ),
+					'intro'         => __( 'Ship Faster, Every Season', 'testro' ),
+					'body'          => __( 'Join travel and hospitality teams already using theTestRo. Catch bugs early. Keep bookings running, no matter how big the travel rush.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
+
 		'insurance' => array(
 			'slug'  => 'insurance',
 			'title' => __( 'Insurance', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'Insurance Software Testing | Insurance Test Automation | AI Insurance Testing | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Insurance Software Testing and Insurance Test Automation for policy administration, claims management, customer portals, and APIs. Accelerate AI Insurance Testing, Claims Management Testing, Policy Administration Testing, and Insurance Quality Engineering with theTestRo.', 'testro' ),
+				'title'       => __( 'Insurance Testing Solutions with No-Code Test Automation', 'testro' ),
+				'description' => __( 'Accelerate insurance software testing with no-code test automation. Validate policy administration, claims management, customer portals, APIs, web, and mobile apps.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Insurance Software Testing', 'testro' ),
 				'title'    => __( 'Insurance Testing Solutions with No-Code Test Automation', 'testro' ),
-				'subtitle' => __( 'Accelerate digital insurance transformation with theTestRo\'s AI-powered Insurance Testing Platform. Automate testing across policy administration systems, claims platforms, customer portals, mobile applications, APIs, and enterprise insurance solutions to deliver secure, reliable, and compliant customer experiences while reducing manual testing effort.', 'testro' ),
-				'badges'   => array(
-					__( 'Policy & Claims Coverage', 'testro' ),
-					__( 'AI Self-Healing', 'testro' ),
-					__( 'Compliance Ready', 'testro' ),
-					__( 'Audit-Ready Testing', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'subtitle' => __( 'theTestRo brings insurance testing solutions with no-code test automation. To claims, policy work, and quoting. Build tests in plain English. Catch bugs before a policyholder does. Not after a complaint.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster policy & claims releases', 'testro' ),
-						'icon'  => 'rocket',
-					),
-					array(
-						'value' => '99.4%',
-						'label' => __( 'Claims suite pass rate', 'testro' ),
-						'icon'  => 'badge-check',
-					),
-					array(
-						'value' => '60%',
-						'label' => __( 'Lower test maintenance', 'testro' ),
-						'icon'  => 'coins',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Accelerate digital insurance ---------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'accelerate-digital-insurance',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Accelerate Digital Insurance Transformation', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Mission-Critical Insurance Software', 'testro' ),
-					'intro'   => __( 'Insurance carriers, MGAs, brokers, and insurtechs rely on theTestRo to accelerate digital transformation, protect policy and claims reliability, and sustain audit-ready quality with intelligent automation.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-challenges-in-insurance-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'The Real Challenges in Insurance Testing', 'testro' ),
+					'intro'         => __( 'Why Insurance Software Is Harder to Get Right', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI-Powered Quality Engineering', 'testro' ),
-							'description' => __( 'Leverage AI-powered automation to improve software quality while reducing testing effort.', 'testro' ),
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Sensitive Data at Every Step', 'testro' ),
+							'description' => __( 'Insurance apps handle personal and money data all the time. A testing gap can mean a real data leak. Not just a bug report.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Deliver Secure & Reliable Insurance Experiences', 'testro' ),
-							'description' => __( 'Ensure policyholders, agents, and brokers enjoy secure and reliable digital experiences.', 'testro' ),
+							'icon'        => 'puzzle',
+							'title'       => __( 'Complex Business Logic', 'testro' ),
+							'description' => __( 'Premium math, endorsements, and claims processing stack rules on top of rules. One wrong branch can quietly cost real money.', 'testro' ),
 						),
 						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Release Faster with Confidence', 'testro' ),
-							'description' => __( 'Accelerate insurance application releases through intelligent automation and continuous validation.', 'testro' ),
+							'icon'        => 'trending-up',
+							'title'       => __( 'Traffic Spikes at Renewal Time', 'testro' ),
+							'description' => __( 'Open enrollment and renewal periods push systems hard. Often with little warning.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Insurance test automation has to hold up under all three. Not just one at a time.', 'testro' ),
 				),
 
-				/* 2. Challenges → solutions ---------------------------------- */
 				array(
-					'type'    => 'comparison',
-					'id'      => 'insurance-challenges-solutions',
-					'eyebrow' => __( 'Insurance Testing Challenges', 'testro' ),
-					'title'   => __( 'From Insurance Risk to AI-Powered Confidence', 'testro' ),
-					'intro'   => __( 'Insurance platforms evolve constantly—policy upgrades, claims modernization, and compliance pressures all demand continuous validation. theTestRo turns those challenges into automated, self-healing coverage.', 'testro' ),
-					'legacy'  => array(
-						'label' => __( 'Insurance Testing Challenges', 'testro' ),
-						'note'  => __( 'Where quality breaks under insurance pressure', 'testro' ),
-					),
-					'modern'  => array(
-						'label' => __( 'How theTestRo Solves Them', 'testro' ),
-						'note'  => __( 'AI automation built for insurance', 'testro' ),
-					),
-					'rows'    => array(
-						array(
-							'aspect' => __( 'Complex Policy & Claims Workflows', 'testro' ),
-							'legacy' => __( 'Intricate policy and claims processes span multiple systems, channels, and roles.', 'testro' ),
-							'modern' => __( 'Automate end-to-end policy lifecycle and claims processing with intelligent testing.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Regulatory & Compliance Requirements', 'testro' ),
-							'legacy' => __( 'Audit trails and quality evidence are hard to sustain under release pressure.', 'testro' ),
-							'modern' => __( 'Support insurance compliance initiatives through continuous quality validation and audit-ready reporting.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Sensitive Customer Data Protection', 'testro' ),
-							'legacy' => __( 'Confidential customer and policy data must stay protected across every test environment.', 'testro' ),
-							'modern' => __( 'Ensure secure testing while protecting confidential customer and policy information.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Legacy Insurance Systems', 'testro' ),
-							'legacy' => __( 'Modern apps must integrate reliably with aging policy and claims infrastructure.', 'testro' ),
-							'modern' => __( 'Validate integrations between modern applications and legacy insurance platforms.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'Third-Party Integrations', 'testro' ),
-							'legacy' => __( 'Payment providers, CRM systems, underwriting engines, and external APIs rarely stay in sync.', 'testro' ),
-							'modern' => __( 'Test payment providers, CRM systems, underwriting engines, and external APIs seamlessly.', 'testro' ),
-						),
-						array(
-							'aspect' => __( 'High-Volume Processing During Renewals', 'testro' ),
-							'legacy' => __( 'Renewal peaks and seasonal spikes expose reliability gaps that manual testing misses.', 'testro' ),
-							'modern' => __( 'Ensure systems remain stable during policy renewals and seasonal processing spikes.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. What you can test --------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'what-you-can-test-insurance',
-					'eyebrow' => __( 'Everything You Can Test', 'testro' ),
-					'title'   => __( 'One AI Platform Across the Insurance Technology Stack', 'testro' ),
-					'intro'   => __( 'Automate testing across every insurance application, customer journey, and business workflow using one intelligent AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Insurance Quality Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Web Applications', 'testro' ),
-							'description' => __( 'Platforms — validate insurance portals and administrative web experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Mobile Applications', 'testro' ),
-							'description' => __( 'Platforms — cover Android and iOS insurance journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'APIs', 'testro' ),
-							'description' => __( 'Platforms — exercise insurance service APIs and microservice contracts.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Enterprise Insurance Systems', 'testro' ),
-							'description' => __( 'Platforms — cover carrier and MGA back-office stacks.', 'testro' ),
-						),
-						array(
-							'icon'        => 'file-text',
-							'title'       => __( 'Policy Administration Systems', 'testro' ),
-							'description' => __( 'Insurance apps — quote, issue, renew, and policy servicing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Claims Management Systems', 'testro' ),
-							'description' => __( 'Insurance apps — FNOL, adjudication, and settlement flows.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'test-every-policyholder-touchpoint',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Test Every Policyholder Touchpoint', 'testro' ),
+					'intro'         => __( 'One Platform for Every Channel', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Customer Self-Service Portals', 'testro' ),
-							'description' => __( 'Insurance apps — policy, claims, and account self-service.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Insurance Mobile Apps', 'testro' ),
-							'description' => __( 'Insurance apps — on-the-go policy and claims access.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Underwriting Platforms', 'testro' ),
-							'description' => __( 'Insurance apps — risk assessment and underwriting workflows.', 'testro' ),
+							'title'       => __( 'Web and Mobile Together', 'testro' ),
+							'description' => __( 'Cover your policyholder portal and app from one place. Not separate tools for each.', 'testro' ),
 						),
 						array(
 							'icon'        => 'user-check',
-							'title'       => __( 'Agent & Broker Portals', 'testro' ),
-							'description' => __( 'Insurance apps — producer tools and broker management.', 'testro' ),
+							'title'       => __( 'Agent and Broker Portals', 'testro' ),
+							'description' => __( 'Test the tools your agents rely on. Not just the customer-facing side. This is insurance application testing that covers both sides of the business.', 'testro' ),
 						),
 						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Billing & Payment Systems', 'testro' ),
-							'description' => __( 'Insurance apps — premium collection and payment processing.', 'testro' ),
+							'icon'        => 'layers-api',
+							'title'       => __( 'API and Backend Sync', 'testro' ),
+							'description' => __( 'Confirm policy, billing, and claims systems stay in sync with what users see.', 'testro' ),
 						),
+					),
+					'outro'         => __( 'This is what real insurance software testing should cover. Every touchpoint, not just the login screen.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'how-insurance-teams-get-started',
+					'columns'       => 4,
+					'title'         => __( 'How Teams Get Started', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'numbered'      => true,
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'plug',
-							'title'       => __( 'CRM & ERP Applications', 'testro' ),
-							'description' => __( 'Insurance apps — customer and enterprise operations systems.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Document Management Systems', 'testro' ),
-							'description' => __( 'Insurance apps — uploads, verification, and document storage.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Automation', 'testro' ),
-							'description' => __( 'Capabilities — generate and heal insurance suites with AI.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Functional Testing', 'testro' ),
-							'description' => __( 'Capabilities — verify insurance features behave as expected.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'End-to-End Testing', 'testro' ),
-							'description' => __( 'Capabilities — validate complete policyholder journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'API Testing', 'testro' ),
-							'description' => __( 'Capabilities — exercise contracts across policy and claims APIs.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Capabilities — confirm insurance portals across major browsers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Cross-Platform Testing', 'testro' ),
-							'description' => __( 'Capabilities — cover web and mobile insurance experiences together.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Regression Testing', 'testro' ),
-							'description' => __( 'Capabilities — protect policy and claims reliability after every update.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. End-to-end insurance workflows (lifecycle) -------------- */
-				array(
-					'type'      => 'lifecycle',
-					'id'        => 'insurance-end-to-end-workflows',
-					'eyebrow'   => __( 'Validate End-to-End Insurance Workflows', 'testro' ),
-					'title'     => __( 'Automate the Complete Digital Insurance Journey', 'testro' ),
-					'intro'     => __( 'From onboarding through quoting, issuance, claims, and self-service, cover every insurance-critical step customers and agents take—so policy, claims, billing, and portals stay reliable release after release.', 'testro' ),
-					'loop_note' => __( 'Every insurance stage feeds the next — continuous insurance quality compounds with each release.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Customer Onboarding', 'testro' ),
-							'description' => __( 'Validate customer registration and onboarding experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'file-text',
-							'title'       => __( 'Quote Generation', 'testro' ),
-							'description' => __( 'Ensure accurate quote generation across insurance products.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Policy Issuance & Renewals', 'testro' ),
-							'description' => __( 'Verify policy creation, renewals, and policy lifecycle management.', 'testro' ),
-						),
-						array(
-							'icon'        => 'activity',
-							'title'       => __( 'Claims Submission & Processing', 'testro' ),
-							'description' => __( 'Automate claims validation and settlement workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Premium Calculations', 'testro' ),
-							'description' => __( 'Validate premium calculations and policy pricing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'folder-tree',
-							'title'       => __( 'Document Upload & Validation', 'testro' ),
-							'description' => __( 'Test document submission, verification, and storage workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Payment Processing', 'testro' ),
-							'description' => __( 'Ensure secure premium collection and payment processing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Agent & Broker Workflows', 'testro' ),
-							'description' => __( 'Validate agent portals and broker management systems.', 'testro' ),
-						),
-						array(
-							'icon'        => 'smartphone',
-							'title'       => __( 'Customer Self-Service Journeys', 'testro' ),
-							'description' => __( 'Ensure policyholders can manage accounts, policies, and claims efficiently.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. AI capabilities (bento) --------------------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'insurance-ai-capabilities',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'AI-Powered Insurance Quality Engineering', 'testro' ),
-					'title'   => __( 'Intelligent Automation Built for Insurance Software', 'testro' ),
-					'intro'   => __( 'Cover the full insurance quality stack—from policy and claims to APIs, regression, and release readiness—with AI-assisted automation.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'AI Test Creation', 'testro' ),
-							'description' => __( 'Automatically generate insurance-specific testing scenarios.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Self-Healing Automation', 'testro' ),
-							'description' => __( 'Adapt to UI and workflow changes without manual intervention.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Intelligent Test Maintenance', 'testro' ),
-							'description' => __( 'Reduce maintenance using AI-driven automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Execute large-scale insurance testing efficiently.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Continuous Regression Testing', 'testro' ),
-							'description' => __( 'Validate every release while protecting critical insurance functionality.', 'testro' ),
+							'title'       => __( 'Connect Your Systems', 'testro' ),
+							'description' => __( 'Point theTestRo at your policyholder portal, agent tools, and APIs.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
-							'title'       => __( 'Risk-Based Test Prioritization', 'testro' ),
-							'description' => __( 'Focus automation on high-risk policy, claims, and compliance journeys.', 'testro' ),
+							'title'       => __( 'Start With High-Risk Flows First', 'testro' ),
+							'description' => __( 'Claims filing and premium calculations carry the most risk. Build these tests first.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Add Edge Cases', 'testro' ),
+							'description' => __( 'Layer in cancellations, endorsements, and multi-region checks as coverage grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Run Before Every Release', 'testro' ),
+							'description' => __( 'Trigger a full suite on its own, so nothing risky ships untested.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. Security, compliance & data validation ------------------ */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'insurance-security-compliance',
-					'variant' => 'spotlight',
-					'columns' => 3,
-					'eyebrow' => __( 'Security, Compliance & Data Validation', 'testro' ),
-					'title'   => __( 'Quality Engineering Aligned with Insurance Standards', 'testro' ),
-					'intro'   => __( 'Strengthen confidence across audit readiness, access control, secure data handling, and document validation while you automate insurance software quality.', 'testro' ),
-					'items'   => array(
+					'type'          => 'comparison',
+					'id'            => 'manual-qa-vs-insurance-test-automation',
+					'title'         => __( 'Manual QA vs. Insurance Test Automation', 'testro' ),
+					'intro'         => __( 'What Changes When Testing Scales With Renewal Season', 'testro' ),
+					'heading_level' => 3,
+					'text_only'     => true,
+					'legacy'        => array(
+						'label' => __( 'Manual QA', 'testro' ),
+					),
+					'modern'        => array(
+						'label' => __( 'theTestRo', 'testro' ),
+					),
+					'rows'          => array(
 						array(
-							'icon'        => 'database',
-							'title'       => __( 'Secure Test Data Management', 'testro' ),
-							'description' => __( 'Protect sensitive customer and policy information throughout testing.', 'testro' ),
+							'aspect' => __( 'Business Rule Changes', 'testro' ),
+							'legacy' => __( 'Manual QA means re-testing by hand every time a rule shifts.', 'testro' ),
+							'modern' => __( 'theTestRo\'s self-healing tests adapt on their own.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Compliance Validation', 'testro' ),
-							'description' => __( 'Support regulatory compliance through continuous validation and reporting.', 'testro' ),
+							'aspect' => __( 'Renewal Season Readiness', 'testro' ),
+							'legacy' => __( 'Manual checks are often rushed at the last minute.', 'testro' ),
+							'modern' => __( 'theTestRo runs full regression well ahead of time.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Multi-Factor Authentication (MFA) Testing', 'testro' ),
-							'description' => __( 'Verify secure authentication across insurance platforms.', 'testro' ),
+							'aspect' => __( 'Who Can Test', 'testro' ),
+							'legacy' => __( 'Manual QA limits testing to the QA team.', 'testro' ),
+							'modern' => __( 'theTestRo opens it up to business analysts too.', 'testro' ),
 						),
 						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Role-Based Access Control', 'testro' ),
-							'description' => __( 'Ensure secure access to enterprise testing assets.', 'testro' ),
+							'aspect' => __( 'Coverage Depth', 'testro' ),
+							'legacy' => __( 'Manual testing covers the common cases.', 'testro' ),
+							'modern' => __( 'theTestRo covers edge cases at real scale.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A manual process that worked fine at a smaller policy volume usually breaks down the moment a carrier adds a new product line or a bigger renewal calendar.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'claims-management-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Claims Management Testing', 'testro' ),
+					'intro'         => __( 'Where Trust Gets Built or Broken', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'First Notice of Loss', 'testro' ),
+							'description' => __( 'Test how a claim gets filed. From the first report through early triage.', 'testro' ),
+						),
+						array(
+							'icon'        => 'package',
+							'title'       => __( 'Document Upload and Validation', 'testro' ),
+							'description' => __( 'Check how the app handles files in different formats, sizes, and states.', 'testro' ),
 						),
 						array(
 							'icon'        => 'filter-check',
-							'title'       => __( 'Audit-Ready Test Evidence', 'testro' ),
-							'description' => __( 'Generate detailed execution records for audits and compliance reviews.', 'testro' ),
-						),
-						array(
-							'icon'        => 'file-text',
-							'title'       => __( 'Document Verification Testing', 'testro' ),
-							'description' => __( 'Validate document uploads, approvals, and verification workflows.', 'testro' ),
-						),
-					),
-				),
-
-				/* 7. Continuous quality / DevOps (pipeline) ------------------ */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'insurance-continuous-quality',
-					'eyebrow' => __( 'Continuous Quality for Insurance Releases', 'testro' ),
-					'title'   => __( 'Development → CI/CD → AI Testing → Validation → Release', 'testro' ),
-					'intro'   => __( 'Keep insurance quality continuous across every release with an AI-powered workflow that integrates into delivery pipelines, validates release readiness, and reduces deployment risk.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'Development', 'testro' ),
-							'title'       => __( 'CI/CD Integration', 'testro' ),
-							'description' => __( 'Integrate insurance testing into continuous delivery pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'Automated Release Validation', 'testro' ),
-							'description' => __( 'Validate every software release before production deployment.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wand',
-							'stage'       => __( 'AI Testing', 'testro' ),
-							'title'       => __( 'Cross-Browser & Cross-Device Testing', 'testro' ),
-							'description' => __( 'Ensure consistent customer experiences across every platform.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'stage'       => __( 'Validation', 'testro' ),
-							'title'       => __( 'Multi-Environment Testing', 'testro' ),
-							'description' => __( 'Execute tests across development, QA, staging, and production.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Release Readiness', 'testro' ),
-							'description' => __( 'Measure deployment confidence through AI-powered quality insights.', 'testro' ),
-						),
-					),
-				),
-
-				/* 8. Quality intelligence (analytics) ------------------------ */
-				array(
-					'type'      => 'analytics',
-					'id'        => 'insurance-quality-intelligence',
-					'eyebrow'   => __( 'AI-Driven Test Intelligence', 'testro' ),
-					'title'     => __( 'Turn Insurance Test Results into Release Decisions', 'testro' ),
-					'intro'     => __( 'Monitor AI insights, claims analytics, coverage, quality scores, and release readiness from an insurance-focused analytics experience.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Root Cause Analysis', 'testro' ),
-							'description' => __( 'Identify issues quickly using AI-powered diagnostics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Test Analytics & Dashboards', 'testro' ),
-							'description' => __( 'Monitor testing performance through centralized dashboards.', 'testro' ),
-						),
-						array(
-							'icon'        => 'sparkles',
-							'title'       => __( 'Quality Insights', 'testro' ),
-							'description' => __( 'Gain actionable intelligence into software quality.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Test Coverage Metrics', 'testro' ),
-							'description' => __( 'Track automation coverage across insurance applications.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Release Health Monitoring', 'testro' ),
-							'description' => __( 'Measure software readiness before every release.', 'testro' ),
-						),
-					),
-					'dashboard' => array(
-						'label'     => __( 'Insurance release readiness', 'testro' ),
-						'score'     => 97,
-						'status'    => __( 'Ready for go-live', 'testro' ),
-						'build'     => __( 'Build #3184 · main', 'testro' ),
-						'tiles'     => array(
-							array(
-								'label' => __( 'Pass rate', 'testro' ),
-								'value' => '99.4%',
-								'trend' => __( '+1.1 pts', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Claims analytics', 'testro' ),
-								'value' => '96%',
-								'trend' => __( 'Settlement quality', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Quality score', 'testro' ),
-								'value' => 'A+',
-								'trend' => __( 'Audit-ready', 'testro' ),
-								'tone'  => 'up',
-							),
-							array(
-								'label' => __( 'Risk alerts', 'testro' ),
-								'value' => '2',
-								'trend' => __( '−3 vs last release', 'testro' ),
-								'tone'  => 'up',
-							),
-						),
-						'chart'     => array(
-							'title' => __( 'Last 7 executions', 'testro' ),
-							'bars'  => array(
-								array(
-									'label' => __( 'Mon', 'testro' ),
-									'value' => 70,
-								),
-								array(
-									'label' => __( 'Tue', 'testro' ),
-									'value' => 76,
-								),
-								array(
-									'label' => __( 'Wed', 'testro' ),
-									'value' => 73,
-								),
-								array(
-									'label' => __( 'Thu', 'testro' ),
-									'value' => 85,
-								),
-								array(
-									'label' => __( 'Fri', 'testro' ),
-									'value' => 90,
-								),
-								array(
-									'label' => __( 'Sat', 'testro' ),
-									'value' => 82,
-								),
-								array(
-									'label' => __( 'Sun', 'testro' ),
-									'value' => 93,
-								),
-							),
-						),
-					),
-				),
-
-				/* 9. Why choose (outcomes) ----------------------------------- */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'insurance-enterprise-outcomes',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Why Insurance Organizations Choose theTestRo', 'testro' ),
-					'title'   => __( 'Measurable Impact on Insurance Software Quality', 'testro' ),
-					'intro'   => __( 'Carriers, MGAs, brokers, and insurtechs use theTestRo to ship faster, expand automation coverage, and lower maintenance cost with AI.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster Policy & Claims Releases', 'testro' ),
-							'description' => __( 'Accelerate software delivery across insurance platforms.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Reduced Operational Risk', 'testro' ),
-							'description' => __( 'Identify defects before they impact customers or operations.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Improved Software Reliability', 'testro' ),
-							'description' => __( 'Deliver secure and highly available insurance applications.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Higher Automation Coverage', 'testro' ),
-							'description' => __( 'Increase testing confidence with broader automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Lower Test Maintenance Costs', 'testro' ),
-							'description' => __( 'Reduce manual maintenance through AI-powered automation.', 'testro' ),
-						),
-					),
-				),
-
-				/* 10. Trust logos -------------------------------------------- */
-				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Insurance Digitization Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Insurance organizations rely on theTestRo to protect insurance software quality and accelerate digital insurance releases.', 'testro' ),
-				),
-
-				/* 11. Customer success --------------------------------------- */
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Insurance Teams Shipping Safer Digital Experiences', 'testro' ),
-					'intro'   => __( 'See how organizations accelerate digital transformation, improve claims processing quality, reduce release risks, increase automation coverage, and deliver superior customer experiences with theTestRo.', 'testro' ),
-				),
-
-				/* 12. Integrations ------------------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'insurance-integrations',
-					'eyebrow' => __( 'Supported Integrations', 'testro' ),
-					'title'   => __( 'Connect Insurance Quality into Your DevOps Ecosystem', 'testro' ),
-					'intro'   => __( 'Integrate seamlessly with your DevOps ecosystem to automate quality engineering across every insurance software release.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and insurance quality signals to delivery work items.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous insurance suites inside Jenkins pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger policy and claims regression on every pull request and release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed quality gates into Azure boards and release pipelines.', 'testro' ),
+							'title'       => __( 'Claims Processing Logic', 'testro' ),
+							'description' => __( 'Test the rules that route, calculate, and approve claims. Payouts come out right the first time.', 'testro' ),
 						),
 						array(
 							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when policy or claims suites fail.', 'testro' ),
+							'title'       => __( 'Status Updates and Notifications', 'testro' ),
+							'description' => __( 'Confirm policyholders get the right updates as a claim moves along.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Claims management testing done well means fewer angry calls and fewer manual fixes after the fact.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'policy-administration-testing',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Policy Administration Testing', 'testro' ),
+					'intro'         => __( 'Get the Core Workflows Right, Every Time', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Policy Issuance', 'testro' ),
+							'description' => __( 'Test the path. From an application to an active policy.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Renewals', 'testro' ),
+							'description' => __( 'Check that coverage and premium changes apply right. Old data stays safe.', 'testro' ),
+						),
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'Premium Math', 'testro' ),
+							'description' => __( 'Check pricing covers every rule and discount. Not just the easy cases.', 'testro' ),
+						),
+						array(
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Cancellations', 'testro' ),
+							'description' => __( 'Test these rare flows just as hard as the common ones.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Policy administration testing that skips the hard cases misses the exact spots that cause the most support calls.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'no-code-test-automation-for-insurance',
+					'columns'       => 3,
+					'title'         => __( 'No-Code Test Automation for Insurance Teams', 'testro' ),
+					'intro'         => __( 'Let More of Your Team Build Tests', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Plain-English Test Creation', 'testro' ),
+							'description' => __( 'QA staff and business analysts build tests. No scripts needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Self-Healing Tests', 'testro' ),
+							'description' => __( 'Insurance portals change often. theTestRo adapts tests on its own. Your whole suite doesn\'t break.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Faster Coverage, Less Maintenance', 'testro' ),
+							'description' => __( 'Spend less time patching broken tests. More time on real edge cases and business rules.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is no-code test automation for insurance built for teams that can\'t wait on a few automation engineers to cover everything.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-device-and-field-condition-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Real Device and Field Condition Testing', 'testro' ),
+					'intro'         => __( 'Test Where Your Users Actually Are', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Real Device Coverage', 'testro' ),
+							'description' => __( 'Check speed and ease of use on real hardware. Not a guess.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Field Network Conditions', 'testro' ),
+							'description' => __( 'See how claims apps do on 3G, 4G, or a weak signal in the field.', 'testro' ),
+						),
+						array(
+							'icon'        => 'map-pin',
+							'title'       => __( 'Geolocation and Localization', 'testro' ),
+							'description' => __( 'Confirm pricing and content adjust right. For users in different regions.', 'testro' ),
 						),
 					),
 				),
 
-				/* 13. FAQ ---------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Insurance FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'insurance',
+					'type'          => 'feature-grid',
+					'id'            => 'visual-regression-quotes-policy-pages',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Visual Regression for Quotes and Policy Pages', 'testro' ),
+					'intro'         => __( 'Catch Broken Layouts Before a Policyholder Does', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Automated Visual Checks', 'testro' ),
+							'description' => __( 'Spot layout shifts and broken parts. On quote flows and policy pages.', 'testro' ),
+						),
+						array(
+							'icon'        => 'filter-check',
+							'title'       => __( 'Smart Change Detection', 'testro' ),
+							'description' => __( 'Tell a real bug apart from a rate meant to update. No chasing false alarms.', 'testro' ),
+						),
+						array(
+							'icon'        => 'browsers',
+							'title'       => __( 'Cross-Device Consistency', 'testro' ),
+							'description' => __( 'Confirm quote wizards look right. On every screen size.', 'testro' ),
+						),
+					),
 				),
 
-				/* 14. Final CTA ---------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-insurance',
-					'title'      => __( 'Deliver Secure, Reliable Insurance Software with AI-Powered Quality Engineering', 'testro' ),
-					'intro'      => __( 'Accelerate digital insurance innovation with theTestRo\'s AI-powered Insurance Testing Platform. Automate policy administration, claims processing, customer portals, and enterprise workflows while ensuring secure, compliant, and reliable software delivery through intelligent test automation.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'built-for-open-enrollment',
+					'columns'       => 3,
+					'title'         => __( 'Built for Open Enrollment and Renewal Season', 'testro' ),
+					'intro'         => __( 'Ready Before the Surge, Not During It', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Full Regression Before Peak Windows', 'testro' ),
+							'description' => __( 'Run a full suite fast. Ahead of open enrollment and renewal times.', 'testro' ),
+						),
+						array(
+							'icon'        => 'gauge',
+							'title'       => __( 'Load and Stress Testing', 'testro' ),
+							'description' => __( 'Simulate high traffic. Confirm your platform holds up before real demand hits.', 'testro' ),
+						),
+						array(
+							'icon'        => 'video',
+							'title'       => __( 'Real-Time Diagnostics', 'testro' ),
+							'description' => __( 'Capture live sessions. Replay them to spot bottlenecks fast. No waiting for a support ticket.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'insurance-api-testing-and-integrations',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Insurance API Testing and Integrations', 'testro' ),
+					'intro'         => __( 'Keep Every Connected System in Sync', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'Insurance API Testing', 'testro' ),
+							'description' => __( 'Check APIs that connect to CRMs, government sites, and payment gateways.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'CI/CD Integration', 'testro' ),
+							'description' => __( 'Trigger tests on their own from your pipeline. Risky changes get caught early.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Centralized Test Management', 'testro' ),
+							'description' => __( 'Run web, mobile, and API tests from one place. Not scattered across tools.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'security-and-compliance-built-in',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Security and Compliance Built In', 'testro' ),
+					'intro'         => __( 'Data Protection That Doesn\'t Slow You Down', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Secure VPN Testing', 'testro' ),
+							'description' => __( 'Run tests inside your own network. Data never leaves a controlled space.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Regulatory Alignment', 'testro' ),
+							'description' => __( 'Testing built with GDPR and other data rules in mind, from the start.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Multi-Factor Authentication Testing', 'testro' ),
+							'description' => __( 'Confirm secure logins and MFA flows work well. Protection stays strong.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-in-insurance',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo in Insurance', 'testro' ),
+					'intro'         => __( 'Built for Every Role Touching the Policyholder Journey', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Insurance Carriers', 'testro' ),
+							'description' => __( 'Cover policy, billing, and claims from one place.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'InsurTech Startups', 'testro' ),
+							'description' => __( 'Move fast on new features. Still meet the bar big carriers expect.', 'testro' ),
+						),
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'Claims and Underwriting Teams', 'testro' ),
+							'description' => __( 'Test the logic that drives right payouts and pricing.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'QA and Product Leads', 'testro' ),
+							'description' => __( 'Roll out steady coverage across teams. No months of onboarding needed.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'insurance',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-testing-insurance-platform',
+					'title'         => __( 'Start Testing Your Insurance Platform Today', 'testro' ),
+					'intro'         => __( 'Ship Faster, Every Renewal Season', 'testro' ),
+					'body'          => __( 'Join insurance and InsurTech teams already using theTestRo. Catch bugs early. Keep claims and policy systems running, no matter how big the traffic surge.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -11511,426 +9153,408 @@ function testro_get_product_pages() {
 			'slug'  => 'microsoft-dynamics-365-test-automation',
 			'title' => __( 'Microsoft Dynamics 365 Testing', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'Microsoft Dynamics 365 Testing | Dynamics 365 Test Automation | ERP QA | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Microsoft Dynamics 365 Test Automation for Finance, Supply Chain, Sales, Customer Service, Commerce, and HR. Automate Dynamics 365 regression testing and ERP quality engineering with theTestRo.', 'testro' ),
+				'title'       => __( 'Best Microsoft Dynamics 365 Test Automation Tool', 'testro' ),
+				'description' => __( 'Automate Microsoft Dynamics 365 testing with the best test automation tool. Validate ERP workflows, reduce regression effort, accelerate releases, and improve quality.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Microsoft Dynamics 365 Testing', 'testro' ),
-				'title'    => __( 'Microsoft Dynamics 365 Test Automation Platform', 'testro' ),
-				'subtitle' => __( 'Accelerate Microsoft Dynamics 365 releases with theTestRo\'s AI-powered Test Automation Platform. Automate testing across Finance, Supply Chain, Sales, Customer Service, Commerce, and Human Resources using no-code automation, self-healing technology, intelligent analytics, and continuous quality engineering. Reduce manual testing, improve release confidence, and ensure business-critical workflows work flawlessly after every Microsoft update.', 'testro' ),
-				'badges'   => array(
-					__( 'No-Code Automation', 'testro' ),
-					__( 'Self-Healing Tests', 'testro' ),
-					__( 'ERP Workflow Coverage', 'testro' ),
-					__( 'Azure DevOps Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Best Microsoft Dynamics 365 Test Automation Tool', 'testro' ),
+				'subtitle' => __( 'theTestRo brings AI ERP test automation to Dynamics 365. Build self-healing, plain-English tests that cover every module. Stop losing weeks to manual work every time Microsoft ships an update.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster Dynamics releases', 'testro' ),
-						'icon'  => 'rocket',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 					array(
-						'value' => '70%',
-						'label' => __( 'Less regression effort', 'testro' ),
-						'icon'  => 'refresh',
-					),
-					array(
-						'value' => '98%',
-						'label' => __( 'Workflow pass confidence', 'testro' ),
-						'icon'  => 'badge-check',
+						'label' => __( 'Book a Demo', 'testro' ),
+						'style' => 'outline',
+						'modal' => 'demo-modal',
+						'icon'  => 'arrow-right',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Accelerate Dynamics 365 testing ----------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'accelerate-dynamics-365-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Accelerate Dynamics 365 Testing Across Every Release', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Mission-Critical ERP Workflows', 'testro' ),
-					'intro'   => __( 'Enterprise Dynamics teams use theTestRo to cut regression effort, protect business-critical processes, and ship every Microsoft update with greater confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'typical-dynamics-365-testing-challenges',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Typical Dynamics 365 Testing Challenges', 'testro' ),
+					'intro'         => __( 'Why D365 Testing Is Harder Than It Looks', 'testro' ),
+					'intro_extra'   => __( 'Dynamics 365 is a large, connected suite with updates arriving all the time. Teams testing it run into the same problems again and again.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Heavy Customization', 'testro' ),
+							'description' => __( 'Every org sets up D365 its own way. Each customization needs its own test coverage.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Deep Integrations', 'testro' ),
+							'description' => __( 'D365 rarely runs on its own. It links to other enterprise systems. A break in one spot can ripple through several.', 'testro' ),
+						),
 						array(
 							'icon'        => 'refresh',
-							'title'       => __( 'Reduce Regression Testing Effort', 'testro' ),
-							'description' => __( 'Automate repetitive regression testing to significantly reduce manual validation effort after every Dynamics 365 update.', 'testro' ),
+							'title'       => __( 'Frequent Microsoft Updates', 'testro' ),
+							'description' => __( 'Quarterly releases can shift the UI or business logic with no warning. Old tests break.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Validate Business-Critical Workflows', 'testro' ),
-							'description' => __( 'Ensure mission-critical ERP processes continue working across every release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'calendar-sync',
-							'title'       => __( 'Support Continuous Microsoft Release Updates', 'testro' ),
-							'description' => __( 'Adapt quickly to Microsoft\'s frequent product updates through AI-powered automated testing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Improve Enterprise Release Quality', 'testro' ),
-							'description' => __( 'Deliver reliable Dynamics 365 implementations with greater confidence and fewer production issues.', 'testro' ),
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Migration Risk', 'testro' ),
+							'description' => __( 'When you move from another CRM or ERP system into D365, you must ensure you don\'t lose important data.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Dynamics 365 testing has to hold up against all four at once. Not just the easiest one.', 'testro' ),
 				),
 
-				/* 2. End-to-end Dynamics automation (grouped bento) --------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'end-to-end-dynamics-365-automation',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'End-to-End Dynamics 365 Test Automation', 'testro' ),
-					'title'   => __( 'One Intelligent Platform Across Every Dynamics Module', 'testro' ),
-					'intro'   => __( 'Automate applications, business processes, enterprise testing capabilities, and efficient execution from a single AI-powered quality platform.', 'testro' ),
-					'groups'  => array(
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Support for Microsoft Dynamics 365 Applications', 'testro' ),
-							'description' => __( 'Validate every major Dynamics 365 module from a single unified testing platform.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'coins',
-									'title' => __( 'Dynamics 365 Finance', 'testro' ),
-								),
-								array(
-									'icon'  => 'package',
-									'title' => __( 'Dynamics 365 Supply Chain Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'trending-up',
-									'title' => __( 'Dynamics 365 Sales', 'testro' ),
-								),
-								array(
-									'icon'  => 'message-text',
-									'title' => __( 'Dynamics 365 Customer Service', 'testro' ),
-								),
-								array(
-									'icon'  => 'retail',
-									'title' => __( 'Dynamics 365 Commerce', 'testro' ),
-								),
-								array(
-									'icon'  => 'user-check',
-									'title' => __( 'Dynamics 365 Human Resources', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Automate Critical Business Processes', 'testro' ),
-							'description' => __( 'Ensure complete business workflow validation across enterprise operations.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'rocket',
-									'title' => __( 'Order-to-Cash', 'testro' ),
-								),
-								array(
-									'icon'  => 'package',
-									'title' => __( 'Procure-to-Pay', 'testro' ),
-								),
-								array(
-									'icon'  => 'file-text',
-									'title' => __( 'Record-to-Report', 'testro' ),
-								),
-								array(
-									'icon'  => 'database',
-									'title' => __( 'Inventory Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'message-text',
-									'title' => __( 'Customer Service Operations', 'testro' ),
-								),
-								array(
-									'icon'  => 'coins',
-									'title' => __( 'Financial Workflows', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'Enterprise Testing Capabilities', 'testro' ),
-							'description' => __( 'Comprehensively validate enterprise applications through intelligent automation.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'refresh',
-									'title' => __( 'Regression Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'badge-check',
-									'title' => __( 'Functional Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'layers-api',
-									'title' => __( 'API Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'infinity',
-									'title' => __( 'End-to-End Business Process Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'browsers',
-									'title' => __( 'Cross-Browser Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'user-check',
-									'title' => __( 'Role-Based User Validation', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Execute & Maintain Tests Efficiently', 'testro' ),
-							'description' => __( 'Reduce maintenance while improving execution efficiency.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'pen-square',
-									'title' => __( 'No-Code Test Creation', 'testro' ),
-								),
-								array(
-									'icon'  => 'heart-pulse',
-									'title' => __( 'Self-Healing Tests', 'testro' ),
-								),
-								array(
-									'icon'  => 'zap',
-									'title' => __( 'Parallel Test Execution', 'testro' ),
-								),
-								array(
-									'icon'  => 'clock',
-									'title' => __( 'Scheduled Test Runs', 'testro' ),
-								),
-								array(
-									'icon'  => 'puzzle',
-									'title' => __( 'Reusable Test Components', 'testro' ),
-								),
-								array(
-									'icon'  => 'chart-bar',
-									'title' => __( 'Execution Reports & Analytics', 'testro' ),
-								),
-							),
-						),
-					),
-				),
-
-				/* 3. Everything you can validate --------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'everything-you-can-validate-dynamics',
-					'eyebrow' => __( 'Everything You Can Validate', 'testro' ),
-					'title'   => __( 'One AI Platform Across Your Dynamics 365 Implementation', 'testro' ),
-					'intro'   => __( 'Validate every layer of your Microsoft Dynamics 365 implementation—from business workflows and customizations to integrations, security, reporting, and enterprise data—using one intelligent AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Dynamics Quality Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Business Processes', 'testro' ),
-							'description' => __( 'Validate order-to-cash, procure-to-pay, and end-to-end ERP journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Forms & User Interfaces', 'testro' ),
-							'description' => __( 'Exercise Dynamics forms, grids, and role-based UI experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Custom Workflows', 'testro' ),
-							'description' => __( 'Cover customizations and tailored business process extensions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Security Roles & Permissions', 'testro' ),
-							'description' => __( 'Confirm access controls and role-based permissions stay correct.', 'testro' ),
-						),
+					'type'          => 'pipeline',
+					'id'            => 'how-teams-get-started',
+					'title'         => __( 'How Teams Get Started', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'plug',
-							'title'       => __( 'Power Platform Integrations', 'testro' ),
-							'description' => __( 'Validate Power Apps, Power Automate, and related extensions.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Third-Party Integrations', 'testro' ),
-							'description' => __( 'Exercise connectors and enterprise system integrations reliably.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Reports & Dashboards', 'testro' ),
-							'description' => __( 'Verify operational reports, analytics, and KPI surfaces.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Data Validation', 'testro' ),
-							'description' => __( 'Confirm data integrity across modules, ledgers, and entities.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Enterprise DevOps integration (pipeline) -------------- */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'dynamics-enterprise-devops',
-					'eyebrow' => __( 'Enterprise DevOps Integration', 'testro' ),
-					'title'   => __( 'Developer → Azure DevOps → AI Test Automation → Quality Validation → Release', 'testro' ),
-					'intro'   => __( 'Integrate Microsoft Dynamics 365 testing seamlessly into your DevOps workflow to automate validation after every deployment, customization, or Microsoft platform update. Accelerate enterprise releases while maintaining continuous software quality.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'code',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Customization & Delivery', 'testro' ),
-							'description' => __( 'Ship Dynamics customizations and configuration changes into the pipeline.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'stage'       => __( 'Azure DevOps', 'testro' ),
-							'title'       => __( 'CI/CD Orchestration', 'testro' ),
-							'description' => __( 'Trigger automated Dynamics validation from Azure DevOps pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'wand',
-							'stage'       => __( 'AI Test Automation', 'testro' ),
-							'title'       => __( 'Intelligent ERP Suites', 'testro' ),
-							'description' => __( 'Execute no-code, self-healing Dynamics suites at enterprise scale.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'stage'       => __( 'Quality Validation', 'testro' ),
-							'title'       => __( 'Release Readiness Checks', 'testro' ),
-							'description' => __( 'Confirm workflow health, coverage, and risk signals before go-live.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Confident Dynamics Deployments', 'testro' ),
-							'description' => __( 'Promote Microsoft Dynamics 365 updates with measurable quality confidence.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Connected integrations -------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'dynamics-integrations',
-					'eyebrow' => __( 'Connected Delivery Ecosystem', 'testro' ),
-					'title'   => __( 'Plug Dynamics Quality into Your Enterprise Toolchain', 'testro' ),
-					'intro'   => __( 'Connect theTestRo with the tools Dynamics delivery teams already use—so every deployment, customization, and Microsoft update stays under continuous validation.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed Dynamics quality gates into boards and release pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger ERP regression on every pull request and release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous Dynamics suites inside Jenkins pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and Dynamics quality signals to delivery work items.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Pipelines', 'testro' ),
-							'description' => __( 'Automate validation after every deployment and platform update.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when Dynamics suites fail or heal.', 'testro' ),
-						),
-					),
-				),
-
-				/* 6. Benefits / outcomes ----------------------------------- */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'dynamics-team-benefits',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Benefits for Dynamics 365 Teams', 'testro' ),
-					'title'   => __( 'Measurable Impact on ERP Release Quality', 'testro' ),
-					'intro'   => __( 'Dynamics delivery, QA, and IT teams use theTestRo to ship faster, expand automation coverage, and lower the cost of keeping ERP suites green.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Accelerate Release Cycles', 'testro' ),
-							'description' => __( 'Deliver Dynamics 365 updates faster through AI-powered automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Reduce Testing Costs', 'testro' ),
-							'description' => __( 'Lower manual testing effort and ongoing maintenance costs.', 'testro' ),
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Connect Your D365 Environment', 'testro' ),
+							'description' => __( 'Point theTestRo at your Dynamics 365 instance and any connected systems.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
-							'title'       => __( 'Increase Test Coverage', 'testro' ),
-							'description' => __( 'Validate more business scenarios across every Dynamics module.', 'testro' ),
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Start With Critical Workflows First', 'testro' ),
+							'description' => __( 'Build tests for the business processes that carry the most risk.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Minimize Business Risk', 'testro' ),
-							'description' => __( 'Detect issues before they impact business operations.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Add Module Coverage Over Time', 'testro' ),
+							'description' => __( 'Layer in Finance, Supply Chain, Service, and CE tests as coverage grows.', 'testro' ),
 						),
 						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Improve Release Confidence', 'testro' ),
-							'description' => __( 'Deploy every Dynamics 365 update with greater certainty and reliability.', 'testro' ),
+							'icon'        => 'git-branch',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run Before Every Release', 'testro' ),
+							'description' => __( 'Trigger the full test suite automatically. This helps your team avoid surprises from quarterly Microsoft updates.', 'testro' ),
 						),
 					),
 				),
 
-				/* 7. Trust logos ------------------------------------------- */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise Dynamics Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Organizations rely on theTestRo to protect Microsoft Dynamics 365 quality and accelerate ERP releases.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'manual-d365-testing-vs-automated-test-automation',
+					'columns'       => 4,
+					'title'         => __( 'Manual D365 Testing vs. Automated Test Automation', 'testro' ),
+					'intro'         => __( 'What Changes When Testing Doesn\'t Wait on a Person', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'Manual regression on a large D365 setup can take weeks. Automated runs finish in days, sometimes hours.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'A manual tester\'s coverage shifts with time and focus. Automated tests run the same steps the same way, every time.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Update Resilience', 'testro' ),
+							'description' => __( 'Manual scripts break the moment Microsoft ships a release. Self-healing tests adapt on their own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Who Can Test', 'testro' ),
+							'description' => __( 'Manual testing needs a dedicated engineer for every scripted check. Plain-English tests open coverage up to business users too.', 'testro' ),
+						),
+					),
 				),
 
-				/* 8. Customer success -------------------------------------- */
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Enterprise Teams Shipping Reliable Dynamics Releases', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to accelerate Microsoft Dynamics 365 releases, improve ERP software quality, reduce regression testing effort, increase automation coverage, and deliver reliable enterprise business processes.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'why-standard-testing-approaches-fall-short',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Why Standard Testing Approaches Fall Short', 'testro' ),
+					'intro'         => __( 'Repeatable Testing That Actually Survives Change', 'testro' ),
+					'intro_extra'   => __( 'Most test automation breaks the moment Dynamics 365 changes underneath it. theTestRo is built to do the opposite.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'Regression in Months, Not Years', 'testro' ),
+							'description' => __( 'Automate large regression suites in a fraction of the time a manual process would take.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Adapts to Monthly and Quarterly Releases', 'testro' ),
+							'description' => __( 'Tests continue to work through Microsoft\'s regular update cycle. Not just the version they built it on.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Built for Both Technical and Business Users', 'testro' ),
+							'description' => __( 'Plain-English steps mean QA staff and business analysts can both write and read the same tests.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'De-Risked Implementation', 'testro' ),
+							'description' => __( 'Rolling out D365 for the first time, or moving into it, tests catch problems before go-live. Not after.', 'testro' ),
+						),
+					),
 				),
 
-				/* 9. FAQ --------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Dynamics 365 FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'microsoft-dynamics-365-test-automation',
+					'type'          => 'lifecycle',
+					'id'            => 'author-execute-report-maintain',
+					'title'         => __( 'Author, Execute, Report, Maintain: The Full Testing Lifecycle', 'testro' ),
+					'intro'         => __( 'One Platform Covers Every Stage', 'testro' ),
+					'heading_level' => 3,
+					'loop_note'     => '',
+					'items'         => array(
+						array(
+							'icon'        => 'pen-square',
+							'title'       => __( 'Author', 'testro' ),
+							'description' => __( 'Build a Dynamics 365 test in plain English. Watch each step check itself as you write it. No app needs to exist yet. You can build tests from requirements or wireframes before development even finishes.', 'testro' ),
+						),
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Execute', 'testro' ),
+							'description' => __( 'Run tests on your schedule, not just when someone\'s watching. Trigger runs from your CI/CD pipeline the moment new code lands, or set up an automatic schedule for off-hours runs.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Report', 'testro' ),
+							'description' => __( 'Get a clear picture of application health and testing progress. A test fails, and root cause analysis tells you why. Not just that it failed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Maintain', 'testro' ),
+							'description' => __( 'Self-healing keeps tests working through dynamic IDs and shifting selectors. No hours hunting down what changed after every D365 update.', 'testro' ),
+						),
+					),
 				),
 
-				/* 10. Final CTA -------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-microsoft-dynamics-365',
-					'title'      => __( 'Automate Microsoft Dynamics 365 Testing with AI-Powered Quality Engineering', 'testro' ),
-					'intro'      => __( 'Transform Microsoft Dynamics 365 quality assurance with theTestRo\'s AI-powered Test Automation Platform. Automate enterprise workflows, validate every business process, reduce maintenance through self-healing automation, and accelerate ERP releases with confidence using intelligent end-to-end testing.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'codeless-ai-testing-for-every-dynamics-365-module',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Codeless AI Testing for Every Dynamics 365 Module', 'testro' ),
+					'intro'         => __( 'One Platform for the Whole Suite', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Customer Experience', 'testro' ),
+							'description' => __( 'Test sales, marketing, and customer flows. No scripts to write.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Service', 'testro' ),
+							'description' => __( 'Cover case handling and service work, start to finish.', 'testro' ),
+						),
+						array(
+							'icon'        => 'package',
+							'title'       => __( 'Supply Chain', 'testro' ),
+							'description' => __( 'Check inventory, buying, and shipping, as they actually run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'Finance', 'testro' ),
+							'description' => __( 'Test money flows with the same care regulated systems need.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Small & Medium Business', 'testro' ),
+							'description' => __( 'Cover Business Central and other SMB tools from the same platform.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'A no-code approach means testers don\'t need to learn a scripting language for any part of the suite.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'real-time-alignment-with-microsofts-release-cycle',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Real-Time Alignment With Microsoft\'s Release Cycle', 'testro' ),
+					'intro'         => __( 'Tests That Don\'t Fall Behind Every Update', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Automatic Updates as Dynamics 365 Changes', 'testro' ),
+							'description' => __( 'Test assets adjust to new releases instead of quietly going stale.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wrench',
+							'title'       => __( 'No More Manual Rebuilds', 'testro' ),
+							'description' => __( 'A quarterly Microsoft update doesn\'t mean weeks of rewriting scripts.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Confidence With Every Release', 'testro' ),
+							'description' => __( 'Know your tests reflect the current version of D365. Not last quarter\'s version.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is what real-time Dynamics 365 testing should mean. Staying in step with Microsoft\'s release calendar on its own. Not scrambling after each one.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'self-healing-tests-that-survive-every-update',
+					'columns'       => 3,
+					'title'         => __( 'Self-Healing Tests That Survive Every Update', 'testro' ),
+					'intro'         => __( 'Locator-Free Automation for a System That Never Stops Changing', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'No Fragile Selectors', 'testro' ),
+							'description' => __( 'theTestRo finds Dynamics 365 elements. No relying on brittle locators that break at a glance.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Automatic Recovery', 'testro' ),
+							'description' => __( 'The system fixes a shifted field or renamed button on its own, right in the middle of a run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wrench',
+							'title'       => __( 'Lower Maintenance Overhead', 'testro' ),
+							'description' => __( 'Less time patching tests. More time finding real bugs.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'dynamics-365-regression-testing-at-scale',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Dynamics 365 Regression Testing at Scale', 'testro' ),
+					'intro'         => __( 'Full Regression Without the Multi-Week Wait', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'Parallel Execution', 'testro' ),
+							'description' => __( 'Run large regression suites across environments at the same time. Not one test after the other.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Reusable Test Components', 'testro' ),
+							'description' => __( 'Common flows, like logging in or making a record, become blocks reused across every test.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Risk-Based Coverage', 'testro' ),
+							'description' => __( 'Put the business flows that matter most first. We check critical paths before anything else.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Dynamics 365 regression testing built this way turns a multi-week manual cycle into something that wraps up in days.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'cicd-integration-and-continuous-testing',
+					'variant'       => 'tint',
+					'title'         => __( 'CI/CD Integration and Continuous Testing', 'testro' ),
+					'intro'         => __( 'Testing That Runs With Every Deployment', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jenkins, GitHub Actions, Azure DevOps, and GitLab. Dynamics 365 tests trigger on their own as part of your existing pipeline. In-sprint automation means shift-left testing becomes real, not just a talking point. We catch issues while a change still stays cheap to fix.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'end-to-end-automation-across-dynamics-365',
+					'columns'       => 3,
+					'title'         => __( 'End-to-End Automation Across Dynamics 365 and Connected Systems', 'testro' ),
+					'intro'         => __( 'Beyond D365 Alone', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Single Tests Across Multiple Systems', 'testro' ),
+							'description' => __( 'Check a flow that spans Dynamics 365 and a linked app in one test. Not two separate ones.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'Backend and API Coverage', 'testro' ),
+							'description' => __( 'Cover the services and links behind Dynamics 365. Not just what shows on screen.', 'testro' ),
+						),
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Omnichannel Validation', 'testro' ),
+							'description' => __( 'Check the same business step across web and mobile, wherever your users actually work.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-dynamics-365-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for Dynamics 365 Testing', 'testro' ),
+					'intro'         => __( 'Built for Every Team Running on D365', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Enterprise QA Teams', 'testro' ),
+							'description' => __( 'Cover a large-scale, custom Dynamics 365 setup. No matching headcount increase needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'pen-square',
+							'title'       => __( 'Business Analysts', 'testro' ),
+							'description' => __( 'Write and check tests in plain English. No waiting on a dedicated automation engineer.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'IT and Implementation Teams', 'testro' ),
+							'description' => __( 'De-risk a new D365 rollout or move with test coverage built in from day one.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'DevOps Engineers', 'testro' ),
+							'description' => __( 'Keep Dynamics 365 tests running on their own as part of the release pipeline.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'microsoft-dynamics-365-test-automation',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-automating-dynamics-365-testing',
+					'title'         => __( 'Start Automating Dynamics 365 Testing Today', 'testro' ),
+					'intro'         => __( 'Stay Ahead of Every D365 Release', 'testro' ),
+					'body'          => __( 'Join enterprise teams already using theTestRo. Cut regression time. Catch issues before every release. Not after.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -11940,371 +9564,399 @@ function testro_get_product_pages() {
 			'slug'  => 'salesforce-test-automation',
 			'title' => __( 'Salesforce Testing', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'Salesforce Testing | AI Salesforce Test Automation | CRM QA | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Salesforce Test Automation for Sales Cloud, Service Cloud, Experience Cloud, Marketing Cloud, and Commerce Cloud. Automate Salesforce CRM testing, Lightning validation, and regression with theTestRo.', 'testro' ),
+				'title'       => __( 'Best Automation Tools for Salesforce Testing & QA Automation', 'testro' ),
+				'description' => __( 'Discover the best automation tools for Salesforce testing to validate CRM workflows, integrations, and business processes while improving software quality.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Salesforce Test Automation', 'testro' ),
-				'title'    => __( 'AI Salesforce Test Automation Tool', 'testro' ),
-				'subtitle' => __( 'Accelerate Salesforce releases with theTestRo\'s AI-powered Salesforce Test Automation Platform. Automate testing across Sales Cloud, Service Cloud, Experience Cloud, Marketing Cloud, and Commerce Cloud using no-code automation, self-healing technology, intelligent analytics, and continuous quality engineering. Validate every CRM workflow with confidence while reducing manual testing effort and accelerating enterprise releases.', 'testro' ),
-				'badges'   => array(
-					__( 'No-Code Automation', 'testro' ),
-					__( 'Self-Healing Tests', 'testro' ),
-					__( 'Lightning Coverage', 'testro' ),
-					__( 'CI/CD Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Best Automation Tools for Salesforce Testing', 'testro' ),
+				'subtitle' => __( 'theTestRo is a Salesforce testing tool built for the Lightning platform\'s constant change. Build tests in plain English. Let self-healing keep them passing through every seasonal update, without waiting on an automation engineer.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster Salesforce releases', 'testro' ),
-						'icon'  => 'rocket',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 					array(
-						'value' => '70%',
-						'label' => __( 'Less regression effort', 'testro' ),
-						'icon'  => 'refresh',
-					),
-					array(
-						'value' => '98%',
-						'label' => __( 'CRM workflow confidence', 'testro' ),
-						'icon'  => 'badge-check',
+						'label' => __( 'Book a Demo', 'testro' ),
+						'style' => 'outline',
+						'modal' => 'demo-modal',
+						'icon'  => 'arrow-right',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Simplify Salesforce testing --------------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'simplify-salesforce-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Simplify Salesforce Testing Across Every Release', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Mission-Critical CRM Workflows', 'testro' ),
-					'intro'   => __( 'Enterprise Salesforce teams use theTestRo to accelerate CRM validation, remove testing bottlenecks, protect business continuity, and ship every Salesforce release with greater confidence.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Accelerate CRM Validation', 'testro' ),
-							'description' => __( 'Automate validation of Salesforce CRM functionality after every deployment to reduce testing time and improve release speed.', 'testro' ),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'what-makes-salesforce-hard-to-test',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'What Makes Salesforce Hard to Test', 'testro' ),
+					'intro'         => __( 'Why Generic Automation Breaks on Salesforce', 'testro' ),
+					'intro_extra'   => __( 'Salesforce isn\'t a typical web app. Testing it like one usually leads to trouble.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
 							'icon'        => 'refresh',
-							'title'       => __( 'Reduce Testing Bottlenecks', 'testro' ),
-							'description' => __( 'Eliminate repetitive manual testing using AI-powered automation and reusable test assets.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Ensure Business Continuity', 'testro' ),
-							'description' => __( 'Validate mission-critical CRM processes to ensure uninterrupted business operations.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Improve Release Confidence', 'testro' ),
-							'description' => __( 'Deploy Salesforce updates with greater confidence through continuous automated testing and AI-powered quality insights.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. Salesforce Clouds bento ------------------------------- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'test-every-salesforce-business-process',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Test Every Salesforce Business Process', 'testro' ),
-					'title'   => __( 'Complete Coverage Across Salesforce Clouds', 'testro' ),
-					'intro'   => __( 'Validate Sales Cloud, Service Cloud, Experience Cloud, Marketing Cloud, and Commerce Cloud from one intelligent AI-powered Salesforce testing platform.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'trending-up',
-							'title'       => __( 'Sales Cloud', 'testro' ),
-							'description' => __( 'Validate lead management, opportunities, forecasting, and sales workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Service Cloud', 'testro' ),
-							'description' => __( 'Ensure customer support, case management, and service operations work flawlessly.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Experience Cloud', 'testro' ),
-							'description' => __( 'Test customer, partner, and community portals across devices and browsers.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Marketing Cloud', 'testro' ),
-							'description' => __( 'Validate customer journeys, campaigns, email automation, and engagement workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'retail',
-							'title'       => __( 'Commerce Cloud', 'testro' ),
-							'description' => __( 'Ensure seamless digital commerce experiences, shopping journeys, and order processing.', 'testro' ),
-						),
-					),
-				),
-
-				/* 3. End-to-end CRM workflows ------------------------------ */
-				array(
-					'type'      => 'lifecycle',
-					'id'        => 'validate-end-to-end-salesforce-workflows',
-					'eyebrow'   => __( 'Validate End-to-End Salesforce Workflows', 'testro' ),
-					'title'     => __( 'Automate the Complete CRM Business Journey', 'testro' ),
-					'intro'     => __( 'From lead qualification through support and reporting, cover every revenue-critical Salesforce process—so CRM operations stay reliable after every release.', 'testro' ),
-					'loop_note' => __( 'Every CRM stage feeds the next — continuous Salesforce quality compounds with each release.', 'testro' ),
-					'items'     => array(
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Lead-to-Opportunity', 'testro' ),
-							'description' => __( 'Validate lead qualification, opportunity creation, and pipeline management.', 'testro' ),
-						),
-						array(
-							'icon'        => 'coins',
-							'title'       => __( 'Quote-to-Cash', 'testro' ),
-							'description' => __( 'Automate complete sales lifecycle validation from quotation to payment.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Case Management', 'testro' ),
-							'description' => __( 'Ensure support tickets and customer service workflows operate correctly.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Approval Processes', 'testro' ),
-							'description' => __( 'Validate approval chains, notifications, and workflow automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Reports & Dashboards', 'testro' ),
-							'description' => __( 'Verify CRM reports, dashboards, KPIs, and business insights.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Enterprise capabilities ------------------------------- */
-				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-salesforce-test-automation',
-					'variant' => 'tint',
-					'columns' => 3,
-					'eyebrow' => __( 'Enterprise Test Automation Capabilities', 'testro' ),
-					'title'   => __( 'Built for Scalable Salesforce QA Automation', 'testro' ),
-					'intro'   => __( 'Create, heal, schedule, and scale Salesforce regression testing with no-code authoring, parallel execution, API coverage, and cross-browser validation.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'pen-square',
-							'title'       => __( 'No-Code Test Creation', 'testro' ),
-							'description' => __( 'Create Salesforce automation without writing code.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Self-Healing Tests', 'testro' ),
-							'description' => __( 'Automatically recover from UI changes and Salesforce updates.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Cross-Browser Testing', 'testro' ),
-							'description' => __( 'Validate CRM experiences across Chrome, Edge, Firefox, Safari, and more.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'API Validation', 'testro' ),
-							'description' => __( 'Verify Salesforce APIs, integrations, and connected services.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Parallel Test Execution', 'testro' ),
-							'description' => __( 'Run multiple Salesforce tests simultaneously for faster validation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'clock',
-							'title'       => __( 'Test Scheduling', 'testro' ),
-							'description' => __( 'Schedule automated test execution for every release cycle.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Everything you can validate --------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'everything-you-can-validate-salesforce',
-					'eyebrow' => __( 'Everything You Can Validate', 'testro' ),
-					'title'   => __( 'One AI Platform Across Your Salesforce Implementation', 'testro' ),
-					'intro'   => __( 'Validate every aspect of your Salesforce implementation—from Lightning components and Apex logic to business rules, security permissions, integrations, and enterprise data—using one intelligent AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Salesforce Quality Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'User Interface', 'testro' ),
-							'description' => __( 'Exercise Lightning pages, forms, and role-based CRM experiences.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Business Rules', 'testro' ),
-							'description' => __( 'Validate flows, validation rules, and process automation logic.', 'testro' ),
+							'title'       => __( 'A Shifting Lightning DOM', 'testro' ),
+							'description' => __( 'The interface structure changes between orgs and with every seasonal release. Old locators break.', 'testro' ),
 						),
 						array(
 							'icon'        => 'puzzle',
-							'title'       => __( 'Custom Objects', 'testro' ),
-							'description' => __( 'Cover custom objects, fields, and tailored Salesforce data models.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'Apex Integrations', 'testro' ),
-							'description' => __( 'Verify Apex-driven logic and connected service integrations.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Lightning Components', 'testro' ),
-							'description' => __( 'Test Lightning Experience components across key user journeys.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Third-Party Integrations', 'testro' ),
-							'description' => __( 'Exercise connectors and enterprise system integrations reliably.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Data Validation', 'testro' ),
-							'description' => __( 'Confirm CRM data integrity across objects, records, and sync paths.', 'testro' ),
+							'title'       => __( 'Org-Specific Workflows', 'testro' ),
+							'description' => __( 'Most of the real risk sits in the custom flows, Apex triggers, and approval routing your org built itself. Not the standard objects.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-lock',
-							'title'       => __( 'Role-Based Access', 'testro' ),
-							'description' => __( 'Confirm profiles, permission sets, and security controls stay correct.', 'testro' ),
+							'title'       => __( 'Multi-Factor Authentication', 'testro' ),
+							'description' => __( 'MFA blocks a lot of automated logins. Teams end up turning it off in test setups and never test the real path.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Skill Gaps in Test Authoring', 'testro' ),
+							'description' => __( 'Building solid Salesforce coverage has needed script skills a QA team may not have.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'CRM test automation that ignores these four problems isn\'t truly testing Salesforce. They are testing an easier, less accurate version of it.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-teams-get-started',
+					'title'         => __( 'How Teams Get Started', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'plug',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Connect Your Salesforce Org', 'testro' ),
+							'description' => __( 'Point theTestRo at your sandbox or production environment.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Start With High-Risk Flows First', 'testro' ),
+							'description' => __( 'Lead-to-cash and case management usually carry the most risk. Build these tests first.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Add Cloud Coverage Over Time', 'testro' ),
+							'description' => __( 'Layer in Service Cloud, CPQ, and custom Apex flows as coverage grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run Before Every Release', 'testro' ),
+							'description' => __( 'Trigger a full suite automatically, so a seasonal update never catches your team unprepared.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. DevOps pipeline --------------------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'salesforce-enterprise-devops',
-					'eyebrow' => __( 'Integrate with Your DevOps Pipeline', 'testro' ),
-					'title'   => __( 'Developer → GitHub → CI/CD → AI Salesforce Testing → Quality Validation → Release', 'testro' ),
-					'intro'   => __( 'Integrate Salesforce testing seamlessly into your DevOps pipeline to automate validation after every deployment, customization, or release. Accelerate CRM delivery while maintaining continuous quality and enterprise reliability.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'manual-salesforce-qa-vs-automated-testing',
+					'columns'       => 4,
+					'title'         => __( 'Manual Salesforce QA vs. Automated Testing', 'testro' ),
+					'intro'         => __( 'What Changes When Testing Doesn\'t Wait on a Person', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'code',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Customization & Delivery', 'testro' ),
-							'description' => __( 'Ship Salesforce customizations and configuration changes into the pipeline.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'Manual regression on a large org can take days. Automated runs finish in hours.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'GitHub', 'testro' ),
-							'title'       => __( 'Source Control Triggers', 'testro' ),
-							'description' => __( 'Kick off CRM validation from pull requests and release branches.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'CI/CD', 'testro' ),
-							'title'       => __( 'Pipeline Orchestration', 'testro' ),
-							'description' => __( 'Automate Salesforce QA gates after every deployment or update.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'A manual tester\'s coverage shifts with time and focus. Automated tests run the same way, every single time.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
-							'stage'       => __( 'AI Salesforce Testing', 'testro' ),
-							'title'       => __( 'Intelligent CRM Suites', 'testro' ),
-							'description' => __( 'Execute no-code, self-healing Salesforce suites at enterprise scale.', 'testro' ),
+							'title'       => __( 'Update Resilience', 'testro' ),
+							'description' => __( 'Manual scripts break the moment a seasonal release lands. Self-healing tests adapt on their own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Who Can Test', 'testro' ),
+							'description' => __( 'Manual testing needs a dedicated engineer for every scripted check. Plain-English tests open coverage to admins too.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'record-and-build-tests-without-code',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Record and Build Tests Without Code', 'testro' ),
+					'intro'         => __( 'Capture Real Workflows, No Scripting Required', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'video',
+							'title'       => __( 'Record Real Salesforce Flows', 'testro' ),
+							'description' => __( 'Capture login, form entries, button clicks, and navigation right from a live session. Exactly as they happen in your org.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Every Action Becomes a Test Step', 'testro' ),
+							'description' => __( 'Each click turns on its own into a step you can review and reuse. Not a black box you can\'t edit.', 'testro' ),
+						),
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'Generate Tests From User Stories', 'testro' ),
+							'description' => __( 'Upload a user story from a doc, or link it from Jira. Get a starting test case you can refine before it runs.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is Salesforce automation testing built so QA staff, admins, and business users can all pitch in. Not just engineers who know Selenium.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'self-healing-for-salesforces-lightning-ui',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Self-Healing for Salesforce\'s Lightning UI', 'testro' ),
+					'intro'         => __( 'Tests That Adapt Instead of Breaking', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Locators Resolved at Runtime', 'testro' ),
+							'description' => __( 'theTestRo reads Salesforce metadata to find the right element. No relying on one fragile selector.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Survives Seasonal Releases', 'testro' ),
+							'description' => __( 'A Spring, Summer, or Winter release doesn\'t mean rebuilding your suite from the ground up.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Stable Across Profiles and Permissions', 'testro' ),
+							'description' => __( 'Tests keep working even as role-based layouts and permission sets shift underneath them.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is what real AI Salesforce testing should mean. Stability that holds through the exact kind of change that breaks everything else.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'test-every-salesforce-cloud-from-one-platform',
+					'columns'       => 4,
+					'title'         => __( 'Test Every Salesforce Cloud From One Platform', 'testro' ),
+					'intro'         => __( 'Sales, Service, CPQ, and Beyond', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Sales Cloud', 'testro' ),
+							'description' => __( 'Test lead capture, assignment rules, scoring, and conversion start to finish.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Service Cloud', 'testro' ),
+							'description' => __( 'Cover case creation, escalation, agent console work, and customer self-service.', 'testro' ),
+						),
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'CPQ', 'testro' ),
+							'description' => __( 'Check product bundling, pricing rules, and quote-to-order flow before a bad setup reaches the deal desk.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'Apex, LWC, and Integrations', 'testro' ),
+							'description' => __( 'Cover Apex triggers, Lightning Web Components, and the downstream systems Salesforce connects to.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'One plain-English flow can cover all it. No separate siloed suite for every cloud.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'salesforce-api-and-integration-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Salesforce API and Integration Testing', 'testro' ),
+					'intro'         => __( 'Check What Happens Behind the Screen', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'REST and SOAP Coverage', 'testro' ),
+							'description' => __( 'Test API rules in the same flow as your UI checks. No separate tool needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'Downstream System Validation', 'testro' ),
+							'description' => __( 'Confirm data lands right in connected ERP, marketing, and billing systems.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Middleware and Integration Checks', 'testro' ),
+							'description' => __( 'Catch a broken handoff before a customer ever sees it.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'salesforce-regression-testing-across-every-release',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Salesforce Regression Testing Across Every Release', 'testro' ),
+					'intro'         => __( 'Ready Before Every Seasonal Update', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'cloud',
+							'title'       => __( 'Sandbox Preview Regression', 'testro' ),
+							'description' => __( 'Run a full check against sandbox previews. Do this before a seasonal release goes live.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Auto-Healing After Each Update', 'testro' ),
+							'description' => __( 'The system fixes broken locators on its own after each release. Fixed before your next run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Release Readiness Signals', 'testro' ),
+							'description' => __( 'Dashboards show which areas need attention before a launch. Not after.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Salesforce regression testing built this way turns three major annual releases into a routine check. Not a scramble.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'debug-failures-with-full-context',
+					'columns'       => 3,
+					'title'         => __( 'Debug Failures With Full Context', 'testro' ),
+					'intro'         => __( 'Know Exactly What Broke, and Why', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'Step-by-Step Execution History', 'testro' ),
+							'description' => __( 'Review screenshots and logs for every step of every run.', 'testro' ),
 						),
 						array(
 							'icon'        => 'microscope',
-							'stage'       => __( 'Quality Validation', 'testro' ),
-							'title'       => __( 'Release Readiness Checks', 'testro' ),
-							'description' => __( 'Confirm workflow health, coverage, and risk signals before go-live.', 'testro' ),
+							'title'       => __( 'AI Root Cause Analysis', 'testro' ),
+							'description' => __( 'A test fails, and AI checks logs, screenshots, and network traces to point at the real failing part.', 'testro' ),
 						),
 						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Confident Salesforce Deployments', 'testro' ),
-							'description' => __( 'Promote Salesforce updates with measurable CRM quality confidence.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Rerun and Isolate Fast', 'testro' ),
+							'description' => __( 'Edit, duplicate, or rerun a test from your suite. Isolate UI, data, or workflow issues quickly.', 'testro' ),
 						),
 					),
 				),
 
-				/* 7. Connected integrations -------------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'salesforce-integrations',
-					'eyebrow' => __( 'Connected Delivery Ecosystem', 'testro' ),
-					'title'   => __( 'Plug Salesforce Quality into Your Enterprise Toolchain', 'testro' ),
-					'intro'   => __( 'Connect theTestRo with the tools Salesforce delivery teams already use—so every deployment, customization, and platform update stays under continuous validation.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-salesforce-testing-at-scale',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Enterprise Salesforce Testing at Scale', 'testro' ),
+					'intro'         => __( 'Built for Complex, Multi-Org Environments', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and Salesforce quality signals to delivery work items.', 'testro' ),
+							'icon'        => 'infinity',
+							'title'       => __( 'Multi-Org Parallel Execution', 'testro' ),
+							'description' => __( 'Run the same test across sandbox, staging, and live orgs at once. No copied scripts.', 'testro' ),
+						),
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'Bring Your Own Test Data', 'testro' ),
+							'description' => __( 'Connect internal databases. Handle secrets and passwords safely.', 'testro' ),
 						),
 						array(
 							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous Salesforce suites inside Jenkins pipelines.', 'testro' ),
+							'title'       => __( 'Deploy in Your Own Environment', 'testro' ),
+							'description' => __( 'Run in a private cloud or on your own servers when data location matters.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Full Traceability', 'testro' ),
+							'description' => __( 'Track outcomes and failure patterns across every test round from one place.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Enterprise Salesforce testing has to hold up across many orgs, teams, and releases at once. Not just a single sandbox.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'fits-into-your-existing-workflow',
+					'variant'       => 'tint',
+					'title'         => __( 'Fits Into Your Existing Workflow', 'testro' ),
+					'intro'         => __( 'No New Process to Learn', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jira, Jenkins, GitHub Actions, Azure DevOps, and Slack. Trigger Salesforce tests on their own as part of your deployment pipeline. Route failures straight into the tools your team already uses.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-salesforce-testing',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for Salesforce Testing', 'testro' ),
+					'intro'         => __( 'Built for Every Role Touching the Platform', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Salesforce Admins', 'testro' ),
+							'description' => __( 'Build and keep test coverage. No coding needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'QA Engineers', 'testro' ),
+							'description' => __( 'Cover tricky org-specific work without hand-scripting every check.', 'testro' ),
 						),
 						array(
 							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger CRM regression on every pull request and release.', 'testro' ),
+							'title'       => __( 'DevOps Teams', 'testro' ),
+							'description' => __( 'Trigger Salesforce tests on their own as part of the release pipeline.', 'testro' ),
 						),
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed Salesforce quality gates into boards and release pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when Salesforce suites fail or heal.', 'testro' ),
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Salesforce Architects', 'testro' ),
+							'description' => __( 'Get a clear view across a highly customized org setup.', 'testro' ),
 						),
 					),
 				),
 
-				/* 8. Trust logos ------------------------------------------- */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise Salesforce Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Organizations rely on theTestRo to protect Salesforce CRM quality and accelerate every release.', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'salesforce-test-automation',
 				),
 
-				/* 9. Customer success -------------------------------------- */
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Enterprise Teams Shipping Reliable Salesforce Releases', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to accelerate Salesforce releases, improve CRM software quality, reduce regression testing effort, increase automation coverage, and deliver reliable customer experiences.', 'testro' ),
-				),
-
-				/* 10. FAQ -------------------------------------------------- */
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Salesforce Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'salesforce-test-automation',
-				),
-
-				/* 11. Final CTA -------------------------------------------- */
-				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-salesforce',
-					'title'      => __( 'Automate Salesforce Testing with AI-Powered Quality Engineering', 'testro' ),
-					'intro'      => __( 'Transform Salesforce quality assurance with theTestRo\'s AI-powered Salesforce Test Automation Platform. Automate CRM workflows, validate every business process, reduce maintenance through self-healing automation, and accelerate Salesforce releases with confidence using intelligent end-to-end testing.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'start-automating-salesforce-testing',
+					'title'         => __( 'Start Automating Salesforce Testing Today', 'testro' ),
+					'intro'         => __( 'Keep Coverage Intact Through Every Release', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo. Catch issues before every seasonal release. Not after.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -12314,346 +9966,452 @@ function testro_get_product_pages() {
 			'slug'  => 'oracle-testing',
 			'title' => __( 'Oracle Testing', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'Oracle Testing | Oracle Test Automation | Cloud ERP QA | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Oracle Test Automation for Oracle Cloud Fusion, EBS, ERP, HCM, SCM, CRM, and Oracle Database. Automate Oracle regression testing and accelerate every quarterly release with theTestRo.', 'testro' ),
+				'title'       => __( 'Best Automated Oracle Testing Tool for Enterprise ERP', 'testro' ),
+				'description' => __( 'Automate Oracle ERP testing with the best automated Oracle testing tool. Validate business workflows, integrations, and enterprise applications with confidence.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Oracle Test Automation', 'testro' ),
-				'title'    => __( 'Oracle Test Automation Platform', 'testro' ),
-				'subtitle' => __( 'Accelerate Oracle releases with theTestRo\'s AI-powered Oracle Test Automation Platform. Automate testing across Oracle Cloud Fusion, Oracle E-Business Suite (EBS), Oracle ERP, HCM, SCM, CRM, and Oracle Database using no-code automation, self-healing technology, intelligent analytics, and continuous quality engineering. Reduce regression testing effort, validate enterprise workflows, and confidently deploy every Oracle quarterly update.', 'testro' ),
-				'badges'   => array(
-					__( 'No-Code Automation', 'testro' ),
-					__( 'Self-Healing Tests', 'testro' ),
-					__( 'Oracle Cloud & EBS', 'testro' ),
-					__( 'CI/CD Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Best Automated Oracle Testing Tool', 'testro' ),
+				'subtitle' => __( 'Automate Oracle Cloud Fusion, EBS, HCM, SCM, and ERP testing in plain English. Run across thousands of browsers and real devices. Self-healing keeps tests passing through every quarterly patch. No scripting needed.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster Oracle releases', 'testro' ),
-						'icon'  => 'rocket',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 					array(
-						'value' => '70%',
-						'label' => __( 'Less regression effort', 'testro' ),
-						'icon'  => 'refresh',
-					),
-					array(
-						'value' => '98%',
-						'label' => __( 'Workflow pass confidence', 'testro' ),
-						'icon'  => 'badge-check',
+						'label' => __( 'Book a Demo', 'testro' ),
+						'style' => 'outline',
+						'modal' => 'demo-modal',
+						'icon'  => 'arrow-right',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Keep pace with every Oracle update -------------------- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'oracle-testing-keeps-pace',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Oracle Testing That Keeps Pace with Every Update', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Mission-Critical Oracle Workflows', 'testro' ),
-					'intro'   => __( 'Enterprise Oracle teams use theTestRo to automate Cloud and EBS validation, shrink regression cycles, protect business processes, and ship every quarterly release with greater confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'oracle-testing-built-for-a-punishing-release-schedule',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Oracle Testing Built for a Punishing Release Schedule', 'testro' ),
+					'intro'         => __( 'Short testing windows, brittle manual scripts, and constant patches put QA teams under real pressure. Oracle\'s applications don\'t sit still. Testing them like a normal web app usually falls apart within a quarter.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Automate Oracle Cloud & Oracle EBS Testing', 'testro' ),
-							'description' => __( 'Automatically validate Oracle Cloud and Oracle EBS applications across every release cycle.', 'testro' ),
+							'icon'        => 'pen-square',
+							'title'       => __( 'No Scripting or Coding Required', 'testro' ),
+							'description' => __( 'No scripting or coding required to build a test.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Broad Oracle Application Coverage', 'testro' ),
+							'description' => __( 'Covers Oracle Cloud Fusion, EBS, HCM, SCM, and ERP from one platform.', 'testro' ),
 						),
 						array(
 							'icon'        => 'zap',
-							'title'       => __( 'Reduce Regression Testing Time', 'testro' ),
-							'description' => __( 'Execute enterprise regression suites significantly faster through AI-powered automation and parallel execution.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Ensure Business Process Stability', 'testro' ),
-							'description' => __( 'Validate mission-critical Oracle workflows before every production deployment.', 'testro' ),
+							'title'       => __( 'Fast Regression Execution', 'testro' ),
+							'description' => __( 'Full regression suites finish in hours, not weeks.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
-							'title'       => __( 'Minimize Test Maintenance Across Quarterly Releases', 'testro' ),
-							'description' => __( 'Leverage self-healing automation to automatically adapt to Oracle\'s frequent product updates with minimal maintenance.', 'testro' ),
+							'title'       => __( 'Self-Healing Through Updates', 'testro' ),
+							'description' => __( 'Self-healing tests adjust on their own after every patch or quarterly update.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'theTestRo writes Oracle tests in plain English and keeps them healthy across every Cloud and EBS release. Whether your team automates in-house or leans on outside testing support.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'manual-oracle-testing-vs-ai-oracle-testing',
+					'columns'       => 4,
+					'title'         => __( 'Manual Oracle Testing vs. AI Oracle Testing', 'testro' ),
+					'intro'         => __( 'What Changes When Testing Doesn\'t Wait on a Person', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'Manual regression on a large Oracle footprint can take weeks. Automated runs finish in hours.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'A manual tester\'s coverage shifts with time and focus. Automated tests run the same way, every time.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Update Resilience', 'testro' ),
+							'description' => __( 'Manual scripts break the moment a patch lands. Self-healing tests adapt on their own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Who Can Test', 'testro' ),
+							'description' => __( 'Manual testing needs a dedicated engineer for every scripted check. Plain-English tests open coverage to business users too.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Oracle applications carry a lot of business logic in financial close, payroll, and supply chain rules. A manual process that works at a small scale often breaks down when a company adds a module. It can also fail when the company expands into a new region.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'module-coverage-one-platform-for-every-oracle-app',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Module Coverage: One Platform for Every Oracle App', 'testro' ),
+					'intro'         => __( 'Test Every Corner of the Oracle Stack', 'testro' ),
+					'intro_extra'   => __( 'Test Oracle Cloud Fusion, EBS, HCM, SCM, CRM, and ERP from one platform. No piecing together separate tools for each part.', 'testro' ),
+					'intro_body'    => __( 'What\'s covered:', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'  => 'cloud',
+							'title' => __( 'Oracle Cloud Fusion', 'testro' ),
+						),
+						array(
+							'icon'  => 'server',
+							'title' => __( 'Oracle EBS', 'testro' ),
+						),
+						array(
+							'icon'  => 'package',
+							'title' => __( 'HCM and SCM', 'testro' ),
+						),
+						array(
+							'icon'  => 'coins',
+							'title' => __( 'Financials and CRM', 'testro' ),
+						),
+						array(
+							'icon'  => 'layers-api',
+							'title' => __( 'REST and SOAP APIs', 'testro' ),
+						),
+						array(
+							'icon'  => 'git-branch',
+							'title' => __( 'Sandbox all the way to production', 'testro' ),
 						),
 					),
 				),
 
-				/* 2. Complete Oracle suite (grouped bento) ----------------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'complete-oracle-test-automation-suite',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'Complete Oracle Test Automation Suite', 'testro' ),
-					'title'   => __( 'One Intelligent Platform Across Every Oracle Application', 'testro' ),
-					'intro'   => __( 'Automate Oracle applications, release validation, DevOps integration, database coverage, and execution insights from a single AI-powered quality platform.', 'testro' ),
-					'groups'  => array(
+					'type'          => 'feature-grid',
+					'id'            => 'quarterly-update-testing',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Quarterly Update Testing: Catch Regressions Before They Ship', 'testro' ),
+					'intro'         => __( 'Stay Ahead of Oracle\'s Release Cadence', 'testro' ),
+					'intro_extra'   => __( 'theTestRo runs full regression suites against staging. Problems appear before they ever touch production.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Comprehensive Oracle Application Coverage', 'testro' ),
-							'description' => __( 'Validate every major Oracle enterprise application from a unified AI-powered testing platform.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'cloud',
-									'title' => __( 'Oracle Cloud Fusion', 'testro' ),
-								),
-								array(
-									'icon'  => 'server',
-									'title' => __( 'Oracle EBS', 'testro' ),
-								),
-								array(
-									'icon'  => 'coins',
-									'title' => __( 'Oracle ERP', 'testro' ),
-								),
-								array(
-									'icon'  => 'user-check',
-									'title' => __( 'Oracle HCM', 'testro' ),
-								),
-								array(
-									'icon'  => 'package',
-									'title' => __( 'Oracle SCM', 'testro' ),
-								),
-								array(
-									'icon'  => 'message-text',
-									'title' => __( 'Oracle CRM', 'testro' ),
-								),
-							),
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Day-One Staging Tests', 'testro' ),
+							'description' => __( 'Day-one staging tests before an update goes live.', 'testro' ),
 						),
 						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Validate Every Oracle Release', 'testro' ),
-							'description' => __( 'Ensure every Oracle deployment is production-ready.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'calendar-sync',
-									'title' => __( 'Quarterly Update Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'refresh',
-									'title' => __( 'Regression Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'git-branch',
-									'title' => __( 'Sandbox-to-Production Validation', 'testro' ),
-								),
-								array(
-									'icon'  => 'shield-check',
-									'title' => __( 'Patch Verification', 'testro' ),
-								),
-							),
+							'icon'        => 'wand',
+							'title'       => __( 'Self-Healing Tests', 'testro' ),
+							'description' => __( 'Self-healing tests when a part changes underneath them.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Full Regression Coverage', 'testro' ),
+							'description' => __( 'Full regression coverage from sandbox all the way to production.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Oracle Cloud\'s fast update pace calls for fast regression coverage. A suite that used to take weeks to re-check can run in hours instead.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'cicd-integration-ship-without-the-manual-qa-bottleneck',
+					'columns'       => 4,
+					'title'         => __( 'CI/CD Integration: Ship Without the Manual QA Bottleneck', 'testro' ),
+					'intro'         => __( 'Gate Every Oracle Deployment on Real Results', 'testro' ),
+					'intro_extra'   => __( 'Build a release-readiness pipeline. A run that checks itself gates every Oracle deployment. Pass or fail signals your team can trust.', 'testro' ),
+					'intro_body'    => __( 'What connects:', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Jenkins and GitHub Actions', 'testro' ),
+							'description' => __( 'Run tests automatically on every build.', 'testro' ),
+						),
+						array(
+							'icon'        => 'cloud',
+							'title'       => __( 'Azure DevOps', 'testro' ),
+							'description' => __( 'Fit right into your existing pipeline.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Jira Defect Sync', 'testro' ),
+							'description' => __( 'Failed tests file straight into your tickets.', 'testro' ),
+						),
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Slack Alerts', 'testro' ),
+							'description' => __( 'Get notified the moment a deployment needs attention.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'database-and-integration-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Database and Integration Testing', 'testro' ),
+					'intro'         => __( 'Check Data, Not Just the Interface', 'testro' ),
+					'intro_extra'   => __( 'Check Oracle Database flows start to finish. Connect theTestRo to Oracle DB through your setup already in place. Confirm data stays correct, ERP data flows right, and business steps hold up after every change.', 'testro' ),
+					'intro_body'    => __( 'Works with:', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'server',
+							'title'       => __( 'Jenkins', 'testro' ),
+							'description' => __( 'Trigger database checks automatically on every build.', 'testro' ),
+						),
+						array(
+							'icon'        => 'message-text',
+							'title'       => __( 'Slack', 'testro' ),
+							'description' => __( 'Get notified the moment a data flow breaks.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Jira', 'testro' ),
+							'description' => __( 'File data-related bugs straight into your tickets.', 'testro' ),
+						),
+						array(
+							'icon'        => 'cloud',
+							'title'       => __( 'Azure DevOps', 'testro' ),
+							'description' => __( 'Run checks right inside your existing pipeline.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
-							'title'       => __( 'Integrate Testing into Your Release Pipeline', 'testro' ),
-							'description' => __( 'Embed Oracle testing into your DevOps workflow.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'infinity',
-									'title' => __( 'CI/CD Integration', 'testro' ),
-								),
-								array(
-									'icon'  => 'server',
-									'title' => __( 'Jenkins', 'testro' ),
-								),
-								array(
-									'icon'  => 'git-branch',
-									'title' => __( 'GitHub Actions', 'testro' ),
-								),
-								array(
-									'icon'  => 'cloud',
-									'title' => __( 'Azure DevOps', 'testro' ),
-								),
-								array(
-									'icon'  => 'plug',
-									'title' => __( 'Jira', 'testro' ),
-								),
-								array(
-									'icon'  => 'message-text',
-									'title' => __( 'Slack Notifications', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Database & Enterprise Integration Validation', 'testro' ),
-							'description' => __( 'Validate complete Oracle ecosystems.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'database',
-									'title' => __( 'Oracle Database Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'layers-api',
-									'title' => __( 'REST & SOAP API Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'infinity',
-									'title' => __( 'Business Workflow Validation', 'testro' ),
-								),
-								array(
-									'icon'  => 'badge-check',
-									'title' => __( 'Data Integrity Verification', 'testro' ),
-								),
-								array(
-									'icon'  => 'plug',
-									'title' => __( 'Third-Party Integration Testing', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Test Maintenance & Execution Insights', 'testro' ),
-							'description' => __( 'Reduce maintenance while improving execution quality.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'heart-pulse',
-									'title' => __( 'Self-Healing Tests', 'testro' ),
-								),
-								array(
-									'icon'  => 'microscope',
-									'title' => __( 'Root Cause Analysis', 'testro' ),
-								),
-								array(
-									'icon'  => 'file-text',
-									'title' => __( 'Real-Time Test Reports', 'testro' ),
-								),
-								array(
-									'icon'  => 'chart-bar',
-									'title' => __( 'Execution Dashboards', 'testro' ),
-								),
-								array(
-									'icon'  => 'activity',
-									'title' => __( 'Flaky Test Detection', 'testro' ),
-								),
-							),
+							'title'       => __( 'Webhooks', 'testro' ),
+							'description' => __( 'Connect to any tool without extra setup.', 'testro' ),
 						),
 					),
 				),
 
-				/* 3. Getting started workflow ------------------------------ */
 				array(
-					'type'      => 'lifecycle',
-					'id'        => 'getting-started-oracle-testing',
-					'eyebrow'   => __( 'Getting Started with Oracle Testing', 'testro' ),
-					'title'     => __( 'From Connection to Confident Deployment', 'testro' ),
-					'intro'     => __( 'Connect your Oracle environments, author AI-powered scenarios, run enterprise regression, validate results across sandboxes, and deploy every quarterly update with measurable quality confidence.', 'testro' ),
-					'loop_note' => __( 'Every Oracle release feeds the next — continuous quality compounds with each quarterly update.', 'testro' ),
-					'items'     => array(
+					'type'          => 'feature-grid',
+					'id'            => 'maintenance-and-reporting',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Maintenance and Reporting: Keep the Suite Healthy on Its Own', 'testro' ),
+					'intro'         => __( 'Know What Needs Attention Before You Ship', 'testro' ),
+					'intro_extra'   => __( 'theTestRo shows failure trends, root causes, and release readiness signs. Your team knows exactly what to check before every Oracle deployment.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'microscope',
+							'title'       => __( 'AI-Powered Root Cause Diagnostics', 'testro' ),
+							'description' => __( 'AI-powered root cause diagnostics on every failure.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Real-Time Test Reporting and Dashboards', 'testro' ),
+							'description' => __( 'Real-time test reporting and dashboards.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Flaky Test Detection', 'testro' ),
+							'description' => __( 'Flaky test detection, flagged on its own.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-to-get-started-with-oracle-testing',
+					'title'         => __( 'How to Get Started With Oracle Testing', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'plug',
-							'title'       => __( 'Connect Your Oracle Environment', 'testro' ),
-							'description' => __( 'Securely connect Oracle Cloud, Oracle EBS, and enterprise environments.', 'testro' ),
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Start Free', 'testro' ),
+							'description' => __( 'Sign up and connect your Oracle environment. No credit card needed. No setup delay either.', 'testro' ),
 						),
 						array(
 							'icon'        => 'pen-square',
-							'title'       => __( 'Create Oracle Test Scenarios', 'testro' ),
-							'description' => __( 'Use AI-powered no-code automation to build reusable Oracle test cases.', 'testro' ),
-						),
-						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Execute Regression Suites', 'testro' ),
-							'description' => __( 'Run enterprise-scale Oracle regression testing across multiple environments.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'title'       => __( 'Validate Results', 'testro' ),
-							'description' => __( 'Review execution evidence, quality signals, and release readiness before go-live.', 'testro' ),
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Author Your First Test', 'testro' ),
+							'description' => __( 'Describe your Oracle workflow in plain English. theTestRo builds and runs the full test on its own.', 'testro' ),
 						),
 						array(
 							'icon'        => 'rocket',
-							'title'       => __( 'Deploy', 'testro' ),
-							'description' => __( 'Validate development, QA, staging, sandbox, and production environments from one centralized platform—then ship with confidence.', 'testro' ),
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Scale With Confidence', 'testro' ),
+							'description' => __( 'Run your full Oracle regression suite in parallel. Test across thousands of browsers and real devices before every update.', 'testro' ),
 						),
 					),
 				),
 
-				/* 4. Enterprise Oracle capabilities ------------------------ */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'enterprise-oracle-testing-capabilities',
-					'variant' => 'tint',
-					'columns' => 3,
-					'eyebrow' => __( 'Enterprise Oracle Testing Capabilities', 'testro' ),
-					'title'   => __( 'Built for Scalable Oracle Quality Engineering', 'testro' ),
-					'intro'   => __( 'Create, heal, orchestrate, and prove Oracle quality with natural language authoring, multi-module coverage, release analytics, and secure enterprise connectivity.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'what-makes-oracle-testing-different',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'What Makes Oracle Testing Different From a Standard Web App', 'testro' ),
+					'intro'         => __( 'Why Generic Automation Tools Fall Short', 'testro' ),
+					'intro_extra'   => __( 'Oracle apps carry deep business logic. A typical web testing tool never handled it.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
-							'icon'        => 'wand',
-							'title'       => __( 'Natural Language Test Creation', 'testro' ),
-							'description' => __( 'Build Oracle automation using simple natural language instead of code.', 'testro' ),
+							'icon'        => 'puzzle',
+							'title'       => __( 'Heavy Configuration', 'testro' ),
+							'description' => __( 'Every org sets up Oracle its own way. Each setup needs its own layer of test coverage.', 'testro' ),
 						),
 						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Oracle Workflow Automation', 'testro' ),
-							'description' => __( 'Automate complete Oracle ERP business processes across multiple modules.', 'testro' ),
+							'icon'        => 'git-branch',
+							'title'       => __( 'Complex Approval Chains', 'testro' ),
+							'description' => __( 'Financial and procurement flows often route through several approval steps. Each one needs its own check.', 'testro' ),
 						),
 						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'End-to-End Oracle ERP Validation', 'testro' ),
-							'description' => __( 'Validate complete enterprise workflows spanning Oracle applications and integrations.', 'testro' ),
+							'icon'        => 'clock',
+							'title'       => __( 'Batch and Scheduled Jobs', 'testro' ),
+							'description' => __( 'Oracle relies on background jobs as much as screens a user clicks through. Real coverage has to include both.', 'testro' ),
 						),
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Multi-Module Testing', 'testro' ),
-							'description' => __( 'Execute testing across Finance, HCM, SCM, CRM, and custom Oracle modules simultaneously.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Release Readiness Insights', 'testro' ),
-							'description' => __( 'Measure deployment confidence through AI-powered quality analytics.', 'testro' ),
-						),
-						array(
-							'icon'        => 'file-text',
-							'title'       => __( 'Rich Execution Evidence', 'testro' ),
-							'description' => __( 'Capture detailed logs, screenshots, reports, and execution evidence for every Oracle test.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Secure Environment Connectivity', 'testro' ),
-							'description' => __( 'Securely connect enterprise Oracle environments while maintaining governance and compliance.', 'testro' ),
+							'title'       => __( 'Cross-Module Dependencies', 'testro' ),
+							'description' => __( 'A change in Financials can quietly affect Procurement or HR. Tests need to catch that ripple. Not just the surface change.', 'testro' ),
 						),
 					),
 				),
 
-				/* 5. Trust logos ------------------------------------------- */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise Oracle Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Organizations rely on theTestRo to protect Oracle Cloud and Oracle ERP quality and accelerate every quarterly release.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'oracle-validation-from-sandbox-to-production',
+					'columns'       => 3,
+					'title'         => __( 'Oracle Validation, From Sandbox to Production', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'Plain-English Test Authoring', 'testro' ),
+							'description' => __( 'Describe any Oracle flow in plain English. theTestRo writes the full test on its own. This covers Cloud Fusion, EBS, HCM, and ERP.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Auto-Healing', 'testro' ),
+							'description' => __( 'AI agents adapt when Oracle parts change after a patch. Test maintenance drops a lot.', 'testro' ),
+						),
+						array(
+							'icon'        => 'video',
+							'title'       => __( 'Rich Execution Evidence', 'testro' ),
+							'description' => __( 'Get screenshots, logs, network traces, and video. Root cause investigation moves faster on every failure.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Full Module Coverage', 'testro' ),
+							'description' => __( 'Test Oracle ERP, HCM, SCM, CRM, Financials, and Manufacturing. Third-party links included, all in one flow.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Quarterly Update Testing', 'testro' ),
+							'description' => __( 'Run full regression suites against staging. Do this before every quarterly update goes live.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Secure Connections', 'testro' ),
+							'description' => __( 'Connect to Oracle Cloud, EBS, and on-premise setups through safe channels. No added infrastructure to run.', 'testro' ),
+						),
+					),
 				),
 
-				/* 6. Customer success -------------------------------------- */
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Enterprise Teams Shipping Reliable Oracle Releases', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to accelerate Oracle Cloud releases, improve Oracle ERP quality, reduce regression testing effort, increase enterprise automation coverage, and deliver reliable Oracle business workflows.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-oracle-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for Oracle Testing', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'Oracle ERP Teams', 'testro' ),
+							'description' => __( 'Cover Financials, SCM, and HCM work. No matching rise in QA headcount needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Implementation Partners', 'testro' ),
+							'description' => __( 'De-risk an Oracle Cloud move or upgrade with test coverage built in from day one.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'IT and Release Managers', 'testro' ),
+							'description' => __( 'Get a clear go or no-go signal before every quarterly deploy.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'QA Engineers', 'testro' ),
+							'description' => __( 'Build broad Oracle coverage without hand-scripting every module.', 'testro' ),
+						),
+					),
 				),
 
-				/* 7. FAQ --------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Oracle Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'oracle-testing',
+					'type'          => 'pipeline',
+					'id'            => 'how-teams-get-started',
+					'title'         => __( 'How Teams Get Started', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'plug',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Connect Your Oracle Environment', 'testro' ),
+							'description' => __( 'Point theTestRo at your Cloud Fusion, EBS, or on-premise setup.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Start With High-Risk Flows First', 'testro' ),
+							'description' => __( 'Financial close and order-to-cash usually carry the most risk. Build these tests first.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Add Module Coverage Over Time', 'testro' ),
+							'description' => __( 'Layer in HCM, SCM, and CRM tests as coverage grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run Before Every Quarterly Update', 'testro' ),
+							'description' => __( 'Trigger a full suite on its own, so a patch never catches your team off guard.', 'testro' ),
+						),
+					),
 				),
 
-				/* 8. Final CTA --------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-oracle-testing',
-					'title'      => __( 'Automate Oracle Testing with AI-Powered Enterprise Quality Engineering', 'testro' ),
-					'intro'      => __( 'Transform Oracle quality assurance with theTestRo\'s AI-powered Oracle Test Automation Platform. Automate Oracle Cloud, Oracle ERP, Oracle EBS, HCM, SCM, CRM, and Database testing while reducing maintenance through self-healing automation, accelerating enterprise releases, and delivering reliable business workflows with confidence.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'oracle-testing',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'automate-your-oracle-testing-today',
+					'title'         => __( 'Automate Your Oracle Testing Today', 'testro' ),
+					'intro'         => __( 'Build, run, and maintain your Oracle test cases across Cloud Fusion, EBS, ERP, HCM, and SCM in plain English, at scale.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -12663,837 +10421,818 @@ function testro_get_product_pages() {
 			'slug'  => 'sap-testing',
 			'title' => __( 'SAP Testing', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'SAP Testing | SAP Test Automation | S/4HANA & Fiori QA | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered SAP Test Automation for SAP S/4HANA, SAP ECC, SAP Fiori, SuccessFactors, Ariba, and SAP CRM. Automate SAP regression testing and accelerate every enterprise release with theTestRo.', 'testro' ),
+				'title'       => __( 'Best Automated SAP Testing Tool for Faster ERP Testing', 'testro' ),
+				'description' => __( 'Automate SAP ERP testing with the best automated SAP testing tool. Validate business processes, integrations, and enterprise applications with confidence.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'SAP Test Automation', 'testro' ),
-				'title'    => __( 'SAP Test Automation and Test Management Platform', 'testro' ),
-				'subtitle' => __( 'Accelerate SAP releases with theTestRo\'s AI-powered SAP Test Automation and Test Management Platform. Automate testing across SAP S/4HANA, SAP ECC, SAP Fiori, SuccessFactors, Ariba, and SAP CRM using no-code automation, self-healing technology, intelligent analytics, and continuous quality engineering. Reduce regression testing effort, validate mission-critical business processes, and confidently deliver every SAP release.', 'testro' ),
-				'badges'   => array(
-					__( 'No-Code Automation', 'testro' ),
-					__( 'Self-Healing Tests', 'testro' ),
-					__( 'S/4HANA & Fiori', 'testro' ),
-					__( 'Cloud & On-Premise', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Best Automated SAP Testing Tool', 'testro' ),
+				'subtitle' => __( 'theTestRo brings AI SAP testing to a system that rarely sits still. Build codeless tests aligned with SAP\'s own release schedule. Keep them working through every update, patch, and configuration change.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster SAP releases', 'testro' ),
-						'icon'  => 'rocket',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 					array(
-						'value' => '70%',
-						'label' => __( 'Less regression effort', 'testro' ),
-						'icon'  => 'refresh',
-					),
-					array(
-						'value' => '98%',
-						'label' => __( 'Workflow pass confidence', 'testro' ),
-						'icon'  => 'badge-check',
+						'label' => __( 'Book a Demo', 'testro' ),
+						'style' => 'outline',
+						'modal' => 'demo-modal',
+						'icon'  => 'arrow-right',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Simplify SAP testing across every enterprise release -- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'simplify-sap-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Simplify SAP Testing Across Every Enterprise Release', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Mission-Critical SAP Workflows', 'testro' ),
-					'intro'   => __( 'Enterprise SAP teams use theTestRo to cut regression effort, protect business-critical processes, adapt to upgrades automatically, and ship every SAP release with greater confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'why-sap-testing-needs-its-own-approach',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Why SAP Testing Needs Its Own Approach', 'testro' ),
+					'intro'         => __( 'SAP sits at the center of some of the most critical business operations in the world. Finance, supply chain, HR, and procurement all depend on it. When something breaks in an SAP setup, the damage doesn\'t stay contained. It ripples across every department that relies on it.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Accelerate SAP Regression Testing', 'testro' ),
-							'description' => __( 'Reduce manual regression effort through AI-powered automation and reusable test assets.', 'testro' ),
+							'icon'        => 'puzzle',
+							'title'       => __( 'Heavy Customization', 'testro' ),
+							'description' => __( 'Organizations set up every SAP landscape differently. Each customization needs its own test coverage.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Validate Mission-Critical Business Processes', 'testro' ),
-							'description' => __( 'Ensure every critical SAP workflow functions correctly before deployment.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Constant Releases', 'testro' ),
+							'description' => __( 'SAP updates arrive on a regular cadence. Each one can quietly break existing scripts.', 'testro' ),
 						),
 						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Reduce Testing Effort During SAP Updates', 'testro' ),
-							'description' => __( 'Automatically adapt to SAP upgrades, patches, and feature releases with self-healing automation.', 'testro' ),
+							'icon'        => 'plug',
+							'title'       => __( 'Deep Cross-System Integration', 'testro' ),
+							'description' => __( 'SAP rarely runs alone. APIs, middleware, and third-party systems add real complexity.', 'testro' ),
 						),
 						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Improve Enterprise Release Confidence', 'testro' ),
-							'description' => __( 'Deliver high-quality SAP releases with intelligent validation and continuous testing.', 'testro' ),
+							'icon'        => 'clock',
+							'title'       => __( 'Massive Regression Packs', 'testro' ),
+							'description' => __( 'A full SAP regression suite run by hand can take weeks. Not hours.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'SAP ERP testing that ignores these four realities isn\'t truly testing your system. Testing a simpler version won\'t hold up in production.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-teams-get-started-with-sap-testing',
+					'title'         => __( 'How Teams Get Started With SAP Testing', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
+						array(
+							'icon'        => 'plug',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Connect Your SAP Landscape', 'testro' ),
+							'description' => __( 'Point theTestRo at your SAP environment, whether it\'s ECC, S/4HANA, or a mix of both.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Start With High-Risk Flows First', 'testro' ),
+							'description' => __( 'Order-to-cash and procure-to-pay usually carry the most risk. Build these tests first.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Add Module Coverage Over Time', 'testro' ),
+							'description' => __( 'Layer in Financials, HCM, and SCM tests as coverage grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run Before Every Release', 'testro' ),
+							'description' => __( 'Trigger a full suite on its own, so a quarterly SAP update never catches your team off guard.', 'testro' ),
 						),
 					),
 				),
 
-				/* 2. End-to-end SAP test automation (grouped bento) -------- */
 				array(
-					'type'    => 'bento',
-					'id'      => 'end-to-end-sap-test-automation',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'End-to-End SAP Test Automation', 'testro' ),
-					'title'   => __( 'One Intelligent Platform Across Every SAP Capability', 'testro' ),
-					'intro'   => __( 'Automate SAP business workflows, generate tests faster, execute at enterprise scale, and maintain stable automation from a single AI-powered quality platform.', 'testro' ),
-					'groups'  => array(
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Automate SAP Business Workflows', 'testro' ),
-							'description' => __( 'Validate complete business operations across SAP modules.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'coins',
-									'title' => __( 'Finance & Accounting', 'testro' ),
-								),
-								array(
-									'icon'  => 'package',
-									'title' => __( 'Procurement', 'testro' ),
-								),
-								array(
-									'icon'  => 'git-branch',
-									'title' => __( 'Supply Chain', 'testro' ),
-								),
-								array(
-									'icon'  => 'trending-up',
-									'title' => __( 'Sales & Distribution', 'testro' ),
-								),
-								array(
-									'icon'  => 'user-check',
-									'title' => __( 'Human Resources', 'testro' ),
-								),
-								array(
-									'icon'  => 'database',
-									'title' => __( 'Inventory Management', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'wand',
-							'title'       => __( 'Generate SAP Tests Faster', 'testro' ),
-							'description' => __( 'Build automation quickly using AI-powered capabilities.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'file-text',
-									'title' => __( 'Create Tests from Business Requirements', 'testro' ),
-								),
-								array(
-									'icon'  => 'message-text',
-									'title' => __( 'Natural Language Test Creation', 'testro' ),
-								),
-								array(
-									'icon'  => 'activity',
-									'title' => __( 'Record & Playback', 'testro' ),
-								),
-								array(
-									'icon'  => 'puzzle',
-									'title' => __( 'Reusable Test Components', 'testro' ),
-								),
-							),
-						),
+					'type'          => 'feature-grid',
+					'id'            => 'four-pillars-of-testros-sap-testing-approach',
+					'columns'       => 4,
+					'title'         => __( 'Four Pillars of theTestRo\'s SAP Testing Approach', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'zap',
-							'title'       => __( 'Execute SAP Tests Reliably', 'testro' ),
-							'description' => __( 'Run enterprise-scale SAP automation with confidence.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'zap',
-									'title' => __( 'Parallel Test Execution', 'testro' ),
-								),
-								array(
-									'icon'  => 'clock',
-									'title' => __( 'Scheduled Test Runs', 'testro' ),
-								),
-								array(
-									'icon'  => 'browsers',
-									'title' => __( 'Cross-Browser Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'layout-grid',
-									'title' => __( 'SAP Fiori Validation', 'testro' ),
-								),
-								array(
-									'icon'  => 'cloud',
-									'title' => __( 'Cloud & On-Premise Execution', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Maintain Stable SAP Automation', 'testro' ),
-							'description' => __( 'Reduce maintenance while improving execution quality.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'heart-pulse',
-									'title' => __( 'Self-Healing Tests', 'testro' ),
-								),
-								array(
-									'icon'  => 'refresh',
-									'title' => __( 'Automatic UI Adaptation', 'testro' ),
-								),
-								array(
-									'icon'  => 'database',
-									'title' => __( 'Dynamic Test Data Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'chart-bar',
-									'title' => __( 'Execution Insights & Reports', 'testro' ),
-								),
-							),
-						),
-					),
-				),
-
-				/* 3. Supported SAP applications ---------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'supported-sap-applications',
-					'eyebrow' => __( 'Supported SAP Applications', 'testro' ),
-					'title'   => __( 'Validate Every Major SAP Application from One Platform', 'testro' ),
-					'intro'   => __( 'Validate every major SAP application from a single AI-powered automation platform. Whether you\'re modernizing SAP S/4HANA, maintaining SAP ECC, or extending SAP Fiori applications, theTestRo enables comprehensive end-to-end quality assurance.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'SAP Quality Hub', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'SAP S/4HANA', 'testro' ),
-							'description' => __( 'Automate S/4HANA testing across modules, upgrades, and critical business releases.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'SAP ECC', 'testro' ),
-							'description' => __( 'Maintain stable ECC regression coverage while you modernize and migrate.', 'testro' ),
-						),
-						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'SAP Fiori', 'testro' ),
-							'description' => __( 'Validate Fiori apps, role-based journeys, and responsive enterprise UX.', 'testro' ),
+							'title'       => __( 'Speed Digital Assurance', 'testro' ),
+							'description' => __( 'Turn a regression pack that used to take weeks into something that runs overnight. Parallel runs across modules, browsers, and devices mean feedback comes back fast. Not eventually.', 'testro' ),
 						),
 						array(
 							'icon'        => 'user-check',
-							'title'       => __( 'SAP SuccessFactors', 'testro' ),
-							'description' => __( 'Cover HCM workflows from hire-to-retire across SuccessFactors processes.', 'testro' ),
+							'title'       => __( 'Empower Business Users', 'testro' ),
+							'description' => __( 'Codeless test creation means QA staff and business users can build and read SAP test steps. No deep scripting skills needed. Coverage doesn\'t bottleneck on one or two specialists.', 'testro' ),
 						),
 						array(
-							'icon'        => 'package',
-							'title'       => __( 'SAP Ariba', 'testro' ),
-							'description' => __( 'Exercise procurement, sourcing, and supplier collaboration journeys.', 'testro' ),
+							'icon'        => 'git-branch',
+							'title'       => __( 'Achieve Continuous Delivery', 'testro' ),
+							'description' => __( 'Shift-left testing becomes real, not just a talking point, when tests run on their own inside your CI/CD pipeline. We catch issues while a change still stays cheap to fix.', 'testro' ),
 						),
 						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'SAP CRM', 'testro' ),
-							'description' => __( 'Validate customer-facing CRM workflows and cross-system integrations.', 'testro' ),
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Real-Time Release Alignment', 'testro' ),
+							'description' => __( 'As SAP ships updates, test assets adjust on their own. They don\'t quietly go stale. A quarterly release doesn\'t mean rebuilding your suite from scratch.', 'testro' ),
 						),
 					),
 				),
 
-				/* 4. Everything you can validate --------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'everything-you-can-validate-sap',
-					'eyebrow' => __( 'Everything You Can Validate', 'testro' ),
-					'title'   => __( 'Complete Confidence Across Your SAP Ecosystem', 'testro' ),
-					'intro'   => __( 'Validate every layer of your SAP landscape—from business process workflows and user interfaces to integrations, access controls, and end-to-end scenarios—using one intelligent AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'SAP Validation Hub', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'one-platform-for-the-complete-sap-suite',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'One Platform for the Complete SAP Suite', 'testro' ),
+					'intro'         => __( 'Every Module, Covered From the Same Place', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Enterprise Resource Planning', 'testro' ),
+							'description' => __( 'Core ERP workflows tested start to finish. Not just spot-checked.', 'testro' ),
+						),
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'Financial Management', 'testro' ),
+							'description' => __( 'Test money processes with the accuracy regulated systems need.', 'testro' ),
+						),
+						array(
+							'icon'        => 'package',
+							'title'       => __( 'Supply Chain Management', 'testro' ),
+							'description' => __( 'Check inventory, buying, and fulfillment as they actually run.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Spend Management', 'testro' ),
+							'description' => __( 'Cover purchasing and spend flows alongside the rest of the suite.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Human Capital Management', 'testro' ),
+							'description' => __( 'Test HCM steps without a separate tool for HR-specific flows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'CRM and Customer Experience', 'testro' ),
+							'description' => __( 'Extend coverage into customer-facing SAP modules from the same platform. This is SAP application testing that covers the whole business, not just back-office screens.', 'testro' ),
+						),
 					),
-					'items'   => array(
+					'outro'         => __( 'A codeless approach covers every one of these modules. No dedicated scripting specialist needed for each.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'manual-sap-testing-vs-ai-sap-testing',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Manual SAP Testing vs. AI SAP Testing', 'testro' ),
+					'intro'         => __( 'What Changes When Testing Doesn\'t Wait on a Person', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'Manual regression on a large SAP landscape can take weeks. Automated runs finish in days, sometimes hours.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'A manual tester\'s coverage shifts with time and focus. Automated tests run the same way, every time.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Update Resilience', 'testro' ),
+							'description' => __( 'Manual scripts break the moment a release lands. Self-healing tests adapt on their own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Who Can Test', 'testro' ),
+							'description' => __( 'Manual testing needs a dedicated specialist for every scripted check. Codeless tests open coverage to business users too.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'locator-free-automation-for-sap-elements',
+					'columns'       => 4,
+					'title'         => __( 'Locator-Free Automation for SAP Elements', 'testro' ),
+					'intro'         => __( 'Testing That Doesn\'t Break When SAP Changes', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'scan-eye',
+							'title'       => __( 'No Brittle Locators', 'testro' ),
+							'description' => __( 'theTestRo finds SAP elements. It doesn\'t rely on one fragile selector.', 'testro' ),
+						),
 						array(
 							'icon'        => 'infinity',
-							'title'       => __( 'Business Process Workflows', 'testro' ),
-							'description' => __( 'Validate order-to-cash, procure-to-pay, and mission-critical SAP journeys.', 'testro' ),
+							'title'       => __( 'Business Process Representation', 'testro' ),
+							'description' => __( 'Test assets map to real business steps. Not just single screen elements.', 'testro' ),
 						),
 						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'SAP User Interfaces', 'testro' ),
-							'description' => __( 'Exercise SAP GUI, Fiori, and role-based enterprise UI experiences.', 'testro' ),
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Automatic Change Impact', 'testro' ),
+							'description' => __( 'A dependency changes, and theTestRo flags it. Your team doesn\'t learn in a failed run.', 'testro' ),
 						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Reusable Assets', 'testro' ),
+							'description' => __( 'Parts tied to real SAP flow get reused across tests. Less duplicate work.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is what real automated SAP testing should mean. Stability that survives the kind of change that breaks brittle, script-based approaches.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'end-to-end-automation-across-enterprise-apps',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'End-to-End Automation Across Enterprise Apps', 'testro' ),
+					'intro'         => __( 'Beyond SAP Alone', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'git-branch',
-							'title'       => __( 'Cross-Module Transactions', 'testro' ),
-							'description' => __( 'Cover multi-module SAP transactions that span finance, logistics, and HR.', 'testro' ),
+							'title'       => __( 'One Test, Multiple Systems', 'testro' ),
+							'description' => __( 'Check a flow that spans SAP and a connected app in one test. Not two separate ones.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'Backend and Microservices Coverage', 'testro' ),
+							'description' => __( 'Test custom apps and back-end services right alongside the SAP interface.', 'testro' ),
+						),
+						array(
+							'icon'        => 'smartphone',
+							'title'       => __( 'Omnichannel Validation', 'testro' ),
+							'description' => __( 'Check the same business process across web, mobile, and desktop, wherever your users actually work.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Enterprise SAP testing has to reach past the SAP GUI itself. Real business steps rarely stay in just one system.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'continuous-testing-aligned-with-every-sap-release',
+					'variant'       => 'tint',
+					'columns'       => 4,
+					'title'         => __( 'Continuous Testing Aligned With Every SAP Release', 'testro' ),
+					'intro'         => __( 'CI/CD Built In, Not Bolted On', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'rocket',
+							'title'       => __( 'In-Sprint Automation', 'testro' ),
+							'description' => __( 'Shift-left testing happens as part of development. Not after it.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Coverage Analysis and Traceability', 'testro' ),
+							'description' => __( 'Smart planning shows what\'s covered and what isn\'t.', 'testro' ),
+						),
+						array(
+							'icon'        => 'target',
+							'title'       => __( 'Risk-Based Test Planning', 'testro' ),
+							'description' => __( 'Put coverage around the business steps that carry the most risk.', 'testro' ),
+						),
+						array(
+							'icon'        => 'infinity',
+							'title'       => __( 'CI Pipeline Integration', 'testro' ),
+							'description' => __( 'Connect to your existing pipeline. Get automated regression runs on every real change.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-sap-testing-at-scale',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise SAP Testing at Scale', 'testro' ),
+					'intro'         => __( 'Built for Large, Complex Landscapes', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Cross-Module Regression', 'testro' ),
+							'description' => __( 'Catch the ripple effect when a change in one module quietly affects another.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-lock',
 							'title'       => __( 'Role-Based Access', 'testro' ),
-							'description' => __( 'Confirm authorizations, roles, and security controls stay correct.', 'testro' ),
+							'description' => __( 'Control who can build, edit, and approve tests across a growing org.', 'testro' ),
 						),
 						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Third-Party Integrations', 'testro' ),
-							'description' => __( 'Exercise connectors and enterprise system integrations reliably.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Database Validation', 'testro' ),
-							'description' => __( 'Confirm data integrity across SAP tables, ledgers, and entities.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'API Integrations', 'testro' ),
-							'description' => __( 'Verify SAP APIs, OData services, and connected interfaces.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'End-to-End Business Scenarios', 'testro' ),
-							'description' => __( 'Prove complete business scenarios before every SAP release.', 'testro' ),
+							'icon'        => 'file-text',
+							'title'       => __( 'Audit-Ready Traceability', 'testro' ),
+							'description' => __( 'Clear records connecting requirements, tests, and results back up compliance reviews. No extra manual work.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'Enterprise SAP testing has to hold up across a landscape with dozens of links and years of customization. Not just a clean demo environment.', 'testro' ),
 				),
 
-				/* 5. Secure enterprise deployment -------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'secure-sap-enterprise-deployment',
-					'eyebrow' => __( 'Secure Enterprise Deployment', 'testro' ),
-					'title'   => __( 'Deploy Securely Across Cloud, On-Premise, and Hybrid', 'testro' ),
-					'intro'   => __( 'Deploy theTestRo securely within enterprise environments while maintaining compliance, governance, and scalability across private cloud, on-premise, and hybrid SAP landscapes.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'shield-lock',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Secure Deployment', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-sap-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for SAP Testing', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Private Cloud Deployment', 'testro' ),
-							'description' => __( 'Run SAP quality engineering in governed private cloud environments.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'SAP QA Teams', 'testro' ),
+							'description' => __( 'Cover a large, highly customized SAP footprint. No matching rise in headcount needed.', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'On-Premise Deployment', 'testro' ),
-							'description' => __( 'Keep automation inside your data center for controlled SAP estates.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Hybrid Environment', 'testro' ),
-							'description' => __( 'Bridge cloud and on-premise SAP systems with unified test execution.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Secure Test Data Management', 'testro' ),
-							'description' => __( 'Protect sensitive SAP data while enabling realistic test coverage.', 'testro' ),
+							'icon'        => 'pen-square',
+							'title'       => __( 'Business Process Owners', 'testro' ),
+							'description' => __( 'Write and review test steps in plain language. No waiting on a scripting specialist.', 'testro' ),
 						),
 						array(
 							'icon'        => 'shield-check',
-							'title'       => __( 'Enterprise Security Controls', 'testro' ),
-							'description' => __( 'Apply governance, access controls, and compliance-ready safeguards.', 'testro' ),
+							'title'       => __( 'Implementation Partners', 'testro' ),
+							'description' => __( 'De-risk an S/4HANA move or upgrade with test coverage built in from day one.', 'testro' ),
 						),
 						array(
-							'icon'        => 'puzzle',
-							'title'       => __( 'Custom Workflow Integrations', 'testro' ),
-							'description' => __( 'Connect SAP testing into your enterprise delivery and ITSM workflows.', 'testro' ),
+							'icon'        => 'git-branch',
+							'title'       => __( 'DevOps Engineers', 'testro' ),
+							'description' => __( 'Keep SAP tests running on their own as part of the release pipeline.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. Benefits for SAP teams -------------------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'sap-team-benefits',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Benefits for SAP Teams', 'testro' ),
-					'title'   => __( 'Measurable Impact on Enterprise SAP Release Quality', 'testro' ),
-					'intro'   => __( 'SAP delivery, QA, and IT teams use theTestRo to reduce maintenance, accelerate validation, expand coverage, and collaborate from one centralized testing platform.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Reduced Test Maintenance', 'testro' ),
-							'description' => __( 'Leverage self-healing automation to minimize ongoing maintenance.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster Release Validation', 'testro' ),
-							'description' => __( 'Accelerate enterprise release cycles through AI-powered automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Higher Test Coverage', 'testro' ),
-							'description' => __( 'Increase validation across every SAP module and business process.', 'testro' ),
-						),
-						array(
-							'icon'        => 'refresh',
-							'title'       => __( 'Reliable Regression Testing', 'testro' ),
-							'description' => __( 'Ensure existing functionality remains stable after every update.', 'testro' ),
-						),
-						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Improved Team Collaboration', 'testro' ),
-							'description' => __( 'Enable business users, QA teams, and developers to collaborate from one centralized testing platform.', 'testro' ),
-						),
-					),
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'sap-testing',
 				),
 
-				/* 7. Trust logos ------------------------------------------- */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise SAP Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Organizations rely on theTestRo to protect SAP quality and accelerate every enterprise release across cloud and on-premise environments.', 'testro' ),
-				),
-
-				/* 8. Customer success -------------------------------------- */
-				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Enterprise Teams Shipping Reliable SAP Releases', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to accelerate SAP releases, improve SAP quality, reduce regression testing effort, increase enterprise automation coverage, and deliver reliable business workflows.', 'testro' ),
-				),
-
-				/* 9. FAQ --------------------------------------------------- */
-				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'SAP Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'sap-testing',
-				),
-
-				/* 10. Final CTA -------------------------------------------- */
-				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-sap-testing',
-					'title'      => __( 'Automate SAP Testing with AI-Powered Enterprise Quality Engineering', 'testro' ),
-					'intro'      => __( 'Transform SAP quality assurance with theTestRo\'s AI-powered SAP Test Automation and Test Management Platform. Automate regression testing, validate mission-critical business workflows, reduce maintenance through self-healing automation, and accelerate enterprise SAP releases with confidence across cloud and on-premise environments.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'get-started-on-your-sap-codeless-test-automation-journey',
+					'title'         => __( 'Get Started on Your SAP Codeless Test Automation Journey', 'testro' ),
+					'intro'         => __( 'Join enterprise teams already using theTestRo\'s SAP test automation to cut regression time and catch issues before every release. Not after.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
+
 		'workday-testing' => array(
 			'slug'  => 'workday-testing',
 			'title' => __( 'Workday Testing', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'Workday Testing | Workday Test Automation | HCM & Payroll QA | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered Workday Test Automation for Workday HCM, Financial Management, Payroll, Recruiting, Learning, and Time Tracking. Automate Workday regression testing and accelerate every release with theTestRo.', 'testro' ),
+				'title'       => __( 'Best Workday Testing Automation Tool for Enterprise HR', 'testro' ),
+				'description' => __( 'Automate Workday testing with the best Workday testing automation tool. Validate HR, payroll, finance, and enterprise workflows while improving software quality.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'Workday Test Automation', 'testro' ),
-				'title'    => __( 'Automate Workday Testing with theTestRo', 'testro' ),
-				'subtitle' => __( 'Accelerate Workday releases with theTestRo\'s AI-powered Workday Test Automation Platform. Automate testing across Workday HCM, Financial Management, Payroll, Recruiting, Learning, and Time Tracking using no-code automation, self-healing technology, intelligent analytics, and continuous quality engineering. Reduce regression testing effort, validate mission-critical HR and Finance workflows, and confidently deliver every Workday update.', 'testro' ),
-				'badges'   => array(
-					__( 'No-Code Automation', 'testro' ),
-					__( 'Self-Healing Tests', 'testro' ),
-					__( 'HCM & Finance', 'testro' ),
-					__( 'CI/CD Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Best Workday Testing Automation Tool', 'testro' ),
+				'subtitle' => __( 'Automate Workday HCM, Payroll, Financial Management, and Adaptive Planning testing in plain English. Run across thousands of browsers and real devices. Self-healing keeps tests working through every major software release. No scripting needed.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster Workday releases', 'testro' ),
-						'icon'  => 'rocket',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 					array(
-						'value' => '70%',
-						'label' => __( 'Less regression effort', 'testro' ),
-						'icon'  => 'refresh',
-					),
-					array(
-						'value' => '98%',
-						'label' => __( 'Workflow pass confidence', 'testro' ),
-						'icon'  => 'badge-check',
+						'label' => __( 'Book a Demo', 'testro' ),
+						'style' => 'outline',
+						'modal' => 'demo-modal',
+						'icon'  => 'arrow-right',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Accelerate Workday testing across every release ------ */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'accelerate-workday-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Accelerate Workday Testing Across Every Release', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Mission-Critical HR & Finance Workflows', 'testro' ),
-					'intro'   => __( 'Enterprise Workday teams use theTestRo to cut regression effort, protect HR and Finance processes, reduce update risk, and ship every Workday release with greater confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'workday-testing-that-survives-every-r1-r2-release',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Workday Testing That Survives Every R1/R2 Release', 'testro' ),
+					'intro'         => __( 'Fragile manual scripts and biannual releases put HR and Finance QA teams under real pressure. Every Workday customer gets the same two major releases a year, whether they asked for the changes or not. theTestRo writes Workday tests in plain English and keeps them healthy across every release.', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Reduce Regression Testing Time', 'testro' ),
-							'description' => __( 'Automate repetitive regression testing and significantly reduce manual validation effort after every Workday update.', 'testro' ),
+							'icon'        => 'pen-square',
+							'title'       => __( 'No Scripting or Coding Required', 'testro' ),
+							'description' => __( 'No scripting or coding required to build a test.', 'testro' ),
 						),
-						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Validate HR & Finance Business Processes', 'testro' ),
-							'description' => __( 'Ensure mission-critical HR, Payroll, and Financial workflows continue to perform flawlessly across every release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'alert-octagon',
-							'title'       => __( 'Minimize Risk During Workday Updates', 'testro' ),
-							'description' => __( 'Leverage AI-powered automation to identify issues early and reduce deployment risks.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Deliver Faster Enterprise Releases', 'testro' ),
-							'description' => __( 'Accelerate Workday deployments with continuous automated testing and AI-driven quality insights.', 'testro' ),
-						),
-					),
-				),
-
-				/* 2. End-to-end Workday test automation (grouped bento) --- */
-				array(
-					'type'    => 'bento',
-					'id'      => 'end-to-end-workday-test-automation',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'End-to-End Workday Test Automation', 'testro' ),
-					'title'   => __( 'One Intelligent Platform Across Every Workday Capability', 'testro' ),
-					'intro'   => __( 'Validate Workday applications, automate critical business processes, expand enterprise testing coverage, and execute suites efficiently from a single AI-powered quality platform.', 'testro' ),
-					'groups'  => array(
 						array(
 							'icon'        => 'layout-grid',
-							'title'       => __( 'Support for Workday Applications', 'testro' ),
-							'description' => __( 'Validate every major Workday application from one centralized AI-powered testing platform.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'user-check',
-									'title' => __( 'Workday HCM', 'testro' ),
-								),
-								array(
-									'icon'  => 'chart-bar',
-									'title' => __( 'Workday Financial Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'coins',
-									'title' => __( 'Workday Payroll', 'testro' ),
-								),
-								array(
-									'icon'  => 'badge-check',
-									'title' => __( 'Workday Recruiting', 'testro' ),
-								),
-								array(
-									'icon'  => 'file-text',
-									'title' => __( 'Workday Learning', 'testro' ),
-								),
-								array(
-									'icon'  => 'clock',
-									'title' => __( 'Workday Time Tracking', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'Automate Critical Workday Business Processes', 'testro' ),
-							'description' => __( 'Ensure every enterprise workflow functions correctly across departments.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'user-check',
-									'title' => __( 'Hire-to-Retire', 'testro' ),
-								),
-								array(
-									'icon'  => 'coins',
-									'title' => __( 'Payroll Processing', 'testro' ),
-								),
-								array(
-									'icon'  => 'calendar-sync',
-									'title' => __( 'Leave & Time Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'package',
-									'title' => __( 'Expense Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'git-branch',
-									'title' => __( 'Procure-to-Pay', 'testro' ),
-								),
-								array(
-									'icon'  => 'pie-chart',
-									'title' => __( 'Financial Close & Reporting', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Enterprise Testing Capabilities', 'testro' ),
-							'description' => __( 'Comprehensively validate enterprise applications through intelligent automation.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'refresh',
-									'title' => __( 'Regression Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'puzzle',
-									'title' => __( 'Functional Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'layers-api',
-									'title' => __( 'API Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'infinity',
-									'title' => __( 'End-to-End Workflow Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'browsers',
-									'title' => __( 'Cross-Browser Testing', 'testro' ),
-								),
-							),
+							'title'       => __( 'Complete Workday Coverage', 'testro' ),
+							'description' => __( 'Covers Workday HCM, Payroll, Financials, and Adaptive Planning from one platform.', 'testro' ),
 						),
 						array(
 							'icon'        => 'zap',
-							'title'       => __( 'Execute & Maintain Tests Efficiently', 'testro' ),
-							'description' => __( 'Reduce maintenance while improving execution efficiency.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'zap',
-									'title' => __( 'Parallel Test Execution', 'testro' ),
-								),
-								array(
-									'icon'  => 'clock',
-									'title' => __( 'Scheduled Test Runs', 'testro' ),
-								),
-								array(
-									'icon'  => 'heart-pulse',
-									'title' => __( 'Self-Healing Tests', 'testro' ),
-								),
-								array(
-									'icon'  => 'database',
-									'title' => __( 'Dynamic Test Data Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'activity',
-									'title' => __( 'Real-Time Execution Reports', 'testro' ),
-								),
-							),
+							'title'       => __( 'Fast Regression', 'testro' ),
+							'description' => __( 'Full regression suites finish in hours, not weeks.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Self-Healing Through Releases', 'testro' ),
+							'description' => __( 'Self-healing tests automatically adjust after every R1/R2 release or configuration change.', 'testro' ),
 						),
 					),
 				),
 
-				/* 3. Everything you can validate -------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'everything-you-can-validate-workday',
-					'eyebrow' => __( 'Everything You Can Validate', 'testro' ),
-					'title'   => __( 'Complete Confidence Across Your Workday Ecosystem', 'testro' ),
-					'intro'   => __( 'Validate every aspect of your Workday implementation—from employee lifecycle management and payroll processing to financial operations, integrations, business rules, reporting, and enterprise data—using one intelligent AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Workday Validation Hub', 'testro' ),
-					),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'manual-workday-testing-vs-ai-workday-testing',
+					'columns'       => 4,
+					'title'         => __( 'Manual Workday Testing vs. AI Workday Testing', 'testro' ),
+					'intro'         => __( 'What Changes When Testing Doesn\'t Wait on a Person', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'user-check',
-							'title'       => __( 'Employee Lifecycle Workflows', 'testro' ),
-							'description' => __( 'Validate hire-to-retire journeys across HCM, Learning, and Time Tracking.', 'testro' ),
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'Manual regression on a large Workday tenant can take weeks. Automated runs finish in days, sometimes hours.', 'testro' ),
 						),
 						array(
-							'icon'        => 'coins',
-							'title'       => __( 'HR & Payroll Transactions', 'testro' ),
-							'description' => __( 'Exercise payroll cycles, compensation, and HR transaction accuracy.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Financial Processes', 'testro' ),
-							'description' => __( 'Cover expense, procure-to-pay, and financial close workflows.', 'testro' ),
-						),
-						array(
-							'icon'        => 'shield-lock',
-							'title'       => __( 'Role-Based Security', 'testro' ),
-							'description' => __( 'Confirm roles, permissions, and security groups stay correct.', 'testro' ),
-						),
-						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Business Rules', 'testro' ),
-							'description' => __( 'Verify business process definitions and conditional rule logic.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Workday Integrations', 'testro' ),
-							'description' => __( 'Exercise inbound and outbound integrations across the enterprise.', 'testro' ),
-						),
-						array(
-							'icon'        => 'pie-chart',
-							'title'       => __( 'Reports & Dashboards', 'testro' ),
-							'description' => __( 'Validate Workday reports, analytics, and executive dashboards.', 'testro' ),
-						),
-						array(
-							'icon'        => 'database',
-							'title'       => __( 'Data Validation', 'testro' ),
-							'description' => __( 'Confirm worker, org, and financial data integrity after every update.', 'testro' ),
-						),
-					),
-				),
-
-				/* 4. Enterprise-ready integrations (DevOps pipeline) ------ */
-				array(
-					'type'    => 'pipeline',
-					'id'      => 'workday-enterprise-devops',
-					'eyebrow' => __( 'Enterprise-Ready Integrations', 'testro' ),
-					'title'   => __( 'Developer → GitHub → CI/CD → AI Workday Testing → Quality Validation → Release', 'testro' ),
-					'intro'   => __( 'Integrate Workday testing seamlessly into your DevOps pipeline to automate validation after every deployment, configuration change, or Workday release. Accelerate enterprise software delivery while maintaining continuous quality and compliance.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'code',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Configuration & Delivery', 'testro' ),
-							'description' => __( 'Ship Workday configurations and tenant changes into the pipeline.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'GitHub', 'testro' ),
-							'title'       => __( 'Source Control Triggers', 'testro' ),
-							'description' => __( 'Kick off Workday validation from pull requests and release branches.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'CI/CD Pipeline', 'testro' ),
-							'title'       => __( 'Pipeline Orchestration', 'testro' ),
-							'description' => __( 'Automate Workday QA gates after every deployment or update.', 'testro' ),
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'A manual tester\'s coverage shifts with time and focus. Automated tests run the same way, every time.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
-							'stage'       => __( 'AI Workday Testing', 'testro' ),
-							'title'       => __( 'Intelligent HR & Finance Suites', 'testro' ),
-							'description' => __( 'Execute no-code, self-healing Workday suites at enterprise scale.', 'testro' ),
+							'title'       => __( 'Release Resilience', 'testro' ),
+							'description' => __( 'Manual scripts break the moment R1 or R2 lands. Self-healing tests adapt on their own.', 'testro' ),
 						),
 						array(
-							'icon'        => 'microscope',
-							'stage'       => __( 'Quality Validation', 'testro' ),
-							'title'       => __( 'Release Readiness Checks', 'testro' ),
-							'description' => __( 'Confirm workflow health, coverage, and risk signals before go-live.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Confident Workday Deployments', 'testro' ),
-							'description' => __( 'Promote Workday updates with measurable enterprise quality confidence.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'Who Can Test', 'testro' ),
+							'description' => __( 'Manual testing needs a dedicated engineer for every scripted check. Plain-English tests open coverage to HR and Finance staff too.', 'testro' ),
 						),
 					),
 				),
 
-				/* 5. Connected integrations ------------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'workday-integrations',
-					'eyebrow' => __( 'Connected Delivery Ecosystem', 'testro' ),
-					'title'   => __( 'Plug Workday Quality into Your Enterprise Toolchain', 'testro' ),
-					'intro'   => __( 'Connect theTestRo with the tools Workday delivery teams already use—so every configuration change, tenant update, and release stays under continuous validation.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'module-coverage-one-platform-for-every-tenant',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Module Coverage: One Platform for Every Tenant', 'testro' ),
+					'intro'         => __( 'Test Workday End-to-End', 'testro' ),
+					'intro_extra'   => __( 'Test Workday HCM, Payroll, Financial Management, and Adaptive Planning from one platform.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Workday HCM', 'testro' ),
+							'description' => __( 'Test hire, transfer, pay change, and benefits sign-up across the full HCM path.', 'testro' ),
+						),
+						array(
+							'icon'        => 'coins',
+							'title'       => __( 'Workday Payroll', 'testro' ),
+							'description' => __( 'Check gross-to-net math, retro pay, and off-cycle runs. Every pay group covered.', 'testro' ),
+						),
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'Financial Management', 'testro' ),
+							'description' => __( 'Cover buying, expenses, journals, and the financial close in one flow.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Adaptive Planning and Extend', 'testro' ),
+							'description' => __( 'Confirm planning models and custom Extend apps work right. From sandbox to production.', 'testro' ),
+						),
 					),
-					'items'   => array(
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'r1-r2-release-testing',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'R1/R2 Release Testing: Catch Regressions Before They Ship', 'testro' ),
+					'intro'         => __( 'Stay Ahead of Workday\'s Release Cadence', 'testro' ),
+					'intro_extra'   => __( 'theTestRo runs full regression suites against the preview tenant. Problems surface before they ever touch production.', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Day-One Preview Tenant Tests', 'testro' ),
+							'description' => __( 'Day-one preview tenant tests before R1 or R2 goes live.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Self-Healing Through Business Process Changes', 'testro' ),
+							'description' => __( 'Self-healing tests when business processes change.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'End-to-End Regression Coverage', 'testro' ),
+							'description' => __( 'End-to-end regression coverage from sandbox to production.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Workday\'s biannual release cadence calls for fast regression coverage. A suite that used to take weeks to re-check can run in hours instead.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-teams-get-started-with-testro',
+					'title'         => __( 'How Teams Get Started With theTestRo', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
 							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and Workday quality signals to delivery work items.', 'testro' ),
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Connect Your Workday Tenant', 'testro' ),
+							'description' => __( 'Point theTestRo at your sandbox or preview environment.', 'testro' ),
 						),
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous Workday suites inside Jenkins pipelines.', 'testro' ),
+							'icon'        => 'target',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Start With High-Risk Flows First', 'testro' ),
+							'description' => __( 'Hire-to-retire and payroll runs usually carry the most risk. Build these tests first.', 'testro' ),
 						),
+						array(
+							'icon'        => 'layout-grid',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Add Module Coverage Over Time', 'testro' ),
+							'description' => __( 'Layer in Financials, Benefits, and Recruiting tests as coverage grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run Before Every R1 or R2', 'testro' ),
+							'description' => __( 'Trigger a full suite on its own, so a major production release never catches your team off guard.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'cicd-integration-ship-without-the-manual-qa-bottleneck',
+					'columns'       => 4,
+					'title'         => __( 'CI/CD Integration: Ship Without the Manual QA Bottleneck', 'testro' ),
+					'intro'         => __( 'Gate Every Workday Deployment on Real Results', 'testro' ),
+					'intro_extra'   => __( 'Build a pipeline that checks release readiness. Every Workday deploy runs only after a self-checking run gates it. Pass or fail signals your team can trust.', 'testro' ),
+					'intro_body'    => __( 'What connects:', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
 						array(
 							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger Workday regression on every pull request and release.', 'testro' ),
+							'title'       => __( 'Jenkins and GitHub Actions', 'testro' ),
+							'description' => __( 'Run tests automatically on every build.', 'testro' ),
 						),
 						array(
 							'icon'        => 'cloud',
 							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed Workday quality gates into boards and release pipelines.', 'testro' ),
+							'description' => __( 'Fit right into your existing pipeline.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Jira Defect Sync', 'testro' ),
+							'description' => __( 'Failed tests file straight into your tickets.', 'testro' ),
 						),
 						array(
 							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when Workday suites fail or heal.', 'testro' ),
+							'title'       => __( 'Slack Alerts', 'testro' ),
+							'description' => __( 'Get notified the moment a deployment needs attention.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'workday-integration-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Workday Integration Testing', 'testro' ),
+					'intro'         => __( 'Check What Connects to Workday', 'testro' ),
+					'intro_extra'   => __( 'Check Workday EIBs, Studio flows, and Core Connectors start to finish. Connect theTestRo to your setup already in place. Test payroll, benefits, and finance data flows after every change.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'database',
+							'title'       => __( 'EIB Inbound and Outbound', 'testro' ),
+							'description' => __( 'Confirm loads and extracts keep data accurate. Both directions checked.', 'testro' ),
 						),
 						array(
 							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Pipelines', 'testro' ),
-							'description' => __( 'Wire Workday Test Automation into any enterprise CI/CD toolchain.', 'testro' ),
+							'title'       => __( 'Workday Studio Orchestrations', 'testro' ),
+							'description' => __( 'Test multi-step Studio flows start to finish. Across connected payroll and finance systems.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Core Connectors', 'testro' ),
+							'description' => __( 'Check benefits, payroll, and finance connectors stay correct after every setup change.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'Your Automation Stack', 'testro' ),
+							'description' => __( 'Trigger and check Workday data flows from Jenkins, Jira, Slack, and Azure DevOps.', 'testro' ),
 						),
 					),
 				),
 
-				/* 6. Benefits for Workday teams --------------------------- */
 				array(
-					'type'    => 'outcomes',
-					'id'      => 'workday-team-benefits',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Benefits for Workday Teams', 'testro' ),
-					'title'   => __( 'Measurable Impact on Enterprise Workday Release Quality', 'testro' ),
-					'intro'   => __( 'Workday delivery, HRIS, Finance, and QA teams use theTestRo to accelerate validation, cut manual effort, expand coverage, improve release quality, and lower ongoing maintenance.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'maintenance-and-reporting',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'Maintenance and Reporting: Keep Your Suite Healthy Automatically', 'testro' ),
+					'intro'         => __( 'Know What Needs Attention Before You Ship', 'testro' ),
+					'intro_extra'   => __( 'theTestRo shows failure trends, root causes, and release readiness signs. Your team knows exactly what to check before every Workday deployment.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'microscope',
+							'title'       => __( 'AI-Powered Root Cause Detection', 'testro' ),
+							'description' => __( 'AI-powered root cause detection on every failure.', 'testro' ),
+						),
+						array(
+							'icon'        => 'chart-bar',
+							'title'       => __( 'Real-Time Test Reporting and Dashboards', 'testro' ),
+							'description' => __( 'Real-time test reporting and dashboards.', 'testro' ),
+						),
+						array(
+							'icon'        => 'activity',
+							'title'       => __( 'Flaky Test Detection', 'testro' ),
+							'description' => __( 'Flaky test detection, flagged on its own.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'pipeline',
+					'id'            => 'how-to-get-started-with-workday-testing',
+					'title'         => __( 'How to Get Started With Workday Testing', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'plug',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Start Free', 'testro' ),
+							'description' => __( 'Sign up and connect your Workday tenant. No credit card or setup delay needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'pen-square',
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Author Your First Test', 'testro' ),
+							'description' => __( 'Describe your Workday business process in plain English. theTestRo builds and runs the full test on its own.', 'testro' ),
+						),
 						array(
 							'icon'        => 'rocket',
-							'title'       => __( 'Faster Release Validation', 'testro' ),
-							'description' => __( 'Reduce release cycles with AI-powered automated validation.', 'testro' ),
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Scale With Confidence', 'testro' ),
+							'description' => __( 'Run your full Workday regression suite in parallel. Test across thousands of browsers and real devices. Do this before every R1 or R2 release.', 'testro' ),
 						),
+					),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'workday-validation-from-sandbox-to-production',
+					'columns'       => 3,
+					'title'         => __( 'Workday Validation, From Sandbox to Production', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
 						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Reduced Manual Testing', 'testro' ),
-							'description' => __( 'Eliminate repetitive manual testing through intelligent automation.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Higher Test Coverage', 'testro' ),
-							'description' => __( 'Validate more Workday business scenarios across every module.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Improved Release Quality', 'testro' ),
-							'description' => __( 'Deliver reliable HR and Finance applications with greater confidence.', 'testro' ),
+							'icon'        => 'file-text',
+							'title'       => __( 'Plain-English Test Authoring', 'testro' ),
+							'description' => __( 'Describe any Workday business process in plain English. theTestRo writes the full test on its own. This covers HCM, Payroll, and Financials.', 'testro' ),
 						),
 						array(
 							'icon'        => 'heart-pulse',
-							'title'       => __( 'Lower Maintenance Effort', 'testro' ),
-							'description' => __( 'Minimize ongoing maintenance through self-healing automation and reusable test assets.', 'testro' ),
+							'title'       => __( 'Auto-Healing', 'testro' ),
+							'description' => __( 'AI agents adapt when Workday steps or setups change after a major platform release. Test maintenance drops a lot.', 'testro' ),
+						),
+						array(
+							'icon'        => 'video',
+							'title'       => __( 'Rich Execution Evidence', 'testro' ),
+							'description' => __( 'Get screenshots, logs, network traces, and video. Use them to speed up root cause work. Do this for every Workday failure.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Full Module Coverage', 'testro' ),
+							'description' => __( 'Test Workday HCM, Payroll, Financial Management, and Adaptive Planning. Third-party links included, all in one flow.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'R1/R2 Release Testing', 'testro' ),
+							'description' => __( 'Run full Workday regression suites against preview tenants. Do this before every major release goes live.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Secure Tunnel', 'testro' ),
+							'description' => __( 'Connect to Workday tenants through safe channels. No infrastructure overhead to manage.', 'testro' ),
 						),
 					),
 				),
 
-				/* 7. Trust logos ------------------------------------------ */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise Workday Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Organizations rely on theTestRo to protect Workday quality and accelerate every HCM, Payroll, and Finance release.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-workday-testing',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for Workday Testing', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'HR and Finance QA Teams', 'testro' ),
+							'description' => __( 'Cover HCM, Payroll, and Financials. No matching rise in headcount needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-check',
+							'title'       => __( 'Workday Implementation Partners', 'testro' ),
+							'description' => __( 'De-risk a Workday rollout or tenant move with test coverage built in from day one.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'IT and Release Managers', 'testro' ),
+							'description' => __( 'Get a clear go or no-go signal before every major production deployment.', 'testro' ),
+						),
+						array(
+							'icon'        => 'code',
+							'title'       => __( 'QA Engineers', 'testro' ),
+							'description' => __( 'Build broad Workday coverage without hand-scripting every business process.', 'testro' ),
+						),
+					),
 				),
 
-				/* 8. Customer success ------------------------------------- */
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Enterprise Teams Shipping Reliable Workday Releases', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to accelerate Workday releases, improve HR & Finance application quality, reduce regression testing effort, increase enterprise automation coverage, and deliver reliable employee and financial workflows.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'what-makes-workday-testing-different',
+					'columns'       => 4,
+					'title'         => __( 'What Makes Workday Testing Different From a Standard Web App', 'testro' ),
+					'intro'         => __( 'Why Generic Automation Tools Fall Short', 'testro' ),
+					'intro_extra'   => __( 'Workday doesn\'t expose stable element IDs the way a typical web app does. That alone breaks most script-based tools.', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Dynamic Rendering', 'testro' ),
+							'description' => __( 'Selector-based scripts break more often on Workday than on a hand-built app.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'title'       => __( 'Forced Releases', 'testro' ),
+							'description' => __( 'Every Workday customer gets the same two releases a year. Each one comes with a short preview window to test it.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'Module-Specific Scenarios', 'testro' ),
+							'description' => __( 'HCM, Payroll, Benefits, and Recruiting each break in different ways. A passing test in one module doesn\'t mean a linked module still works.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'Complex Business Rules', 'testro' ),
+							'description' => __( 'Pay math, benefits rules, and approval chains carry real logic. A simple click-through test won\'t catch that.', 'testro' ),
+						),
+					),
 				),
 
-				/* 9. FAQ -------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'Workday Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'workday-testing',
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'workday-testing',
 				),
 
-				/* 10. Final CTA ------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-workday-testing',
-					'title'      => __( 'Automate Workday Testing with AI-Powered Enterprise Quality Engineering', 'testro' ),
-					'intro'      => __( 'Transform Workday quality assurance with theTestRo\'s AI-powered Workday Test Automation Platform. Automate HR, Payroll, Finance, Recruiting, and enterprise workflows while reducing maintenance through self-healing automation, accelerating releases, and delivering reliable business processes with confidence.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'cta',
+					'id'            => 'automate-your-workday-testing-today',
+					'title'         => __( 'Automate Your Workday Testing Today', 'testro' ),
+					'intro'         => __( 'Build, run, and maintain your Workday test cases across HCM, Payroll, Financials, and Adaptive Planning in plain English, at scale.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
@@ -13503,436 +11242,381 @@ function testro_get_product_pages() {
 			'slug'  => 'servicenow-testing',
 			'title' => __( 'ServiceNow Testing', 'testro' ),
 			'seo'   => array(
-				'title'       => __( 'ServiceNow Testing | AI ServiceNow Test Automation | ITSM QA | theTestRo', 'testro' ),
-				'description' => __( 'AI-powered ServiceNow Test Automation for ITSM, ITOM, CSM, HRSD, ITAM, and GRC. Automate ServiceNow regression testing, workflow validation, and enterprise QA with theTestRo.', 'testro' ),
+				'title'       => __( 'Best ServiceNow Testing Automation Tool for Enterprise', 'testro' ),
+				'description' => __( 'Automate ServiceNow testing with the best ServiceNow testing automation tool. Validate IT workflows, integrations, and business processes with confidence.', 'testro' ),
 			),
 
 			'hero' => array(
-				'eyebrow'  => __( 'ServiceNow Test Automation', 'testro' ),
-				'title'    => __( 'ServiceNow Test Automation Platform', 'testro' ),
-				'subtitle' => __( 'Accelerate ServiceNow releases with theTestRo\'s AI-powered ServiceNow Test Automation Platform. Automate testing across IT Service Management (ITSM), IT Operations Management (ITOM), Customer Service Management (CSM), HR Service Delivery (HRSD), IT Asset Management (ITAM), and Governance, Risk & Compliance (GRC). Leverage no-code automation, self-healing technology, intelligent analytics, and continuous quality engineering to reduce regression testing effort, validate mission-critical workflows, and confidently deliver every ServiceNow update.', 'testro' ),
-				'badges'   => array(
-					__( 'No-Code Automation', 'testro' ),
-					__( 'Self-Healing Tests', 'testro' ),
-					__( 'ITSM & ITOM', 'testro' ),
-					__( 'CI/CD Ready', 'testro' ),
-				),
-				'actions'  => testro_product_default_actions(),
-				'metrics'  => array(
+				'title'    => __( 'Best ServiceNow Testing Automation Tool', 'testro' ),
+				'subtitle' => __( 'theTestRo is a ServiceNow testing tool built for a platform that changes constantly. Describe a workflow in plain English. Let AI generate, run, and heal the test through every release. No scripting required.', 'testro' ),
+				'actions'  => array(
 					array(
-						'value' => '3×',
-						'label' => __( 'Faster ServiceNow releases', 'testro' ),
-						'icon'  => 'rocket',
+						'label' => __( 'Start Testing Free', 'testro' ),
+						'style' => 'primary',
+						'modal' => 'demo-modal',
 					),
 					array(
-						'value' => '70%',
-						'label' => __( 'Less regression effort', 'testro' ),
-						'icon'  => 'refresh',
-					),
-					array(
-						'value' => '98%',
-						'label' => __( 'Workflow pass confidence', 'testro' ),
-						'icon'  => 'badge-check',
+						'label' => __( 'Book a Demo', 'testro' ),
+						'style' => 'outline',
+						'modal' => 'demo-modal',
+						'icon'  => 'arrow-right',
 					),
 				),
 			),
 
 			'sections' => array(
 
-				/* 1. Streamline ServiceNow testing for every release ----- */
 				array(
-					'type'    => 'feature-grid',
-					'id'      => 'streamline-servicenow-testing',
-					'variant' => 'spotlight',
-					'columns' => 4,
-					'eyebrow' => __( 'Streamline ServiceNow Testing for Every Release', 'testro' ),
-					'title'   => __( 'AI-Powered Quality for Mission-Critical ServiceNow Workflows', 'testro' ),
-					'intro'   => __( 'Enterprise ServiceNow teams use theTestRo to accelerate release validation, eliminate manual regression bottlenecks, protect platform stability, and deliver reliable IT and business services with confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'why-servicenow-testing-feels-broken',
+					'variant'       => 'spotlight',
+					'columns'       => 4,
+					'title'         => __( 'Why ServiceNow Testing Feels Broken', 'testro' ),
+					'intro'         => __( 'The Pain Every ServiceNow QA Team Knows', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'zap',
-							'title'       => __( 'Accelerate ServiceNow Release Validation', 'testro' ),
-							'description' => __( 'Automate release validation to ensure every ServiceNow deployment is production-ready.', 'testro' ),
+							'icon'        => 'alert-octagon',
+							'title'       => __( 'Fragile Scripts Break With Every Change', 'testro' ),
+							'description' => __( 'A small UI or workflow update can knock out a whole test suite overnight.', 'testro' ),
+						),
+						array(
+							'icon'        => 'puzzle',
+							'title'       => __( 'ATF Gaps Leave Portals Untested', 'testro' ),
+							'description' => __( 'ServiceNow\'s own test framework covers forms well. Modern portals and custom UIs often fall outside its reach.', 'testro' ),
 						),
 						array(
 							'icon'        => 'refresh',
-							'title'       => __( 'Reduce Manual Regression Testing', 'testro' ),
-							'description' => __( 'Eliminate repetitive manual testing through AI-powered automation and reusable test assets.', 'testro' ),
+							'title'       => __( 'Upgrades Disrupt Workflows', 'testro' ),
+							'description' => __( 'Major platform releases can shift logic with no warning. Regressions appear that nobody saw coming.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-check',
-							'title'       => __( 'Ensure Platform Stability Across Updates', 'testro' ),
-							'description' => __( 'Confidently validate platform changes, upgrades, and customizations with intelligent automated testing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'badge-check',
-							'title'       => __( 'Improve Enterprise Service Delivery', 'testro' ),
-							'description' => __( 'Deliver reliable IT and business services through continuous quality validation and enterprise automation.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Dynamic Elements Defeat Locators', 'testro' ),
+							'description' => __( 'ServiceNow renders UI on the fly. Selector-based scripts break far more often than on a hand-built app.', 'testro' ),
 						),
 					),
+					'outro'         => __( 'ServiceNow test automation that ignores these four realities isn\'t genuinely testing your instance. They are testing a version that stopped matching reality months ago.', 'testro' ),
 				),
 
-				/* 2. End-to-end ServiceNow test automation (grouped bento) */
 				array(
-					'type'    => 'bento',
-					'id'      => 'end-to-end-servicenow-test-automation',
-					'variant' => 'spotlight',
-					'eyebrow' => __( 'End-to-End ServiceNow Test Automation', 'testro' ),
-					'title'   => __( 'One Intelligent Platform Across Every ServiceNow Capability', 'testro' ),
-					'intro'   => __( 'Validate every major ServiceNow application, automate critical enterprise workflows, run comprehensive testing capabilities, and maintain stable automation from a single AI-powered quality platform.', 'testro' ),
-					'groups'  => array(
+					'type'          => 'pipeline',
+					'id'            => 'how-teams-get-started',
+					'title'         => __( 'How Teams Get Started', 'testro' ),
+					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
+					'heading_level' => 2,
+					'items'         => array(
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Support for ServiceNow Applications', 'testro' ),
-							'description' => __( 'Validate every major ServiceNow application from one centralized AI-powered testing platform.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'wrench',
-									'title' => __( 'IT Service Management (ITSM)', 'testro' ),
-								),
-								array(
-									'icon'  => 'server',
-									'title' => __( 'IT Operations Management (ITOM)', 'testro' ),
-								),
-								array(
-									'icon'  => 'message-text',
-									'title' => __( 'Customer Service Management (CSM)', 'testro' ),
-								),
-								array(
-									'icon'  => 'user-check',
-									'title' => __( 'HR Service Delivery (HRSD)', 'testro' ),
-								),
-								array(
-									'icon'  => 'package',
-									'title' => __( 'IT Asset Management (ITAM)', 'testro' ),
-								),
-								array(
-									'icon'  => 'shield-lock',
-									'title' => __( 'Governance, Risk & Compliance (GRC)', 'testro' ),
-								),
-							),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Automate Critical ServiceNow Workflows', 'testro' ),
-							'description' => __( 'Ensure every enterprise workflow functions correctly.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'alert-octagon',
-									'title' => __( 'Incident Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'refresh',
-									'title' => __( 'Change Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'microscope',
-									'title' => __( 'Problem Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'retail',
-									'title' => __( 'Service Catalog Requests', 'testro' ),
-								),
-								array(
-									'icon'  => 'file-text',
-									'title' => __( 'Knowledge Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'badge-check',
-									'title' => __( 'Approval Workflows', 'testro' ),
-								),
-							),
+							'icon'        => 'plug',
+							'stage'       => __( 'Step 1', 'testro' ),
+							'title'       => __( 'Connect Your Instance', 'testro' ),
+							'description' => __( 'Point theTestRo at your dev, test, or staging ServiceNow environment.', 'testro' ),
 						),
 						array(
 							'icon'        => 'target',
-							'title'       => __( 'Enterprise Testing Capabilities', 'testro' ),
-							'description' => __( 'Comprehensively validate ServiceNow applications through intelligent automation.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'refresh',
-									'title' => __( 'Regression Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'check',
-									'title' => __( 'Functional Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'layers-api',
-									'title' => __( 'API Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'infinity',
-									'title' => __( 'End-to-End Workflow Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'browsers',
-									'title' => __( 'Cross-Browser Testing', 'testro' ),
-								),
-								array(
-									'icon'  => 'user-check',
-									'title' => __( 'Role-Based User Validation', 'testro' ),
-								),
-							),
+							'stage'       => __( 'Step 2', 'testro' ),
+							'title'       => __( 'Start With High-Risk Flows First', 'testro' ),
+							'description' => __( 'Incident and change management usually carry the most risk. Build these tests first.', 'testro' ),
 						),
 						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Execute & Maintain Tests Efficiently', 'testro' ),
-							'description' => __( 'Reduce maintenance while improving execution quality.', 'testro' ),
-							'items'       => array(
-								array(
-									'icon'  => 'pen-square',
-									'title' => __( 'No-Code Test Creation', 'testro' ),
-								),
-								array(
-									'icon'  => 'heart-pulse',
-									'title' => __( 'Self-Healing Tests', 'testro' ),
-								),
-								array(
-									'icon'  => 'zap',
-									'title' => __( 'Parallel Test Execution', 'testro' ),
-								),
-								array(
-									'icon'  => 'clock',
-									'title' => __( 'Scheduled Test Runs', 'testro' ),
-								),
-								array(
-									'icon'  => 'database',
-									'title' => __( 'Dynamic Test Data Management', 'testro' ),
-								),
-								array(
-									'icon'  => 'chart-bar',
-									'title' => __( 'Execution Reports & Analytics', 'testro' ),
-								),
-							),
+							'icon'        => 'layout-grid',
+							'stage'       => __( 'Step 3', 'testro' ),
+							'title'       => __( 'Add Module Coverage Over Time', 'testro' ),
+							'description' => __( 'Layer in HR, CSM, and custom app tests as coverage grows.', 'testro' ),
+						),
+						array(
+							'icon'        => 'calendar-sync',
+							'stage'       => __( 'Step 4', 'testro' ),
+							'title'       => __( 'Run Before Every Upgrade', 'testro' ),
+							'description' => __( 'Trigger a full suite on its own, so a platform release never catches your team off guard.', 'testro' ),
 						),
 					),
 				),
 
-				/* 3. Everything you can validate ------------------------- */
 				array(
-					'type'    => 'architecture',
-					'id'      => 'everything-you-can-validate-servicenow',
-					'eyebrow' => __( 'Everything You Can Validate', 'testro' ),
-					'title'   => __( 'One AI Platform Across Your ServiceNow Implementation', 'testro' ),
-					'intro'   => __( 'Validate every aspect of your ServiceNow implementation—from forms, workflows, Flow Designer automations, business rules, and catalog items to dashboards, integrations, notifications, and custom applications—using one intelligent AI-powered testing platform.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'ServiceNow Quality Hub', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'manual-servicenow-testing-vs-ai-servicenow-testing',
+					'columns'       => 4,
+					'title'         => __( 'Manual ServiceNow Testing vs. AI ServiceNow Testing', 'testro' ),
+					'intro'         => __( 'What Changes When Testing Doesn\'t Wait on a Person', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Speed', 'testro' ),
+							'description' => __( 'Manual regression on a large instance can take weeks. Automated runs finish in hours.', 'testro' ),
+						),
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Consistency', 'testro' ),
+							'description' => __( 'A manual tester\'s coverage shifts with time and focus. Automated tests run the same way, every time.', 'testro' ),
+						),
+						array(
+							'icon'        => 'wand',
+							'title'       => __( 'Update Resilience', 'testro' ),
+							'description' => __( 'Manual scripts break the moment an upgrade lands. Self-healing tests adapt on their own.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Who Can Test', 'testro' ),
+							'description' => __( 'Manual testing needs a dedicated engineer for every scripted check. Plain-English tests open coverage to HR and service desk staff too.', 'testro' ),
+						),
 					),
-					'items'   => array(
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'every-module-and-workflow-covered',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Every Module and Workflow, Covered', 'testro' ),
+					'intro'         => __( 'Total Coverage, Not Just the Common Cases', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'browsers',
-							'title'       => __( 'Forms & UI Policies', 'testro' ),
-							'description' => __( 'Exercise ServiceNow forms, fields, and UI policy behavior across roles.', 'testro' ),
+							'icon'        => 'layout-grid',
+							'title'       => __( 'IT Service Management', 'testro' ),
+							'description' => __( 'Test incident, problem, change, and request work start to finish. SLA timers and CAB approval routing included.', 'testro' ),
 						),
 						array(
-							'icon'        => 'code',
-							'title'       => __( 'Business Rules', 'testro' ),
-							'description' => __( 'Validate business rules, scripts, and server-side automation logic.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'HR Service Delivery', 'testro' ),
+							'description' => __( 'Cover onboarding, offboarding, leave requests, and HR cases. Built by the HR team itself.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Workflows & Flow Designer', 'testro' ),
-							'description' => __( 'Cover Flow Designer automations and classic workflow paths end to end.', 'testro' ),
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Customer Service Management', 'testro' ),
+							'description' => __( 'Check case creation, agent screens, and the customer portal in one run.', 'testro' ),
 						),
 						array(
-							'icon'        => 'retail',
-							'title'       => __( 'Catalog Items', 'testro' ),
-							'description' => __( 'Test service catalog items, request flows, and fulfillment outcomes.', 'testro' ),
+							'icon'        => 'activity',
+							'title'       => __( 'IT Operations Management', 'testro' ),
+							'description' => __( 'Test discovery, event flows, and orchestration work.', 'testro' ),
 						),
 						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Notifications', 'testro' ),
-							'description' => __( 'Confirm email, SMS, and in-platform notification triggers stay correct.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Integrations', 'testro' ),
-							'description' => __( 'Exercise REST, SOAP, and third-party connectors reliably.', 'testro' ),
-						),
-						array(
-							'icon'        => 'chart-bar',
-							'title'       => __( 'Dashboards & Reports', 'testro' ),
-							'description' => __( 'Verify dashboards, reports, KPIs, and operational insights.', 'testro' ),
+							'icon'        => 'shield-check',
+							'title'       => __( 'Governance, Risk, and Compliance', 'testro' ),
+							'description' => __( 'Cover audits, risk checks, and compliance reports right alongside daily workflows.', 'testro' ),
 						),
 						array(
 							'icon'        => 'puzzle',
 							'title'       => __( 'Custom Applications', 'testro' ),
-							'description' => __( 'Validate scoped apps, custom modules, and tailored ServiceNow experiences.', 'testro' ),
+							'description' => __( 'You set up each ServiceNow instance differently. theTestRo adapts to yours. It doesn\'t lean on selectors that break the moment your instance does.', 'testro' ),
 						),
 					),
 				),
 
-				/* 4. DevOps pipeline -------------------------------------- */
 				array(
-					'type'    => 'pipeline',
-					'id'      => 'servicenow-enterprise-devops',
-					'eyebrow' => __( 'Deployment & DevOps Integration', 'testro' ),
-					'title'   => __( 'Developer → GitHub → CI/CD → AI ServiceNow Testing → Quality Validation → Release', 'testro' ),
-					'intro'   => __( 'Integrate ServiceNow testing seamlessly into your DevOps pipeline to automate validation after every deployment, platform update, or customization. Accelerate enterprise service delivery while maintaining continuous quality, governance, and release confidence.', 'testro' ),
-					'items'   => array(
+					'type'          => 'feature-grid',
+					'id'            => 'ai-servicenow-testing-that-adapts',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'AI ServiceNow Testing That Adapts', 'testro' ),
+					'intro'         => __( 'Tests That Heal Instead of Break', 'testro' ),
+					'heading_level' => 3,
+					'items'         => array(
 						array(
-							'icon'        => 'code',
-							'stage'       => __( 'Developer', 'testro' ),
-							'title'       => __( 'Customization & Delivery', 'testro' ),
-							'description' => __( 'Ship ServiceNow customizations and configuration changes into the pipeline.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'stage'       => __( 'GitHub', 'testro' ),
-							'title'       => __( 'Source Control Triggers', 'testro' ),
-							'description' => __( 'Kick off ServiceNow validation from pull requests and release branches.', 'testro' ),
-						),
-						array(
-							'icon'        => 'infinity',
-							'stage'       => __( 'CI/CD Pipeline', 'testro' ),
-							'title'       => __( 'Pipeline Orchestration', 'testro' ),
-							'description' => __( 'Automate ServiceNow QA gates after every deployment or update.', 'testro' ),
+							'icon'        => 'scan-eye',
+							'title'       => __( 'Instance-Aware Element Handling', 'testro' ),
+							'description' => __( 'theTestRo finds elements by what they are. Not where they sit on the page.', 'testro' ),
 						),
 						array(
 							'icon'        => 'wand',
-							'stage'       => __( 'AI ServiceNow Testing', 'testro' ),
-							'title'       => __( 'Intelligent ITSM Suites', 'testro' ),
-							'description' => __( 'Execute no-code, self-healing ServiceNow suites at enterprise scale.', 'testro' ),
-						),
-						array(
-							'icon'        => 'microscope',
-							'stage'       => __( 'Quality Validation', 'testro' ),
-							'title'       => __( 'Release Readiness Checks', 'testro' ),
-							'description' => __( 'Confirm workflow health, coverage, and risk signals before go-live.', 'testro' ),
-						),
-						array(
-							'icon'        => 'rocket',
-							'stage'       => __( 'Release', 'testro' ),
-							'title'       => __( 'Confident ServiceNow Deployments', 'testro' ),
-							'description' => __( 'Promote ServiceNow updates with measurable platform quality confidence.', 'testro' ),
-						),
-					),
-				),
-
-				/* 5. Connected integrations ------------------------------- */
-				array(
-					'type'    => 'architecture',
-					'id'      => 'servicenow-integrations',
-					'eyebrow' => __( 'Connected Delivery Ecosystem', 'testro' ),
-					'title'   => __( 'Plug ServiceNow Quality into Your Enterprise Toolchain', 'testro' ),
-					'intro'   => __( 'Connect theTestRo with the tools ServiceNow delivery teams already use—so every deployment, platform update, and customization stays under continuous validation.', 'testro' ),
-					'hub'     => array(
-						'icon'  => 'sparkles',
-						'label' => __( 'theTestRo', 'testro' ),
-						'sub'   => __( 'Connected Delivery', 'testro' ),
-					),
-					'items'   => array(
-						array(
-							'icon'        => 'infinity',
-							'title'       => __( 'CI/CD Pipelines', 'testro' ),
-							'description' => __( 'Wire ServiceNow Test Automation into any enterprise CI/CD toolchain.', 'testro' ),
-						),
-						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
-							'description' => __( 'Run continuous ServiceNow suites inside Jenkins pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'GitHub', 'testro' ),
-							'description' => __( 'Trigger ServiceNow regression on every pull request and release.', 'testro' ),
-						),
-						array(
-							'icon'        => 'cloud',
-							'title'       => __( 'Azure DevOps', 'testro' ),
-							'description' => __( 'Embed ServiceNow quality gates into boards and release pipelines.', 'testro' ),
-						),
-						array(
-							'icon'        => 'plug',
-							'title'       => __( 'Jira', 'testro' ),
-							'description' => __( 'Link defects and ServiceNow quality signals to delivery work items.', 'testro' ),
-						),
-						array(
-							'icon'        => 'message-text',
-							'title'       => __( 'Slack', 'testro' ),
-							'description' => __( 'Alert teams instantly when ServiceNow suites fail or heal.', 'testro' ),
-						),
-					),
-				),
-
-				/* 6. Benefits for ServiceNow teams ------------------------ */
-				array(
-					'type'    => 'outcomes',
-					'id'      => 'servicenow-team-benefits',
-					'variant' => 'tint',
-					'eyebrow' => __( 'Benefits for ServiceNow Teams', 'testro' ),
-					'title'   => __( 'Measurable Impact on Enterprise ServiceNow Release Quality', 'testro' ),
-					'intro'   => __( 'ServiceNow delivery, ITSM, platform, and QA teams use theTestRo to accelerate releases, cut maintenance, expand coverage, improve service reliability, and lower operational risk.', 'testro' ),
-					'items'   => array(
-						array(
-							'icon'        => 'rocket',
-							'title'       => __( 'Faster Release Cycles', 'testro' ),
-							'description' => __( 'Accelerate ServiceNow releases with AI-powered automated testing.', 'testro' ),
-						),
-						array(
-							'icon'        => 'heart-pulse',
-							'title'       => __( 'Reduced Test Maintenance', 'testro' ),
-							'description' => __( 'Leverage self-healing automation to minimize ongoing maintenance.', 'testro' ),
-						),
-						array(
-							'icon'        => 'target',
-							'title'       => __( 'Higher Test Coverage', 'testro' ),
-							'description' => __( 'Validate more ServiceNow workflows across every application and module.', 'testro' ),
+							'title'       => __( 'Automatic Repair After Upgrades', 'testro' ),
+							'description' => __( 'A major release changes a field or step. theTestRo fixes the test before the next run.', 'testro' ),
 						),
 						array(
 							'icon'        => 'badge-check',
-							'title'       => __( 'Improved Service Reliability', 'testro' ),
-							'description' => __( 'Deliver stable, reliable enterprise services with continuous quality validation.', 'testro' ),
+							'title'       => __( 'Fewer False Failures', 'testro' ),
+							'description' => __( 'Less time chasing a test that broke for the wrong reason. More time on real coverage.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'This is what AI ServiceNow testing should mean. Stability that survives exactly the kind of change that breaks brittle, script-based tools.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'plain-english-test-authoring',
+					'columns'       => 3,
+					'title'         => __( 'Plain-English Test Authoring', 'testro' ),
+					'intro'         => __( 'Anyone Can Build a Test, Not Just Engineers', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'file-text',
+							'title'       => __( 'Describe a Workflow, Get a Test', 'testro' ),
+							'description' => __( 'Type what should happen. theTestRo builds the working test steps on its own.', 'testro' ),
 						),
 						array(
-							'icon'        => 'alert-octagon',
-							'title'       => __( 'Lower Operational Risk', 'testro' ),
-							'description' => __( 'Identify issues early and reduce production incidents through intelligent automation.', 'testro' ),
+							'icon'        => 'user-check',
+							'title'       => __( 'No Engineering Dependency', 'testro' ),
+							'description' => __( 'HR staff, service desk agents, and business users can build real coverage directly.', 'testro' ),
+						),
+						array(
+							'icon'        => 'sparkles',
+							'title'       => __( 'AI-Generated From What You Already Have', 'testro' ),
+							'description' => __( 'Turn a user story, change ticket, or setup update into a test that works.', 'testro' ),
 						),
 					),
 				),
 
-				/* 7. Trust logos ------------------------------------------ */
 				array(
-					'type'    => 'clients',
-					'eyebrow' => __( 'Trusted by Enterprise ServiceNow Teams', 'testro' ),
-					'title'   => __( 'Chosen by Industry Leaders Worldwide', 'testro' ),
-					'intro'   => __( 'Organizations rely on theTestRo to protect ServiceNow quality and accelerate every ITSM, ITOM, and enterprise service release.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'workflows-that-go-beyond-servicenow',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Workflows That Go Beyond ServiceNow', 'testro' ),
+					'intro'         => __( 'Cross-System Testing, in One Run', 'testro' ),
+					'intro_extra'   => __( 'An incident in ServiceNow can create a case in another system. An HR request can write back to a connected HRMS. A test that stops at ServiceNow\'s edge misses exactly where things tend to break.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'refresh',
+							'title'       => __( 'Cross-System Data Sync', 'testro' ),
+							'description' => __( 'Confirm records made in ServiceNow land right in connected systems, and stay in sync both ways.', 'testro' ),
+						),
+						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'REST and SOAP API Contracts', 'testro' ),
+							'description' => __( 'Test inbound and outbound API contracts alongside your UI checks, in the same flow.', 'testro' ),
+						),
+						array(
+							'icon'        => 'plug',
+							'title'       => __( 'Webhook and Event-Driven Integrations', 'testro' ),
+							'description' => __( 'Check event flows behave right after every release. Not just the parts a user clicks through.', 'testro' ),
+						),
+					),
 				),
 
-				/* 8. Customer success ------------------------------------- */
 				array(
-					'type'    => 'testimonials',
-					'eyebrow' => __( 'Customer Success Stories', 'testro' ),
-					'title'   => __( 'Enterprise Teams Shipping Reliable ServiceNow Releases', 'testro' ),
-					'intro'   => __( 'See how organizations use theTestRo to accelerate ServiceNow releases, improve enterprise service quality, reduce regression testing effort, increase automation coverage, and deliver reliable IT and business workflows.', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'servicenow-regression-testing-at-every-upgrade',
+					'variant'       => 'tint',
+					'columns'       => 3,
+					'title'         => __( 'ServiceNow Regression Testing at Every Upgrade', 'testro' ),
+					'intro'         => __( 'Ready Before the Next Release, Not After', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(
+						array(
+							'icon'        => 'zap',
+							'title'       => __( 'Full Regression in Hours', 'testro' ),
+							'description' => __( 'Run large regression suites overnight, not over several weeks.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'Self-Healing Through Version Changes', 'testro' ),
+							'description' => __( 'Tests stay stable through major platform redesigns. Not just minor patches.', 'testro' ),
+						),
+						array(
+							'icon'        => 'folder-tree',
+							'title'       => __( 'Traceability to Requirements', 'testro' ),
+							'description' => __( 'Link tests back to user stories and change tickets. Coverage stays lined up with what changed.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Automated ServiceNow testing built this way turns a dreaded upgrade cycle into a routine check.', 'testro' ),
 				),
 
-				/* 9. FAQ -------------------------------------------------- */
 				array(
-					'type'    => 'faq',
-					'eyebrow' => __( 'ServiceNow Testing FAQs', 'testro' ),
-					'title'   => __( 'Frequently Asked Questions', 'testro' ),
-					'faqs'    => 'servicenow-testing',
+					'type'          => 'feature-grid',
+					'id'            => 'cicd-integration-built-in',
+					'columns'       => 4,
+					'title'         => __( 'CI/CD Integration Built In', 'testro' ),
+					'intro'         => __( 'Testing That Runs With Every Deployment', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with Jenkins, GitHub Actions, Azure DevOps, and ServiceNow DevOps. Test suites trigger on their own as part of your deployment pipeline. Code review catches a risky change. Not in production.', 'testro' ),
+					'heading_level' => 4,
+					'items'         => array(),
 				),
 
-				/* 10. Final CTA ------------------------------------------- */
 				array(
-					'type'       => 'cta',
-					'id'         => 'get-started-servicenow-testing',
-					'title'      => __( 'Automate ServiceNow Testing with AI-Powered Enterprise Quality Engineering', 'testro' ),
-					'intro'      => __( 'Transform ServiceNow quality assurance with theTestRo\'s AI-powered ServiceNow Test Automation Platform. Automate IT service workflows, validate mission-critical business processes, reduce maintenance through self-healing automation, and accelerate enterprise releases with confidence using intelligent end-to-end testing.', 'testro' ),
-					'actions'    => testro_product_default_actions(),
-					'assurances' => array(
-						__( '14-day free trial', 'testro' ),
-						__( 'No credit card required', 'testro' ),
-						__( 'Guided onboarding', 'testro' ),
+					'type'          => 'feature-grid',
+					'id'            => 'enterprise-servicenow-testing-at-scale',
+					'variant'       => 'spotlight',
+					'columns'       => 3,
+					'title'         => __( 'Enterprise ServiceNow Testing at Scale', 'testro' ),
+					'intro'         => __( 'Built for Complex, Regulated Environments', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Private Cloud and On-Premise Options', 'testro' ),
+							'description' => __( 'Run tests inside your own space when data location matters.', 'testro' ),
+						),
+						array(
+							'icon'        => 'user-check',
+							'title'       => __( 'Role-Based Access', 'testro' ),
+							'description' => __( 'Control who can build, edit, and approve tests across a growing org.', 'testro' ),
+						),
+						array(
+							'icon'        => 'shield-lock',
+							'title'       => __( 'Full Visibility and Ownership', 'testro' ),
+							'description' => __( 'Your team keeps full control of automation logic. Data and credentials stay encrypted, with no outside storage.', 'testro' ),
+						),
+					),
+					'outro'         => __( 'Enterprise ServiceNow testing has to hold up across dozens of workflows, teams, and modules at once. Not just a single clean demo instance.', 'testro' ),
+				),
+
+				array(
+					'type'          => 'feature-grid',
+					'id'            => 'who-uses-testro-for-servicenow-testing',
+					'columns'       => 4,
+					'title'         => __( 'Who Uses theTestRo for ServiceNow Testing', 'testro' ),
+					'intro'         => __( 'Built for Every Role Touching the Platform', 'testro' ),
+					'heading_level' => 5,
+					'items'         => array(
+						array(
+							'icon'        => 'layout-grid',
+							'title'       => __( 'ITSM and Platform QA Teams', 'testro' ),
+							'description' => __( 'Cover incident, change, and request work. No matching rise in headcount needed.', 'testro' ),
+						),
+						array(
+							'icon'        => 'heart-pulse',
+							'title'       => __( 'HR and Customer Service Teams', 'testro' ),
+							'description' => __( 'Build coverage for their own steps. No waiting on engineering.', 'testro' ),
+						),
+						array(
+							'icon'        => 'git-branch',
+							'title'       => __( 'DevOps Engineers', 'testro' ),
+							'description' => __( 'Trigger ServiceNow tests on their own as part of the release pipeline.', 'testro' ),
+						),
+						array(
+							'icon'        => 'badge-check',
+							'title'       => __( 'Platform Owners', 'testro' ),
+							'description' => __( 'Get a clear view of test coverage across every module and custom setup.', 'testro' ),
+						),
+					),
+				),
+
+				array(
+					'type'          => 'faq',
+					'title'         => __( 'Frequently Asked Questions', 'testro' ),
+					'heading_level' => 5,
+					'faqs'          => 'servicenow-testing',
+				),
+
+				array(
+					'type'          => 'cta',
+					'id'            => 'start-automating-servicenow-testing-today',
+					'title'         => __( 'Start Automating ServiceNow Testing Today', 'testro' ),
+					'intro'         => __( 'Stop Losing Weeks to Every Upgrade', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo. Catch issues before every release. Not after.', 'testro' ),
+					'heading_level' => 5,
+					'actions'       => array(
+						array(
+							'label' => __( 'Start Testing Free', 'testro' ),
+							'style' => 'primary',
+							'modal' => 'demo-modal',
+						),
+						array(
+							'label' => __( 'Book a Demo', 'testro' ),
+							'style' => 'outline',
+							'modal' => 'demo-modal',
+							'icon'  => 'arrow-right',
+						),
 					),
 				),
 			),
 		),
+
 	);
 
 	/**
@@ -14215,613 +11899,570 @@ function testro_get_faq_set( $context = '' ) {
 			),
 		),
 
-		'test-lab' => array(
+		'test-execution' => array(
 			array(
-				'question' => __( 'What is AI-powered Test Execution?', 'testro' ),
-				'answer'   => __( 'AI-powered Test Execution uses intelligent orchestration, parallel processing, and machine learning insights to run automated tests faster and more reliably. With theTestRo\'s AI-Powered Test Execution Platform, teams execute large suites across browsers, devices, and environments while monitoring progress and diagnosing failures in real time.', 'testro' ),
+				'question' => __( 'What is an AI-powered test execution platform?', 'testro' ),
+				'answer'   => __( 'It\'s a platform that runs automated tests across browsers and devices. AI guides coverage decisions, catches flaky failures, and speeds up feedback.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I execute tests in parallel?', 'testro' ),
-				'answer'   => __( 'Yes. Parallel Test Execution lets you run multiple test suites simultaneously across browsers and environments, dramatically reducing total execution time so teams get faster feedback on every release.', 'testro' ),
+				'question' => __( 'How is parallel test execution different from running tests one by one?', 'testro' ),
+				'answer'   => __( 'Parallel execution runs many tests at once instead of in sequence. A multi-hour test suite drops down to minutes.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support cloud and local execution?', 'testro' ),
-				'answer'   => __( 'Absolutely. Use Cloud Test Execution on scalable infrastructure without managing hardware, or run Local Test Execution securely inside your own environments whenever compliance or network constraints require it.', 'testro' ),
+				'question' => __( 'Can I run tests both locally and in the cloud?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo supports local execution alongside its cloud device farm. Internal environments stay covered too.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can tests run automatically in CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Continuous Test Execution integrates with GitHub, Jenkins, Azure DevOps, and other DevOps tools so suites run automatically after every build, deployment, or release—keeping development and QA synchronized.', 'testro' ),
+				'question' => __( 'Does continuous test execution slow down my CI/CD pipeline?', 'testro' ),
+				'answer'   => __( 'No. Tests run in parallel and report back fast. Pipeline speed stays intact even as test coverage grows.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which environments are supported?', 'testro' ),
-				'answer'   => __( 'Execute across development, staging, and production environments for web applications, mobile apps, APIs, enterprise platforms, and Cross-Browser Test Execution on Chrome, Firefox, Edge, Safari, and more.', 'testro' ),
+				'question' => __( 'What happens when a test fails during execution?', 'testro' ),
+				'answer'   => __( 'theTestRo captures logs, screenshots, and a step-by-step replay on its own. Debugging doesn\'t start from a blank screen.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo provide execution logs and videos?', 'testro' ),
-				'answer'   => __( 'Yes. Every run can include detailed execution logs plus screenshots and video recording, so teams have complete visual evidence when investigating failures or proving release readiness.', 'testro' ),
-			),
-			array(
-				'question' => __( 'How does AI improve execution reliability?', 'testro' ),
-				'answer'   => __( 'AI Monitoring and AI Failure Analysis detect anomalies during runs, highlight flaky patterns, and accelerate root-cause diagnosis—so Automated Test Execution stays reliable as applications and infrastructure change.', 'testro' ),
+				'question' => __( 'Is this test execution tool suitable for large test suites?', 'testro' ),
+				'answer'   => __( 'Yes. Parallel execution and cloud scaling are built for suites with thousands of tests, not just small ones.', 'testro' ),
 			),
 		),
 
 		'ci-cd-integration' => array(
 			array(
-				'question' => __( 'What is CI/CD Integration?', 'testro' ),
-				'answer'   => __( 'CI/CD Integration connects automated testing to continuous integration and continuous delivery pipelines so quality checks run automatically on every commit, build, and deployment. With theTestRo, continuous testing becomes a native quality gate inside your DevOps workflow.', 'testro' ),
+				'question' => __( 'What is a CI/CD test automation platform?', 'testro' ),
+				'answer'   => __( 'It\'s a platform that runs tests on its own whenever code is committed, built, or deployed. It connects directly to tools like Jenkins or GitHub Actions.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does theTestRo integrate with DevOps pipelines?', 'testro' ),
-				'answer'   => __( 'theTestRo plugs into Jenkins, GitHub Actions, GitLab CI/CD, Azure DevOps, CircleCI, Bamboo, and related tools so pipeline events trigger AI-powered test execution, report results back to the pipeline, and enforce release readiness before promotion.', 'testro' ),
+				'question' => __( 'How is CI/CD testing different from regular test automation?', 'testro' ),
+				'answer'   => __( 'Regular automation runs when someone triggers it. CI/CD testing runs on its own, tied to pipeline events like commits and merges.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can tests run automatically after every code commit?', 'testro' ),
-				'answer'   => __( 'Yes. Commit-based and build-based triggers launch the right suites as soon as code lands or a build completes—so developers get continuous feedback without manual test kicks.', 'testro' ),
+				'question' => __( 'Does continuous testing slow down my deployment pipeline?', 'testro' ),
+				'answer'   => __( 'No. Parallel execution and smart test selection keep pipeline speed steady, even as test coverage grows.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support GitHub Actions and Jenkins?', 'testro' ),
-				'answer'   => __( 'Absolutely. GitHub Actions and Jenkins are first-class integrations, alongside GitLab CI/CD, Azure DevOps, CircleCI, and Bamboo, so continuous testing fits the CI/CD platforms your teams already run.', 'testro' ),
+				'question' => __( 'Which CI/CD tools does theTestRo integrate with?', 'testro' ),
+				'answer'   => __( 'Jenkins, GitHub Actions, GitLab CI, Azure DevOps, CircleCI, and Bamboo. No custom scripting needed.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can quality gates prevent failed deployments?', 'testro' ),
-				'answer'   => __( 'Yes. Quality gates apply pass/fail criteria, build validation, and release risk assessment so unstable builds are blocked before deployment while approved builds proceed with confidence.', 'testro' ),
+				'question' => __( 'Can tests block a pull request from merging?', 'testro' ),
+				'answer'   => __( 'Yes. Set up pull request checks so a merge is blocked until required tests pass.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve continuous testing?', 'testro' ),
-				'answer'   => __( 'AI improves continuous testing through intelligent test generation, smarter suite selection, faster failure analysis, and self-healing maintenance—keeping pipeline feedback focused, reliable, and scalable as applications change.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can CI/CD pipelines execute tests in parallel?', 'testro' ),
-				'answer'   => __( 'Yes. Parallel test execution fans suites across environments and cloud capacity so CI/CD pipelines return results faster without sacrificing coverage on critical release paths.', 'testro' ),
+				'question' => __( 'Is DevOps test automation only for large engineering teams?', 'testro' ),
+				'answer'   => __( 'No. Small teams benefit just as much from instant feedback. Nobody has to manually trigger and check test runs.', 'testro' ),
 			),
 		),
+
 		'playwright-test-automation' => array(
 			array(
-				'question' => __( 'What is Playwright Export?', 'testro' ),
-				'answer'   => __( 'Playwright Export is theTestRo\'s capability to convert AI-powered visual test workflows into production-ready Playwright TypeScript scripts. Teams build automation in a no-code visual builder, then export clean, structured specs developers can run locally, customize in their IDE, and integrate into CI/CD pipelines—without rewriting every scenario by hand.', 'testro' ),
+				'question' => __( 'What is a Playwright testing automation platform?', 'testro' ),
+				'answer'   => __( 'A platform that helps teams build, generate, and run Playwright tests. Often combining no-code test creation with the ability to export real, runnable Playwright code.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I export tests directly to Playwright?', 'testro' ),
-				'answer'   => __( 'Yes. From any visual workflow you author in theTestRo, you can export Playwright-compatible TypeScript with a single action. Exported specs follow modern Playwright Test conventions—including page navigation, locators, assertions, and test structure—so they drop into existing projects immediately.', 'testro' ),
+				'question' => __( 'Can I really export tests to Playwright, or is it just a preview?', 'testro' ),
+				'answer'   => __( 'It\'s real, exportable code. theTestRo generates actual TypeScript or JavaScript Playwright scripts you can run, edit, and commit like any other file.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Are exported scripts editable?', 'testro' ),
-				'answer'   => __( 'Absolutely. Exported Playwright scripts are standard TypeScript files your developers can open, refactor, extend, and version-control like any other code. theTestRo generates the starting point from visual automation; engineering teams retain full freedom to customize locators, add helpers, wire fixtures, and evolve suites over time.', 'testro' ),
+				'question' => __( 'Do I need coding experience to use the Playwright test generator?', 'testro' ),
+				'answer'   => __( 'No. Build tests in plain English or by recording a flow. Coding knowledge helps if you want to extend the exported code, but it\'s not required to start.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo generate TypeScript Playwright tests?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo exports TypeScript Playwright tests aligned with the official @playwright/test runner. Generated code uses modern Playwright APIs—such as page.goto, getByRole, getByLabel, and expect assertions—so teams get developer-ready scripts rather than proprietary syntax.', 'testro' ),
+				'question' => __( 'Does self-healing still work after I export the code?', 'testro' ),
+				'answer'   => __( 'Yes, when tests run through theTestRo\'s execution layer. Locators heal at runtime, keeping exported tests stable across UI changes.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can exported Playwright tests run inside CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Exported Playwright suites integrate with Jenkins, GitHub Actions, GitLab CI/CD, Azure DevOps, and related DevOps tools. Trigger runs on every commit or build, execute in parallel across browsers, and gate releases on Playwright quality signals from theTestRo cloud execution.', 'testro' ),
+				'question' => __( 'Will exported Playwright code work outside theTestRo?', 'testro' ),
+				'answer'   => __( 'Yes. Exported tests are standard Playwright scripts that run in your own environment. No dependency on theTestRo to execute them.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does AI maintain exported Playwright scripts?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo\'s AI self-healing detects broken locators when UIs change, updates element strategies automatically, and keeps Playwright scripts running without manual intervention. Healed locators persist into exported specs so maintenance effort stays low across every release.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can developers customize exported automation?', 'testro' ),
-				'answer'   => __( 'Developers can customize every exported Playwright script—adding page objects, shared utilities, data-driven parameters, and project-specific configuration. theTestRo bridges visual authoring for QA with code-first flexibility for engineering, so both teams contribute to the same automation strategy without tool lock-in.', 'testro' ),
+				'question' => __( 'How is this different from just using Playwright directly?', 'testro' ),
+				'answer'   => __( 'Playwright still requires writing every test by hand. theTestRo adds AI test generation, self-healing, and real-device scaling on top. You still get clean, exportable code at the end.', 'testro' ),
 			),
 		),
 
 		'reporting-analytics' => array(
 			array(
-				'question' => __( 'What reports does theTestRo provide?', 'testro' ),
-				'answer'   => __( 'theTestRo provides AI-powered test reports and analytics across execution summaries, pass/fail trends, coverage, regression performance, team productivity, and release readiness. Detailed execution reports include step-level results, screenshots, video recordings, logs, and environment information so stakeholders share one quality trail.', 'testro' ),
+				'question' => __( 'What is an AI-powered test reports and analytics platform?', 'testro' ),
+				'answer'   => __( 'It\'s a platform that turns raw test results into clear insights. AI explains why a test failed. Not just a pass or fail status.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can reports be customized?', 'testro' ),
-				'answer'   => __( 'Yes. Create customized reports tailored to business needs, with role-based dashboards for QA, developers, managers, and executives. Export reports in multiple formats and roll up multi-project analytics when you need organization-wide visibility.', 'testro' ),
+				'question' => __( 'How is AI test analytics different from standard test reports?', 'testro' ),
+				'answer'   => __( 'Standard reports show results. AI test analytics adds root cause analysis, failure patterns, and suggested fixes on top of the raw data.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo generate real-time dashboards?', 'testro' ),
-				'answer'   => __( 'Yes. Live execution dashboards update as suites run, showing progress, failures as they happen, coverage, regression status, and team performance—so teams react during the run rather than after static exports arrive.', 'testro' ),
+				'question' => __( 'Can I export test reports for compliance or executive review?', 'testro' ),
+				'answer'   => __( 'Yes. Generate PDF summaries for stakeholders, or export detailed Excel and CSV data for audits and deeper analysis.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI analyze test failures?', 'testro' ),
-				'answer'   => __( 'AI automatically classifies failures, surfaces root-cause insights, detects recurring error patterns across executions, identifies failure trends that affect automation health, and recommends next steps so engineers start from a diagnosis instead of a raw stack trace.', 'testro' ),
+				'question' => __( 'Does this test reporting software show why a test failed, not just that it did?', 'testro' ),
+				'answer'   => __( 'Yes. Every failure includes screenshots, logs, and AI-suggested root causes. Debugging doesn\'t start from scratch.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can reports be scheduled automatically?', 'testro' ),
-				'answer'   => __( 'Yes. Scheduled reports generate and distribute quality summaries to the right stakeholders on a cadence you define, keeping executives and delivery teams aligned without manual spreadsheet assembly.', 'testro' ),
+				'question' => __( 'Can different teams see different views of the same test data?', 'testro' ),
+				'answer'   => __( 'Yes. QA, development, and leadership each get a dashboard suited to what they actually need to know.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support multi-project reporting?', 'testro' ),
-				'answer'   => __( 'Yes. Multi-project analytics let you monitor testing performance across products and teams from one platform—ideal for enterprise QA organizations that need both project-level detail and portfolio-level readiness.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can analytics integrate with DevOps pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate reporting with Jenkins, GitHub Actions, Azure DevOps, Jira, Slack, and CI/CD pipelines so execution signals, failure summaries, and release-readiness scores flow into the tools your delivery teams already use.', 'testro' ),
+				'question' => __( 'Does theTestRo integrate with tools like Jira or Slack for reporting?', 'testro' ),
+				'answer'   => __( 'Yes. File bugs right from a failed test. Results go to Slack or chat channels on their own after each run.', 'testro' ),
 			),
 		),
+
 		'regression-test-automation' => array(
 			array(
-				'question' => __( 'What is automated regression testing?', 'testro' ),
-				'answer'   => __( 'Automated regression testing re-validates existing functionality after every code change so new features do not break what already works. With theTestRo, Regression Test Automation runs continuously across web, mobile, and API layers—giving teams faster feedback and higher release confidence than manual retesting.', 'testro' ),
+				'question' => __( 'What is AI regression testing?', 'testro' ),
+				'answer'   => __( 'It\'s the use of AI to build, run, and maintain regression tests. This includes self-healing broken locators and generating root cause analysis on its own. No more relying on brittle scripts.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve regression testing?', 'testro' ),
-				'answer'   => __( 'AI improves regression testing by generating comprehensive scenarios, selecting the most relevant suites for each change, diagnosing failures faster, and self-healing broken locators. theTestRo turns Continuous Regression Testing into an intelligent loop—more coverage, less maintenance, and clearer release readiness.', 'testro' ),
+				'question' => __( 'Is regression testing functional or nonfunctional?', 'testro' ),
+				'answer'   => __( 'Regression testing is mostly functional. It confirms existing features still work right after a change. It can include nonfunctional checks like performance when needed.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can regression tests run automatically after every build?', 'testro' ),
-				'answer'   => __( 'Yes. Commit-based and build-based triggers launch regression packs as soon as a build completes or a pull request lands—so developers get Continuous Regression Testing feedback without manual kicks.', 'testro' ),
+				'question' => __( 'What is end to end regression testing?', 'testro' ),
+				'answer'   => __( 'It\'s regression testing that covers a full user journey. UI and API together. Not testing each layer on its own.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support parallel regression execution?', 'testro' ),
-				'answer'   => __( 'Absolutely. Parallel execution fans regression suites across browsers, environments, and cloud capacity so large packs finish faster without sacrificing coverage on critical release paths.', 'testro' ),
+				'question' => __( 'How is Regression Test Automation different from manual regression testing?', 'testro' ),
+				'answer'   => __( 'Automation runs tests on its own, on a schedule or trigger. Manual regression means a person re-runs the same checks by hand, every time.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can regression suites integrate with CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate regression into Jenkins, GitHub, Azure DevOps, Bamboo, and related DevOps tools so pipeline events trigger AI regression, report results back to the pipeline, and enforce quality gates before promotion.', 'testro' ),
+				'question' => __( 'Does Enterprise Regression Testing scale to thousands of test cases?', 'testro' ),
+				'answer'   => __( 'Yes. Parallel execution and self-healing are built for large suites, not just small ones. Coverage can grow without maintenance growing with it.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce regression maintenance?', 'testro' ),
-				'answer'   => __( 'When UIs change, AI self-healing detects broken locators, updates element strategies automatically, and keeps regression suites running without hand-editing every script—cutting maintenance effort while protecting long-term suite stability.', 'testro' ),
+				'question' => __( 'What are the most important automated regression testing best practices?', 'testro' ),
+				'answer'   => __( 'Automate high-value, stable flows first. Reuse shared components. Run tests on every commit. Retire tests that no longer add value.', 'testro' ),
 			),
 		),
+
 		'ai-automated-sanity-testing' => array(
 			array(
 				'question' => __( 'What is automated sanity testing?', 'testro' ),
-				'answer'   => __( 'Automated Sanity Testing quickly validates critical application functionality after bug fixes or minor code changes—before investing in full regression. With theTestRo, Sanity Test Automation confirms essential workflows stay healthy so teams get fast release confidence on every build.', 'testro' ),
+				'answer'   => __( 'The use of automated tools to quickly check that a specific fix or feature works after a change. No person needs to check it by hand.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How is sanity testing different from regression testing?', 'testro' ),
-				'answer'   => __( 'Sanity testing focuses on a targeted critical-path pack after a specific change, while regression testing re-validates broader existing functionality across the suite. AI Sanity Testing from theTestRo clears fast Build Validation Testing gates; Continuous Regression Testing then provides deeper coverage when you need it.', 'testro' ),
+				'question' => __( 'How is sanity test automation different from regression testing?', 'testro' ),
+				'answer'   => __( 'Sanity testing checks a narrow, specific change. Regression testing checks the whole system to confirm nothing else broke.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can sanity tests run automatically after every build?', 'testro' ),
-				'answer'   => __( 'Yes. Continuous Sanity Testing with commit-based and build-based triggers launches critical packs as soon as a build completes—so developers get Automated Sanity Testing feedback without manual kicks.', 'testro' ),
+				'question' => __( 'What does AI automated sanity testing add over basic automation?', 'testro' ),
+				'answer'   => __( 'AI can flag which areas a recent change likely affects, self-heal checks when the UI shifts, and cut false failures that waste a team\'s time.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support AI-powered sanity testing?', 'testro' ),
-				'answer'   => __( 'Absolutely. theTestRo supports AI Sanity Testing with intelligent scenario prioritization, cloud execution, failure insights, and self-healing maintenance—so Continuous Sanity Testing stays fast, focused, and resilient as applications evolve.', 'testro' ),
+				'question' => __( 'Is sanity testing software useful for small teams, not just large ones?', 'testro' ),
+				'answer'   => __( 'Yes. Any team pushing frequent builds benefits from a fast, repeatable way to confirm a fix works before moving forward.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can sanity testing be integrated into CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate Automated Sanity Testing into Jenkins, GitHub, Azure DevOps, Bamboo, and related DevOps tools so pipeline events trigger Build Validation Testing, report gate results, and enforce release readiness before promotion.', 'testro' ),
+				'question' => __( 'Does continuous sanity testing slow down a CI/CD pipeline?', 'testro' ),
+				'answer'   => __( 'No. Sanity checks are built to be fast and focused. They add minutes, not hours, to a pipeline run.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing improve sanity test maintenance?', 'testro' ),
-				'answer'   => __( 'When UIs change, AI self-healing detects broken locators, updates element strategies automatically, and keeps Sanity Test Automation running without hand-editing every critical check—cutting maintenance effort while protecting Continuous Sanity Testing reliability.', 'testro' ),
+				'question' => __( 'Can automated software testing tools like theTestRo handle sanity, smoke, and regression together?', 'testro' ),
+				'answer'   => __( 'Yes. All three run from the same platform. A team isn\'t managing separate tools for each stage of testing.', 'testro' ),
 			),
 		),
+
 		'automated-functional-testing' => array(
 			array(
-				'question' => __( 'What is AI-powered Functional Testing?', 'testro' ),
-				'answer'   => __( 'AI-powered Functional Testing validates complete business workflows, user journeys, APIs, and application functionality using intelligent automation instead of brittle hand-written scripts. With theTestRo, teams create functional scenarios faster, execute continuously across web, mobile, and APIs, and deliver reliable software with AI-driven quality insights.', 'testro' ),
+				'question' => __( 'What is automated functional testing?', 'testro' ),
+				'answer'   => __( 'The use of automated tools checks that app features and workflows behave as expected. No need to check them by hand every time.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does theTestRo automate functional testing?', 'testro' ),
-				'answer'   => __( 'theTestRo automates Functional Testing with AI-assisted authoring, low-code capabilities, reusable assets, cloud execution, parallel runs, and self-healing maintenance—so teams validate end-to-end functional behavior across every release without heavy script ownership.', 'testro' ),
+				'question' => __( 'How does automated functional testing fit into modern development?', 'testro' ),
+				'answer'   => __( 'It runs all the time inside CI/CD pipelines. We catch problems early. This supports frequent releases without adding to manual QA work.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can functional tests run automatically after every build?', 'testro' ),
-				'answer'   => __( 'Yes. Commit-based and build-based triggers launch functional packs as soon as a build completes or a pull request lands—so developers get continuous Functional Testing feedback without manual kicks.', 'testro' ),
+				'question' => __( 'How is AI functional testing different from standard automation?', 'testro' ),
+				'answer'   => __( 'AI helps build tests from requirements or designs. It self-heals locators when the UI changes. This cuts the upkeep that scripted tests usually need.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support web, mobile, and API functional testing?', 'testro' ),
-				'answer'   => __( 'Absolutely. Run Functional Test Automation across web applications, mobile apps, APIs, cross-browser environments, and enterprise systems from one centralized AI-powered cloud platform.', 'testro' ),
+				'question' => __( 'Is functional testing software useful for small teams, not just large ones?', 'testro' ),
+				'answer'   => __( 'Yes. Any team that wants reliable test coverage can benefit from AI-assisted test creation and maintenance. It works well even if the team does not have a large QA staff.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce test maintenance?', 'testro' ),
-				'answer'   => __( 'When UIs change, AI self-healing detects broken locators, updates element strategies automatically, and keeps Functional Testing suites running without hand-editing every script—cutting maintenance effort while protecting long-term suite stability.', 'testro' ),
+				'question' => __( 'Does continuous functional testing slow down release cycles?', 'testro' ),
+				'answer'   => __( 'No. It runs in parallel and reports back fast. It speeds up releases by catching issues early instead of at the end of a sprint.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can functional testing integrate with CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate Functional Testing into Jenkins, GitHub, Azure DevOps, Bamboo, and related DevOps tools so pipeline events trigger AI Functional Testing, report results back to the pipeline, and enforce quality gates before promotion.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Does theTestRo support data-driven functional testing?', 'testro' ),
-				'answer'   => __( 'Yes. Parameterize functional scenarios with multiple datasets, manage dynamic test data across environments, and reuse centralized data sets to expand business-scenario coverage without duplicating cases.', 'testro' ),
+				'question' => __( 'Can enterprise functional testing scale across many teams and products?', 'testro' ),
+				'answer'   => __( 'Yes. Role-based access, shared reporting, and parallel runs support orgs that run many teams and releases at once.', 'testro' ),
 			),
 		),
+
 		'end-to-end-testing' => array(
 			array(
-				'question' => __( 'What is AI-powered End-to-End Testing?', 'testro' ),
-				'answer'   => __( 'AI-powered End-to-End Testing validates complete business workflows and user journeys across web applications, mobile apps, APIs, databases, and enterprise systems using intelligent automation instead of brittle hand-written scripts. With theTestRo, teams create E2E scenarios faster, execute continuously in the cloud, and deliver reliable software with AI-driven quality insights.', 'testro' ),
+				'question' => __( 'What is automated end-to-end testing?', 'testro' ),
+				'answer'   => __( 'The use of automated tools to check a complete application workflow. From a user\'s first action through to the final result. Across UI, APIs, and connected systems.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does theTestRo automate complete business workflows?', 'testro' ),
-				'answer'   => __( 'theTestRo automates End-to-End Testing with AI-assisted authoring, reusable workflow components, cross-system validation, cloud execution, parallel runs, and self-healing maintenance—so teams prove complete business processes across every release without heavy script ownership.', 'testro' ),
+				'question' => __( 'How is AI end-to-end testing different from traditional automation?', 'testro' ),
+				'answer'   => __( 'Traditional automation needs a person to write and maintain code. AI end-to-end testing lets teams build tests in plain English. AI handles healing broken locators and flagging root causes on its own.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can end-to-end tests run automatically after every build?', 'testro' ),
-				'answer'   => __( 'Yes. Commit-based and build-based triggers launch end-to-end packs as soon as a build completes or a pull request lands—so developers get continuous E2E Test Automation feedback without manual kicks.', 'testro' ),
+				'question' => __( 'What happens when an end-to-end test fails?', 'testro' ),
+				'answer'   => __( 'theTestRo checks whether the failure is a real bug, a flaky step, or an environment issue. A team isn\'t chasing false alarms every time something turns red.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support web, mobile, API, and backend validation?', 'testro' ),
-				'answer'   => __( 'Absolutely. Run End-to-End Test Automation across web applications, mobile apps, APIs, databases, backend services, cross-browser environments, and enterprise systems from one centralized AI-powered cloud platform.', 'testro' ),
+				'question' => __( 'How long does it take to set up an end-to-end testing platform?', 'testro' ),
+				'answer'   => __( 'With theTestRo, a team can build and run its first automated test in well under an hour. No software installation or infrastructure setup needed.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce maintenance?', 'testro' ),
-				'answer'   => __( 'When UIs or application flows change, AI self-healing detects broken locators, updates element strategies automatically, and keeps End-to-End Testing suites running without hand-editing every script—cutting maintenance effort while protecting long-term journey stability.', 'testro' ),
+				'question' => __( 'Does cross-platform end-to-end testing cover mobile apps too?', 'testro' ),
+				'answer'   => __( 'Yes. Test iOS and Android apps on real devices alongside your web app, in the same workflow. No separate tool needed.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can end-to-end testing integrate with CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate End-to-End Testing into Jenkins, GitHub, Azure DevOps, Bamboo, and related DevOps tools so pipeline events trigger AI E2E Testing, report results back to the pipeline, and enforce quality gates before promotion.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Does theTestRo support enterprise-scale cloud execution?', 'testro' ),
-				'answer'   => __( 'Yes. Cloud End-to-End Testing on theTestRo runs enterprise-scale suites through secure cloud infrastructure with parallel execution, scheduled runs, and multi-environment validation—so large business workflow packs finish faster without sacrificing coverage.', 'testro' ),
+				'question' => __( 'How does enterprise end-to-end testing fit into CI/CD?', 'testro' ),
+				'answer'   => __( 'Tests trigger on their own after a build or deployment to staging. We catch a broken workflow before it reaches production. Not after.', 'testro' ),
 			),
 		),
+
 		'use-cases' => array(
 			array(
-				'question' => __( 'What software testing use cases does theTestRo support?', 'testro' ),
-				'answer'   => __( 'theTestRo supports a full range of software testing use cases including regression testing, smoke testing, sanity testing, functional testing, integration testing, end-to-end testing, frontend testing, and backend testing—all from one AI-powered test automation platform.', 'testro' ),
+				'question' => __( 'What are software testing use cases?', 'testro' ),
+				'answer'   => __( 'They\'re the different scenarios a QA team handles, like regression, functional, or end-to-end testing. Each one answers a specific question about whether software works right.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I automate regression, functional, and end-to-end testing?', 'testro' ),
-				'answer'   => __( 'Yes. You can automate regression, functional, and end-to-end testing on theTestRo with AI-assisted authoring, self-healing maintenance, parallel cloud execution, and CI/CD integration so every release path stays continuously validated.', 'testro' ),
+				'question' => __( 'How do I know which testing use case applies to my situation?', 'testro' ),
+				'answer'   => __( 'It depends on timing and scope. A quick fix calls for sanity testing. A full release calls for regression or end-to-end testing. Most teams use several use cases together.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support no-code testing?', 'testro' ),
-				'answer'   => __( 'Yes. No-code test creation lets QA analysts, developers, and business users build automated tests without writing code, while still benefiting from AI generation, self-healing, and enterprise-grade execution.', 'testro' ),
+				'question' => __( 'Can theTestRo handle multiple test automation use cases from one platform?', 'testro' ),
+				'answer'   => __( 'Yes. Regression, functional, integration, end-to-end, and more all run from the same platform. No switching tools for each one.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can all testing use cases run inside CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Every testing use case on theTestRo can run inside CI/CD pipelines such as Jenkins, GitHub Actions, Azure DevOps, and Bamboo—triggering on commits, builds, or schedules and enforcing quality gates before promotion.', 'testro' ),
+				'question' => __( 'Are these automated testing use cases suitable for small teams?', 'testro' ),
+				'answer'   => __( 'Yes. AI-assisted test creation and self-healing help a small team cover the same ground. A much larger team would need to do it by hand.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve software testing?', 'testro' ),
-				'answer'   => __( 'AI improves software testing by generating intelligent scenarios faster, self-healing broken locators when applications change, prioritizing relevant suites for each release, classifying failures, and surfacing analytics that improve coverage and release readiness.', 'testro' ),
+				'question' => __( 'Does theTestRo support QA testing use cases across web, mobile, and API?', 'testro' ),
+				'answer'   => __( 'Yes. Every use case on this page runs across web, mobile, and API, from a single test suite.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can one platform handle web, API, and enterprise testing?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo unifies web application testing, API testing, enterprise application testing, and cloud-native execution in one AI-powered platform—so teams cover every critical surface without stitching together disconnected tools.', 'testro' ),
+				'question' => __( 'How does AI change these common software testing scenarios?', 'testro' ),
+				'answer'   => __( 'AI speeds up test creation. It keeps tests stable as the app changes. It helps spot real bugs versus flaky failures. This works across every use case listed here.', 'testro' ),
 			),
 		),
+
 		'ai-powered-integration-testing' => array(
 			array(
-				'question' => __( 'What is AI-powered Integration Testing?', 'testro' ),
-				'answer'   => __( 'AI-powered Integration Testing validates how applications, APIs, databases, microservices, and third-party systems work together using intelligent automation instead of brittle hand-written scripts. With theTestRo, teams create no-code integration scenarios, execute Automated Integration Testing at scale, and continuously prove data flow and business rules across the software ecosystem.', 'testro' ),
+				'question' => __( 'What is Integration Test Automation?', 'testro' ),
+				'answer'   => __( 'The use of automated tools to check that separate parts, services, or systems work right together. Not just testing each one on its own.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate API integration testing?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo automates API Integration Testing across REST, SOAP, GraphQL, and enterprise APIs—covering contracts, authentication, payloads, and end-to-end service interactions. AI-assisted authoring and parallel execution help teams expand API coverage without slowing delivery.', 'testro' ),
+				'question' => __( 'How is AI Integration Testing different from standard integration testing?', 'testro' ),
+				'answer'   => __( 'AI adds self-healing to keep tests stable as systems change. It can also build test steps from a plain-English description. No need to script every step by hand.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support microservices testing?', 'testro' ),
-				'answer'   => __( 'Absolutely. Microservices Testing on theTestRo validates distributed service communication, contracts, event flows, and cross-service business workflows so teams catch integration defects before they reach production.', 'testro' ),
+				'question' => __( 'What should Integration Testing Software actually cover?', 'testro' ),
+				'answer'   => __( 'It should cover UI-to-API flows, service-to-service calls, third-party links, and event-driven flows. Not just one layer of the stack.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can third-party integrations be tested automatically?', 'testro' ),
-				'answer'   => __( 'Yes. Automate validation for payment gateways, CRM and ERP platforms, authentication providers, and other external services. theTestRo keeps third-party Integration Testing in the same platform as your internal APIs and microservices so partner connections stay reliable on every release.', 'testro' ),
+				'question' => __( 'Does Enterprise Integration Testing scale across microservices?', 'testro' ),
+				'answer'   => __( 'Yes. Parallel execution and contract-style checks are built for systems with many services and teams. Not just one big app.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI reduce integration test maintenance?', 'testro' ),
-				'answer'   => __( 'AI self-healing adapts to changing APIs, payloads, and connected systems so Automated Integration Testing stays green without constant script rework. Reusable assets and intelligent updates further cut maintenance as your integration map evolves.', 'testro' ),
+				'question' => __( 'What are the most important integration testing best practices?', 'testro' ),
+				'answer'   => __( 'Focus on high-risk connections first. Test failure paths as well as success paths. Keep test data stable. Retire tests tied to connections that no longer exist.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can integration tests run within CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Trigger AI Integration Testing from Jenkins, GitHub, Azure DevOps, Bamboo, and related DevOps tools so every build or deployment validates critical connections, reports results to the pipeline, and enforces quality gates before promotion.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Does theTestRo support no-code integration testing?', 'testro' ),
-				'answer'   => __( 'Yes. No-Code Integration Testing on theTestRo lets QA analysts and engineers build powerful integration workflows with AI-assisted visual automation—no scripting required—while still delivering enterprise-scale execution, analytics, and self-healing maintenance.', 'testro' ),
+				'question' => __( 'What makes a platform the best integration testing framework for a growing team?', 'testro' ),
+				'answer'   => __( 'Coverage across UI, API, and data together. Low setup cost. Built-in stability through self-healing. A clean fit into your CI/CD pipeline.', 'testro' ),
 			),
 		),
+
 		'retail-ecommerce' => array(
 			array(
-				'question' => __( 'How does theTestRo help Retail & E-commerce businesses?', 'testro' ),
-				'answer'   => __( 'theTestRo helps retail and e-commerce teams automate quality across storefronts, mobile commerce apps, APIs, payment gateways, POS, OMS/WMS, and omnichannel journeys. AI-powered authoring, self-healing automation, and continuous testing accelerate digital commerce releases while protecting checkout reliability and customer experience.', 'testro' ),
+				'question' => __( 'What is retail test automation?', 'testro' ),
+				'answer'   => __( 'It\'s the use of automated tools to test retail and e-commerce systems. This covers search, checkout, payments, and backend sync, instead of relying on manual QA alone.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate checkout and payment testing?', 'testro' ),
-				'answer'   => __( 'Yes. Build end-to-end suites that validate cart, promotions, checkout flows, and payment gateway integrations—including authorization paths and failure handling—so revenue-critical transactions stay reliable before every release.', 'testro' ),
+				'question' => __( 'How does e-commerce test automation help during Black Friday or flash sales?', 'testro' ),
+				'answer'   => __( 'It lets teams run full regression suites fast before high-traffic events. This catches checkout and pricing issues before real customers hit them.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support omnichannel testing?', 'testro' ),
-				'answer'   => __( 'Yes. Cover seamless shopping experiences across web, mobile, POS, and in-store systems in unified journeys, so customers encounter consistent quality no matter which channel they start or finish on.', 'testro' ),
+				'question' => __( 'Can this tool test omnichannel flows like BOPIS?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers buy-online-pickup-in-store flows. It checks inventory across web, mobile, and in-store systems.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can APIs and POS systems be tested together?', 'testro' ),
-				'answer'   => __( 'Yes. Combine API, UI, and POS coverage in the same platform so inventory, order, and payment services stay aligned with storefront and in-store workflows—ideal for omnichannel order capture and fulfillment scenarios.', 'testro' ),
+				'question' => __( 'Do I need developers to build retail tests?', 'testro' ),
+				'answer'   => __( 'No. Merchandisers and product managers can build tests in plain English. QA reviews and maintains overall quality.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support continuous testing for retail applications?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate continuous retail testing into CI/CD with Jenkins, GitHub, Azure DevOps, and related pipelines. Parallel execution, quality gates, and AI analytics keep every promotion and storefront update under continuous validation.', 'testro' ),
+				'question' => __( 'Does this handle frequent catalog and pricing changes?', 'testro' ),
+				'answer'   => __( 'Yes. Self-healing tests adjust on their own when your storefront\'s UI or catalog changes. Less manual test maintenance.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve retail software quality?', 'testro' ),
-				'answer'   => __( 'AI accelerates retail test creation, self-heals broken locators when catalogs and UIs change, classifies failures faster, and surfaces analytics that prioritize checkout, journey, and peak-season risk—so teams maintain higher coverage with less manual maintenance.', 'testro' ),
+				'question' => __( 'Is theTestRo suitable for enterprise retail brands with multiple storefronts?', 'testro' ),
+				'answer'   => __( 'Yes. Manage testing across multiple brands, regions, or channels from one platform.', 'testro' ),
 			),
 		),
+
 		'healthcare' => array(
 			array(
-				'question' => __( 'How does theTestRo support healthcare software testing?', 'testro' ),
-				'answer'   => __( 'theTestRo helps healthcare organizations automate quality across EHR/EMR systems, patient portals, telemedicine platforms, APIs, hospital management systems, and end-to-end clinical workflows. AI-powered authoring, self-healing automation, and continuous testing accelerate digital healthcare releases while protecting patient experiences and clinical reliability.', 'testro' ),
+				'question' => __( 'What is AI testing automation for the healthcare industry?', 'testro' ),
+				'answer'   => __( 'It\'s the use of AI to test clinical software, EHR systems, patient portals, and APIs. Faster and more accurate than manual QA. Built to meet healthcare compliance needs from the start.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate EHR and EMR testing?', 'testro' ),
-				'answer'   => __( 'Yes. Build suites that validate electronic health record workflows—including clinical documentation, orders, results, and related integrations—so core care processes stay reliable before every release. Combine UI and API coverage to exercise the systems clinicians depend on daily.', 'testro' ),
+				'question' => __( 'Does theTestRo support EHR testing for platforms like Epic or Cerner?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo automates core EHR and EMR flows, including registration, orders, and documentation. Even through SSO, MFA, or Citrix/VDI setups.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support HIPAA-ready testing practices?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo supports HIPAA-ready testing practices with secure test data handling, role-based access validation, and audit-ready quality reporting. Teams can automate healthcare applications while maintaining careful controls around sensitive patient information throughout the test lifecycle.', 'testro' ),
+				'question' => __( 'How does healthcare software testing handle HIPAA compliance?', 'testro' ),
+				'answer'   => __( 'Through PHI masking, role-based access, audit trails, and flexible deployment options. Sensitive data stays protected throughout testing.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can healthcare APIs be tested automatically?', 'testro' ),
-				'answer'   => __( 'Yes. Automate healthcare API testing—including FHIR and HL7-oriented integrations—alongside UI and end-to-end journeys. Validate request/response contracts, interoperability paths, and service health so clinical systems stay aligned across labs, billing, EHRs, and third-party platforms.', 'testro' ),
+				'question' => __( 'Can theTestRo validate HL7 and FHIR data for healthcare API testing?', 'testro' ),
+				'answer'   => __( 'Yes. Generate API tests from specs or imports. Validate HL7/FHIR payloads to confirm accurate data exchange between systems.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve healthcare quality engineering?', 'testro' ),
-				'answer'   => __( 'AI accelerates healthcare test creation, self-heals broken automation when clinical UIs change, classifies failures faster, and surfaces analytics that prioritize workflow, interoperability, and release risk—so teams maintain higher coverage with less manual maintenance.', 'testro' ),
+				'question' => __( 'Is healthcare mobile app testing included, or a separate product?', 'testro' ),
+				'answer'   => __( 'It\'s part of the same platform. Test web, mobile, and APIs together. No switching tools for each layer.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo integrate into healthcare CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate continuous healthcare testing into CI/CD with Jenkins, GitHub, Azure DevOps, and related pipelines. Parallel execution, quality gates, and AI analytics keep every clinical software update under continuous validation before go-live.', 'testro' ),
+				'question' => __( 'How fast can a healthcare team see results from test automation?', 'testro' ),
+				'answer'   => __( 'Most teams cut manual regression effort by 60 to 80 percent. Measurable release-cycle improvements often show up within a few months.', 'testro' ),
 			),
 		),
+
 		'travel-and-hospitality' => array(
 			array(
-				'question' => __( 'How does theTestRo support Travel & Hospitality testing?', 'testro' ),
-				'answer'   => __( 'theTestRo helps travel and hospitality organizations automate quality across booking engines, hotel reservation systems, travel portals, mobile apps, payment gateways, PMS/CRS platforms, and end-to-end traveler journeys. AI-powered authoring, self-healing automation, and continuous testing accelerate digital travel releases while protecting booking reliability and guest experiences.', 'testro' ),
+				'question' => __( 'What is travel test automation?', 'testro' ),
+				'answer'   => __( 'It\'s the use of automated tools to test booking systems, checkout flows, and travel apps. It covers functionality, payments, and performance, instead of relying on manual QA alone.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate booking and reservation testing?', 'testro' ),
-				'answer'   => __( 'Yes. Build end-to-end suites that validate flight and hotel search, seat and room selection, booking confirmation, modifications, cancellations, and refunds—so reservation-critical journeys stay reliable before every release. Combine UI and API coverage to exercise the systems travelers and operations teams depend on daily.', 'testro' ),
+				'question' => __( 'Does this handle hotel booking testing specifically?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo checks the full hotel booking path, including search, room selection, payment, and confirmation.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support travel APIs and payment gateways?', 'testro' ),
-				'answer'   => __( 'Yes. Automate travel API and payment gateway testing alongside UI and end-to-end journeys. Validate request/response contracts, airline and hotel integrations, authorization paths, and failure handling so booking and payment services stay aligned across releases.', 'testro' ),
+				'question' => __( 'Can this tool test airport kiosk and check-in flows?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers self-check-in kiosks alongside web and mobile channels. Every touchpoint gets tested.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can mobile booking applications be tested?', 'testro' ),
-				'answer'   => __( 'Yes. Cover native and responsive mobile booking experiences on real devices and browsers. Teams can validate search, booking, payment, check-in, and loyalty flows so travelers enjoy consistent quality on Android, iOS, and tablets.', 'testro' ),
+				'question' => __( 'How does travel software testing handle peak season traffic?', 'testro' ),
+				'answer'   => __( 'Load and stress testing simulate high booking volume ahead of time. Systems hold up when real demand hits.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve travel software quality?', 'testro' ),
-				'answer'   => __( 'AI accelerates travel test creation, self-heals broken automation when booking UIs change, classifies failures faster, and surfaces analytics that prioritize reservation, payment, and peak-season risk—so teams maintain higher coverage with less manual maintenance.', 'testro' ),
+				'question' => __( 'Is hospitality mobile app testing included, or a separate product?', 'testro' ),
+				'answer'   => __( 'It\'s part of the same platform. Test web, mobile, and kiosk flows together. No switching tools for each layer.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo integrate into CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate continuous travel testing into CI/CD with Jenkins, GitHub, Azure DevOps, and related pipelines. Parallel execution, quality gates, and AI analytics keep every booking platform update under continuous validation before go-live.', 'testro' ),
+				'question' => __( 'Does theTestRo test how bookings behave on slow or airport Wi-Fi?', 'testro' ),
+				'answer'   => __( 'Yes. Network condition testing checks how booking and check-in flows perform under real-world connection speeds.', 'testro' ),
 			),
 		),
+
 		'banking-finance' => array(
 			array(
-				'question' => __( 'How does theTestRo support Banking & Financial Services testing?', 'testro' ),
-				'answer'   => __( 'theTestRo helps BFSI organizations automate quality across digital banking portals, mobile apps, payment systems, UPI, APIs, core banking, lending, insurance, and end-to-end financial workflows. AI-powered authoring, self-healing automation, and continuous testing accelerate digital banking releases while protecting transaction reliability and regulatory readiness.', 'testro' ),
+				'question' => __( 'Why does banking software need specialized test automation?', 'testro' ),
+				'answer'   => __( 'Banking platforms handle money and sensitive data. Testing must cover compliance, audit trails, and security. Not just basic checks.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate payment and transaction testing?', 'testro' ),
-				'answer'   => __( 'Yes. Build suites that validate payment gateways, fund transfers, card and wallet transactions, bill payments, and related settlement flows—so mission-critical money movement stays reliable before every release. Combine UI and API coverage to exercise the systems customers and operations teams depend on daily.', 'testro' ),
+				'question' => __( 'Can this tool handle payment gateway testing?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo checks payment gateway transactions across card, transfer, and digital wallet paths. QR-based payments too.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support UPI and digital payment validation?', 'testro' ),
-				'answer'   => __( 'Yes. Automate UPI and QR payment journeys alongside broader digital payment validation. Teams can cover initiation, authorization, confirmation, and failure-path scenarios so instant payment experiences remain reliable under continuous change.', 'testro' ),
+				'question' => __( 'Does theTestRo support biometric and multi-step login testing?', 'testro' ),
+				'answer'   => __( 'Yes. Test fingerprint, face-scan, and multi-step login flows across devices. All part of your regular test suite.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can APIs and core banking systems be tested together?', 'testro' ),
-				'answer'   => __( 'Yes. Automate banking API and microservice testing alongside UI and end-to-end journeys that touch core banking. Validate request/response contracts, integration paths, and service health so portals, payments, and enterprise systems stay aligned across releases.', 'testro' ),
+				'question' => __( 'How does FinTech testing stay compliant while using AI?', 'testro' ),
+				'answer'   => __( 'theTestRo\'s AI agents work within role-based access controls and audit-ready logs. Automation speeds up testing. Your governance rules stay intact.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve banking software quality?', 'testro' ),
-				'answer'   => __( 'AI accelerates banking test creation, self-heals broken automation when financial UIs change, classifies failures faster, and surfaces analytics that prioritize payments, compliance, and release risk—so teams maintain higher coverage with less manual maintenance.', 'testro' ),
+				'question' => __( 'Can BFSI testing run inside our bank\'s VPN or private network?', 'testro' ),
+				'answer'   => __( 'Yes. Tests can run inside a secure VPN or private setup. Sensitive data never leaves a controlled network.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo integrate into banking CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate continuous banking testing into CI/CD with Jenkins, GitHub, Azure DevOps, and related pipelines. Parallel execution, quality gates, and AI analytics keep every financial software update under continuous validation before go-live.', 'testro' ),
+				'question' => __( 'How fast can a banking team see results from test automation?', 'testro' ),
+				'answer'   => __( 'Most teams cut regression cycles from days to hours. Faster test authoring and less manual upkeep. Often within the first few months.', 'testro' ),
 			),
 		),
+
 		'insurance' => array(
 			array(
-				'question' => __( 'How does theTestRo support insurance software testing?', 'testro' ),
-				'answer'   => __( 'theTestRo helps insurance organizations automate quality across policy administration systems, claims platforms, customer portals, mobile apps, APIs, underwriting engines, and end-to-end insurance workflows. AI-powered authoring, self-healing automation, and continuous testing accelerate digital insurance releases while protecting policyholder experiences and regulatory readiness.', 'testro' ),
+				'question' => __( 'What is insurance test automation?', 'testro' ),
+				'answer'   => __( 'It\'s the use of automated tools to test insurance systems. This covers policy work, claims, and APIs. Not relying on manual QA alone.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate policy and claims workflows?', 'testro' ),
-				'answer'   => __( 'Yes. Build suites that validate quoting, policy issuance, renewals, claims submission, adjudication, settlement, premium calculation, and related servicing flows—so mission-critical insurance journeys stay reliable before every release. Combine UI and API coverage to exercise the systems customers, agents, and operations teams depend on daily.', 'testro' ),
+				'question' => __( 'Does this handle claims management testing specifically?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo checks the full claims path. Document uploads, processing logic, and status updates all included.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support insurance compliance testing?', 'testro' ),
-				'answer'   => __( 'Yes. Continuously validate quality with audit-ready evidence, secure test data practices, access controls, and reporting that support insurance compliance initiatives. Teams can retain detailed execution records for audits and regulatory reviews across releases.', 'testro' ),
+				'question' => __( 'Can no-code test automation for insurance really replace scripted testing?', 'testro' ),
+				'answer'   => __( 'For most workflows, yes. QA staff and analysts build tests in plain English. Advanced teams can still extend tests with code when needed.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can APIs and legacy insurance systems be tested together?', 'testro' ),
-				'answer'   => __( 'Yes. Automate insurance API and microservice testing alongside UI and end-to-end journeys that touch legacy policy and claims platforms. Validate request/response contracts, integration paths, and service health so portals, billing, underwriting, and enterprise systems stay aligned across releases.', 'testro' ),
+				'question' => __( 'How does insurance software testing handle sensitive data?', 'testro' ),
+				'answer'   => __( 'Tests can run inside a secure VPN or private setup. Sensitive data never leaves a controlled network.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI improve insurance quality engineering?', 'testro' ),
-				'answer'   => __( 'AI accelerates insurance test creation, self-heals broken automation when policy and claims UIs change, classifies failures faster, and surfaces analytics that prioritize claims, compliance, and release risk—so teams maintain higher coverage with less manual maintenance.', 'testro' ),
+				'question' => __( 'Is insurance API testing included, or a separate product?', 'testro' ),
+				'answer'   => __( 'It\'s part of the same platform. Test web, mobile, and APIs together. No switching tools for each layer.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo integrate into CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate continuous insurance testing into CI/CD with Jenkins, GitHub, Azure DevOps, and related pipelines. Parallel execution, quality gates, and AI analytics keep every insurance software update under continuous validation before go-live.', 'testro' ),
+				'question' => __( 'How does policy administration testing handle renewal season traffic?', 'testro' ),
+				'answer'   => __( 'Load and stress testing simulate high volume ahead of time. Systems hold up when open enrollment or renewal demand hits.', 'testro' ),
 			),
 		),
+
 		'microsoft-dynamics-365-test-automation' => array(
 			array(
-				'question' => __( 'What is Microsoft Dynamics 365 Test Automation?', 'testro' ),
-				'answer'   => __( 'Microsoft Dynamics 365 Test Automation uses AI-powered, no-code workflows to validate Dynamics modules, customizations, and end-to-end ERP processes after every Microsoft update or deployment. theTestRo helps teams automate regression, functional, API, and business-process testing so Finance, Supply Chain, Sales, Customer Service, Commerce, and Human Resources stay reliable at release speed.', 'testro' ),
+				'question' => __( 'What is Microsoft Dynamics 365 test automation?', 'testro' ),
+				'answer'   => __( 'The use of automated tools to test Dynamics 365 workflows, setups, and links. Not relying on manual QA to catch issues after every update.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which Dynamics 365 modules does theTestRo support?', 'testro' ),
-				'answer'   => __( 'theTestRo supports testing across major Microsoft Dynamics 365 applications, including Finance, Supply Chain Management, Sales, Customer Service, Commerce, and Human Resources—from a single unified AI-powered testing platform.', 'testro' ),
+				'question' => __( 'How does AI ERP test automation handle Microsoft\'s frequent updates?', 'testro' ),
+				'answer'   => __( 'Self-healing tests adapt to UI and logic changes on their own. A quarterly release doesn\'t mean rebuilding test scripts from scratch.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate Finance and Supply Chain testing?', 'testro' ),
-				'answer'   => __( 'Yes. Automate Finance and Supply Chain Management workflows such as financial postings, procure-to-pay, order-to-cash, inventory, and related ERP journeys. Combine UI and API coverage so mission-critical operations stay validated after every Dynamics release.', 'testro' ),
+				'question' => __( 'Can Dynamics 365 testing cover customizations, not just standard features?', 'testro' ),
+				'answer'   => __( 'Yes. We build tests around real business steps, not fixed scripts. They extend naturally to custom fields, flows, and setups.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support no-code Dynamics 365 testing?', 'testro' ),
-				'answer'   => __( 'Yes. Business analysts, QA teams, and Dynamics specialists can create automated tests without writing code using natural language and visual authoring—while still supporting advanced scenarios when technical depth is required.', 'testro' ),
+				'question' => __( 'Does this support Dynamics 365 regression testing at enterprise scale?', 'testro' ),
+				'answer'   => __( 'Yes. Parallel runs and reusable parts support large, complex regression suites. Not just a handful of test cases.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce ERP test maintenance?', 'testro' ),
-				'answer'   => __( 'When Microsoft updates or customizations change Dynamics forms and locators, self-healing automation detects the drift, repairs steps automatically, and continues execution. That keeps ERP regression suites green with far less manual maintenance between releases.', 'testro' ),
+				'question' => __( 'Is coding required to test Dynamics 365 with theTestRo?', 'testro' ),
+				'answer'   => __( 'No. Tests are built in plain English. Both technical QA staff and business users can pitch in.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can Microsoft Dynamics 365 testing integrate into Azure DevOps and CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate Dynamics testing into Azure DevOps, GitHub, Jenkins, and other CI/CD pipelines. Trigger suites after deployments or platform updates, apply quality gates, and keep continuous validation in the same toolchain your Dynamics delivery teams already use.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can theTestRo validate end-to-end ERP business workflows?', 'testro' ),
-				'answer'   => __( 'Yes. Build end-to-end suites for Order-to-Cash, Procure-to-Pay, Record-to-Report, inventory, customer service operations, financial workflows, and cross-module scenarios—so business-critical Dynamics processes remain reliable across every Microsoft update.', 'testro' ),
+				'question' => __( 'Does Microsoft ERP testing extend to systems connected to Dynamics 365?', 'testro' ),
+				'answer'   => __( 'Yes. Tests can span Dynamics 365 and the other systems it links to. One run covers a full business step.', 'testro' ),
 			),
 		),
+
 		'salesforce-test-automation' => array(
 			array(
-				'question' => __( 'What is Salesforce Test Automation?', 'testro' ),
-				'answer'   => __( 'Salesforce Test Automation uses AI-powered, no-code workflows to validate Salesforce CRM applications, Lightning Experience, customizations, and end-to-end business processes after every deployment or platform update. theTestRo helps teams automate Salesforce regression testing, functional validation, API checks, and CRM workflow coverage so Sales Cloud, Service Cloud, Experience Cloud, Marketing Cloud, and Commerce Cloud stay reliable at release speed.', 'testro' ),
+				'question' => __( 'What is Salesforce test automation?', 'testro' ),
+				'answer'   => __( 'The use of automated tools to test Salesforce workflows, setups, and links. Not relying on manual QA to catch issues after every release.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which Salesforce Clouds does theTestRo support?', 'testro' ),
-				'answer'   => __( 'theTestRo supports Salesforce testing across Sales Cloud, Service Cloud, Experience Cloud, Marketing Cloud, and Commerce Cloud—from a single unified AI-powered testing platform for Salesforce CRM Testing and QA automation.', 'testro' ),
+				'question' => __( 'How does AI Salesforce testing handle the Lightning UI changing constantly?', 'testro' ),
+				'answer'   => __( 'Self-healing locators find elements from Salesforce metadata at runtime. A shifted part won\'t break the test the way a fixed locator would.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate Lightning Experience testing?', 'testro' ),
-				'answer'   => __( 'Yes. Automate Salesforce Lightning Testing across Lightning pages, components, and role-based user journeys. Combine UI and API coverage so Lightning Experience stays validated after every Salesforce release or customization.', 'testro' ),
+				'question' => __( 'Can this Salesforce testing tool cover custom org workflows, not just standard objects?', 'testro' ),
+				'answer'   => __( 'Yes. Tests can cover Apex triggers, custom approval routing, and org-specific flows. They work alongside standard Sales and Service Cloud objects.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support no-code Salesforce automation?', 'testro' ),
-				'answer'   => __( 'Yes. Business analysts, QA teams, and Salesforce specialists can create automated Salesforce tests without writing code using natural language and visual authoring—while still supporting advanced scenarios when technical depth is required.', 'testro' ),
+				'question' => __( 'Does this support Salesforce regression testing across seasonal releases?', 'testro' ),
+				'answer'   => __( 'Yes. Regression suites run against sandbox previews ahead of each release. Auto-healing keeps the suite steady afterward.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can Salesforce APIs and Apex integrations be validated?', 'testro' ),
-				'answer'   => __( 'Yes. Verify Salesforce APIs, Apex integrations, connected services, and third-party connectors alongside UI workflows—so integrations and business logic remain trustworthy across CRM releases.', 'testro' ),
+				'question' => __( 'Is coding required for CRM test automation with theTestRo?', 'testro' ),
+				'answer'   => __( 'No. Tests are built in plain English. Admins and business users can pitch in right alongside QA engineers.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce Salesforce test maintenance?', 'testro' ),
-				'answer'   => __( 'When Salesforce updates or Lightning UI changes break locators, self-healing automation detects the drift, repairs steps automatically, and continues execution. That keeps Salesforce regression suites green with far less manual maintenance between releases.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can Salesforce testing integrate into Azure DevOps and CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate Salesforce testing into Azure DevOps, GitHub, Jenkins, Jira, Slack, and other CI/CD pipelines. Trigger suites after deployments or customizations, apply quality gates, and keep continuous Salesforce QA Automation in the same toolchain your delivery teams already use.', 'testro' ),
+				'question' => __( 'Does enterprise Salesforce testing support multiple orgs at once?', 'testro' ),
+				'answer'   => __( 'Yes. The same test can run in parallel across sandbox, staging, and live orgs. No copied scripts.', 'testro' ),
 			),
 		),
+
 		'oracle-testing' => array(
 			array(
-				'question' => __( 'What is Oracle Test Automation?', 'testro' ),
-				'answer'   => __( 'Oracle Test Automation uses AI-powered, no-code workflows to validate Oracle Cloud, Oracle E-Business Suite (EBS), Oracle ERP modules, and end-to-end enterprise processes after every quarterly update or deployment. theTestRo helps teams automate Oracle regression testing, functional validation, API checks, database verification, and business-process coverage so Oracle Cloud Fusion, HCM, SCM, CRM, and related systems stay reliable at release speed.', 'testro' ),
+				'question' => __( 'What is Oracle test automation?', 'testro' ),
+				'answer'   => __( 'The use of automated tools tests Oracle apps like Cloud Fusion, EBS, HCM, and SCM. Not relying on manual QA to catch issues after every update.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which Oracle applications does theTestRo support?', 'testro' ),
-				'answer'   => __( 'theTestRo supports Oracle testing across Oracle Cloud Fusion, Oracle EBS, Oracle ERP, Oracle HCM, Oracle SCM, Oracle CRM, and Oracle Database—from a single unified AI-powered testing platform for enterprise Oracle QA automation.', 'testro' ),
+				'question' => __( 'How does AI Oracle testing handle quarterly updates?', 'testro' ),
+				'answer'   => __( 'Self-healing tests adapt to changes on their own. A quarterly patch doesn\'t mean rebuilding test scripts from scratch each time.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate Oracle Cloud Fusion and Oracle EBS testing?', 'testro' ),
-				'answer'   => __( 'Yes. Automate Oracle Cloud Fusion and Oracle EBS workflows across finance, supply chain, HCM, CRM, and custom extensions. Combine UI and API coverage so mission-critical Oracle applications stay validated after every quarterly update or patch.', 'testro' ),
+				'question' => __( 'Does Oracle ERP testing cover both Cloud and EBS applications?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers Oracle Cloud Fusion and Oracle EBS from the same platform. HCM, SCM, Financials, and CRM too.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support Oracle Database testing?', 'testro' ),
-				'answer'   => __( 'Yes. Validate Oracle Database integrity, data flows, and related enterprise checks alongside application workflows—so transactions, ledgers, and cross-system data remain trustworthy across Oracle releases.', 'testro' ),
+				'question' => __( 'Do you need to code for Oracle automation testing?', 'testro' ),
+				'answer'   => __( 'No. Tests are built in plain English. QA staff without a scripting background can build and keep coverage.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can Oracle APIs and third-party integrations be validated?', 'testro' ),
-				'answer'   => __( 'Yes. Verify REST and SOAP APIs, Oracle integrations, and third-party connectors alongside UI workflows—so integrations and business logic remain reliable across Oracle Cloud and EBS releases.', 'testro' ),
+				'question' => __( 'Can enterprise Oracle testing check data, not just the interface?', 'testro' ),
+				'answer'   => __( 'Yes. Database and integration testing checks data stays correct. We check business steps too, alongside UI-level checks.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce Oracle test maintenance?', 'testro' ),
-				'answer'   => __( 'When Oracle quarterly updates or UI changes break locators, self-healing automation detects the drift, repairs steps automatically, and continues execution. That keeps Oracle regression suites green with far less manual maintenance between releases.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can Oracle testing integrate into Azure DevOps and CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate Oracle testing into Azure DevOps, GitHub Actions, Jenkins, Jira, Slack, and other CI/CD pipelines. Trigger suites after deployments or quarterly updates, apply quality gates, and keep continuous Oracle QA automation in the same toolchain your delivery teams already use.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can theTestRo validate complete Oracle ERP business processes?', 'testro' ),
-				'answer'   => __( 'Yes. Build end-to-end suites for Order-to-Cash, Procure-to-Pay, Record-to-Report, HCM journeys, supply chain flows, CRM processes, and cross-module scenarios—so business-critical Oracle ERP workflows remain reliable across every quarterly release.', 'testro' ),
+				'question' => __( 'Does Oracle application testing fit into an existing CI/CD pipeline?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo connects with Jenkins, GitHub Actions, Azure DevOps, and Jira. Automated regression results gate deployments.', 'testro' ),
 			),
 		),
 
 		'sap-testing' => array(
 			array(
-				'question' => __( 'What is SAP Test Automation?', 'testro' ),
-				'answer'   => __( 'SAP Test Automation uses AI-powered, no-code workflows to validate SAP applications, Fiori experiences, and end-to-end business processes after every upgrade, patch, or enterprise release. theTestRo helps teams automate SAP regression testing, functional validation, API checks, and business-process coverage so SAP S/4HANA, SAP ECC, SAP Fiori, SuccessFactors, Ariba, and SAP CRM stay reliable at release speed.', 'testro' ),
+				'question' => __( 'What is SAP test automation?', 'testro' ),
+				'answer'   => __( 'The use of automated tools to test SAP workflows, setups, and links. Not relying on manual QA to catch issues after every release.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which SAP applications does theTestRo support?', 'testro' ),
-				'answer'   => __( 'theTestRo supports SAP testing across SAP S/4HANA, SAP ECC, SAP Fiori, SAP SuccessFactors, SAP Ariba, and SAP CRM—from a single unified AI-powered testing platform for enterprise SAP QA automation.', 'testro' ),
+				'question' => __( 'How does AI SAP testing handle frequent SAP updates?', 'testro' ),
+				'answer'   => __( 'Test assets adjust to new releases on their own. A quarterly SAP update doesn\'t mean rebuilding scripts from scratch each time.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate SAP S/4HANA and SAP Fiori testing?', 'testro' ),
-				'answer'   => __( 'Yes. Automate SAP S/4HANA Testing and SAP Fiori Testing across modules, role-based journeys, and critical business workflows. Combine UI and API coverage so S/4HANA and Fiori stay validated after every upgrade or feature release.', 'testro' ),
+				'question' => __( 'Can SAP ERP testing cover customizations, not just standard configurations?', 'testro' ),
+				'answer'   => __( 'Yes. Tests map to real business processes, not fixed scripts. They extend naturally to custom fields, workflows, and setups.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support SAP ECC automation?', 'testro' ),
-				'answer'   => __( 'Yes. Maintain SAP ECC automation and regression coverage while you stabilize existing landscapes or prepare for S/4HANA modernization—so mission-critical ECC processes remain trustworthy across updates and migrations.', 'testro' ),
+				'question' => __( 'Does automated SAP testing support large, complex regression suites?', 'testro' ),
+				'answer'   => __( 'Yes. Large regression packs use parallel execution and reusable assets. Not just a handful of test cases.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can SAP business workflows be validated end-to-end?', 'testro' ),
-				'answer'   => __( 'Yes. Build end-to-end suites for finance, procurement, supply chain, sales & distribution, human resources, inventory, and cross-module scenarios—so business-critical SAP workflows remain reliable across every enterprise release.', 'testro' ),
+				'question' => __( 'Is coding required to test SAP with theTestRo?', 'testro' ),
+				'answer'   => __( 'No. Tests are built through a codeless approach. Both QA staff and business users can pitch in.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce SAP test maintenance?', 'testro' ),
-				'answer'   => __( 'When SAP upgrades, patches, or UI changes break locators, self-healing automation detects the drift, repairs steps automatically, and continues execution. That keeps SAP regression suites green with far less manual maintenance between releases.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can SAP testing integrate into enterprise DevOps pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate SAP testing into Azure DevOps, GitHub, Jenkins, Jira, Slack, and other CI/CD pipelines. Trigger suites after deployments or SAP updates, apply quality gates, and keep continuous SAP QA Automation in the same toolchain your delivery teams already use.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Does theTestRo support cloud and on-premise SAP environments?', 'testro' ),
-				'answer'   => __( 'Yes. Deploy and execute SAP testing across private cloud, on-premise, and hybrid environments while maintaining enterprise security controls, secure test data management, and governance for regulated SAP landscapes.', 'testro' ),
+				'question' => __( 'Does enterprise SAP testing extend to systems connected to SAP?', 'testro' ),
+				'answer'   => __( 'Yes. Tests can span SAP and the other systems it links to. One run covers a full business process.', 'testro' ),
 			),
 		),
+
 		'workday-testing' => array(
 			array(
-				'question' => __( 'What is Workday Test Automation?', 'testro' ),
-				'answer'   => __( 'Workday Test Automation uses AI-powered, no-code workflows to validate Workday applications and end-to-end HR and Finance business processes after every update, configuration change, or enterprise release. theTestRo helps teams automate Workday regression testing, functional validation, API checks, and business-process coverage so Workday HCM, Financial Management, Payroll, Recruiting, Learning, and Time Tracking stay reliable at release speed.', 'testro' ),
+				'question' => __( 'What is Workday test automation?', 'testro' ),
+				'answer'   => __( 'The use of automated tools to test Workday business steps across HCM, Payroll, Financials, and Adaptive Planning. Not relying on manual QA to catch issues after every release.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which Workday applications does theTestRo support?', 'testro' ),
-				'answer'   => __( 'theTestRo supports Workday Testing across Workday HCM, Workday Financial Management, Workday Payroll, Workday Recruiting, Workday Learning, and Workday Time Tracking—from a single unified AI-powered testing platform for enterprise Workday QA.', 'testro' ),
+				'question' => __( 'How does AI Workday testing handle R1 and R2 releases?', 'testro' ),
+				'answer'   => __( 'Self-healing tests adapt to changes in business processes automatically. A major release doesn\'t mean rebuilding test scripts from scratch each time.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate Workday HCM and Financial Management testing?', 'testro' ),
-				'answer'   => __( 'Yes. Automate Workday HCM Testing and Workday Financial Management Testing across employee lifecycle, organizational, accounting, and financial workflows. Combine UI and API coverage so HCM and Finance stay validated after every Workday update.', 'testro' ),
+				'question' => __( 'Does Workday ERP testing cover payroll and financial processes, not just HCM?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers Workday HCM, Payroll, Financial Management, and Adaptive Planning from the same platform.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support Workday Payroll and Recruiting workflows?', 'testro' ),
-				'answer'   => __( 'Yes. Validate Workday Payroll Testing and Workday Recruiting workflows—including pay cycles, compensation transactions, candidate journeys, and offer-to-hire processes—so payroll and talent workflows remain trustworthy across releases.', 'testro' ),
+				'question' => __( 'Do I need to write code for Workday automation testing?', 'testro' ),
+				'answer'   => __( 'No. Tests are built in plain English. QA staff without a scripting background can build and keep coverage.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce Workday test maintenance?', 'testro' ),
-				'answer'   => __( 'When Workday updates, UI changes, or configuration drift break locators, self-healing automation detects the change, repairs steps automatically, and continues execution. That keeps Workday regression suites green with far less manual maintenance between releases.', 'testro' ),
+				'question' => __( 'Can enterprise Workday testing check integrations, not just the interface?', 'testro' ),
+				'answer'   => __( 'Yes. Integration testing covers EIBs, Workday Studio flows, and Core Connectors alongside UI-level checks.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can Workday testing integrate into Azure DevOps and CI/CD pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate Workday testing into Azure DevOps, GitHub, Jenkins, Jira, Slack, and other CI/CD pipelines. Trigger suites after deployments or Workday updates, apply quality gates, and keep continuous AI Workday Testing in the same toolchain your delivery teams already use.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can theTestRo validate complete HR and Finance business processes?', 'testro' ),
-				'answer'   => __( 'Yes. Build end-to-end suites for Hire-to-Retire, Payroll Processing, Leave & Time Management, Expense Management, Procure-to-Pay, Financial Close & Reporting, and cross-module scenarios—so mission-critical Workday HR and Finance workflows remain reliable across every enterprise release.', 'testro' ),
+				'question' => __( 'Does Workday application testing fit into an existing CI/CD pipeline?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo connects with Jenkins, GitHub Actions, Azure DevOps, and Jira. Automated regression results gate deployments.', 'testro' ),
 			),
 		),
+
 		'servicenow-testing' => array(
 			array(
-				'question' => __( 'What is ServiceNow Test Automation?', 'testro' ),
-				'answer'   => __( 'ServiceNow Test Automation uses AI-powered, no-code workflows to validate ServiceNow applications, ITSM processes, Flow Designer automations, and end-to-end enterprise service workflows after every deployment or platform update. theTestRo helps teams automate ServiceNow regression testing, functional validation, API checks, and workflow coverage so ITSM, ITOM, CSM, HRSD, ITAM, and GRC stay reliable at release speed.', 'testro' ),
+				'question' => __( 'What is ServiceNow test automation?', 'testro' ),
+				'answer'   => __( 'It\'s the use of automated tools to test ServiceNow workflows, integrations, and customizations. Not relying on manual QA or ServiceNow\'s own ATF alone to catch issues.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which ServiceNow applications does theTestRo support?', 'testro' ),
-				'answer'   => __( 'theTestRo supports ServiceNow testing across IT Service Management (ITSM), IT Operations Management (ITOM), Customer Service Management (CSM), HR Service Delivery (HRSD), IT Asset Management (ITAM), and Governance, Risk & Compliance (GRC)—from a single unified AI-powered testing platform for enterprise ServiceNow QA Automation.', 'testro' ),
+				'question' => __( 'Why do ServiceNow test scripts break so often?', 'testro' ),
+				'answer'   => __( 'ServiceNow renders UI dynamically. Selector-based scripts lose track of elements more easily than on a typical web app. Self-healing tests solve this by finding elements differently.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can theTestRo automate ITSM and ITOM testing?', 'testro' ),
-				'answer'   => __( 'Yes. Automate ServiceNow ITSM Testing and ITOM Testing across incident, change, problem, service catalog, operations, and related workflows. Combine UI and API coverage so ITSM and ITOM stay validated after every ServiceNow release or customization.', 'testro' ),
+				'question' => __( 'Does this ServiceNow testing tool cover custom applications, not just standard modules?', 'testro' ),
+				'answer'   => __( 'Yes. Tests adapt to your instance\'s real setup. They extend naturally to custom tables, scripts, and forms.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support Flow Designer and Service Catalog testing?', 'testro' ),
-				'answer'   => __( 'Yes. Validate Flow Designer automations, classic workflows, service catalog items, request fulfillment, and related business processes—so ServiceNow Workflow Testing covers the automations your enterprise depends on.', 'testro' ),
+				'question' => __( 'How does ITSM test automation handle SLA timers and approval routing?', 'testro' ),
+				'answer'   => __( 'Tests check SLA start, pause, and breach behavior across priority levels. Someone also checks the CAB approval routing before a change reaches production.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does self-healing reduce ServiceNow test maintenance?', 'testro' ),
-				'answer'   => __( 'When ServiceNow updates or UI changes break locators, self-healing automation detects the drift, repairs steps automatically, and continues execution. That keeps ServiceNow regression suites green with far less manual maintenance between releases.', 'testro' ),
+				'question' => __( 'Do I need to write code to automate ServiceNow testing?', 'testro' ),
+				'answer'   => __( 'No. Tests are built in plain English. QA staff, HR teams, and service desk agents can all pitch in on coverage.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can ServiceNow testing integrate into CI/CD and Azure DevOps pipelines?', 'testro' ),
-				'answer'   => __( 'Yes. Integrate ServiceNow testing into Azure DevOps, GitHub, Jenkins, Jira, Slack, and other CI/CD pipelines. Trigger suites after deployments or customizations, apply quality gates, and keep continuous ServiceNow QA Automation in the same toolchain your delivery teams already use.', 'testro' ),
-			),
-			array(
-				'question' => __( 'Can theTestRo validate complete enterprise service workflows?', 'testro' ),
-				'answer'   => __( 'Yes. Build end-to-end suites for incident-to-resolution, change approval, service catalog fulfillment, HR service delivery, customer service journeys, and cross-application scenarios—so mission-critical ServiceNow workflows remain reliable across every enterprise release.', 'testro' ),
+				'question' => __( 'Can enterprise ServiceNow testing run in a private or on-premise environment?', 'testro' ),
+				'answer'   => __( 'Yes. Deployment options include private cloud and on-premise setups for teams with strict data rules.', 'testro' ),
 			),
 		),
 

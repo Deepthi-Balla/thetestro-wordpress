@@ -3770,7 +3770,7 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
   width: 100%;
   height: 76px;
   pointer-events: none;
-  background: url("../images/testimonial-wave.png") no-repeat center bottom;
+  background: url("../images/webp/testimonial-wave.webp") no-repeat center bottom;
   background-size: 100% 100%;
 }
 
@@ -17430,6 +17430,7 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 .testro-prod-card {
   position: relative;
   display: flex;
+  height: 100%;
   overflow: hidden;
   background: #fff;
   border: 1px solid var(--color-border);
@@ -17508,6 +17509,26 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   font-size: 0.875rem;
 }
 
+
+.testro-prod-card__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #eef4ff, #e6fbff);
+  color: #2602ed;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.testro-prod-card:hover .testro-prod-card__step {
+  background: var(--grad-btn);
+  color: #fff;
+}
 .testro-prod-card__icon {
   display: inline-flex;
   align-items: center;
@@ -18360,6 +18381,21 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   display: none;
 }
 
+.testro-prod-compare--two .testro-prod-compare__head,
+.testro-prod-compare--two .testro-prod-compare__row {
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.6fr);
+}
+
+.testro-prod-compare--two .testro-prod-compare__head-spacer {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+}
+
+.testro-prod-compare__outro {
+  margin-top: 2.5rem;
+}
+
 .testro-prod-compare__head {
   background: linear-gradient(to right, #f8fbff, #f2f7ff);
   border-bottom: 1px solid var(--color-border);
@@ -19130,8 +19166,27 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   max-width: 38rem;
 }
 
+.testro-prod-features__outro {
+  margin-top: 2.5rem;
+}
+
 .testro-prod-section--brand .testro-prod-features__outro {
   color: #fff;
+}
+
+#how-export-works .testro-prod-cards {
+  align-items: stretch;
+}
+
+#how-export-works .testro-prod-card,
+#how-export-works .testro-prod-card__body {
+  height: 100%;
+}
+
+@media (max-width: 1200px) {
+  #how-export-works .testro-prod-cards[data-columns="4"] {
+    --prod-cols: 2;
+  }
 }
 
 .testro-prod-healing__card {
@@ -19938,6 +19993,11 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 
 /* The three-column table stops being scannable below tablet, so rows stack. */
 @media (max-width: 767px) {
+  .testro-prod-compare--two .testro-prod-compare__head,
+  .testro-prod-compare--two .testro-prod-compare__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .testro-prod-compare__head {
     display: none;
   }

@@ -158,8 +158,10 @@ function testro_picture( $src, $alt = '', $attrs = array() ) {
 		$img_attrs .= sprintf( ' %s="%s"', esc_attr( $key ), esc_attr( (string) $value ) );
 	}
 
+	$img_src = $has_webp ? $webp_url : $fallback;
+
 	if ( ! $has_webp && ! $has_avif ) {
-		return sprintf( '<img src="%s"%s />', esc_url( $fallback ), $img_attrs );
+		return sprintf( '<img src="%s"%s />', esc_url( $img_src ), $img_attrs );
 	}
 
 	$sources = '';
@@ -173,7 +175,7 @@ function testro_picture( $src, $alt = '', $attrs = array() ) {
 	return sprintf(
 		'<picture>%s<img src="%s"%s /></picture>',
 		$sources,
-		esc_url( $fallback ),
+		esc_url( $img_src ),
 		$img_attrs
 	);
 }
@@ -1106,8 +1108,8 @@ function testro_render_testimonial_stars( $rating ) {
  * @return array
  */
 function testro_get_testimonials() {
-	$male   = testro_asset( 'images/male-avatar.png' );
-	$female = testro_asset( 'images/female-avatar.png' );
+	$male   = testro_asset_webp( 'images/male-avatar.png' );
+	$female = testro_asset_webp( 'images/female-avatar.png' );
 
 	return array(
 		array(
@@ -1319,7 +1321,7 @@ function testro_get_key_features() {
 		array(
 			'title'       => 'Parallel Test Execution',
 			'description' => 'Run thousands of tests at once in the cloud.',
-			'href'        => testro_nav_url( 'test-lab' ),
+			'href'        => testro_nav_url( 'test-execution' ),
 			'icon'        => 'play',
 		),
 		array(

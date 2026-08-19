@@ -11,7 +11,7 @@ $youtube   = testro_get_option( 'youtube', 'https://www.youtube.com/@thetestroai
 $terms_url = testro_get_page_url( 'terms-conditions' );
 $privacy   = testro_get_page_url( 'privacy-notice' );
 $home      = home_url( '/' );
-$footer_bg = testro_asset( 'images/footer-bg.png' );
+$footer_bg = testro_asset_webp( 'images/footer-bg.png' );
 $blog_id   = (int) get_option( 'page_for_posts' );
 $blog_url  = $blog_id ? get_permalink( $blog_id ) : $home;
 ?>

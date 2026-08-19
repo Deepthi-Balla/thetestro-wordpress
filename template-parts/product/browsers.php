@@ -72,6 +72,9 @@ $heading_id = $id ? $id . '-heading' : '';
 							<span class="testro-prod-browsers__fill"></span>
 						</div>
 						<p class="testro-prod-browsers__pct"><?php echo esc_html( (string) $progress ); ?>%</p>
+						<?php if ( ! empty( $item['description'] ) ) : ?>
+							<p class="testro-prod-browsers__parallel-desc"><?php echo esc_html( $item['description'] ); ?></p>
+						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>
 			</ul>

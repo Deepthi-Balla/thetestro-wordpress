@@ -33,9 +33,10 @@ $loop_note  = isset( $args['loop_note'] )
 			'template-parts/product/section-header',
 			null,
 			array(
-				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
+				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+				'title'         => isset( $args['title'] ) ? $args['title'] : '',
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 				'heading_id'    => $heading_id,
 				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
@@ -66,7 +67,7 @@ $loop_note  = isset( $args['loop_note'] )
 							);
 							?>
 						</p>
-						<h3 class="testro-prod-lifecycle__title"><?php echo esc_html( $item['title'] ); ?></h3>
+						<p class="testro-prod-lifecycle__title"><?php echo esc_html( $item['title'] ); ?></p>
 						<?php if ( ! empty( $item['description'] ) ) : ?>
 							<p class="testro-prod-lifecycle__desc"><?php echo esc_html( $item['description'] ); ?></p>
 						<?php endif; ?>

@@ -13,7 +13,7 @@ get_header();
 get_template_part(
 	'template-parts/product/page',
 	null,
-	array( 'slug' => 'test-lab' )
+	array( 'slug' => 'test-execution' )
 );
 
 get_footer();

@@ -24,7 +24,7 @@ function testro_get_slug_migration_map() {
 		'ai-test-management'      => 'test-management-software',
 		'self-healing-tests'      => 'self-healing-test-automation-tool',
 		'test-development'        => 'test-development',
-		'test-execution'          => 'test-lab',
+		'test-execution'          => 'test-execution',
 		'ci-cd-integration'       => 'ci-cd-integration',
 		'playwright-export'       => 'playwright-test-automation',
 		'reports-analytics'       => 'reporting-analytics',

@@ -6,8 +6,10 @@
  * - id      (string)  Section anchor id.
  * - variant (string)  'default' | 'spotlight' | 'tint' | 'brand'.
  * - columns (int)     2, 3 or 4 (desktop columns). Default 3.
- * - eyebrow / title / intro (string)
- * - items   (array[]) Each: icon, title, description, href, cta (optional), motif (optional).
+ * - eyebrow / title / intro / intro_extra (string)
+ * - heading_level (int)
+ * - outro   (string)
+ * - items   (array[]) Each: icon, title, description, optional href/cta/motif.
  *
  * @package TestRo
  */
@@ -17,8 +19,9 @@ $items   = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['items'
 $variant = isset( $args['variant'] ) ? sanitize_html_class( $args['variant'] ) : 'spotlight';
 $columns = isset( $args['columns'] ) ? max( 2, min( 4, (int) $args['columns'] ) ) : 3;
 $id      = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
+$title   = isset( $args['title'] ) ? (string) $args['title'] : '';
 
-if ( ! $items ) {
+if ( ! $items && '' === $title ) {
 	return;
 }
 
@@ -36,26 +39,31 @@ $heading_id = $id ? $id . '-heading' : '';
 			'template-parts/product/section-header',
 			null,
 			array(
-				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'heading_id' => $heading_id,
-				'tone'       => $tone,
+				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+				'title'         => $title,
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'intro_body'    => isset( $args['intro_body'] ) ? $args['intro_body'] : '',
+				'paragraphs'    => isset( $args['paragraphs'] ) ? $args['paragraphs'] : array(),
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+				'tone'          => $tone,
 			)
 		);
 		?>
 
+		<?php if ( $items ) : ?>
 		<ul class="testro-prod-usecase-grid__list" data-columns="<?php echo esc_attr( (string) $columns ); ?>">
 			<?php foreach ( $items as $index => $item ) : ?>
 				<?php
-				$href   = isset( $item['href'] ) ? (string) $item['href'] : '';
-				$cta    = isset( $item['cta'] ) ? (string) $item['cta'] : __( 'Learn More', 'testro' );
-				$motif  = isset( $item['motif'] ) ? sanitize_html_class( (string) $item['motif'] ) : 'default';
-				$title  = isset( $item['title'] ) ? (string) $item['title'] : '';
-				$desc   = isset( $item['description'] ) ? (string) $item['description'] : '';
-				$icon   = isset( $item['icon'] ) ? (string) $item['icon'] : '';
-				$tag    = '' !== $href ? 'a' : 'div';
-				$attrs  = '' !== $href
+				$href  = isset( $item['href'] ) ? (string) $item['href'] : '';
+				$cta   = isset( $item['cta'] ) ? (string) $item['cta'] : '';
+				$motif = isset( $item['motif'] ) ? sanitize_html_class( (string) $item['motif'] ) : 'default';
+				$item_title = isset( $item['title'] ) ? (string) $item['title'] : '';
+				$desc  = isset( $item['description'] ) ? (string) $item['description'] : '';
+				$icon  = isset( $item['icon'] ) ? (string) $item['icon'] : '';
+				$tag   = '' !== $href ? 'a' : 'div';
+				$attrs = '' !== $href
 					? ' href="' . esc_url( $href ) . '"'
 					: ' role="group"';
 				?>
@@ -87,22 +95,29 @@ $heading_id = $id ? $id . '-heading' : '';
 								</span>
 							<?php endif; ?>
 
-							<?php if ( '' !== $title ) : ?>
-								<h3 class="testro-prod-usecase-grid__title"><?php echo esc_html( $title ); ?></h3>
+							<?php if ( '' !== $item_title ) : ?>
+								<p class="testro-prod-usecase-grid__title"><?php echo esc_html( $item_title ); ?></p>
 							<?php endif; ?>
 
 							<?php if ( '' !== $desc ) : ?>
 								<p class="testro-prod-usecase-grid__desc"><?php echo esc_html( $desc ); ?></p>
 							<?php endif; ?>
 
-							<span class="testro-prod-usecase-grid__cta">
-								<?php echo esc_html( $cta ); ?>
-								<?php echo testro_icon( 'arrow-right', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
-							</span>
+							<?php if ( '' !== $cta ) : ?>
+								<span class="testro-prod-usecase-grid__cta">
+									<?php echo esc_html( $cta ); ?>
+									<?php echo testro_icon( 'arrow-right', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+								</span>
+							<?php endif; ?>
 						</div>
 					</<?php echo esc_html( $tag ); ?>>
 				</li>
 			<?php endforeach; ?>
 		</ul>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-features__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

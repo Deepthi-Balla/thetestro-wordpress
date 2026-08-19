@@ -158,12 +158,25 @@ function testro_maybe_seed_product_pages() {
 	}
 
 	$version = (int) get_option( 'testro_product_pages_seeded', 0 );
-	if ( $version >= 31 ) {
+	if ( $version >= 32 ) {
 		return;
 	}
 
 	foreach ( testro_get_product_pages() as $slug => $product ) {
 		$existing = get_page_by_path( $slug );
+
+		if ( ! $existing && 'test-execution' === $slug ) {
+			$existing = get_page_by_path( 'test-lab' );
+			if ( $existing ) {
+				wp_update_post(
+					array(
+						'ID'        => (int) $existing->ID,
+						'post_name' => 'test-execution',
+					)
+				);
+				$existing = get_post( $existing->ID );
+			}
+		}
 
 		if ( ! $existing ) {
 			$page_title = ! empty( $product['title'] )
@@ -205,7 +218,7 @@ function testro_maybe_seed_product_pages() {
 			$desired = 'page-templates/template-self-healing-automation.php';
 		} elseif ( 'test-development' === $slug && locate_template( 'page-templates/template-test-development.php' ) ) {
 			$desired = 'page-templates/template-test-development.php';
-		} elseif ( 'test-lab' === $slug && locate_template( 'page-templates/template-test-execution.php' ) ) {
+		} elseif ( 'test-execution' === $slug && locate_template( 'page-templates/template-test-execution.php' ) ) {
 			$desired = 'page-templates/template-test-execution.php';
 		} elseif ( 'ci-cd-integration' === $slug && locate_template( 'page-templates/template-ci-cd-integration.php' ) ) {
 			$desired = 'page-templates/template-ci-cd-integration.php';
@@ -258,6 +271,6 @@ function testro_maybe_seed_product_pages() {
 		}
 	}
 
-	update_option( 'testro_product_pages_seeded', 31, true );
+	update_option( 'testro_product_pages_seeded', 32, true );
 }
 add_action( 'init', 'testro_maybe_seed_product_pages', 20 );

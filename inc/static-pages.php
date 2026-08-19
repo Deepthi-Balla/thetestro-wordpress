@@ -69,8 +69,8 @@ function testro_get_static_pages() {
 			'title'    => __( 'Webinars', 'testro' ),
 			'template' => 'page-templates/template-webinars.php',
 			'seo'      => array(
-				'title'       => __( 'Webinars | Live & On-Demand Test Automation Sessions | theTestRo', 'testro' ),
-				'description' => __( 'Join theTestRo webinars and on-demand sessions covering AI-powered testing, no-code automation, and modern QA strategies.', 'testro' ),
+				'title'       => __( 'Webinars | theTestRo', 'testro' ),
+				'description' => __( 'Join live and on-demand test automation webinars to learn AI testing, QA best practices, DevOps strategies, product updates, and expert testing insights.', 'testro' ),
 			),
 			'stub'     => false,
 		),

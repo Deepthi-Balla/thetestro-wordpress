@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'TESTRO_VERSION', '1.2.4' );
+define( 'TESTRO_VERSION', '1.2.5' );
 define( 'TESTRO_DIR', get_template_directory() );
 define( 'TESTRO_URI', get_template_directory_uri() );
 
@@ -23,6 +23,7 @@ $testro_includes = array(
 	'/inc/sitemap.php',
 	'/inc/customizer.php',
 	'/inc/performance.php',
+	'/inc/images.php',
 	'/inc/icons.php',
 	'/inc/content.php',
 	'/inc/product-content.php',

@@ -17,6 +17,7 @@ $args    = isset( $args ) && is_array( $args ) ? $args : array();
 $items   = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['items'] : array();
 $variant = isset( $args['variant'] ) ? sanitize_html_class( $args['variant'] ) : 'default';
 $columns = isset( $args['columns'] ) ? max( 2, min( 4, (int) $args['columns'] ) ) : 3;
+$numbered = ! empty( $args['numbered'] );
 $id    = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 $title = isset( $args['title'] ) ? (string) $args['title'] : '';
 
@@ -43,6 +44,7 @@ $heading_id = $id ? $id . '-heading' : '';
 				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
 				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 				'intro_body'    => isset( $args['intro_body'] ) ? $args['intro_body'] : '',
+				'paragraphs'    => isset( $args['paragraphs'] ) ? $args['paragraphs'] : array(),
 				'heading_id'    => $heading_id,
 				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 				'tone'          => $tone,
@@ -51,7 +53,7 @@ $heading_id = $id ? $id . '-heading' : '';
 		?>
 
 		<?php if ( $items ) : ?>
-		<ul class="testro-prod-cards" data-columns="<?php echo esc_attr( (string) $columns ); ?>">
+		<<?php echo $numbered ? 'ol' : 'ul'; ?> class="testro-prod-cards" data-columns="<?php echo esc_attr( (string) $columns ); ?>">
 			<?php foreach ( $items as $index => $item ) : ?>
 				<?php
 				$cta       = isset( $item['cta'] ) && is_array( $item['cta'] ) ? $item['cta'] : null;
@@ -67,6 +69,9 @@ $heading_id = $id ? $id . '-heading' : '';
 				>
 					<span class="testro-prod-card__glow" aria-hidden="true"></span>
 					<div class="testro-prod-card__body">
+						<?php if ( $numbered ) : ?>
+							<span class="testro-prod-card__step"><?php echo esc_html( (string) ( $index + 1 ) ); ?></span>
+						<?php endif; ?>
 						<?php if ( ! empty( $item['icon'] ) ) : ?>
 							<span class="testro-prod-card__icon" aria-hidden="true">
 								<?php echo testro_icon( $item['icon'], array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -112,7 +117,7 @@ $heading_id = $id ? $id . '-heading' : '';
 					</div>
 				</li>
 			<?php endforeach; ?>
-		</ul>
+		</<?php echo $numbered ? 'ol' : 'ul'; ?>>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>

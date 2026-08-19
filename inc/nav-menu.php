@@ -144,7 +144,7 @@ function testro_get_nav_menus() {
 						),
 						array(
 							'label' => __( 'Test Execution', 'testro' ),
-							'href'  => testro_nav_url( 'test-lab' ),
+							'href'  => testro_nav_url( 'test-execution' ),
 							'icon'  => 'play',
 						),
 						array(

@@ -48,7 +48,7 @@ $heading_id = $id ? $id . '-heading' : '';
 							<span class="testro-prod-pipeline__connector" aria-hidden="true"></span>
 						</div>
 						<p class="testro-prod-pipeline__stage-label"><?php echo esc_html( $item['stage'] ); ?></p>
-						<h3 class="testro-prod-pipeline__title"><?php echo esc_html( $item['title'] ); ?></h3>
+						<p class="testro-prod-pipeline__title"><?php echo esc_html( $item['title'] ); ?></p>
 						<p class="testro-prod-pipeline__desc"><?php echo esc_html( $item['description'] ); ?></p>
 					</div>
 				</li>

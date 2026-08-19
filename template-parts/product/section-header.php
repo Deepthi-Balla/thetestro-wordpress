@@ -22,6 +22,7 @@ $title      = isset( $args['title'] ) ? (string) $args['title'] : '';
 $intro       = isset( $args['intro'] ) ? (string) $args['intro'] : '';
 $intro_extra = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
 $intro_body  = isset( $args['intro_body'] ) ? (string) $args['intro_body'] : '';
+$paragraphs    = isset( $args['paragraphs'] ) && is_array( $args['paragraphs'] ) ? $args['paragraphs'] : array();
 $heading_id    = isset( $args['heading_id'] ) ? (string) $args['heading_id'] : '';
 $heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
 $heading_tag   = 'h' . $heading_level;
@@ -60,4 +61,10 @@ if ( 'dark' !== $tone ) {
 	<?php if ( '' !== $intro_body ) : ?>
 		<p class="testro-prod-head__intro"><?php echo esc_html( $intro_body ); ?></p>
 	<?php endif; ?>
+
+	<?php foreach ( $paragraphs as $paragraph ) : ?>
+		<?php if ( '' !== (string) $paragraph ) : ?>
+			<p class="testro-prod-head__intro"><?php echo esc_html( (string) $paragraph ); ?></p>
+		<?php endif; ?>
+	<?php endforeach; ?>
 </header>

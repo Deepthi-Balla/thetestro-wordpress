@@ -19,6 +19,8 @@ $legacy    = isset( $args['legacy'] ) && is_array( $args['legacy'] ) ? $args['le
 $middle    = isset( $args['middle'] ) && is_array( $args['middle'] ) ? $args['middle'] : array();
 $modern    = isset( $args['modern'] ) && is_array( $args['modern'] ) ? $args['modern'] : array();
 $text_only = ! empty( $args['text_only'] );
+$two_column = ! empty( $args['two_column'] );
+$first_label = isset( $args['first_label'] ) ? (string) $args['first_label'] : '';
 $id        = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 
 if ( ! $rows ) {
@@ -67,6 +69,9 @@ if ( $has_middle ) {
 if ( $text_only ) {
 	$section_class .= ' testro-prod-compare--text-only';
 }
+if ( $two_column ) {
+	$section_class .= ' testro-prod-compare--two';
+}
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -82,6 +87,7 @@ if ( $text_only ) {
 				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 				'title'      => isset( $args['title'] ) ? $args['title'] : '',
 				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 				'heading_id'    => $heading_id,
 				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 			)
@@ -90,8 +96,13 @@ if ( $text_only ) {
 
 		<div class="testro-prod-compare__table" data-reveal>
 			<div class="testro-prod-compare__head" aria-hidden="true">
-				<div class="testro-prod-compare__head-spacer"></div>
+				<div class="testro-prod-compare__head-spacer">
+					<?php if ( '' !== $first_label ) : ?>
+						<span class="testro-prod-compare__head-label"><?php echo esc_html( $first_label ); ?></span>
+					<?php endif; ?>
+				</div>
 
+				<?php if ( ! $two_column ) : ?>
 				<div class="testro-prod-compare__head-cell testro-prod-compare__head-cell--legacy">
 					<span class="testro-prod-compare__head-icon">
 						<?php echo testro_icon( 'close', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -103,6 +114,7 @@ if ( $text_only ) {
 						<?php endif; ?>
 					</span>
 				</div>
+				<?php endif; ?>
 
 				<?php if ( $has_middle ) : ?>
 				<div class="testro-prod-compare__head-cell testro-prod-compare__head-cell--middle">
@@ -145,6 +157,7 @@ if ( $text_only ) {
 							<span class="testro-prod-compare__aspect testro-prod-compare__aspect--empty" aria-hidden="true"></span>
 						<?php endif; ?>
 
+						<?php if ( ! $two_column ) : ?>
 						<div class="testro-prod-compare__cell testro-prod-compare__cell--legacy">
 							<span class="testro-prod-compare__cell-label"><?php echo esc_html( $legacy_label ); ?></span>
 							<?php if ( ! $text_only ) : ?>
@@ -152,8 +165,9 @@ if ( $text_only ) {
 								<?php echo testro_icon( $legacy_mark['icon'], array( 'size' => 14 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 							<?php endif; ?>
-							<p class="testro-prod-compare__text"><?php echo esc_html( $row['legacy'] ); ?></p>
+							<p class="testro-prod-compare__text"><?php echo esc_html( isset( $row['legacy'] ) ? $row['legacy'] : '' ); ?></p>
 						</div>
+						<?php endif; ?>
 
 						<?php if ( $has_middle ) : ?>
 						<div class="testro-prod-compare__cell testro-prod-compare__cell--middle">
@@ -180,5 +194,9 @@ if ( $text_only ) {
 				<?php endforeach; ?>
 			</ul>
 		</div>
+
+		<?php if ( ! empty( $args['outro'] ) ) : ?>
+			<p class="testro-prod-head__intro testro-prod-compare__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+		<?php endif; ?>
 	</div>
 </section>

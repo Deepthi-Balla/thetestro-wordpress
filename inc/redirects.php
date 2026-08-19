@@ -59,6 +59,7 @@ function testro_get_redirect_map() {
 			'solutions/backend-testing'        => 'use-cases',
 			'solutions/frontend-testing'       => 'use-cases',
 			'solutions'                        => 'use-cases',
+			'test-lab'                         => 'test-execution',
 			'about-us'                         => 'why-choose-thetestro',
 			'products'                         => '',
 			'features'                         => '',
