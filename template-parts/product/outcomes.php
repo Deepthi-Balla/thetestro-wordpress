@@ -58,7 +58,12 @@ if ( $variant ) {
 						<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 					</span>
 					<span class="testro-prod-outcomes__text">
-						<h3 class="testro-prod-outcomes__title"><?php echo esc_html( $item['title'] ); ?></h3>
+						<?php
+						$item_heading_level = isset( $args['item_heading_level'] ) ? max( 1, min( 6, (int) $args['item_heading_level'] ) ) : 3;
+						$item_heading_tag   = 'h' . $item_heading_level;
+						?>
+						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag name is derived from a numeric arg. ?>
+						<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_heading_tag; ?>>
 						<?php if ( $has_desc ) : ?>
 							<p class="testro-prod-outcomes__desc"><?php echo esc_html( $item['description'] ); ?></p>
 						<?php endif; ?>

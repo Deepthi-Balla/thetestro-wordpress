@@ -2,14 +2,16 @@
 /**
  * Testimonials section — 3D coverflow carousel (matches reference).
  *
- * Optional $args: title, headline.
+ * Optional $args: title, headline|intro, heading_level (1–6, default 5 for legacy styling).
  *
  * @package TestRo
  */
 
 $args     = isset( $args ) && is_array( $args ) ? $args : array();
 $title    = isset( $args['title'] ) ? (string) $args['title'] : __( 'Customer Testimonials', 'testro' );
-$headline = isset( $args['headline'] ) ? (string) $args['headline'] : __( 'What Our Customers Say', 'testro' );
+$headline = isset( $args['headline'] ) ? (string) $args['headline'] : ( isset( $args['intro'] ) ? (string) $args['intro'] : __( 'What Our Customers Say', 'testro' ) );
+$heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 5;
+$heading_tag   = 'h' . $heading_level;
 
 $heading_class = isset( $args['title'] ) ? ' testro-testimonials__heading--wrap' : '';
 
@@ -30,7 +32,8 @@ if ( $count < 1 ) {
 	<section class="testro-testimonials" aria-labelledby="testimonials-heading" data-testimonials>
 		<div class="testro-container">
 			<header class="testro-testimonials__header">
-				<h5 id="testimonials-heading" class="gradient-text main-headings testro-testimonials__heading<?php echo esc_attr( $heading_class ); ?>"><?php echo esc_html( $title ); ?></h5>
+				<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag name is derived from a numeric arg. ?>
+				<<?php echo $heading_tag; ?> id="testimonials-heading" class="gradient-text main-headings testro-testimonials__heading<?php echo esc_attr( $heading_class ); ?>"><?php echo esc_html( $title ); ?></<?php echo $heading_tag; ?>>
 				<?php if ( '' !== $headline ) : ?>
 					<p class="sub-text testro-testimonials__headline"><?php echo esc_html( $headline ); ?></p>
 				<?php endif; ?>

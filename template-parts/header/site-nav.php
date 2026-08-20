@@ -84,10 +84,12 @@ $nav_menus = testro_get_nav_menus();
 						null,
 						array(
 							'label'      => __( 'Try theTestRo for free', 'testro' ),
-							'href'       => $home_url . '#contact-form',
 							'with_arrow' => false,
 							'attrs'      => array(
-								'class' => 'primary-button testro-btn testro-btn--primary',
+								'class'           => 'primary-button testro-btn testro-btn--primary',
+								'data-open-modal' => 'demo-modal',
+								'aria-haspopup'   => 'dialog',
+								'aria-controls'   => 'demo-modal',
 							),
 						)
 					);

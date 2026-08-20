@@ -223,8 +223,12 @@ function testro_schema_contact_page() {
 		'@type'       => 'ContactPage',
 		'@id'         => trailingslashit( function_exists( 'testro_get_page_url' ) ? testro_get_page_url( 'contact-us' ) : home_url( '/contact-us/' ) ),
 		'url'         => trailingslashit( function_exists( 'testro_get_page_url' ) ? testro_get_page_url( 'contact-us' ) : home_url( '/contact-us/' ) ),
-		'name'        => 'Contact theTestRo',
-		'description' => 'Talk to theTestRo about Intelligence-powered no-code test automation. Book a demo or send a message.',
+		'name'        => is_page( 'contact-us' )
+			? 'Contact Test Automation Experts | Book a Demo Today'
+			: 'Contact theTestRo',
+		'description' => is_page( 'contact-us' )
+			? 'Contact our test automation experts to schedule a personalized demo, discuss your QA goals, explore AI-powered testing, and accelerate software delivery.'
+			: 'Talk to theTestRo about Intelligence-powered no-code test automation. Book a demo or send a message.',
 		'isPartOf'    => array( '@id' => trailingslashit( home_url( '/' ) ) . '#website' ),
 		'mainEntity'  => array(
 			'@type'       => 'Organization',

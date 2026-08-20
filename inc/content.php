@@ -1191,26 +1191,40 @@ function testro_get_webinars() {
 	$videos    = testro_get_videos();
 	$on_demand = array();
 
+	$video_copy = array(
+		'kBMYLuvBkt8' => __( 'Watch this on-demand software testing webinar for an overview of how theTestRo supports AI-powered, no-code automation.', 'testro' ),
+		'OTB5nigmfBc' => __( 'See a product demo covering QA automation capabilities, self-healing tests, and practical test automation workflows.', 'testro' ),
+		'coDsNoKCQYk' => __( 'Follow a guided walkthrough designed as practical test automation training for teams evaluating the platform.', 'testro' ),
+	);
+
 	foreach ( $videos as $video ) {
+		$video_id = isset( $video['id'] ) ? (string) $video['id'] : '';
 		$on_demand[] = array(
 			'status'      => __( 'On demand', 'testro' ),
 			'title'       => $video['title'],
-			'description' => __( 'Watch this recorded session to see how AI-powered, no-code automation fits into modern QA workflows.', 'testro' ),
-			'video_id'    => $video['id'],
+			'description' => isset( $video_copy[ $video_id ] )
+				? $video_copy[ $video_id ]
+				: __( 'Watch this recorded session to see how AI-powered, no-code automation fits into modern QA workflows.', 'testro' ),
+			'video_id'    => $video_id,
 			'cta'         => __( 'Watch Now', 'testro' ),
-			'href'        => 'https://www.youtube.com/watch?v=' . rawurlencode( $video['id'] ),
+			'href'        => 'https://www.youtube.com/watch?v=' . rawurlencode( $video_id ),
 		);
 	}
+
+	$ai_url         = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'ai-test-automation' ) : home_url( '/ai-test-automation/' );
+	$functional_url = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'automated-functional-testing' ) : home_url( '/automated-functional-testing/' );
+	$regression_url = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'regression-test-automation' ) : home_url( '/regression-test-automation/' );
+	$nocode_url     = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'no-code-test-automation' ) : home_url( '/no-code-test-automation/' );
 
 	return array(
 		'eyebrow'   => __( 'Explore & Learn', 'testro' ),
 		'title'     => __( 'Webinars', 'testro' ),
-		'intro'     => __( 'Catch us interacting live or view recorded conversations—all around modern test automation.', 'testro' ),
+		'intro'     => __( 'Explore live and on-demand webinars covering AI testing, QA automation, software testing best practices, DevOps strategies, product updates, and expert insights from theTestRo.', 'testro' ),
 		'upcoming'  => array(
 			array(
 				'status'      => __( 'Upcoming', 'testro' ),
 				'title'       => __( 'AI Test Automation Live Sessions', 'testro' ),
-				'description' => __( 'Join upcoming conversations on AI-powered testing, no-code automation, and continuous quality. Register to get notified about the next live session.', 'testro' ),
+				'description' => __( 'Join upcoming AI testing webinars and live conversations on AI-powered testing, no-code automation, and continuous quality. Register to get notified about the next live session.', 'testro' ),
 				'cta'         => __( 'Register Interest', 'testro' ),
 				'modal'       => 'demo-modal',
 			),
@@ -1219,23 +1233,39 @@ function testro_get_webinars() {
 		'topics'    => array(
 			array(
 				'icon'        => 'sparkles',
-				'title'       => __( 'AI-Powered Testing', 'testro' ),
-				'description' => __( 'Learn how intelligent automation accelerates creation, analysis, and maintenance.', 'testro' ),
+				'title'       => __( 'AI Testing Webinars', 'testro' ),
+				'description' => __( 'Sessions on AI-powered testing, AI-assisted test creation, and self-healing strategies that keep suites stable as apps change.', 'testro' ),
+				'cta'         => array(
+					'label' => __( 'Explore AI-powered test automation', 'testro' ),
+					'href'  => $ai_url,
+				),
+			),
+			array(
+				'icon'        => 'layout-grid',
+				'title'       => __( 'Software Testing Webinars', 'testro' ),
+				'description' => __( 'Software testing insights covering functional, regression, and quality engineering practices for modern delivery teams.', 'testro' ),
+				'cta'         => array(
+					'label' => __( 'Explore automated functional testing', 'testro' ),
+					'href'  => $functional_url,
+				),
 			),
 			array(
 				'icon'        => 'pen-square',
-				'title'       => __( 'No-Code Automation', 'testro' ),
-				'description' => __( 'See how teams build reliable suites without extensive scripting expertise.', 'testro' ),
+				'title'       => __( 'QA Automation Webinars', 'testro' ),
+				'description' => __( 'QA automation and continuous testing sessions focused on automation strategy, coverage, and release-ready workflows.', 'testro' ),
+				'cta'         => array(
+					'label' => __( 'Explore regression test automation', 'testro' ),
+					'href'  => $regression_url,
+				),
 			),
 			array(
-				'icon'        => 'git-branch',
-				'title'       => __( 'CI/CD & Continuous Testing', 'testro' ),
-				'description' => __( 'Explore quality gates, parallel execution, and release-ready automation workflows.', 'testro' ),
-			),
-			array(
-				'icon'        => 'heart-pulse',
-				'title'       => __( 'Self-Healing Strategies', 'testro' ),
-				'description' => __( 'Reduce flaky failures and maintenance overhead as applications evolve.', 'testro' ),
+				'icon'        => 'video',
+				'title'       => __( 'Test Automation Training', 'testro' ),
+				'description' => __( 'Practical test automation training through demos, walkthroughs, and expert-led guidance your team can apply immediately.', 'testro' ),
+				'cta'         => array(
+					'label' => __( 'Explore no-code test automation', 'testro' ),
+					'href'  => $nocode_url,
+				),
 			),
 		),
 	);
@@ -1579,6 +1609,42 @@ function testro_get_resources() {
 			),
 		),
 	);
+}
+
+/**
+ * Awards & News hub sections grouped by category.
+ *
+ * Each section renders only when it contains items. Populate sections here
+ * or via the `testro_awards_news_data` filter as real awards and news are added.
+ *
+ * @return array{
+ *   sections: array<int, array{
+ *     id: string,
+ *     title: string,
+ *     intro?: string,
+ *     items: array<int, array{
+ *       title: string,
+ *       description: string,
+ *       href: string,
+ *       date?: string,
+ *       image?: string,
+ *       image_alt?: string,
+ *       cta_label?: string
+ *     }>
+ *   }>
+ * }
+ */
+function testro_get_awards_news() {
+	$data = array(
+		'sections' => array(),
+	);
+
+	/**
+	 * Filter Awards & News hub section data.
+	 *
+	 * @param array<string, mixed> $data Hub data with `sections` key.
+	 */
+	return apply_filters( 'testro_awards_news_data', $data );
 }
 
 /**

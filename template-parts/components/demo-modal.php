@@ -61,14 +61,11 @@
 			</p>
 
 			<p class="testro-form__field">
-				<label for="demo-designation"><?php esc_html_e( 'Designation*', 'testro' ); ?></label>
-				<input type="text" id="demo-designation" name="designation" required autocomplete="organization-title" />
-			</p>
-
-			<p class="testro-form__field">
 				<label for="demo-requirements"><?php esc_html_e( 'Primary Requirements*', 'testro' ); ?></label>
 				<textarea id="demo-requirements" name="primary_requirements" rows="4" required></textarea>
 			</p>
+
+			<div class="testro-form__turnstile" id="demo-turnstile" aria-label="<?php esc_attr_e( 'Security verification', 'testro' ); ?>"></div>
 
 			<p class="testro-form__status" role="status" aria-live="polite" hidden></p>
 

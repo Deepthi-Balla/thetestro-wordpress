@@ -68,7 +68,7 @@ function testro_document_title_parts( $parts ) {
 		$parts['title'] = __( 'Privacy Notice | theTestRo', 'testro' );
 		$parts['site']  = '';
 	} elseif ( is_home() && ! is_front_page() ) {
-		$parts['title'] = __( 'Test Automation Blog for QA Professionals | theTestRo', 'testro' );
+		$parts['title'] = __( 'Test Automation Blog | AI Testing & QA Insights', 'testro' );
 		$parts['site']  = '';
 	} elseif ( is_singular() && empty( $parts['title'] ) ) {
 		$parts['title'] = get_the_title();
@@ -111,7 +111,7 @@ function testro_get_meta_description() {
 	}
 
 	if ( is_home() && ! is_front_page() ) {
-		return 'Read the theTestRo test automation blog for QA professionals—AI testing tips, no-code automation strategies, product insights, and modern QA best practices.';
+		return 'Explore expert articles on AI testing, test automation, QA best practices, DevOps, software testing trends, and enterprise quality engineering insights.';
 	}
 
 	if ( is_singular() ) {

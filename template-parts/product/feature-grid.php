@@ -20,6 +20,8 @@ $columns = isset( $args['columns'] ) ? max( 2, min( 4, (int) $args['columns'] ) 
 $numbered = ! empty( $args['numbered'] );
 $id    = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 $title = isset( $args['title'] ) ? (string) $args['title'] : '';
+$card_heading_level = isset( $args['card_heading_level'] ) ? max( 1, min( 6, (int) $args['card_heading_level'] ) ) : 0;
+$card_heading_tag   = $card_heading_level ? ( 'h' . $card_heading_level ) : '';
 
 if ( ! $items && '' === $title ) {
 	return;
@@ -77,7 +79,12 @@ $heading_id = $id ? $id . '-heading' : '';
 								<?php echo testro_icon( $item['icon'], array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 						<?php endif; ?>
-						<p class="testro-prod-card__title"><?php echo esc_html( $item['title'] ); ?></p>
+						<?php if ( $card_heading_tag ) : ?>
+							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag name is derived from a numeric arg. ?>
+							<<?php echo $card_heading_tag; ?> class="testro-prod-card__title"><?php echo esc_html( $item['title'] ); ?></<?php echo $card_heading_tag; ?>>
+						<?php else : ?>
+							<p class="testro-prod-card__title"><?php echo esc_html( $item['title'] ); ?></p>
+						<?php endif; ?>
 						<?php if ( ! empty( $item['description'] ) ) : ?>
 							<p class="testro-prod-card__desc"><?php echo esc_html( $item['description'] ); ?></p>
 						<?php endif; ?>

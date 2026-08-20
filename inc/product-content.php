@@ -12468,28 +12468,28 @@ function testro_get_faq_set( $context = '' ) {
 
 		'pricing' => array(
 			array(
-				'question' => __( 'How is theTestRo pricing calculated?', 'testro' ),
-				'answer'   => __( 'Pricing is based on the plan that best matches your team size, execution needs, and enterprise requirements. Starter is designed for small QA teams, Professional adds collaboration and scale features, and Enterprise is tailored for unlimited usage, security, and custom deployment options.', 'testro' ),
+				'question' => __( 'How is theTestRo priced?', 'testro' ),
+				'answer'   => __( "Pricing is based on your team size and testing volume, not the number of tests you write. You won't be charged more just for expanding your coverage.", 'testro' ),
 			),
 			array(
-				'question' => __( 'Can I upgrade my plan?', 'testro' ),
-				'answer'   => __( 'Yes. You can upgrade as your automation needs grow—from Starter to Professional or Enterprise—without rebuilding your tests. Our team will help you transition smoothly and map the right capabilities to your workflow.', 'testro' ),
+				'question' => __( "What's the difference between Starter, Growth, and Enterprise?", 'testro' ),
+				'answer'   => __( 'Starter covers the essentials for a team just getting started. Growth adds scale, deeper integrations, and more advanced testing types. Enterprise adds security, compliance, deployment flexibility, and dedicated support for larger or regulated organizations.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Do you offer a free trial?', 'testro' ),
-				'answer'   => __( 'Yes. Start with a free trial on the Starter plan to explore AI test automation, no-code authoring, web and API testing, and core reporting before you commit.', 'testro' ),
+				'question' => __( 'Can I try theTestRo before committing to a plan?', 'testro' ),
+				'answer'   => __( "Yes. Reach out and we'll set you up with a trial or a guided walkthrough against your own application, so you can evaluate real fit before deciding.", 'testro' ),
 			),
 			array(
-				'question' => __( 'Is enterprise deployment available?', 'testro' ),
-				'answer'   => __( 'Absolutely. Enterprise plans support private cloud and on-premise deployment options, SSO, role-based access control, custom integrations, and SLA-backed support for regulated and large-scale environments.', 'testro' ),
+				'question' => __( 'Do you charge extra for AI features like self-healing or test generation?', 'testro' ),
+				'answer'   => __( 'No. AI capabilities are part of the core platform at every tier, not a separate paid add-on.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Do you provide onboarding and migration support?', 'testro' ),
-				'answer'   => __( 'Yes. Our team helps with onboarding, test migration, and best-practice setup so your QA and engineering teams can adopt theTestRo quickly and start delivering value sooner.', 'testro' ),
+				'question' => __( 'Is my data used to train AI models?', 'testro' ),
+				'answer'   => __( 'No. Your test data, application data, and execution results stay yours. theTestRo does not use customer data to train its models.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Which payment methods do you accept?', 'testro' ),
-				'answer'   => __( 'We support standard business payment options, including invoice-based billing for Professional and Enterprise plans. Contact sales for details on your preferred payment method and billing cycle.', 'testro' ),
+				'question' => __( 'What compliance certifications does theTestRo hold?', 'testro' ),
+				'answer'   => __( 'theTestRo is built with SOC 2 and ISO 27001 requirements in mind, with data residency controls, audit logging, and deployment options that support HIPAA, GDPR, and other regulatory frameworks.', 'testro' ),
 			),
 		),
 
@@ -12513,6 +12513,25 @@ function testro_get_faq_set( $context = '' ) {
 			array(
 				'question' => __( 'Is theTestRo suitable for enterprise teams?', 'testro' ),
 				'answer'   => __( 'Yes. theTestRo is built for enterprise test automation with scalable execution, unified quality workflows, CI/CD integration, and deployment options designed for complex organizations that need reliable continuous testing.', 'testro' ),
+			),
+		),
+
+		'partners' => array(
+			array(
+				'question' => __( 'What happens after I apply to the partner program?', 'testro' ),
+				'answer'   => __( 'Our team reviews every application and reaches out with next steps and everything you need to get started.', 'testro' ),
+			),
+			array(
+				'question' => __( 'Is there a cost to join?', 'testro' ),
+				'answer'   => __( 'No. Joining the partner program is free, and there\'s no minimum sales requirement before you start earning.', 'testro' ),
+			),
+			array(
+				'question' => __( 'What\'s the difference between a reseller and a referral partner?', 'testro' ),
+				'answer'   => __( 'A reseller sells theTestRo directly and manages the customer relationship. A referral partner simply sends us a qualified lead and earns a commission when it closes, without handling the sale themselves.', 'testro' ),
+			),
+			array(
+				'question' => __( 'I still have questions. Who do I contact?', 'testro' ),
+				'answer'   => __( 'Reach out to partners@thetestro.com and our team will follow up directly.', 'testro' ),
 			),
 		),
 

@@ -46,8 +46,17 @@ $heading_id = $id ? $id . '-heading' : '';
 				$href      = ! empty( $item['href'] ) ? (string) $item['href'] : '';
 				$video_id  = ! empty( $item['video_id'] ) ? (string) $item['video_id'] : '';
 				$status    = ! empty( $item['status'] ) ? (string) $item['status'] : '';
+				$title     = isset( $item['title'] ) ? (string) $item['title'] : '';
+				$iframe_title = '' !== $title
+					? sprintf(
+						/* translators: %s: webinar title */
+						__( '%s — theTestRo software testing webinar', 'testro' ),
+						$title
+					)
+					: __( 'theTestRo software testing webinar', 'testro' );
 				?>
 				<li class="testro-webinars__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+					<article class="testro-webinars__article">
 					<?php if ( $video_id ) : ?>
 						<?php
 						$embed = add_query_arg(
@@ -62,7 +71,7 @@ $heading_id = $id ? $id . '-heading' : '';
 						<div class="testro-webinars__media">
 							<iframe
 								src="<?php echo esc_url( $embed ); ?>"
-								title="<?php echo esc_attr( $item['title'] ); ?>"
+								title="<?php echo esc_attr( $iframe_title ); ?>"
 								loading="lazy"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 								allowfullscreen
@@ -80,7 +89,7 @@ $heading_id = $id ? $id . '-heading' : '';
 						<?php if ( '' !== $status ) : ?>
 							<p class="testro-webinars__status"><?php echo esc_html( $status ); ?></p>
 						<?php endif; ?>
-						<h3 class="testro-webinars__title"><?php echo esc_html( $item['title'] ); ?></h3>
+						<h3 class="testro-webinars__title"><?php echo esc_html( $title ); ?></h3>
 						<?php if ( ! empty( $item['description'] ) ) : ?>
 							<p class="testro-webinars__desc"><?php echo esc_html( $item['description'] ); ?></p>
 						<?php endif; ?>
@@ -105,6 +114,7 @@ $heading_id = $id ? $id . '-heading' : '';
 							<?php endif; ?>
 						</p>
 					</div>
+					</article>
 				</li>
 			<?php endforeach; ?>
 		</ul>

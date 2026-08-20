@@ -11,18 +11,11 @@ $plans = testro_get_pricing_plans();
 	<section class="testro-pricing" aria-labelledby="pricing-heading" data-pricing-section>
 		<div class="testro-pricing__container">
 			<header class="testro-pricing__header">
-				<div class="testro-pricing__eyebrow-wrap">
-					<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Pricing', 'testro' ); ?></p>
-				</div>
 				<h2 id="pricing-heading" class="gradient-text leading-tight main-headings testro-pricing__title">
-					<?php
-					echo wp_kses(
-						__( 'From Startup to Enterprise <br> Test Automation for <br> Everyone.', 'testro' ),
-						array( 'br' => array() )
-					);
-					?>
+					<?php esc_html_e( 'From Startup to Enterprise', 'testro' ); ?>
 				</h2>
-				<p class="sub-text testro-pricing__intro"><?php esc_html_e( 'Flexible plans for every team. Choose a pricing plan that fits your needs today and scales effortlessly as your team grows.', 'testro' ); ?></p>
+				<p class="sub-text testro-pricing__intro"><?php esc_html_e( 'Test Automation for Everyone.', 'testro' ); ?></p>
+				<p class="sub-text testro-pricing__intro"><?php esc_html_e( 'Choose Your Plan', 'testro' ); ?></p>
 
 				<div class="testro-pricing__toggle tabs-container" role="group" aria-label="<?php esc_attr_e( 'Billing period', 'testro' ); ?>">
 					<button type="button" class="testro-pricing__period active-tab is-active" data-billing="monthly" aria-pressed="true">

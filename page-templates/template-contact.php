@@ -1,33 +1,15 @@
 <?php
 /**
  * Template Name: Contact Us
- * Description: Contact page with centered hero, form, expert cards, contact info, and final CTA.
+ * Description: Contact page with hero, sales/support cards, form, office locations, and CTA.
  *
  * @package TestRo
  */
 
 get_header();
 
-$email = function_exists( 'testro_get_option' )
-	? testro_get_option( 'email', 'support@thetestro.com' )
-	: 'support@thetestro.com';
-$phone = function_exists( 'testro_get_option' )
-	? testro_get_option( 'phone', '' )
-	: '';
-
-$contact_actions = array(
-	array(
-		'label' => __( 'Book a Demo', 'testro' ),
-		'style' => 'primary',
-		'modal' => 'demo-modal',
-	),
-	array(
-		'label' => __( 'Get in Touch', 'testro' ),
-		'style' => 'outline',
-		'href'  => '#get-in-touch',
-		'icon'  => 'arrow-right',
-	),
-);
+$sales_email   = 'sales@thetestro.com';
+$support_email = 'support@thetestro.com';
 ?>
 <div class="testro-page-shell testro-page-shell--contact">
 	<?php
@@ -35,74 +17,68 @@ $contact_actions = array(
 		'template-parts/product/hero',
 		null,
 		array(
-			'eyebrow'     => __( 'Contact Us', 'testro' ),
 			'title'       => __( "Let's Build Smarter Software Testing Together", 'testro' ),
-			'subtitle'    => __( 'theTestRo helps teams modernize software testing with AI-powered, no-code automation. Connect with our team for product questions, demos, support, or partnership opportunities.', 'testro' ),
-			'actions'     => $contact_actions,
+			'subtitle'    => __( "Got a question about pricing, a feature, or how theTestRo fits your team? Want to see it in action first? Just reach out. We'll get you the answer.", 'testro' ),
 			'breadcrumbs' => true,
 		)
 	);
+	?>
 
+	<section class="testro-prod-section testro-prod-section--spotlight testro-prod-features" id="contact-channels" aria-label="<?php esc_attr_e( 'Contact channels', 'testro' ); ?>">
+		<div class="testro-container">
+			<ul class="testro-prod-cards" data-columns="2">
+				<li class="testro-prod-card testro-prod-card--cta" data-reveal style="--reveal-delay: 0ms">
+					<span class="testro-prod-card__glow" aria-hidden="true"></span>
+					<div class="testro-prod-card__body">
+						<span class="testro-prod-card__icon" aria-hidden="true">
+							<?php echo testro_icon( 'user-check', array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+						</span>
+						<h2 class="testro-prod-card__title"><?php esc_html_e( 'Talk to Sales', 'testro' ); ?></h2>
+						<p class="testro-prod-card__desc"><?php esc_html_e( 'Curious about plans, pricing, or a custom setup for your team? Our sales team is ready when you are.', 'testro' ); ?></p>
+						<p class="testro-prod-card__cta">
+							<a class="testro-btn testro-btn--outline testro-prod-card__cta-btn" href="<?php echo esc_url( 'mailto:' . $sales_email ); ?>">
+								<span><?php echo esc_html( $sales_email ); ?></span>
+								<?php echo testro_icon( 'arrow-right', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+							</a>
+						</p>
+					</div>
+				</li>
+				<li class="testro-prod-card testro-prod-card--cta" data-reveal style="--reveal-delay: 70ms">
+					<span class="testro-prod-card__glow" aria-hidden="true"></span>
+					<div class="testro-prod-card__body">
+						<span class="testro-prod-card__icon" aria-hidden="true">
+							<?php echo testro_icon( 'message-text', array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+						</span>
+						<h2 class="testro-prod-card__title"><?php esc_html_e( 'Get Support', 'testro' ); ?></h2>
+						<p class="testro-prod-card__desc"><?php esc_html_e( 'Already using theTestRo and need a hand? Our support team responds fast.', 'testro' ); ?></p>
+						<p class="testro-prod-card__cta">
+							<a class="testro-btn testro-btn--outline testro-prod-card__cta-btn" href="<?php echo esc_url( 'mailto:' . $support_email ); ?>">
+								<span><?php echo esc_html( $support_email ); ?></span>
+								<?php echo testro_icon( 'arrow-right', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+							</a>
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<?php
 	get_template_part(
 		'template-parts/sections/contact',
 		null,
 		array(
-			'layout'        => 'split',
-			'title'         => __( 'Get in Touch', 'testro' ),
-			'description'   => __( 'Reach out to theTestRo team for demos, product questions, support, or business inquiries. We typically respond within one business day.', 'testro' ),
-			'submit_label'  => __( 'Send Message', 'testro' ),
-			'show_phone'    => true,
-			'show_subject'  => true,
-			'full_name'     => true,
-			'section_id'    => 'get-in-touch',
-		)
-	);
-
-	get_template_part(
-		'template-parts/product/feature-grid',
-		null,
-		array(
-			'id'      => 'talk-to-experts',
-			'variant' => 'spotlight',
-			'columns' => 3,
-			'eyebrow' => __( 'Our Teams', 'testro' ),
-			'title'   => __( 'Talk to Our Experts', 'testro' ),
-			'intro'   => __( 'Choose the conversation that fits your goals—sales, product support, or partnership opportunities.', 'testro' ),
-			'items'   => array(
-				array(
-					'icon'        => 'user-check',
-					'title'       => __( 'Sales', 'testro' ),
-					'description' => __( 'Talk to our sales team. Learn how theTestRo can help your team modernize and scale software testing.', 'testro' ),
-					'cta'         => array(
-						'label' => __( 'Talk to Sales', 'testro' ),
-						'href'  => '#get-in-touch',
-						'attrs' => array(
-							'data-inquiry' => 'sales',
-						),
-					),
-				),
-				array(
-					'icon'        => 'message-text',
-					'title'       => __( 'Support', 'testro' ),
-					'description' => __( 'Get product support. Get assistance with your existing theTestRo setup, testing workflows, or product questions.', 'testro' ),
-					'cta'         => array(
-						'label' => __( 'Contact Support', 'testro' ),
-						'href'  => 'mailto:' . $email,
-					),
-				),
-				array(
-					'icon'        => 'plug',
-					'title'       => __( 'Partnerships', 'testro' ),
-					'description' => __( 'Partner with theTestRo. Explore partnership and collaboration opportunities.', 'testro' ),
-					'cta'         => array(
-						'label' => __( 'Explore Partnerships', 'testro' ),
-						'href'  => '#get-in-touch',
-						'attrs' => array(
-							'data-inquiry' => 'partnerships',
-						),
-					),
-				),
-			),
+			'layout'          => 'default',
+			'title'           => __( 'Send Us a Message', 'testro' ),
+			'supporting'      => __( 'Tell Us a Bit About What You Need', 'testro' ),
+			'description'     => __( 'Fill this out, and someone from our team will follow up shortly.', 'testro' ),
+			'submit_label'    => __( 'Send Message', 'testro' ),
+			'message_label'   => __( 'Message', 'testro' ),
+			'full_name'       => true,
+			'section_id'      => 'get-in-touch',
+			'show_highlights' => false,
+			'show_consent'    => true,
+			'show_eyebrow'    => false,
 		)
 	);
 
@@ -110,8 +86,13 @@ $contact_actions = array(
 		'template-parts/sections/office-locations',
 		null,
 		array(
-			'email' => $email,
-			'phone' => $phone,
+			'title'     => __( 'Where to Find Us', 'testro' ),
+			'eyebrow'   => '',
+			'intro'     => '',
+			'show_map'  => true,
+			'company'   => __( 'Openskale Technologies', 'testro' ),
+			'address'   => __( '1st Floor, Jain Sadguru Images, Unit-106B, Capital Park Road, VIP Hills, Madhapur, Hyderabad, Telangana 500081', 'testro' ),
+			'map_query' => 'Openskale Technologies Pvt Ltd, Jain Sadguru Images, Unit-106B, Capital Park Road, VIP Hills, Madhapur, Hyderabad, Telangana 500081',
 		)
 	);
 
@@ -119,26 +100,21 @@ $contact_actions = array(
 		'template-parts/product/cta',
 		null,
 		array(
-			'id'         => 'contact-final-cta',
-			'title'      => __( 'Ready to Build Smarter Software Testing?', 'testro' ),
-			'intro'      => __( 'Connect with theTestRo team and discover how AI-powered, no-code test automation can help your team deliver reliable software faster.', 'testro' ),
-			'actions'    => array(
+			'id'            => 'contact-final-cta',
+			'title'         => __( 'Ready to See What theTestRo Can Do?', 'testro' ),
+			'heading_level' => 2,
+			'actions'       => array(
 				array(
-					'label' => __( 'Book a Demo', 'testro' ),
+					'label' => __( 'Start Testing Free', 'testro' ),
 					'style' => 'primary',
 					'modal' => 'demo-modal',
 				),
 				array(
-					'label' => __( 'Start Testing', 'testro' ),
+					'label' => __( 'Book a Demo', 'testro' ),
 					'style' => 'outline',
 					'modal' => 'demo-modal',
 					'icon'  => 'arrow-right',
 				),
-			),
-			'assurances' => array(
-				__( 'No credit card required', 'testro' ),
-				__( 'Cancel anytime', 'testro' ),
-				__( 'Setup in minutes', 'testro' ),
 			),
 		)
 	);

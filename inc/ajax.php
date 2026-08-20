@@ -129,7 +129,6 @@ function testro_ajax_demo() {
 	$last_name    = isset( $_POST['last_name'] ) ? sanitize_text_field( wp_unslash( $_POST['last_name'] ) ) : '';
 	$organization = isset( $_POST['organization_name'] ) ? sanitize_text_field( wp_unslash( $_POST['organization_name'] ) ) : '';
 	$email        = isset( $_POST['work_email'] ) ? sanitize_email( wp_unslash( $_POST['work_email'] ) ) : '';
-	$designation  = isset( $_POST['designation'] ) ? sanitize_text_field( wp_unslash( $_POST['designation'] ) ) : '';
 	$requirements = isset( $_POST['primary_requirements'] ) ? sanitize_textarea_field( wp_unslash( $_POST['primary_requirements'] ) ) : '';
 
 	if (
@@ -137,7 +136,6 @@ function testro_ajax_demo() {
 		|| '' === $last_name
 		|| ! is_email( $email )
 		|| '' === $organization
-		|| '' === $designation
 		|| '' === $requirements
 	) {
 		wp_send_json_error(
@@ -152,8 +150,7 @@ function testro_ajax_demo() {
 	$body   .= 'First Name: ' . $first_name . "\n";
 	$body   .= 'Last Name: ' . $last_name . "\n";
 	$body   .= 'Organization: ' . $organization . "\n";
-	$body   .= 'Work Email: ' . $email . "\n";
-	$body   .= 'Designation: ' . $designation . "\n\n";
+	$body   .= 'Work Email: ' . $email . "\n\n";
 	$body   .= "Primary Requirements:\n" . $requirements . "\n";
 
 	$headers = array(
@@ -170,14 +167,9 @@ function testro_ajax_demo() {
 		);
 	}
 
-	$response = array( 'message' => __( 'Thanks! Our team will contact you shortly.', 'testro' ) );
-	if ( function_exists( 'testro_get_thankyou_url' ) ) {
-		$redirect = testro_get_thankyou_url( 'demo' );
-		if ( $redirect ) {
-			$response['redirect'] = $redirect;
-		}
-	}
-	wp_send_json_success( $response );
+	wp_send_json_success(
+		array( 'message' => __( 'Thanks! Our team will contact you shortly.', 'testro' ) )
+	);
 }
 add_action( 'wp_ajax_testro_demo', 'testro_ajax_demo' );
 add_action( 'wp_ajax_nopriv_testro_demo', 'testro_ajax_demo' );

@@ -484,6 +484,86 @@
   /* ------------------------------------------------------------------------ */
   /* 3 + 10. Demo modal open/close                                            */
   /* ------------------------------------------------------------------------ */
+  var TURNSTILE_SITE_KEY = DATA.turnstileSiteKey || '';
+
+  function whenTurnstileReady(cb) {
+    if (window.turnstile && typeof window.turnstile.render === 'function') {
+      cb();
+      return;
+    }
+    var attempts = 0;
+    var timer = setInterval(function () {
+      attempts += 1;
+      if (window.turnstile && typeof window.turnstile.render === 'function') {
+        clearInterval(timer);
+        cb();
+      } else if (attempts > 50) {
+        clearInterval(timer);
+      }
+    }, 100);
+  }
+
+  function resetTurnstileWidget(host) {
+    if (!host || !window.turnstile) return;
+    var widgetId = host.getAttribute('data-widget-id');
+    if (!widgetId) return;
+    try {
+      window.turnstile.reset(widgetId);
+    } catch (err) {
+      /* ignore */
+    }
+  }
+
+  function getTurnstileToken(host) {
+    if (!host || !window.turnstile) return '';
+    var widgetId = host.getAttribute('data-widget-id');
+    if (!widgetId) return '';
+    try {
+      return window.turnstile.getResponse(widgetId) || '';
+    } catch (err) {
+      return '';
+    }
+  }
+
+  function renderTurnstileWidget(host) {
+    if (!host || !TURNSTILE_SITE_KEY) return;
+
+    whenTurnstileReady(function () {
+      if (host.getAttribute('data-widget-id')) {
+        resetTurnstileWidget(host);
+        return;
+      }
+      var widgetId = window.turnstile.render(host, {
+        sitekey: TURNSTILE_SITE_KEY,
+        theme: 'light',
+        size: 'flexible',
+        callback: function () {},
+        'expired-callback': function () {},
+        'error-callback': function () {},
+        'timeout-callback': function () {}
+      });
+      if (widgetId) {
+        host.setAttribute('data-widget-id', widgetId);
+      }
+    });
+  }
+
+  function getDemoTurnstileHost() {
+    return qs('#demo-turnstile');
+  }
+
+  function resetDemoTurnstileWidget() {
+    resetTurnstileWidget(getDemoTurnstileHost());
+  }
+
+  function getDemoTurnstileToken() {
+    return getTurnstileToken(getDemoTurnstileHost());
+  }
+
+  function renderDemoTurnstileWidget() {
+    renderTurnstileWidget(getDemoTurnstileHost());
+  }
+
   function initDemoModal() {
     var modal = qs('#demo-modal') || qs('.testro-modal');
     if (!modal) return;
@@ -507,6 +587,7 @@
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
           modal.classList.add('is-open');
+          renderDemoTurnstileWidget();
         });
       });
       var focusEl = qs('input, button, textarea, select', modal);
@@ -518,6 +599,7 @@
       modal.hidden = true;
       modal.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('modal-open');
+      resetDemoTurnstileWidget();
       closeTimer = null;
     }
 
@@ -1535,6 +1617,59 @@
     status.classList.toggle('is-error', type === 'error');
   }
 
+  var pageToastTimer = null;
+
+  function showPageToast(title, message) {
+    var existing = qs('#testro-page-toast');
+    if (existing && existing.parentNode) {
+      existing.parentNode.removeChild(existing);
+    }
+    if (pageToastTimer) {
+      clearTimeout(pageToastTimer);
+      pageToastTimer = null;
+    }
+
+    var toast = document.createElement('div');
+    toast.id = 'testro-page-toast';
+    toast.className = 'testro-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+
+    var titleEl = document.createElement('p');
+    titleEl.className = 'testro-toast__title';
+    titleEl.textContent = title;
+
+    var msgEl = document.createElement('p');
+    msgEl.className = 'testro-toast__message';
+    msgEl.textContent = message;
+
+    toast.appendChild(titleEl);
+    toast.appendChild(msgEl);
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        toast.classList.add('is-visible');
+      });
+    });
+
+    pageToastTimer = setTimeout(function () {
+      toast.classList.remove('is-visible');
+      toast.classList.add('is-leaving');
+      setTimeout(function () {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 250);
+      pageToastTimer = null;
+    }, 5000);
+  }
+
+  function isDemoRequestSuccess(result) {
+    var data = result && result.data ? result.data : {};
+    if (data.status === false) return false;
+    if (data.status === true) return true;
+    return !!(result && result.ok);
+  }
+
   function postAjax(action, payload) {
     var body = new FormData();
     body.append('action', action);
@@ -1626,6 +1761,30 @@
     });
   }
 
+  var CONTACT_SUCCESS_MS = 1000000;
+  var contactThanksTimer = null;
+
+  function getContactTurnstileHost(form) {
+    return (form && qs('#contact-turnstile', form)) || qs('#contact-turnstile');
+  }
+
+  function clearContactThanksTimer() {
+    if (contactThanksTimer) {
+      clearTimeout(contactThanksTimer);
+      contactThanksTimer = null;
+    }
+  }
+
+  function hideContactThanks(form) {
+    if (!form) return;
+    var card = form.closest('.testro-contact__card');
+    var thanks = card ? qs('#testro-contact-thanks', card) : null;
+    form.hidden = false;
+    if (thanks) thanks.hidden = true;
+    if (card) card.classList.remove('is-submitted');
+    resetTurnstileWidget(getContactTurnstileHost(form));
+  }
+
   function showContactThanks(form) {
     var card = form.closest('.testro-contact__card');
     var thanks = card ? qs('#testro-contact-thanks', card) : null;
@@ -1641,7 +1800,15 @@
         thanks.focus();
       }
     }
+
+    clearContactThanksTimer();
+    contactThanksTimer = setTimeout(function () {
+      contactThanksTimer = null;
+      hideContactThanks(form);
+    }, CONTACT_SUCCESS_MS);
   }
+
+  on(window, 'pagehide', clearContactThanksTimer);
 
   function clearContactFieldErrors(form) {
     qsa('.testro-form__field.is-invalid', form).forEach(function (field) {
@@ -1722,10 +1889,6 @@
       fail('company', 'Please enter your company name.');
     }
 
-    if (qs('[name="subject"]', form) && !String(data.subject || '').trim()) {
-      fail('subject', 'Please select an inquiry type.');
-    }
-
     if (!String(data.message || '').trim()) {
       fail('message', 'Please enter a message.');
     }
@@ -1737,7 +1900,7 @@
     return valid;
   }
 
-  function buildContactPayload(form) {
+  function buildContactPayload(form, token) {
     var formData = formToObject(form);
     var names;
 
@@ -1750,25 +1913,89 @@
       };
     }
 
-    var requirements = String(formData.message || '').trim();
-    var subject = String(formData.subject || '').trim();
-    var phone = String(formData.phone || '').trim();
-    var extras = [];
-
-    if (subject) extras.push('Inquiry type: ' + subject);
-    if (phone) extras.push('Phone: ' + phone);
-    if (extras.length) {
-      requirements = extras.join('\n') + '\n\n' + requirements;
-    }
-
     return {
       first_name: names.first_name,
       last_name: names.last_name,
       work_email: formData.work_email || '',
       organization_name: formData.company || '',
-      primary_requirements: requirements,
+      primary_requirements: String(formData.message || '').trim(),
+      turnstile_token: token,
       type: 'book_demo'
     };
+  }
+
+  function buildDemoPayload(form, token) {
+    var data = formToObject(form);
+    return {
+      first_name: String(data.first_name || '').trim(),
+      last_name: String(data.last_name || '').trim(),
+      work_email: String(data.work_email || '').trim(),
+      organization_name: String(data.organization_name || '').trim(),
+      primary_requirements: String(data.primary_requirements || '').trim(),
+      turnstile_token: token,
+      type: 'book_demo'
+    };
+  }
+
+  function validateDemoForm(form) {
+    var data = formToObject(form);
+    if (!String(data.first_name || '').trim()) return false;
+    if (!String(data.last_name || '').trim()) return false;
+    if (!isValidEmail(data.work_email)) return false;
+    if (!String(data.organization_name || '').trim()) return false;
+    if (!String(data.primary_requirements || '').trim()) return false;
+    return true;
+  }
+
+  function bindDemoForm(form, options) {
+    if (!form || form.getAttribute('data-bound')) return;
+    form.setAttribute('data-bound', '1');
+    options = options || {};
+
+    on(form, 'submit', function (e) {
+      e.preventDefault();
+      var btn = qs('[type="submit"]', form);
+
+      if (!validateDemoForm(form)) {
+        setStatus(form, 'error', 'Please fill in all required fields with a valid work email.');
+        return;
+      }
+
+      var token = getDemoTurnstileToken();
+      if (!token) {
+        setStatus(form, 'error', 'Please complete the security verification.');
+        return;
+      }
+
+      if (btn) btn.disabled = true;
+
+      postServiceRequest(buildDemoPayload(form, token))
+        .then(function (result) {
+          var data = result.data || {};
+          if (isDemoRequestSuccess(result)) {
+            form.reset();
+            resetDemoTurnstileWidget();
+            if (typeof options.onSuccess === 'function') {
+              options.onSuccess(data.message || options.success || '');
+            }
+            return;
+          }
+
+          resetDemoTurnstileWidget();
+          setStatus(
+            form,
+            'error',
+            data.message || data.error || options.error
+          );
+        })
+        .catch(function () {
+          resetDemoTurnstileWidget();
+          setStatus(form, 'error', options.error);
+        })
+        .finally(function () {
+          if (btn) btn.disabled = false;
+        });
+    });
   }
 
   function bindContactForm(form, options) {
@@ -1807,6 +2034,13 @@
         return;
       }
 
+      var turnstileHost = getContactTurnstileHost(form);
+      var token = getTurnstileToken(turnstileHost);
+      if (!token) {
+        setStatus(form, 'error', 'Please complete the security verification.');
+        return;
+      }
+
       if (btn) btn.disabled = true;
       var statusEl = qs('.testro-form__status', form);
       if (statusEl) {
@@ -1815,16 +2049,18 @@
         statusEl.classList.remove('is-success', 'is-error');
       }
 
-      postServiceRequest(buildContactPayload(form))
+      postServiceRequest(buildContactPayload(form, token))
         .then(function (result) {
           var data = result.data || {};
-          if (result.ok) {
+          if (isDemoRequestSuccess(result)) {
             form.reset();
             clearContactFieldErrors(form);
+            resetTurnstileWidget(turnstileHost);
             showContactThanks(form);
             return;
           }
 
+          resetTurnstileWidget(turnstileHost);
           setStatus(
             form,
             'error',
@@ -1832,6 +2068,7 @@
           );
         })
         .catch(function () {
+          resetTurnstileWidget(turnstileHost);
           setStatus(form, 'error', options.error);
         })
         .finally(function () {
@@ -1873,17 +2110,15 @@
     bindContactForm(qs('#testro-contact-form'), {
       error: 'Something went wrong. Please try again.'
     });
+    renderTurnstileWidget(qs('#contact-turnstile'));
     initContactInquiryPrefill();
 
-    bindForm(qs('#testro-demo-form'), {
-      action: 'testro_demo',
+    bindDemoForm(qs('#testro-demo-form'), {
       success: 'Demo request received! We will contact you shortly.',
       error: 'Unable to submit demo request. Please try again.',
-      redirect: thankYou.demo || '',
-      onSuccess: function () {
-        setTimeout(function () {
-          if (window.testroCloseDemo) window.testroCloseDemo();
-        }, 1200);
+      onSuccess: function (message) {
+        if (window.testroCloseDemo) window.testroCloseDemo();
+        showPageToast('Demo Requested!', message);
       }
     });
 

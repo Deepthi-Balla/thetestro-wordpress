@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Partners
- * Description: Partners landing — centered hero, partnership types, benefits, ecosystem logos, FAQ, and CTA.
+ * Description: Partners landing page.
  *
  * @package TestRo
  */
@@ -18,14 +18,6 @@ $partner_actions = array(
 	array(
 		'label' => __( 'Become a Partner', 'testro' ),
 		'style' => 'primary',
-		'href'  => '#become-a-partner',
-	),
-);
-
-$partner_final_actions = array(
-	array(
-		'label' => __( 'Become a Partner', 'testro' ),
-		'style' => 'primary',
 		'href'  => $partner_contact,
 	),
 );
@@ -36,15 +28,8 @@ $partner_final_actions = array(
 		'template-parts/product/hero',
 		null,
 		array(
-			'eyebrow'     => __( 'Partners', 'testro' ),
-			'title'       => __( 'Become a theTestRo Partner', 'testro' ),
-			'subtitle'    => __( 'Grow your business by delivering AI-powered test automation solutions to enterprise customers.', 'testro' ),
-			'badges'      => array(
-				__( 'Implementation', 'testro' ),
-				__( 'Reseller', 'testro' ),
-				__( 'Referral', 'testro' ),
-				__( 'Technology', 'testro' ),
-			),
+			'title'       => __( 'Grow With theTestRo', 'testro' ),
+			'subtitle'    => __( 'Bring AI-powered test automation to your clients and open up a new line of revenue for your business.', 'testro' ),
 			'actions'     => $partner_actions,
 			'breadcrumbs' => true,
 		)
@@ -54,32 +39,32 @@ $partner_final_actions = array(
 		'template-parts/product/feature-grid',
 		null,
 		array(
-			'id'      => 'partnership-opportunities',
-			'variant' => 'spotlight',
-			'columns' => 4,
-			'eyebrow' => __( 'Grow Together', 'testro' ),
-			'title'   => __( 'Partnership Opportunities', 'testro' ),
-			'intro'   => __( 'theTestRo works with different types of partners to help organizations adopt AI-powered software testing—and to create new revenue opportunities for the firms that deliver it.', 'testro' ),
-			'items'   => array(
+			'id'                 => 'partnership-opportunities',
+			'variant'            => 'spotlight',
+			'columns'            => 4,
+			'title'                => __( 'Ways to Partner', 'testro' ),
+			'intro'                => __( 'A Few Ways to Work With Us', 'testro' ),
+			'card_heading_level'   => 3,
+			'items'                => array(
 				array(
 					'icon'        => 'wrench',
 					'title'       => __( 'Implementation Partners', 'testro' ),
-					'description' => __( 'Help organizations implement, configure, and scale theTestRo across their testing workflows.', 'testro' ),
+					'description' => __( 'Add theTestRo to your service lineup and help your clients get set up, configured, and running fast.', 'testro' ),
 				),
 				array(
 					'icon'        => 'package',
-					'title'       => __( 'Reseller Partners', 'testro' ),
-					'description' => __( "Expand your portfolio by offering theTestRo's AI-powered test automation platform to customers.", 'testro' ),
+					'title'       => __( 'Resellers', 'testro' ),
+					'description' => __( 'Sell theTestRo directly to your customer base, with pricing and support built for reseller partners.', 'testro' ),
 				),
 				array(
 					'icon'        => 'user-check',
 					'title'       => __( 'Referral Partners', 'testro' ),
-					'description' => __( 'Refer organizations that can benefit from modern AI-powered software testing.', 'testro' ),
+					'description' => __( "Send us a lead, and we'll handle the rest. Earn a commission for every deal that closes.", 'testro' ),
 				),
 				array(
 					'icon'        => 'plug',
-					'title'       => __( 'Technology & Strategic Partners', 'testro' ),
-					'description' => __( 'Build integrations, technology partnerships, and strategic collaborations with theTestRo.', 'testro' ),
+					'title'       => __( 'System Integrators and Distributors', 'testro' ),
+					'description' => __( 'Bundle theTestRo into larger deployments and go-to-market alongside your existing enterprise offerings.', 'testro' ),
 				),
 			),
 		)
@@ -89,42 +74,32 @@ $partner_final_actions = array(
 		'template-parts/product/feature-grid',
 		null,
 		array(
-			'id'      => 'why-partner',
-			'variant' => 'default',
-			'columns' => 3,
-			'eyebrow' => __( 'Partner Benefits', 'testro' ),
-			'title'   => __( 'Why Partner with theTestRo?', 'testro' ),
-			'intro'   => __( 'Join a collaborative partner program built to help you win deals, deliver successful implementations, and grow recurring revenue.', 'testro' ),
-			'items'   => array(
+			'id'                 => 'why-partner',
+			'variant'            => 'default',
+			'columns'            => 3,
+			'title'              => __( 'What You Get as a Partner', 'testro' ),
+			'intro'              => __( 'Real Support, Not Just a Login', 'testro' ),
+			'card_heading_level' => 3,
+			'items'              => array(
 				array(
 					'icon'        => 'trending-up',
-					'title'       => __( 'Co-Marketing Opportunities', 'testro' ),
-					'description' => __( 'Amplify your brand with joint campaigns, webinars, case studies, and shared go-to-market initiatives.', 'testro' ),
+					'title'       => __( 'Co-Marketing', 'testro' ),
+					'description' => __( 'Get featured in joint campaigns, case studies, and content that puts your name in front of a bigger audience.', 'testro' ),
 				),
 				array(
-					'icon'        => 'coins',
-					'title'       => __( 'Revenue Growth', 'testro' ),
-					'description' => __( 'Unlock new revenue streams through resale, referrals, implementation services, and long-term customer success.', 'testro' ),
-				),
-				array(
-					'icon'        => 'badge-check',
-					'title'       => __( 'Technical Enablement & Training', 'testro' ),
-					'description' => __( 'Get certified enablement so your teams can implement, configure, and support theTestRo with confidence.', 'testro' ),
+					'icon'        => 'wrench',
+					'title'       => __( 'Hands-On Implementation Help', 'testro' ),
+					'description' => __( 'Our team backs you up during client rollouts, so you can own the relationship and the revenue without carrying the technical load alone.', 'testro' ),
 				),
 				array(
 					'icon'        => 'file-text',
-					'title'       => __( 'Sales & Marketing Resources', 'testro' ),
-					'description' => __( 'Access ready-to-use decks, demos, battle cards, and content that help you engage enterprise buyers faster.', 'testro' ),
+					'title'       => __( 'Training and Ongoing Support', 'testro' ),
+					'description' => __( 'Get access to onboarding, product training, and a support line built specifically for partners, not just end users.', 'testro' ),
 				),
 				array(
 					'icon'        => 'message-text',
-					'title'       => __( 'Dedicated Partner Support', 'testro' ),
-					'description' => __( 'Work with a dedicated partner contact who helps you prioritize opportunities and resolve customer needs quickly.', 'testro' ),
-				),
-				array(
-					'icon'        => 'layout-grid',
-					'title'       => __( 'Product & Implementation Assistance', 'testro' ),
-					'description' => __( 'Leverage product experts for complex rollouts, integrations, and best-practice guidance across engagements.', 'testro' ),
+					'title'       => __( 'Sales and Marketing Resources', 'testro' ),
+					'description' => __( 'Pitch decks, one-pagers, demo scripts, and campaign assets, ready to use whenever you need them.', 'testro' ),
 				),
 			),
 		)
@@ -134,80 +109,77 @@ $partner_final_actions = array(
 		'template-parts/product/feature-grid',
 		null,
 		array(
-			'id'      => 'why-thetestro-partner',
-			'variant' => 'tint',
-			'columns' => 3,
-			'eyebrow' => __( 'Platform Advantage', 'testro' ),
-			'title'   => __( 'Why theTestRo?', 'testro' ),
-			'intro'   => __( 'Organizations choose theTestRo as their testing technology partner because it delivers modern, AI-powered automation that is easy to adopt and ready for enterprise scale.', 'testro' ),
-			'items'   => array(
+			'id'                 => 'why-thetestro-partner',
+			'variant'            => 'tint',
+			'columns'            => 4,
+			'title'              => __( 'Why Partners Choose theTestRo', 'testro' ),
+			'heading_level'      => 3,
+			'card_heading_level' => 4,
+			'items'              => array(
+				array(
+					'icon'        => 'user-check',
+					'title'       => __( 'A Platform Teams Actually Adopt', 'testro' ),
+					'description' => __( 'theTestRo is built to be picked up fast by QA teams of every size, which means shorter sales cycles and happier clients.', 'testro' ),
+				),
 				array(
 					'icon'        => 'sparkles',
-					'title'       => __( 'AI-Powered Test Automation Platform', 'testro' ),
-					'description' => __( 'Deliver intelligent test creation, execution, analysis, and maintenance powered by AI.', 'testro' ),
+					'title'       => __( 'AI That Cuts Real Time, Not Just Marketing Copy', 'testro' ),
+					'description' => __( 'Plain-English test creation and self-healing tests mean your clients see results early, which makes renewals easier.', 'testro' ),
 				),
 				array(
 					'icon'        => 'pen-square',
-					'title'       => __( 'No-Code Test Automation', 'testro' ),
-					'description' => __( 'Enable teams to automate testing without deep scripting expertise—accelerating time to value.', 'testro' ),
-				),
-				array(
-					'icon'        => 'shield-check',
-					'title'       => __( 'Enterprise-Ready Solution', 'testro' ),
-					'description' => __( 'Support security, governance, and reliability requirements expected by enterprise customers.', 'testro' ),
-				),
-				array(
-					'icon'        => 'browsers',
-					'title'       => __( 'Unified Web, API & Cross-Browser Testing', 'testro' ),
-					'description' => __( 'Cover critical quality workflows in one platform—web, API, and cross-browser validation.', 'testro' ),
+					'title'       => __( 'One Platform Across Every Industry', 'testro' ),
+					'description' => __( 'From retail to healthcare to financial services, theTestRo fits a wide range of client environments without a custom build each time.', 'testro' ),
 				),
 				array(
 					'icon'        => 'rocket',
-					'title'       => __( 'Scalable for Businesses of Every Size', 'testro' ),
-					'description' => __( 'Grow with customers from first automation projects to large-scale, multi-team quality programs.', 'testro' ),
+					'title'       => __( 'A Growing Market to Sell Into', 'testro' ),
+					'description' => __( 'Test automation demand keeps climbing as companies ship software faster. Partnering now means growing alongside that demand, not catching up to it later.', 'testro' ),
 				),
 			),
 		)
 	);
+	?>
 
-	get_template_part(
-		'template-parts/sections/partner-logos',
-		null,
-		array(
-			'eyebrow' => __( 'Ecosystem', 'testro' ),
-			'title'   => __( 'Our Partner Ecosystem', 'testro' ),
-			'intro'   => __( 'theTestRo collaborates with a growing network of organizations that help teams modernize software quality with AI-powered test automation.', 'testro' ),
-		)
-	);
+	<section class="testro-partner-logos" id="partner-network" aria-labelledby="partner-network-heading">
+		<div class="testro-container">
+			<?php
+			get_template_part(
+				'template-parts/product/section-header',
+				null,
+				array(
+					'title'         => __( 'Join a Growing Partner Network', 'testro' ),
+					'intro'         => __( "You'd Be in Good Company", 'testro' ),
+					'intro_extra'   => __( 'theTestRo works with implementation firms, resellers, and system integrators across the industry, from focused boutique QA consultancies to large enterprise service providers. Whatever size your business is, there\'s a partnership model that fits.', 'testro' ),
+					'heading_id'    => 'partner-network-heading',
+					'heading_level' => 2,
+				)
+			);
+			?>
+			<div class="testro-partner-logos__cta" style="margin-top: 2.25rem;" data-reveal>
+				<?php
+				get_template_part(
+					'template-parts/product/actions',
+					null,
+					array(
+						'actions' => $partner_actions,
+						'align'   => 'center',
+						'tone'    => 'light',
+					)
+				);
+				?>
+			</div>
+		</div>
+	</section>
 
+	<?php
 	get_template_part(
 		'template-parts/sections/faq',
 		null,
 		array(
-			'eyebrow' => __( 'Partner Program', 'testro' ),
-			'title'   => __( 'Frequently Asked Questions', 'testro' ),
-			'faqs'    => array(
-				array(
-					'question' => __( 'How do I become a partner?', 'testro' ),
-					'answer'   => __( 'Click Become a Partner to share your company details and partnership interest. Our partnerships team will review your application and follow up to discuss the best-fit program.', 'testro' ),
-				),
-				array(
-					'question' => __( 'Is there a partner program fee?', 'testro' ),
-					'answer'   => __( 'Program requirements and any fees vary by partnership type. After you apply, we will outline the options that match your business model with clear commercial terms.', 'testro' ),
-				),
-				array(
-					'question' => __( 'What types of partnerships are available?', 'testro' ),
-					'answer'   => __( 'We work with Implementation, Reseller, Referral, and Technology & Strategic partners. Many organizations combine more than one model based on how they engage customers.', 'testro' ),
-				),
-				array(
-					'question' => __( 'What support does theTestRo provide?', 'testro' ),
-					'answer'   => __( 'Partners receive enablement and training, sales and marketing resources, dedicated partner support, and product or implementation assistance for customer engagements.', 'testro' ),
-				),
-				array(
-					'question' => __( 'How do partners generate revenue?', 'testro' ),
-					'answer'   => __( 'Partners can earn through resale margins, referral incentives, implementation and consulting services, and ongoing customer success engagements tied to theTestRo deployments.', 'testro' ),
-				),
-			),
+			'title'         => __( 'Frequently Asked Questions', 'testro' ),
+			'heading_level' => 2,
+			'faqs'          => 'partners',
 		)
 	);
 
@@ -215,15 +187,10 @@ $partner_final_actions = array(
 		'template-parts/product/cta',
 		null,
 		array(
-			'id'         => 'become-a-partner',
-			'title'      => __( 'Ready to Grow with theTestRo?', 'testro' ),
-			'intro'      => __( 'Join our partner ecosystem and help organizations accelerate software quality with AI-powered test automation.', 'testro' ),
-			'actions'    => $partner_final_actions,
-			'assurances' => array(
-				__( 'Flexible partnership models', 'testro' ),
-				__( 'Dedicated partner support', 'testro' ),
-				__( 'Co-marketing opportunities', 'testro' ),
-			),
+			'id'            => 'become-a-partner',
+			'title'         => __( 'Ready to Partner With theTestRo?', 'testro' ),
+			'heading_level' => 2,
+			'actions'       => $partner_actions,
 		)
 	);
 	?>

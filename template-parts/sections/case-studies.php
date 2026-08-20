@@ -43,15 +43,24 @@ $cta_url = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'case-studies' 
 				<?php
 				$item_href = ! empty( $item['href'] ) ? (string) $item['href'] : '';
 				$use_demo  = 'demo' === $cta_mode && '' === $item_href;
+				$client    = isset( $item['client'] ) ? (string) $item['client'] : '';
+				$logo_alt  = '' !== $client
+					? sprintf(
+						/* translators: %s: customer name */
+						__( '%s customer success story — theTestRo test automation case study', 'testro' ),
+						$client
+					)
+					: __( 'theTestRo customer test automation case study', 'testro' );
 				?>
 				<li class="testro-case-studies__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+					<article class="testro-case-studies__article">
 					<div class="testro-case-studies__top">
 						<?php if ( ! empty( $item['logo'] ) ) : ?>
 							<span class="testro-case-studies__logo">
 								<?php
 								echo testro_picture( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									$item['logo'],
-									$item['client'],
+									$logo_alt,
 									array(
 										'width'   => 120,
 										'height'  => 40,
@@ -61,7 +70,7 @@ $cta_url = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'case-studies' 
 								?>
 							</span>
 						<?php else : ?>
-							<span class="testro-case-studies__client-name"><?php echo esc_html( $item['client'] ); ?></span>
+							<span class="testro-case-studies__client-name"><?php echo esc_html( $client ); ?></span>
 						<?php endif; ?>
 					</div>
 
@@ -73,7 +82,7 @@ $cta_url = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'case-studies' 
 						</ul>
 					<?php endif; ?>
 
-					<h3 class="testro-case-studies__title"><?php echo esc_html( $item['client'] ); ?></h3>
+					<h3 class="testro-case-studies__title"><?php echo esc_html( $client ); ?></h3>
 					<p class="testro-case-studies__summary"><?php echo esc_html( $item['summary'] ); ?></p>
 
 					<?php if ( $use_demo ) : ?>
@@ -93,6 +102,7 @@ $cta_url = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'case-studies' 
 							<?php echo testro_icon( 'arrow-right', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 						</a>
 					<?php endif; ?>
+					</article>
 				</li>
 			<?php endforeach; ?>
 		</ul>

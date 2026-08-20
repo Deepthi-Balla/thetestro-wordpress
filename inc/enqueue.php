@@ -74,6 +74,17 @@ function testro_enqueue_assets() {
 	);
 
 	wp_enqueue_script(
+		'cloudflare-turnstile',
+		'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit',
+		array(),
+		null,
+		array(
+			'strategy'  => 'defer',
+			'in_footer' => true,
+		)
+	);
+
+	wp_enqueue_script(
 		'testro-main',
 		testro_asset_file_uri( 'js/main.js' ),
 		array(),
@@ -88,16 +99,17 @@ function testro_enqueue_assets() {
 		'testro-main',
 		'testroData',
 		array(
-			'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
-			'nonce'     => wp_create_nonce( 'testro_nonce' ),
-			'themeUri'  => TESTRO_URI,
-			'homeUrl'   => home_url( '/' ),
-			'thankYou'  => array(
+			'ajaxUrl'          => admin_url( 'admin-ajax.php' ),
+			'nonce'            => wp_create_nonce( 'testro_nonce' ),
+			'themeUri'         => TESTRO_URI,
+			'homeUrl'          => home_url( '/' ),
+			'turnstileSiteKey' => '0x4AAAAAAEGFTa-galkC_DbX',
+			'thankYou'         => array(
 				'contact'    => testro_get_thankyou_url( 'contact' ),
 				'demo'       => testro_get_thankyou_url( 'demo' ),
 				'newsletter' => testro_get_thankyou_url( 'newsletter' ),
 			),
-			'webVitals' => (bool) ( testro_get_option( 'ga_id', 'G-B1SLQ5SRNV' ) || testro_get_option( 'gtm_id', '' ) ),
+			'webVitals'        => (bool) ( testro_get_option( 'ga_id', 'G-B1SLQ5SRNV' ) || testro_get_option( 'gtm_id', '' ) ),
 		)
 	);
 }

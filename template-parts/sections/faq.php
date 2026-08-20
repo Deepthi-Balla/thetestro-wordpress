@@ -62,7 +62,22 @@ if ( ! $faqs ) {
 							hidden
 							data-faq-panel
 						>
-							<p><?php echo esc_html( $faq['answer'] ); ?></p>
+							<?php
+							$answer_text   = isset( $faq['answer'] ) ? (string) $faq['answer'] : '';
+							$escaped_answer = esc_html( $answer_text );
+
+							// Make the partners contact email clickable for the Partners page.
+							$email = 'partners@thetestro.com';
+							if ( '' !== $email && false !== strpos( $answer_text, $email ) ) {
+								$escaped_email  = esc_html( $email );
+								$escaped_answer = str_replace(
+									$escaped_email,
+									'<a href="mailto:' . esc_attr( $email ) . '">' . $escaped_email . '</a>',
+									$escaped_answer
+								);
+							}
+							?>
+							<p><?php echo $escaped_answer; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- output is escaped except for mailto anchor inserted by theme. ?></p>
 						</div>
 					</div>
 				<?php endforeach; ?>

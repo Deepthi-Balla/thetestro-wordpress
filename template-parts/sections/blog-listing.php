@@ -14,8 +14,8 @@
 $args          = isset( $args ) && is_array( $args ) ? $args : array();
 $show_featured = array_key_exists( 'show_featured', $args ) ? (bool) $args['show_featured'] : true;
 $eyebrow       = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : __( 'Latest Articles', 'testro' );
-$title         = isset( $args['title'] ) ? (string) $args['title'] : __( 'Latest Blogs', 'testro' );
-$intro         = isset( $args['intro'] ) ? (string) $args['intro'] : __( 'Ideas, strategies, and product insights to help QA professionals automate testing faster.', 'testro' );
+$title         = isset( $args['title'] ) ? (string) $args['title'] : __( 'Test Automation Articles', 'testro' );
+$intro         = isset( $args['intro'] ) ? (string) $args['intro'] : __( 'Browse theTestRo software testing blog for AI testing insights, QA automation strategies, DevOps testing guidance, and enterprise quality engineering perspectives.', 'testro' );
 
 if ( ! have_posts() ) {
 	?>
@@ -67,6 +67,19 @@ $featured = ( $show_featured && $posts ) ? array_shift( $posts ) : null;
 			<?php
 			$featured_cats = get_the_category( $featured->ID );
 			$featured_cat  = $featured_cats ? $featured_cats[0]->name : __( 'Blog', 'testro' );
+			$featured_alt  = get_the_title( $featured );
+			if ( has_post_thumbnail( $featured ) ) {
+				$thumb_alt = get_post_meta( get_post_thumbnail_id( $featured ), '_wp_attachment_image_alt', true );
+				if ( is_string( $thumb_alt ) && '' !== trim( $thumb_alt ) ) {
+					$featured_alt = $thumb_alt;
+				} else {
+					$featured_alt = sprintf(
+						/* translators: %s: article title */
+						__( '%s — test automation article', 'testro' ),
+						get_the_title( $featured )
+					);
+				}
+			}
 			?>
 			<article class="testro-blog-listing__featured" data-reveal>
 				<a class="testro-blog-listing__featured-link" href="<?php echo esc_url( get_permalink( $featured ) ); ?>">
@@ -79,6 +92,7 @@ $featured = ( $show_featured && $posts ) ? array_shift( $posts ) : null;
 								array(
 									'class'   => 'testro-blog-listing__featured-image',
 									'loading' => 'eager',
+									'alt'     => $featured_alt,
 								)
 							);
 							?>
@@ -108,6 +122,19 @@ $featured = ( $show_featured && $posts ) ? array_shift( $posts ) : null;
 					<?php
 					$cats = get_the_category( $post_item->ID );
 					$cat  = $cats ? $cats[0]->name : __( 'Blog', 'testro' );
+					$alt  = get_the_title( $post_item );
+					if ( has_post_thumbnail( $post_item ) ) {
+						$thumb_alt = get_post_meta( get_post_thumbnail_id( $post_item ), '_wp_attachment_image_alt', true );
+						if ( is_string( $thumb_alt ) && '' !== trim( $thumb_alt ) ) {
+							$alt = $thumb_alt;
+						} else {
+							$alt = sprintf(
+								/* translators: %s: article title */
+								__( '%s — software testing article', 'testro' ),
+								get_the_title( $post_item )
+							);
+						}
+					}
 					?>
 					<li class="testro-blog-listing__item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<article <?php post_class( 'testro-blog-listing__card', $post_item ); ?>>
@@ -121,6 +148,7 @@ $featured = ( $show_featured && $posts ) ? array_shift( $posts ) : null;
 											array(
 												'class'   => 'testro-blog-listing__image',
 												'loading' => 'lazy',
+												'alt'     => $alt,
 											)
 										);
 										?>

@@ -33,17 +33,18 @@ function testro_get_static_pages() {
 			'title'    => __( 'Pricing', 'testro' ),
 			'template' => 'page-templates/template-pricing.php',
 			'seo'      => array(
-				'title'       => __( 'Pricing | Simple, Scalable Plans | theTestRo', 'testro' ),
-				'description' => __( 'Simple, scalable pricing for enterprise test automation. Compare Starter, Professional, and Enterprise plans—or get custom pricing for your team.', 'testro' ),
+				'title'       => __( 'Test Automation Platform Pricing & Plans for Every Team', 'testro' ),
+				'description' => __( 'Explore flexible test automation pricing plans for teams of every size. Scale AI-powered testing with enterprise features, flexible plans, and expert support.', 'testro' ),
 			),
+			'faqs'     => 'pricing',
 			'stub'     => false,
 		),
 		'contact-us' => array(
 			'title'    => __( 'Contact Us', 'testro' ),
 			'template' => 'page-templates/template-contact.php',
 			'seo'      => array(
-				'title'       => __( 'Contact Us | theTestRo', 'testro' ),
-				'description' => __( 'Get in touch with theTestRo. Request a demo or talk to our team about AI test automation.', 'testro' ),
+				'title'       => __( 'Contact Test Automation Experts | Book a Demo Today', 'testro' ),
+				'description' => __( 'Contact our test automation experts to schedule a personalized demo, discuss your QA goals, explore AI-powered testing, and accelerate software delivery.', 'testro' ),
 			),
 			'stub'     => false,
 		),
@@ -51,8 +52,8 @@ function testro_get_static_pages() {
 			'title'    => __( 'Case Studies', 'testro' ),
 			'template' => 'page-templates/template-case-studies.php',
 			'seo'      => array(
-				'title'       => __( 'theTestRo Case Studies | Customer Success Stories', 'testro' ),
-				'description' => __( 'Explore theTestRo case studies and see how QA and engineering teams accelerate releases with AI-powered, no-code test automation.', 'testro' ),
+				'title'       => __( 'Test Automation Case Studies & Customer Success Stories', 'testro' ),
+				'description' => __( 'Explore test automation case studies showcasing how teams accelerated releases, improved software quality, reduced QA effort, and achieved measurable business results.', 'testro' ),
 			),
 			'stub'     => false,
 		),
@@ -60,8 +61,8 @@ function testro_get_static_pages() {
 			'title'    => __( 'Why Choose theTestRo', 'testro' ),
 			'template' => 'page-templates/template-why-testro.php',
 			'seo'      => array(
-				'title'       => __( 'Why Choose theTestRo | AI Test Automation Platform', 'testro' ),
-				'description' => __( 'See why teams choose theTestRo—AI-powered, no-code test automation with self-healing, unified workflows, and enterprise-ready scale.', 'testro' ),
+				'title'       => __( 'Why Choose theTestRo for AI Test Automation', 'testro' ),
+				'description' => __( 'Discover why teams choose theTestRo for AI-powered test automation. Accelerate testing with no-code automation, self-healing tests, and enterprise scalability.', 'testro' ),
 			),
 			'stub'     => false,
 		),
@@ -78,36 +79,29 @@ function testro_get_static_pages() {
 			'title'    => __( 'Partners', 'testro' ),
 			'template' => 'page-templates/template-partners.php',
 			'seo'      => array(
-				'title'       => __( 'Partners | Become a theTestRo Partner', 'testro' ),
-				'description' => __( 'Become a theTestRo partner. Grow your business by delivering AI-powered test automation solutions to enterprise customers.', 'testro' ),
+				'title'       => __( 'AI Test Automation Partner Program | Grow with theTestRo', 'testro' ),
+				'description' => __( 'Join the theTestRo Partner Program to deliver AI-powered test automation solutions, expand your services, accelerate customer success, and grow your business.', 'testro' ),
 			),
+			'faqs'     => 'partners',
 			'stub'     => false,
 		),
-		'awards-news' => array_merge(
-			array(
-				'title'    => __( 'Awards & News', 'testro' ),
-				'template' => 'page-templates/template-stub.php',
-				'seo'      => array(
-					'title'       => __( 'Awards & News | theTestRo', 'testro' ),
-					'description' => __( 'Latest awards, recognition, and news from theTestRo.', 'testro' ),
-				),
-				'stub'     => true,
+		'awards-news' => array(
+			'title'    => __( 'Awards & News', 'testro' ),
+			'template' => 'page-templates/template-awards-news.php',
+			'seo'      => array(
+				'title'       => __( 'Test Automation Awards, News & Product Updates', 'testro' ),
+				'description' => __( "Explore the latest awards, company news, product announcements, press releases, and industry recognition from theTestRo's AI test automation platform.", 'testro' ),
 			),
-			$stub(
-				__( 'Awards & News', 'testro' ),
-				__( 'Recognition and updates from the theTestRo team.', 'testro' ),
-				__( 'Why theTestRo', 'testro' )
-			)
+			'stub'     => false,
 		),
 		'compare-test-automation-tools' => array(
 			'title'    => __( 'Compare Test Automation Tools', 'testro' ),
 			'template' => 'page-templates/template-compare-tools.php',
 			'seo'      => array(
-				'title'       => __( 'theTestRo vs Test Automation Tools | Compare Alternatives', 'testro' ),
-				'description' => __( 'Compare theTestRo with leading test automation tools and Selenium alternatives. See why teams choose AI-powered, no-code enterprise test automation.', 'testro' ),
+				'title'       => __( 'Compare Test Automation Tools & Find the Best Platform', 'testro' ),
+				'description' => __( 'Compare theTestRo with leading test automation platforms. Evaluate AI capabilities, automation features, integrations, and pricing to choose the right solution.', 'testro' ),
 			),
 			'stub'     => false,
-			'faqs'     => 'compare-tools',
 		),
 		'use-cases' => array(
 			'title'    => __( 'Software Testing Use Cases', 'testro' ),
@@ -145,7 +139,7 @@ function testro_get_static_page( $slug = '' ) {
  * Seed missing static marketing pages at flat production slugs.
  */
 function testro_maybe_seed_static_pages() {
-	if ( (int) get_option( 'testro_static_pages_version', 0 ) >= 5 ) {
+	if ( (int) get_option( 'testro_static_pages_version', 0 ) >= 6 ) {
 		return;
 	}
 
@@ -190,6 +184,6 @@ function testro_maybe_seed_static_pages() {
 		}
 	}
 
-	update_option( 'testro_static_pages_version', 5, true );
+	update_option( 'testro_static_pages_version', 6, true );
 }
 add_action( 'init', 'testro_maybe_seed_static_pages', 25 );

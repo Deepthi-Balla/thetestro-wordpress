@@ -4591,6 +4591,34 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
   text-align: center;
 }
 
+.testro-contact__supporting {
+  margin: 0.75rem auto 0;
+  color: var(--color-ink);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.testro-form__consent {
+  margin: 1rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.testro-form__consent a {
+  color: #2602ed;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.testro-form__consent a:hover,
+.testro-form__consent a:focus-visible {
+  color: #1c00b8;
+}
+
 /* Card shell — reference .talk-to-us + p-8 sm:p-12 shadow-2xl rounded-3xl */
 .testro-contact__card,
 .talk-to-us {
@@ -4666,6 +4694,18 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
   display: none;
 }
 
+.testro-contact__thanks-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #eef4ff, #e6fbff);
+  color: #08adff;
+}
+
 .testro-contact__thanks-title {
   margin: 0;
   font-size: 1.5rem; /* text-2xl */
@@ -4675,7 +4715,7 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
 }
 
 .testro-contact__thanks-text {
-  margin: 1rem 0 0; /* mt-4 */
+  margin: 0;
   font-size: 1.125rem; /* text-lg */
   line-height: 1.75rem;
   color: #4b5563; /* text-gray-600 */
@@ -4804,6 +4844,48 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
 
 .testro-form__status[hidden] {
   display: none;
+}
+
+.testro-toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 200;
+  width: min(100% - 2rem, 22.5rem);
+  padding: 1rem 1.125rem;
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.testro-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testro-toast.is-leaving {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+.testro-toast__title {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.testro-toast__message {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #475569;
 }
 
 .testro-form__error {
@@ -19544,10 +19626,14 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   padding-top: 0;
 }
 
-/* Why Choose — four value metrics in the centered hero */
+/* Why Choose — four value metrics (hero or Real Results section) */
 .testro-page-shell--why .testro-prod-hero__metrics {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   max-width: 72rem;
+}
+
+.testro-page-shell--why #real-results .testro-prod-hero__metrics {
+  margin-top: 2.5rem;
 }
 
 .testro-page-shell--why .testro-prod-hero__title.gradient-text {
@@ -21564,6 +21650,14 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
   transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
 }
 
+.testro-case-studies__article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  flex: 1;
+  min-height: 0;
+}
+
 .testro-case-studies__card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 44px rgb(0 62 129 / 0.1);
@@ -22436,7 +22530,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 }
 
 /* -------------------------------------------------------------------------- */
-/* Contact Us page — split form, expert cards, office info                    */
+/* Contact Us page — centered form, expert cards, office info                 */
 /* -------------------------------------------------------------------------- */
 .testro-page-shell--contact .testro-prod-hero {
   padding-bottom: 3.5rem;
@@ -22444,6 +22538,15 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 
 .testro-page-shell--contact .testro-contact {
   padding: 3.5rem 0 4.5rem;
+}
+
+/* Centered contact form — slightly wider than the default talk-to-us card */
+.testro-page-shell--contact .testro-contact__inner {
+  max-width: 64rem;
+}
+
+.testro-page-shell--contact .testro-contact__card {
+  max-width: none;
 }
 
 .testro-page-shell--contact .testro-prod-features,
@@ -22469,10 +22572,21 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
   align-items: start;
 }
 
+.testro-contact__inner--split > .testro-contact__header {
+  grid-column: 1 / -1;
+  margin: 0 auto 1rem;
+  max-width: 56rem;
+  padding-inline: 0;
+}
+
 @media (min-width: 960px) {
   .testro-contact__inner--split {
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
     gap: 2.75rem;
+  }
+
+  .testro-contact__inner--split > .testro-contact__header {
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -22486,11 +22600,11 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 
 .testro-contact--split .testro-contact__heading {
   width: auto;
-  max-width: 16ch;
+  max-width: none;
   white-space: normal;
-  text-align: left;
+  text-align: center;
   line-height: 1.2;
-  margin-top: 0.75rem;
+  margin-top: 0;
 }
 
 .testro-contact--split .testro-contact__desc {

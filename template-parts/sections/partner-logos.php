@@ -12,6 +12,7 @@ $args    = isset( $args ) && is_array( $args ) ? $args : array();
 $eyebrow = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : __( 'Ecosystem', 'testro' );
 $title   = isset( $args['title'] ) ? (string) $args['title'] : __( 'Our Partner Ecosystem', 'testro' );
 $intro   = isset( $args['intro'] ) ? (string) $args['intro'] : __( 'theTestRo collaborates with a growing network of organizations that help teams modernize software quality with AI-powered test automation.', 'testro' );
+$actions = isset( $args['actions'] ) && is_array( $args['actions'] ) ? $args['actions'] : array();
 
 $logos = function_exists( 'testro_get_clients' ) ? testro_get_clients() : array();
 
@@ -52,5 +53,21 @@ if ( ! $logos ) {
 				</li>
 			<?php endforeach; ?>
 		</ul>
+
+		<?php if ( $actions ) : ?>
+			<div class="testro-partner-logos__cta" style="margin-top: 2.25rem;" data-reveal>
+				<?php
+				get_template_part(
+					'template-parts/product/actions',
+					null,
+					array(
+						'actions' => $actions,
+						'align'   => 'center',
+						'tone'    => 'light',
+					)
+				);
+				?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
