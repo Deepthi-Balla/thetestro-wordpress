@@ -14,6 +14,9 @@ $intro         = isset( $args['intro'] ) ? (string) $args['intro'] : '';
 $body          = isset( $args['body'] ) ? (string) $args['body'] : '';
 $body_extra    = isset( $args['body_extra'] ) ? (string) $args['body_extra'] : '';
 $actions       = isset( $args['actions'] ) && is_array( $args['actions'] ) ? $args['actions'] : array();
+if ( function_exists( 'testro_filter_footer_cta_actions' ) ) {
+	$actions = testro_filter_footer_cta_actions( $actions );
+}
 $assurances = isset( $args['assurances'] ) && is_array( $args['assurances'] ) ? $args['assurances'] : array();
 $id            = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 $heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;

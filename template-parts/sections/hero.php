@@ -17,7 +17,6 @@ $count  = count( $slides );
 			$heading       = $is_first ? 'h1' : 'p';
 			$heading_class = $is_first ? 'testro-hero__title gradient-text' : 'testro-hero__title gradient-text testro-hero__title--plain';
 			$cta_primary   = isset( $slide['cta'] ) ? $slide['cta'] : __( 'Start Testing', 'testro' );
-			$cta_secondary = isset( $slide['cta_secondary'] ) ? $slide['cta_secondary'] : __( 'Get a Demo', 'testro' );
 			?>
 			<div
 				class="testro-hero__slide<?php echo $is_first ? ' is-active' : ''; ?>"
@@ -55,15 +54,6 @@ $count  = count( $slides );
 						)
 					);
 					?>
-					<button
-						type="button"
-						class="testro-btn testro-btn--outline testro-hero__cta-secondary"
-						data-open-modal="demo-modal"
-						aria-haspopup="dialog"
-						aria-controls="demo-modal"
-					>
-						<span><?php echo esc_html( $cta_secondary ); ?></span>
-					</button>
 				</div>
 
 				<?php if ( ! empty( $slide['supporting_line'] ) ) : ?>

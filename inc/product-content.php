@@ -40,7 +40,9 @@ function testro_product_shared_sections() {
  * Standard conversion actions shared by every product page.
  *
  * Both actions open the shared demo dialog, which is the site's single
- * qualified-lead entry point.
+ * qualified-lead entry point. Hero and closing-CTA templates filter this
+ * pair so the hero keeps the start-testing button and the footer CTA keeps
+ * the demo button.
  *
  * @return array[]
  */
@@ -57,6 +59,80 @@ function testro_product_default_actions() {
 			'modal'   => 'demo-modal',
 			'icon'    => 'arrow-right',
 		),
+	);
+}
+
+/**
+ * Whether an action is a demo-booking CTA (Book / Schedule / Get a Demo).
+ *
+ * @param array $action Action definition.
+ * @return bool
+ */
+function testro_action_is_demo_cta( $action ) {
+	if ( ! is_array( $action ) || empty( $action['label'] ) ) {
+		return false;
+	}
+
+	return (bool) preg_match( '/\bdemo\b/i', (string) $action['label'] );
+}
+
+/**
+ * Whether an action is a start-testing / free-trial CTA.
+ *
+ * @param array $action Action definition.
+ * @return bool
+ */
+function testro_action_is_start_testing_cta( $action ) {
+	if ( ! is_array( $action ) || empty( $action['label'] ) ) {
+		return false;
+	}
+
+	if ( testro_action_is_demo_cta( $action ) ) {
+		return false;
+	}
+
+	return (bool) preg_match( '/start\s+(free\s+)?(testing|trial)|try\s+for\s+free/i', (string) $action['label'] );
+}
+
+/**
+ * Hero actions: drop demo CTAs, keep start-testing and any other buttons.
+ *
+ * @param array $actions Action definitions.
+ * @return array
+ */
+function testro_filter_hero_actions( $actions ) {
+	if ( ! is_array( $actions ) ) {
+		return array();
+	}
+
+	return array_values(
+		array_filter(
+			$actions,
+			static function ( $action ) {
+				return ! testro_action_is_demo_cta( $action );
+			}
+		)
+	);
+}
+
+/**
+ * Closing CTA actions: drop start-testing CTAs, keep demo and any other buttons.
+ *
+ * @param array $actions Action definitions.
+ * @return array
+ */
+function testro_filter_footer_cta_actions( $actions ) {
+	if ( ! is_array( $actions ) ) {
+		return array();
+	}
+
+	return array_values(
+		array_filter(
+			$actions,
+			static function ( $action ) {
+				return ! testro_action_is_start_testing_cta( $action );
+			}
+		)
 	);
 }
 
@@ -79,10 +155,9 @@ function testro_get_product_pages() {
 				'subtitle' => __( 'Built for modern software teams. theTestRo is an AI test automation platform that writes, runs, and heals your tests. Ship faster. Catch more bugs. Spend less time on manual fixes.', 'testro' ),
 				'actions'  => array(
 					array(
-						'label' => __( 'Schedule a Demo', 'testro' ),
+						'label' => __( 'Start Testing Free', 'testro' ),
 						'style' => 'primary',
 						'modal' => 'demo-modal',
-						'icon'  => 'arrow-right',
 					),
 				),
 			),

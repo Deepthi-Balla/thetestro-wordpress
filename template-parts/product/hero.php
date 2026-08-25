@@ -30,6 +30,10 @@ $layout   = isset( $args['layout'] ) ? (string) $args['layout'] : '';
 $visual   = isset( $args['visual'] ) ? (string) $args['visual'] : '';
 $is_split = ( 'split' === $layout && '' !== $visual );
 
+if ( function_exists( 'testro_filter_hero_actions' ) ) {
+	$actions = testro_filter_hero_actions( $actions );
+}
+
 if ( '' === $title ) {
 	return;
 }
