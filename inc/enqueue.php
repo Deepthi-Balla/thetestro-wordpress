@@ -217,7 +217,9 @@ function testro_preload_lcp() {
 	);
 
 	$fonts = array(
+		TESTRO_URI . '/assets/fonts/Sora-Bold.woff2',
 		TESTRO_URI . '/assets/fonts/InterDisplay-Bold.woff2',
+		TESTRO_URI . '/assets/fonts/InterDisplay-SemiBold.woff2',
 		TESTRO_URI . '/assets/fonts/InterDisplay-Medium.woff2',
 	);
 	foreach ( $fonts as $font ) {

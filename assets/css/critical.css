@@ -3,11 +3,27 @@
  */
 
 @font-face {
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Sora-Bold.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Inter Display";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: url("../fonts/InterDisplay-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter Display";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/InterDisplay-SemiBold.woff2") format("woff2");
 }
 
 @font-face {
@@ -28,15 +44,23 @@
 
 :root {
   --testro-font: "Inter Display", Inter, system-ui, -apple-system, sans-serif;
+  --font-sora: "Sora", var(--testro-font);
   --grad-text: linear-gradient(to right, #1c00b8, #00ffff);
+  --grad-hero-text: linear-gradient(180deg, #003e84 0%, #00acff 100%);
+  --grad-hero-btn: linear-gradient(90deg, #003e84 0%, #00acff 100%);
   --grad-btn: linear-gradient(to right, #2602ed, #00ffff);
-  --grad-banner: linear-gradient(to right, #adf4ff, #3c00ff, #78a4f5, #adf4ff);
-  --nav-top-banner: 5.5rem;
-  --nav-top: 1rem;
-  --nav-width: 80%;
-  --nav-height: 66px;
-  --header-stack-padding: 13rem;
-  --color-banner-text: #003e85;
+  --grad-header: linear-gradient(to right, #003e84, #00acff);
+  --hero-pad-x: clamp(1.25rem, 7vw, 84px);
+  --grad-banner: linear-gradient(to right, #003e84, #00acff);
+  --nav-top-banner: 42px;
+  --nav-top: 0px;
+  --nav-width: 100%;
+  --nav-height: 80px;
+  --nav-banner-height: 42px;
+  --nav-pad-x: clamp(1rem, 4.67vw, 56px);
+  --header-stack-padding: 154px;
+  --color-banner-text: #ffffff;
+  --color-nav-text: #181818;
 }
 
 *,
@@ -69,55 +93,55 @@ body {
 
 .testro-top-banner {
   position: fixed;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--nav-width);
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 50;
 }
 
 .testro-top-banner__inner {
   background: var(--grad-banner);
-  min-height: 54px;
-  height: 54px;
-  border-radius: 24px;
+  min-height: var(--nav-banner-height);
+  height: var(--nav-banner-height);
+  border-radius: 0;
   color: var(--color-banner-text);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  font-size: 20px;
+  gap: 0.5rem;
+  padding: 0 var(--nav-pad-x);
+  font-size: 13px;
   font-weight: 500;
 }
 
 .testro-top-banner__text {
-  font-family: "Inter Display", sans-serif;
+  font-family: var(--testro-font);
+  color: #fff;
 }
 
 .testro-nav {
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--nav-width);
-  height: var(--nav-height);
-  border-radius: 30px;
-  background: rgb(255 255 255 / 0.95);
-  backdrop-filter: blur(16px);
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  z-index: 40;
   top: var(--nav-top-banner);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--nav-height);
+  border-radius: 0;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+  z-index: 40;
 }
 
 body.banner-hidden .testro-nav {
   top: var(--nav-top);
 }
 
-.testro-hero {
-  padding: 13rem 0 2.5rem;
-  padding-top: max(13rem, var(--header-stack-padding, 13rem));
-  text-align: center;
+.testro-hero,
+.testro-prod-hero {
+  padding: var(--header-stack-padding, 154px) var(--hero-pad-x, 1.25rem) 3rem;
+  text-align: left;
+  background: #fff;
 }
 
 .gradient-text,
@@ -132,6 +156,33 @@ body.banner-hidden .testro-nav {
   letter-spacing: normal;
 }
 
+.testro-prod-hero__title {
+  max-width: none;
+  margin: 0;
+  font-family: var(--font-sora);
+  font-size: clamp(1.75rem, 4.2vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  line-height: 1.15;
+  background: var(--grad-hero-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.testro-prod-hero__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .testro-prod-hero__split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
 .testro-btn--primary {
   background-image: var(--grad-btn);
   color: #fff;
@@ -143,22 +194,47 @@ body.banner-hidden .testro-nav {
   align-items: center;
 }
 
+.testro-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 var(--nav-pad-x);
+  gap: 1.5rem;
+}
+
+.testro-nav__logo img {
+  width: clamp(132px, 16.25vw, 195px);
+  height: clamp(48px, 5.833vw, 70px);
+  max-width: 195px;
+  object-fit: contain;
+}
+
+.testro-nav__cta {
+  width: 186px;
+  height: 48px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background-image: var(--grad-header);
+}
+
 @media (max-width: 900px) {
   :root {
-    --nav-width: calc(100% - 1.5rem);
-    --nav-top-banner: 7.25rem;
-    --header-stack-padding: 12.5rem;
+    --nav-width: 100%;
+    --nav-height: 64px;
+    --nav-top-banner: 42px;
+    --header-stack-padding: 130px;
   }
 
   .testro-top-banner,
   .testro-nav {
-    width: var(--nav-width);
+    width: 100%;
   }
 
   .testro-top-banner__inner {
     height: auto;
-    min-height: 44px;
-    font-size: 15px;
+    min-height: var(--nav-banner-height);
+    font-size: 12.5px;
   }
 
   .testro-nav {
@@ -169,9 +245,9 @@ body.banner-hidden .testro-nav {
 
 @media (max-width: 768px) {
   :root {
-    --nav-width: calc(100% - 1.5rem);
-    --nav-top-banner: 7.75rem;
-    --header-stack-padding: 13rem;
+    --nav-width: 100%;
+    --nav-top-banner: 42px;
+    --header-stack-padding: 130px;
   }
 
   .gradient-text,
@@ -179,7 +255,8 @@ body.banner-hidden .testro-nav {
     font-size: 38px;
   }
 
-  .testro-hero {
-    padding-top: max(12.5rem, var(--header-stack-padding, 12.5rem));
+  .testro-hero,
+  .testro-prod-hero {
+    padding-top: var(--header-stack-padding, 130px);
   }
 }

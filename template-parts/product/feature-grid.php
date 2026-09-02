@@ -7,52 +7,81 @@
  * - variant (string)  'default' | 'spotlight' | 'tint' | 'brand'.
  * - columns (int)     2, 3 or 4 (desktop columns). Default 3.
  * - eyebrow / title / intro (string)
+ * - intro_layout (string) 'default' | 'split' (Why Choose theTestRo two-column intro).
  * - items   (array[]) Each: icon, title, description, optional cta
  *   (label + href|modal + optional attrs).
  *
  * @package TestRo
  */
 
-$args    = isset( $args ) && is_array( $args ) ? $args : array();
-$items   = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['items'] : array();
-$variant = isset( $args['variant'] ) ? sanitize_html_class( $args['variant'] ) : 'default';
-$columns = isset( $args['columns'] ) ? max( 2, min( 4, (int) $args['columns'] ) ) : 3;
-$numbered = ! empty( $args['numbered'] );
-$id    = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
-$title = isset( $args['title'] ) ? (string) $args['title'] : '';
+$args         = isset( $args ) && is_array( $args ) ? $args : array();
+$items        = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['items'] : array();
+$variant      = isset( $args['variant'] ) ? sanitize_html_class( $args['variant'] ) : 'default';
+$columns      = isset( $args['columns'] ) ? max( 2, min( 4, (int) $args['columns'] ) ) : 3;
+$numbered     = ! empty( $args['numbered'] );
+$intro_layout = isset( $args['intro_layout'] ) ? sanitize_html_class( (string) $args['intro_layout'] ) : 'default';
+$id           = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
+$eyebrow      = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+$title        = isset( $args['title'] ) ? (string) $args['title'] : '';
+$intro        = isset( $args['intro'] ) ? (string) $args['intro'] : '';
 $card_heading_level = isset( $args['card_heading_level'] ) ? max( 1, min( 6, (int) $args['card_heading_level'] ) ) : 0;
 $card_heading_tag   = $card_heading_level ? ( 'h' . $card_heading_level ) : '';
+$heading_level      = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+$heading_tag        = 'h' . $heading_level;
 
 if ( ! $items && '' === $title ) {
 	return;
 }
 
-$tone       = 'brand' === $variant ? 'dark' : 'light';
-$heading_id = $id ? $id . '-heading' : '';
+$tone           = 'brand' === $variant ? 'dark' : 'light';
+$heading_id     = $id ? $id . '-heading' : '';
+$section_class  = 'testro-prod-section testro-prod-section--' . $variant . ' testro-prod-features';
+if ( 'split' === $intro_layout ) {
+	$section_class .= ' testro-prod-features--why-intro';
+}
 ?>
 <section
-	class="testro-prod-section testro-prod-section--<?php echo esc_attr( $variant ); ?> testro-prod-features"
+	class="<?php echo esc_attr( $section_class ); ?>"
 	<?php echo $id ? 'id="' . esc_attr( $id ) . '"' : ''; ?>
 	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
 >
 	<div class="testro-container">
-		<?php
-		get_template_part(
-			'template-parts/product/section-header',
-			null,
-			array(
-				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
-				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
-				'intro_body'    => isset( $args['intro_body'] ) ? $args['intro_body'] : '',
-				'paragraphs'    => isset( $args['paragraphs'] ) ? $args['paragraphs'] : array(),
-				'heading_id'    => $heading_id,
-				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
-				'tone'          => $tone,
-			)
-		);
-		?>
+		<?php if ( 'split' === $intro_layout && ( '' !== $title || '' !== $eyebrow ) ) : ?>
+			<header class="testro-why__intro" data-reveal>
+				<div class="testro-why__intro-left">
+					<?php if ( '' !== $eyebrow ) : ?>
+						<p class="testro-why__label"><?php echo esc_html( $eyebrow ); ?></p>
+					<?php endif; ?>
+					<?php if ( '' !== $title ) : ?>
+						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag name is derived from a numeric arg. ?>
+						<<?php echo $heading_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="testro-why__heading">
+							<?php echo esc_html( $title ); ?>
+						</<?php echo $heading_tag; ?>>
+					<?php endif; ?>
+				</div>
+				<?php if ( '' !== $intro ) : ?>
+					<p class="testro-why__desc"><?php echo esc_html( $intro ); ?></p>
+				<?php endif; ?>
+			</header>
+		<?php elseif ( '' !== $title || '' !== $eyebrow ) : ?>
+			<?php
+			get_template_part(
+				'template-parts/product/section-header',
+				null,
+				array(
+					'eyebrow'       => $eyebrow,
+					'title'         => $title,
+					'intro'         => $intro,
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+					'intro_body'    => isset( $args['intro_body'] ) ? $args['intro_body'] : '',
+					'paragraphs'    => isset( $args['paragraphs'] ) ? $args['paragraphs'] : array(),
+					'heading_id'    => $heading_id,
+					'heading_level' => $heading_level,
+					'tone'          => $tone,
+				)
+			);
+			?>
+		<?php endif; ?>
 
 		<?php if ( $items ) : ?>
 		<<?php echo $numbered ? 'ol' : 'ul'; ?> class="testro-prod-cards" data-columns="<?php echo esc_attr( (string) $columns ); ?>">

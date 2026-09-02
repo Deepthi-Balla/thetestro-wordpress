@@ -675,8 +675,8 @@ function testro_schema_howto() {
 		'@context'    => 'https://schema.org',
 		'@type'       => 'HowTo',
 		'@id'         => trailingslashit( home_url( '/' ) ) . '#howto',
-		'name'        => 'How theTestRo Works',
-		'description' => 'Create, edit, and run no-code automated tests with theTestRo.',
+		'name'        => __( 'From plain English to production-ready tests.', 'testro' ),
+		'description' => __( 'Anyone can automate. Record, play, automate — one connected workflow, no separate tools to stitch together.', 'testro' ),
 		'totalTime'   => 'PT10M',
 		'step'        => $steps,
 	);

@@ -192,6 +192,8 @@ function testro_get_sitemap_images() {
 		array( 'images/functional.png', 'Functional Automation Testing', 'Functional web automation testing with theTestRo' ),
 		array( 'images/APi.png', 'API Automation Testing', 'API automation testing with theTestRo' ),
 		array( 'images/functional-api.png', 'Functional + API Testing', 'Combined functional and API automation' ),
+		array( 'images/overview-code-nocode.png', 'Code and no-code testing', 'theTestRo code editor beside a no-code test checklist' ),
+		array( 'images/overview-scale-results.png', 'Results that scale', 'theTestRo results trending from small team to enterprise' ),
 	);
 
 	$items = array();
@@ -221,20 +223,19 @@ function testro_get_sitemap_images() {
 }
 
 /**
- * Hero carousel slides.
+ * Shared homepage hero content.
  *
  * @return array
  */
 function testro_get_hero_slides() {
 	return array(
 		array(
-			'badges'          => array( 'Self-Healing', 'Schedule Tests', 'Data Driven', 'API Testing' ),
-			'pill'            => 'AI-Powered Test Automation',
+			'badges'          => array( 'AI Authoring', 'Self-Healing', 'No-Code Tests', 'CI/CD Ready' ),
 			'title'           => 'Best Test Automation Platform for Modern Software Testing',
-			'subtitle'        => 'theTestRo is a Best test automation platform. It helps teams test web, API, mobile, and cross-browser apps fast. Build, run, and scale your tests in one place. No slowdowns. No extra tools.',
+			'subtitle'        => 'theTestRo is the best test automation platform for teams testing web, API, mobile, and cross-browser apps — fast. Build, run, and scale your tests in one place. No slowdowns, no extra tools.',
 			'cta'             => 'Start Testing',
 			'cta_secondary'   => 'Get a Demo',
-			'supporting_line' => 'No credit card needed. Set up your first test in minutes.',
+			'supporting_line' => 'No credit card needed — set up your first test in minutes',
 		),
 	);
 }
@@ -250,16 +251,22 @@ function testro_get_stats() {
 			'value'       => '10M+',
 			'label'       => 'Test Runs',
 			'description' => '',
+			'icon'        => 'chart-bar',
+			'icon_bg'     => '#FF9B42',
 		),
 		array(
 			'value'       => '99.9%',
 			'label'       => 'Uptime',
 			'description' => '',
+			'icon'        => 'shield-check',
+			'icon_bg'     => '#14D9B1',
 		),
 		array(
 			'value'       => '50%',
 			'label'       => 'Faster Test Cycles',
 			'description' => '',
+			'icon'        => 'pie-chart',
+			'icon_bg'     => '#A78BFA',
 		),
 	);
 }
@@ -442,58 +449,59 @@ function testro_get_services() {
 }
 
 /**
- * Why TestRo feature cards (Lucide icon keys match reference site).
+ * Why Choose theTestRo section intro copy.
  *
- * @return array
+ * @return array{label:string,title:string,description:string}
  */
-function testro_get_why_features() {
+function testro_get_why_section() {
 	return array(
-		array(
-			'icon'        => 'gauge',
-			'title'       => 'Faster test creation',
-			'description' => 'build tests in minutes with no-code tools',
-		),
-		array(
-			'icon'        => 'shield',
-			'title'       => 'Self-healing tests',
-			'description' => 'AI fixes broken tests before they fail your build',
-		),
-		array(
-			'icon'        => 'devices',
-			'title'       => 'Full test coverage',
-			'description' => 'web, API, mobile, and cross-browser in one place',
-		),
-		array(
-			'icon'        => 'focus',
-			'title'       => 'Real scale',
-			'description' => 'run tests in parallel across real browsers and devices',
-		),
-		array(
-			'icon'        => 'code',
-			'title'       => 'Faster releases',
-			'description' => 'testing runs right inside your CI/CD pipeline',
-		),
+		'label'       => __( 'Why Choose theTestRo', 'testro' ),
+		'title'       => __( 'See theTestRo build, run, and heal a test — in real time.', 'testro' ),
+		'description' => __( 'A practical quality system that clears space for your team to move faster with confidence.', 'testro' ),
 	);
 }
 
 /**
- * Inline Lucide-style SVG for a Why card icon.
+ * Why Choose theTestRo benefit rows.
  *
- * @param string $icon Icon key from testro_get_why_features().
- * @return string Safe SVG markup.
+ * Each item uses either a stat value or an icon in the left column.
+ *
+ * @return array<int, array{type:string,value?:string,icon?:string,icon_tone?:string,title:string,description:string}>
  */
-function testro_get_why_icon_svg( $icon ) {
-	$icons = array(
-		'gauge'   => '<path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/>',
-		'code'    => '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
-		'focus'   => '<circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/>',
-		'shield'  => '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
-		'devices' => '<path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"/><path d="M10 19v-3.96 3.15"/><path d="M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/>',
+function testro_get_why_benefits() {
+	return array(
+		array(
+			'type'        => 'stat',
+			'value'       => '50%',
+			'title'       => __( 'Less QA time, more quality work', 'testro' ),
+			'description' => __( 'Cut QA time by up to 50% with fast, AI-driven testing.', 'testro' ),
+		),
+		array(
+			'type'        => 'icon',
+			'icon'        => 'shield-check',
+			'title'       => __( 'Less test maintenance', 'testro' ),
+			'description' => __( 'Spend less time fixing tests — self-healing does it for you.', 'testro' ),
+		),
+		array(
+			'type'        => 'icon',
+			'icon'        => 'arrow-right',
+			'title'       => __( 'Faster delivery', 'testro' ),
+			'description' => __( 'Ship faster with testing built right into your CI/CD flow.', 'testro' ),
+		),
+		array(
+			'type'        => 'stat',
+			'value'       => '1',
+			'title'       => __( 'One platform, not five', 'testro' ),
+			'description' => __( 'Lower your costs with one platform instead of five disconnected tools.', 'testro' ),
+		),
+		array(
+			'type'        => 'icon',
+			'icon'        => 'circle-check',
+			'icon_tone'   => 'accent',
+			'title'       => __( 'Coverage your team can trust', 'testro' ),
+			'description' => __( 'Build more trust with deeper, more reliable test coverage across every release.', 'testro' ),
+		),
 	);
-
-	$paths = isset( $icons[ $icon ] ) ? $icons[ $icon ] : $icons['gauge'];
-
-	return '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $paths . '</svg>';
 }
 
 /**
@@ -563,43 +571,44 @@ function testro_get_feature_tabs() {
 }
 
 /**
+ * How it works section intro copy.
+ *
+ * @return array{label:string,title:string,description:string}
+ */
+function testro_get_how_it_works_section() {
+	return array(
+		'label'       => __( 'How It Works', 'testro' ),
+		'title'       => __( 'From plain English to production-ready tests.', 'testro' ),
+		'description' => __( 'Anyone can automate. Record, play, automate — one connected workflow, no separate tools to stitch together.', 'testro' ),
+	);
+}
+
+/**
  * How it works steps.
  *
- * @return array
+ * @return array<int, array{title:string,description:string,supporting:string}>
  */
 function testro_get_how_it_works() {
 	return array(
 		array(
-			'step'        => 'Step 1',
-			'title'       => 'Record or Build',
-			'description' => 'Capture your workflow, or build a test with our no-code editor.',
-			'tx'          => '-16rem',
-			'ty'          => '2.5rem',
-			'rotate'      => '-6deg',
+			'title'       => __( 'Record or build', 'testro' ),
+			'description' => __( 'Capture your workflow, or build a test with our no-code editor.', 'testro' ),
+			'supporting'  => __( 'no code required', 'testro' ),
 		),
 		array(
-			'step'        => 'Step 2',
-			'title'       => 'Enhance with AI',
-			'description' => 'Let AI add checks, fixes, and edge cases.',
-			'tx'          => '-5rem',
-			'ty'          => '-1.5rem',
-			'rotate'      => '-3deg',
+			'title'       => __( 'Enhance with AI', 'testro' ),
+			'description' => __( 'Let AI add checks, fixes, and edge cases.', 'testro' ),
+			'supporting'  => __( 'AI-assisted', 'testro' ),
 		),
 		array(
-			'step'        => 'Step 3',
-			'title'       => 'Run at Scale',
-			'description' => 'Test in parallel across browsers, devices, and environments.',
-			'tx'          => '5rem',
-			'ty'          => '-1.5rem',
-			'rotate'      => '3deg',
+			'title'       => __( 'Run at scale', 'testro' ),
+			'description' => __( 'Test in parallel across browsers, devices, and environments.', 'testro' ),
+			'supporting'  => __( 'parallel execution', 'testro' ),
 		),
 		array(
-			'step'        => 'Step 4',
-			'title'       => 'Analyze & Ship',
-			'description' => 'Review results, fix bugs fast, and ship with confidence.',
-			'tx'          => '16rem',
-			'ty'          => '2.5rem',
-			'rotate'      => '6deg',
+			'title'       => __( 'Analyze and ship', 'testro' ),
+			'description' => __( 'Review results, fix bugs fast, and ship with confidence.', 'testro' ),
+			'supporting'  => __( 'release-ready', 'testro' ),
 		),
 	);
 }
@@ -1070,12 +1079,15 @@ function testro_highlight_brand_name( $text ) {
  * Render 0–5 star icons for a testimonial rating (supports half stars).
  *
  * @param float|int|string $rating Rating value.
+ * @param string           $tone   Star palette: default|light.
  * @return string Safe HTML.
  */
-function testro_render_testimonial_stars( $rating ) {
+function testro_render_testimonial_stars( $rating, $tone = 'default' ) {
 	$rating = max( 0, min( 5, (float) $rating ) );
 	$uid    = wp_unique_id( 'testro-star-' );
 	$html   = '';
+	$full   = 'light' === $tone ? '#ffffff' : '#2563eb';
+	$empty  = 'light' === $tone ? 'rgba(255,255,255,0.35)' : '#dbeafe';
 
 	for ( $i = 1; $i <= 5; $i++ ) {
 		$remainder = $rating - ( $i - 1 );
@@ -1089,10 +1101,10 @@ function testro_render_testimonial_stars( $rating ) {
 			$fill = 'url(#' . esc_attr( $uid . '-' . $i ) . ')';
 		}
 
-		$html .= '<svg class="testro-testimonials__star' . $mod . '" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">';
+		$html .= '<svg class="testro-testimonials__star' . $mod . '" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">';
 		if ( ' is-half' === $mod ) {
 			$html .= '<defs><linearGradient id="' . esc_attr( $uid . '-' . $i ) . '" x1="0" x2="1" y1="0" y2="0">';
-			$html .= '<stop offset="50%" stop-color="#2563eb"/><stop offset="50%" stop-color="#dbeafe"/>';
+			$html .= '<stop offset="50%" stop-color="' . esc_attr( $full ) . '"/><stop offset="50%" stop-color="' . esc_attr( $empty ) . '"/>';
 			$html .= '</linearGradient></defs>';
 		}
 		$html .= '<path fill="' . esc_attr( $fill ) . '" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.5L12 17.4 6.1 20.4l1.3-6.5L2.5 9.4l6.6-.8L12 2.5z"/>';
@@ -1113,39 +1125,39 @@ function testro_get_testimonials() {
 
 	return array(
 		array(
-			'name'   => 'Alex Morgan',
+			'name'   => 'Acme Software',
 			'role'   => 'QA Lead',
 			'avatar' => $male,
 			'rating' => 5,
-			'quote'  => 'As a startup, we don’t have the budget to hire a full automation team. theTestRo gave us automation without writing a single line of code.The self-healing locators drastically reduced our test maintenance effort.We now run scheduled regression suites every night without manual intervention.I highly recommend theTestRo to growing teams looking for reliable, low-maintenance automation',
+			'quote'  => 'theTestRo cut our regression testing time in half. Flaky tests? Almost gone.',
 		),
 		array(
-			'name'   => 'Sarah Johnson',
-			'role'   => 'Software Engineer',
+			'name'   => 'Northwind Labs',
+			'role'   => 'Engineering Manager',
 			'avatar' => $female,
 			'rating' => 5,
-			'quote'  => 'Automation maintenance used to consume a large portion of our QA bandwidth. Since adopting theTestRo, test stability has improved dramatically.The NLP-based steps make test creation simple, even for non-technical team members.The reporting provides excellent visibility for management.This tool has become an essential part of our QA strategy',
+			'quote'  => 'We finally have predictable releases. Coverage grows with the product without slowing the team down.',
 		),
 		array(
-			'name'   => 'Michael Chen',
+			'name'   => 'BrightPath Health',
 			'role'   => 'Product Manager',
 			'avatar' => $male,
-			'rating' => 4,
-			'quote'  => 'We previously relied on traditional script-based automation frameworks that required significant development effort and ongoing maintenance. After switching to theTestRo, we were able to build and deploy automation scenarios nearly 30X faster compared to our earlier approach. The no-code framework, API integration, and built-in scheduling streamlined our entire testing workflow. It’s a powerful solution for teams that need speed without sacrificing reliability.',
+			'rating' => 5,
+			'quote'  => 'theTestRo cut our regression testing time in half. Flaky tests? Almost gone.',
 		),
 		array(
-			'name'   => 'Emily Davis',
+			'name'   => 'CloudNine Fintech',
 			'role'   => 'DevOps Engineer',
 			'avatar' => $female,
-			'rating' => 4.5,
-			'quote'  => 'theTestRo reduced our dependency on engineering resources for test automation.The NLP-driven test steps are intuitive and easy to manage.Automated scheduling ensures our regression tests run consistently before every release.I confidently endorse theTestRo for teams aiming to accelerate releases with better quality assurance.',
+			'rating' => 5,
+			'quote'  => 'We finally have predictable releases. Coverage grows with the product without slowing the team down.',
 		),
 		array(
-			'name'   => 'James Wilson',
+			'name'   => 'Summit Retail',
 			'role'   => 'Tech Lead',
 			'avatar' => $male,
 			'rating' => 5,
-			'quote'  => "I don't come from a technical background, but with theTestRo, I was able to create automation flows using simple English instructions.The self-healing capability makes the tool feel intelligent and resilient.It has completely transformed our testing process.I would absolutely suggest theTestRo to teams transitioning from manual to automated testing",
+			'quote'  => 'theTestRo cut our regression testing time in half. Flaky tests? Almost gone.',
 		),
 	);
 }
@@ -1308,17 +1320,70 @@ function testro_get_faqs() {
 /**
  * Homepage product overview content.
  *
- * @return array{eyebrow:string,title:string,intro:string,highlights:array<int,array{title:string,description:string}>}
+ * @return array{
+ *   eyebrow:string,
+ *   title:string,
+ *   intro:string,
+ *   closing:string,
+ *   cards:array<int,array<string,mixed>>
+ * }
  */
 function testro_get_overview() {
 	return array(
-		'title'      => 'Product Overview',
-		'headline'   => 'One Platform. Every Test You Need.',
-		'paragraphs' => array(
-			'TheTestRo brings all your testing into one place. Web API. Mobile. Cross-browser. No more juggling five different tools.',
-			'Like to write code? Great, you can. Prefer no-code? That works too. theTestRo fits how your team already works.',
-			'Small QA team or large company — theTestRo scales with you. Run tests side by side. Link it to your CI/CD flow. See all your results in one place.',
-			'This is what a true enterprise test automation platform should feel like.',
+		'eyebrow' => 'PRODUCT OVERVIEW',
+		'title'   => 'One Platform. Every Test You Need.',
+		'intro'   => 'Everything a modern QA team needs, without the tool-juggling.',
+		'closing' => 'This is what a true enterprise test automation platform should feel like.',
+		'cards'   => array(
+			array(
+				'variant'     => 'light',
+				'title'       => 'All your testing, in one place',
+				'description' => 'theTestRo brings all your testing into one place — web, API, mobile, and cross-browser. No more juggling five different tools.',
+				'visual'      => 'suites',
+				'suites'      => array(
+					array(
+						'icon'   => 'browsers',
+						'label'  => 'Web Testing',
+						'status' => 'Passing',
+					),
+					array(
+						'icon'   => 'zap',
+						'label'  => 'API Testing',
+						'status' => 'Passing',
+					),
+					array(
+						'icon'   => 'smartphone',
+						'label'  => 'Mobile Testing',
+						'status' => 'Passing',
+					),
+					array(
+						'icon'   => 'globe',
+						'label'  => 'Cross-Browser',
+						'status' => 'Passing',
+					),
+				),
+				'badge'       => 'ALL suites passing',
+			),
+			array(
+				'variant'     => 'dark',
+				'title'       => "Code your way, or don't",
+				'description' => 'Like to write code? Great, you can. Prefer no-code? That works too. theTestRo fits how your team already works.',
+				'visual'      => 'image',
+				'image'        => 'images/overview-code-nocode.png',
+				'image_alt'    => 'Code editor beside a no-code checklist for Click Button, Fill Form, and Verify Text',
+				'image_width'  => 914,
+				'image_height' => 429,
+			),
+			array(
+				'variant'     => 'light',
+				'title'       => 'Built to scale with you',
+				'description' => 'Small QA team or large company — theTestRo scales with you. Run tests side by side, link it to your CI/CD flow, and see all your results in one place.',
+				'visual'      => 'image',
+				'image'       => 'images/overview-scale-results.png',
+				'image_alt'   => 'Results chart scaling from small team to enterprise with 98% pass',
+				'image_width'  => 948,
+				'image_height' => 510,
+			),
 		),
 	);
 }
@@ -1334,43 +1399,43 @@ function testro_get_key_features() {
 			'title'       => 'No-Code & Low-Code Builder',
 			'description' => 'Build tests visually. No scripting needed.',
 			'href'        => testro_nav_url( 'no-code-test-automation' ),
-			'icon'        => 'blocks',
+			'icon'        => 'mouse-pointer',
 		),
 		array(
 			'title'       => 'Cross-Browser & Cross-Device Testing',
 			'description' => 'Test on real browsers and real devices.',
 			'href'        => testro_nav_url( 'automated-cross-browser-testing-tool' ),
-			'icon'        => 'browsers',
+			'icon'        => 'globe',
 		),
 		array(
 			'title'       => 'API Test Automation',
 			'description' => 'Test REST and GraphQL APIs alongside your UI tests.',
 			'href'        => testro_nav_url( 'automated-api-testing' ),
-			'icon'        => 'api',
+			'icon'        => 'braces',
 		),
 		array(
 			'title'       => 'Parallel Test Execution',
 			'description' => 'Run thousands of tests at once in the cloud.',
 			'href'        => testro_nav_url( 'test-execution' ),
-			'icon'        => 'play',
+			'icon'        => 'network',
 		),
 		array(
 			'title'       => 'CI/CD Integrations',
 			'description' => 'Works with Jenkins, GitHub Actions, GitLab, and Azure DevOps.',
 			'href'        => testro_nav_url( 'ci-cd-integration' ),
-			'icon'        => 'cicd',
+			'icon'        => 'link',
 		),
 		array(
 			'title'       => 'Reporting & Analytics',
 			'description' => 'See live dashboards, video replays, and root-cause data.',
 			'href'        => testro_nav_url( 'reporting-analytics' ),
-			'icon'        => 'chart',
+			'icon'        => 'line-chart',
 		),
 		array(
 			'title'       => 'Test Data Management',
 			'description' => 'Manage test data safely across every environment.',
 			'href'        => testro_nav_url( 'test-management-software' ),
-			'icon'        => 'board',
+			'icon'        => 'database',
 		),
 	);
 }
@@ -1378,101 +1443,79 @@ function testro_get_key_features() {
 /**
  * AI capabilities section data.
  *
- * @return array{eyebrow:string,title:string,intro:string,steps:array<int,array{icon:string,label:string}>,items:array<int,array{icon:string,title:string,description:string}>}
+ * @return array{eyebrow:string,title:string,intro:string,outro:string,items:array<int,array{icon:string,title:string,description:string}>}
  */
 function testro_get_ai_capabilities() {
 	return array(
-		'title'  => 'AI Capabilities',
-		'intro'  => "theTestRo's AI does more than run scripts. It thinks ahead.",
-		'outro'  => 'This is what makes theTestRo a true AI test automation platform — not just automation with AI added on top.',
-		'steps'  => array(
+		'eyebrow' => 'AI CAPABILITIES',
+		'title'   => 'AI that works like a real tester.',
+		'intro'   => "theTestRo's AI does more than run scripts. It thinks ahead.",
+		'outro'   => 'This is what makes theTestRo a true AI test automation platform — not just automation with AI added on top.',
+		'items'   => array(
 			array(
-				'icon'  => 'sparkles',
-				'label' => 'Observe product signals',
-			),
-			array(
-				'icon'  => 'wand',
-				'label' => 'Generate & adapt tests',
-			),
-			array(
-				'icon'  => 'activity',
-				'label' => 'Learn from every run',
-			),
-		),
-		'items'  => array(
-			array(
-				'icon'        => 'heart-pulse',
+				'icon'        => 'layout-grid',
 				'title'       => 'Self-Healing Tests',
 				'description' => 'When your UI changes, AI fixes broken tests on its own.',
 			),
 			array(
-				'icon'        => 'sparkles',
+				'icon'        => 'pen-square',
 				'title'       => 'AI Test Generation',
 				'description' => 'Type a scenario in plain English. AI builds the test for you.',
 			),
 			array(
-				'icon'        => 'wrench',
+				'icon'        => 'refresh',
 				'title'       => 'Smart Test Maintenance',
 				'description' => 'AI flags old, risky, or repeat tests for you.',
 			),
 			array(
-				'icon'        => 'microscope',
+				'icon'        => 'scan-eye',
 				'title'       => 'Visual AI Testing',
 				'description' => 'AI spots layout bugs and visual glitches fast.',
-			),
-			array(
-				'icon'        => 'filter-check',
-				'title'       => 'Failure Insights',
-				'description' => 'When a test fails, AI tells you why.',
 			),
 		),
 	);
 }
 
 /**
- * Industries + ERP solutions for homepage tabs.
+ * Solutions by Industry cards for the homepage.
  *
- * @return array{eyebrow:string,title:string,intro:string,groups:array<string,array{label:string,items:array<int,array{label:string,href:string,icon:string}>}>}
+ * @return array{label:string,title:string,intro:string,items:array<int,array{title:string,description:string,href:string,icon:string}>}
  */
 function testro_get_industries() {
 	return array(
-		'title'    => 'Solutions by Industry',
-		'headline' => 'Built for Your Industry',
-		'groups'   => array(
-			'industry' => array(
-				'label' => 'By Industry',
-				'items' => array(
-					array(
-						'label'       => 'E-commerce & Retail',
-						'description' => 'Test checkout and payments, even under heavy load.',
-						'href'        => testro_nav_url( 'retail-ecommerce' ),
-						'icon'        => 'retail',
-					),
-					array(
-						'label'       => 'Banking & Finance',
-						'description' => 'Run safe, secure tests for strict systems.',
-						'href'        => testro_nav_url( 'banking-finance' ),
-						'icon'        => 'bank',
-					),
-					array(
-						'label'       => 'Healthcare',
-						'description' => 'Test patient portals. Meet every rule, every time.',
-						'href'        => testro_nav_url( 'healthcare' ),
-						'icon'        => 'health',
-					),
-					array(
-						'label'       => 'SaaS & Technology',
-						'description' => 'Keep up with fast product launches.',
-						'href'        => testro_nav_url( 'use-cases' ),
-						'icon'        => 'spark',
-					),
-					array(
-						'label'       => 'Enterprise IT',
-						'description' => 'Manage testing across every team, at scale.',
-						'href'        => testro_nav_url( 'use-cases' ),
-						'icon'        => 'erp',
-					),
-				),
+		'label' => 'Solutions by Industry',
+		'title' => 'Built for your industry.',
+		'intro' => 'theTestRo adapts to the workflows, constraints, and release pace of the teams who can\'t afford a broken experience.',
+		'items' => array(
+			array(
+				'title'       => 'Retail & E-commerce',
+				'description' => 'Test checkout and payments, even under heavy load.',
+				'href'        => testro_nav_url( 'retail-ecommerce' ),
+				'icon'        => 'retail',
+			),
+			array(
+				'title'       => 'Healthcare',
+				'description' => 'Test patient portals. Meet every rule, every time.',
+				'href'        => testro_nav_url( 'healthcare' ),
+				'icon'        => 'health',
+			),
+			array(
+				'title'       => 'Banking & Finance',
+				'description' => 'Run safe, secure tests for strict systems.',
+				'href'        => testro_nav_url( 'banking-finance' ),
+				'icon'        => 'bank',
+			),
+			array(
+				'title'       => 'Travel & Hospitality',
+				'description' => 'Test bookings and check-ins, even during peak season.',
+				'href'        => testro_nav_url( 'travel-and-hospitality' ),
+				'icon'        => 'travel',
+			),
+			array(
+				'title'       => 'Insurance',
+				'description' => 'Test claims and policies. Keep every payout accurate.',
+				'href'        => testro_nav_url( 'insurance' ),
+				'icon'        => 'insurance',
 			),
 		),
 	);
@@ -1573,39 +1616,50 @@ function testro_get_case_studies() {
 /**
  * Homepage resources cards. Prefers latest blog posts when available.
  *
- * @return array{eyebrow:string,title:string,intro:string,items:array<int,array{title:string,description:string,href:string,icon:string,meta?:string}>}
+ * @return array{
+ *   eyebrow:string,
+ *   headline:string,
+ *   intro:string,
+ *   cta:array{label:string,href:string},
+ *   items:array<int,array{
+ *     label:string,
+ *     title:string,
+ *     description:string,
+ *     href:string,
+ *     image?:string,
+ *     image_alt?:string
+ *   }>
+ * }
  */
 function testro_get_resources() {
 	$blog_url = testro_nav_url( 'blog' );
 
 	return array(
-		'title'    => 'Latest Blogs & Resources',
-		'headline' => 'Learn About AI-Driven Testing',
+		'eyebrow'  => 'LATEST BLOGS & RESOURCES',
+		'headline' => 'Learn about AI-driven testing.',
+		'intro'    => 'Guides and practical playbooks for teams building a continuous testing strategy.',
 		'cta'      => array(
 			'label' => 'Visit the Blog',
 			'href'  => $blog_url,
 		),
 		'items'    => array(
 			array(
+				'label'       => 'AI Insights',
 				'title'       => 'AI Test Automation: What It Means in 2026',
-				'description' => 'Explore how AI is reshaping test creation, maintenance, and release confidence.',
+				'description' => 'A practical look at how AI agents are reshaping coverage, maintenance, and release confidence.',
 				'href'        => $blog_url,
-				'icon'        => 'blog',
-				'meta'        => 'Read More',
 			),
 			array(
+				'label'       => 'Testing Guide',
 				'title'       => 'No-Code vs. Low-Code Testing: Which Fits Your Team?',
-				'description' => 'Compare approaches so you can pick the right balance of speed and control.',
+				'description' => 'Choose the right balance of speed, flexibility, and control for your quality practice.',
 				'href'        => $blog_url,
-				'icon'        => 'blocks',
-				'meta'        => 'Read More',
 			),
 			array(
+				'label'       => 'Strategy',
 				'title'       => 'How to Build a Continuous Testing Strategy',
-				'description' => 'Learn how to embed testing into CI/CD and ship with fewer surprises.',
+				'description' => 'Connect testing to every deployment with a resilient, scalable delivery workflow.',
 				'href'        => $blog_url,
-				'icon'        => 'cicd',
-				'meta'        => 'Read More',
 			),
 		),
 	);

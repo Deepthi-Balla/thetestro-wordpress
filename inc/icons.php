@@ -63,6 +63,7 @@ function testro_icon_paths() {
 		'code'          => '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
 		'coins'         => '<circle cx="9" cy="9" r="6"/><path d="M15.5 3.6a6 6 0 0 1 0 16.8"/><path d="M6.5 15a6 6 0 0 0 9 5.4"/>',
 		'check'         => '<polyline points="20 6 9 17 4 12"/>',
+		'plus'          => '<path d="M5 12h14M12 5v14"/>',
 		'minus'         => '<path d="M5 12h14"/>',
 		'close'         => '<path d="M18 6 6 18M6 6l12 12"/>',
 		'arrow-right'   => '<path d="M5 12h14M13 6l6 6-6 6"/>',
@@ -75,9 +76,19 @@ function testro_icon_paths() {
 		'video'         => '<rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 4.6-2.3a1 1 0 0 1 1.4.9v6.8a1 1 0 0 1-1.4.9L16 14"/>',
 		'download'      => '<path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/>',
 		'retail'        => '<path d="M4 9h16l-1.2 10.2A2 2 0 0 1 16.8 21H7.2a2 2 0 0 1-2-1.8L4 9z"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/>',
+		'health'        => '<path d="M12 21c-4.5-3.3-7-6.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 3.6-2.5 6.7-7 10z"/><path d="M12 9v5M9.5 11.5h5"/>',
+		'bank'          => '<path d="M3 10l9-6 9 6M5 10v8M19 10v8M3 18h18M9 14h6"/>',
+		'travel'        => '<path d="M10 20l2-8 8-2-8-2-2-8-2 8-8 2 8 2z"/>',
+		'insurance'     => '<path d="M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z"/>',
 		'smartphone'    => '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+		'globe'         => '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.8 2.5 15.2 0 18M12 3c-2.5 2.8-2.5 15.2 0 18"/>',
 		'package'       => '<path d="M16.5 9.4 7.5 4.2M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/>',
 		'map-pin'       => '<path d="M20 10c0 4.4-4.5 9.2-7.4 11.7a1 1 0 0 1-1.2 0C8.5 19.2 4 14.4 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+		'mouse-pointer' => '<path d="M12.5 2.5v5l4.4-1.8a1 1 0 0 1 1.3 1.3L13 11.5l5 2.5a1 1 0 0 1 .5.9v6a1 1 0 0 1-1.5.9L12 18l-5 4.9a1 1 0 0 1-1.5-.9v-6a1 1 0 0 1 .5-.9l5-2.5-4.2-3.5a1 1 0 0 1 1.3-1.3L11.5 7.5v-5a1 1 0 0 1 1-1h0a1 1 0 0 1 1 1Z"/>',
+		'braces'        => '<path d="M8 3H7a2 2 0 0 0-2 2v2a2 2 0 0 1-2 2 2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2 2 2 0 0 0-2 2v2a2 2 0 0 1-2 2h-1"/>',
+		'network'       => '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v3a1 1 0 0 0 1 1h3M19 16v3a1 1 0 0 1-1 1h-3M12 8v3a1 1 0 0 0 1 1h3"/>',
+		'link'          => '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+		'line-chart'    => '<path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/>',
 	);
 
 	return $icons;

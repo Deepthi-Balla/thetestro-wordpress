@@ -73,7 +73,8 @@ function testro_nav_icon( $name ) {
 		'awards'      => '<path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 6H5a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4M16 6h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4M10 13v3l2 4 2-4v-3"/>',
 		'compare'     => '<path d="M8 3v18M16 3v18M3 8h5M16 16h5M3 16h5M16 8h5"/>',
 		'usecases'    => '<path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="2"/>',
-		'chevron'     => '<path d="M6 9l6 6 6-6"/>',
+		'chevron'       => '<path d="M6 9l6 6 6-6"/>',
+		'chevron-right' => '<path d="M9 6l6 6-6 6"/>',
 	);
 
 	$path = isset( $icons[ $name ] ) ? $icons[ $name ] : $icons['spark'];
@@ -92,10 +93,23 @@ function testro_get_nav_menus() {
 			'label'  => __( 'Products', 'testro' ),
 			'href'   => testro_nav_url( 'ai-test-automation' ),
 			'panel'  => 'products',
-			'layout' => 'two-col',
+			'layout' => 'featured',
+			'intro'  => array(
+				'title'       => __( 'Comprehensive Testing Platform for Modern Teams', 'testro' ),
+				'description' => __( 'Everything you need to build, test and ship with confidence.', 'testro' ),
+				'cta'         => array(
+					'label' => __( 'Explore the TestRo', 'testro' ),
+				),
+				'image'       => array(
+					'src'    => 'images/mega-products-intro.png',
+					'alt'    => __( 'theTestRo testing platform', 'testro' ),
+					'width'  => 215,
+					'height' => 175,
+				),
+			),
 			'columns'=> array(
 				array(
-					'title' => __( 'Products', 'testro' ),
+					'title' => __( 'Product', 'testro' ),
 					'items' => array(
 						array(
 							'label' => __( 'AI Test Automation', 'testro' ),
@@ -170,7 +184,20 @@ function testro_get_nav_menus() {
 			'label'  => __( 'Solutions', 'testro' ),
 			'href'   => testro_nav_url( 'use-cases' ),
 			'panel'  => 'solutions',
-			'layout' => 'solutions',
+			'layout' => 'featured',
+			'intro'  => array(
+				'title'       => __( 'Testing Solutions for Every Industry and Stack', 'testro' ),
+				'description' => __( 'Coverage for your industry, ERP applications, and the use cases that matter.', 'testro' ),
+				'cta'         => array(
+					'label' => __( 'Explore Solutions', 'testro' ),
+				),
+				'image'       => array(
+					'src'    => 'images/mega-products-intro.png',
+					'alt'    => __( 'theTestRo testing solutions', 'testro' ),
+					'width'  => 215,
+					'height' => 175,
+				),
+			),
 			'columns'=> array(
 				array(
 					'title' => __( 'By Industry', 'testro' ),
@@ -210,7 +237,20 @@ function testro_get_nav_menus() {
 			'label'  => __( 'Resources', 'testro' ),
 			'href'   => testro_nav_url( 'blog' ),
 			'panel'  => 'resources',
-			'layout' => 'two-col',
+			'layout' => 'featured',
+			'intro'  => array(
+				'title'       => __( 'Insights and Resources for Modern QA Teams', 'testro' ),
+				'description' => __( 'Everything you need to learn, compare, and get started with confidence.', 'testro' ),
+				'cta'         => array(
+					'label' => __( 'Explore Resources', 'testro' ),
+				),
+				'image'       => array(
+					'src'    => 'images/mega-products-intro.png',
+					'alt'    => __( 'theTestRo resources', 'testro' ),
+					'width'  => 215,
+					'height' => 175,
+				),
+			),
 			'columns'=> array(
 				array(
 					'title' => __( 'Explore & Learn', 'testro' ),
@@ -354,32 +394,123 @@ function testro_nav_menu_has_active( $menu ) {
 /**
  * Render a single mega menu link item.
  *
- * @param array $item Item config.
+ * @param array  $item    Item config.
+ * @param string $variant Visual variant: icon (default) or chevron.
  */
-function testro_render_mega_item( $item ) {
+function testro_render_mega_item( $item, $variant = 'icon' ) {
 	$label = isset( $item['label'] ) ? $item['label'] : '';
 	$href  = isset( $item['href'] ) ? $item['href'] : '#';
 	$icon  = isset( $item['icon'] ) ? $item['icon'] : 'spark';
 	$desc  = isset( $item['desc'] ) ? $item['desc'] : '';
 	$is_active = testro_nav_is_active_href( $href );
-	$class = 'testro-mega__link' . ( $desc ? ' testro-mega__link--rich' : '' ) . ( $is_active ? ' is-active' : '' );
+	$is_chevron = ( 'chevron' === $variant );
+	$class = 'testro-mega__link';
+	if ( $is_chevron ) {
+		$class .= ' testro-mega__link--chevron';
+	} elseif ( $desc ) {
+		$class .= ' testro-mega__link--rich';
+	}
+	if ( $is_active ) {
+		$class .= ' is-active';
+	}
 	?>
 	<a
 		class="<?php echo esc_attr( $class ); ?>"
 		href="<?php echo esc_url( $href ); ?>"
 		<?php echo $is_active ? ' aria-current="page"' : ''; ?>
 	>
-		<span class="testro-mega__icon" aria-hidden="true">
-			<?php echo testro_nav_icon( $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG ?>
-		</span>
-		<span class="testro-mega__text">
+		<?php if ( $is_chevron ) : ?>
 			<span class="testro-mega__label"><?php echo esc_html( $label ); ?></span>
-			<?php if ( $desc ) : ?>
-				<span class="testro-mega__desc"><?php echo esc_html( $desc ); ?></span>
-			<?php endif; ?>
-		</span>
+			<span class="testro-mega__arrow" aria-hidden="true">
+				<?php echo testro_nav_icon( 'chevron-right' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG ?>
+			</span>
+		<?php else : ?>
+			<span class="testro-mega__icon" aria-hidden="true">
+				<?php echo testro_nav_icon( $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG ?>
+			</span>
+			<span class="testro-mega__text">
+				<span class="testro-mega__label"><?php echo esc_html( $label ); ?></span>
+				<?php if ( $desc ) : ?>
+					<span class="testro-mega__desc"><?php echo esc_html( $desc ); ?></span>
+				<?php endif; ?>
+			</span>
+		<?php endif; ?>
 	</a>
 	<?php
+}
+
+/**
+ * Render the promotional intro block for a mega menu panel.
+ *
+ * @param array<string, mixed> $menu Menu config.
+ */
+function testro_render_mega_intro( $menu ) {
+	if ( empty( $menu['intro'] ) || ! is_array( $menu['intro'] ) ) {
+		return;
+	}
+
+	$intro      = $menu['intro'];
+	$title      = isset( $intro['title'] ) ? $intro['title'] : '';
+	$desc       = isset( $intro['description'] ) ? $intro['description'] : '';
+	$cta        = ( isset( $intro['cta'] ) && is_array( $intro['cta'] ) ) ? $intro['cta'] : array();
+	$cta_label  = isset( $cta['label'] ) ? $cta['label'] : '';
+	$cta_href   = ! empty( $cta['href'] ) ? $cta['href'] : ( isset( $menu['href'] ) ? $menu['href'] : '#' );
+	$image      = ( isset( $intro['image'] ) && is_array( $intro['image'] ) ) ? $intro['image'] : array();
+	$image_src  = isset( $image['src'] ) ? $image['src'] : '';
+	$image_alt  = isset( $image['alt'] ) ? $image['alt'] : '';
+	$image_w    = isset( $image['width'] ) ? (int) $image['width'] : 215;
+	$image_h    = isset( $image['height'] ) ? (int) $image['height'] : 175;
+	?>
+	<div class="testro-mega__intro">
+		<div class="testro-mega__intro-copy">
+			<?php if ( $title ) : ?>
+				<p class="testro-mega__intro-title"><?php echo esc_html( $title ); ?></p>
+			<?php endif; ?>
+			<?php if ( $desc ) : ?>
+				<p class="testro-mega__intro-desc"><?php echo esc_html( $desc ); ?></p>
+			<?php endif; ?>
+			<?php if ( $cta_label ) : ?>
+				<a class="testro-mega__explore testro-mega__link" href="<?php echo esc_url( $cta_href ); ?>">
+					<?php echo esc_html( $cta_label ); ?>
+				</a>
+			<?php endif; ?>
+		</div>
+		<?php if ( $image_src ) : ?>
+			<div class="testro-mega__intro-visual">
+				<?php
+				echo testro_picture( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside helper
+					$image_src,
+					$image_alt,
+					array(
+						'width'  => $image_w,
+						'height' => $image_h,
+						'class'  => 'testro-mega__intro-image',
+					)
+				);
+				?>
+			</div>
+		<?php endif; ?>
+	</div>
+	<?php
+}
+
+/**
+ * Whether a mega menu uses the shared featured (intro + chevron) layout.
+ *
+ * @param array<string, mixed> $menu Menu config.
+ * @return bool
+ */
+function testro_nav_uses_featured_layout( $menu ) {
+	if ( empty( $menu ) || ! is_array( $menu ) ) {
+		return false;
+	}
+
+	if ( ! empty( $menu['intro'] ) ) {
+		return true;
+	}
+
+	$layout = isset( $menu['layout'] ) ? $menu['layout'] : '';
+	return in_array( $layout, array( 'featured', 'products' ), true );
 }
 
 /**
@@ -393,8 +524,9 @@ function testro_render_mega_panel( $key, $menu ) {
 		return;
 	}
 
-	$layout = isset( $menu['layout'] ) ? $menu['layout'] : 'two-col';
-	$panel_id = 'testro-mega-' . sanitize_html_class( $key );
+	$is_featured = testro_nav_uses_featured_layout( $menu );
+	$layout      = $is_featured ? 'featured' : ( isset( $menu['layout'] ) ? $menu['layout'] : 'two-col' );
+	$panel_id    = 'testro-mega-' . sanitize_html_class( $key );
 	?>
 	<div
 		class="testro-mega testro-mega--<?php echo esc_attr( $layout ); ?>"
@@ -405,7 +537,11 @@ function testro_render_mega_panel( $key, $menu ) {
 		hidden
 	>
 		<div class="testro-mega__inner">
-			<?php foreach ( $menu['columns'] as $column ) : ?>
+			<?php testro_render_mega_intro( $menu ); ?>
+			<?php
+			$item_variant = $is_featured ? 'chevron' : 'icon';
+			foreach ( $menu['columns'] as $column ) :
+				?>
 				<div class="testro-mega__col">
 					<?php if ( ! empty( $column['title'] ) ) : ?>
 						<p class="testro-mega__heading"><?php echo esc_html( $column['title'] ); ?></p>
@@ -413,7 +549,7 @@ function testro_render_mega_panel( $key, $menu ) {
 					<ul class="testro-mega__list">
 						<?php foreach ( $column['items'] as $item ) : ?>
 							<li class="testro-mega__item">
-								<?php testro_render_mega_item( $item ); ?>
+								<?php testro_render_mega_item( $item, $item_variant ); ?>
 							</li>
 						<?php endforeach; ?>
 					</ul>

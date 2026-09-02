@@ -11,7 +11,6 @@ $sections = array(
 	'hero',
 	'clients',
 	'overview',
-	'why-testro',
 	'key-features',
 	'ai-capabilities',
 	'how-it-works',

@@ -40,9 +40,8 @@ function testro_product_shared_sections() {
  * Standard conversion actions shared by every product page.
  *
  * Both actions open the shared demo dialog, which is the site's single
- * qualified-lead entry point. Hero and closing-CTA templates filter this
- * pair so the hero keeps the start-testing button and the footer CTA keeps
- * the demo button.
+ * qualified-lead entry point. The shared closing CTA renders the pair as
+ * provided so every page keeps the same two-button structure.
  *
  * @return array[]
  */
@@ -152,13 +151,20 @@ function testro_get_product_pages() {
 
 			'hero' => array(
 				'title'    => __( 'Test Smarter with an AI Test Automation Platform', 'testro' ),
-				'subtitle' => __( 'Built for modern software teams. theTestRo is an AI test automation platform that writes, runs, and heals your tests. Ship faster. Catch more bugs. Spend less time on manual fixes.', 'testro' ),
+				'subtitle' => __( 'Built for modern software teams. theTestRo is an <strong>AI test automation platform</strong> that writes, runs, and heals your tests. Ship faster. Catch more bugs. Spend less time on manual fixes.', 'testro' ),
 				'actions'  => array(
 					array(
-						'label' => __( 'Start Testing Free', 'testro' ),
+						'label' => __( 'Schedule a Demo', 'testro' ),
 						'style' => 'primary',
 						'modal' => 'demo-modal',
 					),
+				),
+				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
+				'badges'          => array(
+					__( 'AI Authoring', 'testro' ),
+					__( 'Self-Healing', 'testro' ),
+					__( 'No-Code Tests', 'testro' ),
+					__( 'CI/CD Ready', 'testro' ),
 				),
 			),
 
@@ -169,23 +175,25 @@ function testro_get_product_pages() {
 					'type'          => 'feature-grid',
 					'id'            => 'ai-native-automation',
 					'variant'       => 'spotlight',
+					'intro_layout'  => 'split',
 					'columns'       => 3,
+					'eyebrow'       => __( 'Built Around Intelligence', 'testro' ),
 					'title'         => __( 'AI-Native Test Automation', 'testro' ),
 					'intro'         => __( 'theTestRo is AI-native. AI sits at the core of every test. It\'s not bolted on as an extra. This is real AI software testing, not automation with an AI label stuck on top.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
-							'icon'        => 'message-text',
+							'icon'        => 'chart-bar',
 							'title'       => __( 'Natural Language Test Authoring', 'testro' ),
 							'description' => __( 'Type a test in plain English. AI turns it into a working test in seconds.', 'testro' ),
 						),
 						array(
-							'icon'        => 'wand',
+							'icon'        => 'gauge',
 							'title'       => __( 'AI-Driven Test Generation', 'testro' ),
 							'description' => __( 'AI studies your app and your past tests. Then it builds new test cases on its own.', 'testro' ),
 						),
 						array(
-							'icon'        => 'user-check',
+							'icon'        => 'shield-check',
 							'title'       => __( 'Human-in-the-Loop Validation', 'testro' ),
 							'description' => __( 'AI proposes each step. Your team checks and approves it. You stay in control.', 'testro' ),
 						),
@@ -606,9 +614,8 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'cta',
 					'id'            => 'get-started',
-					'title'         => __( 'Final CTA', 'testro' ),
-					'intro'         => __( 'Ready to Modernize Testing with AI?', 'testro' ),
-					'body'          => __( 'Join QA teams already using theTestRo to ship faster, catch more bugs, and cut manual work.', 'testro' ),
+					'title'         => __( 'Ready to Modernize Testing with AI?', 'testro' ),
+					'intro'         => __( 'Join QA teams already using theTestRo to ship faster, catch more bugs, and cut manual work.', 'testro' ),
 					'heading_level' => 5,
 					'actions'       => testro_product_default_actions(),
 				),
@@ -975,9 +982,8 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'cta',
 					'id'            => 'get-started-nocode',
-					'title'         => __( 'Final CTA', 'testro' ),
-					'intro'         => __( 'Start Testing Without Writing a Single Line of Code', 'testro' ),
-					'body'          => __( 'Join teams who ship faster with theTestRo. No scripts. No engineers required. Just faster, more reliable releases — built by the people who already know your product best.', 'testro' ),
+					'title'         => __( 'Start Testing Without Writing a Single Line of Code', 'testro' ),
+					'intro'         => __( 'Join teams who ship faster with theTestRo. No scripts. No engineers required. Just faster, more reliable releases — built by the people who already know your product best.', 'testro' ),
 					'heading_level' => 5,
 					'actions'       => array(
 						array(
@@ -3024,9 +3030,8 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'cta',
 					'id'            => 'get-started-self-healing',
-					'title'         => __( 'Final CTA', 'testro' ),
-					'intro'         => __( 'Stop Fixing Broken Tests by Hand', 'testro' ),
-					'body'          => __( 'Join teams already using theTestRo\'s self-healing test automation. Cut maintenance time and keep your test suite reliable, release after release. Less time fixing tests. More time building.', 'testro' ),
+					'title'         => __( 'Stop Fixing Broken Tests by Hand', 'testro' ),
+					'intro'         => __( 'Join teams already using theTestRo\'s self-healing test automation. Cut maintenance time and keep your test suite reliable, release after release. Less time fixing tests. More time building.', 'testro' ),
 					'heading_level' => 5,
 					'actions'       => array(
 						array(

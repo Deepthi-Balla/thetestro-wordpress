@@ -15,6 +15,7 @@ $args    = isset( $args ) && is_array( $args ) ? $args : array();
 $actions = isset( $args['actions'] ) && is_array( $args['actions'] ) ? $args['actions'] : array();
 $align   = isset( $args['align'] ) && 'start' === $args['align'] ? 'start' : 'center';
 $tone    = isset( $args['tone'] ) && 'dark' === $args['tone'] ? 'dark' : 'light';
+$arrow   = array_key_exists( 'with_arrow', $args ) ? (bool) $args['with_arrow'] : true;
 
 if ( ! $actions ) {
 	return;
@@ -50,9 +51,10 @@ if ( ! $actions ) {
 				'template-parts/components/primary-button',
 				null,
 				array(
-					'label' => $label,
-					'href'  => $modal ? '' : $href,
-					'attrs' => $attrs,
+					'label'      => $label,
+					'href'       => $modal ? '' : $href,
+					'with_arrow' => $arrow,
+					'attrs'      => $attrs,
 				)
 			);
 			?>

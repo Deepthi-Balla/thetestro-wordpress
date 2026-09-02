@@ -90,7 +90,7 @@ function testro_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'testro_banner_text',
 		array(
-			'default'           => "Boost Testing Efficiency with theTestRo's Smart Automation",
+			'default'           => "Boost testing efficiency with Testro's smart automation",
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);

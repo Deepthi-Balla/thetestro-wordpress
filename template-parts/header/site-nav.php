@@ -17,8 +17,8 @@ $nav_menus = testro_get_nav_menus();
 					'images/testro-logo.png',
 					__( 'theTestRo', 'testro' ),
 					array(
-						'width'         => 140,
-						'height'        => 40,
+						'width'         => 195,
+						'height'        => 70,
 						'loading'       => false,
 						'fetchpriority' => 'high',
 						'decoding'      => 'async',
@@ -86,7 +86,7 @@ $nav_menus = testro_get_nav_menus();
 							'label'      => __( 'Try theTestRo for free', 'testro' ),
 							'with_arrow' => false,
 							'attrs'      => array(
-								'class'           => 'primary-button testro-btn testro-btn--primary',
+								'class'           => 'primary-button testro-btn testro-btn--primary testro-nav__cta',
 								'data-open-modal' => 'demo-modal',
 								'aria-haspopup'   => 'dialog',
 								'aria-controls'   => 'demo-modal',

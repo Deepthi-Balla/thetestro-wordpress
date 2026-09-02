@@ -1,70 +1,110 @@
 <?php
 /**
- * Product overview section — platform summary with paragraphs + CSS mock.
+ * Product overview section — intro, three feature cards, closing line.
  *
  * @package TestRo
  */
 
-$data       = testro_get_overview();
-$headline   = isset( $data['headline'] ) ? (string) $data['headline'] : '';
-$paragraphs = isset( $data['paragraphs'] ) && is_array( $data['paragraphs'] ) ? $data['paragraphs'] : array();
+$data     = testro_get_overview();
+$eyebrow  = isset( $data['eyebrow'] ) ? (string) $data['eyebrow'] : '';
+$title    = isset( $data['title'] ) ? (string) $data['title'] : '';
+$intro    = isset( $data['intro'] ) ? (string) $data['intro'] : '';
+$closing  = isset( $data['closing'] ) ? (string) $data['closing'] : '';
+$cards    = isset( $data['cards'] ) && is_array( $data['cards'] ) ? $data['cards'] : array();
+
+if ( '' === $title && ! $cards ) {
+	return;
+}
 ?>
-<section class="testro-overview linear-background" id="overview" aria-labelledby="overview-heading">
-	<div class="testro-container">
-		<header class="testro-section-header testro-overview__header" data-reveal>
-			<h2 id="overview-heading" class="gradient-text main-headings testro-overview__title">
-				<?php echo esc_html( $data['title'] ); ?>
-			</h2>
-			<?php if ( '' !== $headline ) : ?>
-				<p class="sub-text testro-overview__headline"><?php echo esc_html( $headline ); ?></p>
+<section class="testro-overview" id="overview" aria-labelledby="overview-heading">
+	<div class="testro-overview__inner">
+		<header class="testro-overview__intro" data-reveal>
+			<?php if ( '' !== $eyebrow ) : ?>
+				<p class="testro-overview__label"><?php echo esc_html( $eyebrow ); ?></p>
+			<?php endif; ?>
+			<?php if ( '' !== $title ) : ?>
+				<h2 id="overview-heading" class="testro-overview__title"><?php echo esc_html( $title ); ?></h2>
+			<?php endif; ?>
+			<?php if ( '' !== $intro ) : ?>
+				<p class="testro-overview__desc"><?php echo esc_html( $intro ); ?></p>
 			<?php endif; ?>
 		</header>
 
-		<div class="testro-overview__layout">
-			<div class="testro-overview__copy" data-reveal>
-				<?php if ( $paragraphs ) : ?>
-					<div class="testro-overview__paragraphs">
-						<?php foreach ( $paragraphs as $index => $paragraph ) : ?>
-							<p class="testro-overview__paragraph sub-text" style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms" data-reveal><?php echo esc_html( $paragraph ); ?></p>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-			</div>
+		<?php if ( $cards ) : ?>
+			<ul class="testro-overview__cards">
+				<?php foreach ( $cards as $index => $card ) : ?>
+					<?php
+					$variant     = isset( $card['variant'] ) && 'dark' === $card['variant'] ? 'dark' : 'light';
+					$card_title  = isset( $card['title'] ) ? (string) $card['title'] : '';
+					$card_desc   = isset( $card['description'] ) ? (string) $card['description'] : '';
+					$visual      = isset( $card['visual'] ) ? (string) $card['visual'] : '';
+					$suites      = isset( $card['suites'] ) && is_array( $card['suites'] ) ? $card['suites'] : array();
+					$badge       = isset( $card['badge'] ) ? (string) $card['badge'] : '';
+					$image       = isset( $card['image'] ) ? (string) $card['image'] : '';
+					$image_alt   = isset( $card['image_alt'] ) ? (string) $card['image_alt'] : '';
+					$image_w     = isset( $card['image_width'] ) ? (int) $card['image_width'] : 0;
+					$image_h     = isset( $card['image_height'] ) ? (int) $card['image_height'] : 0;
+					$card_class  = 'testro-overview-card testro-overview-card--' . $variant;
+					?>
+					<li class="<?php echo esc_attr( $card_class ); ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 80 ) ); ?>ms">
+						<?php if ( '' !== $card_title ) : ?>
+							<h3 class="testro-overview-card__title"><?php echo esc_html( $card_title ); ?></h3>
+						<?php endif; ?>
+						<?php if ( '' !== $card_desc ) : ?>
+							<p class="testro-overview-card__desc"><?php echo esc_html( $card_desc ); ?></p>
+						<?php endif; ?>
 
-			<div class="testro-overview__visual" data-reveal aria-hidden="true">
-				<div class="testro-overview-dash" role="img" aria-label="<?php esc_attr_e( 'theTestRo platform dashboard mockup', 'testro' ); ?>">
-					<div class="testro-overview-dash__chrome">
-						<span></span><span></span><span></span>
-						<p><?php esc_html_e( 'theTestRo Studio', 'testro' ); ?></p>
-					</div>
-					<div class="testro-overview-dash__body">
-						<div class="testro-overview-dash__sidebar">
-							<span class="is-active"></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-						<div class="testro-overview-dash__main">
-							<div class="testro-overview-dash__row">
-								<span class="testro-overview-dash__pill"><?php esc_html_e( 'AI Suite', 'testro' ); ?></span>
-								<span class="testro-overview-dash__live"><?php esc_html_e( 'Live', 'testro' ); ?></span>
+						<?php if ( 'suites' === $visual && $suites ) : ?>
+							<div class="testro-overview-card__visual testro-overview-card__visual--suites" aria-hidden="true">
+								<ul class="testro-overview-card__suites">
+									<?php foreach ( $suites as $suite ) : ?>
+										<?php
+										$icon   = isset( $suite['icon'] ) ? (string) $suite['icon'] : '';
+										$label  = isset( $suite['label'] ) ? (string) $suite['label'] : '';
+										$status = isset( $suite['status'] ) ? (string) $suite['status'] : '';
+										?>
+										<li class="testro-overview-card__suite">
+											<span class="testro-overview-card__suite-icon">
+												<?php echo testro_icon( $icon, array( 'size' => 12, 'stroke' => 2.25 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+											</span>
+											<span class="testro-overview-card__suite-label"><?php echo esc_html( $label ); ?></span>
+											<span class="testro-overview-card__suite-status"><?php echo esc_html( $status ); ?></span>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+								<?php if ( '' !== $badge ) : ?>
+									<p class="testro-overview-card__badge">
+										<span class="testro-overview-card__badge-check" aria-hidden="true">✓</span>
+										<?php echo esc_html( $badge ); ?>
+									</p>
+								<?php endif; ?>
 							</div>
-							<div class="testro-overview-dash__bars">
-								<span style="--h: 72%"></span>
-								<span style="--h: 54%"></span>
-								<span style="--h: 88%"></span>
-								<span style="--h: 66%"></span>
-								<span style="--h: 94%"></span>
+						<?php elseif ( 'image' === $visual && '' !== $image ) : ?>
+							<div class="testro-overview-card__visual testro-overview-card__visual--image" aria-hidden="true">
+								<?php
+								$img_attrs = array(
+									'class'   => 'testro-overview-card__image',
+									'loading' => 'lazy',
+								);
+								if ( $image_w ) {
+									$img_attrs['width'] = $image_w;
+								}
+								if ( $image_h ) {
+									$img_attrs['height'] = $image_h;
+								}
+								echo testro_picture( $image, $image_alt, $img_attrs ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside helper.
+								?>
 							</div>
-							<ul class="testro-overview-dash__list">
-								<li><i></i><?php esc_html_e( 'Checkout · Self-healed', 'testro' ); ?></li>
-								<li><i></i><?php esc_html_e( 'API auth · Passing', 'testro' ); ?></li>
-								<li><i></i><?php esc_html_e( 'Regression · Queued', 'testro' ); ?></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+
+		<?php if ( '' !== $closing ) : ?>
+			<p class="testro-overview__closing" data-reveal>
+				<span class="testro-overview__closing-text">&ldquo;<?php echo esc_html( $closing ); ?>&rdquo;</span>
+			</p>
+		<?php endif; ?>
 	</div>
 </section>

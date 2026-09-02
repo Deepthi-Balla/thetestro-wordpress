@@ -1,0 +1,1186 @@
+---
+alwaysApply: false
+---
+# 3. Existing Codebase Must Be Understood Before Editing
+
+Before modifying a component or page, inspect the relevant existing implementation.
+
+Understand:
+
+* Component hierarchy
+* Parent-child relationships
+* Props
+* State
+* Existing hooks
+* Existing utility functions
+* API calls
+* Event handlers
+* Routing
+* Existing reusable components
+* Existing styles
+* Existing design tokens
+* Existing responsive behavior
+* Existing assets
+* Existing layout components
+
+Do not immediately rewrite a component based only on the screenshot.
+
+First understand what the existing component is responsible for.
+
+If a component contains both UI and important functionality, preserve the functionality and modify only the required presentation.
+
+---
+
+# 4. Screenshot-Based Design Rules
+
+The designer's UI is provided through screenshots because the original design website is private and cannot be accessed directly.
+
+Treat the provided screenshots as the visual source of truth.
+
+Use screenshots to determine:
+
+* Layout
+* Visual hierarchy
+* Component positioning
+* Alignment
+* Relative spacing
+* Typography
+* Font sizes
+* Font weights
+* Line heights
+* Colors
+* Borders
+* Border radius
+* Shadows
+* Backgrounds
+* Images
+* Icons
+* Button appearance
+* Card appearance
+* Section structure
+* Content relationships
+* Responsive intent where visible
+
+Do not blindly copy screenshot dimensions.
+
+A screenshot represents a visual reference, not necessarily a fixed CSS width or height.
+
+---
+
+# 5. Desktop Reference Width
+
+The designer's desktop design is provided at approximately 1200px reference width.
+
+IMPORTANT:
+
+Do NOT interpret 1200px as the fixed width of the entire application.
+
+The application must remain responsive.
+
+The 1200px design should be treated as a desktop visual reference.
+
+Determine whether a 1200px measurement represents:
+
+* The viewport width
+* A content container
+* A section container
+* A maximum content width
+
+Do not assume that every element should have a fixed width of 1200px.
+
+On larger screens such as 1440px, 1920px or larger:
+
+* Keep content appropriately constrained.
+* Use max-width containers where appropriate.
+* Center content when the design indicates a centered layout.
+* Allow full-width backgrounds when appropriate.
+* Do not unnecessarily stretch text, cards or content across the entire viewport.
+
+---
+
+# 6. Responsive Design Is Mandatory
+
+Every UI change must be responsive.
+
+The final implementation must work across:
+
+* Large desktop monitors
+* Standard desktop screens
+* Laptops
+* Tablets
+* Mobile phones
+
+At minimum, consider layouts around:
+
+* 1920px
+* 1440px
+* 1280px
+* 1024px
+* 768px
+* 600px
+* 430px
+* 390px
+* 375px
+* 320px
+
+Do not create separate implementations for every device width unless absolutely necessary.
+
+Prefer fluid layouts and sensible breakpoints.
+
+---
+
+# 7. Responsive Layout Principles
+
+Use responsive CSS techniques such as:
+
+* Flexbox
+* CSS Grid
+* Fluid widths
+* max-width
+* min-width where necessary
+* Responsive padding
+* Responsive margins
+* Responsive typography
+* Existing project breakpoints
+* Existing responsive utilities
+
+Avoid unnecessary fixed widths.
+
+Avoid unnecessary fixed heights.
+
+Avoid positioning elements using arbitrary pixel offsets.
+
+Avoid absolute positioning for normal document layout unless the design genuinely requires it.
+
+Avoid negative margins unless there is a clear reason and the existing design system already uses them.
+
+Do not use viewport-specific hacks simply to make one screenshot look correct.
+
+The layout must behave naturally between breakpoints, not only at the exact screenshot width.
+
+---
+
+# 8. Mobile-First / Small-Screen Behavior
+
+When adapting desktop UI to mobile:
+
+Do not simply shrink the desktop layout.
+
+Determine how the layout should reflow.
+
+Examples:
+
+Desktop:
+
+Text + Image side by side
+
+Mobile:
+
+Text
+Image
+
+Desktop:
+
+Three cards in one row
+
+Mobile:
+
+Cards stacked vertically or arranged in an appropriate responsive grid
+
+Desktop:
+
+Full navigation menu
+
+Mobile:
+
+Collapsed navigation / mobile menu if the existing application supports it
+
+Preserve the same content hierarchy and functionality while adapting the composition.
+
+Do not remove important content simply because the screen is smaller unless the design explicitly indicates that behavior.
+
+---
+
+# 9. Prevent Horizontal Overflow
+
+The UI must not introduce unwanted horizontal scrolling.
+
+Check for:
+
+* Fixed-width containers
+* Oversized images
+* Long text
+* Buttons
+* Navigation items
+* Cards
+* Tables
+* Form controls
+* Absolute-positioned elements
+* Large icons
+* Large headings
+
+At narrow widths such as 320px:
+
+* Content must remain visible.
+* Text must wrap appropriately.
+* Buttons must fit.
+* Images must scale appropriately.
+* Cards must reflow.
+* No important content should be clipped.
+
+Do not solve overflow problems by blindly adding:
+
+```css
+overflow-x: hidden;
+```
+
+First identify and fix the actual cause of the overflow.
+
+---
+
+# 10. Typography Rules
+
+Use the project's existing font family if one already exists.
+
+If the designer specifies a font family, use that font consistently.
+
+Do not introduce a different font without a clear requirement.
+
+Respect the designer's:
+
+* Font family
+* Font size
+* Font weight
+* Line height
+* Letter spacing
+* Text alignment
+
+Use responsive typography where appropriate.
+
+Large desktop headings may need to scale down on smaller screens.
+
+Do not allow large headings to cause horizontal overflow.
+
+Do not arbitrarily change typography simply to make a layout fit.
+
+---
+
+# 11. Colors
+
+Use the exact designer-provided colors when available.
+
+Prefer existing design tokens, CSS variables, theme values or constants when they already exist.
+
+Do not create duplicate color definitions.
+
+For example, if the project already has:
+
+```text
+--primary-color
+--text-color
+--border-color
+```
+
+reuse them.
+
+Do not introduce:
+
+```text
+#123456
+#123457
+#123458
+```
+
+throughout individual components when a shared token is appropriate.
+
+If the designer's color differs from the existing token, determine whether the existing token should be updated globally or whether the new color is specific to the component.
+
+Avoid changing global colors when the requested change is only local.
+
+---
+
+# 12. Spacing
+
+Follow the spacing shown in the designer screenshots.
+
+Prefer existing spacing tokens or utilities when available.
+
+Maintain consistent spacing between:
+
+* Sections
+* Headings
+* Paragraphs
+* Buttons
+* Cards
+* Form elements
+* Icons
+* Images
+
+Do not manually add random margins simply to move elements into position.
+
+Before adding a new spacing value, check whether an existing spacing value or utility can be reused.
+
+Avoid unnecessary values such as:
+
+```text
+13px
+17px
+23px
+37px
+53px
+```
+
+unless the design specifically requires them.
+
+Prefer the project's established spacing scale.
+
+---
+
+# 13. Width and Container Rules
+
+Use responsive containers.
+
+Where appropriate, use patterns equivalent to:
+
+```css
+width: 100%;
+max-width: <appropriate value>;
+margin: 0 auto;
+```
+
+Do not automatically use:
+
+```css
+width: 1200px;
+```
+
+for the entire application.
+
+Different sections may have different layout requirements.
+
+Determine whether each section is:
+
+* Full width
+* Container width
+* Max-width constrained
+* Fluid
+* Grid-based
+
+A full-width background can contain a constrained content container.
+
+Example:
+
+```text
+Full-width section
+        |
+        └── max-width content container
+```
+
+---
+
+# 14. Height Rules
+
+Avoid fixed heights unless the design explicitly requires them.
+
+Prefer content-driven height.
+
+Do not use fixed heights simply because the screenshot has a particular height.
+
+For example, do not automatically convert a screenshot section into:
+
+```css
+height: 600px;
+```
+
+Instead determine whether the section should naturally size based on:
+
+* Content
+* Padding
+* Images
+* Grid
+* Flexbox
+
+If a fixed height is genuinely required, verify that it does not break smaller screens.
+
+---
+
+# 15. Images
+
+Reuse existing project assets whenever possible.
+
+Do not download or introduce duplicate images if the required asset already exists.
+
+Ensure images:
+
+* Scale correctly
+* Maintain aspect ratio
+* Do not overflow containers
+* Do not become distorted
+* Work on mobile
+* Use appropriate object-fit behavior where necessary
+
+Do not replace existing assets unless the designer explicitly requires a different asset.
+
+---
+
+# 16. Icons
+
+Reuse existing icon libraries or existing project icons whenever possible.
+
+Do not introduce a new icon library simply for one icon.
+
+Do not replace functional icons without checking whether they are used elsewhere.
+
+Maintain:
+
+* Icon size
+* Alignment
+* Stroke/weight
+* Color
+* Spacing
+
+according to the design.
+
+---
+
+# 17. Buttons
+
+Before creating a new button component:
+
+1. Search for existing button components.
+2. Check whether the existing component can support the new design.
+3. Extend the existing component if appropriate.
+4. Create a new component only when reuse is not practical.
+
+Preserve:
+
+* Existing click behavior
+* Existing navigation
+* Existing loading behavior
+* Existing disabled behavior
+* Existing accessibility behavior
+
+Only modify visual properties unless functionality changes are explicitly requested.
+
+---
+
+# 18. Forms and Inputs
+
+Do not modify form behavior during a UI-only redesign.
+
+Preserve:
+
+* Validation
+* Form submission
+* API integration
+* Error handling
+* Loading state
+* Disabled state
+* Existing field names
+* Existing state management
+
+Modify only:
+
+* Layout
+* Typography
+* Colors
+* Borders
+* Radius
+* Spacing
+* Icons
+* Visual states
+
+unless explicitly instructed otherwise.
+
+---
+
+# 19. Navigation
+
+When redesigning navigation:
+
+Preserve:
+
+* Existing routes
+* Existing links
+* Existing authentication behavior
+* Existing dropdown behavior
+* Existing menu behavior
+
+If the desktop design has a different visual layout, update the presentation without breaking navigation functionality.
+
+For mobile, ensure navigation remains usable and accessible.
+
+Do not remove navigation items simply to make the UI fit.
+
+---
+
+# 20. Shared Components
+
+Before creating a new component, search the codebase.
+
+Ask:
+
+1. Does a component already exist?
+2. Can it be reused?
+3. Can it be extended?
+4. Can its styles be updated?
+5. Is the existing component used elsewhere?
+6. Will changing it affect other pages?
+
+If a shared component is modified, verify all pages using it.
+
+Avoid creating duplicate components such as:
+
+```text
+Button
+PrimaryButton
+NewButton
+DesignButton
+HeroButton
+```
+
+when one reusable component can support the required variants.
+
+---
+
+# 21. Avoid Duplicate Styling
+
+Do not add multiple styling systems for the same component.
+
+Before adding CSS:
+
+* Search existing styles.
+* Search existing classes.
+* Search existing CSS variables.
+* Search existing utility classes.
+* Search existing component variants.
+
+Do not duplicate styles simply because the new design looks different.
+
+Modify the existing source of truth where appropriate.
+
+---
+
+# 22. Breakpoint Rules
+
+Use the project's existing breakpoints whenever possible.
+
+Do not introduce many arbitrary breakpoints.
+
+Avoid creating breakpoints such as:
+
+```text
+1234px
+1187px
+1093px
+947px
+813px
+691px
+```
+
+unless there is a genuine design requirement.
+
+Prefer a small, consistent breakpoint system.
+
+Breakpoints should represent meaningful layout transitions, such as:
+
+* Desktop
+* Tablet
+* Mobile
+
+Use fluid CSS between breakpoints.
+
+---
+
+# 23. Responsive Testing
+
+After implementing a UI section, verify it at multiple widths.
+
+At minimum test:
+
+### Large desktop
+
+```text
+1920px
+1440px
+```
+
+### Laptop
+
+```text
+1280px
+```
+
+### Tablet
+
+```text
+1024px
+768px
+```
+
+### Mobile
+
+```text
+430px
+390px
+375px
+320px
+```
+
+Check:
+
+* No horizontal overflow
+* No clipped text
+* No overlapping elements
+* No broken images
+* No broken buttons
+* No broken navigation
+* No unexpected whitespace
+* No layout collapse
+* No functionality regression
+
+---
+
+# 24. Visual Comparison Process
+
+When a designer screenshot is provided:
+
+1. Compare the existing implementation against the screenshot.
+2. Identify the visual differences.
+3. Determine whether the difference is intentional due to viewport size.
+4. Implement the required change.
+5. Re-check desktop.
+6. Re-check responsive layouts.
+
+Do not attempt to make a 1920px implementation literally identical in dimensions to a 1200px screenshot.
+
+Compare:
+
+* Visual hierarchy
+* Proportions
+* Alignment
+* Typography
+* Spacing relationships
+* Component placement
+* Colors
+* Responsive behavior
+
+rather than blindly matching pixel coordinates.
+
+---
+
+# 25. Screenshot Comparison
+
+When both the designer screenshot and implementation screenshot are available:
+
+Treat the designer screenshot as the visual reference.
+
+Compare:
+
+* Overall layout
+* Container width
+* Section height
+* Typography
+* Font weight
+* Font size
+* Line height
+* Spacing
+* Padding
+* Margins
+* Alignment
+* Colors
+* Borders
+* Border radius
+* Shadows
+* Images
+* Icons
+* Button sizes
+* Responsive behavior
+
+Fix only the relevant differences.
+
+Do not refactor unrelated code during visual comparison.
+
+---
+
+# 26. Functional Preservation
+
+A UI redesign must not break existing functionality.
+
+Before modifying a component, identify important functionality.
+
+After modifying it, verify:
+
+* Buttons still work.
+* Links still navigate correctly.
+* Forms still submit.
+* Validation still works.
+* API calls still work.
+* Loading states still work.
+* Error states still work.
+* Modals still open and close.
+* Dropdowns still work.
+* Tabs still work.
+* Pagination still works.
+* Search/filter behavior still works.
+* Authentication behavior is unchanged.
+* Routing is unchanged.
+
+Visual changes must not unintentionally alter behavior.
+
+---
+
+# 27. API and Backend Protection
+
+For UI redesign tasks:
+
+DO NOT modify:
+
+* API endpoints
+* Request payloads
+* Response handling
+* Authentication logic
+* Backend services
+* Database logic
+* API contracts
+
+unless explicitly required by the task.
+
+If an existing API issue is discovered while implementing UI, report it separately rather than changing it automatically.
+
+---
+
+# 28. State Management Protection
+
+Do not modify:
+
+* Redux/state stores
+* Context behavior
+* Existing hooks
+* State transitions
+* Existing data flow
+
+unless the UI genuinely requires a change.
+
+If the existing state can already support the new UI, reuse it.
+
+Do not introduce new state simply to render something that can be derived from existing state.
+
+---
+
+# 29. Routing Protection
+
+Do not change routes during UI redesign.
+
+Do not:
+
+* Rename routes
+* Remove routes
+* Add unnecessary routes
+* Change route behavior
+
+unless explicitly requested.
+
+---
+
+# 30. Dependency Rules
+
+Before adding a dependency:
+
+1. Check whether the project already has a library that solves the problem.
+2. Check whether the functionality can be implemented using existing tools.
+3. Only add a dependency when there is a clear benefit.
+
+Do not introduce a new library just for:
+
+* One icon
+* One CSS effect
+* One simple animation
+* One simple layout
+* One simple utility
+
+Prefer existing project dependencies.
+
+---
+
+# 31. Animation Rules
+
+Animations should be subtle and purposeful.
+
+If the designer has animations:
+
+* Reproduce them where practical.
+* Reuse existing animation utilities where possible.
+* Do not introduce heavy animation libraries unnecessarily.
+* Do not make animations interfere with usability.
+* Respect reduced-motion preferences where applicable.
+
+Do not add animations merely because the page feels static unless requested.
+
+---
+
+# 32. Accessibility
+
+UI redesign must preserve or improve accessibility.
+
+Maintain:
+
+* Semantic HTML
+* Keyboard navigation
+* Focus states
+* Accessible labels
+* Appropriate button/link semantics
+* Sufficient text contrast
+* Alternative text for meaningful images
+* Accessible form controls
+
+Do not replace semantic elements with generic clickable elements simply to achieve a visual design.
+
+---
+
+# 33. Code Quality
+
+Keep implementation:
+
+* Simple
+* Readable
+* Maintainable
+* Reusable
+* Consistent with existing conventions
+
+Avoid:
+
+* Clever solutions
+* Over-engineering
+* Unnecessary abstractions
+* Duplicate logic
+* Duplicate components
+* Excessive conditional rendering
+* Excessive CSS overrides
+* Deeply nested styling hacks
+
+Prefer the simplest implementation that satisfies the design.
+
+---
+
+# 34. No Unrelated Refactoring
+
+A UI task is not an opportunity to clean up the entire codebase.
+
+Do not:
+
+* Rename unrelated variables
+* Reorganize unrelated folders
+* Rewrite unrelated components
+* Update unrelated dependencies
+* Change unrelated styles
+* Change formatting across unrelated files
+* Fix unrelated bugs unless they directly prevent the requested UI change
+
+Keep the diff focused.
+
+---
+
+# 35. Before Creating a New Component
+
+Before creating a new component, explicitly check:
+
+```text
+1. Does an existing component provide this functionality?
+2. Can an existing component be modified?
+3. Can an existing component accept a new variant?
+4. Is the new component actually reusable?
+5. Will this create duplication?
+```
+
+Only create a new component when necessary.
+
+---
+
+# 36. Before Modifying a Shared Component
+
+If a component is reused across multiple pages:
+
+1. Search for all usages.
+2. Understand how it is currently used.
+3. Determine whether the visual change is globally appropriate.
+4. If the design differs by page, prefer variants/props rather than breaking existing usages.
+5. Verify all affected pages after the change.
+
+Do not modify a shared component blindly.
+
+---
+
+# 37. Implementation Order
+
+For large UI redesigns, follow this order whenever practical:
+
+## Phase 1 — Understand
+
+* Inspect project architecture.
+* Inspect existing components.
+* Inspect existing styles.
+* Inspect existing responsive behavior.
+* Inspect existing design tokens.
+
+## Phase 2 — Global Design
+
+* Font
+* Typography
+* Colors
+* Spacing
+* Container system
+* Breakpoints
+
+## Phase 3 — Shared Components
+
+* Navbar
+* Footer
+* Buttons
+* Inputs
+* Cards
+* Common sections
+* Modals
+* Other reusable components
+
+## Phase 4 — Pages
+
+Implement pages one at a time.
+
+## Phase 5 — Sections
+
+Within each page, implement sections individually.
+
+## Phase 6 — Responsive Review
+
+Test desktop, laptop, tablet and mobile.
+
+## Phase 7 — Visual Review
+
+Compare implementation screenshots against designer screenshots.
+
+## Phase 8 — Cleanup
+
+Remove:
+
+* Unused imports
+* Duplicate components
+* Unused CSS
+* Temporary code
+* Unnecessary dependencies
+* Unnecessary changes
+
+---
+
+# 38. Section-by-Section Implementation
+
+When instructed to update a specific section:
+
+Only modify that section unless a shared component must be changed.
+
+Before implementation:
+
+1. Locate the section.
+2. Understand its current functionality.
+3. Identify reusable components.
+4. Compare it with the designer screenshot.
+5. Determine the required visual changes.
+6. Implement the minimum required changes.
+7. Verify responsiveness.
+8. Verify existing functionality.
+
+Do not redesign the entire page when only one section was requested.
+
+---
+
+# 39. Do Not Assume Missing Design Details
+
+If the screenshot does not clearly show an exact value:
+
+Do not invent complicated values.
+
+Use:
+
+1. Existing project design tokens.
+2. Existing component conventions.
+3. Common responsive design practices.
+4. Proportions visible in the screenshot.
+
+If an important design decision cannot reasonably be determined, clearly state the assumption before making a major architectural change.
+
+---
+
+# 40. Desktop vs Mobile Design
+
+If only a desktop screenshot is provided:
+
+Use the desktop screenshot as the visual source of truth.
+
+For mobile:
+
+* Preserve content hierarchy.
+* Preserve functionality.
+* Reflow content naturally.
+* Stack elements when appropriate.
+* Reduce spacing where appropriate.
+* Scale typography appropriately.
+* Make navigation usable.
+* Ensure touch-friendly controls.
+* Avoid horizontal scrolling.
+
+Do not invent a completely different visual design.
+
+---
+
+# 41. Existing Design System Has Priority for Reuse
+
+If the existing application already has:
+
+* Theme variables
+* CSS variables
+* Tailwind configuration
+* Typography tokens
+* Spacing tokens
+* Breakpoints
+* Button variants
+* Component variants
+
+reuse them.
+
+Do not create parallel systems unless the existing system cannot support the new design.
+
+If the global design system itself needs to change, make the change centrally rather than overriding every individual component.
+
+---
+
+# 42. Git/Diff Awareness
+
+After implementation, review the changes.
+
+Ask:
+
+* Did I modify only relevant files?
+* Did I change unrelated functionality?
+* Did I introduce duplicate components?
+* Did I add unnecessary dependencies?
+* Did I modify API/state/routing logic unnecessarily?
+* Did I introduce unnecessary CSS?
+* Did I accidentally remove functionality?
+* Did I break shared components?
+
+If unrelated changes were introduced, revert them.
+
+Keep the final diff focused on the requested UI work.
+
+---
+
+# 43. Final Verification Before Completing Any UI Task
+
+Before considering the task complete, verify:
+
+### Visual
+
+* Matches the designer screenshot closely.
+* Correct typography.
+* Correct colors.
+* Correct spacing.
+* Correct alignment.
+* Correct sizing.
+* Correct borders/radius/shadows.
+* Correct images/icons.
+
+### Responsive
+
+* 1920px
+* 1440px
+* 1280px
+* 1024px
+* 768px
+* 430px
+* 390px
+* 375px
+* 320px
+
+### Functional
+
+* Existing interactions work.
+* Existing navigation works.
+* Existing API behavior works.
+* Existing state behavior works.
+* Existing forms work.
+* Existing loading/error states work.
+
+### Code
+
+* No unnecessary files.
+* No duplicate components.
+* No unused imports.
+* No unnecessary dependencies.
+* No unrelated refactoring.
+* No unnecessary CSS.
+* No broken imports.
+
+---
+
+# 44. Most Important Rule
+
+Always follow this hierarchy:
+
+```text
+                    UI/UX SCREENSHOT
+                          │
+                          │
+                   Visual appearance
+                          │
+                          ▼
+                ┌───────────────────┐
+                │ Existing Frontend │
+                │    Architecture   │
+                └─────────┬─────────┘
+                          │
+                          │
+                    Functionality
+                          │
+                          ▼
+                Existing behavior/API/
+                state/routing/hooks
+```
+
+In simple terms:
+
+**Use the designer's screenshots to decide HOW the application should look.**
+
+**Use the existing codebase to decide HOW the application should work.**
+
+Never sacrifice working functionality just to reproduce a visual design.
+
+---
+
+# 45. Default Instruction for Every UI Task
+
+For every UI redesign request, follow this process:
+
+```text
+1. Inspect existing implementation.
+2. Identify reusable components.
+3. Identify existing functionality that must be preserved.
+4. Compare the implementation with the designer screenshot.
+5. Determine the smallest set of changes required.
+6. Implement the UI changes.
+7. Make the implementation responsive.
+8. Verify desktop behavior.
+9. Verify tablet behavior.
+10. Verify mobile behavior.
+11. Verify existing functionality.
+12. Review the Git diff.
+13. Remove unnecessary changes.
+14. Report what was changed.
+```
+
+Do not skip the inspection step.
+
+Do not immediately rewrite code.
+
+Do not make assumptions about the architecture when the existing code already provides a solution.
+
+**The default strategy is always: REUSE → MODIFY → EXTEND → CREATE ONLY IF NECESSARY.**
