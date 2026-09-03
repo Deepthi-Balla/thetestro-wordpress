@@ -90,7 +90,7 @@ function testro_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'testro_banner_text',
 		array(
-			'default'           => "Boost Testing Efficiency with theTestRo's Smart Automation",
+			'default'           => "Boost testing efficiency with Testro's smart automation",
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
@@ -98,6 +98,22 @@ function testro_customize_register( $wp_customize ) {
 		'testro_banner_text',
 		array(
 			'label'   => __( 'Top Banner Text', 'testro' ),
+			'section' => 'testro_contact',
+			'type'    => 'text',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'testro_banner_cta',
+		array(
+			'default'           => 'Get a demo →',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		'testro_banner_cta',
+		array(
+			'label'   => __( 'Top Banner CTA', 'testro' ),
 			'section' => 'testro_contact',
 			'type'    => 'text',
 		)

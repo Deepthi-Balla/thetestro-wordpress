@@ -67,9 +67,16 @@ function testro_get_thankyou_url( $type ) {
  */
 function testro_enqueue_assets() {
 	wp_enqueue_style(
+		'testro-sora',
+		'https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap',
+		array(),
+		null
+	);
+
+	wp_enqueue_style(
 		'testro-main',
 		testro_asset_file_uri( 'css/main.css' ),
-		array(),
+		array( 'testro-sora' ),
 		TESTRO_VERSION
 	);
 

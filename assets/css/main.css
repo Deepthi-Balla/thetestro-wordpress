@@ -49,7 +49,9 @@
   --color-blue-600: #2563eb;
   --color-navy: #003e81;
   --color-navy-2: #003e85;
-  --color-banner-text: #003e85;
+  --color-banner-text: #ffffff;
+  --color-banner-start: #003e84;
+  --color-banner-end: #00acff;
   --color-dark: #2d2d2d;
   --color-ink: #141414;
   --color-sub: #6f7b82;
@@ -62,7 +64,8 @@
   --grad-text: linear-gradient(to right, #1c00b8, #00ffff);
   --grad-btn: linear-gradient(to right, #2602ed, #00ffff);
   --grad-tabs: linear-gradient(to left, #2602ed, #00ffff);
-  --grad-banner: linear-gradient(to right, #adf4ff, #3c00ff, #78a4f5, #adf4ff);
+  --grad-banner: linear-gradient(to right, var(--color-banner-start), var(--color-banner-end));
+  --banner-height: 42px;
   --grad-how: linear-gradient(to right, #00ffff, #2602ed);
   --grad-enterprise: linear-gradient(135deg, #2602ed, #00ffff);
   --grad-pricing-default: linear-gradient(to left, #fefefe, #f2f6fe);
@@ -78,10 +81,11 @@
   --radius-nav: 30px;
   --radius-card: 24px;
 
-  --nav-height: 66px; /* reference floating nav */
-  --nav-width: 80%;
-  --nav-top-banner: 5.5rem;
-  --nav-top: 1rem;
+  --nav-height: 80px;
+  --nav-padding-x: 56px;
+  --nav-width: 100%;
+  --nav-top-banner: var(--banner-height);
+  --nav-top: 0;
   --header-stack-padding: 13rem;
   --header-scroll-offset: 7.5rem;
 
@@ -92,6 +96,23 @@
 
   --container: 1280px;
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Reusable CTA button (banner gradient) */
+  --grad-cta: var(--grad-banner);
+  --radius-cta: 8px;
+  --font-nav: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-hero-heading: "Sora", var(--font-nav);
+  --hero-padding-x: 84px;
+  --hero-content-gap: 22px;
+  --hero-home-height: 724px;
+  --hero-home-padding-top: 100px;
+  --hero-home-padding-bottom: 96px;
+  --color-hero-desc: #475569;
+  --color-tag-bg: #eaf3fc;
+  --color-tag-border: #00acff;
+  --color-tag-text: #003e84;
+  --color-secondary-btn-text: #084c9d;
+  --color-secondary-btn-border: #dceaf9;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -458,6 +479,74 @@ p {
   transform: rotate(-45deg) translate(4px, -2px) scale(1.1);
 }
 
+/* Brand CTA — banner gradient, reusable across sections */
+.testro-btn--brand,
+.primary-button.testro-btn--brand {
+  background-image: var(--grad-cta);
+  font-family: var(--font-nav);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1.2em;
+  padding: 15px 16px;
+  height: auto;
+  min-height: 0;
+  border-radius: var(--radius-cta);
+}
+
+.testro-btn--brand:hover,
+.primary-button.testro-btn--brand:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 4px 16px rgb(0 62 132 / 0.25);
+}
+
+.testro-btn--secondary {
+  height: 48px;
+  padding: 0 16px;
+  background: #fff;
+  border-radius: var(--radius-cta);
+  border: 1px solid var(--color-secondary-btn-border);
+  box-shadow: 0 2px 8px rgb(0 62 132 / 0.12);
+  color: var(--color-secondary-btn-text);
+  font-family: var(--font-nav);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1.2em;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.testro-btn--secondary:hover {
+  background: #f8fbff;
+  border-color: var(--color-tag-border);
+  box-shadow: 0 4px 12px rgb(0 62 132 / 0.16);
+}
+
+.testro-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 16px;
+  margin: 0;
+  background: var(--color-tag-bg);
+  border: 1px solid var(--color-tag-border);
+  border-radius: 30px;
+  font-family: var(--font-nav);
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0;
+  line-height: 1.2em;
+  color: var(--color-tag-text);
+  white-space: nowrap;
+}
+
 .testro-btn--outline {
   height: 48px;
   padding: 0 22px;
@@ -590,11 +679,6 @@ p {
 
 .banner-background {
   background: var(--grad-banner);
-  height: 54px;
-  border-radius: 24px;
-  font-size: 20px !important;
-  font-weight: 500;
-  color: var(--color-banner-text) !important;
 }
 
 .powerful-features-tabs {
@@ -615,10 +699,10 @@ p {
 /* -------------------------------------------------------------------------- */
 .testro-top-banner {
   position: fixed;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--nav-width);
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 50;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -626,51 +710,53 @@ p {
 .testro-top-banner.is-hidden {
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-50%) translateY(-120%);
+  transform: translateY(-100%);
 }
 
 .testro-top-banner__inner,
 .banner-background {
   background: var(--grad-banner);
-  min-height: 54px;
-  height: 54px;
-  border-radius: 24px;
+  height: var(--banner-height);
+  min-height: var(--banner-height);
   color: var(--color-banner-text);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem; /* py-3 px-4 */
-  box-shadow: var(--shadow-nav); /* shadow-lg */
-  border: 1px solid rgb(147 197 253 / 0.3);
+  padding: 0 1rem;
   text-align: center;
-  flex-wrap: wrap;
-  backdrop-filter: blur(4px);
 }
 
 .testro-top-banner__content {
-  text-align: center;
-  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
 }
 
 .testro-top-banner__text {
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
   margin: 0;
-  font-family: "Inter Display", sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 30px;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2em;
+  letter-spacing: 0.1px;
+  color: var(--color-banner-text);
+}
+
+.testro-top-banner__message {
+  white-space: nowrap;
 }
 
 .testro-top-banner__cta {
   display: inline;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: underline;
-  font-size: 18px;
+  color: var(--color-banner-text);
+  font: inherit;
+  letter-spacing: inherit;
   line-height: inherit;
   white-space: nowrap;
   background: transparent;
@@ -683,11 +769,11 @@ p {
 }
 
 .testro-top-banner__cta:hover {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Floating nav                                                               */
+/* Site navigation                                                            */
 /* -------------------------------------------------------------------------- */
 .testro-header {
   position: relative;
@@ -696,19 +782,19 @@ p {
 
 .testro-nav {
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--nav-width);
-  height: var(--nav-height);
-  border-radius: var(--radius-nav);
-  background: rgb(255 255 255 / 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-nav);
-  z-index: 40;
   top: var(--nav-top-banner);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--nav-height);
+  border-radius: 0;
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: none;
+  z-index: 40;
   transition: top 0.3s ease;
+  overflow: visible;
 }
 
 body.banner-hidden .testro-nav,
@@ -721,30 +807,43 @@ body.banner-hidden .testro-nav,
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding: 0 1.5rem;
-  gap: 1rem;
+  padding: 0 var(--nav-padding-x);
+  gap: 2rem;
+}
+
+.testro-nav__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 5px 0;
 }
 
 .testro-nav__logo img {
-  height: 1.5rem;
-  width: auto;
-  transition: transform 0.3s ease;
+  width: 195px;
+  height: 70px;
+  object-fit: contain;
+  transition: opacity 0.25s ease;
 }
 
 .testro-nav__logo:hover img {
-  transform: scale(1.05);
+  opacity: 0.85;
 }
 
 .testro-nav__menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 2.5rem;
+  min-width: 0;
 }
 
 .testro-nav__list {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .testro-nav__item {
@@ -756,19 +855,22 @@ body.banner-hidden .testro-nav,
 .testro-nav__trigger {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  color: #4b5563;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  font-family: inherit;
+  gap: 0.25rem;
+  height: 32px;
+  color: #000;
+  font-family: var(--font-nav);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 1.2em;
   background: none;
   border: none;
-  padding: 0.5rem 0.35rem;
+  padding: 0;
   margin: 0;
   cursor: pointer;
-  border-radius: 0.5rem;
-  transition: color 0.25s ease, background-color 0.25s ease;
+  border-radius: 0;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
 }
 
 .testro-nav__link:hover,
@@ -778,32 +880,37 @@ body.banner-hidden .testro-nav,
 .testro-nav__item.is-active > .testro-nav__trigger,
 .testro-nav__link.is-active,
 .testro-nav__link[aria-current="page"] {
-  color: var(--color-blue-600);
+  color: #000;
+  opacity: 0.75;
 }
 
 .testro-nav__item.is-active > .testro-nav__trigger,
 .testro-nav__link.is-active,
 .testro-nav__link[aria-current="page"] {
   font-weight: 600;
+  opacity: 1;
 }
 
 .testro-nav__link:focus-visible,
 .testro-nav__trigger:focus-visible {
-  outline: 2px solid #2602ed;
+  outline: 2px solid var(--color-banner-start);
   outline-offset: 2px;
 }
 
 .testro-nav__chevron {
   display: inline-flex;
-  width: 14px;
-  height: 14px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
   color: currentColor;
   transition: transform 0.25s var(--ease-out-expo);
 }
 
 .testro-nav__chevron .testro-mega__icon-svg {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 }
 
 .testro-nav__item.is-open > .testro-nav__trigger .testro-nav__chevron,
@@ -814,12 +921,7 @@ body.banner-hidden .testro-nav,
 .testro-nav__actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-}
-
-.testro-nav__actions .primary-button,
-.testro-nav__actions .testro-btn--primary {
-  padding: 0 28px; /* match reference primary-button padding */
+  flex-shrink: 0;
 }
 
 .testro-nav__toggle {
@@ -861,10 +963,6 @@ body.banner-hidden .testro-nav,
 /* -------------------------------------------------------------------------- */
 /* Mega menu                                                                  */
 /* -------------------------------------------------------------------------- */
-.testro-nav {
-  overflow: visible;
-}
-
 .testro-mega {
   position: absolute;
   top: 100%;
@@ -1151,7 +1249,7 @@ body.banner-hidden .testro-nav,
   }
 
   .testro-nav__item--has-mega:hover > .testro-nav__trigger {
-    color: var(--color-blue-600);
+    opacity: 0.75;
   }
 
   .testro-nav__item--has-mega:hover > .testro-nav__trigger .testro-nav__chevron {
@@ -1160,247 +1258,264 @@ body.banner-hidden .testro-nav,
 }
 
 /* -------------------------------------------------------------------------- */
-/* Hero                                                                       */
+/* Hero — common split layout                                                 */
 /* -------------------------------------------------------------------------- */
 .testro-hero {
-  padding: 13rem 0 2.5rem; /* pt-52 pb-10 — no side pad on section (ref pl=0) */
-  padding-top: max(13rem, var(--header-stack-padding, 13rem));
-  text-align: center;
   position: relative;
+  padding-top: var(--header-stack-padding);
+  background: #fff;
   overflow: hidden;
 }
 
-.testro-hero__viewport {
-  overflow: hidden;
+.testro-hero__shell {
   width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.testro-hero__track {
-  display: flex;
-  align-items: stretch;
-  width: 100%;
-  min-height: 640px;
-  transform: translate3d(0, 0, 0);
-  transition: transform 0.7s var(--ease-out-expo);
-  will-change: transform;
-}
-
-.testro-hero__slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0; /* reference uses margins (e.g. mt-6 on CTA), not flex gap */
-  flex: 0 0 100%;
-  width: 100%;
-  min-width: 100%;
   max-width: 100%;
-  min-height: 640px;
-  position: relative;
-  padding: 2rem 1rem;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
-.testro-hero__badges {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.testro-hero--home .testro-hero__shell {
+  padding: var(--hero-home-padding-top) var(--hero-padding-x) var(--hero-home-padding-bottom);
+  min-height: var(--hero-home-height);
 }
 
-.testro-hero__badge {
-  position: absolute;
-  background: #ecfeff;
-  color: #0e7490;
-  padding: 0.5rem 1rem;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 10px 15px rgb(0 0 0 / 0.1);
-  opacity: 0;
-  --angle: -8deg;
-  z-index: 10;
-  border-radius: 0;
-  list-style: none;
-  transition: background 0.3s ease, color 0.3s ease;
+.testro-hero--page .testro-hero__shell,
+.testro-hero--centered .testro-hero__shell {
+  padding: 4.5rem var(--hero-padding-x) 4rem;
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: max(var(--hero-padding-x), 1rem);
 }
 
-.testro-hero__badge:hover {
-  background: #ecfeff;
-  color: #0e7490;
-}
-
-.testro-hero__badge:nth-child(1) {
-  top: 3rem;
-  left: 3rem;
-  --angle: -8deg;
-}
-
-.testro-hero__badge:nth-child(2) {
-  top: 2.5rem;
-  right: 2.5rem;
-  --angle: 8deg;
-}
-
-.testro-hero__badge:nth-child(3) {
-  bottom: 3rem;
-  left: 3rem;
-  --angle: 8deg;
-}
-
-.testro-hero__badge:nth-child(4) {
-  bottom: 2.5rem;
-  right: 2.5rem;
-  --angle: -8deg;
-}
-
-.testro-hero__slide.is-active .testro-hero__badge {
-  animation: badgeEnter 1.5s ease-out forwards;
-}
-
-.testro-hero__slide.is-active .testro-hero__badge:nth-child(1) { animation-delay: 0s; }
-.testro-hero__slide.is-active .testro-hero__badge:nth-child(2) { animation-delay: 0.3s; }
-.testro-hero__slide.is-active .testro-hero__badge:nth-child(3) { animation-delay: 0.6s; }
-.testro-hero__slide.is-active .testro-hero__badge:nth-child(4) { animation-delay: 0.9s; }
-
-/* No max-width: reference H1 is unconstrained (~1063px / single line) */
-.testro-hero__title {
-  max-width: none;
-  width: auto;
-  margin: 0 auto;
-  transition:
-    opacity 0.7s var(--ease-out-expo),
-    transform 0.7s var(--ease-out-expo);
-}
-
-.testro-hero__slide:not(.is-active) .testro-hero__title {
-  opacity: 0.85;
-  transform: scale(0.96);
-}
-
-.testro-hero__slide.is-active .testro-hero__title {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-/* Match reference .sub-text at ~768px (60% of ~1280 content column) */
-.testro-hero__sub {
-  color: var(--color-sub);
-  font-size: var(--font-sub);
-  width: 60%;
-  max-width: 48rem; /* 768px */
-  margin: 0 auto;
-  line-height: 1.5;
+.testro-hero--centered .testro-hero__title {
+  max-width: 22ch;
+  margin-inline: auto;
   text-align: center;
 }
 
-.testro-hero__pill.subtitle-pill {
+.testro-hero--centered .testro-hero__desc,
+.testro-hero--centered .testro-prod-hero__sub {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.testro-hero__content .testro-prod-hero__eyebrow {
   margin-bottom: 0;
+}
+
+.testro-hero__content .testro-prod-hero__actions,
+.testro-hero__content .testro-prod-hero__badges,
+.testro-hero__content .testro-prod-hero__metrics,
+.testro-hero__content .testro-prod-hero__logos {
+  margin-top: 0;
+}
+
+.testro-hero--centered .testro-prod-hero__badges,
+.testro-hero--centered .testro-prod-hero__metrics,
+.testro-hero--centered .testro-prod-hero__logos {
+  width: 100%;
+}
+
+.testro-hero--centered .testro-prod-hero__badges {
+  justify-content: center;
+}
+
+.testro-hero--centered .testro-prod-hero__metrics {
+  justify-content: center;
+  margin-inline: auto;
+}
+
+.testro-hero--centered .testro-prod-hero__logos-list {
+  justify-content: center;
+}
+
+.testro-hero--page.testro-hero--split .testro-hero__title {
+  max-width: 16ch;
+}
+
+.testro-hero__breadcrumbs .testro-breadcrumbs {
+  margin-bottom: 1.5rem;
+}
+
+.testro-hero__breadcrumbs .testro-breadcrumbs__list {
+  justify-content: flex-start;
+}
+
+.testro-hero--centered .testro-hero__breadcrumbs .testro-breadcrumbs__list {
+  justify-content: center;
+}
+
+.testro-hero--centered .testro-hero__eyebrow,
+.testro-hero--centered .testro-prod-hero__eyebrow {
+  margin-inline: auto;
+}
+
+.testro-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.testro-hero--centered .testro-hero__grid {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  text-align: center;
+}
+
+.testro-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--hero-content-gap);
+  min-width: 0;
+}
+
+.testro-hero--centered .testro-hero__content {
+  align-items: center;
+  text-align: center;
+  max-width: 48rem;
+}
+
+.testro-hero__eyebrow {
+  margin: 0;
+}
+
+.testro-hero__title {
+  margin: 0;
+  max-width: none;
+  font-family: var(--font-hero-heading);
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  line-height: 1.15em;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.testro-hero--home .testro-hero__title {
+  max-width: 14ch;
+}
+
+.testro-hero__desc {
+  margin: 0;
+  max-width: 36rem;
+  font-family: var(--font-nav);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.65em;
+  color: var(--color-hero-desc);
 }
 
 .testro-hero__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem 1rem;
-  margin-top: 1.5rem;
+  gap: 12px;
 }
 
-.testro-hero__actions .testro-btn--primary,
-.testro-hero__actions .testro-btn--outline {
-  height: 48px;
-  min-height: 48px;
+.testro-hero__tag {
   margin: 0;
+}
+
+.testro-hero__visual {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+}
+
+.testro-hero__visual-frame {
+  min-height: 22rem;
   box-sizing: border-box;
-  vertical-align: middle;
 }
 
-.testro-hero__cta-secondary {
-  padding-inline: 1.5rem;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1;
+.testro-hero__visual-frame--home {
+  background: var(--color-banner-end);
+  border-radius: 18px;
+  padding: 10px;
 }
 
-.testro-hero__supporting {
-  margin-top: 1rem;
-  text-align: center;
-  max-width: 36rem;
-  margin-inline: auto;
-}
-
-.testro-hero__indicators {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+.testro-hero__visual-stage {
   position: relative;
-  z-index: 2;
+  width: 100%;
+  min-height: 20rem;
+  height: 100%;
+  border-radius: 12px;
+  background: var(--color-banner-start);
 }
 
-.testro-hero__indicator {
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #10b981;
-}
-
-.testro-hero__indicator-track {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-
-.testro-hero__indicator-circle,
-.testro-hero__indicator-check {
+.testro-hero__float-tags {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.25s ease;
-}
-
-.testro-hero__indicator-circle {
-  color: #cbd5e1;
-  opacity: 1;
-}
-
-.testro-hero__indicator-check {
-  color: #10b981;
-  opacity: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   pointer-events: none;
 }
 
-.testro-hero__indicator.is-pending .testro-hero__indicator-circle {
-  opacity: 1;
+.testro-hero__float-tag {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--font-nav);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.12);
 }
 
-.testro-hero__indicator.is-pending .testro-hero__indicator-check {
-  opacity: 0;
+.testro-hero__float-tag--light {
+  background: #fff;
+  color: var(--color-banner-start);
 }
 
-.testro-hero__indicator.is-done .testro-hero__indicator-circle {
-  opacity: 0;
+.testro-hero__float-tag--accent {
+  background: var(--color-banner-end);
+  color: #fff;
 }
 
-.testro-hero__indicator.is-done .testro-hero__indicator-check {
-  opacity: 1;
+.testro-hero__float-tag--top-left {
+  top: 8%;
+  left: -4%;
 }
 
-/* Primary CTA hover treatment in hero (shared with .primary-button) */
-.testro-hero .testro-btn--primary {
-  position: relative;
-  overflow: hidden;
+.testro-hero__float-tag--bottom-left {
+  bottom: 10%;
+  left: 2%;
+}
+
+.testro-hero__float-tag--top-right {
+  top: 18%;
+  right: -6%;
+}
+
+.testro-hero__float-tag--bottom-right {
+  bottom: 8%;
+  right: -2%;
+}
+
+/* Product pages: reuse common hero typography inside split layout */
+.testro-prod-hero--split .testro-prod-hero__title.testro-hero__title,
+.testro-prod-hero--split .testro-hero__title {
+  max-width: 16ch;
+}
+
+.testro-prod-hero--split .testro-prod-hero__sub.testro-hero__desc,
+.testro-prod-hero--split .testro-hero__desc {
+  margin-top: 0;
+}
+
+.testro-prod-hero--split .testro-prod-hero__visual .testro-hero__visual-frame {
+  min-height: 22rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -5937,53 +6052,81 @@ body.modal-open {
 
 @media (max-width: 900px) {
   :root {
-    --nav-width: calc(100% - 1.5rem);
-    /* Fallback before JS measures wrapped banner height */
-    --nav-top-banner: 7.25rem;
-    --header-stack-padding: 12.5rem;
-    --header-scroll-offset: 9rem;
+    --nav-padding-x: 1.5rem;
+    --nav-top-banner: var(--banner-height);
+    --header-stack-padding: 11rem;
+    --header-scroll-offset: 8.5rem;
   }
 
-  .testro-top-banner,
   .testro-nav {
-    width: var(--nav-width);
-  }
-
-  .testro-top-banner__inner,
-  .banner-background {
+    width: 100%;
     height: auto;
-    min-height: 44px;
-    font-size: 15px;
-    line-height: 1.4;
-    padding: 0.5rem 0.85rem;
+    min-height: var(--nav-height);
   }
 
-  .testro-top-banner__content {
-    line-height: 1.4;
+  .testro-top-banner__inner {
+    padding: 0 0.75rem;
   }
 
   .testro-top-banner__text {
-    font-size: 15px;
-    line-height: 1.4;
-  }
-
-  .testro-top-banner__cta {
-    font-size: 15px;
-    white-space: nowrap;
-  }
-
-  .testro-btn--banner {
-    font-size: 14px;
-  }
-
-  .testro-nav {
-    height: auto;
-    min-height: var(--nav-height);
+    font-size: clamp(11px, 2.8vw, 12.5px);
   }
 
   .testro-nav__inner {
     min-height: var(--nav-height);
-    padding: 0 1rem;
+    padding: 0 var(--nav-padding-x);
+    gap: 1rem;
+  }
+
+  .testro-nav__logo {
+    padding: 0.5rem 0;
+  }
+
+  .testro-nav__logo img {
+    width: auto;
+    height: 40px;
+    max-width: 160px;
+  }
+
+  .testro-nav__menu {
+    gap: 0;
+  }
+
+  :root {
+    --hero-padding-x: 1.5rem;
+  }
+
+  .testro-hero--home .testro-hero__shell {
+    min-height: 0;
+    padding: 3.5rem var(--hero-padding-x) 3rem;
+  }
+
+  .testro-hero--page .testro-hero__shell,
+  .testro-hero--centered .testro-hero__shell {
+    padding: 3rem var(--hero-padding-x) 2.75rem;
+  }
+
+  .testro-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .testro-hero__title {
+    font-size: clamp(1.875rem, 5.5vw, 46px);
+    max-width: none;
+  }
+
+  .testro-hero__float-tag {
+    font-size: 11px;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .testro-hero__float-tag--top-left {
+    left: 0;
+  }
+
+  .testro-hero__float-tag--top-right {
+    right: 0;
   }
 
   .testro-nav.is-open {
@@ -6123,7 +6266,8 @@ body.modal-open {
 
   .testro-nav__actions .testro-btn,
   .testro-nav__actions .primary-button,
-  .testro-nav__actions .testro-btn--primary {
+  .testro-nav__actions .testro-btn--primary,
+  .testro-nav__actions .testro-btn--brand {
     width: 100%;
     justify-content: center;
   }
@@ -6151,50 +6295,22 @@ body.modal-open {
   :root {
     --font-hero: 38px;
     --font-heading: 32px;
-    --nav-width: calc(100% - 1.5rem);
-    --nav-top-banner: 7.75rem;
-    --header-stack-padding: 13rem;
-    --header-scroll-offset: 9.5rem;
+    --nav-padding-x: 1.25rem;
+    --nav-top-banner: var(--banner-height);
+    --header-stack-padding: 11.5rem;
+    --header-scroll-offset: 9rem;
   }
 
-  .testro-top-banner,
   .testro-nav {
-    width: var(--nav-width);
+    width: 100%;
   }
 
   .testro-top-banner__inner {
-    min-height: 44px;
-    font-size: 13px;
-    padding: 0.5rem 0.75rem;
+    padding: 0 0.625rem;
   }
 
-  .testro-top-banner__content {
-    line-height: 1.35;
-  }
-
-  .testro-top-banner__text {
-    font-size: 13px;
-    line-height: 1.35;
-  }
-
-  .testro-top-banner__cta {
-    font-size: 13px;
-  }
-
-  .testro-btn--banner {
-    font-size: 14px;
-  }
-
-  .testro-hero {
-    padding-top: max(12.5rem, var(--header-stack-padding, 12.5rem));
-  }
-
-  .testro-hero__track {
-    min-height: 0;
-  }
-
-  .testro-hero__badges {
-    display: none;
+  .testro-hero--home .testro-hero__shell {
+    padding: 2.75rem var(--hero-padding-x) 2.5rem;
   }
 
   .testro-hero__title,
@@ -6211,7 +6327,7 @@ body.modal-open {
     line-height: 1.5;
   }
 
-  .testro-hero__sub,
+  .testro-hero__desc,
   .sub-text,
   .testro-section-header > p:not(.subtitle-pill):not(.testro-section-eyebrow),
   .testro-services__intro {
@@ -6379,9 +6495,10 @@ body.modal-open {
   :root {
     --font-hero: 34px;
     --font-heading: 28px;
-    --nav-top-banner: 8.5rem;
-    --header-stack-padding: 14rem;
-    --header-scroll-offset: 10.25rem;
+    --nav-padding-x: 1rem;
+    --nav-top-banner: var(--banner-height);
+    --header-stack-padding: 12rem;
+    --header-scroll-offset: 9.5rem;
   }
 
   .testro-hero__title,
@@ -6490,7 +6607,7 @@ body.modal-open {
   }
 
   .testro-section-header > p:not(.subtitle-pill):not(.testro-section-eyebrow),
-  .testro-hero__sub,
+  .testro-hero__desc,
   .testro-services__intro,
   .testro-features__sub,
   .testro-contact__desc {
@@ -6500,15 +6617,14 @@ body.modal-open {
 
 /* Short landscape phones / tablets */
 @media (max-height: 500px) and (orientation: landscape) {
-  .testro-hero {
-    padding-top: max(7rem, var(--header-stack-padding, 7rem));
-    padding-bottom: 1.5rem;
+  .testro-hero--home .testro-hero__shell {
+    min-height: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
-  .testro-top-banner__inner,
-  .banner-background {
-    height: auto;
-    min-height: 40px;
+  .testro-top-banner__inner {
+    padding: 0 0.5rem;
   }
 
   .testro-nav.is-open .testro-nav__menu {
@@ -7278,13 +7394,22 @@ html.testro-js [data-reveal].is-revealed {
 /* -------------------------------------------------------------------------- */
 /* Hero                                                                       */
 /* -------------------------------------------------------------------------- */
-.testro-prod-hero {
+.testro-prod-hero.testro-hero {
+  padding: 0;
+  padding-top: var(--header-stack-padding);
+  background: #fff;
+  text-align: inherit;
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: max(11.5rem, var(--header-stack-padding, 13rem)) 0 5rem;
-  background: linear-gradient(to bottom, #f7fbff, #fdfeff 55%, #fff);
+}
+
+.testro-prod-hero.testro-hero--centered {
   text-align: center;
+}
+
+.testro-prod-hero.testro-hero--split {
+  text-align: left;
 }
 
 .testro-prod-hero__aurora {
@@ -7337,20 +7462,35 @@ html.testro-js [data-reveal].is-revealed {
   margin-inline: 0;
 }
 
-.testro-prod-hero__title.gradient-text {
-  max-width: 20ch;
-  font-size: clamp(2.125rem, 5.2vw, 4rem);
-  line-height: 1.14;
-  letter-spacing: -0.02em;
+.testro-prod-hero__title.gradient-text,
+.testro-prod-hero__title.testro-hero__title {
+  font-size: clamp(2rem, 4.5vw, 46px);
+  line-height: 1.15;
+  letter-spacing: -0.7px;
   margin: 0;
+  font-family: var(--font-hero-heading);
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
-.testro-prod-hero__sub {
+.testro-prod-hero--split .testro-prod-hero__title.gradient-text,
+.testro-prod-hero--split .testro-prod-hero__title.testro-hero__title,
+.testro-hero--page.testro-hero--split .testro-hero__title {
+  max-width: 16ch;
+}
+
+.testro-prod-hero__sub,
+.testro-prod-hero__sub.testro-hero__desc {
   max-width: 46rem;
-  margin: 1.5rem auto 0;
-  color: var(--color-sub);
-  font-size: clamp(1rem, 1.3vw, 1.1875rem);
-  line-height: 1.7;
+  margin: 0;
+  color: var(--color-hero-desc);
+  font-family: var(--font-nav);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65em;
 }
 
 .testro-prod-hero__inner > [data-reveal] .testro-prod-actions {
@@ -20342,45 +20482,8 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 
   /* Product pages: reclaim chrome so the dashboard enters the first viewport */
   body.testro-product-page {
-    --nav-height: 54px;
-    --nav-top-banner: 4.75rem;
-    --header-stack-padding: 8.75rem;
-    --header-scroll-offset: 7.5rem;
-  }
-
-  body.testro-product-page .testro-top-banner__inner,
-  body.testro-product-page .banner-background {
-    min-height: 34px;
-    height: auto;
-    padding: 0.3rem 0.7rem;
-    font-size: 13px;
-    line-height: 1.3;
-    border-radius: 16px;
-    gap: 0.4rem;
-  }
-
-  body.testro-product-page .testro-top-banner__text,
-  body.testro-product-page .testro-top-banner__cta {
-    font-size: 13px;
-    line-height: 1.3;
-  }
-
-  body.testro-product-page .testro-btn--banner {
-    font-size: 12px;
-  }
-
-  body.testro-product-page .testro-nav {
-    min-height: var(--nav-height);
-    border-radius: 18px;
-  }
-
-  body.testro-product-page .testro-nav__inner {
-    min-height: var(--nav-height);
-    padding: 0 0.85rem;
-  }
-
-  body.testro-product-page .testro-nav__logo img {
-    max-height: 28px;
+    --header-stack-padding: 9.5rem;
+    --header-scroll-offset: 8rem;
   }
 
   body.testro-product-page .testro-prod-hero {
@@ -20614,8 +20717,7 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 
 @media (max-width: 480px) {
   body.testro-product-page {
-    --nav-top-banner: 5.25rem;
-    --header-stack-padding: 9.25rem;
+    --header-stack-padding: 10rem;
   }
 }
 
@@ -22532,7 +22634,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 /* -------------------------------------------------------------------------- */
 /* Contact Us page — centered form, expert cards, office info                 */
 /* -------------------------------------------------------------------------- */
-.testro-page-shell--contact .testro-prod-hero {
+.testro-page-shell--contact .testro-prod-hero .testro-hero__shell {
   padding-bottom: 3.5rem;
 }
 
@@ -22835,7 +22937,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
    Partners page — equal cards, static logo ecosystem grid
    ========================================================================== */
 
-.testro-page-shell--partners .testro-prod-hero {
+.testro-page-shell--partners .testro-prod-hero .testro-hero__shell {
   padding-bottom: 3.5rem;
 }
 
@@ -22970,7 +23072,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 /* -------------------------------------------------------------------------- */
 /* Compare Tools hub                                                          */
 /* -------------------------------------------------------------------------- */
-.testro-page-shell--compare .testro-prod-hero {
+.testro-page-shell--compare .testro-prod-hero .testro-hero__shell {
   padding-bottom: 3.5rem;
 }
 
@@ -23060,7 +23162,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 /* -------------------------------------------------------------------------- */
 /* Explore & Learn — Blog                                                     */
 /* -------------------------------------------------------------------------- */
-.testro-page-shell--blog .testro-prod-hero {
+.testro-page-shell--blog .testro-prod-hero .testro-hero__shell {
   padding-bottom: 3.5rem;
 }
 
@@ -23310,7 +23412,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 /* -------------------------------------------------------------------------- */
 /* Explore & Learn — Case Studies                                             */
 /* -------------------------------------------------------------------------- */
-.testro-page-shell--case-studies .testro-prod-hero {
+.testro-page-shell--case-studies .testro-prod-hero .testro-hero__shell {
   padding-bottom: 3.5rem;
 }
 
@@ -23359,7 +23461,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 /* -------------------------------------------------------------------------- */
 /* Explore & Learn — Webinars                                                 */
 /* -------------------------------------------------------------------------- */
-.testro-page-shell--webinars .testro-prod-hero {
+.testro-page-shell--webinars .testro-prod-hero .testro-hero__shell {
   padding-bottom: 3.5rem;
 }
 

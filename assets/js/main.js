@@ -266,9 +266,9 @@
       setNavOpen(false);
     }
 
-    var BANNER_NAV_GAP = 18; /* preserves desktop 5.5rem stack (16+54+18=88) */
+    var BANNER_NAV_GAP = 0; /* nav sits flush below banner */
     var CONTENT_BREATHING = 32;
-    var NAV_TOP_COMPACT = 16; /* --nav-top: 1rem */
+    var NAV_TOP_COMPACT = 0; /* --nav-top: 0 */
 
     function parsePx(value, fallback) {
       var n = parseFloat(value);

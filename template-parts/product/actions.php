@@ -32,8 +32,8 @@ if ( ! $actions ) {
 		$modal   = isset( $action['modal'] ) ? (string) $action['modal'] : '';
 		$href    = isset( $action['href'] ) ? (string) $action['href'] : '';
 		$classes = 'primary' === $style
-			? 'testro-btn testro-btn--primary testro-prod-actions__btn'
-			: 'testro-btn testro-btn--outline testro-prod-actions__btn testro-prod-actions__btn--outline';
+			? 'testro-btn testro-btn--brand testro-prod-actions__btn'
+			: 'testro-btn testro-btn--secondary testro-prod-actions__btn';
 
 		$attrs = array( 'class' => $classes );
 		if ( $modal ) {

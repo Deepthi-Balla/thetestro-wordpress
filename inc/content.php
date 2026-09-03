@@ -228,14 +228,39 @@ function testro_get_sitemap_images() {
 function testro_get_hero_slides() {
 	return array(
 		array(
-			'badges'          => array( 'Self-Healing', 'Schedule Tests', 'Data Driven', 'API Testing' ),
+			'badges'          => array( 'AI Authoring', 'No-Code Tests', 'Self-Healing', 'CI/CD Ready' ),
 			'pill'            => 'AI-Powered Test Automation',
 			'title'           => 'Best Test Automation Platform for Modern Software Testing',
-			'subtitle'        => 'theTestRo is a Best test automation platform. It helps teams test web, API, mobile, and cross-browser apps fast. Build, run, and scale your tests in one place. No slowdowns. No extra tools.',
+			'subtitle'        => 'theTestRo is the best test automation platform for teams testing web, API, mobile, and cross-browser apps — fast. Build, run, and scale your tests in one place. No slowdowns, no extra tools.',
 			'cta'             => 'Start Testing',
 			'cta_secondary'   => 'Get a Demo',
-			'supporting_line' => 'No credit card needed. Set up your first test in minutes.',
+			'supporting_line' => 'No credit card needed — set up your first test in minutes',
 		),
+	);
+}
+
+/**
+ * Home page hero content for the common hero component.
+ *
+ * @return array<string, mixed>
+ */
+function testro_get_home_hero() {
+	$slide = testro_get_hero_slides();
+	$slide = isset( $slide[0] ) ? $slide[0] : array();
+
+	return array(
+		'title'         => isset( $slide['title'] ) ? (string) $slide['title'] : '',
+		'description'   => isset( $slide['subtitle'] ) ? (string) $slide['subtitle'] : '',
+		'badge'         => isset( $slide['supporting_line'] ) ? (string) $slide['supporting_line'] : '',
+		'primary_cta'   => array(
+			'label' => isset( $slide['cta'] ) ? (string) $slide['cta'] : __( 'Start Testing', 'testro' ),
+			'href'  => '#final-cta',
+		),
+		'secondary_cta' => array(
+			'label' => isset( $slide['cta_secondary'] ) ? (string) $slide['cta_secondary'] : __( 'Get a Demo', 'testro' ),
+			'modal' => 'demo-modal',
+		),
+		'visual_tags'   => isset( $slide['badges'] ) && is_array( $slide['badges'] ) ? $slide['badges'] : array(),
 	);
 }
 
