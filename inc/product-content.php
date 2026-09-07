@@ -2539,15 +2539,22 @@ function testro_get_product_pages() {
 			),
 
 			'hero' => array(
-				'title'          => __( 'Best Self-Healing Test Automation Tool for Reliable Testing', 'testro' ),
-				'subtitle'       => __( 'theTestRo is a self-healing test automation tool. It stops broken locators from breaking your builds.', 'testro' ),
-				'subtitle_extra' => __( 'Your app\'s UI changes, and AI updates the test on its own. No manual script fixes. No flaky suite waiting on someone to notice. This is AI test automation built to hold up over time, not just on day one.', 'testro' ),
-				'actions'        => array(
+				'title'           => __( 'Best Self-Healing Test Automation Tool for Reliable Testing', 'testro' ),
+				'subtitle'        => __( 'theTestRo is a self-healing test automation tool. It stops broken locators from breaking your builds.', 'testro' ),
+				'subtitle_extra'  => __( 'Your app\'s UI changes, and AI updates the test on its own. No manual script fixes. No flaky suite waiting on someone to notice. This is AI test automation built to hold up over time, not just on day one.', 'testro' ),
+				'actions'         => array(
 					array(
 						'label' => __( 'Start Testing Free', 'testro' ),
 						'style' => 'primary',
 						'modal' => 'demo-modal',
 					),
+				),
+				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
+				'badges'          => array(
+					__( 'AI Authoring', 'testro' ),
+					__( 'Self-Healing', 'testro' ),
+					__( 'No-Code Tests', 'testro' ),
+					__( 'CI/CD Ready', 'testro' ),
 				),
 			),
 

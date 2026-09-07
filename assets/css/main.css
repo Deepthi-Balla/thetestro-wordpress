@@ -7987,6 +7987,44 @@ html.testro-js [data-reveal].is-revealed {
     min-height: 724px;
   }
 
+  /* Self-Healing Automation — designer hero height + column spacing */
+  .page-self-healing-test-automation-tool .testro-prod-hero,
+  .page-template-template-self-healing-automation .testro-prod-hero {
+    min-height: 740px;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: stretch;
+  }
+
+  .page-self-healing-test-automation-tool .testro-prod-hero__inner,
+  .page-self-healing-test-automation-tool .testro-prod-hero__split,
+  .page-template-template-self-healing-automation .testro-prod-hero__inner,
+  .page-template-template-self-healing-automation .testro-prod-hero__split {
+    min-height: 740px;
+    align-items: stretch;
+  }
+
+  .page-self-healing-test-automation-tool .testro-prod-hero__lead,
+  .page-template-template-self-healing-automation .testro-prod-hero__lead {
+    /* Designer left top 100; never less than fixed-header clearance. */
+    padding-top: max(100px, var(--header-stack-padding, 154px));
+    padding-bottom: 96px;
+    box-sizing: border-box;
+  }
+
+  .page-self-healing-test-automation-tool .testro-prod-hero__visual,
+  .page-template-template-self-healing-automation .testro-prod-hero__visual {
+    padding-top: 177px;
+    padding-bottom: 96px;
+    box-sizing: border-box;
+  }
+
+  .page-self-healing-test-automation-tool .testro-prod-hero__stage,
+  .page-template-template-self-healing-automation .testro-prod-hero__stage {
+    min-height: 0;
+    height: 100%;
+  }
+
   /* Cross-Browser Testing — designer hero height + column spacing */
   .page-automated-cross-browser-testing-tool .testro-prod-hero {
     min-height: 826px;
@@ -8104,6 +8142,19 @@ html.testro-js [data-reveal].is-revealed {
 }
 
 .page-automated-cross-browser-testing-tool .testro-prod-hero__actions {
+  margin-top: 22px;
+}
+
+/* Self-Healing — italic cyan emphasis above CTA */
+.page-self-healing-test-automation-tool .testro-prod-hero__sub-extra,
+.page-template-template-self-healing-automation .testro-prod-hero__sub-extra {
+  color: var(--color-brand-sky);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.page-self-healing-test-automation-tool .testro-prod-hero__actions,
+.page-template-template-self-healing-automation .testro-prod-hero__actions {
   margin-top: 22px;
 }
 
