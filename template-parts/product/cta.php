@@ -17,7 +17,6 @@ $body_extra    = isset( $args['body_extra'] ) ? (string) $args['body_extra'] : '
 $actions       = isset( $args['actions'] ) && is_array( $args['actions'] ) ? $args['actions'] : array();
 $id            = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 $heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
-$heading_tag   = 'h' . $heading_level;
 $eyebrow       = array_key_exists( 'eyebrow', $args )
 	? (string) $args['eyebrow']
 	: __( 'Ready when you are', 'testro' );
@@ -29,8 +28,23 @@ if ( '' === $title ) {
 	return;
 }
 
-$heading_id = $id ? $id . '-heading' : 'product-cta-heading';
-$copy_parts = array_values( array_filter( array( $intro, $body, $body_extra ) ) );
+$heading_id  = $id ? $id . '-heading' : 'product-cta-heading';
+$copy_parts  = array_values(
+	array_filter(
+		array( $intro, $body, $body_extra ),
+		static function ( $part ) {
+			return '' !== trim( (string) $part );
+		}
+	)
+);
+$description = '';
+foreach ( $copy_parts as $index => $part ) {
+	$part = trim( (string) $part );
+	if ( $index > 0 && ! preg_match( '/[.!?]$/u', $description ) ) {
+		$description .= '.';
+	}
+	$description .= ( '' === $description ? '' : ' ' ) . $part;
+}
 ?>
 <section
 	class="testro-prod-cta"
@@ -38,24 +52,23 @@ $copy_parts = array_values( array_filter( array( $intro, $body, $body_extra ) ) 
 	aria-labelledby="<?php echo esc_attr( $heading_id ); ?>"
 >
 	<div class="testro-container testro-prod-cta__inner" data-reveal>
-		<div class="testro-prod-cta__head">
-			<?php if ( '' !== $eyebrow ) : ?>
-				<p class="testro-prod-cta__eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-			<?php endif; ?>
-
-			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
-			<<?php echo $heading_tag; ?> id="<?php echo esc_attr( $heading_id ); ?>" class="testro-prod-cta__title">
-				<?php echo esc_html( $title ); ?>
-			</<?php echo $heading_tag; ?>>
-		</div>
-
-		<?php if ( $copy_parts ) : ?>
-			<div class="testro-prod-cta__copy">
-				<?php foreach ( $copy_parts as $copy ) : ?>
-					<p class="testro-prod-cta__text"><?php echo esc_html( $copy ); ?></p>
-				<?php endforeach; ?>
-			</div>
-		<?php endif; ?>
+		<?php
+		get_template_part(
+			'template-parts/components/section-header',
+			null,
+			array(
+				'label'             => $eyebrow,
+				'heading'           => $title,
+				'description'       => $description,
+				'heading_id'        => $heading_id,
+				'heading_level'     => $heading_level,
+				'label_color'       => '#fff',
+				'heading_color'     => '#fff',
+				'description_color' => '#fff',
+				'class'             => 'testro-prod-cta__header',
+			)
+		);
+		?>
 
 		<?php
 		get_template_part(
@@ -64,7 +77,6 @@ $copy_parts = array_values( array_filter( array( $intro, $body, $body_extra ) ) 
 			array(
 				'actions'    => $actions,
 				'align'      => 'center',
-				'tone'       => 'dark',
 				'with_arrow' => false,
 			)
 		);

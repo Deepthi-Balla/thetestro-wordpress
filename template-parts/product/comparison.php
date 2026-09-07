@@ -5,7 +5,14 @@
  * Expected $args: id, eyebrow, title, intro, legacy (label/note), modern (label/note),
  * optional middle (label/note) for a third comparison column, rows (array[] of
  * aspect/legacy/modern, optional middle, legacy_mark/modern_mark/middle_mark),
- * text_only (bool) to hide check/close marks for descriptive tables.
+ * text_only (bool) to hide check/close marks for descriptive tables,
+ * intro_layout (string) 'default' | 'sec-header' — use global SectionHeader.
+ * label_color / heading_color / description_color (string) Optional when
+ *     intro_layout is 'sec-header'.
+ * first_label (string) Optional label in the table head spacer (e.g. Category).
+ * layout (string) 'default' | 'board' (two equal columns, aligned rows).
+ * Board layout reuses the global CompareBoard component
+ * (template-parts/components/compare-board.php).
  *
  * Mark values: check | close | partial. Defaults keep legacy=close and modern=check
  * so existing product/Why pages render unchanged.
@@ -22,6 +29,10 @@ $text_only = ! empty( $args['text_only'] );
 $two_column = ! empty( $args['two_column'] );
 $first_label = isset( $args['first_label'] ) ? (string) $args['first_label'] : '';
 $id        = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
+$intro_layout = isset( $args['intro_layout'] ) && 'sec-header' === $args['intro_layout'] ? 'sec-header' : 'default';
+$label_color       = isset( $args['label_color'] ) ? (string) $args['label_color'] : '';
+$heading_color     = isset( $args['heading_color'] ) ? (string) $args['heading_color'] : '';
+$description_color = isset( $args['description_color'] ) ? (string) $args['description_color'] : '';
 
 if ( ! $rows ) {
 	return;
@@ -72,6 +83,58 @@ if ( $text_only ) {
 if ( $two_column ) {
 	$section_class .= ' testro-prod-compare--two';
 }
+
+$layout        = isset( $args['layout'] ) && 'board' === $args['layout'] ? 'board' : 'default';
+$heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+$eyebrow       = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+$title         = isset( $args['title'] ) ? (string) $args['title'] : '';
+$intro         = isset( $args['intro'] ) ? (string) $args['intro'] : '';
+
+if ( 'board' === $layout ) {
+	?>
+<section
+	class="testro-page-section testro-prod-compare testro-prod-compare--board"
+	<?php echo $id ? 'id="' . esc_attr( $id ) . '"' : ''; ?>
+	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
+>
+	<div class="testro-page-section__inner">
+		<?php
+		get_template_part(
+			'template-parts/components/section-header',
+			null,
+			array(
+				'label'             => $eyebrow,
+				'heading'           => $title,
+				'description'       => $intro,
+				'heading_id'        => $heading_id,
+				'heading_level'     => $heading_level,
+				'label_color'       => 'var(--color-brand-sky)',
+				'heading_color'     => 'var(--color-brand-navy)',
+				'description_color' => '#5B7290',
+				'attrs'             => array(
+					'data-reveal' => true,
+				),
+			)
+		);
+
+		get_template_part(
+			'template-parts/components/compare-board',
+			null,
+			array(
+				'legacy_label' => $legacy_label,
+				'modern_label' => $modern_label,
+				'rows'         => $rows,
+				'attrs'        => array(
+					'data-reveal' => true,
+				),
+			)
+		);
+		?>
+	</div>
+</section>
+	<?php
+	return;
+}
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -79,20 +142,42 @@ if ( $two_column ) {
 	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
 >
 	<div class="testro-container">
-		<?php
-		get_template_part(
-			'template-parts/product/section-header',
-			null,
-			array(
-				'eyebrow'    => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'      => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'      => isset( $args['intro'] ) ? $args['intro'] : '',
-				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
-				'heading_id'    => $heading_id,
-				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
-			)
-		);
-		?>
+		<?php if ( 'sec-header' === $intro_layout && ( '' !== $title || '' !== $eyebrow || '' !== $intro ) ) : ?>
+			<?php
+			get_template_part(
+				'template-parts/components/section-header',
+				null,
+				array(
+					'label'             => $eyebrow,
+					'heading'           => $title,
+					'description'       => $intro,
+					'heading_id'        => $heading_id,
+					'heading_level'     => $heading_level,
+					'label_color'       => '' !== $label_color ? $label_color : 'var(--color-brand-sky)',
+					'heading_color'     => '' !== $heading_color ? $heading_color : 'var(--color-brand-navy)',
+					'description_color' => '' !== $description_color ? $description_color : '#5B7290',
+					'attrs'             => array(
+						'data-reveal' => true,
+					),
+				)
+			);
+			?>
+		<?php else : ?>
+			<?php
+			get_template_part(
+				'template-parts/product/section-header',
+				null,
+				array(
+					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+					'title'         => isset( $args['title'] ) ? $args['title'] : '',
+					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+					'heading_id'    => $heading_id,
+					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+				)
+			);
+			?>
+		<?php endif; ?>
 
 		<div class="testro-prod-compare__table" data-reveal>
 			<div class="testro-prod-compare__head" aria-hidden="true">

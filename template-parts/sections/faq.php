@@ -1,15 +1,18 @@
 <?php
 /**
- * FAQ accordion section — reusable intro + accordion cards.
+ * FAQ accordion section — global SectionHeader + reusable accordion cards.
  *
  * Optional $args:
- * - faqs          (array|string) FAQ list, or a context key for testro_get_faq_set().
- * - label         (string)       Eyebrow label. Default "FAQ".
- * - heading       (string)       Main heading override.
- * - title         (string)       Alias for heading (product pages).
- * - description   (string)       Intro copy. Omitted on pages without one unless set.
- * - heading_level (int)          Semantic heading level 1–6. Default 2 on homepage.
- * - id            (string)       Prefix for accordion control IDs.
+ * - faqs               (array|string) FAQ list, or a context key for testro_get_faq_set().
+ * - label              (string)       Eyebrow label. Default "FAQ".
+ * - heading            (string)       Main heading override.
+ * - title              (string)       Alias for heading (product pages).
+ * - description        (string)       Intro copy. Omitted on pages without one unless set.
+ * - heading_level      (int)          Semantic heading level 1–6. Default 2 on homepage.
+ * - id                 (string)       Prefix for accordion control IDs.
+ * - label_color        (string)       Optional SectionHeader label color.
+ * - heading_color      (string)       Optional SectionHeader heading color.
+ * - description_color  (string)       Optional SectionHeader description color.
  *
  * @package TestRo
  */
@@ -40,9 +43,12 @@ if ( array_key_exists( 'label', $args ) ) {
 	$label = __( 'FAQ', 'testro' );
 }
 
-$heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
-$heading_tag   = 'h' . $heading_level;
-$section_id    = ! empty( $args['id'] ) ? sanitize_html_class( (string) $args['id'] ) : 'faq';
+$heading_level     = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+$section_id        = ! empty( $args['id'] ) ? sanitize_html_class( (string) $args['id'] ) : 'faq';
+$heading_id        = $section_id . '-heading';
+$label_color       = isset( $args['label_color'] ) ? (string) $args['label_color'] : 'var(--color-brand-sky)';
+$heading_color     = isset( $args['heading_color'] ) ? (string) $args['heading_color'] : 'var(--color-brand-navy)';
+$description_color = isset( $args['description_color'] ) ? (string) $args['description_color'] : '#5B7290';
 
 if ( isset( $args['faqs'] ) && is_array( $args['faqs'] ) ) {
 	$faqs = $args['faqs'];
@@ -57,18 +63,24 @@ if ( ! $faqs ) {
 }
 ?>
 <div id="<?php echo esc_attr( $section_id ); ?>">
-	<section class="testro-faq" aria-labelledby="<?php echo esc_attr( $section_id ); ?>-heading">
+	<section class="testro-faq" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
 		<div class="testro-faq__inner">
-			<header class="testro-faq__header">
-				<?php if ( '' !== $label ) : ?>
-					<p class="testro-faq__label"><?php echo esc_html( $label ); ?></p>
-				<?php endif; ?>
-				<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
-				<<?php echo $heading_tag; ?> id="<?php echo esc_attr( $section_id ); ?>-heading" class="testro-faq__heading"><?php echo esc_html( $heading ); ?></<?php echo $heading_tag; ?>>
-				<?php if ( '' !== $description ) : ?>
-					<p class="testro-faq__desc"><?php echo esc_html( $description ); ?></p>
-				<?php endif; ?>
-			</header>
+			<?php
+			get_template_part(
+				'template-parts/components/section-header',
+				null,
+				array(
+					'label'             => $label,
+					'heading'           => $heading,
+					'description'       => $description,
+					'heading_id'        => $heading_id,
+					'heading_level'     => $heading_level,
+					'label_color'       => $label_color,
+					'heading_color'     => $heading_color,
+					'description_color' => $description_color,
+				)
+			);
+			?>
 
 			<div class="testro-faq__list" data-faq-accordion>
 				<?php foreach ( $faqs as $index => $faq ) : ?>

@@ -1718,110 +1718,11 @@ function testro_get_page_url( $slug ) {
 /**
  * Breadcrumb markup for inner pages.
  *
+ * Visual breadcrumbs are disabled site-wide. Call sites remain for
+ * compatibility. Structured data still comes from testro_schema_breadcrumbs().
+ *
  * @return void
  */
 function testro_the_breadcrumbs() {
-	if ( is_front_page() ) {
-		return;
-	}
-
-	$items = array(
-		array(
-			'label' => __( 'Home', 'testro' ),
-			'url'   => home_url( '/' ),
-		),
-	);
-
-	if ( is_singular( 'post' ) ) {
-		$blog_id = (int) get_option( 'page_for_posts' );
-		if ( $blog_id ) {
-			$items[] = array(
-				'label' => get_the_title( $blog_id ),
-				'url'   => get_permalink( $blog_id ),
-			);
-		}
-		$items[] = array(
-			'label' => get_the_title(),
-			'url'   => '',
-		);
-	} elseif ( is_page() ) {
-		$ancestors = array_reverse( get_post_ancestors( get_the_ID() ) );
-		foreach ( $ancestors as $ancestor_id ) {
-			$items[] = array(
-				'label' => get_the_title( $ancestor_id ),
-				'url'   => get_permalink( $ancestor_id ),
-			);
-		}
-		$items[] = array(
-			'label' => get_the_title(),
-			'url'   => '',
-		);
-	} elseif ( is_home() ) {
-		$blog_id = (int) get_option( 'page_for_posts' );
-		$items[] = array(
-			'label' => $blog_id ? get_the_title( $blog_id ) : __( 'Blog', 'testro' ),
-			'url'   => '',
-		);
-	} elseif ( is_search() ) {
-		$items[] = array(
-			'label' => __( 'Search', 'testro' ),
-			'url'   => '',
-		);
-	} elseif ( is_404() ) {
-		$items[] = array(
-			'label' => __( 'Not Found', 'testro' ),
-			'url'   => '',
-		);
-	} elseif ( is_year() || is_month() || is_day() ) {
-		$year = (int) get_query_var( 'year' );
-		if ( $year ) {
-			$items[] = array(
-				'label' => (string) $year,
-				'url'   => ( is_month() || is_day() ) ? get_year_link( $year ) : '',
-			);
-		}
-		if ( is_month() || is_day() ) {
-			$month = (int) get_query_var( 'monthnum' );
-			if ( $year && $month ) {
-				$items[] = array(
-					'label' => date_i18n( 'F', mktime( 0, 0, 0, $month, 1, $year ) ),
-					'url'   => is_day() ? get_month_link( $year, $month ) : '',
-				);
-			}
-		}
-		if ( is_day() ) {
-			$day = (int) get_query_var( 'day' );
-			if ( $day ) {
-				$items[] = array(
-					'label' => (string) $day,
-					'url'   => '',
-				);
-			}
-		}
-	} elseif ( is_archive() ) {
-		$items[] = array(
-			'label' => get_the_archive_title(),
-			'url'   => '',
-		);
-	}
-
-	echo '<nav class="testro-breadcrumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'testro' ) . '"><ol class="testro-breadcrumbs__list">';
-	$last = count( $items ) - 1;
-	foreach ( $items as $i => $item ) {
-		echo '<li class="testro-breadcrumbs__item">';
-		if ( $i < $last && ! empty( $item['url'] ) ) {
-			printf(
-				'<a href="%s">%s</a>',
-				esc_url( $item['url'] ),
-				esc_html( wp_strip_all_tags( $item['label'] ) )
-			);
-		} else {
-			printf(
-				'<span aria-current="page">%s</span>',
-				esc_html( wp_strip_all_tags( $item['label'] ) )
-			);
-		}
-		echo '</li>';
-	}
-	echo '</ol></nav>';
+	return;
 }

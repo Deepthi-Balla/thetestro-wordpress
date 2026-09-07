@@ -3,8 +3,8 @@
  * Shared page hero — left copy column and right visual stage.
  *
  * Expected $args: title, subtitle, subtitle_extra, actions, supporting_line,
- * badges (string[] rendered as stage chips), eyebrow, breadcrumbs, logos,
- * metrics. Content varies per page; structure and styling stay the same.
+ * badges (string[] rendered as stage chips), eyebrow, logos, metrics.
+ * Content varies per page; structure and styling stay the same.
  *
  * @package TestRo
  */
@@ -26,10 +26,6 @@ if ( '' === $title ) {
 ?>
 <section class="testro-prod-hero" aria-labelledby="product-hero-title">
 	<div class="testro-container testro-prod-hero__inner">
-		<?php if ( ! empty( $args['breadcrumbs'] ) ) : ?>
-			<div class="testro-prod-hero__breadcrumbs"><?php testro_the_breadcrumbs(); ?></div>
-		<?php endif; ?>
-
 		<div class="testro-prod-hero__split">
 			<div class="testro-prod-hero__lead">
 				<?php if ( '' !== $eyebrow ) : ?>
@@ -47,7 +43,7 @@ if ( '' === $title ) {
 				<?php endif; ?>
 
 				<?php if ( '' !== $subtitle_extra ) : ?>
-					<p class="testro-prod-hero__sub" data-reveal><?php echo esc_html( $subtitle_extra ); ?></p>
+					<p class="testro-prod-hero__sub testro-prod-hero__sub-extra" data-reveal><?php echo esc_html( $subtitle_extra ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $actions ) : ?>

@@ -266,6 +266,1125 @@ p {
   box-sizing: border-box;
 }
 
+/*
+ * Standard page section horizontal rhythm (Home AI Capabilities).
+ * Put padding-inline on the section; constrain content with __inner.
+ * Equivalent alignment to .testro-container (which pads the container itself).
+ */
+.testro-page-section {
+  width: 100%;
+  max-width: 100%;
+  padding-inline: var(--section-pad-x);
+  box-sizing: border-box;
+}
+
+.testro-page-section__inner,
+.testro-content-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reusable UI — SectionHeader (.testro-sec-header)                           */
+/* Source of truth: Home AI Capabilities intro                                */
+/* -------------------------------------------------------------------------- */
+.testro-sec-header {
+  --sec-header-label-color: var(--color-brand-sky);
+  --sec-header-heading-color: #fff;
+  --sec-header-desc-color: var(--color-brand-sky);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.testro-sec-header__label {
+  margin: 0;
+  min-height: 14px;
+  color: var(--sec-header-label-color);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+.testro-sec-header__heading {
+  margin: 0;
+  max-width: 100%;
+  color: var(--sec-header-heading-color);
+  font-family: var(--font-sora);
+  font-size: clamp(1.75rem, 4.1vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  line-height: 1.18em;
+  text-align: left;
+}
+
+.testro-sec-header__desc {
+  margin: 0;
+  max-width: 100%;
+  color: var(--sec-header-desc-color);
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55em;
+  text-align: left;
+}
+
+@media (min-width: 1024px) {
+  .testro-sec-header {
+    min-height: 119px;
+  }
+
+  .testro-sec-header__heading {
+    min-height: 52px;
+    font-size: 44px;
+  }
+
+  .testro-sec-header__desc {
+    min-height: 25px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-sec-header {
+    gap: 12px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reusable UI — FlowList (.testro-flow-list)                                 */
+/* Source of truth: DevOps & Continuous Quality dotted rows                   */
+/* -------------------------------------------------------------------------- */
+.testro-flow-list {
+  --flow-list-line: #d5e9fc;
+  --flow-list-border: #d5e9fc;
+  --flow-list-title-color: var(--color-brand-navy);
+  --flow-list-desc-color: #5b7290;
+  --flow-list-dot-bg: #fff;
+  --flow-list-dot-border: #18a3f5;
+  --flow-list-dot-ring: #18a3f5;
+  --flow-list-gap: 37px;
+  --feature-card-title-color: var(--flow-list-title-color);
+  --feature-card-desc-color: var(--flow-list-desc-color);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  max-width: 52rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.testro-flow-list--on-dark {
+  --flow-list-line: rgb(255 255 255 / 0.4);
+  --flow-list-border: rgb(255 255 255 / 0.28);
+  --flow-list-title-color: #fff;
+  --flow-list-desc-color: #fff;
+}
+
+.testro-flow-list--navy {
+  --flow-list-line: var(--color-brand-navy);
+  --flow-list-border: transparent;
+  --flow-list-title-color: #102a56;
+  --flow-list-desc-color: #526c9a;
+  --flow-list-dot-bg: var(--color-brand-navy);
+  --flow-list-dot-border: #18a3f5;
+  --flow-list-dot-ring: #18a3f5;
+}
+
+.testro-flow-list::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 9.5px;
+  width: 1px;
+  background: var(--flow-list-line);
+  pointer-events: none;
+}
+
+.testro-flow-list__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  column-gap: var(--flow-list-gap);
+  align-items: stretch;
+  min-height: 74px;
+  box-sizing: border-box;
+}
+
+.testro-flow-list__dot {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  background: var(--flow-list-dot-bg);
+  border: 2px solid var(--flow-list-dot-border);
+  border-radius: 100%;
+  box-shadow: 0 0 0 4px var(--flow-list-dot-ring);
+  box-sizing: border-box;
+}
+
+.testro-flow-list__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--flow-list-border);
+  box-sizing: border-box;
+}
+
+.testro-flow-list__item:last-child .testro-flow-list__body {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.testro-flow-list__title {
+  margin: 0 0 8px;
+}
+
+.testro-flow-list__desc {
+  margin: 0;
+}
+
+/* Inline rows — cyan dot + heading + description on one line */
+.testro-flow-list--inline {
+  --flow-list-gap: 26px;
+  --flow-list-dot-bg: var(--color-brand-sky);
+  --flow-list-dot-border: var(--color-brand-sky);
+  --flow-list-dot-ring: transparent;
+  --flow-list-border: #eaf3fc;
+  gap: 0;
+  max-width: 100%;
+}
+
+.testro-flow-list--inline::before {
+  display: none;
+}
+
+.testro-flow-list--inline .testro-flow-list__item {
+  grid-template-columns: 10px minmax(10.5rem, max-content) minmax(0, 1fr);
+  column-gap: var(--flow-list-gap);
+  align-items: center;
+  min-height: 66px;
+  margin-top: -1px;
+  padding-block: 19px;
+  border-top: 1px solid var(--flow-list-border);
+  border-bottom: 1px solid var(--flow-list-border);
+  box-sizing: border-box;
+}
+
+.testro-flow-list--inline .testro-flow-list__dot {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  min-height: 10px;
+  border-width: 0;
+  box-shadow: none;
+}
+
+.testro-flow-list--inline .testro-flow-list__body {
+  display: contents;
+  padding: 0;
+  border: 0;
+}
+
+.testro-flow-list--inline .testro-flow-list__item:last-child .testro-flow-list__body {
+  padding-bottom: 0;
+}
+
+.testro-flow-list--inline .testro-flow-list__title {
+  margin: 0;
+}
+
+.testro-flow-list--inline .testro-flow-list__desc {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .testro-flow-list--inline .testro-flow-list__item {
+    grid-template-columns: 10px minmax(0, 1fr);
+    row-gap: 8px;
+    min-height: 0;
+    padding-block: 16px;
+  }
+
+  .testro-flow-list--inline .testro-flow-list__title,
+  .testro-flow-list--inline .testro-flow-list__desc {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-flow-list {
+    gap: 16px;
+  }
+
+  .testro-flow-list__item {
+    min-height: 0;
+    column-gap: var(--flow-list-gap);
+  }
+
+  .testro-flow-list__body {
+    padding-bottom: 16px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reusable UI — SupportingText (.testro-supporting-text)                     */
+/* Right-aligned italic statement under section content                       */
+/* -------------------------------------------------------------------------- */
+.testro-supporting-text {
+  /* Sit on the right with a clear left gap; wrap to ~1–2 lines. */
+  width: 100%;
+  max-width: 720px;
+  min-height: 47px;
+  margin: 48px 0 0 auto;
+  padding: 0;
+  color: #5b7290;
+  font-family: var(--testro-font);
+  font-size: 15px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1.55em;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.testro-supporting-text--on-dark {
+  color: #fff;
+}
+
+@media (max-width: 1023px) {
+  .testro-supporting-text {
+    max-width: min(720px, 100%);
+    min-height: 0;
+    margin-top: clamp(1.5rem, 4vw, 48px);
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-supporting-text {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reusable UI — FeatureCard (.testro-feature-card)                           */
+/* Source of truth: Home AI Capabilities cards                                */
+/* -------------------------------------------------------------------------- */
+.testro-feature-card {
+  --feature-card-bg: rgb(0 62 132 / 0.22);
+  --feature-card-border: rgb(0 172 255 / 0.45);
+  --feature-card-title-color: #fff;
+  --feature-card-desc-color: #fff;
+  --feature-card-icon-bg: linear-gradient(135deg, #003e84 0%, #00acff 100%);
+  --feature-card-icon-color: #fff;
+  --feature-card-accent: linear-gradient(90deg, #00acff, rgb(0 172 255 / 0.35));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 198px;
+  overflow: hidden;
+  padding: 24px;
+  background: var(--feature-card-bg);
+  border: 1px solid var(--feature-card-border);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.testro-feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 3px;
+  border-radius: 0 0 2px 0;
+  background: var(--feature-card-accent);
+}
+
+.testro-feature-card__icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 41px;
+  height: 43px;
+  margin: 0 0 11px;
+  border-radius: 10px;
+  background: var(--feature-card-icon-bg);
+  color: var(--feature-card-icon-color);
+}
+
+.testro-feature-card__icon svg {
+  display: block;
+}
+
+.testro-feature-card__badge {
+  display: block;
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reusable UI — StepPill (.testro-step-pill)                                 */
+/* -------------------------------------------------------------------------- */
+.testro-step-pill {
+  --step-pill-active-bg: var(--color-brand-sky);
+  --step-pill-active-color: #fff;
+  --step-pill-idle-bg: #fff;
+  --step-pill-idle-color: var(--color-brand-sky);
+  --step-pill-line: #93c5fd;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 220px;
+  height: 46px;
+  margin: 0;
+  padding: 0 24px;
+  list-style: none;
+  background: #f5f9ff;
+  border: 1px solid #d7e6fb;
+  border-radius: 999px;
+  box-sizing: border-box;
+}
+
+.testro-step-pill::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 37px;
+  right: 37px;
+  height: 2px;
+  background: var(--step-pill-line);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.testro-step-pill__item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.testro-step-pill__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--step-pill-idle-bg);
+  border: 1px solid var(--step-pill-idle-color);
+  color: var(--step-pill-idle-color);
+  font-family: var(--testro-font);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1em;
+  box-sizing: border-box;
+}
+
+.testro-step-pill__item.is-active .testro-step-pill__num {
+  background: var(--step-pill-active-bg);
+  border-color: var(--step-pill-active-bg);
+  color: var(--step-pill-active-color);
+}
+
+/* Full-width numbered process track (equal steps, no single active). */
+.testro-step-pill--process {
+  --step-pill-size: 68px;
+  --step-pill-line: #d5dff0;
+  --step-pill-cols: 4;
+  display: grid;
+  grid-template-columns: repeat(var(--step-pill-cols), minmax(0, 1fr));
+  max-width: none;
+  width: 100%;
+  height: auto;
+  min-height: var(--step-pill-size);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  justify-content: initial;
+  gap: 0;
+}
+
+.testro-step-pill--process::before {
+  left: calc(var(--step-pill-size) / 2);
+  right: calc(100% / var(--step-pill-cols) - var(--step-pill-size) / 2);
+  height: 2px;
+  background: var(--step-pill-line);
+}
+
+.testro-step-pill--process .testro-step-pill__item {
+  justify-content: flex-start;
+}
+
+.testro-step-pill--process .testro-step-pill__num {
+  width: var(--step-pill-size);
+  height: var(--step-pill-size);
+  background: #f5f7fb;
+  border: 1px solid var(--color-brand-sky);
+  color: var(--color-brand-sky);
+  font-family: var(--testro-font);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.2em;
+}
+
+@media (max-width: 767px) {
+  .testro-step-pill--process {
+    --step-pill-size: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+
+  .testro-step-pill--process::before {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Product — Journey Split                                                    */
+/* -------------------------------------------------------------------------- */
+.testro-journey-split {
+  background: #fff;
+  overflow: visible;
+}
+
+.testro-journey-split__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2rem, 4.5vw, 54px);
+  align-items: center;
+}
+
+.testro-journey-split__intro {
+  min-width: 0;
+}
+
+.testro-journey-split .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+.testro-journey-split .testro-sec-header__heading,
+.testro-journey-split .testro-sec-header__desc {
+  min-height: 0;
+}
+
+.testro-journey-split__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+  padding: 0 62px;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.testro-journey-split__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.testro-journey-split__block:first-child {
+  min-height: 146px;
+  gap: 12px;
+}
+
+.testro-journey-split__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 0 12px;
+  border-radius: 50%;
+  background: var(--color-brand-sky);
+  color: #fff;
+}
+
+.testro-journey-split__icon svg {
+  display: block;
+}
+
+.testro-journey-split__title {
+  margin: 0;
+  width: auto;
+  max-width: 100%;
+  color: #102a56;
+  font-family: var(--font-sora);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.25em;
+  text-align: center;
+}
+
+.testro-journey-split__desc {
+  margin: 8px 0 0;
+  width: auto;
+  max-width: 22rem;
+  color: #526c9a;
+  font-family: var(--font-sora);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.2em;
+  text-align: center;
+}
+
+.testro-journey-split .testro-feature-card__title {
+  color: #102a56;
+}
+
+.testro-journey-split .testro-feature-card__desc {
+  color: #526c9a;
+}
+
+@media (min-width: 1024px) {
+  .testro-journey-split__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 54px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .testro-journey-split__blocks {
+    padding-inline: clamp(1rem, 5vw, 40px);
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-journey-split__blocks {
+    padding-inline: 0;
+  }
+
+  .testro-journey-split__block:first-child {
+    min-height: 0;
+  }
+}
+
+.testro-feature-card__title {
+  margin: 0 0 11px;
+  width: 100%;
+  color: var(--feature-card-title-color);
+  font-family: var(--font-sora);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1.2em;
+}
+
+.testro-feature-card__desc {
+  margin: 0;
+  width: 100%;
+  color: var(--feature-card-desc-color);
+  font-family: var(--font-sora);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.2em;
+}
+
+.testro-feature-card--no-icon .testro-feature-card__title {
+  margin-top: 0;
+}
+
+/* Light surface variant — white cards on tinted section backgrounds */
+.testro-feature-card--light {
+  --feature-card-bg: #fff;
+  --feature-card-border: #d5e9fc;
+  --feature-card-title-color: var(--color-brand-navy);
+  --feature-card-desc-color: var(--color-muted);
+  --feature-card-icon-bg: linear-gradient(135deg, #003e84 0%, #00acff 100%);
+  --feature-card-accent: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.testro-feature-card--light::before {
+  display: none;
+}
+
+/* Tint surface — pale blue cards with solid navy icon wells */
+.testro-feature-card--tint {
+  --feature-card-bg: #f4f9ff;
+  --feature-card-border: #d5e9fc;
+  --feature-card-title-color: #063b7a;
+  --feature-card-desc-color: #58718e;
+  --feature-card-icon-bg: var(--color-brand-navy);
+  --feature-card-icon-color: #fff;
+  --feature-card-accent: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.testro-feature-card--tint::before {
+  display: none;
+}
+
+/* Horizontal row — icon left, heading + description stacked */
+.testro-feature-card--horizontal {
+  --feature-card-bg: transparent;
+  --feature-card-border: transparent;
+  --feature-card-title-color: var(--color-brand-navy);
+  --feature-card-desc-color: #16335e;
+  --feature-card-icon-bg: #e7f4ff;
+  --feature-card-icon-color: #0a78d1;
+  --feature-card-icon-border: #d5e9fc;
+  --feature-card-accent: transparent;
+  --feature-card-row-gap: 14px;
+  --feature-card-text-gap: 8px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--feature-card-row-gap);
+  min-height: 0;
+  overflow: visible;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.testro-feature-card--horizontal::before {
+  display: none;
+}
+
+.testro-feature-card--horizontal .testro-feature-card__icon {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border: 1px solid var(--feature-card-icon-border);
+  border-radius: 8px;
+}
+
+.testro-feature-card--horizontal .testro-feature-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--feature-card-text-gap);
+  min-width: 0;
+}
+
+.testro-feature-card--horizontal .testro-feature-card__title {
+  margin: 0;
+}
+
+.testro-feature-card--horizontal .testro-feature-card__desc {
+  font-family: var(--testro-font);
+}
+
+/* Controlled row accents for title + icon/badge */
+.testro-feature-card--theme-navy {
+  --feature-card-title-color: var(--color-brand-navy);
+  --feature-card-icon-color: var(--color-brand-navy);
+}
+
+.testro-feature-card--theme-sky {
+  --feature-card-title-color: var(--color-brand-sky);
+  --feature-card-icon-color: var(--color-brand-sky);
+}
+
+/* Media surface variant — image on top, heading + description below */
+.testro-feature-card--media {
+  --feature-card-bg: #fff;
+  --feature-card-border: #d5e9fc;
+  --feature-card-title-color: var(--color-brand-navy);
+  --feature-card-desc-color: var(--color-muted);
+  --feature-card-accent: transparent;
+  min-height: 0;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgb(2 8 23 / 0.04);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.testro-feature-card--media::before {
+  display: none;
+}
+
+.testro-feature-card--media .testro-feature-card__media {
+  display: block;
+  width: 100%;
+  height: 136px;
+  margin: 0 0 24px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.testro-feature-card--media .testro-feature-card__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.testro-feature-card--media .testro-feature-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testro-feature-card--media .testro-feature-card__media--placeholder {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #ececec 0 10px,
+      #f6f6f6 10px 20px
+    );
+}
+
+.testro-feature-card--media .testro-feature-card__title {
+  margin: 0 0 11px;
+}
+
+/* Media footer — label + copy on top, bordered visual slot below */
+.testro-feature-card--media-footer {
+  --feature-card-bg: #fff;
+  --feature-card-border: #d5e9fc;
+  --feature-card-title-color: var(--color-brand-navy);
+  --feature-card-desc-color: var(--color-muted);
+  --feature-card-accent: transparent;
+  --feature-card-label-color: var(--color-brand-sky);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 0;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgb(2 8 23 / 0.04);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.testro-feature-card--media-footer::before {
+  display: none;
+}
+
+.testro-feature-card__label {
+  margin: 0 0 12px;
+  height: var(--feature-card-label-height, auto);
+  color: var(--feature-card-label-color, var(--color-brand-sky));
+  font-family: var(--feature-card-label-font, var(--font-mono));
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--feature-card-label-tracking, 1.5px);
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+.testro-feature-card--media-footer .testro-feature-card__title {
+  margin: 0 0 11px;
+}
+
+.testro-feature-card--media-footer .testro-feature-card__media-wrap {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid #d7dfec;
+  box-sizing: border-box;
+}
+
+.testro-feature-card--media-footer .testro-feature-card__media {
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 140px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.testro-feature-card--media-footer .testro-feature-card__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.testro-feature-card--media-footer .testro-feature-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testro-feature-card--media-footer .testro-feature-card__media--placeholder {
+  background: #e8eef5;
+}
+
+/* Media inline — image left, heading + description stacked on the right */
+.testro-feature-card--media-inline {
+  --feature-card-bg: #fff;
+  --feature-card-border: #d5e9fc;
+  --feature-card-title-color: var(--color-brand-navy);
+  --feature-card-desc-color: var(--color-muted);
+  --feature-card-accent: transparent;
+  --feature-card-row-gap: 16px;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--feature-card-row-gap);
+  min-height: 0;
+  padding: 21px 24px;
+  box-shadow: 0 1px 2px rgb(2 8 23 / 0.04);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.testro-feature-card--media-inline::before {
+  display: none;
+}
+
+.testro-feature-card--media-inline .testro-feature-card__media {
+  flex: 0 0 auto;
+  width: auto;
+  height: 89px;
+  aspect-ratio: 140 / 89;
+  max-width: 42%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.testro-feature-card--media-inline .testro-feature-card__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.testro-feature-card--media-inline .testro-feature-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testro-feature-card--media-inline .testro-feature-card__media--placeholder {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #ececec 0 10px,
+      #f6f6f6 10px 20px
+    );
+}
+
+.testro-feature-card--media-inline .testro-feature-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.testro-feature-card--media-inline .testro-feature-card__title {
+  margin: 0 0 11px;
+}
+
+@media (max-width: 479px) {
+  .testro-feature-card--media-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .testro-feature-card--media-inline .testro-feature-card__media {
+    width: 100%;
+    max-width: none;
+    height: 89px;
+    aspect-ratio: auto;
+  }
+}
+
+/* Step cards — icon + connector + number, then title/description */
+.testro-feature-card--step {
+  --feature-card-bg: #fff;
+  --feature-card-border: transparent;
+  --feature-card-title-color: var(--color-brand-navy);
+  --feature-card-desc-color: #5b7290;
+  --feature-card-icon-bg: #f2f6ff;
+  --feature-card-icon-color: var(--color-brand-navy);
+  --feature-card-icon-border: #a9c0fa;
+  --feature-card-badge-color: #a9c0fa;
+  --feature-card-connector: #a9c0fa;
+  --feature-card-accent: transparent;
+  min-height: 0;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgb(2 8 23 / 0.04);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.testro-feature-card--step::before {
+  display: none;
+}
+
+.testro-feature-card--step .testro-feature-card__meta {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 20px;
+  min-width: 0;
+}
+
+.testro-feature-card--step .testro-feature-card__icon {
+  width: 78px;
+  height: 78px;
+  margin: 0;
+  border: 1px solid var(--feature-card-icon-border);
+  border-radius: 16px;
+}
+
+.testro-feature-card--step .testro-feature-card__icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.testro-feature-card--step .testro-feature-card__connector {
+  flex: 1 1 80px;
+  width: auto;
+  min-width: 2rem;
+  height: 1px;
+  margin: 0;
+  background: var(--feature-card-connector);
+}
+
+.testro-feature-card--step .testro-feature-card__badge {
+  flex: 0 0 auto;
+  color: var(--feature-card-badge-color);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.testro-feature-card--step .testro-feature-card__title {
+  margin: 0 0 11px;
+}
+
+@media (min-width: 1024px) {
+  .testro-feature-card--step {
+    min-height: 0;
+    height: auto;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-feature-card--step .testro-feature-card__meta {
+    margin-bottom: 16px;
+  }
+
+  .testro-feature-card--step .testro-feature-card__connector {
+    min-width: 2rem;
+  }
+}
+
+/* Shared FeatureCard grid (column count via data-columns) */
+.testro-feature-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  margin: clamp(2rem, 4vw, 48px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .testro-feature-card-grid[data-columns="2"],
+  .testro-feature-card-grid[data-columns="3"],
+  .testro-feature-card-grid[data-columns="4"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testro-feature-card-grid[data-columns="3"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .testro-feature-card-grid[data-columns="4"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .testro-feature-card-grid[data-columns="5"] {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .testro-feature-card {
+    min-height: 198px;
+    padding-top: 24px;
+  }
+
+  .testro-feature-card--horizontal {
+    min-height: 0;
+    height: auto;
+    padding: 0;
+  }
+
+  .testro-feature-card--media-inline {
+    min-height: 0;
+    height: auto;
+    padding: 21px 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-feature-card {
+    min-height: auto;
+    height: auto;
+  }
+}
+
 .testro-section-header {
   display: flex;
   flex-direction: column;
@@ -508,23 +1627,32 @@ p {
 }
 
 .testro-btn--outline {
+  box-sizing: border-box;
   height: 48px;
-  padding: 0 22px;
-  border-radius: 24px;
-  border: 2px solid #08adff;
-  color: #2602ed;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid #dceaf9;
+  color: #084c9d;
   background: #fff;
+  box-shadow: 0 2px 8px #003e84;
   display: inline-flex;
   align-items: center;
-  font-size: 14px;
+  justify-content: center;
+  font-family: var(--testro-font);
+  font-size: 16px;
   font-weight: 600;
-  transition: background 0.2s ease, color 0.2s ease;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .testro-btn--outline:hover {
-  background: var(--grad-btn);
-  color: #fff;
-  border-color: transparent;
+  background: #f7fbff;
+  color: #084c9d;
+  border-color: #dceaf9;
+  box-shadow: 0 4px 12px #003e84;
+  transform: translateY(-1px);
 }
 
 .testro-btn--outline .primary-button__arrow,
@@ -4010,56 +5138,6 @@ html.testro-js .testro-how__intro[data-reveal].is-revealed {
   box-sizing: border-box;
 }
 
-.testro-faq__header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  text-align: left;
-}
-
-.testro-faq__label {
-  margin: 0;
-  min-height: 14px;
-  color: var(--color-brand-sky);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  line-height: 1.2em;
-  text-transform: uppercase;
-}
-
-.testro-faq__heading {
-  margin: 0;
-  max-width: 100%;
-  color: var(--color-brand-navy);
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  font-family: var(--font-sora);
-  font-size: clamp(1.75rem, 3.33vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.7px;
-  line-height: 1.18em;
-  text-align: left;
-  text-wrap: balance;
-}
-
-.testro-faq__desc {
-  margin: 0;
-  max-width: 100%;
-  color: var(--faq-muted);
-  font-family: var(--testro-font);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.55em;
-  text-align: left;
-}
-
 .testro-faq__list {
   display: flex;
   flex-direction: column;
@@ -4129,20 +5207,24 @@ html.testro-js .testro-how__intro[data-reveal].is-revealed {
 }
 
 .testro-faq__icon svg {
-  display: block;
   width: 20px;
   height: 20px;
 }
 
-.testro-faq__icon-minus {
+/* Closed: + only. Open: − only. Specificity must beat any svg display rules. */
+.testro-faq__icon svg.testro-faq__icon-plus {
+  display: block;
+}
+
+.testro-faq__icon svg.testro-faq__icon-minus {
   display: none;
 }
 
-.testro-faq__item.is-open .testro-faq__icon-plus {
+.testro-faq__item.is-open .testro-faq__icon svg.testro-faq__icon-plus {
   display: none;
 }
 
-.testro-faq__item.is-open .testro-faq__icon-minus {
+.testro-faq__item.is-open .testro-faq__icon svg.testro-faq__icon-minus {
   display: block;
 }
 
@@ -6823,7 +7905,6 @@ html.testro-js [data-reveal].is-revealed {
 .testro-prod-actions__btn--outline {
   gap: 0.5rem;
   font-size: 16px;
-  padding: 0 26px;
 }
 
 .testro-prod-actions__btn--outline .testro-prod-actions__icon {
@@ -6834,29 +7915,33 @@ html.testro-js [data-reveal].is-revealed {
   transform: translateX(3px);
 }
 
-/* On brand-gradient backgrounds the gradient button loses contrast, so the
-   primary action inverts to solid white with brand-coloured text. */
-.testro-prod-actions--dark .primary-button {
+/* On brand-gradient backgrounds (non-CTA), invert primary for contrast. */
+.testro-prod-actions--dark .primary-button,
+.testro-prod-actions--dark .testro-btn--primary {
   background-image: none;
   background-color: #fff;
   color: #2602ed !important;
 }
 
-.testro-prod-actions--dark .primary-button:hover {
+.testro-prod-actions--dark .primary-button:hover,
+.testro-prod-actions--dark .testro-btn--primary:hover {
   background-color: #eff5ff;
   filter: none;
   box-shadow: 0 12px 28px rgb(2 8 23 / 0.3);
 }
 
+.testro-prod-actions--dark .testro-btn--outline,
 .testro-prod-actions--dark .testro-prod-actions__btn--outline {
   background: transparent;
   border-color: rgb(255 255 255 / 0.65);
   color: #fff;
+  box-shadow: none;
 }
 
+.testro-prod-actions--dark .testro-btn--outline:hover,
 .testro-prod-actions--dark .testro-prod-actions__btn--outline:hover {
   background: #fff;
-  color: #2602ed;
+  color: #084c9d;
   border-color: #fff;
 }
 
@@ -6878,6 +7963,60 @@ html.testro-js [data-reveal].is-revealed {
     min-height: calc(var(--header-stack-padding, 154px) + 580px);
     display: flex;
     align-items: center;
+  }
+
+  /* No-Code Test Automation — designer hero height */
+  .page-no-code-test-automation .testro-prod-hero {
+    min-height: 619px;
+  }
+
+  /* Web Automation — designer hero height */
+  .page-automated-web-application-testing .testro-prod-hero {
+    min-height: 751px;
+  }
+
+  /* API Testing — designer hero height */
+  .page-automated-api-testing .testro-prod-hero,
+  .page-template-template-api-testing .testro-prod-hero {
+    min-height: 619px;
+  }
+
+  /* AI Test Management — designer hero height */
+  .page-test-management-software .testro-prod-hero,
+  .page-template-template-ai-test-management .testro-prod-hero {
+    min-height: 724px;
+  }
+
+  /* Cross-Browser Testing — designer hero height + column spacing */
+  .page-automated-cross-browser-testing-tool .testro-prod-hero {
+    min-height: 826px;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: stretch;
+  }
+
+  .page-automated-cross-browser-testing-tool .testro-prod-hero__inner,
+  .page-automated-cross-browser-testing-tool .testro-prod-hero__split {
+    min-height: 826px;
+    align-items: stretch;
+  }
+
+  .page-automated-cross-browser-testing-tool .testro-prod-hero__lead {
+    /* Designer left top 100; never less than fixed-header clearance. */
+    padding-top: max(100px, var(--header-stack-padding, 154px));
+    padding-bottom: 96px;
+    box-sizing: border-box;
+  }
+
+  .page-automated-cross-browser-testing-tool .testro-prod-hero__visual {
+    padding-top: 220px;
+    padding-bottom: 216px;
+    box-sizing: border-box;
+  }
+
+  .page-automated-cross-browser-testing-tool .testro-prod-hero__stage {
+    min-height: 0;
+    height: 100%;
   }
 }
 
@@ -6954,6 +8093,18 @@ html.testro-js [data-reveal].is-revealed {
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.65;
+}
+
+/* Cross-Browser — italic cyan emphasis above CTA */
+.page-automated-cross-browser-testing-tool .testro-prod-hero__sub-extra {
+  min-height: 79px;
+  color: var(--color-brand-sky);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.page-automated-cross-browser-testing-tool .testro-prod-hero__actions {
+  margin-top: 22px;
 }
 
 .testro-prod-hero__sub strong {
@@ -17648,6 +18799,225 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Lifecycle cycle diagram (circular flow)                                    */
+/* -------------------------------------------------------------------------- */
+.testro-prod-lifecycle--cycle {
+  background: #fff;
+  overflow: visible;
+}
+
+.testro-prod-lifecycle__cycle-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 48px);
+  align-items: center;
+}
+
+.testro-prod-lifecycle--cycle .testro-sec-header {
+  min-height: 0;
+}
+
+.testro-prod-lifecycle--cycle .testro-sec-header__heading,
+.testro-prod-lifecycle--cycle .testro-sec-header__desc {
+  min-height: 0;
+}
+
+.testro-prod-lifecycle__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+}
+
+.testro-prod-lifecycle__callout {
+  margin: 0;
+  padding: 24px 18px;
+  background: var(--color-brand-sky);
+  border-radius: 12px;
+  color: #fff;
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55em;
+}
+
+.testro-lifecycle-cycle {
+  position: relative;
+  width: min(100%, 42.5rem);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.testro-lifecycle-cycle__orbit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.testro-lifecycle-cycle__hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 156px;
+  height: 156px;
+  padding: 12px;
+  background: radial-gradient(circle at 50% 50%, #fff 0%, #e7f4ff 100%);
+  border: 1px solid #d5e9fc;
+  border-radius: 100%;
+  box-shadow: 0 12px 28px rgb(1 69 141 / 0.22);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.testro-lifecycle-cycle__hub-label {
+  color: #0a78d1;
+  min-height: 0;
+}
+
+.testro-lifecycle-cycle__hub-title {
+  margin: 0;
+  color: #0a78d1;
+  font-family: var(--font-sora);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.testro-lifecycle-cycle__cards {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.testro-lifecycle-cycle__card {
+  --angle: calc((var(--i) * 60deg) - 90deg);
+  position: absolute;
+  top: calc(50% + (sin(var(--angle)) * 34%));
+  left: calc(50% + (cos(var(--angle)) * 34%));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: clamp(9.5rem, 30%, 12.5rem);
+  height: 142px;
+  margin: 0;
+  padding: 14px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d5e9fc;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgb(1 69 141 / 0.2);
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+}
+
+.testro-lifecycle-cycle__badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  background: #0079c8;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.testro-lifecycle-cycle__text {
+  margin: 0;
+  color: #16335e;
+  font-family: var(--testro-font);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.35em;
+}
+
+.testro-lifecycle-cycle__name {
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .testro-prod-lifecycle__cycle-inner {
+    grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+    gap: clamp(2rem, 4vw, 56px);
+  }
+
+  .testro-prod-lifecycle__copy {
+    max-width: 26rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .testro-lifecycle-cycle {
+    aspect-ratio: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .testro-lifecycle-cycle__orbit {
+    display: none;
+  }
+
+  .testro-lifecycle-cycle__hub {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .testro-lifecycle-cycle__cards {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+
+  .testro-lifecycle-cycle__card {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    transform: none;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .testro-lifecycle-cycle__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 /* Quality intelligence — capability list + dashboard panel                   */
 /* -------------------------------------------------------------------------- */
 .testro-prod-analytics__layout {
@@ -17661,6 +19031,236 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   grid-template-columns: minmax(0, 1fr);
   max-width: 42rem;
   margin-inline: auto;
+}
+
+.testro-prod-analytics--split-visual {
+  background: #fff;
+  overflow: visible;
+}
+
+.testro-prod-analytics--split-visual .testro-sec-header {
+  min-height: 0;
+}
+
+.testro-prod-analytics--split-visual .testro-sec-header__heading,
+.testro-prod-analytics--split-visual .testro-sec-header__desc {
+  min-height: 0;
+}
+
+.testro-prod-analytics__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 48px);
+  align-items: center;
+}
+
+.testro-prod-analytics__copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.testro-prod-analytics__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.testro-prod-analytics__highlight {
+  margin: 22px 0 0;
+  color: #2113a1;
+  font-family: var(--testro-font);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  text-transform: uppercase;
+}
+
+.testro-prod-analytics__extra {
+  margin: 14px 0 0;
+  max-width: 100%;
+  color: #5b7290;
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55em;
+}
+
+.testro-prod-analytics__extra--accent {
+  color: var(--color-brand-sky);
+  font-style: italic;
+}
+
+.testro-prod-analytics__footer {
+  margin: 64px 0 0;
+  min-height: 47px;
+  max-width: 100%;
+  color: #5b7290;
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55em;
+  text-align: left;
+}
+
+.testro-prod-analytics--split-visual .testro-prod-analytics__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+.testro-prod-analytics__visual {
+  width: 100%;
+  min-width: 0;
+}
+
+.testro-prod-analytics__placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 589px;
+  border-radius: 16px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #ececec 0 10px,
+      #f6f6f6 10px 20px
+    );
+  box-shadow: 0 12px 28px rgb(1 69 141 / 0.14);
+}
+
+@media (min-width: 1024px) {
+  .testro-prod-analytics__split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 64px);
+  }
+}
+
+/* Header above + visual left + numbered cards right */
+.testro-prod-analytics--visual-list {
+  background: #fff;
+  overflow: visible;
+}
+
+.testro-prod-analytics__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
+}
+
+.testro-prod-analytics--visual-list .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+.testro-prod-analytics--visual-list .testro-sec-header__heading,
+.testro-prod-analytics--visual-list .testro-sec-header__desc {
+  min-height: 0;
+}
+
+.testro-prod-analytics__split--visual-first {
+  align-items: center;
+  width: 100%;
+  min-height: 0;
+}
+
+@media (min-width: 1024px) {
+  .testro-prod-analytics__split--visual-first {
+    grid-template-columns: minmax(0, 44%) minmax(0, 1fr);
+  }
+
+  .testro-prod-analytics__split--list-first {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
+    align-items: center;
+    width: 100%;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reusable UI — NumberedFeatureList (.testro-numbered-feature-list)          */
+/* Source of truth: Validate Every Response right column                      */
+/* -------------------------------------------------------------------------- */
+.testro-numbered-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.testro-numbered-feature-list .testro-feature-card--horizontal {
+  align-items: flex-start;
+  gap: var(--feature-card-row-gap, 20px);
+  padding: 20px 0;
+  border-bottom: 1px solid #d7dfec;
+  border-radius: 0;
+}
+
+.testro-numbered-feature-list .testro-feature-card--horizontal:first-child {
+  padding-top: 0;
+}
+
+.testro-numbered-feature-list .testro-feature-card--horizontal:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.testro-numbered-feature-list .testro-feature-card__icon {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+  border: 1px solid var(--feature-card-icon-border, var(--color-brand-sky));
+  border-radius: 100%;
+  background: transparent;
+  color: var(--feature-card-icon-color, #1678dd);
+}
+
+.testro-numbered-feature-list .testro-feature-card__badge {
+  font-family: var(--testro-font);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+  color: inherit;
+}
+
+/* Tile badges — square wells, no row separators */
+.testro-numbered-feature-list--tiles {
+  gap: 24px;
+}
+
+.testro-numbered-feature-list--tiles .testro-feature-card--horizontal {
+  padding: 0;
+  border-bottom: 0;
+}
+
+.testro-numbered-feature-list--tiles .testro-feature-card__icon {
+  width: 38px;
+  height: 34px;
+  min-width: 38px;
+  min-height: 34px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--feature-card-icon-bg, #eaf3fc);
+}
+
+.testro-numbered-feature-list--tiles .testro-feature-card__badge {
+  font-weight: 600;
 }
 
 .testro-prod-analytics__list {
@@ -18235,6 +19835,58 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   line-height: 1.6;
 }
 
+/* Vertical dotted flow (DevOps list) */
+.testro-prod-pipeline--flow {
+  background: var(--grad-header);
+  color: #fff;
+  overflow: visible;
+}
+
+.testro-prod-pipeline--flow .testro-sec-header {
+  min-height: 0;
+}
+
+.testro-prod-pipeline--flow .testro-sec-header__heading,
+.testro-prod-pipeline--flow .testro-sec-header__desc {
+  min-height: 0;
+}
+
+.testro-prod-pipeline--flow .testro-flow-list {
+  margin-top: 64px;
+}
+
+/* Light flow band — navy FlowList on tinted section backgrounds */
+.testro-prod-pipeline--flow-light {
+  background: #f4f9ff;
+  color: var(--color-brand-navy);
+}
+
+.testro-prod-pipeline--flow-light .testro-prod-pipeline__outro:not(.testro-feature-card__title) {
+  display: block;
+  width: 100%;
+  max-width: 36rem;
+  min-height: 60px;
+  margin: 64px 0 0 auto;
+  color: var(--color-brand-navy);
+  font-family: var(--font-sora);
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.16em;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .testro-prod-pipeline--flow-light .testro-prod-pipeline__outro:not(.testro-feature-card__title) {
+    max-width: 100%;
+    min-height: 0;
+    margin-top: 40px;
+    font-size: clamp(1.125rem, 4.5vw, 22px);
+    text-align: left;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* Comparison                                                                 */
 /* -------------------------------------------------------------------------- */
@@ -18265,6 +19917,16 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   display: none;
 }
 
+.testro-prod-compare--text-only .testro-prod-compare__head-icon {
+  display: none;
+}
+
+.testro-prod-compare--text-only .testro-prod-compare__head-spacer {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+}
+
 .testro-prod-compare--two .testro-prod-compare__head,
 .testro-prod-compare--two .testro-prod-compare__row {
   grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.6fr);
@@ -18278,6 +19940,164 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 
 .testro-prod-compare__outro {
   margin-top: 2.5rem;
+}
+
+/* Two-column comparison board */
+.testro-prod-compare--board {
+  background: #fff;
+  overflow: visible;
+}
+
+.testro-prod-compare--board .testro-sec-header {
+  min-height: 0;
+}
+
+.testro-prod-compare--board .testro-sec-header__heading,
+.testro-prod-compare--board .testro-sec-header__desc {
+  min-height: 0;
+}
+
+.testro-compare-board {
+  --feature-card-desc-color: #5b7290;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-top: 48px;
+  border: 1px solid #d5e9fc;
+  border-radius: 16px;
+}
+
+.testro-compare-board__heads,
+.testro-compare-board__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.testro-compare-board__rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.testro-compare-board__head {
+  display: flex;
+  align-items: center;
+  height: 58px;
+  margin: 0;
+  padding: 19px 24px 20px;
+  font-family: var(--font-sora);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.testro-compare-board__head--legacy {
+  background: #f1f2f6;
+  color: #5b7290;
+}
+
+.testro-compare-board__head--modern {
+  background: var(--grad-header);
+  color: #fff;
+  border-left: 1px solid #d5e9fc;
+}
+
+.testro-compare-board__cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-top: 1px solid #d5e9fc;
+  box-sizing: border-box;
+}
+
+.testro-compare-board__cell--legacy {
+  background: #fafafb;
+  --feature-card-desc-color: #5b7290;
+}
+
+.testro-compare-board__cell--modern {
+  background: #f4f9ff;
+  border-left: 1px solid #d5e9fc;
+  --feature-card-desc-color: var(--color-brand-navy);
+}
+
+.testro-compare-board__cell .testro-feature-card__desc {
+  width: auto;
+  min-width: 0;
+  flex: 1 1 auto;
+  font-family: var(--testro-font);
+  letter-spacing: 0;
+  line-height: 1.4em;
+}
+
+.testro-compare-board__mark {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.testro-compare-board__mark svg {
+  display: block;
+}
+
+.testro-compare-board__mark.testro-prod-compare__mark--close {
+  background: transparent;
+  color: #e64a4a;
+}
+
+.testro-compare-board__mark.testro-prod-compare__mark--check {
+  background: transparent;
+  color: #17b26a;
+}
+
+@media (max-width: 1023px) {
+  .testro-compare-board__head,
+  .testro-compare-board__cell {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-compare-board {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testro-compare-board__heads,
+  .testro-compare-board__rows,
+  .testro-compare-board__row {
+    display: contents;
+  }
+
+  .testro-compare-board__head,
+  .testro-compare-board__cell {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .testro-compare-board__head--legacy,
+  .testro-compare-board__cell--legacy {
+    order: 1;
+  }
+
+  .testro-compare-board__head--modern,
+  .testro-compare-board__cell--modern {
+    order: 2;
+    border-left: 0;
+  }
 }
 
 .testro-prod-compare__head {
@@ -18446,6 +20266,203 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Support matrix — browser × platform check table                            */
+/* -------------------------------------------------------------------------- */
+.testro-support-matrix {
+  background: #fff;
+  overflow: visible;
+}
+
+.testro-support-matrix .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+.testro-support-matrix .testro-sec-header__heading,
+.testro-support-matrix .testro-sec-header__desc {
+  min-height: 0;
+}
+
+.testro-support-matrix__table {
+  --support-matrix-cols: 5;
+  margin-top: 42px;
+  box-shadow: 0 1px 2px rgb(2 8 23 / 0.04);
+}
+
+.testro-support-matrix__head,
+.testro-support-matrix__row {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 1.1fr) repeat(calc(var(--support-matrix-cols) - 1), minmax(0, 1fr));
+  align-items: center;
+}
+
+.testro-support-matrix__head {
+  background: #eaf0ff;
+}
+
+.testro-support-matrix__head-cell {
+  padding: 14px 16px;
+  color: #123a9e;
+  font-family: var(--testro-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.testro-support-matrix__head-cell--first {
+  color: #0a1a3c;
+  text-align: left;
+}
+
+.testro-support-matrix__row {
+  background: #fff;
+}
+
+.testro-support-matrix__row--alt {
+  background: #f5f5f5;
+}
+
+.testro-support-matrix__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+.testro-support-matrix__cell--label {
+  justify-content: flex-start;
+  min-height: 16px;
+  color: #0a1a3c;
+  font-family: var(--testro-font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2em;
+}
+
+.testro-support-matrix__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a72f2;
+}
+
+.testro-support-matrix__check svg {
+  display: block;
+}
+
+.testro-support-matrix__empty {
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.testro-support-matrix__note {
+  display: block;
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+}
+
+.testro-support-matrix__note-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  box-sizing: border-box;
+}
+
+.testro-support-matrix__note-dot {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  background: #5b7290;
+}
+
+.testro-support-matrix__note-text {
+  color: #5b7290;
+  font-family: var(--testro-font);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2em;
+}
+
+.testro-support-matrix__bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+  gap: 40px;
+  align-items: start;
+  min-height: 294px;
+  margin-top: 42px;
+}
+
+.testro-support-matrix__bottom-copy {
+  padding: 106px 0 72px;
+  box-sizing: border-box;
+}
+
+.testro-support-matrix__bottom-copy .testro-sec-header__desc {
+  max-width: 36rem;
+  min-height: 0;
+  color: #5b7290;
+}
+
+.testro-support-matrix__bottom-visual {
+  width: 100%;
+  max-width: 480px;
+  height: 260px;
+  margin: 34px 0 0;
+  background: #ececec;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+  .testro-support-matrix__bottom {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    min-height: 0;
+  }
+
+  .testro-support-matrix__bottom-copy {
+    padding: 0;
+  }
+
+  .testro-support-matrix__bottom-visual {
+    max-width: 100%;
+    height: clamp(180px, 40vw, 260px);
+    margin: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-support-matrix__table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .testro-support-matrix__head,
+  .testro-support-matrix__row {
+    min-width: 36rem;
+  }
+
+  .testro-support-matrix__head-cell,
+  .testro-support-matrix__cell {
+    padding-inline: 12px;
+  }
+
+  .testro-support-matrix__note-cell {
+    min-width: 36rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 /* Outcomes                                                                   */
 /* -------------------------------------------------------------------------- */
 .testro-prod-outcomes__grid {
@@ -18559,8 +20576,7 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 }
 
 .testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item,
-#ai-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item,
-#ai-agents-testing.testro-prod-outcomes .testro-prod-outcomes__item,
+#enterprise-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item,
 #ai-locator-intelligence.testro-prod-outcomes .testro-prod-outcomes__item {
   background:
     linear-gradient(155deg, rgb(255 255 255 / 0.98), rgb(247 251 255 / 0.94)),
@@ -18570,8 +20586,7 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 }
 
 .testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif,
-#ai-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif,
-#ai-agents-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif,
+#enterprise-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif,
 #ai-locator-intelligence.testro-prod-outcomes .testro-prod-outcomes__item--rich .testro-prod-outcomes__motif {
   display: block;
   position: absolute;
@@ -18587,14 +20602,12 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 }
 
 .testro-prod-outcomes.testro-prod-section--tint .testro-prod-outcomes__item--rich,
-#ai-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich,
-#ai-agents-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich,
+#enterprise-cross-browser-testing.testro-prod-outcomes .testro-prod-outcomes__item--rich,
 #ai-locator-intelligence.testro-prod-outcomes .testro-prod-outcomes__item--rich {
   padding-bottom: 1.75rem;
 }
 
 @media (min-width: 641px) {
-  #ai-agents-testing .testro-prod-outcomes__grid,
   #ai-locator-intelligence .testro-prod-outcomes__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -18631,12 +20644,6 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 .testro-prod-outcomes__item:hover .testro-prod-outcomes__arrow {
   opacity: 1;
   transform: none;
-}
-
-#ai-backed-authoring .testro-prod-outcomes__arrow,
-#built-to-stay-green .testro-prod-outcomes__arrow,
-#who-its-for .testro-prod-outcomes__arrow {
-  display: none;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -19092,7 +21099,7 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   padding-inline: var(--ai-native-pad-x);
 }
 
-#ai-native-automation .testro-why__intro {
+#ai-native-automation .testro-sec-header {
   margin: 0;
 }
 
@@ -19172,10 +21179,6 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 }
 
 @media (max-width: 767px) {
-  #ai-native-automation .testro-why__intro-left {
-    gap: 12px;
-  }
-
   #ai-native-automation .testro-prod-cards {
     margin-top: 32px;
   }
@@ -19187,6 +21190,3343 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   #ai-native-automation .testro-prod-card__title {
     margin-top: clamp(1rem, 4vw, 22px);
     font-size: clamp(1.125rem, 4.5vw, 20px);
+  }
+}
+
+/* AI Test Automation — What Teams Gain with theTestRo */
+#enterprise-outcomes.testro-prod-features {
+  --ai-native-card-bg: #f4f9ff;
+  --ai-native-card-border: #d5e9fc;
+  --ai-native-muted: #5b7290;
+  width: 100%;
+  max-width: 100%;
+  min-height: 783px;
+  padding: 96px 0;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#enterprise-outcomes .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#enterprise-outcomes .testro-sec-header__heading,
+#enterprise-outcomes .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#enterprise-outcomes .testro-prod-cards {
+  margin-top: 48px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#enterprise-outcomes.testro-prod-section--spotlight .testro-prod-card {
+  background: var(--ai-native-card-bg);
+  border: 1px solid var(--ai-native-card-border);
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+#enterprise-outcomes.testro-prod-section--spotlight .testro-prod-card::after,
+#enterprise-outcomes .testro-prod-card::before,
+#enterprise-outcomes .testro-prod-card__glow {
+  display: none;
+}
+
+#enterprise-outcomes .testro-prod-card {
+  min-height: 220px;
+  height: auto;
+}
+
+#enterprise-outcomes .testro-prod-card:hover,
+#enterprise-outcomes .testro-prod-card:focus-within {
+  transform: none;
+  border-color: var(--ai-native-card-border);
+  box-shadow: none;
+}
+
+#enterprise-outcomes .testro-prod-card__body {
+  padding: clamp(1.25rem, 2.33vw, 28px);
+}
+
+#enterprise-outcomes .testro-prod-card__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #0068be 0%, #00a9f4 100%);
+  color: #fff;
+  transition: none;
+}
+
+#enterprise-outcomes .testro-prod-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+#enterprise-outcomes .testro-prod-card:hover .testro-prod-card__icon {
+  background: linear-gradient(180deg, #0068be 0%, #00a9f4 100%);
+  color: #fff;
+  transform: none;
+}
+
+#enterprise-outcomes .testro-prod-card__title {
+  margin: 22px 0 0;
+  color: var(--color-brand-navy);
+  font-family: var(--font-sora);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25em;
+}
+
+#enterprise-outcomes .testro-prod-card__desc {
+  margin: 10px 0 0;
+  color: var(--ai-native-muted);
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.6em;
+}
+
+@media (max-width: 1023px) {
+  #enterprise-outcomes.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3.5rem, 7vw, 80px);
+  }
+
+  #enterprise-outcomes .testro-prod-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #enterprise-outcomes.testro-prod-features {
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #enterprise-outcomes .testro-prod-cards {
+    margin-top: 32px;
+  }
+
+  #enterprise-outcomes .testro-prod-card__title {
+    margin-top: clamp(1rem, 4vw, 22px);
+    font-size: clamp(1.125rem, 4.5vw, 20px);
+  }
+}
+
+/* AI Test Automation — Intelligent Automation Engine */
+#intelligent-automation-engine.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 585px;
+  padding: clamp(2.5rem, 5.33vw, 64px) var(--section-pad-x);
+  background: #f4f9ff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#intelligent-automation-engine .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#intelligent-automation-engine .testro-sec-header {
+  margin: 0;
+}
+
+#intelligent-automation-engine .testro-feature-card-grid {
+  margin-top: clamp(2rem, 4vw, 48px);
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#intelligent-automation-engine .testro-feature-card--light {
+  min-height: clamp(12rem, 18vw, 220px);
+}
+
+@media (max-width: 767px) {
+  #intelligent-automation-engine.testro-prod-features {
+    min-height: 0;
+  }
+
+  #intelligent-automation-engine .testro-feature-card-grid {
+    margin-top: 32px;
+  }
+
+  #intelligent-automation-engine .testro-feature-card--light {
+    min-height: auto;
+  }
+}
+
+/* AI Test Automation — Built for Scale and Security */
+#enterprise-architecture.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 609px;
+  padding: clamp(2.5rem, 5.33vw, 64px) var(--section-pad-x);
+  background: #f4f9ff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#enterprise-architecture .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#enterprise-architecture .testro-sec-header {
+  margin: 0;
+}
+
+#enterprise-architecture .testro-feature-card-grid {
+  margin-top: clamp(2rem, 4vw, 48px);
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#enterprise-architecture .testro-feature-card--light {
+  --feature-card-desc-color: #5b7290;
+  min-height: clamp(12rem, 18vw, 220px);
+}
+
+@media (max-width: 1023px) {
+  #enterprise-architecture .testro-feature-card-grid[data-columns="5"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  #enterprise-architecture.testro-prod-features {
+    min-height: 0;
+  }
+
+  #enterprise-architecture .testro-feature-card-grid,
+  #enterprise-architecture .testro-feature-card-grid[data-columns="5"] {
+    margin-top: 32px;
+    grid-template-columns: 1fr;
+  }
+
+  #enterprise-architecture .testro-feature-card--light {
+    min-height: auto;
+  }
+}
+
+/* Split-list section — intro + numbered rows (Enterprise Test Execution) */
+.testro-split-list {
+  --split-list-line: rgb(255 255 255 / 0.45);
+  background: var(--grad-header);
+  color: #fff;
+  overflow: visible;
+}
+
+.testro-split-list__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 48px);
+  align-items: start;
+}
+
+.testro-split-list__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+}
+
+.testro-split-list .testro-sec-header {
+  gap: 20px;
+  min-height: 0;
+}
+
+.testro-split-list .testro-sec-header__heading,
+.testro-split-list .testro-sec-header__desc {
+  min-height: 0;
+}
+
+.testro-split-list__rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 20px 0 0;
+  border: 0;
+  background: var(--split-list-line);
+}
+
+.testro-split-list__status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 34px;
+  margin: 18px 0 0;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.testro-split-list__status-dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.testro-split-list__items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.testro-split-list__item {
+  --feature-card-title-color: #fff;
+  --feature-card-desc-color: #fff;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 16px 24px;
+  align-items: start;
+  min-width: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--split-list-line);
+}
+
+.testro-split-list__item:last-child {
+  border-bottom: 1px solid var(--split-list-line);
+}
+
+.testro-split-list__num {
+  display: block;
+  margin: 0;
+  height: 16px;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.testro-split-list__body {
+  min-width: 0;
+}
+
+.testro-split-list__item .testro-feature-card__title {
+  margin: 0 0 8px;
+}
+
+.testro-split-list__item .testro-feature-card__desc {
+  font-family: var(--testro-font);
+}
+
+/* AI Test Automation — Enterprise Test Execution */
+#enterprise-test-execution.testro-split-list {
+  min-height: 950px;
+  padding-block: 100px;
+}
+
+#enterprise-test-execution .testro-split-list__intro {
+  min-height: 278px;
+}
+
+#enterprise-test-execution .testro-split-list__item {
+  min-height: 135px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .testro-split-list__inner {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+    gap: clamp(2.5rem, 5vw, 72px);
+  }
+}
+
+@media (max-width: 1023px) {
+  #enterprise-test-execution.testro-split-list {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #enterprise-test-execution .testro-split-list__intro,
+  #enterprise-test-execution .testro-split-list__item {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-split-list__item {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    gap: 12px 16px;
+    padding-top: 20px;
+  }
+}
+
+/* AI Test Automation — Autonomous Test Lifecycle */
+#autonomous-test-lifecycle.testro-prod-lifecycle--cycle {
+  min-height: 812px;
+  padding-block: 96px;
+  box-sizing: border-box;
+}
+
+#autonomous-test-lifecycle .testro-prod-lifecycle__copy {
+  min-height: 369px;
+  justify-content: center;
+}
+
+#autonomous-test-lifecycle .testro-lifecycle-cycle {
+  /* ~45rem at 34% orbit ≈ 46px gap between adjacent card edges */
+  width: min(100%, 45rem);
+}
+
+#autonomous-test-lifecycle .testro-lifecycle-cycle__card {
+  width: clamp(9.5rem, 28%, 12.5rem);
+}
+
+@media (min-width: 1024px) {
+  #autonomous-test-lifecycle .testro-prod-lifecycle__cycle-inner {
+    grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
+    gap: clamp(2rem, 3.5vw, 46px);
+  }
+
+  #autonomous-test-lifecycle .testro-prod-lifecycle__copy {
+    max-width: 24rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  #autonomous-test-lifecycle .testro-lifecycle-cycle__cards {
+    column-gap: 46px;
+    row-gap: 16px;
+  }
+}
+
+@media (max-width: 1023px) {
+  #autonomous-test-lifecycle.testro-prod-lifecycle--cycle {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #autonomous-test-lifecycle .testro-prod-lifecycle__copy {
+    min-height: 0;
+  }
+}
+
+/* AI Test Automation — AI-Powered Quality Intelligence */
+#quality-intelligence.testro-prod-analytics--split-visual {
+  min-height: 797px;
+  padding-block: 104px;
+  box-sizing: border-box;
+}
+
+#quality-intelligence .testro-prod-analytics__split {
+  align-items: stretch;
+  min-height: 589px;
+}
+
+#quality-intelligence .testro-prod-analytics__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 589px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+#quality-intelligence .testro-sec-header {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+}
+
+#quality-intelligence .testro-sec-header__heading,
+#quality-intelligence .testro-sec-header__desc {
+  position: relative;
+  display: block;
+}
+
+#quality-intelligence .testro-prod-analytics__cards {
+  flex: 0 0 auto;
+  margin-top: 28px;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+#quality-intelligence .testro-feature-card--horizontal {
+  flex: 0 0 auto;
+  min-height: 0;
+  height: auto;
+  padding: 0;
+}
+
+#quality-intelligence .testro-prod-analytics__visual {
+  display: flex;
+  align-items: stretch;
+  min-height: 589px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+#quality-intelligence .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 589px;
+  max-height: none;
+  aspect-ratio: auto;
+}
+
+@media (max-width: 1023px) {
+  #quality-intelligence.testro-prod-analytics--split-visual {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #quality-intelligence .testro-prod-analytics__split,
+  #quality-intelligence .testro-prod-analytics__copy,
+  #quality-intelligence .testro-prod-analytics__visual,
+  #quality-intelligence .testro-prod-analytics__placeholder {
+    min-height: 0;
+  }
+
+  #quality-intelligence .testro-prod-analytics__cards {
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  #quality-intelligence .testro-prod-analytics__placeholder {
+    aspect-ratio: 1;
+    max-height: 480px;
+    height: auto;
+  }
+}
+
+/* AI Test Automation — Fits Right Into Your DevOps Flow */
+#devops-continuous-quality.testro-prod-pipeline--flow {
+  padding-block: 96px;
+  box-sizing: border-box;
+}
+
+#devops-continuous-quality .testro-flow-list {
+  min-height: 438px;
+}
+
+@media (max-width: 767px) {
+  #devops-continuous-quality.testro-prod-pipeline--flow {
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #devops-continuous-quality .testro-flow-list {
+    min-height: 0;
+    margin-top: 40px;
+  }
+}
+
+/* No-Code Test Automation — How It Works */
+#how-it-works.testro-prod-pipeline--flow {
+  min-height: 690px;
+  padding-block: 96px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  #how-it-works.testro-prod-pipeline--flow {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #how-it-works.testro-prod-pipeline--flow .testro-flow-list {
+    margin-top: 40px;
+  }
+}
+
+/* No-Code Test Automation — Key Features */
+#key-features.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 832px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#key-features .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#key-features .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#key-features .testro-sec-header__heading,
+#key-features .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#key-features .testro-feature-card-grid {
+  margin-top: 44px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#key-features .testro-feature-card--light {
+  min-height: clamp(12rem, 16vw, 198px);
+}
+
+#key-features .testro-feature-card__icon {
+  border-radius: 10px;
+}
+
+@media (max-width: 1023px) {
+  #key-features.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #key-features .testro-feature-card-grid {
+    margin-top: 32px;
+  }
+
+  #key-features .testro-feature-card--light {
+    min-height: auto;
+  }
+}
+
+/* No-Code Test Automation — Plain-English, AI-Backed Authoring */
+#ai-backed-authoring.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 707px;
+  padding: 100px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#ai-backed-authoring .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#ai-backed-authoring .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#ai-backed-authoring .testro-sec-header__heading,
+#ai-backed-authoring .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#ai-backed-authoring .testro-feature-card-grid {
+  margin-top: 44px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#ai-backed-authoring .testro-feature-card--light,
+#integrations .testro-feature-card--light {
+  min-height: clamp(10rem, 14vw, 168px);
+}
+
+#ai-backed-authoring .testro-feature-card__title,
+#integrations .testro-feature-card__title {
+  font-family: var(--testro-font);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3em;
+}
+
+#ai-backed-authoring .testro-feature-card__desc,
+#integrations .testro-feature-card__desc {
+  font-family: var(--testro-font);
+}
+
+#ai-backed-authoring .testro-prod-features__outro {
+  width: 100%;
+  max-width: 100%;
+  min-height: 52px;
+  margin: 42px 0 0;
+  padding-inline: clamp(1rem, 9.5vw, 114px);
+  color: #5B7290;
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.6em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+  #ai-backed-authoring.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #ai-backed-authoring .testro-feature-card-grid {
+    margin-top: 32px;
+  }
+
+  #ai-backed-authoring .testro-feature-card--light,
+  #integrations .testro-feature-card--light {
+    min-height: auto;
+  }
+
+  #ai-backed-authoring .testro-prod-features__outro {
+    min-height: 0;
+    margin-top: 32px;
+    padding-inline: 0;
+  }
+}
+
+/* No-Code Test Automation — Integrations */
+#integrations.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 524px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#integrations .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#integrations .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#integrations .testro-sec-header__heading {
+  min-height: 0;
+}
+
+#integrations .testro-feature-card-grid {
+  margin-top: 42px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #integrations.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #integrations .testro-feature-card-grid {
+    margin-top: 32px;
+  }
+}
+
+/* No-Code Test Automation — Visual Reports & Dashboards */
+#visual-reports-dashboards.testro-prod-analytics--split-visual {
+  min-height: 604px;
+  padding-block: 96px;
+  background: #F8FAFC;
+  box-sizing: border-box;
+}
+
+#visual-reports-dashboards .testro-prod-analytics__split {
+  align-items: center;
+  min-height: 412px;
+}
+
+/*
+ * Left copy shares the 412 visual height and centers its content.
+ * That yields ~183 from the section edge (96 section pad + remaining inset)
+ * without stacking another 96 on the copy.
+ */
+#visual-reports-dashboards .testro-prod-analytics__copy {
+  justify-content: center;
+  min-height: 412px;
+  box-sizing: border-box;
+}
+
+#visual-reports-dashboards .testro-sec-header {
+  margin: 0;
+}
+
+#visual-reports-dashboards .testro-prod-analytics__visual {
+  display: flex;
+  align-items: center;
+  min-height: 412px;
+  box-sizing: border-box;
+}
+
+#visual-reports-dashboards .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 412px;
+  min-height: 412px;
+  max-height: 412px;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: 0 12px 28px rgb(1 69 141 / 0.14);
+}
+
+@media (max-width: 1023px) {
+  #visual-reports-dashboards.testro-prod-analytics--split-visual {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #visual-reports-dashboards .testro-prod-analytics__split,
+  #visual-reports-dashboards .testro-prod-analytics__copy,
+  #visual-reports-dashboards .testro-prod-analytics__visual {
+    min-height: 0;
+  }
+
+  #visual-reports-dashboards .testro-prod-analytics__placeholder {
+    height: auto;
+    min-height: 0;
+    max-height: 480px;
+    aspect-ratio: 1;
+  }
+}
+
+/* AI Test Management — What Is an AI Test Management Tool? */
+#what-is-ai-test-management.testro-prod-analytics--split-visual {
+  width: 100%;
+  max-width: 100%;
+  min-height: 792px;
+  padding: 100px var(--section-pad-x) 96px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#what-is-ai-test-management .testro-prod-analytics__stack {
+  gap: 0;
+}
+
+#what-is-ai-test-management .testro-prod-analytics__split--visual-first {
+  align-items: stretch;
+  min-height: 485px;
+}
+
+@media (min-width: 1024px) {
+  #what-is-ai-test-management .testro-prod-analytics__split--visual-first {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 48px);
+  }
+}
+
+#what-is-ai-test-management .testro-prod-analytics__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  height: 100%;
+  min-width: 0;
+}
+
+#what-is-ai-test-management .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#what-is-ai-test-management .testro-sec-header__heading,
+#what-is-ai-test-management .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#what-is-ai-test-management .testro-prod-analytics__extra--accent {
+  margin-top: 22px;
+}
+
+#what-is-ai-test-management .testro-prod-analytics__visual {
+  height: 100%;
+  min-height: 485px;
+}
+
+#what-is-ai-test-management .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 485px;
+  max-height: none;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: none;
+}
+
+#what-is-ai-test-management .testro-prod-analytics__footer {
+  margin-top: 64px;
+  min-height: 47px;
+}
+
+@media (max-width: 1023px) {
+  #what-is-ai-test-management.testro-prod-analytics--split-visual {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #what-is-ai-test-management .testro-prod-analytics__split--visual-first,
+  #what-is-ai-test-management .testro-prod-analytics__visual {
+    min-height: 0;
+  }
+
+  #what-is-ai-test-management .testro-prod-analytics__placeholder {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  #what-is-ai-test-management .testro-prod-analytics__footer {
+    margin-top: clamp(1.5rem, 4vw, 64px);
+    min-height: 0;
+  }
+}
+
+/* AI Test Management — AI Agents at Every Stage of Testing */
+#ai-agents-testing.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 717px;
+  padding: 54px var(--section-pad-x);
+  background: #f4f9ff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#ai-agents-testing .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#ai-agents-testing .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#ai-agents-testing .testro-sec-header__heading,
+#ai-agents-testing .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#ai-agents-testing .testro-prod-features__process {
+  margin-top: 45px;
+}
+
+#ai-agents-testing .testro-feature-card-grid {
+  margin-top: 42px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#ai-agents-testing .testro-feature-card--light {
+  --feature-card-label-font: var(--testro-font);
+  --feature-card-label-tracking: 1px;
+  --feature-card-label-height: 15px;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+#ai-agents-testing .testro-feature-card__label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#ai-agents-testing .testro-supporting-text {
+  margin-top: 42px;
+}
+
+#ai-agents-testing .testro-prod-features__outro {
+  margin-top: 0;
+}
+
+@media (max-width: 1023px) {
+  #ai-agents-testing.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(2.5rem, 6vw, 54px);
+  }
+
+  #ai-agents-testing .testro-prod-features__process {
+    margin-top: clamp(1.5rem, 4vw, 45px);
+  }
+
+  #ai-agents-testing .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #ai-agents-testing .testro-supporting-text {
+    margin-top: clamp(1.5rem, 4vw, 42px);
+  }
+}
+
+@media (max-width: 767px) {
+  #ai-agents-testing .testro-feature-card__label {
+    white-space: normal;
+  }
+}
+
+/* AI Test Management — One Central Repository for Every Test */
+#central-test-repository.testro-prod-analytics--visual-list {
+  width: 100%;
+  max-width: 100%;
+  min-height: 668px;
+  padding: 96px var(--section-pad-x);
+  background: #f4f9ff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#central-test-repository .testro-page-section__inner,
+#central-test-repository .testro-prod-analytics__stack {
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+  gap: 0;
+}
+
+#central-test-repository .testro-prod-analytics__split--list-first {
+  margin-top: 38px;
+  min-height: 228px;
+  box-sizing: border-box;
+}
+
+#central-test-repository .testro-prod-analytics__visual {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#central-test-repository .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 228px;
+  min-height: 228px;
+  max-height: 228px;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: none;
+}
+
+#central-test-repository .testro-numbered-feature-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 0;
+}
+
+#central-test-repository .testro-supporting-text {
+  margin-top: 44px;
+}
+
+@media (max-width: 1023px) {
+  #central-test-repository.testro-prod-analytics--visual-list {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #central-test-repository .testro-prod-analytics__split--list-first {
+    margin-top: clamp(1.25rem, 3.5vw, 38px);
+    min-height: 0;
+  }
+
+  #central-test-repository .testro-prod-analytics__visual {
+    height: auto;
+  }
+
+  #central-test-repository .testro-prod-analytics__placeholder {
+    height: auto;
+    min-height: 180px;
+    max-height: 480px;
+    aspect-ratio: 16 / 10;
+  }
+
+  #central-test-repository .testro-numbered-feature-list {
+    height: auto;
+  }
+
+  #central-test-repository .testro-supporting-text {
+    margin-top: clamp(1.5rem, 4vw, 44px);
+  }
+}
+
+/* AI Test Management — Jira Sync + Migration (shared white/cyan cards) */
+#jira-two-way-sync.testro-prod-features,
+#migrate-existing-tests.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  background: #f4f9ff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#jira-two-way-sync.testro-prod-features {
+  min-height: 679px;
+  padding: 96px var(--section-pad-x) 64px;
+}
+
+#migrate-existing-tests.testro-prod-features {
+  min-height: 669px;
+  padding: 96px var(--section-pad-x);
+}
+
+#jira-two-way-sync .testro-container,
+#migrate-existing-tests .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#jira-two-way-sync .testro-sec-header,
+#migrate-existing-tests .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#jira-two-way-sync .testro-sec-header__heading,
+#jira-two-way-sync .testro-sec-header__desc,
+#migrate-existing-tests .testro-sec-header__heading,
+#migrate-existing-tests .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#jira-two-way-sync .testro-feature-card-grid,
+#migrate-existing-tests .testro-feature-card-grid {
+  margin-top: 76px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#jira-two-way-sync .testro-supporting-text {
+  min-height: 46px;
+  margin-top: 76px;
+}
+
+#jira-two-way-sync .testro-prod-features__outro {
+  margin-top: 0;
+}
+
+@media (max-width: 1023px) {
+  #jira-two-way-sync.testro-prod-features,
+  #migrate-existing-tests.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #jira-two-way-sync .testro-feature-card-grid,
+  #migrate-existing-tests .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 5vw, 76px);
+  }
+
+  #jira-two-way-sync .testro-supporting-text {
+    min-height: 0;
+    margin-top: clamp(1.5rem, 5vw, 76px);
+  }
+}
+
+/* AI Test Management — Spreadsheets vs Legacy vs theTestRo */
+#why-teams-move-off-spreadsheets.testro-prod-compare {
+  width: 100%;
+  max-width: 100%;
+  min-height: 672px;
+  padding: 68px var(--section-pad-x);
+  background: var(--grad-header);
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#why-teams-move-off-spreadsheets .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#why-teams-move-off-spreadsheets .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#why-teams-move-off-spreadsheets .testro-sec-header__heading,
+#why-teams-move-off-spreadsheets .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__table {
+  margin-top: 42px;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__head {
+  background: linear-gradient(90deg, #00acff 0%, #c7ecff 100%);
+  border-bottom: 0;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__head-cell,
+#why-teams-move-off-spreadsheets .testro-prod-compare__head-cell--legacy,
+#why-teams-move-off-spreadsheets .testro-prod-compare__head-cell--middle,
+#why-teams-move-off-spreadsheets .testro-prod-compare__head-cell--modern {
+  background: transparent;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__head-label {
+  color: var(--color-brand-navy);
+  font-family: var(--testro-font);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2em;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__aspect {
+  color: #061f4d;
+  font-family: var(--testro-font);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2em;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__cell--legacy,
+#why-teams-move-off-spreadsheets .testro-prod-compare__cell--middle {
+  background: #fff;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__cell--legacy .testro-prod-compare__text,
+#why-teams-move-off-spreadsheets .testro-prod-compare__cell--middle .testro-prod-compare__text {
+  color: #5b7290;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__cell--modern {
+  background: #f4f9ff;
+}
+
+#why-teams-move-off-spreadsheets .testro-prod-compare__cell--modern .testro-prod-compare__text {
+  color: #061f4d;
+  font-family: var(--testro-font);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2em;
+}
+
+@media (max-width: 1023px) {
+  #why-teams-move-off-spreadsheets.testro-prod-compare {
+    min-height: 0;
+    padding-block: clamp(2.5rem, 6vw, 68px);
+  }
+
+  #why-teams-move-off-spreadsheets .testro-prod-compare__table {
+    margin-top: clamp(1.25rem, 3.5vw, 42px);
+  }
+}
+
+/* AI Test Management — Test Case Generation */
+#test-case-generation.testro-prod-analytics--visual-list {
+  width: 100%;
+  max-width: 100%;
+  min-height: 777px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#test-case-generation .testro-page-section__inner,
+#test-case-generation .testro-prod-analytics__stack {
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+  gap: 0;
+}
+
+#test-case-generation .testro-prod-analytics__split--list-first {
+  margin-top: 18px;
+  min-height: 254px;
+  box-sizing: border-box;
+}
+
+#test-case-generation .testro-prod-analytics__visual {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#test-case-generation .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 254px;
+  min-height: 254px;
+  max-height: 254px;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: none;
+}
+
+#test-case-generation .testro-numbered-feature-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 0;
+}
+
+@media (max-width: 1023px) {
+  #test-case-generation.testro-prod-analytics--visual-list {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #test-case-generation .testro-prod-analytics__split--list-first {
+    margin-top: clamp(0.75rem, 2.5vw, 18px);
+    min-height: 0;
+  }
+
+  #test-case-generation .testro-prod-analytics__visual {
+    height: auto;
+  }
+
+  #test-case-generation .testro-prod-analytics__placeholder {
+    height: auto;
+    min-height: 180px;
+    max-height: 480px;
+    aspect-ratio: 16 / 10;
+  }
+
+  #test-case-generation .testro-numbered-feature-list {
+    height: auto;
+  }
+}
+
+/* AI Test Management — Human-in-the-Loop + Reporting (shared card layout) */
+#human-in-the-loop-execution.testro-prod-features,
+#reporting-analytics-insights.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#human-in-the-loop-execution.testro-prod-features {
+  min-height: 582px;
+  padding: 96px var(--section-pad-x) 88px;
+}
+
+#reporting-analytics-insights.testro-prod-features {
+  min-height: 729px;
+  padding: 96px var(--section-pad-x) 64px;
+}
+
+#human-in-the-loop-execution .testro-container,
+#reporting-analytics-insights .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#human-in-the-loop-execution .testro-sec-header,
+#reporting-analytics-insights .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#human-in-the-loop-execution .testro-sec-header__heading,
+#human-in-the-loop-execution .testro-sec-header__desc,
+#reporting-analytics-insights .testro-sec-header__heading,
+#reporting-analytics-insights .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#human-in-the-loop-execution .testro-feature-card-grid,
+#reporting-analytics-insights .testro-feature-card-grid {
+  margin-top: 76px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#reporting-analytics-insights .testro-supporting-text {
+  margin-top: 76px;
+}
+
+#reporting-analytics-insights .testro-prod-features__outro {
+  margin-top: 0;
+}
+
+@media (max-width: 1023px) {
+  #human-in-the-loop-execution.testro-prod-features,
+  #reporting-analytics-insights.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #human-in-the-loop-execution .testro-feature-card-grid,
+  #reporting-analytics-insights .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 5vw, 76px);
+  }
+
+  #reporting-analytics-insights .testro-supporting-text {
+    margin-top: clamp(1.5rem, 5vw, 76px);
+  }
+}
+
+/* Web Automation — Build Reliable Web Tests Faster */
+#build-reliable-web-tests.testro-prod-analytics--split-visual {
+  min-height: 569px;
+  padding-block: 96px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+#build-reliable-web-tests .testro-prod-analytics__split {
+  align-items: center;
+  min-height: 289px;
+}
+
+#build-reliable-web-tests .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+  gap: 22px;
+}
+
+#build-reliable-web-tests .testro-sec-header__heading,
+#build-reliable-web-tests .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#build-reliable-web-tests .testro-prod-analytics__copy {
+  justify-content: center;
+  min-width: 0;
+}
+
+/*
+ * Image inset is 140 from the section edge.
+ * Section already contributes 96, so add 44 — do not stack another 96.
+ */
+#build-reliable-web-tests .testro-prod-analytics__visual {
+  display: flex;
+  align-items: center;
+  padding-block: 44px;
+  box-sizing: border-box;
+}
+
+#build-reliable-web-tests .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 289px;
+  min-height: 289px;
+  max-height: 289px;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: 0 12px 28px rgb(1 69 141 / 0.14);
+}
+
+@media (max-width: 1023px) {
+  #build-reliable-web-tests.testro-prod-analytics--split-visual {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #build-reliable-web-tests .testro-prod-analytics__split,
+  #build-reliable-web-tests .testro-prod-analytics__visual {
+    min-height: 0;
+  }
+
+  #build-reliable-web-tests .testro-prod-analytics__visual {
+    padding-block: 0;
+  }
+
+  #build-reliable-web-tests .testro-prod-analytics__placeholder {
+    height: auto;
+    min-height: 0;
+    max-height: 480px;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Web Automation — Test Every User Journey */
+#test-every-user-journey.testro-journey-split {
+  min-height: 682px;
+  padding-block: 96px;
+  box-sizing: border-box;
+}
+
+#test-every-user-journey .testro-sec-header {
+  gap: 24px;
+}
+
+@media (max-width: 1023px) {
+  #test-every-user-journey.testro-journey-split {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+}
+
+/* Web Automation — AI-Powered Web Test Authoring */
+#ai-web-test-authoring.testro-prod-pipeline--flow-light {
+  min-height: 893px;
+  padding-block: 96px;
+  box-sizing: border-box;
+}
+
+#ai-web-test-authoring .testro-flow-list {
+  max-width: 100%;
+}
+
+#ai-web-test-authoring .testro-flow-list__body {
+  padding: 20px 24px;
+  background: #fff;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgb(2 8 23 / 0.04);
+}
+
+#ai-web-test-authoring .testro-flow-list__title,
+#ai-web-test-authoring .testro-feature-card__title {
+  color: #102a56;
+}
+
+#ai-web-test-authoring .testro-flow-list__desc,
+#ai-web-test-authoring .testro-feature-card__desc {
+  color: #526c9a;
+}
+
+#ai-web-test-authoring .testro-flow-list__item:last-child .testro-flow-list__body {
+  padding-bottom: 20px;
+}
+
+@media (max-width: 1023px) {
+  #ai-web-test-authoring.testro-prod-pipeline--flow-light {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #ai-web-test-authoring .testro-flow-list {
+    margin-top: 40px;
+  }
+}
+
+/* Web Automation — Execute Tests Across Every Browser */
+#execute-across-browsers.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 875px;
+  padding: 88px var(--section-pad-x) 56px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#execute-across-browsers .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#execute-across-browsers .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#execute-across-browsers .testro-sec-header__heading,
+#execute-across-browsers .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#execute-across-browsers .testro-feature-card-grid {
+  margin-top: 30px;
+  row-gap: 38px;
+  column-gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #execute-across-browsers.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #execute-across-browsers .testro-feature-card-grid {
+    margin-top: clamp(1.25rem, 3vw, 30px);
+    row-gap: clamp(1.5rem, 4vw, 38px);
+  }
+}
+
+/* Web Automation — Intelligent Web Test Maintenance */
+#intelligent-web-maintenance.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 637px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#intelligent-web-maintenance .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#intelligent-web-maintenance .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#intelligent-web-maintenance .testro-sec-header__heading,
+#intelligent-web-maintenance .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#intelligent-web-maintenance .testro-feature-card-grid {
+  margin-top: 48px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #intelligent-web-maintenance.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #intelligent-web-maintenance .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 48px);
+  }
+}
+
+/* Web Automation — Web Testing Analytics */
+#web-testing-analytics.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 591px;
+  padding: 80px var(--section-pad-x) 92px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#web-testing-analytics .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#web-testing-analytics .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#web-testing-analytics .testro-sec-header__heading,
+#web-testing-analytics .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#web-testing-analytics .testro-feature-card-grid {
+  margin-top: 48px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #web-testing-analytics.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #web-testing-analytics .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 48px);
+  }
+}
+
+/* Web Automation — Enterprise-Ready Web Testing */
+#enterprise-ready-web.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 804px;
+  padding: 100px var(--section-pad-x) 80px;
+  background: #f4f9ff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#enterprise-ready-web .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#enterprise-ready-web .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#enterprise-ready-web .testro-sec-header__heading,
+#enterprise-ready-web .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#enterprise-ready-web .testro-feature-card-grid {
+  margin-top: 52px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#enterprise-ready-web .testro-feature-card--step {
+  min-height: 0;
+  height: 100%;
+}
+
+#enterprise-ready-web .testro-prod-features__outro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  margin: 52px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid #d5e1ff;
+  color: #53647f;
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+#enterprise-ready-web .testro-prod-features__outro::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background: #4a72f2;
+}
+
+@media (max-width: 1023px) {
+  #enterprise-ready-web.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #enterprise-ready-web .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 52px);
+  }
+
+  #enterprise-ready-web .testro-prod-features__outro {
+    margin-top: clamp(1.5rem, 4vw, 52px);
+    padding-top: clamp(1rem, 2.5vw, 22px);
+  }
+}
+
+/* Web Automation — Supported Browsers & Platforms */
+#supported-browsers-platforms.testro-support-matrix {
+  width: 100%;
+  max-width: 100%;
+  min-height: 963px;
+  padding-block: 88px 96px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+  #supported-browsers-platforms.testro-support-matrix {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #supported-browsers-platforms .testro-support-matrix__table {
+    margin-top: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #supported-browsers-platforms .testro-support-matrix__bottom {
+    margin-top: clamp(1.5rem, 4vw, 42px);
+  }
+}
+
+/* Web Automation — Validate Every UI Changes */
+#validate-ui-changes.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 527px;
+  padding: 88px var(--section-pad-x) 56px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#validate-ui-changes .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#validate-ui-changes .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#validate-ui-changes .testro-sec-header__heading,
+#validate-ui-changes .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#validate-ui-changes .testro-feature-card-grid {
+  margin-top: 30px;
+  gap: 20px;
+}
+
+@media (max-width: 1023px) {
+  #validate-ui-changes.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #validate-ui-changes .testro-feature-card-grid {
+    margin-top: clamp(1.25rem, 3vw, 30px);
+    gap: clamp(1rem, 2.5vw, 20px);
+  }
+}
+
+/* API Testing — Import a Spec, Get Working Tests */
+#import-a-spec.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 861px;
+  padding: 92px var(--section-pad-x) 88px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#import-a-spec .testro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#import-a-spec .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#import-a-spec .testro-sec-header__heading,
+#import-a-spec .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#import-a-spec .testro-prod-features__visual {
+  width: 100%;
+  min-width: 0;
+}
+
+#import-a-spec .testro-prod-features__placeholder {
+  width: 100%;
+  height: 267px;
+  min-height: 267px;
+  border: 1px solid #d7dfec;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #c7ecff 0%, #00acff 100%);
+  box-sizing: border-box;
+}
+
+#import-a-spec .testro-feature-card-grid {
+  margin-top: 0;
+  min-height: 172px;
+  column-gap: 48px;
+  row-gap: 0;
+  border-top: 1px solid #d7dfec;
+}
+
+#import-a-spec .testro-feature-card--light {
+  min-height: 172px;
+  height: 100%;
+  padding: 24px 0 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+#import-a-spec .testro-feature-card--light::before {
+  display: none;
+}
+
+#import-a-spec .testro-feature-card__icon {
+  width: auto;
+  height: auto;
+  min-height: 0;
+  margin: 0 0 12px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+#import-a-spec .testro-feature-card__badge {
+  color: var(--color-brand-sky);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+}
+
+@media (max-width: 1023px) {
+  #import-a-spec.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #import-a-spec .testro-container {
+    gap: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #import-a-spec .testro-prod-features__placeholder {
+    height: auto;
+    min-height: 180px;
+    aspect-ratio: 16 / 9;
+  }
+
+  #import-a-spec .testro-feature-card-grid {
+    min-height: 0;
+    column-gap: clamp(1.25rem, 3vw, 48px);
+    row-gap: 8px;
+  }
+
+  #import-a-spec .testro-feature-card--light {
+    min-height: 0;
+  }
+}
+
+/* API Testing — Test APIs Alone or Inside a Full Journey */
+#test-apis-alone-or-full-journey.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 861px;
+  padding: 92px var(--section-pad-x) 88px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#test-apis-alone-or-full-journey .testro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#test-apis-alone-or-full-journey .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#test-apis-alone-or-full-journey .testro-sec-header__heading,
+#test-apis-alone-or-full-journey .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#test-apis-alone-or-full-journey .testro-feature-card-grid {
+  margin-top: 0;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#test-apis-alone-or-full-journey .testro-feature-card--media-footer {
+  height: 365px;
+  min-height: 365px;
+  max-height: 365px;
+  box-sizing: border-box;
+}
+
+#test-apis-alone-or-full-journey .testro-prod-features__outro {
+  width: 100%;
+  max-width: 100%;
+  height: 99px;
+  min-height: 99px;
+  margin: 0;
+  padding: 28px 0 0;
+  border-top: 1px solid #d7dfec;
+  color: var(--color-brand-sky);
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+  #test-apis-alone-or-full-journey.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #test-apis-alone-or-full-journey .testro-container {
+    gap: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #test-apis-alone-or-full-journey .testro-feature-card--media-footer {
+    height: auto;
+    min-height: 365px;
+    max-height: none;
+  }
+
+  #test-apis-alone-or-full-journey .testro-prod-features__outro {
+    height: auto;
+    min-height: 99px;
+  }
+}
+
+/* API Testing — Validate Every Response */
+#validate-every-response.testro-prod-analytics--visual-list {
+  width: 100%;
+  max-width: 100%;
+  min-height: 760px;
+  padding-block: 92px 97px;
+  box-sizing: border-box;
+}
+
+#validate-every-response .testro-page-section__inner,
+#validate-every-response .testro-prod-analytics__stack {
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#validate-every-response .testro-prod-analytics__split--visual-first {
+  min-height: 319px;
+  height: 319px;
+  box-sizing: border-box;
+}
+
+#validate-every-response .testro-prod-analytics__visual {
+  display: flex;
+  align-items: center;
+  padding-block: 52px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+#validate-every-response .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 245px;
+  min-height: 245px;
+  max-height: 245px;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: none;
+}
+
+#validate-every-response .testro-numbered-feature-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 0;
+}
+
+@media (max-width: 1023px) {
+  #validate-every-response.testro-prod-analytics--visual-list {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #validate-every-response .testro-prod-analytics__stack {
+    gap: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #validate-every-response .testro-prod-analytics__split--visual-first {
+    height: auto;
+    min-height: 0;
+  }
+
+  #validate-every-response .testro-prod-analytics__visual {
+    padding-block: 0;
+    height: auto;
+  }
+
+  #validate-every-response .testro-prod-analytics__placeholder {
+    height: auto;
+    min-height: 180px;
+    max-height: 480px;
+    aspect-ratio: 16 / 10;
+  }
+
+  #validate-every-response .testro-numbered-feature-list {
+    height: auto;
+  }
+}
+
+/* API Testing — Debug Failures Fast */
+#debug-failures-fast.testro-prod-analytics--visual-list {
+  width: 100%;
+  max-width: 100%;
+  min-height: 643px;
+  padding-block: 92px 103px;
+  box-sizing: border-box;
+}
+
+#debug-failures-fast .testro-page-section__inner,
+#debug-failures-fast .testro-prod-analytics__stack {
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#debug-failures-fast .testro-prod-analytics__split--visual-first {
+  min-height: 319px;
+  height: 319px;
+  box-sizing: border-box;
+}
+
+#debug-failures-fast .testro-prod-analytics__visual {
+  display: flex;
+  align-items: center;
+  padding-block: 57px 58px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+#debug-failures-fast .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 204px;
+  min-height: 204px;
+  max-height: 204px;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: none;
+}
+
+#debug-failures-fast .testro-numbered-feature-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 0;
+}
+
+@media (max-width: 1023px) {
+  #debug-failures-fast.testro-prod-analytics--visual-list {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #debug-failures-fast .testro-prod-analytics__stack {
+    gap: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #debug-failures-fast .testro-prod-analytics__split--visual-first {
+    height: auto;
+    min-height: 0;
+  }
+
+  #debug-failures-fast .testro-prod-analytics__visual {
+    padding-block: 0;
+    height: auto;
+  }
+
+  #debug-failures-fast .testro-prod-analytics__placeholder {
+    height: auto;
+    min-height: 160px;
+    max-height: 480px;
+    aspect-ratio: 16 / 10;
+  }
+
+  #debug-failures-fast .testro-numbered-feature-list {
+    height: auto;
+  }
+}
+
+/* API Testing — Enterprise API Testing at Scale */
+#enterprise-api-testing-at-scale.testro-prod-analytics--visual-list {
+  width: 100%;
+  max-width: 100%;
+  min-height: 643px;
+  padding-block: 92px 65px;
+  box-sizing: border-box;
+}
+
+#enterprise-api-testing-at-scale .testro-page-section__inner,
+#enterprise-api-testing-at-scale .testro-prod-analytics__stack {
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#enterprise-api-testing-at-scale .testro-prod-analytics__split--visual-first {
+  min-height: 319px;
+  height: 319px;
+  box-sizing: border-box;
+}
+
+#enterprise-api-testing-at-scale .testro-prod-analytics__visual {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#enterprise-api-testing-at-scale .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: none;
+}
+
+#enterprise-api-testing-at-scale .testro-numbered-feature-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 0;
+}
+
+@media (max-width: 1023px) {
+  #enterprise-api-testing-at-scale.testro-prod-analytics--visual-list {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #enterprise-api-testing-at-scale .testro-prod-analytics__stack {
+    gap: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #enterprise-api-testing-at-scale .testro-prod-analytics__split--visual-first {
+    height: auto;
+    min-height: 0;
+  }
+
+  #enterprise-api-testing-at-scale .testro-prod-analytics__visual {
+    height: auto;
+  }
+
+  #enterprise-api-testing-at-scale .testro-prod-analytics__placeholder {
+    height: auto;
+    min-height: 200px;
+    max-height: 480px;
+    aspect-ratio: 1;
+  }
+
+  #enterprise-api-testing-at-scale .testro-numbered-feature-list {
+    height: auto;
+  }
+}
+
+/* API Testing — Self-Healing API Tests */
+#self-healing-api-tests.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 760px;
+  padding: 92px var(--section-pad-x) 88px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#self-healing-api-tests .testro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#self-healing-api-tests .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#self-healing-api-tests .testro-sec-header__heading,
+#self-healing-api-tests .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#self-healing-api-tests .testro-prod-features__visual {
+  width: 100%;
+  min-width: 0;
+}
+
+#self-healing-api-tests .testro-prod-features__placeholder {
+  width: 100%;
+  height: 162px;
+  min-height: 162px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #c7ecff 0%, #00acff 100%);
+  box-shadow: 0 18px 32px rgb(1 69 141 / 0.14);
+  box-sizing: border-box;
+}
+
+#self-healing-api-tests .testro-feature-card-grid {
+  margin-top: 0;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+#self-healing-api-tests .testro-feature-card--light {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+#self-healing-api-tests .testro-feature-card--light::before {
+  display: none;
+}
+
+#self-healing-api-tests .testro-feature-card__icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 0 14px;
+  border-radius: 100%;
+}
+
+@media (max-width: 1023px) {
+  #self-healing-api-tests.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #self-healing-api-tests .testro-container {
+    gap: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #self-healing-api-tests .testro-prod-features__placeholder {
+    height: auto;
+    min-height: 120px;
+    aspect-ratio: 16 / 7;
+  }
+}
+
+/* API Testing — Scale Execution in the Cloud */
+#scale-execution-in-the-cloud.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 784px;
+  padding: 92px var(--section-pad-x) 88px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#scale-execution-in-the-cloud .testro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#scale-execution-in-the-cloud .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#scale-execution-in-the-cloud .testro-sec-header__heading,
+#scale-execution-in-the-cloud .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#scale-execution-in-the-cloud .testro-prod-features__visual {
+  width: 100%;
+  min-width: 0;
+}
+
+#scale-execution-in-the-cloud .testro-prod-features__placeholder {
+  width: 100%;
+  height: 162px;
+  min-height: 162px;
+  border-radius: 18px;
+  background: #e8eef5;
+  box-shadow: 0 18px 34px rgb(1 69 141 / 0.14);
+  box-sizing: border-box;
+}
+
+#scale-execution-in-the-cloud .testro-feature-card-grid {
+  margin-top: 54px;
+  gap: 0;
+}
+
+#scale-execution-in-the-cloud .testro-feature-card--light {
+  min-height: 0;
+  height: 100%;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+#scale-execution-in-the-cloud .testro-feature-card--light::before {
+  display: none;
+}
+
+#scale-execution-in-the-cloud .testro-feature-card-grid[data-columns="3"] > .testro-feature-card--light:first-child {
+  padding-left: 0;
+}
+
+#scale-execution-in-the-cloud .testro-feature-card-grid[data-columns="3"] > .testro-feature-card--light:not(:first-child) {
+  border-left: 1px solid #d7dfec;
+}
+
+#scale-execution-in-the-cloud .testro-feature-card__icon {
+  width: auto;
+  height: auto;
+  min-height: 0;
+  margin: 0 0 12px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+#scale-execution-in-the-cloud .testro-feature-card__badge {
+  color: var(--color-brand-sky);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+}
+
+#scale-execution-in-the-cloud .testro-prod-features__outro {
+  height: 23px;
+  min-height: 23px;
+  margin-top: -6px;
+}
+
+@media (max-width: 1023px) {
+  #scale-execution-in-the-cloud.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #scale-execution-in-the-cloud .testro-container {
+    gap: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #scale-execution-in-the-cloud .testro-prod-features__placeholder {
+    height: auto;
+    min-height: 120px;
+    aspect-ratio: 16 / 7;
+  }
+
+  #scale-execution-in-the-cloud .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 54px);
+  }
+
+  #scale-execution-in-the-cloud .testro-feature-card--light {
+    padding: 20px 0;
+  }
+
+  #scale-execution-in-the-cloud .testro-feature-card-grid[data-columns="3"] > .testro-feature-card--light:not(:first-child) {
+    border-left: 0;
+    border-top: 1px solid #d7dfec;
+  }
+
+  #scale-execution-in-the-cloud .testro-prod-features__outro {
+    height: auto;
+    min-height: 23px;
+    margin-top: 0;
+    text-align: left;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 899px) {
+  #scale-execution-in-the-cloud .testro-feature-card-grid[data-columns="3"] > .testro-feature-card--light {
+    padding: 20px 16px;
+  }
+
+  #scale-execution-in-the-cloud .testro-feature-card-grid[data-columns="3"] > .testro-feature-card--light:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  #scale-execution-in-the-cloud .testro-feature-card-grid[data-columns="3"] > .testro-feature-card--light:nth-child(even) {
+    border-left: 1px solid #d7dfec;
+    border-top: 0;
+  }
+
+  #scale-execution-in-the-cloud .testro-feature-card-grid[data-columns="3"] > .testro-feature-card--light:nth-child(n + 3) {
+    border-top: 1px solid #d7dfec;
+  }
+}
+
+/* API Testing — Trigger Tests on Every Backend Deploy */
+#trigger-tests-on-every-backend-deploy.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 653px;
+  padding: 92px var(--section-pad-x) 122px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#trigger-tests-on-every-backend-deploy .testro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#trigger-tests-on-every-backend-deploy .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#trigger-tests-on-every-backend-deploy .testro-sec-header__heading,
+#trigger-tests-on-every-backend-deploy .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#trigger-tests-on-every-backend-deploy .testro-prod-features__visual {
+  width: 100%;
+  min-width: 0;
+}
+
+#trigger-tests-on-every-backend-deploy .testro-prod-features__placeholder {
+  width: 100%;
+  height: 152px;
+  min-height: 152px;
+  border-radius: 18px;
+  background: #e8eef5;
+  box-shadow: 0 18px 34px rgb(1 69 141 / 0.14);
+  box-sizing: border-box;
+}
+
+#trigger-tests-on-every-backend-deploy .testro-prod-features__notes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: clamp(1.5rem, 4vw, 48px);
+  align-items: start;
+  width: 100%;
+  margin: 0;
+}
+
+#trigger-tests-on-every-backend-deploy .testro-prod-features__note {
+  margin: 0;
+  color: #5b7290;
+  font-family: var(--testro-font);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
+#trigger-tests-on-every-backend-deploy .testro-prod-features__note--accent {
+  color: #c77b87;
+  text-align: right;
+}
+
+@media (max-width: 1023px) {
+  #trigger-tests-on-every-backend-deploy.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #trigger-tests-on-every-backend-deploy .testro-container {
+    gap: clamp(1.5rem, 4vw, 42px);
+  }
+
+  #trigger-tests-on-every-backend-deploy .testro-prod-features__placeholder {
+    height: auto;
+    min-height: 112px;
+    aspect-ratio: 16 / 6;
+  }
+
+  #trigger-tests-on-every-backend-deploy .testro-prod-features__notes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  #trigger-tests-on-every-backend-deploy .testro-prod-features__note--accent {
+    text-align: left;
+  }
+}
+
+/* Cross-Browser Testing — Write Once, Run Everywhere */
+#write-once-run-everywhere.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 558px;
+  padding: 96px var(--section-pad-x);
+  background: #f4f9ff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#write-once-run-everywhere .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#write-once-run-everywhere .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#write-once-run-everywhere .testro-sec-header__heading,
+#write-once-run-everywhere .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#write-once-run-everywhere .testro-feature-card-grid {
+  margin-top: 40px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #write-once-run-everywhere.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #write-once-run-everywhere .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 40px);
+  }
+}
+
+/* Cross-Browser Testing — How It Works */
+.page-automated-cross-browser-testing-tool #how-it-works.testro-prod-pipeline--flow {
+  min-height: 904px;
+  padding-block: 96px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .page-automated-cross-browser-testing-tool #how-it-works.testro-prod-pipeline--flow {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  .page-automated-cross-browser-testing-tool #how-it-works.testro-prod-pipeline--flow .testro-flow-list {
+    margin-top: 40px;
+  }
+}
+
+/* Cross-Browser Testing — Browser Compatibility Testing */
+#browser-compatibility-testing.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 683px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#browser-compatibility-testing .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#browser-compatibility-testing .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#browser-compatibility-testing .testro-sec-header__heading,
+#browser-compatibility-testing .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#browser-compatibility-testing .testro-feature-card-grid {
+  margin-top: 40px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #browser-compatibility-testing.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #browser-compatibility-testing .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 40px);
+  }
+}
+
+/* Cross-Browser Testing — AI Cross-Browser Testing That Adapts */
+#ai-cross-browser-testing.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 638px;
+  padding: 96px var(--section-pad-x) 136px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#ai-cross-browser-testing .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#ai-cross-browser-testing .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#ai-cross-browser-testing .testro-sec-header__heading,
+#ai-cross-browser-testing .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#ai-cross-browser-testing .testro-feature-card-grid {
+  margin-top: 40px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #ai-cross-browser-testing.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px) clamp(4rem, 10vw, 96px);
+  }
+
+  #ai-cross-browser-testing .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 40px);
+  }
+}
+
+/* Cross-Browser Testing — Who Relies on Cross-Browser Testing */
+#who-relies-on-cross-browser-testing.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 786px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#who-relies-on-cross-browser-testing .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#who-relies-on-cross-browser-testing .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#who-relies-on-cross-browser-testing .testro-sec-header__heading,
+#who-relies-on-cross-browser-testing .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#who-relies-on-cross-browser-testing .testro-feature-card-grid {
+  margin-top: 64px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #who-relies-on-cross-browser-testing.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #who-relies-on-cross-browser-testing .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 64px);
+  }
+}
+
+/* Cross-Browser Testing — Scale Execution Across Browsers in Parallel */
+#scale-execution-parallel.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 1042px;
+  padding: 96px var(--section-pad-x);
+  background: var(--grad-header);
+  color: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#scale-execution-parallel .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#scale-execution-parallel .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#scale-execution-parallel .testro-sec-header__heading,
+#scale-execution-parallel .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#scale-execution-parallel .testro-feature-card-grid {
+  margin-top: 48px;
+  gap: 24px;
+}
+
+#scale-execution-parallel .testro-feature-card--light {
+  width: 100%;
+  height: 180px;
+  min-height: 180px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+  #scale-execution-parallel.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #scale-execution-parallel .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 48px);
+    gap: 24px;
+  }
+
+  #scale-execution-parallel .testro-feature-card--light {
+    height: auto;
+    min-height: 0;
+  }
+}
+
+/* Cross-Browser Testing — Real-World Conditions */
+#real-world-conditions.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 675px;
+  padding: 96px var(--section-pad-x) 120px;
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#real-world-conditions .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#real-world-conditions .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#real-world-conditions .testro-sec-header__heading,
+#real-world-conditions .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#real-world-conditions .testro-feature-card-grid {
+  margin-top: 48px;
+  gap: clamp(1rem, 1.67vw, 20px);
+}
+
+@media (max-width: 1023px) {
+  #real-world-conditions.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px) clamp(3.5rem, 9vw, 80px);
+  }
+
+  #real-world-conditions .testro-feature-card-grid {
+    margin-top: clamp(1.5rem, 4vw, 48px);
+  }
+}
+
+/* Cross-Browser Testing — Enterprise Cross-Browser Testing at Scale */
+#enterprise-cross-browser-testing.testro-prod-outcomes {
+  width: 100%;
+  max-width: 100%;
+  min-height: 792px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#enterprise-cross-browser-testing .testro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 76px;
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#enterprise-cross-browser-testing .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#enterprise-cross-browser-testing .testro-sec-header__heading,
+#enterprise-cross-browser-testing .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#enterprise-cross-browser-testing .testro-prod-outcomes__grid {
+  margin-top: 0;
+}
+
+#enterprise-cross-browser-testing .testro-supporting-text {
+  margin-top: 0;
+}
+
+@media (max-width: 1023px) {
+  #enterprise-cross-browser-testing.testro-prod-outcomes {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #enterprise-cross-browser-testing .testro-container {
+    gap: clamp(1.5rem, 4vw, 76px);
+  }
+
+  #enterprise-cross-browser-testing .testro-prod-outcomes__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Cross-Browser Testing — Catch Browser Bugs Before Release */
+#catch-browser-bugs-before-release.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 455px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#catch-browser-bugs-before-release .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#catch-browser-bugs-before-release .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#catch-browser-bugs-before-release .testro-sec-header__heading,
+#catch-browser-bugs-before-release .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#catch-browser-bugs-before-release .testro-prod-features__outro {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: 91px;
+  min-height: 91px;
+  margin: 52px 0 0;
+  padding: 24px 80px 24px 24px;
+  background: #f4f9ff;
+  border: 0;
+  border-left: 4px solid var(--color-brand-navy);
+  border-radius: 12px;
+  color: #5b7290;
+  font-family: var(--testro-font);
+  font-size: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.65;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+  #catch-browser-bugs-before-release.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #catch-browser-bugs-before-release .testro-prod-features__outro {
+    height: auto;
+    min-height: 0;
+    margin-top: clamp(1.5rem, 4vw, 52px);
+    padding: 24px clamp(1.25rem, 4vw, 40px) 24px 24px;
+  }
+}
+
+/* Cross-Browser Testing — Debug Browser-Specific Failures Fast */
+#debug-browser-specific-failures.testro-prod-analytics--visual-list {
+  width: 100%;
+  max-width: 100%;
+  min-height: 738px;
+  padding-block: 92px 88px;
+  background: #f4f9ff;
+  box-sizing: border-box;
+}
+
+#debug-browser-specific-failures .testro-page-section__inner,
+#debug-browser-specific-failures .testro-prod-analytics__stack {
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+  gap: 39px;
+}
+
+#debug-browser-specific-failures .testro-prod-analytics__split--visual-first {
+  min-height: 349px;
+  box-sizing: border-box;
+}
+
+#debug-browser-specific-failures .testro-prod-analytics__visual {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  min-height: 349px;
+  box-sizing: border-box;
+}
+
+#debug-browser-specific-failures .testro-prod-analytics__placeholder {
+  width: 100%;
+  height: 349px;
+  min-height: 349px;
+  max-height: 349px;
+  aspect-ratio: auto;
+  border-radius: 16px;
+  background: #e8eef5;
+  box-shadow: none;
+}
+
+#debug-browser-specific-failures .testro-numbered-feature-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 0;
+}
+
+#debug-browser-specific-failures .testro-supporting-text {
+  /* Stack gap is 39; add 9 so content → supporting totals 48. */
+  margin-top: 9px;
+}
+
+@media (max-width: 1023px) {
+  #debug-browser-specific-failures.testro-prod-analytics--visual-list {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #debug-browser-specific-failures .testro-prod-analytics__stack {
+    gap: clamp(1.5rem, 4vw, 39px);
+  }
+
+  #debug-browser-specific-failures .testro-prod-analytics__split--visual-first {
+    min-height: 0;
+  }
+
+  #debug-browser-specific-failures .testro-prod-analytics__visual {
+    height: auto;
+    min-height: 0;
+  }
+
+  #debug-browser-specific-failures .testro-prod-analytics__placeholder {
+    height: auto;
+    min-height: 200px;
+    max-height: 480px;
+    aspect-ratio: 16 / 10;
+  }
+
+  #debug-browser-specific-failures .testro-numbered-feature-list {
+    height: auto;
+  }
+}
+
+/* Web Automation — Debug Test Failures Faster */
+#debug-failures-faster.testro-prod-pipeline--flow-light {
+  width: 100%;
+  max-width: 100%;
+  min-height: 617px;
+  padding-block: 88px;
+  background: #fff;
+  color: var(--color-brand-navy);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+#debug-failures-faster .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#debug-failures-faster .testro-sec-header__heading,
+#debug-failures-faster .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#debug-failures-faster .testro-flow-list {
+  margin-top: 34px;
+  max-width: 100%;
+}
+
+#debug-failures-faster .testro-prod-pipeline__outro {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 58px;
+  margin: 34px 0 0;
+  color: var(--color-brand-navy);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+  #debug-failures-faster.testro-prod-pipeline--flow-light {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #debug-failures-faster .testro-flow-list {
+    margin-top: clamp(1.25rem, 3vw, 34px);
+  }
+
+  #debug-failures-faster .testro-prod-pipeline__outro {
+    min-height: 0;
+    margin-top: clamp(1.25rem, 3vw, 34px);
+  }
+}
+
+/* No-Code Test Automation — Built to Stay Green */
+#built-to-stay-green.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 624px;
+  padding: 96px var(--section-pad-x);
+  background: #fff;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#built-to-stay-green .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#built-to-stay-green .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#built-to-stay-green .testro-sec-header__heading,
+#built-to-stay-green .testro-sec-header__desc {
+  min-height: 0;
+}
+
+#built-to-stay-green .testro-feature-card-grid {
+  margin-top: 34px;
+  gap: 24px;
+}
+
+#built-to-stay-green .testro-feature-card--horizontal {
+  --feature-card-row-gap: 18px;
+  --feature-card-text-gap: 7px;
+  --feature-card-icon-border: transparent;
+  width: 100%;
+  max-width: 100%;
+}
+
+#built-to-stay-green .testro-feature-card__icon {
+  border: 0;
+  border-radius: 9px;
+}
+
+#built-to-stay-green .testro-prod-features__outro {
+  width: 100%;
+  max-width: 100%;
+  min-height: 50px;
+  margin: 34px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--color-border);
+  color: #5B7290;
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.6em;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+  #built-to-stay-green.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #built-to-stay-green .testro-feature-card-grid {
+    margin-top: 28px;
+    gap: 20px;
+  }
+
+  #built-to-stay-green .testro-prod-features__outro {
+    min-height: 0;
+    margin-top: 28px;
+  }
+}
+
+/* No-Code Test Automation — Who It's For */
+#who-its-for.testro-prod-features {
+  width: 100%;
+  max-width: 100%;
+  min-height: 575px;
+  padding: 92px var(--section-pad-x);
+  background: #EAF2FF;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+#who-its-for .testro-container {
+  width: 100%;
+  max-width: var(--section-content-max);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+#who-its-for .testro-sec-header {
+  margin: 0;
+  min-height: 0;
+}
+
+#who-its-for .testro-sec-header__heading {
+  min-height: 0;
+}
+
+#who-its-for .testro-feature-card-grid {
+  margin-top: 42px;
+  gap: 18px;
+}
+
+#who-its-for .testro-feature-card--light {
+  min-height: 0;
+  height: 100%;
+  box-shadow: 0 1px 2px rgb(2 8 23 / 0.04);
+}
+
+@media (max-width: 1023px) {
+  #who-its-for.testro-prod-features {
+    min-height: 0;
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #who-its-for .testro-feature-card-grid {
+    margin-top: 32px;
+  }
+}
+
+/* AI Test Automation — theTestRo vs. Old-School Frameworks */
+#ai-vs-legacy.testro-prod-compare--board {
+  min-height: 713px;
+  padding-block: 104px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1023px) {
+  #ai-vs-legacy.testro-prod-compare--board {
+    min-height: 0;
+    padding-block: clamp(3.5rem, 7vw, 80px);
+  }
+}
+
+@media (max-width: 767px) {
+  #ai-vs-legacy.testro-prod-compare--board {
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #ai-vs-legacy .testro-compare-board {
+    margin-top: 32px;
+  }
+}
+
+/* No-Code Test Automation — Scripted Tools vs. theTestRo */
+#scripted-tools-vs-thetestro.testro-prod-compare--board {
+  min-height: 661px;
+  padding-block: 104px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1023px) {
+  #scripted-tools-vs-thetestro.testro-prod-compare--board {
+    min-height: 0;
+    padding-block: clamp(3.5rem, 7vw, 80px);
+  }
+}
+
+@media (max-width: 767px) {
+  #scripted-tools-vs-thetestro.testro-prod-compare--board {
+    padding-block: clamp(3rem, 8vw, 64px);
+  }
+
+  #scripted-tools-vs-thetestro .testro-compare-board {
+    margin-top: 32px;
   }
 }
 
@@ -19536,10 +24876,10 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 
 /* -------------------------------------------------------------------------- */
 /* Closing CTA — full-width band used above the footer on every page.         */
-/* Desktop reference (1200px): 485px tall, 100px vertical padding, 26px stack. */
+/* Desktop reference: 487 tall, 100 vertical padding, 26 stack gap. */
 /* -------------------------------------------------------------------------- */
 .testro-prod-cta {
-  --cta-stack-gap: clamp(1rem, 2.4vw, 26px);
+  --cta-stack-gap: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19547,7 +24887,7 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   width: 100%;
   min-height: 0;
   margin: 0;
-  padding: clamp(3.5rem, 8vw, 100px) 0;
+  padding: 100px 0;
   color: #fff;
   text-align: center;
   background: var(--grad-cta);
@@ -19555,7 +24895,13 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
 
 @media (min-width: 768px) {
   .testro-prod-cta {
-    min-height: 485px;
+    min-height: 487px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testro-prod-cta {
+    padding: clamp(3.5rem, 8vw, 100px) 0;
   }
 }
 
@@ -19572,54 +24918,22 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   box-sizing: border-box;
 }
 
-.testro-prod-cta__head {
-  display: flex;
-  flex-direction: column;
+/* SectionHeader — white, centered for CTA */
+.testro-prod-cta .testro-sec-header,
+.testro-prod-cta__header {
   align-items: center;
-  gap: 0.625rem;
-  width: 100%;
+  min-height: 0;
+  text-align: center;
 }
 
-.testro-prod-cta__eyebrow {
-  margin: 0;
-  color: #fff;
-  font-family: var(--testro-font);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.6px;
-  line-height: 1.2;
-  text-transform: uppercase;
+.testro-prod-cta .testro-sec-header__heading,
+.testro-prod-cta .testro-sec-header__desc {
+  min-height: 0;
+  text-align: center;
 }
 
-.testro-prod-cta__title {
-  margin: 0;
-  max-width: 100%;
-  color: #fff;
-  font-family: var(--font-sora);
-  font-size: clamp(1.75rem, 4.6vw, 42px);
-  font-weight: 700;
-  letter-spacing: -0.8px;
-  line-height: 1.15em;
-  text-wrap: balance;
-  overflow-wrap: break-word;
-}
-
-.testro-prod-cta__copy {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
+.testro-prod-cta .testro-sec-header__desc {
   max-width: min(100%, 34rem);
-}
-
-.testro-prod-cta__text {
-  margin: 0;
-  color: #fff;
-  font-family: var(--testro-font);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.55em;
 }
 
 .testro-prod-cta .testro-prod-actions {
@@ -19641,59 +24955,19 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   min-width: 134px;
   width: auto;
   max-width: 100%;
-  height: 48px;
-  padding: 0 20px;
-  border-radius: 8px;
-  font-family: var(--testro-font);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1;
   white-space: nowrap;
   filter: none;
-  transform: none;
-}
-
-.testro-prod-cta .testro-prod-actions > :first-child {
-  background: #fff !important;
-  background-image: none !important;
-  color: var(--color-hero-demo) !important;
-  border: 1px solid #dceaf9;
-  box-shadow: 0 2px 8px rgb(8 76 157 / 0.16);
-}
-
-.testro-prod-cta .testro-prod-actions > :nth-child(2) {
-  background: var(--color-hero-demo) !important;
-  background-image: none !important;
-  color: #fff !important;
-  border: 1px solid rgb(255 255 255 / 0.22);
-  box-shadow: none;
-}
-
-.testro-prod-cta .testro-prod-actions > :first-child:hover,
-.testro-prod-cta .testro-prod-actions > :first-child:focus-visible {
-  background: #f7fbff !important;
-  filter: none;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgb(8 76 157 / 0.2);
-}
-
-.testro-prod-cta .testro-prod-actions > :nth-child(2):hover,
-.testro-prod-cta .testro-prod-actions > :nth-child(2):focus-visible {
-  background: #063e82 !important;
-  filter: none;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgb(2 8 23 / 0.22);
 }
 
 .testro-prod-cta__note {
   margin: 0;
   max-width: 100%;
   color: #fff;
-  font-family: var(--font-sora), var(--testro-font);
+  font-family: var(--testro-font);
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.3px;
-  line-height: 1.3em;
+  line-height: 1.3;
 }
 
 @media (max-width: 768px) {
@@ -19707,6 +24981,25 @@ html:not(.testro-js) .testro-prod-hero-sanity__bar i {
   .testro-prod-cta .testro-prod-actions .testro-btn--outline,
   .testro-prod-cta .testro-prod-actions__btn {
     width: min(100%, 16.75rem);
+  }
+}
+
+/* AI Test Management — closing CTA (page-specific height/background) */
+#start-managing-tests-with-ai.testro-prod-cta {
+  min-height: 562px;
+  padding: 100px 0;
+  background: var(--grad-header);
+}
+
+#start-managing-tests-with-ai .testro-prod-actions .primary-button,
+#start-managing-tests-with-ai .testro-prod-actions .testro-btn--primary {
+  background-image: var(--grad-header);
+}
+
+@media (max-width: 767px) {
+  #start-managing-tests-with-ai.testro-prod-cta {
+    min-height: 0;
+    padding: clamp(3.5rem, 8vw, 100px) 0;
   }
 }
 
@@ -21261,74 +26554,20 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
   }
 }
 
-/* AI capabilities */
+/* AI capabilities — section chrome only; header/cards use global components */
 .testro-ai-capabilities {
-  --ai-pad-x: var(--section-pad-x);
   --ai-pad-y: clamp(3rem, 7.33vw, 88px);
-  --ai-cyan: var(--color-brand-sky);
-  --ai-card-border: rgb(0 172 255 / 0.45);
-  --ai-card-bg: rgb(0 62 132 / 0.22);
   --ai-closing-pad-x: clamp(1.5rem, 20.83vw, 250px);
-  width: 100%;
-  max-width: 100%;
+  display: block;
   min-height: clamp(36rem, 58.75vw, 705px);
-  padding: var(--ai-pad-y) var(--ai-pad-x);
+  padding-block: var(--ai-pad-y);
   background: linear-gradient(90deg, #003e84 0%, #00acff 100%);
   color: #fff;
 }
 
-.testro-ai-capabilities__inner {
+.testro-ai-capabilities .testro-page-section__inner {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: var(--section-content-max);
-  margin-inline: auto;
-}
-
-.testro-ai-capabilities__intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  width: 100%;
-  margin: 0;
-  text-align: left;
-}
-
-.testro-ai-capabilities__label {
-  margin: 0;
-  min-height: 14px;
-  color: var(--ai-cyan);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  line-height: 1.2em;
-  text-transform: uppercase;
-}
-
-.testro-ai-capabilities__heading {
-  margin: 0;
-  max-width: 100%;
-  color: #fff;
-  font-family: var(--font-sora);
-  font-size: clamp(1.75rem, 4.1vw, 44px);
-  font-weight: 700;
-  letter-spacing: -0.7px;
-  line-height: 1.18em;
-  text-align: left;
-}
-
-.testro-ai-capabilities__desc {
-  margin: 0;
-  max-width: 100%;
-  color: var(--ai-cyan);
-  font-family: var(--testro-font);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.55em;
-  text-align: left;
 }
 
 .testro-ai-capabilities__cards {
@@ -21339,72 +26578,6 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
   margin: clamp(2rem, 5.17vw, 62px) 0 0;
   padding: 0;
   list-style: none;
-}
-
-.testro-ai-capabilities-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-  min-height: 198px;
-  overflow: hidden;
-  padding: 24px 24px 24px;
-  background: var(--ai-card-bg);
-  border: 1px solid var(--ai-card-border);
-  border-radius: 16px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.testro-ai-capabilities-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 42px;
-  height: 3px;
-  border-radius: 0 0 2px 0;
-  background: linear-gradient(90deg, #00acff, rgb(0 172 255 / 0.35));
-}
-
-.testro-ai-capabilities-card__icon {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  width: 41px;
-  height: 43px;
-  margin: 0 0 11px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #003e84 0%, #00acff 100%);
-  color: #fff;
-}
-
-.testro-ai-capabilities-card__icon svg {
-  display: block;
-}
-
-.testro-ai-capabilities-card__title {
-  margin: 0 0 11px;
-  width: 100%;
-  color: #fff;
-  font-family: var(--font-sora);
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.05em;
-  line-height: 1.2em;
-}
-
-.testro-ai-capabilities-card__desc {
-  margin: 0;
-  width: 100%;
-  color: #fff;
-  font-family: var(--font-sora);
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.2em;
 }
 
 .testro-ai-capabilities__closing {
@@ -21447,27 +26620,9 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 }
 
 @media (min-width: 1024px) {
-  .testro-ai-capabilities__intro {
-    min-height: 119px;
-  }
-
-  .testro-ai-capabilities__heading {
-    min-height: 52px;
-    font-size: 44px;
-  }
-
-  .testro-ai-capabilities__desc {
-    min-height: 25px;
-  }
-
   .testro-ai-capabilities__cards {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
-  }
-
-  .testro-ai-capabilities-card {
-    min-height: 198px;
-    padding-top: 24px;
   }
 
   .testro-ai-capabilities__closing {
@@ -21481,18 +26636,9 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 }
 
 @media (max-width: 767px) {
-  .testro-ai-capabilities__intro {
-    gap: 12px;
-  }
-
   .testro-ai-capabilities__cards,
   .testro-ai-capabilities__closing {
     margin-top: 32px;
-  }
-
-  .testro-ai-capabilities-card {
-    min-height: auto;
-    height: auto;
   }
 }
 

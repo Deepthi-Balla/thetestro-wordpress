@@ -22,7 +22,7 @@ if ( ! empty( $product['hero'] ) ) {
 	get_template_part(
 		'template-parts/product/hero',
 		null,
-		array_merge( $product['hero'], array( 'breadcrumbs' => true ) )
+		$product['hero']
 	);
 }
 
