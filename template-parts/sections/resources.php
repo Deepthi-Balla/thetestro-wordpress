@@ -1,69 +1,77 @@
 <?php
 /**
- * Resources section — blog + static resource cards.
+ * Latest Blogs & Resources — Framer redesign.
  *
  * @package TestRo
  */
 
 $data     = testro_get_resources();
-$items    = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] : array();
+$items    = isset( $data['items'] ) && is_array( $data['items'] ) ? array_slice( $data['items'], 0, 3 ) : array();
 $headline = isset( $data['headline'] ) ? (string) $data['headline'] : '';
+$intro    = isset( $data['intro'] ) ? (string) $data['intro'] : __( 'Guides and practical playbooks for teams building a continuous testing strategy.', 'testro' );
 $cta      = isset( $data['cta'] ) && is_array( $data['cta'] ) ? $data['cta'] : array();
+$blog_url = ! empty( $cta['href'] ) ? $cta['href'] : testro_nav_url( 'blog' );
 
-if ( ! $items ) {
+$cards = array();
+foreach ( $items as $item ) {
+	$cards[] = array(
+		'title'       => $item['title'],
+		'description' => $item['description'],
+		'href'        => ! empty( $item['href'] ) ? $item['href'] : $blog_url,
+		'meta'        => ! empty( $item['meta'] ) ? $item['meta'] : 'AI Insights',
+		'image'       => '',
+	);
+}
+
+if ( ! $cards ) {
 	return;
 }
 ?>
-<section class="testro-resources" id="resources" aria-labelledby="resources-heading">
+<section class="testro-resources testro-resources--framer" id="resources" aria-labelledby="resources-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-resources__header">
-			<h5 id="resources-heading" class="gradient-text main-headings"><?php echo esc_html( $data['title'] ); ?></h5>
-			<?php if ( '' !== $headline ) : ?>
-				<p class="sub-text testro-resources__headline"><?php echo esc_html( $headline ); ?></p>
-			<?php endif; ?>
+			<p class="testro-section-eyebrow"><?php esc_html_e( 'LATEST BLOGS & RESOURCES', 'testro' ); ?></p>
+			<h2 id="resources-heading" class="main-headings"><?php echo esc_html( ! empty( $headline ) ? $headline : __( 'Learn about AI-driven testing.', 'testro' ) ); ?></h2>
+			<p class="sub-text"><?php echo esc_html( $intro ); ?></p>
 		</header>
 
-		<ul class="testro-resources__grid">
-			<?php foreach ( $items as $index => $item ) : ?>
-				<li data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 55 ) ); ?>ms">
-					<a class="testro-resources__card" href="<?php echo esc_url( $item['href'] ); ?>">
-						<span class="testro-resources__icon" aria-hidden="true">
-							<?php
-							$icon = isset( $item['icon'] ) ? $item['icon'] : 'blog';
-							if ( function_exists( 'testro_nav_icon' ) ) {
-								echo testro_nav_icon( $icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG.
-							}
-							?>
-						</span>
-						<?php if ( ! empty( $item['meta'] ) ) : ?>
-							<span class="testro-resources__meta"><?php echo esc_html( $item['meta'] ); ?></span>
-						<?php endif; ?>
-						<p class="testro-resources__title"><?php echo esc_html( $item['title'] ); ?></p>
-						<p class="testro-resources__desc"><?php echo esc_html( $item['description'] ); ?></p>
-						<span class="testro-resources__arrow" aria-hidden="true">
-							<?php echo testro_icon( 'arrow-right', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
-						</span>
-					</a>
+		<ul class="testro-resources__grid testro-resources__grid--framer">
+			<?php foreach ( $cards as $card ) : ?>
+				<li>
+					<article class="testro-resources__card testro-resources__card--framer">
+						<a class="testro-resources__media" href="<?php echo esc_url( $card['href'] ); ?>" tabindex="-1" aria-hidden="true">
+							<?php if ( ! empty( $card['image'] ) ) : ?>
+								<img src="<?php echo esc_url( $card['image'] ); ?>" alt="" loading="lazy" decoding="async" width="640" height="360" />
+							<?php else : ?>
+								<span class="testro-resources__placeholder"></span>
+							<?php endif; ?>
+						</a>
+						<p class="testro-resources__type"><?php echo esc_html( $card['meta'] ); ?></p>
+						<h3 class="testro-resources__title">
+							<a href="<?php echo esc_url( $card['href'] ); ?>"><?php echo esc_html( $card['title'] ); ?></a>
+						</h3>
+						<p class="testro-resources__desc"><?php echo esc_html( $card['description'] ); ?></p>
+						<a class="testro-resources__more" href="<?php echo esc_url( $card['href'] ); ?>"><?php esc_html_e( 'Read more →', 'testro' ); ?></a>
+					</article>
 				</li>
 			<?php endforeach; ?>
 		</ul>
 
-		<?php if ( ! empty( $cta['label'] ) && ! empty( $cta['href'] ) ) : ?>
-			<div class="testro-resources__cta">
-				<?php
-				get_template_part(
-					'template-parts/components/primary-button',
-					null,
-					array(
-						'label' => $cta['label'],
-						'href'  => $cta['href'],
-						'attrs' => array(
-							'class' => 'testro-btn testro-btn--outline',
-						),
-					)
-				);
-				?>
-			</div>
-		<?php endif; ?>
+		<div class="testro-resources__cta">
+			<?php
+			get_template_part(
+				'template-parts/components/primary-button',
+				null,
+				array(
+					'label'      => ! empty( $cta['label'] ) ? $cta['label'] : __( 'Visit the Blog', 'testro' ),
+					'href'       => $blog_url,
+					'with_arrow' => false,
+					'attrs'      => array(
+						'class' => 'testro-btn testro-btn--secondary',
+					),
+				)
+			);
+			?>
+		</div>
 	</div>
 </section>

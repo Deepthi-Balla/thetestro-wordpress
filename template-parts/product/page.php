@@ -19,11 +19,12 @@ if ( ! $product ) {
 }
 
 if ( ! empty( $product['hero'] ) ) {
-	get_template_part(
-		'template-parts/product/hero',
-		null,
-		array_merge( $product['hero'], array( 'breadcrumbs' => true ) )
-	);
+	$hero_args = $product['hero'];
+	/* Breadcrumbs only when Framer (or the page) explicitly enables them. */
+	if ( ! array_key_exists( 'breadcrumbs', $hero_args ) ) {
+		$hero_args['breadcrumbs'] = true;
+	}
+	get_template_part( 'template-parts/product/hero', null, $hero_args );
 }
 
 $shared   = testro_product_shared_sections();

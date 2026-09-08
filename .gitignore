@@ -18,3 +18,9 @@ node_modules/
 # Build output
 dist/
 build/
+
+# Framer agent temp (local only)
+.tmp-framer/
+.tmp-framer-config/
+.tmp-framer-shots/
+.tmp-framer-state/

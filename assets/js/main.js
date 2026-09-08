@@ -266,37 +266,13 @@
       setNavOpen(false);
     }
 
-    var BANNER_NAV_GAP = 18; /* preserves desktop 5.5rem stack (16+54+18=88) */
-    var CONTENT_BREATHING = 32;
-    var NAV_TOP_COMPACT = 16; /* --nav-top: 1rem */
-
-    function parsePx(value, fallback) {
-      var n = parseFloat(value);
-      return isNaN(n) ? fallback : n;
-    }
-
     function syncHeaderStackOffset() {
       var root = document.documentElement;
+      var header = qs('.testro-header');
       var visible =
         banner &&
         !banner.classList.contains('is-hidden') &&
         getComputedStyle(banner).display !== 'none';
-
-      var navHeight = nav ? nav.offsetHeight : 66;
-      var bannerTop = NAV_TOP_COMPACT;
-      var bannerHeight = 0;
-
-      if (banner && getComputedStyle(banner).display !== 'none') {
-        bannerTop = parsePx(getComputedStyle(banner).top, NAV_TOP_COMPACT);
-        bannerHeight = banner.offsetHeight;
-      }
-
-      /* Always reserve space for the full banner+nav stack so hero content
-         does not jump when the banner hides on scroll. */
-      var stackedNavTop = bannerHeight
-        ? bannerTop + bannerHeight + BANNER_NAV_GAP
-        : NAV_TOP_COMPACT;
-      root.style.setProperty('--nav-top-banner', stackedNavTop + 'px');
 
       if (visible) {
         document.body.classList.remove('banner-hidden');
@@ -306,12 +282,11 @@
         if (nav) nav.classList.add('is-compact');
       }
 
-      var minStack = window.matchMedia('(max-width: 768px)').matches ? 160 : 208;
-      var stackPadding = Math.max(minStack, stackedNavTop + navHeight + CONTENT_BREATHING);
-      root.style.setProperty('--header-stack-padding', stackPadding + 'px');
-
-      var activeNavTop = visible ? stackedNavTop : NAV_TOP_COMPACT;
-      root.style.setProperty('--header-scroll-offset', activeNavTop + navHeight + 24 + 'px');
+      /* Sticky in-flow header: content no longer needs floating-nav top padding. */
+      var headerHeight = header ? header.offsetHeight : (nav ? nav.offsetHeight : 76);
+      root.style.setProperty('--header-stack-padding', '0px');
+      root.style.setProperty('--nav-top-banner', '0px');
+      root.style.setProperty('--header-scroll-offset', headerHeight + 16 + 'px');
     }
 
     function updateNavTop() {
@@ -1049,13 +1024,7 @@
       });
     });
 
-    // Open first
-    var first = items[0];
-    first.classList.add('is-open');
-    var firstBtn = qs('[data-faq-trigger]', first);
-    var firstPanel = qs('[data-faq-panel]', first);
-    if (firstBtn) firstBtn.setAttribute('aria-expanded', 'true');
-    if (firstPanel) firstPanel.removeAttribute('hidden');
+    // Framer FAQ starts fully collapsed.
   }
 
   /* ------------------------------------------------------------------------ */

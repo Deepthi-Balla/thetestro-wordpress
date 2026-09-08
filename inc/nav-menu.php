@@ -89,7 +89,7 @@ function testro_nav_icon( $name ) {
 function testro_get_nav_menus() {
 	return array(
 		'products'  => array(
-			'label'  => __( 'Products', 'testro' ),
+			'label'  => __( 'Product', 'testro' ),
 			'href'   => testro_nav_url( 'ai-test-automation' ),
 			'panel'  => 'products',
 			'layout' => 'two-col',
@@ -167,7 +167,7 @@ function testro_get_nav_menus() {
 			),
 		),
 		'solutions' => array(
-			'label'  => __( 'Solutions', 'testro' ),
+			'label'  => __( 'Solution', 'testro' ),
 			'href'   => testro_nav_url( 'use-cases' ),
 			'panel'  => 'solutions',
 			'layout' => 'solutions',

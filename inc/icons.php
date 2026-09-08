@@ -69,6 +69,7 @@ function testro_icon_paths() {
 		'arrow-down'    => '<path d="M12 5v14M6 13l6 6 6-6"/>',
 		'circle-check'  => '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
 		'plug'          => '<path d="M9 2v6M15 2v6"/><path d="M6 8h12v3a6 6 0 0 1-12 0z"/><path d="M12 17v5"/>',
+		'play'          => '<polygon points="6 3 20 12 6 21 6 3"/>',
 		'chart-bar'     => '<path d="M4 19V5M4 19h16"/><path d="M8 15v-4M12 15V8M16 15v-6"/>',
 		'pie-chart'     => '<path d="M21.2 15.9A10 10 0 1 1 8.1 2.8"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>',
 		'file-text'     => '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/>',

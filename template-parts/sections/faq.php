@@ -1,18 +1,14 @@
 <?php
 /**
- * FAQ accordion section.
- *
- * Optional $args:
- * - faqs    (array|string) FAQ list, or a context key for testro_get_faq_set().
- * - title         (string)       Heading override.
- * - heading_level (int)          Semantic heading level 1–6. Default 5 on homepage.
+ * FAQ accordion — Framer redesign.
  *
  * @package TestRo
  */
 
 $args          = isset( $args ) && is_array( $args ) ? $args : array();
-$title         = isset( $args['title'] ) ? (string) $args['title'] : __( 'FAQs', 'testro' );
-$heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 5;
+$title         = isset( $args['title'] ) ? (string) $args['title'] : __( 'Answers for teams ready to test smarter.', 'testro' );
+$intro         = isset( $args['intro'] ) ? (string) $args['intro'] : __( 'Everything you need to know about building a more reliable testing practice with theTestRo.', 'testro' );
+$heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
 $heading_tag   = 'h' . $heading_level;
 
 if ( isset( $args['faqs'] ) && is_array( $args['faqs'] ) ) {
@@ -27,61 +23,45 @@ if ( ! $faqs ) {
 	return;
 }
 ?>
-<div id="faq">
-	<section class="testro-faq" aria-labelledby="faq-heading">
-		<div class="testro-container">
-			<header class="testro-section-header">
-				<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
-				<<?php echo $heading_tag; ?> id="faq-heading" class="gradient-text main-headings"><?php echo esc_html( $title ); ?></<?php echo $heading_tag; ?>>
-			</header>
+<section class="testro-faq testro-faq--framer" id="faq" aria-labelledby="faq-heading">
+	<div class="testro-container">
+		<header class="testro-section-header testro-faq__header">
+			<p class="testro-section-eyebrow"><?php esc_html_e( 'FAQ', 'testro' ); ?></p>
+			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
+			<<?php echo $heading_tag; ?> id="faq-heading" class="main-headings"><?php echo esc_html( $title ); ?></<?php echo $heading_tag; ?>>
+			<p class="sub-text"><?php echo esc_html( $intro ); ?></p>
+		</header>
 
-			<div class="testro-faq__list" data-faq-accordion>
-				<?php foreach ( $faqs as $index => $faq ) : ?>
-					<?php
-					$panel_id  = 'faq-answer-' . $index;
-					$button_id = 'faq-question-' . $index;
-					?>
-					<div class="testro-faq__item">
-						<div class="testro-faq__question">
-							<button
-								type="button"
-								id="<?php echo esc_attr( $button_id ); ?>"
-								class="testro-faq__trigger"
-								aria-expanded="false"
-								aria-controls="<?php echo esc_attr( $panel_id ); ?>"
-								data-faq-trigger
-							>
-								<?php echo esc_html( $faq['question'] ); ?>
-							</button>
-						</div>
-						<div
-							id="<?php echo esc_attr( $panel_id ); ?>"
-							class="testro-faq__answer"
-							role="region"
-							aria-labelledby="<?php echo esc_attr( $button_id ); ?>"
-							hidden
-							data-faq-panel
-						>
-							<?php
-							$answer_text   = isset( $faq['answer'] ) ? (string) $faq['answer'] : '';
-							$escaped_answer = esc_html( $answer_text );
-
-							// Make the partners contact email clickable for the Partners page.
-							$email = 'partners@thetestro.com';
-							if ( '' !== $email && false !== strpos( $answer_text, $email ) ) {
-								$escaped_email  = esc_html( $email );
-								$escaped_answer = str_replace(
-									$escaped_email,
-									'<a href="mailto:' . esc_attr( $email ) . '">' . $escaped_email . '</a>',
-									$escaped_answer
-								);
-							}
-							?>
-							<p><?php echo $escaped_answer; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- output is escaped except for mailto anchor inserted by theme. ?></p>
-						</div>
+		<div class="testro-faq__list" data-faq-accordion>
+			<?php foreach ( $faqs as $index => $faq ) : ?>
+				<?php
+				$panel_id  = 'faq-panel-' . (string) $index;
+				$button_id = 'faq-trigger-' . (string) $index;
+				?>
+				<div class="testro-faq__item">
+					<button
+						type="button"
+						class="testro-faq__trigger"
+						id="<?php echo esc_attr( $button_id ); ?>"
+						data-faq-trigger
+						aria-expanded="false"
+						aria-controls="<?php echo esc_attr( $panel_id ); ?>"
+					>
+						<span class="testro-faq__question"><?php echo esc_html( $faq['question'] ); ?></span>
+						<span class="testro-faq__icon" aria-hidden="true">+</span>
+					</button>
+					<div
+						class="testro-faq__panel"
+						id="<?php echo esc_attr( $panel_id ); ?>"
+						data-faq-panel
+						role="region"
+						aria-labelledby="<?php echo esc_attr( $button_id ); ?>"
+						hidden
+					>
+						<p class="testro-faq__answer"><?php echo esc_html( $faq['answer'] ); ?></p>
 					</div>
-				<?php endforeach; ?>
-			</div>
+				</div>
+			<?php endforeach; ?>
 		</div>
-	</section>
-</div>
+	</div>
+</section>

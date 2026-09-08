@@ -67,9 +67,16 @@ function testro_get_thankyou_url( $type ) {
  */
 function testro_enqueue_assets() {
 	wp_enqueue_style(
+		'testro-fonts',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@600;700&display=swap',
+		array(),
+		null
+	);
+
+	wp_enqueue_style(
 		'testro-main',
 		testro_asset_file_uri( 'css/main.css' ),
-		array(),
+		array( 'testro-fonts' ),
 		TESTRO_VERSION
 	);
 
@@ -237,6 +244,16 @@ add_action( 'wp_head', 'testro_preload_lcp', 1 );
  * @return array
  */
 function testro_resource_hints( $urls, $relation_type ) {
+	if ( 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href'        => 'https://fonts.googleapis.com',
+		);
+		$urls[] = array(
+			'href'        => 'https://fonts.gstatic.com',
+			'crossorigin' => 'anonymous',
+		);
+	}
+
 	$needs_gtm = testro_get_option( 'ga_id', 'G-B1SLQ5SRNV' ) || testro_get_option( 'gtm_id', '' );
 	if ( 'preconnect' === $relation_type && $needs_gtm ) {
 		$urls[] = array(

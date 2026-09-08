@@ -7,6 +7,7 @@
  * - title      (string)  Section heading text.
  * - intro        (string)  Optional supporting paragraph.
  * - intro_extra  (string)  Optional second supporting paragraph.
+ * - emphasis     (string)  Optional mid-copy emphasis line (Framer callout).
  * - intro_body   (string)  Optional third supporting paragraph.
  * - heading_id    (string)  Optional id used by the section's aria-labelledby.
  * - heading_level (int)     Semantic heading level 1–6. Default 2.
@@ -21,6 +22,7 @@ $eyebrow    = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
 $title      = isset( $args['title'] ) ? (string) $args['title'] : '';
 $intro       = isset( $args['intro'] ) ? (string) $args['intro'] : '';
 $intro_extra = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
+$emphasis    = isset( $args['emphasis'] ) ? (string) $args['emphasis'] : '';
 $intro_body  = isset( $args['intro_body'] ) ? (string) $args['intro_body'] : '';
 $paragraphs    = isset( $args['paragraphs'] ) && is_array( $args['paragraphs'] ) ? $args['paragraphs'] : array();
 $heading_id    = isset( $args['heading_id'] ) ? (string) $args['heading_id'] : '';
@@ -52,6 +54,10 @@ if ( 'dark' !== $tone ) {
 
 	<?php if ( '' !== $intro ) : ?>
 		<p class="testro-prod-head__intro"><?php echo esc_html( $intro ); ?></p>
+	<?php endif; ?>
+
+	<?php if ( '' !== $emphasis ) : ?>
+		<p class="testro-prod-head__emphasis"><?php echo esc_html( $emphasis ); ?></p>
 	<?php endif; ?>
 
 	<?php if ( '' !== $intro_extra ) : ?>

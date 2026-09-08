@@ -22,11 +22,12 @@ if ( '' === $label ) {
 }
 
 $class_attr  = isset( $attrs['class'] ) ? (string) $attrs['class'] : '';
-$is_outline  = false !== strpos( $class_attr, 'testro-btn--outline' );
+$is_outline  = false !== strpos( $class_attr, 'testro-btn--outline' ) || false !== strpos( $class_attr, 'testro-btn--secondary' );
+$is_secondary = false !== strpos( $class_attr, 'testro-btn--secondary' );
 
 if ( empty( $attrs['class'] ) ) {
-	$attrs['class'] = $is_outline ? 'testro-btn testro-btn--outline' : 'primary-button';
-} elseif ( ! $is_outline && false === strpos( $attrs['class'], 'primary-button' ) ) {
+	$attrs['class'] = $is_outline ? ( $is_secondary ? 'testro-btn testro-btn--secondary' : 'testro-btn testro-btn--outline' ) : 'primary-button';
+} elseif ( ! $is_outline && false === strpos( $attrs['class'], 'primary-button' ) && false === strpos( $attrs['class'], 'testro-btn--primary' ) ) {
 	$attrs['class'] .= ' primary-button';
 }
 
@@ -34,7 +35,9 @@ if ( ! $is_outline ) {
 	if ( false === strpos( $attrs['class'], 'group' ) ) {
 		$attrs['class'] .= ' group relative overflow-hidden';
 	}
-} elseif ( false === strpos( $attrs['class'], 'testro-btn--outline' ) ) {
+} elseif ( $is_secondary && false === strpos( $attrs['class'], 'testro-btn--secondary' ) ) {
+	$attrs['class'] .= ' testro-btn testro-btn--secondary';
+} elseif ( ! $is_secondary && false === strpos( $attrs['class'], 'testro-btn--outline' ) ) {
 	$attrs['class'] .= ' testro-btn testro-btn--outline';
 }
 

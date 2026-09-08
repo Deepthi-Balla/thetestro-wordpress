@@ -23,12 +23,16 @@ $eyebrow  = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
 $title    = isset( $args['title'] ) ? (string) $args['title'] : '';
 $subtitle       = isset( $args['subtitle'] ) ? (string) $args['subtitle'] : '';
 $subtitle_extra = isset( $args['subtitle_extra'] ) ? (string) $args['subtitle_extra'] : '';
+$subtitle_emphasis = isset( $args['subtitle_emphasis'] ) ? (string) $args['subtitle_emphasis'] : '';
+$supporting_line = isset( $args['supporting_line'] ) ? (string) $args['supporting_line'] : '';
 $badges   = isset( $args['badges'] ) && is_array( $args['badges'] ) ? $args['badges'] : array();
 $actions  = isset( $args['actions'] ) && is_array( $args['actions'] ) ? $args['actions'] : array();
 $metrics  = isset( $args['metrics'] ) && is_array( $args['metrics'] ) ? $args['metrics'] : array();
 $layout   = isset( $args['layout'] ) ? (string) $args['layout'] : '';
 $visual   = isset( $args['visual'] ) ? (string) $args['visual'] : '';
 $is_split = ( 'split' === $layout && '' !== $visual );
+/* Framer AI/Platform Opening: subtitle + support pill live in the lead column. */
+$lead_copy = $is_split && ( 'ai-capability-canvas' === $visual );
 
 if ( function_exists( 'testro_filter_hero_actions' ) ) {
 	$actions = testro_filter_hero_actions( $actions );
@@ -64,11 +68,22 @@ $section_class = 'testro-prod-hero' . ( $is_split ? ' testro-prod-hero--split' :
 			<?php echo esc_html( $title ); ?>
 		</h1>
 
-		<?php if ( ! $is_split && '' !== $subtitle ) : ?>
-			<p class="testro-prod-hero__sub" data-reveal><?php echo esc_html( $subtitle ); ?></p>
+		<?php if ( ( ! $is_split || $lead_copy ) && '' !== $subtitle ) : ?>
+			<p class="testro-prod-hero__sub" data-reveal>
+				<?php
+				if ( '' !== $subtitle_emphasis && false !== strpos( $subtitle, $subtitle_emphasis ) ) {
+					$parts = explode( $subtitle_emphasis, $subtitle, 2 );
+					echo esc_html( $parts[0] );
+					echo '<strong>' . esc_html( $subtitle_emphasis ) . '</strong>';
+					echo esc_html( isset( $parts[1] ) ? $parts[1] : '' );
+				} else {
+					echo esc_html( $subtitle );
+				}
+				?>
+			</p>
 		<?php endif; ?>
 
-		<?php if ( ! $is_split && '' !== $subtitle_extra ) : ?>
+		<?php if ( ( ! $is_split || $lead_copy ) && '' !== $subtitle_extra ) : ?>
 			<p class="testro-prod-hero__sub" data-reveal><?php echo esc_html( $subtitle_extra ); ?></p>
 		<?php endif; ?>
 
@@ -85,6 +100,10 @@ $section_class = 'testro-prod-hero' . ( $is_split ? ' testro-prod-hero--split' :
 				);
 				?>
 			</div>
+		<?php endif; ?>
+
+		<?php if ( '' !== $supporting_line ) : ?>
+			<p class="testro-prod-hero__supporting testro-hero__supporting--pill" data-reveal><?php echo esc_html( $supporting_line ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $args['logos'] ) && function_exists( 'testro_get_clients' ) ) : ?>
@@ -994,8 +1013,9 @@ test(<span class="str">'user can sign in'</span>, <span class="kw">async</span> 
 					<?php endif; ?>
 				</div>
 
+				<?php if ( ( ! $lead_copy && '' !== $subtitle ) || $badges ) : ?>
 				<div class="testro-prod-hero__more">
-					<?php if ( '' !== $subtitle ) : ?>
+					<?php if ( ! $lead_copy && '' !== $subtitle ) : ?>
 						<p class="testro-prod-hero__sub" data-reveal><?php echo esc_html( $subtitle ); ?></p>
 					<?php endif; ?>
 
@@ -1010,6 +1030,7 @@ test(<span class="str">'user can sign in'</span>, <span class="kw">async</span> 
 						</ul>
 					<?php endif; ?>
 				</div>
+				<?php endif; ?>
 			</div><!-- /.testro-prod-hero__split -->
 		<?php else : ?>
 			<?php if ( $badges ) : ?>

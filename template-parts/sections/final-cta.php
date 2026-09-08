@@ -10,14 +10,16 @@ get_template_part(
 	null,
 	array(
 		'id'            => 'final-cta',
-		'title'         => __( 'Final CTA', 'testro' ),
-		'intro'         => __( 'Ready to Test Smarter?', 'testro' ),
+		'title'         => __( 'READY WHEN YOU ARE', 'testro' ),
+		'intro'         => __( 'Ready to test smarter?', 'testro' ),
 		'body'          => __( 'Join teams who use theTestRo to ship faster, catch more bugs, and cut manual work.', 'testro' ),
-		'heading_level' => 5,
+		'note'          => __( '14-day full access trial  ·  No credit card required', 'testro' ),
+		'heading_level' => 2,
+		'variant'       => 'brand',
 		'actions'       => array(
 			array(
 				'label' => __( 'Book a Demo', 'testro' ),
-				'style' => 'outline',
+				'style' => 'secondary',
 				'modal' => 'demo-modal',
 			),
 			array(

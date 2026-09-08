@@ -1,97 +1,84 @@
 <?php
 /**
- * YouTube videos section — carousel matching theTestRo reference.
+ * Product Demo — Framer split layout (copy + video placeholder).
  *
  * @package TestRo
  */
 
-$videos = testro_get_videos();
-$count  = count( $videos );
+$chapters = array(
+	array(
+		'time'  => '0:00',
+		'label' => __( 'Building a test in plain English', 'testro' ),
+	),
+	array(
+		'time'  => '1:12',
+		'label' => __( 'Running across three browsers in parallel', 'testro' ),
+	),
+	array(
+		'time'  => '2:40',
+		'label' => __( 'AI self-healing a broken locator, live', 'testro' ),
+	),
+	array(
+		'time'  => '3:55',
+		'label' => __( 'Reviewing results and root-cause triage', 'testro' ),
+	),
+);
+
+$videos   = function_exists( 'testro_get_videos' ) ? testro_get_videos() : array();
+$video_id = ! empty( $videos[0]['id'] ) ? (string) $videos[0]['id'] : '';
+$demo_url = $video_id
+	? 'https://www.youtube.com/watch?v=' . rawurlencode( $video_id )
+	: '#videos';
 ?>
-<div id="videos">
-	<section class="testro-videos" aria-labelledby="videos-heading" data-videos-section>
-		<div class="testro-container">
-			<header class="testro-videos__header">
-				<h4 id="videos-heading" class="gradient-text main-headings testro-videos__heading"><?php esc_html_e( 'Product Demo / Video', 'testro' ); ?></h4>
-				<p class="sub-text testro-videos__headline"><?php esc_html_e( 'See theTestRo in Action', 'testro' ); ?></p>
-				<p class="sub-text testro-videos__desc"><?php esc_html_e( 'Watch how fast test creation, AI healing, and reporting really work.', 'testro' ); ?></p>
-			</header>
+<section class="testro-demo" id="videos" aria-labelledby="videos-heading">
+	<div class="testro-container testro-demo__layout">
+		<div class="testro-demo__copy">
+			<p class="testro-section-eyebrow"><?php esc_html_e( 'PRODUCT DEMO', 'testro' ); ?></p>
+			<h2 id="videos-heading" class="main-headings testro-demo__title">
+				<?php esc_html_e( 'See theTestRo build, run, and heal a test — in real time.', 'testro' ); ?>
+			</h2>
+			<p class="sub-text testro-demo__desc">
+				<?php esc_html_e( 'A four-minute walkthrough of the full loop: writing a test in plain English, running it across browsers, and watching Intelligence repair a broken selector without anyone touching a line of code.', 'testro' ); ?>
+			</p>
 
-			<div class="testro-videos__carousel-wrap">
-				<div
-					class="testro-videos__carousel"
-					data-videos-carousel
-					role="region"
-					aria-roledescription="carousel"
-					aria-label="<?php esc_attr_e( 'theTestRo video demos', 'testro' ); ?>"
-				>
-					<div class="testro-videos__viewport" data-videos-viewport>
-						<ul class="testro-videos__track" data-videos-track>
-							<?php foreach ( $videos as $index => $video ) : ?>
-								<?php
-								$embed = add_query_arg(
-									array(
-										'rel'            => '0',
-										'modestbranding' => '1',
-										'playsinline'    => '1',
-									),
-									'https://www.youtube.com/embed/' . rawurlencode( $video['id'] )
-								);
-								$is_active = 0 === $index;
-								?>
-								<li
-									class="testro-videos__slide<?php echo $is_active ? ' is-active' : ''; ?>"
-									data-videos-slide
-									data-video-index="<?php echo esc_attr( (string) $index ); ?>"
-									role="group"
-									aria-roledescription="slide"
-									aria-label="<?php echo esc_attr( sprintf( /* translators: 1: slide number, 2: total */ __( 'Video %1$d of %2$d', 'testro' ), $index + 1, $count ) ); ?>"
-								>
-									<div class="testro-videos__card<?php echo $is_active ? ' is-active' : ''; ?>">
-										<div class="testro-videos__embed">
-											<iframe
-												src="<?php echo esc_url( $embed ); ?>"
-												title="<?php echo esc_attr( $video['title'] ); ?>"
-												loading="lazy"
-												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-												allowfullscreen
-												referrerpolicy="strict-origin-when-cross-origin"
-											></iframe>
-										</div>
-									</div>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
+			<ol class="testro-demo__chapters">
+				<?php foreach ( $chapters as $chapter ) : ?>
+					<li>
+						<span class="testro-demo__time"><?php echo esc_html( $chapter['time'] ); ?></span>
+						<span class="testro-demo__chapter"><?php echo esc_html( $chapter['label'] ); ?></span>
+					</li>
+				<?php endforeach; ?>
+			</ol>
 
-					<?php if ( $count > 1 ) : ?>
-						<div class="testro-videos__dots" data-videos-dots role="tablist" aria-label="<?php esc_attr_e( 'Video slides', 'testro' ); ?>">
-							<?php for ( $i = 0; $i < $count; $i++ ) : ?>
-								<button
-									type="button"
-									class="testro-videos__dot<?php echo 0 === $i ? ' is-active' : ''; ?>"
-									data-videos-dot
-									data-video-index="<?php echo esc_attr( (string) $i ); ?>"
-									aria-label="<?php echo esc_attr( sprintf( /* translators: %d: video number */ __( 'Go to video %d', 'testro' ), $i + 1 ) ); ?>"
-									aria-current="<?php echo 0 === $i ? 'true' : 'false'; ?>"
-								></button>
-							<?php endfor; ?>
-						</div>
-					<?php endif; ?>
+			<?php
+			get_template_part(
+				'template-parts/components/primary-button',
+				null,
+				array(
+					'label'      => __( 'Watch the Full Demo', 'testro' ),
+					'href'       => $demo_url,
+					'with_arrow' => false,
+					'attrs'      => array(
+						'class'  => 'testro-btn testro-btn--primary',
+						'target' => $video_id ? '_blank' : null,
+						'rel'    => $video_id ? 'noopener noreferrer' : null,
+					),
+				)
+			);
+			?>
+		</div>
+
+		<div class="testro-demo__visual">
+			<div class="testro-demo__player" role="img" aria-label="<?php esc_attr_e( 'Live product recording preview', 'testro' ); ?>">
+				<div class="testro-demo__chrome">
+					<span><?php esc_html_e( 'app.thetestro.com/demo', 'testro' ); ?></span>
+				</div>
+				<div class="testro-demo__screen">
+					<span class="testro-demo__rec-icon" aria-hidden="true"></span>
+					<p class="testro-demo__rec-label"><?php esc_html_e( 'LIVE PRODUCT RECORDING', 'testro' ); ?></p>
+					<span class="testro-demo__rec-time"><?php esc_html_e( '4:12', 'testro' ); ?></span>
 				</div>
 			</div>
-
-			<div class="testro-videos__cta">
-				<button
-					type="button"
-					class="testro-btn testro-btn--outline"
-					data-open-modal="demo-modal"
-					aria-haspopup="dialog"
-					aria-controls="demo-modal"
-				>
-					<span><?php esc_html_e( 'Watch the Full Demo', 'testro' ); ?></span>
-				</button>
-			</div>
 		</div>
-	</section>
-</div>
+	</div>
+</section>

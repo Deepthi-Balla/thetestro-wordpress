@@ -2,8 +2,11 @@
 /**
  * Product page multi-browser execution showcase.
  *
- * Expected $args: id, eyebrow, title, intro, items (array[] of name/status/
- * progress/tone), parallel (title/description/stat/stat_label).
+ * Variants:
+ * - default: progress mock cards + optional parallel aside (legacy)
+ * - browser-list: Framer Chrome Browser list (title — + text, no heavy cards)
+ * - validate-list: Framer Chrome Browser 6 stacked rows (h ~143)
+ * - rows: legacy bordered rows (kept for compatibility)
  *
  * @package TestRo
  */
@@ -13,15 +16,26 @@ $items    = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['items
 $parallel = isset( $args['parallel'] ) && is_array( $args['parallel'] ) ? $args['parallel'] : array();
 $features = isset( $args['features'] ) && is_array( $args['features'] ) ? $args['features'] : array();
 $id       = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
+$variant  = isset( $args['variant'] ) ? (string) $args['variant'] : 'default';
+$is_list  = in_array( $variant, array( 'rows', 'browser-list', 'validate-list' ), true );
+$is_validate = ( 'validate-list' === $variant );
+$is_browser  = ( 'browser-list' === $variant || 'rows' === $variant );
 
 if ( ! $items ) {
 	return;
 }
 
-$heading_id = $id ? $id . '-heading' : '';
+$heading_id    = $id ? $id . '-heading' : '';
+$section_class = 'testro-prod-section testro-prod-browsers';
+if ( $is_list ) {
+	$section_class .= ' testro-prod-browsers--list';
+	$section_class .= ' testro-prod-browsers--' . sanitize_html_class( $variant );
+} else {
+	$section_class .= ' testro-prod-section--spotlight';
+}
 ?>
 <section
-	class="testro-prod-section testro-prod-section--spotlight testro-prod-browsers"
+	class="<?php echo esc_attr( $section_class ); ?>"
 	<?php echo $id ? 'id="' . esc_attr( $id ) . '"' : ''; ?>
 	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
 >
@@ -37,10 +51,41 @@ $heading_id = $id ? $id . '-heading' : '';
 				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 				'heading_id'    => $heading_id,
 				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+				'align'         => isset( $args['align'] ) ? $args['align'] : ( $is_list ? 'start' : 'center' ),
 			)
 		);
 		?>
 
+		<?php if ( $is_list ) : ?>
+			<?php /* Framer Chrome Browser / Chrome Browser 6: pad 24, gap 16, border rgb(220,234,249), icon row + copy gap 12. */ ?>
+			<ul class="testro-prod-browsers__list<?php echo $is_validate ? ' testro-prod-browsers__list--validate' : ''; ?><?php echo $is_browser ? ' testro-prod-browsers__list--browsers' : ''; ?>">
+				<?php foreach ( $items as $index => $item ) : ?>
+					<?php
+					$row_title = '';
+					if ( ! empty( $item['title'] ) ) {
+						$row_title = (string) $item['title'];
+					} elseif ( ! empty( $item['name'] ) ) {
+						$row_title = (string) $item['name'];
+					}
+					?>
+					<li class="testro-prod-browsers__item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
+						<?php if ( ! empty( $item['icon'] ) ) : ?>
+							<span class="testro-prod-browsers__item-icon-row" aria-hidden="true">
+								<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+							</span>
+						<?php endif; ?>
+						<div class="testro-prod-browsers__item-copy">
+							<?php if ( '' !== $row_title ) : ?>
+								<strong class="testro-prod-browsers__item-title"><?php echo esc_html( $row_title ); ?><span aria-hidden="true"> —</span></strong>
+							<?php endif; ?>
+							<?php if ( ! empty( $item['description'] ) ) : ?>
+								<span class="testro-prod-browsers__item-desc"><?php echo esc_html( $item['description'] ); ?></span>
+							<?php endif; ?>
+						</div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php else : ?>
 		<div class="testro-prod-browsers__stage" data-reveal>
 			<span class="testro-prod-browsers__hub" aria-hidden="true">
 				<?php echo testro_icon( 'zap', array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -123,6 +168,7 @@ $heading_id = $id ? $id . '-heading' : '';
 					</p>
 				<?php endif; ?>
 			</aside>
+		<?php endif; ?>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>

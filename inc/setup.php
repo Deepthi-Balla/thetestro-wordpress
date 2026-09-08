@@ -67,6 +67,46 @@ add_action( 'after_setup_theme', 'testro_content_width', 0 );
 function testro_body_classes( $classes ) {
 	if ( function_exists( 'testro_is_product_page' ) && testro_is_product_page() ) {
 		$classes[] = 'testro-product-page';
+
+		if ( function_exists( 'testro_get_product_page' ) ) {
+			$product = testro_get_product_page();
+			if ( ! empty( $product['slug'] ) && 'ai-test-automation' === $product['slug'] ) {
+				$classes[] = 'testro-product-ai';
+			}
+			if ( ! empty( $product['slug'] ) && 'no-code-test-automation' === $product['slug'] ) {
+				$classes[] = 'testro-product-nocode';
+			}
+			if ( ! empty( $product['slug'] ) && 'automated-web-application-testing' === $product['slug'] ) {
+				$classes[] = 'testro-product-web';
+			}
+			if ( ! empty( $product['slug'] ) && 'automated-api-testing' === $product['slug'] ) {
+				$classes[] = 'testro-product-api';
+			}
+			if ( ! empty( $product['slug'] ) && 'automated-cross-browser-testing-tool' === $product['slug'] ) {
+				$classes[] = 'testro-product-xbrowser';
+			}
+			if ( ! empty( $product['slug'] ) && 'test-management-software' === $product['slug'] ) {
+				$classes[] = 'testro-product-tm';
+			}
+			if ( ! empty( $product['slug'] ) && 'self-healing-test-automation-tool' === $product['slug'] ) {
+				$classes[] = 'testro-product-heal';
+			}
+			if ( ! empty( $product['slug'] ) && 'test-development' === $product['slug'] ) {
+				$classes[] = 'testro-product-td';
+			}
+			if ( ! empty( $product['slug'] ) && 'test-execution' === $product['slug'] ) {
+				$classes[] = 'testro-product-te';
+			}
+			if ( ! empty( $product['slug'] ) && 'ci-cd-integration' === $product['slug'] ) {
+				$classes[] = 'testro-product-cicd';
+			}
+			if ( ! empty( $product['slug'] ) && 'playwright-test-automation' === $product['slug'] ) {
+				$classes[] = 'testro-product-pw';
+			}
+			if ( ! empty( $product['slug'] ) && 'reporting-analytics' === $product['slug'] ) {
+				$classes[] = 'testro-product-ra';
+			}
+		}
 	}
 
 	return $classes;

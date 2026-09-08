@@ -1,90 +1,92 @@
 <?php
 /**
- * Hero carousel section — single h1 on front page (first slide title).
+ * Hero / Platform Opening — Framer redesign.
+ * Single h1 on the front page; split copy + capability canvas.
  *
  * @package TestRo
  */
 
 $slides = testro_get_hero_slides();
-$count  = count( $slides );
+$slide  = isset( $slides[0] ) && is_array( $slides[0] ) ? $slides[0] : array();
+
+$title            = isset( $slide['title'] ) ? (string) $slide['title'] : __( 'Best Test Automation Platform for Modern Software Testing', 'testro' );
+$subtitle         = isset( $slide['subtitle'] ) ? (string) $slide['subtitle'] : '';
+$cta_primary      = isset( $slide['cta'] ) ? (string) $slide['cta'] : __( 'Start Testing', 'testro' );
+$cta_secondary    = isset( $slide['cta_secondary'] ) ? (string) $slide['cta_secondary'] : __( 'Get a Demo', 'testro' );
+$supporting_line  = isset( $slide['supporting_line'] ) ? (string) $slide['supporting_line'] : '';
+$canvas_badges    = isset( $slide['canvas_badges'] ) && is_array( $slide['canvas_badges'] )
+	? $slide['canvas_badges']
+	: array(
+		array( 'label' => __( 'AI Authoring', 'testro' ), 'tone' => 'light' ),
+		array( 'label' => __( 'Self-Healing', 'testro' ), 'tone' => 'dark' ),
+		array( 'label' => __( 'No-Code Tests', 'testro' ), 'tone' => 'light' ),
+		array( 'label' => __( 'CI/CD Ready', 'testro' ), 'tone' => 'dark' ),
+	);
 ?>
-<section class="testro-hero" aria-roledescription="carousel" aria-label="<?php esc_attr_e( 'Hero highlights', 'testro' ); ?>">
-	<div class="testro-hero__viewport" data-hero-viewport>
-		<div class="testro-hero__track" data-hero-track>
-		<?php foreach ( $slides as $index => $slide ) : ?>
-			<?php
-			$is_first      = ( 0 === $index );
-			$heading       = $is_first ? 'h1' : 'p';
-			$heading_class = $is_first ? 'testro-hero__title gradient-text' : 'testro-hero__title gradient-text testro-hero__title--plain';
-			$cta_primary   = isset( $slide['cta'] ) ? $slide['cta'] : __( 'Start Testing', 'testro' );
-			?>
-			<div
-				class="testro-hero__slide<?php echo $is_first ? ' is-active' : ''; ?>"
-				data-hero-slide="<?php echo esc_attr( (string) $index ); ?>"
-				role="group"
-				aria-roledescription="slide"
-				aria-label="<?php echo esc_attr( sprintf( /* translators: 1: current slide, 2: total */ __( 'Slide %1$d of %2$d', 'testro' ), $index + 1, $count ) ); ?>"
-				aria-hidden="<?php echo $is_first ? 'false' : 'true'; ?>"
-			>
-				<ul class="testro-hero__badges" aria-label="<?php esc_attr_e( 'Highlights', 'testro' ); ?>">
-					<?php foreach ( $slide['badges'] as $badge ) : ?>
-						<li class="testro-hero__badge"><?php echo esc_html( $badge ); ?></li>
+<section class="testro-hero" aria-labelledby="hero-heading">
+	<div class="testro-container testro-hero__layout">
+		<div class="testro-hero__copy">
+			<h1 id="hero-heading" class="testro-hero__title"><?php echo esc_html( $title ); ?></h1>
+
+			<?php if ( '' !== $subtitle ) : ?>
+				<p class="testro-hero__sub"><?php echo esc_html( $subtitle ); ?></p>
+			<?php endif; ?>
+
+			<div class="testro-hero__actions">
+				<?php
+				get_template_part(
+					'template-parts/components/primary-button',
+					null,
+					array(
+						'label'      => $cta_primary,
+						'href'       => '#final-cta',
+						'with_arrow' => false,
+						'attrs'      => array(
+							'class' => 'testro-btn testro-btn--primary',
+						),
+					)
+				);
+
+				get_template_part(
+					'template-parts/components/primary-button',
+					null,
+					array(
+						'label'      => $cta_secondary,
+						'with_arrow' => false,
+						'attrs'      => array(
+							'class'           => 'testro-btn testro-btn--secondary',
+							'data-open-modal' => 'demo-modal',
+							'aria-haspopup'   => 'dialog',
+							'aria-controls'   => 'demo-modal',
+						),
+					)
+				);
+				?>
+			</div>
+
+			<?php if ( '' !== $supporting_line ) : ?>
+				<p class="testro-hero__supporting testro-hero__supporting--pill"><?php echo esc_html( $supporting_line ); ?></p>
+			<?php endif; ?>
+		</div>
+
+		<div class="testro-hero__visual" aria-hidden="true">
+			<div class="testro-hero-canvas">
+				<div class="testro-hero-canvas__grid"></div>
+				<ul class="testro-hero-canvas__chips">
+					<?php foreach ( $canvas_badges as $badge ) : ?>
+						<?php
+						$label = isset( $badge['label'] ) ? (string) $badge['label'] : '';
+						$tone  = isset( $badge['tone'] ) ? (string) $badge['tone'] : 'light';
+						if ( '' === $label ) {
+							continue;
+						}
+						?>
+						<li class="testro-hero-canvas__chip testro-hero-canvas__chip--<?php echo esc_attr( $tone ); ?>">
+							<?php echo esc_html( $label ); ?>
+						</li>
 					<?php endforeach; ?>
 				</ul>
-
-				<p class="testro-hero__pill subtitle-pill"><?php echo esc_html( $slide['pill'] ); ?></p>
-
-				<<?php echo esc_html( $heading ); ?> class="<?php echo esc_attr( $heading_class ); ?>">
-					<?php echo esc_html( $slide['title'] ); ?>
-				</<?php echo esc_html( $heading ); ?>>
-
-				<p class="testro-hero__sub"><?php echo esc_html( $slide['subtitle'] ); ?></p>
-
-				<div class="testro-hero__actions">
-					<?php
-					get_template_part(
-						'template-parts/components/primary-button',
-						null,
-						array(
-							'label' => $cta_primary,
-							'href'  => '#final-cta',
-							'attrs' => array(
-								'class' => 'testro-btn testro-btn--primary',
-							),
-						)
-					);
-					?>
-				</div>
-
-				<?php if ( ! empty( $slide['supporting_line'] ) ) : ?>
-					<p class="testro-hero__supporting sub-text"><?php echo esc_html( $slide['supporting_line'] ); ?></p>
-				<?php endif; ?>
 			</div>
-		<?php endforeach; ?>
 		</div>
 	</div>
-
-	<?php if ( $count > 1 ) : ?>
-	<div class="testro-hero__indicators" data-hero-indicators role="group" aria-label="<?php esc_attr_e( 'Slide progress', 'testro' ); ?>">
-		<?php foreach ( $slides as $index => $slide ) : ?>
-			<button
-				type="button"
-				class="testro-hero__indicator is-pending"
-				data-hero-indicator="<?php echo esc_attr( (string) $index ); ?>"
-				aria-label="<?php echo esc_attr( sprintf( /* translators: %d: slide number */ __( 'Go to slide %d', 'testro' ), $index + 1 ) ); ?>"
-				aria-current="<?php echo 0 === $index ? 'true' : 'false'; ?>"
-			>
-				<span class="testro-hero__indicator-track" aria-hidden="true">
-					<svg class="testro-hero__indicator-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<circle cx="12" cy="12" r="10"></circle>
-					</svg>
-					<svg class="testro-hero__indicator-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<circle cx="12" cy="12" r="10"></circle>
-						<path d="m9 12 2 2 4-4"></path>
-					</svg>
-				</span>
-			</button>
-		<?php endforeach; ?>
-	</div>
-	<?php endif; ?>
 </section>

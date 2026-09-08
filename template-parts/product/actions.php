@@ -28,12 +28,17 @@ if ( ! $actions ) {
 			continue;
 		}
 
-		$style   = isset( $action['style'] ) && 'outline' === $action['style'] ? 'outline' : 'primary';
-		$modal   = isset( $action['modal'] ) ? (string) $action['modal'] : '';
-		$href    = isset( $action['href'] ) ? (string) $action['href'] : '';
-		$classes = 'primary' === $style
-			? 'testro-btn testro-btn--primary testro-prod-actions__btn'
-			: 'testro-btn testro-btn--outline testro-prod-actions__btn testro-prod-actions__btn--outline';
+		$style_raw = isset( $action['style'] ) ? (string) $action['style'] : 'primary';
+		$style     = in_array( $style_raw, array( 'outline', 'secondary' ), true ) ? $style_raw : 'primary';
+		$modal     = isset( $action['modal'] ) ? (string) $action['modal'] : '';
+		$href      = isset( $action['href'] ) ? (string) $action['href'] : '';
+		if ( 'primary' === $style ) {
+			$classes = 'testro-btn testro-btn--primary testro-prod-actions__btn';
+		} elseif ( 'secondary' === $style ) {
+			$classes = 'testro-btn testro-btn--secondary testro-prod-actions__btn testro-prod-actions__btn--secondary';
+		} else {
+			$classes = 'testro-btn testro-btn--outline testro-prod-actions__btn testro-prod-actions__btn--outline';
+		}
 
 		$attrs = array( 'class' => $classes );
 		if ( $modal ) {
@@ -46,13 +51,15 @@ if ( ! $actions ) {
 
 		<?php if ( 'primary' === $style ) : ?>
 			<?php
+			$with_arrow = array_key_exists( 'with_arrow', $action ) ? (bool) $action['with_arrow'] : true;
 			get_template_part(
 				'template-parts/components/primary-button',
 				null,
 				array(
-					'label' => $label,
-					'href'  => $modal ? '' : $href,
-					'attrs' => $attrs,
+					'label'      => $label,
+					'href'       => $modal ? '' : $href,
+					'attrs'      => $attrs,
+					'with_arrow' => $with_arrow,
 				)
 			);
 			?>

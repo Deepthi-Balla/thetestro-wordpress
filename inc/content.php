@@ -228,13 +228,31 @@ function testro_get_sitemap_images() {
 function testro_get_hero_slides() {
 	return array(
 		array(
-			'badges'          => array( 'Self-Healing', 'Schedule Tests', 'Data Driven', 'API Testing' ),
-			'pill'            => 'AI-Powered Test Automation',
+			'badges'          => array( 'AI Authoring', 'Self-Healing', 'No-Code Tests', 'CI/CD Ready' ),
+			'canvas_badges'   => array(
+				array(
+					'label' => 'AI Authoring',
+					'tone'  => 'light',
+				),
+				array(
+					'label' => 'Self-Healing',
+					'tone'  => 'dark',
+				),
+				array(
+					'label' => 'No-Code Tests',
+					'tone'  => 'light',
+				),
+				array(
+					'label' => 'CI/CD Ready',
+					'tone'  => 'dark',
+				),
+			),
+			'pill'            => 'AI-Powered Test Automation Platform',
 			'title'           => 'Best Test Automation Platform for Modern Software Testing',
-			'subtitle'        => 'theTestRo is a Best test automation platform. It helps teams test web, API, mobile, and cross-browser apps fast. Build, run, and scale your tests in one place. No slowdowns. No extra tools.',
+			'subtitle'        => 'theTestRo is the best test automation platform for teams testing web, API, mobile, and cross-browser apps — fast. Build, run, and scale your tests in one place. No slowdowns, no extra tools.',
 			'cta'             => 'Start Testing',
 			'cta_secondary'   => 'Get a Demo',
-			'supporting_line' => 'No credit card needed. Set up your first test in minutes.',
+			'supporting_line' => 'No credit card needed — set up your first test in minutes',
 		),
 	);
 }
@@ -570,36 +588,28 @@ function testro_get_feature_tabs() {
 function testro_get_how_it_works() {
 	return array(
 		array(
-			'step'        => 'Step 1',
-			'title'       => 'Record or Build',
+			'step'        => '01',
+			'title'       => 'Record or build',
 			'description' => 'Capture your workflow, or build a test with our no-code editor.',
-			'tx'          => '-16rem',
-			'ty'          => '2.5rem',
-			'rotate'      => '-6deg',
+			'tag'         => 'no code required',
 		),
 		array(
-			'step'        => 'Step 2',
+			'step'        => '02',
 			'title'       => 'Enhance with AI',
 			'description' => 'Let AI add checks, fixes, and edge cases.',
-			'tx'          => '-5rem',
-			'ty'          => '-1.5rem',
-			'rotate'      => '-3deg',
+			'tag'         => 'AI-assisted',
 		),
 		array(
-			'step'        => 'Step 3',
-			'title'       => 'Run at Scale',
+			'step'        => '03',
+			'title'       => 'Run at scale',
 			'description' => 'Test in parallel across browsers, devices, and environments.',
-			'tx'          => '5rem',
-			'ty'          => '-1.5rem',
-			'rotate'      => '3deg',
+			'tag'         => 'parallel execution',
 		),
 		array(
-			'step'        => 'Step 4',
-			'title'       => 'Analyze & Ship',
+			'step'        => '04',
+			'title'       => 'Analyze and ship',
 			'description' => 'Review results, fix bugs fast, and ship with confidence.',
-			'tx'          => '16rem',
-			'ty'          => '2.5rem',
-			'rotate'      => '6deg',
+			'tag'         => 'release-ready',
 		),
 	);
 }
@@ -1284,7 +1294,7 @@ function testro_get_faqs() {
 		),
 		array(
 			'question' => 'How is theTestRo different from other test automation platforms?',
-			'answer'   => 'theTestRo combines cross-browser testing, AI test creation, and no-code tools in one platform. No need to juggle Reflect, BrowserStack, and mabl separately.',
+			'answer'   => 'theTestRo combines cross-browser testing, AI test creation, and no-code tools in one platform. No need to juggle separate testing products.',
 		),
 		array(
 			'question' => 'Does theTestRo require coding skills?',
@@ -1312,13 +1322,26 @@ function testro_get_faqs() {
  */
 function testro_get_overview() {
 	return array(
-		'title'      => 'Product Overview',
-		'headline'   => 'One Platform. Every Test You Need.',
-		'paragraphs' => array(
-			'TheTestRo brings all your testing into one place. Web API. Mobile. Cross-browser. No more juggling five different tools.',
-			'Like to write code? Great, you can. Prefer no-code? That works too. theTestRo fits how your team already works.',
-			'Small QA team or large company — theTestRo scales with you. Run tests side by side. Link it to your CI/CD flow. See all your results in one place.',
-			'This is what a true enterprise test automation platform should feel like.',
+		'eyebrow'  => 'PRODUCT OVERVIEW',
+		'title'    => 'One Platform. Every Test You Need.',
+		'headline' => 'Everything a modern QA team needs, without the tool-juggling.',
+		'quote'    => 'This is what a true enterprise test automation platform should feel like.',
+		'cards'    => array(
+			array(
+				'title'       => 'All your testing, in one place',
+				'description' => 'theTestRo brings web, API, mobile, and cross-browser testing into one place. No more juggling five different tools.',
+				'variant'     => 'suites',
+			),
+			array(
+				'title'       => 'Code your way, or don’t',
+				'description' => 'Choose code, no-code, or the workflow that lets your team move fastest.',
+				'variant'     => 'code',
+			),
+			array(
+				'title'       => 'Built to scale with you',
+				'description' => 'Small QA team or large organization — connect directly into your CI/CD flow.',
+				'variant'     => 'scale',
+			),
 		),
 	);
 }
@@ -1382,24 +1405,11 @@ function testro_get_key_features() {
  */
 function testro_get_ai_capabilities() {
 	return array(
-		'title'  => 'AI Capabilities',
-		'intro'  => "theTestRo's AI does more than run scripts. It thinks ahead.",
-		'outro'  => 'This is what makes theTestRo a true AI test automation platform — not just automation with AI added on top.',
-		'steps'  => array(
-			array(
-				'icon'  => 'sparkles',
-				'label' => 'Observe product signals',
-			),
-			array(
-				'icon'  => 'wand',
-				'label' => 'Generate & adapt tests',
-			),
-			array(
-				'icon'  => 'activity',
-				'label' => 'Learn from every run',
-			),
-		),
-		'items'  => array(
+		'eyebrow' => 'AI CAPABILITIES',
+		'title'   => 'AI that works like a real tester.',
+		'intro'   => "theTestRo’s AI does more than run scripts. It thinks ahead.",
+		'outro'   => 'This is what makes theTestRo a true AI test automation platform — not just automation with AI added on top.',
+		'items'   => array(
 			array(
 				'icon'        => 'heart-pulse',
 				'title'       => 'Self-Healing Tests',
@@ -1419,11 +1429,6 @@ function testro_get_ai_capabilities() {
 				'icon'        => 'microscope',
 				'title'       => 'Visual AI Testing',
 				'description' => 'AI spots layout bugs and visual glitches fast.',
-			),
-			array(
-				'icon'        => 'filter-check',
-				'title'       => 'Failure Insights',
-				'description' => 'When a test fails, AI tells you why.',
 			),
 		),
 	);
@@ -1580,7 +1585,8 @@ function testro_get_resources() {
 
 	return array(
 		'title'    => 'Latest Blogs & Resources',
-		'headline' => 'Learn About AI-Driven Testing',
+		'headline' => 'Learn about AI-driven testing.',
+		'intro'    => 'Guides and practical playbooks for teams building a continuous testing strategy.',
 		'cta'      => array(
 			'label' => 'Visit the Blog',
 			'href'  => $blog_url,
@@ -1588,24 +1594,24 @@ function testro_get_resources() {
 		'items'    => array(
 			array(
 				'title'       => 'AI Test Automation: What It Means in 2026',
-				'description' => 'Explore how AI is reshaping test creation, maintenance, and release confidence.',
+				'description' => 'A practical look at how AI agents are reshaping coverage, maintenance, and release confidence.',
 				'href'        => $blog_url,
 				'icon'        => 'blog',
-				'meta'        => 'Read More',
+				'meta'        => 'AI Insights',
 			),
 			array(
 				'title'       => 'No-Code vs. Low-Code Testing: Which Fits Your Team?',
-				'description' => 'Compare approaches so you can pick the right balance of speed and control.',
+				'description' => 'Choose the right balance of speed, flexibility, and control for your quality practice.',
 				'href'        => $blog_url,
 				'icon'        => 'blocks',
-				'meta'        => 'Read More',
+				'meta'        => 'Testing Guide',
 			),
 			array(
 				'title'       => 'How to Build a Continuous Testing Strategy',
-				'description' => 'Learn how to embed testing into CI/CD and ship with fewer surprises.',
+				'description' => 'Connect testing to every deployment with a resilient, scalable delivery workflow.',
 				'href'        => $blog_url,
 				'icon'        => 'cicd',
-				'meta'        => 'Read More',
+				'meta'        => 'Strategy',
 			),
 		),
 	);

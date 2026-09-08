@@ -21,6 +21,8 @@ $modern    = isset( $args['modern'] ) && is_array( $args['modern'] ) ? $args['mo
 $text_only = ! empty( $args['text_only'] );
 $two_column = ! empty( $args['two_column'] );
 $first_label = isset( $args['first_label'] ) ? (string) $args['first_label'] : '';
+$layout    = isset( $args['layout'] ) ? (string) $args['layout'] : '';
+$is_framer_pair = ( 'framer-pair' === $layout );
 $id        = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 
 if ( ! $rows ) {
@@ -72,6 +74,14 @@ if ( $text_only ) {
 if ( $two_column ) {
 	$section_class .= ' testro-prod-compare--two';
 }
+if ( $is_framer_pair ) {
+	$section_class .= ' testro-prod-compare--framer-pair';
+}
+$variant = isset( $args['variant'] ) ? sanitize_html_class( (string) $args['variant'] ) : '';
+if ( $variant ) {
+	$section_class .= ' testro-prod-compare--' . $variant;
+}
+$is_tm_table = ( 'tm-gradient' === $variant );
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -90,10 +100,74 @@ if ( $two_column ) {
 				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 				'heading_id'    => $heading_id,
 				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+				'align'         => isset( $args['align'] ) ? $args['align'] : 'center',
 			)
 		);
 		?>
 
+		<?php if ( $is_tm_table ) : ?>
+			<?php
+			/*
+			 * Framer Tool Comparison (VOhTs9d1x): white 4-col text table on navy→cyan band.
+			 * Dedicated markup — do not reuse icon/mark comparison chrome.
+			 */
+			?>
+			<div class="testro-prod-compare__tm-table" data-reveal>
+				<table>
+					<thead>
+						<tr>
+							<th scope="col"><?php echo esc_html( '' !== $first_label ? $first_label : __( 'Category', 'testro' ) ); ?></th>
+							<th scope="col"><?php echo esc_html( $legacy_label ); ?></th>
+							<?php if ( $has_middle ) : ?>
+								<th scope="col"><?php echo esc_html( $middle_label ); ?></th>
+							<?php endif; ?>
+							<th scope="col" class="testro-prod-compare__tm-modern"><?php echo esc_html( $modern_label ); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ( $rows as $row ) : ?>
+							<tr>
+								<th scope="row"><?php echo esc_html( isset( $row['aspect'] ) ? $row['aspect'] : '' ); ?></th>
+								<td><?php echo esc_html( isset( $row['legacy'] ) ? $row['legacy'] : '' ); ?></td>
+								<?php if ( $has_middle ) : ?>
+									<td><?php echo esc_html( isset( $row['middle'] ) ? $row['middle'] : '' ); ?></td>
+								<?php endif; ?>
+								<td class="testro-prod-compare__tm-modern"><?php echo esc_html( isset( $row['modern'] ) ? $row['modern'] : '' ); ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+		<?php elseif ( $is_framer_pair ) : ?>
+			<div class="testro-prod-compare__pair" data-reveal>
+				<div class="testro-prod-compare__pair-head">
+					<div class="testro-prod-compare__pair-head-legacy">
+						<span><?php echo esc_html( $legacy_label ); ?></span>
+					</div>
+					<div class="testro-prod-compare__pair-head-modern">
+						<span><?php echo esc_html( $modern_label ); ?></span>
+					</div>
+				</div>
+				<ul class="testro-prod-compare__pair-rows">
+					<?php foreach ( $rows as $index => $row ) : ?>
+						<li class="testro-prod-compare__pair-row">
+							<div class="testro-prod-compare__pair-cell testro-prod-compare__pair-cell--legacy">
+								<span class="testro-prod-compare__pair-icon" aria-hidden="true">
+									<?php echo testro_icon( 'close', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+								</span>
+								<span class="testro-prod-compare__pair-text"><?php echo esc_html( isset( $row['legacy'] ) ? $row['legacy'] : '' ); ?></span>
+							</div>
+							<div class="testro-prod-compare__pair-cell testro-prod-compare__pair-cell--modern">
+								<span class="testro-prod-compare__pair-icon" aria-hidden="true">
+									<?php echo testro_icon( 'check', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+								</span>
+								<span class="testro-prod-compare__pair-text"><?php echo esc_html( isset( $row['modern'] ) ? $row['modern'] : '' ); ?></span>
+							</div>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		<?php else : ?>
 		<div class="testro-prod-compare__table" data-reveal>
 			<div class="testro-prod-compare__head" aria-hidden="true">
 				<div class="testro-prod-compare__head-spacer">
@@ -194,6 +268,8 @@ if ( $two_column ) {
 				<?php endforeach; ?>
 			</ul>
 		</div>
+
+		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>
 			<p class="testro-prod-head__intro testro-prod-compare__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>

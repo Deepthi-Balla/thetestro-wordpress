@@ -7,7 +7,7 @@
 
 $banner_text = testro_get_option(
 	'banner_text',
-	"Boost Testing Efficiency with theTestRo's Smart Automation"
+	"Boost testing efficiency with Testro's smart automation"
 );
 ?>
 <div class="testro-top-banner" role="region" aria-label="<?php esc_attr_e( 'Promotional banner', 'testro' ); ?>">
@@ -21,7 +21,7 @@ $banner_text = testro_get_option(
 					data-open-modal="demo-modal"
 					aria-haspopup="dialog"
 					aria-controls="demo-modal"
-				><?php esc_html_e( 'GET DEMO NOW', 'testro' ); ?></button>
+				><?php esc_html_e( 'Get a demo →', 'testro' ); ?></button>
 			</p>
 		</div>
 	</div>

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'TESTRO_VERSION', '1.2.5' );
+define( 'TESTRO_VERSION', '1.4.14' );
 define( 'TESTRO_DIR', get_template_directory() );
 define( 'TESTRO_URI', get_template_directory_uri() );
 
