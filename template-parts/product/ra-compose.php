@@ -38,6 +38,16 @@ if ( ! empty( $args['bordered'] ) ) {
 if ( ! empty( $args['hide_icons'] ) ) {
 	$section_class .= ' testro-prod-ra--no-icons';
 }
+if ( ! empty( $args['white'] ) ) {
+	$section_class .= ' testro-prod-ra--white';
+}
+if ( ! empty( $args['soft'] ) ) {
+	/* Framer Border Soft fill #EAF3FC */
+	$section_class .= ' testro-prod-ra--soft';
+}
+if ( ! empty( $args['item_checks'] ) ) {
+	$section_class .= ' testro-prod-ra--split-checks';
+}
 $step_marker = isset( $args['step_marker'] ) ? sanitize_html_class( (string) $args['step_marker'] ) : 'cyan';
 if ( 'navy' === $step_marker ) {
 	$section_class .= ' testro-prod-ra--steps-navy';
@@ -107,9 +117,12 @@ $is_brand   = ! empty( $args['brand'] );
 				array(
 					'title'         => isset( $args['title'] ) ? $args['title'] : '',
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'emphasis'      => isset( $args['emphasis'] ) ? $args['emphasis'] : '',
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 					'heading_id'    => $heading_id,
 					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 					'align'         => 'start',
+					'tone'          => $is_brand ? 'dark' : 'light',
 				)
 			);
 			?>
@@ -131,39 +144,66 @@ $is_brand   = ! empty( $args['brand'] );
 
 		<?php elseif ( 'feature-split' === $variant ) : ?>
 			<?php
-			get_template_part(
-				'template-parts/product/section-header',
-				null,
-				array(
-					'title'         => isset( $args['title'] ) ? $args['title'] : '',
-					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
-					'heading_id'    => $heading_id,
-					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
-					'align'         => 'start',
-					'tone'          => $is_brand ? 'dark' : 'light',
-				)
+			$media_side     = isset( $args['media_side'] ) && 'left' === $args['media_side'] ? 'left' : 'right';
+			$hide_media     = ! empty( $args['hide_media'] );
+			$item_checks    = ! empty( $args['item_checks'] );
+			$header_in_rail = ! empty( $args['header_in_rail'] );
+			$header_args    = array(
+				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+				'title'         => isset( $args['title'] ) ? $args['title'] : '',
+				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'emphasis'      => isset( $args['emphasis'] ) ? $args['emphasis'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'heading_id'    => $heading_id,
+				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+				'align'         => 'start',
+				'tone'          => $is_brand ? 'dark' : 'light',
 			);
+			if ( ! $header_in_rail ) {
+				get_template_part( 'template-parts/product/section-header', null, $header_args );
+			}
 			?>
-			<div class="testro-prod-ra__split" data-reveal>
-				<ul class="testro-prod-ra__split-list">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-ra__split-item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
-							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-							<<?php echo $item_tag; ?> class="testro-prod-ra__split-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-							<?php if ( ! empty( $item['description'] ) ) : ?>
-								<p class="testro-prod-ra__split-desc"><?php echo esc_html( $item['description'] ); ?></p>
-							<?php endif; ?>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+			<div class="testro-prod-ra__split testro-prod-ra__split--media-<?php echo esc_attr( $media_side ); ?><?php echo $hide_media ? ' testro-prod-ra__split--no-media' : ''; ?><?php echo $header_in_rail ? ' testro-prod-ra__split--rail-header' : ''; ?>" data-reveal>
+				<div class="testro-prod-ra__split-rail">
+					<?php if ( $header_in_rail ) : ?>
+						<?php get_template_part( 'template-parts/product/section-header', null, $header_args ); ?>
+					<?php endif; ?>
+					<?php if ( ! empty( $args['list_label'] ) ) : ?>
+						<p class="testro-prod-ra__split-label"><?php echo esc_html( (string) $args['list_label'] ); ?></p>
+					<?php endif; ?>
+					<ul class="testro-prod-ra__split-list">
+						<?php foreach ( $items as $index => $item ) : ?>
+							<?php
+							$item_title = isset( $item['title'] ) ? (string) $item['title'] : '';
+							$item_desc  = isset( $item['description'] ) ? (string) $item['description'] : '';
+							?>
+							<li class="testro-prod-ra__split-item<?php echo ( '' === $item_title && '' !== $item_desc ) ? ' testro-prod-ra__split-item--desc-only' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
+								<?php if ( $item_checks ) : ?>
+									<span class="testro-prod-ra__split-check" aria-hidden="true"></span>
+								<?php endif; ?>
+								<div class="testro-prod-ra__split-copy">
+									<?php if ( '' !== $item_title ) : ?>
+										<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+										<<?php echo $item_tag; ?> class="testro-prod-ra__split-title"><?php echo esc_html( $item_title ); ?></<?php echo $item_tag; ?>>
+									<?php endif; ?>
+									<?php if ( '' !== $item_desc ) : ?>
+										<p class="testro-prod-ra__split-desc"><?php echo esc_html( $item_desc ); ?></p>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+				<?php if ( ! $hide_media ) : ?>
 				<div class="testro-prod-ra__split-media" aria-hidden="true">
 					<span class="testro-prod-ra__media-frame">
 						<span class="testro-prod-ra__media-stripes"></span>
 					</span>
 				</div>
+				<?php endif; ?>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-ra__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-ra__outro<?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-ra__outro--end' : ''; ?><?php echo ! empty( $args['outro_italic'] ) ? ' testro-prod-ra__outro--italic' : ''; ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'overview' === $variant ) : ?>

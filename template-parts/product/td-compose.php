@@ -79,16 +79,30 @@ $bubbles    = isset( $args['bubbles'] ) && is_array( $args['bubbles'] ) ? $args[
 
 		<?php elseif ( 'nl-split' === $variant ) : ?>
 			<?php /* Framer Natural Language — chat demo | copy, tint #F1F8FD, gap 96. */ ?>
+			<?php
+			$has_bubbles = false;
+			foreach ( $bubbles as $bubble_check ) {
+				if ( ! empty( $bubble_check['text'] ) ) {
+					$has_bubbles = true;
+					break;
+				}
+			}
+			$demo_class = 'testro-prod-td__nl-demo' . ( $has_bubbles ? '' : ' testro-prod-td__nl-demo--panel' );
+			?>
 			<div class="testro-prod-td__nl testro-prod-td__nl--media-<?php echo esc_attr( $media_side ); ?>" data-reveal>
-				<div class="testro-prod-td__nl-demo" aria-hidden="true">
-					<?php foreach ( $bubbles as $bubble ) : ?>
-						<?php
-						$tone_bubble = isset( $bubble['tone'] ) && 'user' === $bubble['tone'] ? 'user' : 'system';
-						?>
-						<span class="testro-prod-td__nl-bubble testro-prod-td__nl-bubble--<?php echo esc_attr( $tone_bubble ); ?>">
-							<?php echo esc_html( isset( $bubble['text'] ) ? (string) $bubble['text'] : '' ); ?>
-						</span>
-					<?php endforeach; ?>
+				<div class="<?php echo esc_attr( $demo_class ); ?>" aria-hidden="true">
+					<?php if ( $has_bubbles ) : ?>
+						<?php foreach ( $bubbles as $bubble ) : ?>
+							<?php
+							$tone_bubble = isset( $bubble['tone'] ) && 'user' === $bubble['tone'] ? 'user' : 'system';
+							?>
+							<span class="testro-prod-td__nl-bubble testro-prod-td__nl-bubble--<?php echo esc_attr( $tone_bubble ); ?>">
+								<?php echo esc_html( isset( $bubble['text'] ) ? (string) $bubble['text'] : '' ); ?>
+							</span>
+						<?php endforeach; ?>
+					<?php else : ?>
+						<span class="testro-prod-td__nl-panel-stripes"></span>
+					<?php endif; ?>
 				</div>
 				<div class="testro-prod-td__nl-copy">
 					<?php

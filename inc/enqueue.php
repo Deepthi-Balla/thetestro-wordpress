@@ -30,6 +30,28 @@ function testro_asset_file_uri( $relative ) {
 }
 
 /**
+ * Cache-busting version for a theme asset (filemtime when available).
+ *
+ * @param string $relative Path under assets/, e.g. css/main.css.
+ * @return string
+ */
+function testro_asset_version( $relative ) {
+	$relative = ltrim( $relative, '/' );
+	$use_min  = ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG );
+	$path     = TESTRO_DIR . '/assets/' . $relative;
+
+	if ( $use_min && preg_match( '/\.(css|js)$/i', $relative ) ) {
+		$min = preg_replace( '/\.(css|js)$/i', '.min.$1', $relative );
+		if ( is_readable( TESTRO_DIR . '/assets/' . $min ) ) {
+			$path = TESTRO_DIR . '/assets/' . $min;
+		}
+	}
+
+	$mtime = is_readable( $path ) ? (string) filemtime( $path ) : '';
+	return $mtime ? TESTRO_VERSION . '.' . $mtime : TESTRO_VERSION;
+}
+
+/**
  * Thank-you URL for a form type (contact|demo|newsletter).
  *
  * @param string $type Form type.
@@ -77,7 +99,7 @@ function testro_enqueue_assets() {
 		'testro-main',
 		testro_asset_file_uri( 'css/main.css' ),
 		array( 'testro-fonts' ),
-		TESTRO_VERSION
+		testro_asset_version( 'css/main.css' )
 	);
 
 	wp_enqueue_script(
@@ -95,7 +117,7 @@ function testro_enqueue_assets() {
 		'testro-main',
 		testro_asset_file_uri( 'js/main.js' ),
 		array(),
-		TESTRO_VERSION,
+		testro_asset_version( 'js/main.js' ),
 		array(
 			'strategy'  => 'defer',
 			'in_footer' => true,

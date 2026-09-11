@@ -19,8 +19,6 @@ node_modules/
 dist/
 build/
 
-# Framer agent temp (local only)
-.tmp-framer/
-.tmp-framer-config/
-.tmp-framer-shots/
-.tmp-framer-state/
+# Framer agent temp / local session artifacts (do not commit)
+.tmp*
+.framer-home/

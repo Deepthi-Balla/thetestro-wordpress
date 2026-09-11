@@ -61,7 +61,7 @@ if ( 'dark' !== $tone ) {
 	<?php endif; ?>
 
 	<?php if ( '' !== $intro_extra ) : ?>
-		<p class="testro-prod-head__intro"><?php echo esc_html( $intro_extra ); ?></p>
+		<p class="testro-prod-head__intro testro-prod-head__intro-extra"><?php echo esc_html( $intro_extra ); ?></p>
 	<?php endif; ?>
 
 	<?php if ( '' !== $intro_body ) : ?>

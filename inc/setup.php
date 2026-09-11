@@ -106,6 +106,116 @@ function testro_body_classes( $classes ) {
 			if ( ! empty( $product['slug'] ) && 'reporting-analytics' === $product['slug'] ) {
 				$classes[] = 'testro-product-ra';
 			}
+			if ( ! empty( $product['slug'] ) && 'banking-finance' === $product['slug'] ) {
+				$classes[] = 'testro-product-bf';
+			}
+			if ( ! empty( $product['slug'] ) && 'retail-ecommerce' === $product['slug'] ) {
+				$classes[] = 'testro-product-re';
+			}
+			if ( ! empty( $product['slug'] ) && 'healthcare' === $product['slug'] ) {
+				/* Healthcare reuses BF + RE compose chrome (Framer /solutions/healthcare). */
+				$classes[] = 'testro-product-hc';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+			}
+			if ( ! empty( $product['slug'] ) && 'travel-and-hospitality' === $product['slug'] ) {
+				/* Travel reuses BF/RE/TE/TD compose chrome (Framer /solutions/travel-hospitality). */
+				$classes[] = 'testro-product-th';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-te';
+				$classes[] = 'testro-product-td';
+			}
+			if ( ! empty( $product['slug'] ) && 'insurance' === $product['slug'] ) {
+				/* Insurance reuses BF + RE compose chrome (Framer /solutions/insurance). */
+				$classes[] = 'testro-product-ins';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+			}
+			if ( ! empty( $product['slug'] ) && 'regression-test-automation' === $product['slug'] ) {
+				/* Regression Testing reuses BF + RE compose chrome (Framer /use-cases/regression-testing). */
+				$classes[] = 'testro-product-rt';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+			}
+			if ( ! empty( $product['slug'] ) && 'ai-automated-sanity-testing' === $product['slug'] ) {
+				/* Sanity Testing reuses BF + RE + heal DevOps Flow (Framer /use-cases/sanity-testing). */
+				$classes[] = 'testro-product-st';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-heal';
+			}
+			if ( ! empty( $product['slug'] ) && 'ai-powered-integration-testing' === $product['slug'] ) {
+				/* Integration Testing reuses BF + RE + RA compose chrome (Framer /use-cases/integration-testing). */
+				$classes[] = 'testro-product-it';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
+			if ( ! empty( $product['slug'] ) && 'automated-functional-testing' === $product['slug'] ) {
+				/* Functional Testing reuses BF + RE + RA + TD compose chrome (Framer /use-cases/functional-testing). */
+				$classes[] = 'testro-product-ft';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+				$classes[] = 'testro-product-td';
+			}
+			if ( ! empty( $product['slug'] ) && 'end-to-end-testing' === $product['slug'] ) {
+				/* End-to-End Testing reuses BF + RE + RA compose chrome (Framer /use-cases/end-to-end-testing). */
+				$classes[] = 'testro-product-e2e';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
+			if ( ! empty( $product['slug'] ) && 'use-cases' === $product['slug'] ) {
+				/* See All Use Cases — Framer /use-cases/see-all---use-cases (rbPcCDcnW / r4F7rpthx). */
+				$classes[] = 'testro-product-uc';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
+			if ( ! empty( $product['slug'] ) && 'microsoft-dynamics-365-test-automation' === $product['slug'] ) {
+				/* Dynamics 365 — Framer Qc7jNmQghS7yjIB35091 /erp-applications/microsoft-dynamics-365 (E2GgrYpBR). */
+				$classes[] = 'testro-product-dyn';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
+			if ( ! empty( $product['slug'] ) && 'salesforce-test-automation' === $product['slug'] ) {
+				/* Salesforce Testing — Framer Qc7jNmQghS7yjIB35091 /erp-applications/salesforce-testing (cnSLMHQjc). */
+				$classes[] = 'testro-product-sf';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
+			if ( ! empty( $product['slug'] ) && 'oracle-testing' === $product['slug'] ) {
+				/* Oracle Testing — Framer Qc7jNmQghS7yjIB35091 /erp-applications/oracle-testing (eEA2Ns8Gi). */
+				$classes[] = 'testro-product-or';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
+			if ( ! empty( $product['slug'] ) && 'sap-testing' === $product['slug'] ) {
+				/* SAP Testing — Framer Qc7jNmQghS7yjIB35091 /erp-applications/sap-testing (ZCh9RtvWP). */
+				$classes[] = 'testro-product-sap';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
+			if ( ! empty( $product['slug'] ) && 'workday-testing' === $product['slug'] ) {
+				/* Workday Testing — Framer Qc7jNmQghS7yjIB35091 /erp-applications/workday-testing (wuJXMpcPy). */
+				$classes[] = 'testro-product-wd';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
+			if ( ! empty( $product['slug'] ) && 'servicenow-testing' === $product['slug'] ) {
+				/* ServiceNow Testing — Framer Qc7jNmQghS7yjIB35091 /erp-applications/servicenow-testing (yGOlup6NZ). */
+				$classes[] = 'testro-product-sn';
+				$classes[] = 'testro-product-bf';
+				$classes[] = 'testro-product-re';
+				$classes[] = 'testro-product-ra';
+			}
 		}
 	}
 
