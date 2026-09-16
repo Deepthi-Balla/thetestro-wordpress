@@ -23,7 +23,7 @@ $plans = testro_get_pricing_plans();
 					</button>
 					<button type="button" class="testro-pricing__period default-tab" data-billing="yearly" aria-pressed="false">
 						<?php esc_html_e( 'Yearly', 'testro' ); ?>
-						<span class="testro-pricing__save"><?php esc_html_e( 'Save 20%', 'testro' ); ?></span>
+						<span class="testro-pricing__save"><?php esc_html_e( 'Save up to 25%', 'testro' ); ?></span>
 					</button>
 				</div>
 			</header>
@@ -79,7 +79,7 @@ $plans = testro_get_pricing_plans();
 										<h3 class="testro-pricing__name"><?php echo esc_html( $plan['name'] ); ?></h3>
 										<?php if ( $has_paid_price ) : ?>
 											<span class="testro-pricing__save-pill">
-												<?php esc_html_e( 'Save 20%', 'testro' ); ?>
+												<?php esc_html_e( 'Save up to 25%', 'testro' ); ?>
 											</span>
 										<?php endif; ?>
 									</div>
@@ -101,6 +101,9 @@ $plans = testro_get_pricing_plans();
 													data-price-yearly="<?php echo esc_attr( (string) $yearly ); ?>"
 												>$<?php echo esc_html( (string) $monthly ); ?></span>
 												<span class="testro-pricing__per"><?php esc_html_e( '/month', 'testro' ); ?></span>
+												<?php if ( $has_paid_price ) : ?>
+													<span class="testro-pricing__exclusive"><?php esc_html_e( '(*Exclusive of infra cost)', 'testro' ); ?></span>
+												<?php endif; ?>
 											</div>
 											<?php if ( $has_paid_price ) : ?>
 												<div class="testro-pricing__price testro-pricing__price--yearly">
@@ -108,6 +111,7 @@ $plans = testro_get_pricing_plans();
 													<div class="testro-pricing__price-row">
 														<span class="testro-pricing__amount">$<?php echo esc_html( (string) $yearly ); ?></span>
 														<span class="testro-pricing__per"><?php esc_html_e( '/month', 'testro' ); ?></span>
+														<span class="testro-pricing__exclusive"><?php esc_html_e( '(*Exclusive of infra cost)', 'testro' ); ?></span>
 													</div>
 												</div>
 											<?php endif; ?>

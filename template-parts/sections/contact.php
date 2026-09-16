@@ -3,7 +3,8 @@
  * Contact / Talk to Us form section.
  *
  * Optional $args:
- * - layout          (string)  'default' (centered) | 'split' (two-column intro + form).
+ * - layout          (string)  'default' (centered) | 'split' (two-column intro + form) |
+ *                             'brief' (Framer Contact Us: title+desc left, form right).
  * - title           (string)  Section heading.
  * - supporting      (string)  Supporting heading under the H2.
  * - description     (string)  Supporting copy.
@@ -19,7 +20,8 @@
  */
 
 $args           = isset( $args ) && is_array( $args ) ? $args : array();
-$layout         = isset( $args['layout'] ) && 'split' === $args['layout'] ? 'split' : 'default';
+$layout_raw     = isset( $args['layout'] ) ? (string) $args['layout'] : 'default';
+$layout         = in_array( $layout_raw, array( 'split', 'brief' ), true ) ? $layout_raw : 'default';
 $title          = isset( $args['title'] ) ? (string) $args['title'] : __( "Talk to Us — We're Ready", 'testro' );
 $supporting     = isset( $args['supporting'] ) ? (string) $args['supporting'] : '';
 $description    = isset( $args['description'] ) ? (string) $args['description'] : __( "Tell us what you need and we'll show you how we can help. Start the conversation today.", 'testro' );
@@ -31,7 +33,8 @@ $section_id     = isset( $args['section_id'] ) ? sanitize_title( $args['section_
 $show_highlights = array_key_exists( 'show_highlights', $args ) ? (bool) $args['show_highlights'] : true;
 $show_consent   = ! empty( $args['show_consent'] );
 $show_eyebrow   = array_key_exists( 'show_eyebrow', $args ) ? (bool) $args['show_eyebrow'] : true;
-$is_split       = 'split' === $layout;
+$is_split       = in_array( $layout, array( 'split', 'brief' ), true );
+$is_brief       = 'brief' === $layout;
 
 $inquiry_types = array(
 	''             => __( 'Select an inquiry type', 'testro' ),
@@ -46,12 +49,34 @@ $privacy_url = function_exists( 'testro_get_page_url' )
 	? testro_get_page_url( 'privacy-notice' )
 	: home_url( '/privacy-notice/' );
 
-$section_class = 'testro-contact' . ( $is_split ? ' testro-contact--split' : '' );
+$section_class = 'testro-contact';
+if ( $is_split ) {
+	$section_class .= ' testro-contact--split';
+}
+if ( $is_brief ) {
+	$section_class .= ' testro-contact--brief';
+}
 ?>
 <div id="<?php echo esc_attr( $section_id ); ?>">
 	<section class="<?php echo esc_attr( $section_class ); ?>" aria-labelledby="contact-heading">
-		<div class="testro-contact__inner<?php echo $is_split ? ' testro-contact__inner--split' : ''; ?>">
-			<?php if ( $is_split ) : ?>
+		<div class="testro-contact__inner<?php echo $is_split ? ' testro-contact__inner--split' : ''; ?><?php echo $is_brief ? ' testro-contact__inner--brief' : ''; ?>">
+			<?php if ( $is_brief ) : ?>
+				<?php /* Framer HUsfsRFdk: left brief (title + intro) · right form. */ ?>
+				<div class="testro-contact__intro" data-reveal>
+					<header class="testro-contact__header">
+						<?php if ( $show_eyebrow ) : ?>
+							<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Contact Us', 'testro' ); ?></p>
+						<?php endif; ?>
+						<h2 id="contact-heading" class="testro-contact__heading"><?php echo esc_html( $title ); ?></h2>
+						<?php if ( '' !== $supporting ) : ?>
+							<p class="testro-contact__supporting"><?php echo esc_html( $supporting ); ?></p>
+						<?php endif; ?>
+					</header>
+					<?php if ( '' !== $description ) : ?>
+						<p class="testro-contact__desc"><?php echo esc_html( $description ); ?></p>
+					<?php endif; ?>
+				</div>
+			<?php elseif ( $is_split ) : ?>
 				<header class="testro-contact__header" data-reveal>
 					<?php if ( $show_eyebrow ) : ?>
 						<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Contact Us', 'testro' ); ?></p>

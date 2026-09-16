@@ -55,7 +55,7 @@ $demo_url = $video_id
 				'template-parts/components/primary-button',
 				null,
 				array(
-					'label'      => __( 'Watch the Full Demo', 'testro' ),
+					'label'      => __( 'Watch Full Demo', 'testro' ),
 					'href'       => $demo_url,
 					'with_arrow' => false,
 					'attrs'      => array(

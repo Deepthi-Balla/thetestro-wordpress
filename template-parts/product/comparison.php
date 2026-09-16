@@ -81,7 +81,7 @@ $variant = isset( $args['variant'] ) ? sanitize_html_class( (string) $args['vari
 if ( $variant ) {
 	$section_class .= ' testro-prod-compare--' . $variant;
 }
-$is_tm_table = ( 'tm-gradient' === $variant );
+$is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true );
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"

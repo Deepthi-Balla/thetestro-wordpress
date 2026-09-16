@@ -29,7 +29,9 @@ if ( ! $faqs ) {
 			<p class="testro-section-eyebrow"><?php esc_html_e( 'FAQ', 'testro' ); ?></p>
 			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
 			<<?php echo $heading_tag; ?> id="faq-heading" class="main-headings"><?php echo esc_html( $title ); ?></<?php echo $heading_tag; ?>>
-			<p class="sub-text"><?php echo esc_html( $intro ); ?></p>
+			<?php if ( '' !== $intro ) : ?>
+				<p class="sub-text"><?php echo esc_html( $intro ); ?></p>
+			<?php endif; ?>
 		</header>
 
 		<div class="testro-faq__list" data-faq-accordion>

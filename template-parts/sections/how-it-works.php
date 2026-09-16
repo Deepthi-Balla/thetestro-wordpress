@@ -1,6 +1,6 @@
 <?php
 /**
- * How it works — Framer four-step flow.
+ * How it works — Framer VEyT2cC7G (4-col grid · 226×2 gradient connectors at number row).
  *
  * @package TestRo
  */
@@ -17,18 +17,26 @@ $count = count( $steps );
 				<p class="sub-text testro-how__headline"><?php esc_html_e( 'Anyone can automate. Record, play, automate — one connected workflow, no separate tools to stitch together.', 'testro' ); ?></p>
 			</header>
 
-			<ol class="testro-how__flow" style="--how-count: <?php echo esc_attr( (string) max( 1, $count ) ); ?>">
-				<?php foreach ( $steps as $index => $step ) : ?>
-					<li class="testro-how__flow-item">
-						<span class="testro-how__flow-num" aria-hidden="true"><?php echo esc_html( isset( $step['step'] ) ? $step['step'] : sprintf( '%02d', $index + 1 ) ); ?></span>
-						<h3 class="testro-how__flow-title"><?php echo esc_html( $step['title'] ); ?></h3>
-						<p class="testro-how__flow-desc"><?php echo esc_html( $step['description'] ); ?></p>
-						<?php if ( ! empty( $step['tag'] ) ) : ?>
-							<p class="testro-how__flow-tag"><?php echo esc_html( $step['tag'] ); ?></p>
-						<?php endif; ?>
-					</li>
-				<?php endforeach; ?>
-			</ol>
+			<div class="testro-how__flow-wrap">
+				<span class="testro-how__line testro-how__line--1" aria-hidden="true"></span>
+				<span class="testro-how__line testro-how__line--2" aria-hidden="true"></span>
+				<span class="testro-how__line testro-how__line--3" aria-hidden="true"></span>
+
+				<ol class="testro-how__flow" style="--how-count: <?php echo esc_attr( (string) max( 1, $count ) ); ?>">
+					<?php foreach ( $steps as $index => $step ) : ?>
+						<li class="testro-how__flow-item">
+							<span class="testro-how__flow-num" aria-hidden="true"><?php echo esc_html( isset( $step['step'] ) ? $step['step'] : sprintf( '%02d', $index + 1 ) ); ?></span>
+							<div class="testro-how__flow-body">
+								<h3 class="testro-how__flow-title"><?php echo esc_html( $step['title'] ); ?></h3>
+								<p class="testro-how__flow-desc"><?php echo esc_html( $step['description'] ); ?></p>
+								<?php if ( ! empty( $step['tag'] ) ) : ?>
+									<p class="testro-how__flow-tag"><?php echo esc_html( $step['tag'] ); ?></p>
+								<?php endif; ?>
+							</div>
+						</li>
+					<?php endforeach; ?>
+				</ol>
+			</div>
 		</div>
 	</section>
 </div>

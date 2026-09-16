@@ -69,11 +69,32 @@ $item_heading_tag   = 'h' . $item_heading_level;
 					<?php foreach ( $items as $index => $item ) : ?>
 						<li class="testro-prod-outcomes__journey-item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
 							<?php if ( ! empty( $item['steps'] ) && is_array( $item['steps'] ) ) : ?>
+								<?php /* Framer Four Point User Flow: 26px points + 32×2 Flow Links; Point Labels empty. */ ?>
 								<span class="testro-prod-outcomes__journey-steps" aria-hidden="true">
-									<?php foreach ( $item['steps'] as $step_i => $step ) : ?>
-										<span class="testro-prod-outcomes__journey-step<?php echo 0 === (int) $step_i ? ' testro-prod-outcomes__journey-step--active' : ''; ?>"><?php echo esc_html( (string) $step ); ?></span>
+									<?php
+									$step_count = count( $item['steps'] );
+									foreach ( $item['steps'] as $step_i => $step ) :
+										$step_label = trim( (string) $step );
+										?>
+										<span class="testro-prod-outcomes__journey-step<?php echo 0 === (int) $step_i ? ' testro-prod-outcomes__journey-step--active' : ''; ?>">
+											<?php if ( '' !== $step_label ) : ?>
+												<span class="testro-prod-outcomes__journey-step-label"><?php echo esc_html( $step_label ); ?></span>
+											<?php endif; ?>
+										</span>
+										<?php if ( $step_i < $step_count - 1 ) : ?>
+											<span class="testro-prod-outcomes__journey-link"></span>
+										<?php endif; ?>
 									<?php endforeach; ?>
 								</span>
+							<?php elseif ( ! empty( $item['signal'] ) ) : ?>
+								<?php
+								/*
+								 * Framer IconNode h=48 (Workflow Signal / Protected Path Signal).
+								 * Exact SVG paths require a live Framer IconNode dump — slot preserves size only.
+								 */
+								$signal = sanitize_html_class( (string) $item['signal'] );
+								?>
+								<span class="testro-prod-outcomes__journey-signal testro-prod-outcomes__journey-signal--<?php echo esc_attr( $signal ); ?>" aria-hidden="true"></span>
 							<?php endif; ?>
 							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
 							<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__journey-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_heading_tag; ?>>
@@ -116,11 +137,20 @@ $item_heading_tag   = 'h' . $item_heading_level;
 				</ul>
 
 			<?php elseif ( $is_unified ) : ?>
-				<?php /* Framer Unified Testing Card: pad 24, gap 24, icon frame (no tile fill), copy gap 12. */ ?>
-				<ul class="testro-prod-outcomes__unified-grid">
+				<?php
+				/* Framer Unified Testing Card: pad 24, gap 24, r 18.
+				 * Analytics (u8nt0npb4): Test Suite Rows visual 136px.
+				 * Maintenance (WjwO1AihP): icon row, no tile fill.
+				 */
+				$is_analytics_cards = ( 'web-testing-analytics' === $id );
+				$suite_rows_uri     = get_template_directory_uri() . '/assets/images/web/analytics-suite-rows.svg';
+				?>
+				<ul class="testro-prod-outcomes__unified-grid<?php echo $is_analytics_cards ? ' testro-prod-outcomes__unified-grid--analytics' : ''; ?>">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-outcomes__unified-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
-							<?php if ( ! empty( $item['icon'] ) ) : ?>
+						<li class="testro-prod-outcomes__unified-card<?php echo $is_analytics_cards ? ' testro-prod-outcomes__unified-card--analytics' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+							<?php if ( $is_analytics_cards ) : ?>
+								<span class="testro-prod-outcomes__unified-visual" aria-hidden="true" style="background-image: url('<?php echo esc_url( $suite_rows_uri ); ?>');"></span>
+							<?php elseif ( ! empty( $item['icon'] ) ) : ?>
 								<span class="testro-prod-outcomes__unified-icon-row" aria-hidden="true">
 									<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 								</span>
@@ -137,53 +167,77 @@ $item_heading_tag   = 'h' . $item_heading_level;
 				</ul>
 
 			<?php elseif ( $is_cicd ) : ?>
-				<?php /* Framer CI/CD card: icon tile 62.4 #F2F6FF / #A9C0FA + copy gap 12. */ ?>
-				<ul class="testro-prod-outcomes__cicd-grid">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-outcomes__cicd-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
-							<span class="testro-prod-outcomes__cicd-header" aria-hidden="true">
-								<span class="testro-prod-outcomes__cicd-tile">
-									<?php
-									$cicd_icon = ! empty( $item['icon'] ) ? $item['icon'] : 'sparkles';
-									echo testro_icon( $cicd_icon, array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG.
-									?>
+				<?php
+				/* Framer kstl0Ku78: testro icon 78 + Infrastructure Trace + 5 cards (pad 20/16/20/20, gap 26, r 20). */
+				$cicd_icon_uri = get_template_directory_uri() . '/assets/images/web/cicd-testro-icon.png';
+				?>
+				<div class="testro-prod-outcomes__cicd-stage">
+					<span class="testro-prod-outcomes__cicd-brand" aria-hidden="true">
+						<img src="<?php echo esc_url( $cicd_icon_uri ); ?>" alt="" width="70" height="70" loading="lazy" decoding="async" />
+					</span>
+					<div class="testro-prod-outcomes__cicd-trace" aria-hidden="true">
+						<span class="testro-prod-outcomes__cicd-trace-line"></span>
+						<span class="testro-prod-outcomes__cicd-trace-dot"></span>
+						<span class="testro-prod-outcomes__cicd-trace-dot"></span>
+						<span class="testro-prod-outcomes__cicd-trace-dot"></span>
+						<span class="testro-prod-outcomes__cicd-trace-dot"></span>
+					</div>
+					<ul class="testro-prod-outcomes__cicd-grid">
+						<?php foreach ( $items as $index => $item ) : ?>
+							<li class="testro-prod-outcomes__cicd-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+								<span class="testro-prod-outcomes__cicd-header" aria-hidden="true">
+									<span class="testro-prod-outcomes__cicd-tile">
+										<?php
+										$cicd_icon = ! empty( $item['icon'] ) ? $item['icon'] : 'sparkles';
+										echo testro_icon( $cicd_icon, array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG.
+										?>
+									</span>
 								</span>
-							</span>
-							<div class="testro-prod-outcomes__cicd-copy">
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-								<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__cicd-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_heading_tag; ?>>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-outcomes__cicd-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
-							</div>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+								<div class="testro-prod-outcomes__cicd-copy">
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+									<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__cicd-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_heading_tag; ?>>
+									<?php if ( ! empty( $item['description'] ) ) : ?>
+										<p class="testro-prod-outcomes__cicd-desc"><?php echo esc_html( $item['description'] ); ?></p>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 
 			<?php elseif ( $is_enterprise ) : ?>
-				<?php /* Framer enterprise: tile 78 #F2F6FF/#A9C0FA + index 01 + copy gap 12. */ ?>
-				<ul class="testro-prod-outcomes__enterprise-grid">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-outcomes__enterprise-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
-							<div class="testro-prod-outcomes__enterprise-header">
-								<span class="testro-prod-outcomes__enterprise-tile" aria-hidden="true">
-									<?php
-									$ent_icon = ! empty( $item['icon'] ) ? $item['icon'] : 'sparkles';
-									echo testro_icon( $ent_icon, array( 'size' => 30 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG.
-									?>
-								</span>
-								<span class="testro-prod-outcomes__enterprise-index" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></span>
-							</div>
-							<div class="testro-prod-outcomes__enterprise-copy">
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-								<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__enterprise-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_heading_tag; ?>>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-outcomes__enterprise-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
-							</div>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+				<?php /* Framer PWi2rg_G4: Infrastructure Trace + 4 cards (pad 34, tile 78, r 20). */ ?>
+				<div class="testro-prod-outcomes__enterprise-stage">
+					<div class="testro-prod-outcomes__enterprise-trace" aria-hidden="true">
+						<span class="testro-prod-outcomes__enterprise-trace-line"></span>
+						<span class="testro-prod-outcomes__enterprise-trace-dot"></span>
+						<span class="testro-prod-outcomes__enterprise-trace-dot"></span>
+						<span class="testro-prod-outcomes__enterprise-trace-dot"></span>
+						<span class="testro-prod-outcomes__enterprise-trace-dot"></span>
+					</div>
+					<ul class="testro-prod-outcomes__enterprise-grid">
+						<?php foreach ( $items as $index => $item ) : ?>
+							<li class="testro-prod-outcomes__enterprise-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+								<div class="testro-prod-outcomes__enterprise-header">
+									<span class="testro-prod-outcomes__enterprise-tile" aria-hidden="true">
+										<?php
+										$ent_icon = ! empty( $item['icon'] ) ? $item['icon'] : 'sparkles';
+										echo testro_icon( $ent_icon, array( 'size' => 30 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG.
+										?>
+									</span>
+									<span class="testro-prod-outcomes__enterprise-index" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></span>
+								</div>
+								<div class="testro-prod-outcomes__enterprise-copy">
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+									<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__enterprise-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_heading_tag; ?>>
+									<?php if ( ! empty( $item['description'] ) ) : ?>
+										<p class="testro-prod-outcomes__enterprise-desc"><?php echo esc_html( $item['description'] ); ?></p>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 
 			<?php elseif ( $is_framer ) : ?>
 				<ul class="testro-prod-outcomes__framer-grid">

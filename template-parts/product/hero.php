@@ -87,6 +87,17 @@ $section_class = 'testro-prod-hero' . ( $is_split ? ' testro-prod-hero--split' :
 			<p class="testro-prod-hero__sub" data-reveal><?php echo esc_html( $subtitle_extra ); ?></p>
 		<?php endif; ?>
 
+		<?php if ( $lead_copy && $badges ) : ?>
+			<ul class="testro-prod-hero__badges" aria-label="<?php esc_attr_e( 'Platform highlights', 'testro' ); ?>" data-reveal>
+				<?php foreach ( $badges as $badge ) : ?>
+					<li class="testro-prod-hero__badge">
+						<?php echo testro_icon( 'circle-check', array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+						<?php echo esc_html( $badge ); ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+
 		<?php if ( $actions ) : ?>
 			<div class="testro-prod-hero__actions" data-reveal>
 				<?php
@@ -1013,13 +1024,13 @@ test(<span class="str">'user can sign in'</span>, <span class="kw">async</span> 
 					<?php endif; ?>
 				</div>
 
-				<?php if ( ( ! $lead_copy && '' !== $subtitle ) || $badges ) : ?>
+				<?php if ( ( ! $lead_copy && '' !== $subtitle ) || ( ! $lead_copy && $badges ) ) : ?>
 				<div class="testro-prod-hero__more">
 					<?php if ( ! $lead_copy && '' !== $subtitle ) : ?>
 						<p class="testro-prod-hero__sub" data-reveal><?php echo esc_html( $subtitle ); ?></p>
 					<?php endif; ?>
 
-					<?php if ( $badges ) : ?>
+					<?php if ( ! $lead_copy && $badges ) : ?>
 						<ul class="testro-prod-hero__badges" aria-label="<?php esc_attr_e( 'Platform highlights', 'testro' ); ?>" data-reveal>
 							<?php foreach ( $badges as $badge ) : ?>
 								<li class="testro-prod-hero__badge">

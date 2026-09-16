@@ -57,7 +57,12 @@ if ( $is_list ) {
 		?>
 
 		<?php if ( $is_list ) : ?>
-			<?php /* Framer Chrome Browser / Chrome Browser 6: pad 24, gap 16, border rgb(220,234,249), icon row + copy gap 12. */ ?>
+			<?php
+			/*
+			 * Framer WNkrwivLY Chrome Browser: pad 24, gap 16, r 16, Icon h=34 + copy gap 12.
+			 * Framer jKN27rZEh Chrome Browser 6: pad 24, gap 24, r 16, left slot 112 + copy gap 8, h~143.
+			 */
+			?>
 			<ul class="testro-prod-browsers__list<?php echo $is_validate ? ' testro-prod-browsers__list--validate' : ''; ?><?php echo $is_browser ? ' testro-prod-browsers__list--browsers' : ''; ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
 					<?php
@@ -67,11 +72,16 @@ if ( $is_list ) {
 					} elseif ( ! empty( $item['name'] ) ) {
 						$row_title = (string) $item['name'];
 					}
+					/* Framer control titles already include an em dash — avoid doubling. */
+					$row_title = preg_replace( '/\s*[—–-]\s*$/u', '', $row_title );
+					$item_icon = ! empty( $item['icon'] ) ? $item['icon'] : ( $is_browser ? 'browsers' : '' );
 					?>
 					<li class="testro-prod-browsers__item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
-						<?php if ( ! empty( $item['icon'] ) ) : ?>
+						<?php if ( $is_validate ) : ?>
+							<span class="testro-prod-browsers__item-slot" aria-hidden="true"></span>
+						<?php elseif ( $item_icon ) : ?>
 							<span class="testro-prod-browsers__item-icon-row" aria-hidden="true">
-								<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+								<?php echo testro_icon( $item_icon, array( 'size' => 34 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 						<?php endif; ?>
 						<div class="testro-prod-browsers__item-copy">

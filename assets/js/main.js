@@ -196,15 +196,25 @@
       return window.innerWidth <= MOBILE_NAV_MAX;
     }
 
-    function clampMegaPosition(item) {
+    function alignMegaToContainer(item) {
       var panel = item ? qs('.testro-mega', item) : null;
-      if (!panel) return;
+      var inner = nav ? qs('.testro-nav__inner', nav) : null;
+      if (!panel || !inner) return;
       if (isMobileNav()) {
+        panel.style.removeProperty('--mega-left');
+        panel.style.removeProperty('--mega-width');
         panel.style.removeProperty('--mega-shift');
         return;
       }
+      var itemRect = item.getBoundingClientRect();
+      var innerRect = inner.getBoundingClientRect();
+      /* Shared left edge = nav container (same for Product / Solution / Resources) */
+      var left = Math.round(innerRect.left - itemRect.left);
+      var width = Math.round(Math.min(1440, innerRect.width, window.innerWidth - 48));
+      panel.style.setProperty('--mega-left', left + 'px');
+      panel.style.setProperty('--mega-width', width + 'px');
       panel.style.setProperty('--mega-shift', '0px');
-      /* Measure after centering, then nudge to keep the panel in viewport */
+      /* Nudge only if the shared panel still overflows the viewport */
       var rect = panel.getBoundingClientRect();
       var pad = 12;
       var shift = 0;
@@ -213,7 +223,13 @@
       } else if (rect.right > window.innerWidth - pad) {
         shift = window.innerWidth - pad - rect.right;
       }
-      panel.style.setProperty('--mega-shift', shift + 'px');
+      if (shift) {
+        panel.style.setProperty('--mega-shift', Math.round(shift) + 'px');
+      }
+    }
+
+    function clampMegaPosition(item) {
+      alignMegaToContainer(item);
     }
 
     function setMegaOpen(item, open) {
@@ -228,16 +244,21 @@
         panel.setAttribute('aria-hidden', open ? 'false' : 'true');
         if (open) {
           panel.removeAttribute('hidden');
+          alignMegaToContainer(item);
           requestAnimationFrame(function () {
-            clampMegaPosition(item);
+            alignMegaToContainer(item);
           });
         } else if (isMobileNav()) {
           panel.setAttribute('hidden', '');
           panel.style.removeProperty('--mega-shift');
+          panel.style.removeProperty('--mega-left');
+          panel.style.removeProperty('--mega-width');
         } else {
           /* Desktop keeps panel in DOM for CSS hover/transitions */
           panel.removeAttribute('hidden');
           panel.style.removeProperty('--mega-shift');
+          panel.style.removeProperty('--mega-left');
+          panel.style.removeProperty('--mega-width');
         }
       }
     }
@@ -321,7 +342,11 @@
         closeNav();
       }
       syncMegaHiddenState();
-      closeAllMegas();
+      megaItems.forEach(function (item) {
+        if (item.classList.contains('is-open')) {
+          alignMegaToContainer(item);
+        }
+      });
     });
 
     if (typeof ResizeObserver !== 'undefined') {

@@ -21,4 +21,4 @@ build/
 
 # Framer agent temp / local session artifacts (do not commit)
 .tmp*
-.framer-home/
+.framer*

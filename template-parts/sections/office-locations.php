@@ -38,6 +38,8 @@ $map_query = isset( $args['map_query'] ) && '' !== (string) $args['map_query']
 	: 'Openskale Technologies, Jain Sadguru Images, Unit-106B, Capital Park Road, VIP Hills, Madhapur, Hyderabad, Telangana 500081';
 
 $show_map = ! array_key_exists( 'show_map', $args ) || ! empty( $args['show_map'] );
+$align    = isset( $args['align'] ) && 'start' === $args['align'] ? 'start' : 'center';
+$is_white = ! empty( $args['white'] );
 
 $map_embed = add_query_arg(
 	array(
@@ -61,7 +63,7 @@ if ( ! $locations && '' === $email && '' === $phone && '' === $address ) {
 	return;
 }
 ?>
-<section class="testro-prod-section testro-prod-section--tint testro-office" id="office-locations" aria-labelledby="office-locations-heading">
+<section class="testro-prod-section<?php echo $is_white ? '' : ' testro-prod-section--tint'; ?> testro-office<?php echo $is_white ? ' testro-office--white' : ''; ?>" id="office-locations" aria-labelledby="office-locations-heading">
 	<div class="testro-container">
 		<?php
 		get_template_part(
@@ -74,6 +76,7 @@ if ( ! $locations && '' === $email && '' === $phone && '' === $address ) {
 					: __( 'Office Locations', 'testro' ),
 				'intro'      => isset( $args['intro'] ) ? (string) $args['intro'] : __( 'Visit Openskale Technologies in Madhapur, Hyderabad, or connect with theTestRo using the contact details below.', 'testro' ),
 				'heading_id' => 'office-locations-heading',
+				'align'      => $align,
 			)
 		);
 		?>
@@ -83,16 +86,23 @@ if ( ! $locations && '' === $email && '' === $phone && '' === $address ) {
 				<?php if ( $locations ) : ?>
 					<?php foreach ( $locations as $index => $location ) : ?>
 						<?php
+						$loc_city  = isset( $location['city'] ) ? (string) $location['city'] : '';
 						$loc_name  = isset( $location['name'] ) ? (string) $location['name'] : '';
 						$loc_lines = isset( $location['lines'] ) && is_array( $location['lines'] ) ? $location['lines'] : array();
-						if ( '' === $loc_name && ! $loc_lines ) {
+						if ( '' === $loc_name && ! $loc_lines && '' === $loc_city ) {
 							continue;
 						}
+						$is_plain = isset( $location['city'] ); /* Framer office columns: city + name + lines, no icon card chrome. */
 						?>
-						<li class="testro-office__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
-							<span class="testro-office__icon" aria-hidden="true">
-								<?php echo testro_icon( 'map-pin', array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
-							</span>
+						<li class="testro-office__card<?php echo $is_plain ? ' testro-office__card--plain' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+							<?php if ( ! $is_plain ) : ?>
+								<span class="testro-office__icon" aria-hidden="true">
+									<?php echo testro_icon( 'map-pin', array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+								</span>
+							<?php endif; ?>
+							<?php if ( '' !== $loc_city ) : ?>
+								<p class="testro-office__city"><?php echo esc_html( $loc_city ); ?></p>
+							<?php endif; ?>
 							<?php if ( '' !== $loc_name ) : ?>
 								<h3 class="testro-office__title"><?php echo esc_html( $loc_name ); ?></h3>
 							<?php endif; ?>
@@ -100,7 +110,7 @@ if ( ! $locations && '' === $email && '' === $phone && '' === $address ) {
 								<address class="testro-office__address">
 									<?php foreach ( $loc_lines as $line ) : ?>
 										<?php if ( '' !== (string) $line ) : ?>
-											<?php echo esc_html( (string) $line ); ?><br />
+											<span class="testro-office__line"><?php echo esc_html( (string) $line ); ?></span>
 										<?php endif; ?>
 									<?php endforeach; ?>
 								</address>

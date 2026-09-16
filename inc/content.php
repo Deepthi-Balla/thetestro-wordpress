@@ -429,6 +429,41 @@ function testro_get_clients() {
 }
 
 /**
+ * Why Choose / Home trusted review logos — Framer oyx6zQLFo / kvn_q_lgu order + assets.
+ *
+ * @return array<int, array<string, mixed>>
+ */
+function testro_get_why_trusted_logos() {
+	$order = array(
+		'urbuddi'    => 'images/trusted/urbuddi.png',
+		'xcally'     => 'images/trusted/xcally.png',
+		'optimworks' => 'images/trusted/optimworks.png',
+		'sevaki'     => 'images/trusted/sevaki.png',
+		'graduway'   => 'images/trusted/graduway.png',
+	);
+	$by_key = array();
+
+	foreach ( testro_get_clients() as $client ) {
+		if ( empty( $client['name'] ) || empty( $client['logo'] ) ) {
+			continue;
+		}
+		$by_key[ strtolower( (string) $client['name'] ) ] = $client;
+	}
+
+	$ordered = array();
+	foreach ( $order as $key => $framer_logo ) {
+		if ( ! isset( $by_key[ $key ] ) ) {
+			continue;
+		}
+		$item         = $by_key[ $key ];
+		$item['logo'] = testro_asset( $framer_logo );
+		$ordered[]    = $item;
+	}
+
+	return $ordered;
+}
+
+/**
  * Service cards.
  *
  * @return array

@@ -28,11 +28,20 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function testro_product_shared_sections() {
 	return array(
-		'stats'        => 'template-parts/sections/stats',
-		'clients'      => 'template-parts/sections/clients',
-		'testimonials' => 'template-parts/sections/testimonials',
-		'faq'          => 'template-parts/sections/faq',
-		'contact'      => 'template-parts/sections/contact',
+		'stats'           => 'template-parts/sections/stats',
+		'clients'         => 'template-parts/sections/clients',
+		'testimonials'    => 'template-parts/sections/testimonials',
+		'faq'             => 'template-parts/sections/faq',
+		'contact'         => 'template-parts/sections/contact',
+		/* Web Testing Framer sections — dedicated DOM (not shared product cards). */
+		'web-journey'     => 'template-parts/product/web/journey',
+		'web-browsers'    => 'template-parts/product/web/browsers',
+		'web-maintenance' => 'template-parts/product/web/maintenance',
+		'web-validate'    => 'template-parts/product/web/validate',
+		'web-cicd'        => 'template-parts/product/web/cicd',
+		'web-analytics'   => 'template-parts/product/web/analytics',
+		'web-enterprise'  => 'template-parts/product/web/enterprise',
+		'web-platforms'   => 'template-parts/product/web/platforms',
 	);
 }
 
@@ -985,16 +994,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Test Every User Journey */
+				/* Test Every User Journey — Framer TlicVVEQs */
 				array(
-					'type'          => 'outcomes',
+					'type'          => 'web-journey',
 					'id'            => 'test-every-user-journey',
-					'variant'       => 'journey-flow',
 					'title'         => __( 'Test Every User Journey', 'testro' ),
-					/* Framer places conclusion with the left copy column. */
 					'intro'         => __( 'A single missed step in a checkout flow can cost real money. theTestRo\'s web test automation is built to catch that kind of gap before it reaches production, not after a customer reports it.', 'testro' ),
 					'heading_level' => 2,
-					'align'         => 'start',
 					'items'         => array(
 						array(
 							'title'       => __( 'User Flows', 'testro' ),
@@ -1002,12 +1008,13 @@ function testro_get_product_pages() {
 							'steps'       => array( '1', '2', '3', '4' ),
 						),
 						array(
-							/* Framer has title only — no description. */
-							'title' => __( 'Business Workflows', 'testro' ),
+							'title'  => __( 'Business Workflows', 'testro' ),
+							'signal' => 'workflow',
 						),
 						array(
 							'title'       => __( 'Critical Paths', 'testro' ),
 							'description' => __( 'Protect the exact flows that drive revenue, so a bad release never slips through.', 'testro' ),
+							'signal'      => 'protected',
 						),
 					),
 				),
@@ -1037,95 +1044,86 @@ function testro_get_product_pages() {
 							'description' => __( 'Prefer to see it? Build and edit tests by clicking through your app directly.', 'testro' ),
 						),
 					),
-					'outro'         => __( 'theTestRo brings real AI web testing to every step, not just the first draft. It keeps learning from every test run.', 'testro' ),
+					/* Framer outro: Sora 26/400, width 738, textAlignment end, leading hyphen. */
+					'outro'         => __( '-theTestRo brings real AI web testing to every step, not just the first draft. It keeps learning from every test run.', 'testro' ),
 				),
 
-				/* Execute Tests Across Every Browser */
+				/* Execute Tests Across Every Browser — Framer vRpmMrK4S (titles include Framer em dashes / spelling). */
 				array(
-					'type'          => 'browsers',
+					'type'          => 'web-browsers',
 					'id'            => 'execute-across-browsers',
-					'variant'       => 'browser-list',
 					'title'         => __( 'Execute Tests Across Every Browser', 'testro' ),
 					'intro'         => __( 'Run the same web test across every browser your users actually use:', 'testro' ),
 					'heading_level' => 2,
-					'align'         => 'start',
 					'items'         => array(
 						array(
-							'title'       => __( 'Chrome', 'testro' ),
+							'title'       => __( 'Chrome —', 'testro' ),
 							'description' => __( 'Test on the browser most of your users already have open.', 'testro' ),
 						),
 						array(
-							'title'       => __( 'Edge', 'testro' ),
+							'title'       => __( 'Edge —', 'testro' ),
 							'description' => __( 'Cover Microsoft\'s default browser without extra setup.', 'testro' ),
 						),
 						array(
-							'title'       => __( 'Firefox', 'testro' ),
+							'title'       => __( 'Firefox—', 'testro' ),
 							'description' => __( 'Catch rendering issues Chrome alone won\'t show you.', 'testro' ),
 						),
 						array(
-							'title'       => __( 'Safari', 'testro' ),
+							'title'       => __( 'Safari—', 'testro' ),
 							'description' => __( 'Make sure Mac and iPhone users get the same experience.', 'testro' ),
 						),
 						array(
-							'title'       => __( 'Parallel Execution', 'testro' ),
+							'title'       => __( 'Parallel Executtion—', 'testro' ),
 							'description' => __( 'Run thousands of tests at once, so a full regression suite finishes in minutes, not hours.', 'testro' ),
 						),
 					),
 				),
 
-				/* Intelligent Web Test Maintenance */
+				/* Intelligent Web Test Maintenance — Framer WjwO1AihP */
 				array(
-					'type'          => 'outcomes',
+					'type'          => 'web-maintenance',
 					'id'            => 'intelligent-web-maintenance',
-					'variant'       => 'unified-cards',
 					'eyebrow'       => __( 'PRODUCT OVERVIEW', 'testro' ),
 					'title'         => __( 'Intelligent Web Test Maintenance', 'testro' ),
 					'intro'         => __( 'Everything a modern QA team needs, without the tool-juggling.', 'testro' ),
 					'heading_level' => 2,
-					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'heart-pulse',
 							'title'       => __( 'Self-Healing Locators', 'testro' ),
 							'description' => __( 'Your page structure shifts. theTestRo finds the right element on its own.', 'testro' ),
 						),
 						array(
-							'icon'        => 'crosshair',
 							'title'       => __( 'Dynamic Element Detection', 'testro' ),
 							'description' => __( 'Handles dropdowns, pop-ups, and content that loads after the page does.', 'testro' ),
 						),
 						array(
-							'icon'        => 'refresh',
 							'title'       => __( 'Automatic Test Updates', 'testro' ),
 							'description' => __( 'Tests adjust to small UI changes. No failing. No waiting on a fix.', 'testro' ),
 						),
 					),
 				),
 
-				/* Validate Every UI Changes (Framer title; skip duplicate NqZstbu9C) */
+				/* Validate Every UI Changes — Framer Gj9D5TyHM (intro visible:false). */
 				array(
-					'type'          => 'browsers',
+					'type'          => 'web-validate',
 					'id'            => 'validate-ui-changes',
-					'variant'       => 'validate-list',
 					'title'         => __( 'Validate Every UI Changes', 'testro' ),
-					/* Framer Section Intro is visible:false. */
 					'heading_level' => 2,
-					'align'         => 'start',
 					'items'         => array(
 						array(
-							'title'       => __( 'UI Validation', 'testro' ),
+							'title'       => __( 'UI Validation —', 'testro' ),
 							'description' => __( 'Confirm buttons, forms, and menus all work as designed, on every release.', 'testro' ),
 						),
 						array(
-							'title'       => __( 'Visual Regression Testing', 'testro' ),
+							'title'       => __( 'Visual Regression Testing —', 'testro' ),
 							'description' => __( 'Catch layout shifts and broken styles before a user ever sees them.', 'testro' ),
 						),
 						array(
-							'title'       => __( 'Layout Verification', 'testro' ),
+							'title'       => __( 'Layout Verification —', 'testro' ),
 							'description' => __( 'Compare screenshots across builds. Spot changes that shouldn\'t be there.', 'testro' ),
 						),
 						array(
-							'title'       => __( 'Responsive Testing', 'testro' ),
+							'title'       => __( 'Responsive Testing —', 'testro' ),
 							'description' => __( 'Check your site across screen sizes, from desktop down to mobile.', 'testro' ),
 						),
 					),
@@ -1160,20 +1158,18 @@ function testro_get_product_pages() {
 					'outro'         => __( 'No more digging through a 500-test suite to find the one line that matters. theTestRo surfaces it for you.', 'testro' ),
 				),
 
-				/* Scale Web Testing in CI/CD */
+				/* Scale Web Testing in CI/CD — Framer kstl0Ku78 (title "Jenkin" as in Framer). */
 				array(
-					'type'          => 'outcomes',
+					'type'          => 'web-cicd',
 					'id'            => 'scale-web-testing-cicd',
-					'variant'       => 'cicd-cards',
 					'eyebrow'       => __( 'BUILT FOR THE ENTERPRISE', 'testro' ),
 					'title'         => __( 'Scale Web Testing in CI/CD', 'testro' ),
-					/* Framer supporting copy is visible:false. */
+					'intro'         => __( 'Everything your QA organization needs to move fast, stay in control, and scale without limits.', 'testro' ),
 					'heading_level' => 2,
-					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'server',
-							'title'       => __( 'Jenkins', 'testro' ),
+							'icon'        => 'infinity',
+							'title'       => __( 'Jenkin', 'testro' ),
 							'description' => __( 'Run tests automatically as part of your existing pipeline.', 'testro' ),
 						),
 						array(
@@ -1187,60 +1183,54 @@ function testro_get_product_pages() {
 							'description' => __( 'Fit testing right into your existing workflows.', 'testro' ),
 						),
 						array(
-							'icon'        => 'folder-tree',
+							'icon'        => 'git-branch',
 							'title'       => __( 'GitLab', 'testro' ),
 							'description' => __( 'Run tests as part of your CI/CD pipeline, no extra setup.', 'testro' ),
 						),
 						array(
-							'icon'        => 'plug',
+							'icon'        => 'git-branch',
 							'title'       => __( 'Webhooks', 'testro' ),
 							'description' => __( 'Trigger a test run the moment new code lands, no extra setup required.', 'testro' ),
 						),
 					),
 				),
 
-				/* Web Testing Analytics — cards only; Framer hides eyebrow + supporting copy */
+				/* Web Testing Analytics — Framer u8nt0npb4 */
 				array(
-					'type'          => 'outcomes',
+					'type'          => 'web-analytics',
 					'id'            => 'web-testing-analytics',
-					'variant'       => 'unified-cards',
+					'eyebrow'       => __( 'PRODUCT OVERVIEW', 'testro' ),
 					'title'         => __( 'Web Testing Analytics', 'testro' ),
+					'intro'         => __( 'Everything a modern QA team needs, without the tool-juggling.', 'testro' ),
 					'heading_level' => 2,
-					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'gauge',
 							'title'       => __( 'Test Reports', 'testro' ),
 							'description' => __( 'Clear, shareable summaries after every run.', 'testro' ),
 						),
 						array(
-							'icon'        => 'trending-up',
 							'title'       => __( 'Historical Trends', 'testro' ),
 							'description' => __( 'See how pass rates and stability shift release over release.', 'testro' ),
 						),
 						array(
-							'icon'        => 'activity',
 							'title'       => __( 'Execution Metrics', 'testro' ),
 							'description' => __( 'Track run time, flaky rate, and coverage in one place.', 'testro' ),
 						),
 						array(
-							'icon'        => 'layout-grid',
 							'title'       => __( 'Dashboard', 'testro' ),
 							'description' => __( 'One view for your whole team to check before every ship.', 'testro' ),
 						),
 					),
 				),
 
-				/* Enterprise-Ready Web Testing */
+				/* Enterprise-Ready Web Testing — Framer PWi2rg_G4 */
 				array(
-					'type'          => 'outcomes',
+					'type'          => 'web-enterprise',
 					'id'            => 'enterprise-ready-web',
-					'variant'       => 'enterprise-cards',
 					'eyebrow'       => __( 'BUILT FOR THE ENTERPRISE', 'testro' ),
 					'title'         => __( 'Enterprise-Ready Web Testing', 'testro' ),
 					'intro'         => __( 'Everything your QA organization needs to move fast, stay in control, and scale without limits.', 'testro' ),
 					'heading_level' => 2,
-					'align'         => 'start',
 					'items'         => array(
 						array(
 							'icon'        => 'user-check',
@@ -1248,7 +1238,7 @@ function testro_get_product_pages() {
 							'description' => __( 'Share tests, results, and notes across your whole QA team.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-lock',
+							'icon'        => 'folder-tree',
 							'title'       => __( 'Role-Based Access', 'testro' ),
 							'description' => __( 'Control who can edit, run, or approve a test.', 'testro' ),
 						),
@@ -1266,16 +1256,15 @@ function testro_get_product_pages() {
 					'outro'         => __( 'One connected platform for your people, processes, and scale.', 'testro' ),
 				),
 
-				/* Supported Browsers & Platforms */
+				/* Supported Browsers & Platforms — Framer VWJxJtN3s */
 				array(
-					'type'          => 'platforms',
+					'type'          => 'web-platforms',
 					'id'            => 'supported-browsers-platforms',
 					'title'         => __( 'Supported Browsers & Platforms', 'testro' ),
 					'intro'         => __( 'theTestRo covers every major browser and system your users touch. That includes Chrome, Firefox, Safari, and Edge, on Windows, macOS, and Linux. Add mobile web coverage too, for the full picture of how real users see your site.', 'testro' ),
 					'matrix_note'   => __( 'Add mobile web coverage too, for the full picture of how real users see your site.', 'testro' ),
 					'outro'         => __( 'Run a single-page app? A big multi-tenant platform? A site built on React, Angular, or Vue? theTestRo handles all of it. It deals with dynamic content and slow-loading parts on its own, no extra setup. You won\'t need to write custom waits every time your team ships something new.', 'testro' ),
 					'heading_level' => 2,
-					'align'         => 'start',
 					'matrix_label'  => __( 'Browser × Platform', 'testro' ),
 					'platforms'     => array(
 						__( 'Windows', 'testro' ),
@@ -1289,11 +1278,13 @@ function testro_get_product_pages() {
 						__( 'Safari', 'testro' ),
 						__( 'Edge', 'testro' ),
 					),
-					'chips'         => array(
+					'frameworks'    => array(
 						__( 'React', 'testro' ),
 						__( 'Angular', 'testro' ),
 						__( 'Vue', 'testro' ),
-						__( 'theTestRo', 'testro' ),
+					),
+					'hub_label'     => __( 'theTestRo', 'testro' ),
+					'conditions'    => array(
 						__( 'Dynamic content', 'testro' ),
 						__( 'Slow-loading parts', 'testro' ),
 					),

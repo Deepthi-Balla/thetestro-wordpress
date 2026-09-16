@@ -219,6 +219,55 @@ function testro_body_classes( $classes ) {
 		}
 	}
 
+	/* Why Choose theTestRo — Framer Qc7jNmQghS7yjIB35091 /why-thetestro/why-choose-thetestro (CQjJlqtMZ). */
+	if ( is_page_template( 'page-templates/template-why-testro.php' ) || ( is_page() && 'why-choose-thetestro' === get_post_field( 'post_name', get_queried_object_id() ) ) ) {
+		$classes[] = 'testro-page-why';
+		$classes[] = 'testro-product-bf';
+	}
+
+	/* Contact Us — Framer Qc7jNmQghS7yjIB35091 /why-thetestro/contact-us (ZkNQuuai1). */
+	if ( is_page_template( 'page-templates/template-contact.php' ) || ( is_page() && 'contact-us' === get_post_field( 'post_name', get_queried_object_id() ) ) ) {
+		$classes[] = 'testro-page-contact';
+	}
+
+	/* Partners — Framer Qc7jNmQghS7yjIB35091 /why-thetestro/partners (DxJdpzUfv). */
+	if ( is_page_template( 'page-templates/template-partners.php' ) || ( is_page() && 'partners' === get_post_field( 'post_name', get_queried_object_id() ) ) ) {
+		$classes[] = 'testro-page-partners';
+		$classes[] = 'testro-product-bf';
+	}
+
+	/* Compare Tools — Framer Qc7jNmQghS7yjIB35091 /why-thetestro/thetestro-vs-alternatives (s7B3lhYVO). */
+	if ( is_page_template( 'page-templates/template-compare-tools.php' ) || ( is_page() && 'compare-test-automation-tools' === get_post_field( 'post_name', get_queried_object_id() ) ) ) {
+		$classes[] = 'testro-page-compare';
+		$classes[] = 'testro-product-bf';
+	}
+
+	/* Pricing — Framer Qc7jNmQghS7yjIB35091 /why-thetestro/pricing (qGMZIzxDz). */
+	if ( is_page_template( 'page-templates/template-pricing.php' ) || ( is_page() && 'pricing' === get_post_field( 'post_name', get_queried_object_id() ) ) ) {
+		$classes[] = 'testro-page-pricing';
+	}
+
+	/* Resource hubs — Framer Qc7jNmQghS7yjIB35091 heroes only (listing stubs intentional). */
+	if ( is_home() && ! is_front_page() ) {
+		$classes[] = 'testro-page-resource';
+		$classes[] = 'testro-page-blog';
+	}
+
+	if ( is_page_template( 'page-templates/template-case-studies.php' ) || ( is_page() && 'case-studies' === get_post_field( 'post_name', get_queried_object_id() ) ) ) {
+		$classes[] = 'testro-page-resource';
+		$classes[] = 'testro-page-case-studies';
+	}
+
+	if ( is_page_template( 'page-templates/template-webinars.php' ) || ( is_page() && 'webinars' === get_post_field( 'post_name', get_queried_object_id() ) ) ) {
+		$classes[] = 'testro-page-resource';
+		$classes[] = 'testro-page-webinars';
+	}
+
+	if ( is_page_template( 'page-templates/template-awards-news.php' ) || ( is_page() && 'awards-news' === get_post_field( 'post_name', get_queried_object_id() ) ) ) {
+		$classes[] = 'testro-page-resource';
+		$classes[] = 'testro-page-awards-news';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'testro_body_classes' );

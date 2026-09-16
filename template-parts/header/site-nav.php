@@ -1,7 +1,7 @@
 <?php
 /**
- * Site navigation with enterprise mega menus — Framer alignment.
- * Logo + links left (36px gap), CTA right (space-between).
+ * Site navigation with Framer Navigation (JzMS1IKHQ) mega overlays.
+ * Logo + links left (36px gap), Product/Solution/Resources, CTA right.
  *
  * @package TestRo
  */
