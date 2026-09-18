@@ -53,19 +53,22 @@ $heading_id = $id . '-heading';
 						<?php elseif ( ! empty( $item['signal'] ) ) : ?>
 							<?php $signal = sanitize_html_class( (string) $item['signal'] ); ?>
 							<span class="testro-web-journey__signal testro-web-journey__signal--<?php echo esc_attr( $signal ); ?>" aria-hidden="true">
-								<?php if ( 'workflow' === $signal ) : ?>
-									<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
-										<circle cx="24" cy="24" r="24" fill="#00ACFF"/>
-										<circle cx="16" cy="24" r="2.5" fill="#fff"/>
-										<circle cx="24" cy="24" r="2.5" fill="#fff"/>
-										<circle cx="32" cy="24" r="2.5" fill="#fff"/>
-									</svg>
-								<?php else : ?>
-									<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
-										<circle cx="24" cy="24" r="24" fill="#00ACFF"/>
-										<path d="M14.5 24.5 20.5 30.5 33.5 17.5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-									</svg>
-								<?php endif; ?>
+								<span class="testro-web-journey__signal-visual">
+									<span class="testro-web-journey__signal-ring"></span>
+									<span class="testro-web-journey__signal-icon">
+										<?php if ( 'workflow' === $signal ) : ?>
+											<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+												<circle cx="16" cy="24" r="2.5" fill="#00ACFF"/>
+												<circle cx="24" cy="24" r="2.5" fill="#00ACFF"/>
+												<circle cx="32" cy="24" r="2.5" fill="#00ACFF"/>
+											</svg>
+										<?php else : ?>
+											<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+												<path d="M14.5 24.5 20.5 30.5 33.5 17.5" stroke="#00ACFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+										<?php endif; ?>
+									</span>
+								</span>
 							</span>
 						<?php endif; ?>
 

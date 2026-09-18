@@ -198,23 +198,15 @@
 
     function alignMegaToContainer(item) {
       var panel = item ? qs('.testro-mega', item) : null;
-      var inner = nav ? qs('.testro-nav__inner', nav) : null;
-      if (!panel || !inner) return;
+      if (!panel) return;
       if (isMobileNav()) {
-        panel.style.removeProperty('--mega-left');
-        panel.style.removeProperty('--mega-width');
         panel.style.removeProperty('--mega-shift');
+        panel.style.removeProperty('--mega-width');
         return;
       }
-      var itemRect = item.getBoundingClientRect();
-      var innerRect = inner.getBoundingClientRect();
-      /* Shared left edge = nav container (same for Product / Solution / Resources) */
-      var left = Math.round(innerRect.left - itemRect.left);
-      var width = Math.round(Math.min(1440, innerRect.width, window.innerWidth - 48));
-      panel.style.setProperty('--mega-left', left + 'px');
-      panel.style.setProperty('--mega-width', width + 'px');
+      /* Content-sized panels: centered on the nav item; only nudge for viewport edges */
+      panel.style.removeProperty('--mega-width');
       panel.style.setProperty('--mega-shift', '0px');
-      /* Nudge only if the shared panel still overflows the viewport */
       var rect = panel.getBoundingClientRect();
       var pad = 12;
       var shift = 0;
@@ -251,13 +243,11 @@
         } else if (isMobileNav()) {
           panel.setAttribute('hidden', '');
           panel.style.removeProperty('--mega-shift');
-          panel.style.removeProperty('--mega-left');
           panel.style.removeProperty('--mega-width');
         } else {
           /* Desktop keeps panel in DOM for CSS hover/transitions */
           panel.removeAttribute('hidden');
           panel.style.removeProperty('--mega-shift');
-          panel.style.removeProperty('--mega-left');
           panel.style.removeProperty('--mega-width');
         }
       }

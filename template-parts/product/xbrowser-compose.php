@@ -51,7 +51,7 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 			?>
 			<ul class="testro-prod-xbrowser__cap-grid testro-prod-xbrowser__cap-grid--<?php echo esc_attr( $card_fill ); ?> testro-prod-xbrowser__cap-grid--icon-<?php echo esc_attr( $icon_tone ); ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-xbrowser__cap-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-xbrowser__cap-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( ! empty( $item['icon'] ) ) : ?>
 							<span class="testro-prod-xbrowser__cap-icon" aria-hidden="true">
 								<?php echo testro_icon( $item['icon'], array( 'size' => $icon_size ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -86,7 +86,7 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 		<?php elseif ( 'audience-row' === $variant ) : ?>
 			<ul class="testro-prod-xbrowser__audience">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-xbrowser__audience-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-xbrowser__audience-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( ! empty( $item['icon'] ) ) : ?>
 							<span class="testro-prod-xbrowser__cap-icon testro-prod-xbrowser__cap-icon--navy" aria-hidden="true">
 								<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -106,7 +106,7 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 		<?php elseif ( 'ai-row' === $variant ) : ?>
 			<ul class="testro-prod-xbrowser__ai-row">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-xbrowser__ai-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-xbrowser__ai-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( ! empty( $item['icon'] ) ) : ?>
 							<span class="testro-prod-xbrowser__cap-icon testro-prod-xbrowser__cap-icon--navy" aria-hidden="true">
 								<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -130,7 +130,7 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 			?>
 			<ul class="testro-prod-xbrowser__feature-row testro-prod-xbrowser__feature-row--<?php echo esc_attr( $row_mod ); ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-xbrowser__feature-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-xbrowser__feature-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<span class="testro-prod-xbrowser__feature-tile" aria-hidden="true">
 							<?php
 							$icon = ! empty( $item['icon'] ) ? (string) $item['icon'] : 'code';
@@ -152,7 +152,7 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 			<?php /* Framer Feature Card 2 with navy number tiles (01–03), not Lucide icons. */ ?>
 			<ol class="testro-prod-xbrowser__scale-stack">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-xbrowser__scale-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-xbrowser__scale-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<span class="testro-prod-xbrowser__scale-tile" aria-hidden="true">
 							<span class="testro-prod-xbrowser__scale-num"><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></span>
 						</span>

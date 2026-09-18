@@ -188,7 +188,7 @@ $panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['
 			?>
 			<ul class="testro-prod-tm__cards testro-prod-tm__cards--<?php echo esc_attr( $card_fill ); ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-tm__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-tm__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<span class="testro-prod-tm__card-tile" aria-hidden="true">
 							<?php
 							$icon = ! empty( $item['icon'] ) ? (string) $item['icon'] : 'code';

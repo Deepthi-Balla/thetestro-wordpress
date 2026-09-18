@@ -37,7 +37,7 @@ $widths     = array( 320, 368, 324 );
 		<ul class="testro-web-maintain__cards">
 			<?php foreach ( $items as $index => $item ) : ?>
 				<?php $w = isset( $widths[ $index ] ) ? (int) $widths[ $index ] : 320; ?>
-				<li class="testro-web-maintain__card" style="--card-w: <?php echo esc_attr( (string) $w ); ?>px">
+				<li class="testro-web-maintain__card testro-card--top-line" style="--card-w: <?php echo esc_attr( (string) $w ); ?>px">
 					<span class="testro-web-maintain__visual" aria-hidden="true"></span>
 					<div class="testro-web-maintain__copy">
 						<?php if ( ! empty( $item['title'] ) ) : ?>

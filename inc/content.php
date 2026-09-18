@@ -623,25 +623,25 @@ function testro_get_feature_tabs() {
 function testro_get_how_it_works() {
 	return array(
 		array(
-			'step'        => '01',
+			'step'        => '1',
 			'title'       => 'Record or build',
 			'description' => 'Capture your workflow, or build a test with our no-code editor.',
 			'tag'         => 'no code required',
 		),
 		array(
-			'step'        => '02',
+			'step'        => '2',
 			'title'       => 'Enhance with AI',
 			'description' => 'Let AI add checks, fixes, and edge cases.',
 			'tag'         => 'AI-assisted',
 		),
 		array(
-			'step'        => '03',
+			'step'        => '3',
 			'title'       => 'Run at scale',
 			'description' => 'Test in parallel across browsers, devices, and environments.',
 			'tag'         => 'parallel execution',
 		),
 		array(
-			'step'        => '04',
+			'step'        => '4',
 			'title'       => 'Analyze and ship',
 			'description' => 'Review results, fix bugs fast, and ship with confidence.',
 			'tag'         => 'release-ready',

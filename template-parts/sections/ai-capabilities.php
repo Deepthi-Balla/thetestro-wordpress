@@ -23,7 +23,7 @@ $items = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] 
 		<?php if ( $items ) : ?>
 			<ul class="testro-ai__grid">
 				<?php foreach ( $items as $item ) : ?>
-					<li class="testro-ai__card">
+					<li class="testro-ai__card testro-card--top-line">
 						<span class="testro-ai__icon" aria-hidden="true">
 							<?php
 							if ( ! empty( $item['icon'] ) && function_exists( 'testro_icon' ) ) {

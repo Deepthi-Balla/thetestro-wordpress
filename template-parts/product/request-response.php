@@ -98,7 +98,7 @@ $flow_aria       = isset( $args['flow_aria'] ) ? (string) $args['flow_aria'] : _
 			<?php if ( $items ) : ?>
 				<ul class="testro-prod-rr__cards">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-rr__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+						<li class="testro-prod-rr__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
 							<span class="testro-prod-rr__card-glow" aria-hidden="true"></span>
 							<?php if ( ! empty( $item['icon'] ) ) : ?>
 								<span class="testro-prod-rr__card-icon" aria-hidden="true">

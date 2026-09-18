@@ -51,7 +51,7 @@ $items = array(
 		<ul class="testro-industries__grid testro-industries__grid--framer">
 			<?php foreach ( $items as $item ) : ?>
 				<li>
-					<a class="testro-industries__card testro-industries__card--framer" href="<?php echo esc_url( $item['href'] ); ?>">
+					<a class="testro-industries__card testro-industries__card--framer testro-card--top-line" href="<?php echo esc_url( $item['href'] ); ?>">
 						<span class="testro-industries__accent" aria-hidden="true"></span>
 						<span class="testro-industries__icon" aria-hidden="true">
 							<?php echo testro_nav_icon( $item['icon'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

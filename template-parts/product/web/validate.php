@@ -28,7 +28,7 @@ $suite_uri  = get_template_directory_uri() . '/assets/images/web/analytics-suite
 
 		<ul class="testro-web-validate__grid">
 			<?php foreach ( $items as $index => $item ) : ?>
-				<li class="testro-web-validate__card">
+				<li class="testro-web-validate__card testro-card--top-line">
 					<span class="testro-web-validate__slot" aria-hidden="true" style="background-image: url('<?php echo esc_url( $suite_uri ); ?>');"></span>
 					<div class="testro-web-validate__copy">
 						<p class="testro-web-validate__card-text">

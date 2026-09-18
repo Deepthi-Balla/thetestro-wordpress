@@ -147,7 +147,7 @@ $item_heading_tag   = 'h' . $item_heading_level;
 				?>
 				<ul class="testro-prod-outcomes__unified-grid<?php echo $is_analytics_cards ? ' testro-prod-outcomes__unified-grid--analytics' : ''; ?>">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-outcomes__unified-card<?php echo $is_analytics_cards ? ' testro-prod-outcomes__unified-card--analytics' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+						<li class="testro-prod-outcomes__unified-card testro-card--top-line<?php echo $is_analytics_cards ? ' testro-prod-outcomes__unified-card--analytics' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
 							<?php if ( $is_analytics_cards ) : ?>
 								<span class="testro-prod-outcomes__unified-visual" aria-hidden="true" style="background-image: url('<?php echo esc_url( $suite_rows_uri ); ?>');"></span>
 							<?php elseif ( ! empty( $item['icon'] ) ) : ?>
@@ -184,7 +184,7 @@ $item_heading_tag   = 'h' . $item_heading_level;
 					</div>
 					<ul class="testro-prod-outcomes__cicd-grid">
 						<?php foreach ( $items as $index => $item ) : ?>
-							<li class="testro-prod-outcomes__cicd-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+							<li class="testro-prod-outcomes__cicd-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 								<span class="testro-prod-outcomes__cicd-header" aria-hidden="true">
 									<span class="testro-prod-outcomes__cicd-tile">
 										<?php
@@ -217,7 +217,7 @@ $item_heading_tag   = 'h' . $item_heading_level;
 					</div>
 					<ul class="testro-prod-outcomes__enterprise-grid">
 						<?php foreach ( $items as $index => $item ) : ?>
-							<li class="testro-prod-outcomes__enterprise-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+							<li class="testro-prod-outcomes__enterprise-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 								<div class="testro-prod-outcomes__enterprise-header">
 									<span class="testro-prod-outcomes__enterprise-tile" aria-hidden="true">
 										<?php
@@ -242,7 +242,7 @@ $item_heading_tag   = 'h' . $item_heading_level;
 			<?php elseif ( $is_framer ) : ?>
 				<ul class="testro-prod-outcomes__framer-grid">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-outcomes__framer-card">
+						<li class="testro-prod-outcomes__framer-card testro-card--top-line">
 							<?php if ( ! empty( $item['icon'] ) ) : ?>
 								<span class="testro-prod-outcomes__framer-icon" aria-hidden="true">
 									<span class="testro-prod-outcomes__framer-icon-glyph">
@@ -264,7 +264,7 @@ $item_heading_tag   = 'h' . $item_heading_level;
 			<?php elseif ( $is_numbered ) : ?>
 				<ul class="testro-prod-outcomes__numbered-grid">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-outcomes__numbered-card">
+						<li class="testro-prod-outcomes__numbered-card testro-card--top-line">
 							<span class="testro-prod-outcomes__numbered-badge" aria-hidden="true">
 								<span class="testro-prod-outcomes__numbered-num"><?php echo esc_html( (string) ( $index + 1 ) ); ?></span>
 							</span>
@@ -298,7 +298,7 @@ $item_heading_tag   = 'h' . $item_heading_level;
 			<?php elseif ( $is_audience ) : ?>
 				<ul class="testro-prod-outcomes__audience-grid">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-outcomes__audience-card">
+						<li class="testro-prod-outcomes__audience-card testro-card--top-line">
 							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
 							<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__audience-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_heading_tag; ?>>
 							<?php if ( ! empty( $item['description'] ) ) : ?>

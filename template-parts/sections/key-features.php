@@ -20,7 +20,7 @@ if ( ! $features ) {
 		<ul class="testro-key-features__grid">
 			<?php foreach ( $features as $feature ) : ?>
 				<li>
-					<a class="testro-key-features__card" href="<?php echo esc_url( $feature['href'] ); ?>">
+					<a class="testro-key-features__card testro-card--top-line" href="<?php echo esc_url( $feature['href'] ); ?>">
 						<span class="testro-key-features__accent" aria-hidden="true"></span>
 						<span class="testro-key-features__icon" aria-hidden="true">
 							<?php echo testro_nav_icon( $feature['icon'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>

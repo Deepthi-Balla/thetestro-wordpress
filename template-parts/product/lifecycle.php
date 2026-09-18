@@ -131,7 +131,7 @@ $ring_positions = array(
 							</span>
 						</span>
 
-						<article class="testro-prod-lifecycle__card">
+						<article class="testro-prod-lifecycle__card testro-card--top-line">
 							<p class="testro-prod-lifecycle__step-label">
 								<?php
 								printf(

@@ -68,7 +68,7 @@ $head_align = ! empty( $args['align_end'] ) ? 'start' : ( isset( $args['align'] 
 			?>
 			<ul class="testro-prod-pw__cards testro-prod-pw__cards--<?php echo esc_attr( (string) $columns ); ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-pw__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-pw__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( ! $hide_icons ) : ?>
 							<span class="testro-prod-pw__card-tile" aria-hidden="true">
 								<?php

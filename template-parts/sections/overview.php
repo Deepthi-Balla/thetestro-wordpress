@@ -32,7 +32,7 @@ $cards    = isset( $data['cards'] ) && is_array( $data['cards'] ) ? $data['cards
 					$title   = isset( $card['title'] ) ? (string) $card['title'] : '';
 					$desc    = isset( $card['description'] ) ? (string) $card['description'] : '';
 					?>
-					<li class="testro-overview__card testro-overview__card--<?php echo esc_attr( $variant ); ?>">
+					<li class="testro-overview__card testro-overview__card--<?php echo esc_attr( $variant ); ?> testro-card--top-line">
 						<span class="testro-overview__card-icon" aria-hidden="true"></span>
 						<h3 class="testro-overview__card-title"><?php echo esc_html( $title ); ?></h3>
 						<p class="testro-overview__card-desc"><?php echo esc_html( $desc ); ?></p>

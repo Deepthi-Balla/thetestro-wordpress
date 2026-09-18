@@ -98,7 +98,7 @@ $heading_id = $id ? $id . '-heading' : '';
 		<?php if ( $items ) : ?>
 			<ul class="testro-prod-cards" data-columns="4">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+					<li class="testro-prod-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
 						<span class="testro-prod-card__glow" aria-hidden="true"></span>
 						<div class="testro-prod-card__body">
 							<?php if ( ! empty( $item['icon'] ) ) : ?>

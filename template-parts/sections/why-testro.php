@@ -23,7 +23,7 @@ $check_img = testro_asset( 'images/home/why-check.png' );
 			</header>
 
 			<div class="testro-why__compare">
-				<article class="testro-why__panel testro-why__panel--old">
+				<article class="testro-why__panel testro-why__panel--old testro-card--top-line">
 					<div class="testro-why__illustration">
 						<img
 							src="<?php echo esc_url( $old_img ); ?>"
@@ -42,7 +42,7 @@ $check_img = testro_asset( 'images/home/why-check.png' );
 					</ul>
 				</article>
 
-				<article class="testro-why__panel testro-why__panel--new">
+				<article class="testro-why__panel testro-why__panel--new testro-card--top-line">
 					<p class="testro-why__panel-label testro-why__panel-label--new"><?php esc_html_e( 'THE THETESTRO WAY', 'testro' ); ?></p>
 					<ul class="testro-why__new-list">
 						<?php foreach ( $features as $feature ) : ?>

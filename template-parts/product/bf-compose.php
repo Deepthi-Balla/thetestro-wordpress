@@ -87,7 +87,7 @@ if ( 'industry' !== $card_style ) {
 						? ' href="' . esc_url( $href ) . '"'
 						: ' role="group"';
 					?>
-					<li class="testro-prod-bf__card<?php echo '' !== $href ? ' testro-prod-bf__card--linked' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-bf__card testro-card--top-line<?php echo '' !== $href ? ' testro-prod-bf__card--linked' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( 'industry' === $card_style ) : ?>
 							<?php /* Accent is a card-top border segment (Framer PathNode), not icon chrome. */ ?>
 							<span class="testro-prod-bf__card-accent" aria-hidden="true"></span>

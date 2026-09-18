@@ -35,7 +35,7 @@ $chrome_uri    = get_template_directory_uri() . '/assets/images/web/chrome-icon.
 				$title = isset( $item['title'] ) ? (string) $item['title'] : '';
 				$desc  = isset( $item['description'] ) ? (string) $item['description'] : '';
 				?>
-				<li class="testro-web-browsers__card">
+				<li class="testro-web-browsers__card testro-card--top-line">
 					<span class="testro-web-browsers__icon" aria-hidden="true">
 						<img src="<?php echo esc_url( $chrome_uri ); ?>" alt="" width="34" height="34" loading="lazy" decoding="async" />
 					</span>

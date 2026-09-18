@@ -99,7 +99,7 @@ $render_numbered = static function ( $items, $tag ) {
 			<?php if ( $items ) : ?>
 				<ol class="testro-prod-api__steps-grid">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-api__step-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+						<li class="testro-prod-api__step-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 							<span class="testro-prod-api__step-index" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></span>
 							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
 							<<?php echo $item_tag; ?> class="testro-prod-api__step-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>

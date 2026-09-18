@@ -153,7 +153,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 			?>
 			<ul class="testro-prod-cicd__cards testro-prod-cicd__cards--<?php echo esc_attr( (string) $columns ); ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-cicd__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-cicd__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( ! $hide_icons ) : ?>
 							<span class="testro-prod-cicd__card-tile" aria-hidden="true">
 								<?php

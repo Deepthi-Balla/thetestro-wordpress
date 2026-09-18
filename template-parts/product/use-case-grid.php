@@ -73,7 +73,7 @@ $heading_id = $id ? $id . '-heading' : '';
 					style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms"
 				>
 					<<?php echo esc_html( $tag ); ?>
-						class="testro-prod-usecase-grid__card"
+						class="testro-prod-usecase-grid__card testro-card--top-line"
 						<?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?>
 					>
 						<span class="testro-prod-usecase-grid__border" aria-hidden="true"></span>

@@ -62,7 +62,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 			?>
 			<ul class="testro-prod-te__cards testro-prod-te__cards--<?php echo esc_attr( (string) count( $items ) ); ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-te__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-te__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<span class="testro-prod-te__card-tile" aria-hidden="true">
 							<?php
 							$icon = ! empty( $item['icon'] ) ? (string) $item['icon'] : 'zap';

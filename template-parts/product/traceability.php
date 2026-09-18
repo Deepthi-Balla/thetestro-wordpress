@@ -84,7 +84,7 @@ if ( ! $stages ) {
 		<?php if ( $items ) : ?>
 			<ul class="testro-prod-trace__cards">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-trace__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+					<li class="testro-prod-trace__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
 						<span class="testro-prod-trace__card-icon" aria-hidden="true">
 							<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 						</span>

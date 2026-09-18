@@ -138,7 +138,7 @@ if ( $is_list ) {
 		<?php if ( $features ) : ?>
 			<ul class="testro-prod-cards" data-columns="3">
 				<?php foreach ( $features as $index => $feature ) : ?>
-					<li class="testro-prod-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
+					<li class="testro-prod-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
 						<span class="testro-prod-card__glow" aria-hidden="true"></span>
 						<div class="testro-prod-card__body">
 							<?php if ( ! empty( $feature['icon'] ) ) : ?>

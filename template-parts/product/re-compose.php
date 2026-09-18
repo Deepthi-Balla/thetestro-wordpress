@@ -75,7 +75,7 @@ $heading_lv = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['hea
 			?>
 			<ul class="testro-prod-bf__cards testro-prod-bf__cards--<?php echo esc_attr( (string) $columns ); ?><?php echo $card_fill ? ' testro-prod-bf__cards--fill-' . esc_attr( $card_fill ) : ''; ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-bf__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-bf__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<span class="testro-prod-bf__card-accent" aria-hidden="true"></span>
 						<span class="testro-prod-bf__card-tile" aria-hidden="true">
 							<?php

@@ -125,7 +125,7 @@ if ( $is_split_list ) {
 					$item_id   = ! empty( $item['id'] ) ? sanitize_title( (string) $item['id'] ) : '';
 					?>
 					<li
-						class="testro-prod-card<?php echo $has_cta ? ' testro-prod-card--cta' : ''; ?>"
+						class="testro-prod-card testro-card--top-line<?php echo $has_cta ? ' testro-prod-card--cta' : ''; ?>"
 						<?php echo $item_id ? 'id="' . esc_attr( $item_id ) . '"' : ''; ?>
 						data-reveal
 						style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms"

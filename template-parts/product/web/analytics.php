@@ -35,7 +35,7 @@ $suite_uri  = get_template_directory_uri() . '/assets/images/web/analytics-suite
 
 		<ul class="testro-web-analytics__cards">
 			<?php foreach ( $items as $item ) : ?>
-				<li class="testro-web-analytics__card">
+				<li class="testro-web-analytics__card testro-card--top-line">
 					<span class="testro-web-analytics__visual" aria-hidden="true" style="background-image: url('<?php echo esc_url( $suite_uri ); ?>');"></span>
 					<div class="testro-web-analytics__copy">
 						<?php if ( ! empty( $item['title'] ) ) : ?>

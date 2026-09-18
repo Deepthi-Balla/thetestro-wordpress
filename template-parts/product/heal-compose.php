@@ -169,7 +169,7 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 			<?php /* Framer Feature Card 2 — tint fill, cyan icon tile 46×42 r10. */ ?>
 			<ul class="testro-prod-heal__cards">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-heal__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-heal__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<span class="testro-prod-heal__card-tile" aria-hidden="true">
 							<?php
 							$icon = ! empty( $item['icon'] ) ? (string) $item['icon'] : 'code';

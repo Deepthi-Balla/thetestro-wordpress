@@ -25,7 +25,7 @@ $count = count( $steps );
 				<ol class="testro-how__flow" style="--how-count: <?php echo esc_attr( (string) max( 1, $count ) ); ?>">
 					<?php foreach ( $steps as $index => $step ) : ?>
 						<li class="testro-how__flow-item">
-							<span class="testro-how__flow-num" aria-hidden="true"><?php echo esc_html( isset( $step['step'] ) ? $step['step'] : sprintf( '%02d', $index + 1 ) ); ?></span>
+							<span class="testro-how__flow-num" aria-hidden="true"><?php echo esc_html( isset( $step['step'] ) ? $step['step'] : (string) ( $index + 1 ) ); ?></span>
 							<div class="testro-how__flow-body">
 								<h3 class="testro-how__flow-title"><?php echo esc_html( $step['title'] ); ?></h3>
 								<p class="testro-how__flow-desc"><?php echo esc_html( $step['description'] ); ?></p>

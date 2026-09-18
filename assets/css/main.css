@@ -25233,21 +25233,12 @@ body.home .testro-hero__title {
   letter-spacing: -0.7px;
 }
 
-/* Card icons / shapes — Framer gradient 135deg, 10px radius, cyan border */
+/* Card icons / shapes — layout tokens; border via .testro-card--top-line */
 .home .testro-key-features--framer .testro-key-features__card,
 .home .testro-industries__card--framer {
-  border: 1px solid #00acff !important;
   border-radius: 16px !important;
   padding: 24px !important;
   gap: 11px !important;
-}
-.home .testro-key-features--framer .testro-key-features__accent,
-.home .testro-industries__accent {
-  width: 42px;
-  height: 6px;
-  left: 18px;
-  border-radius: 0 0 10px 10px;
-  background: #00acff;
 }
 .home .testro-key-features--framer .testro-key-features__icon,
 .home .testro-industries__icon,
@@ -25337,10 +25328,9 @@ body.home .testro-hero__title {
   font-weight: 600;
 }
 
-/* AI Cap cards — Framer glass fill */
+/* AI Cap cards — Framer glass fill; border via .testro-card--top-line */
 .home .testro-ai__card {
   background: rgb(35 89 150 / 0.55) !important;
-  border: 1px solid rgb(0 172 255 / 0.55) !important;
   border-radius: 16px !important;
   padding: 24px !important;
   gap: 11px;
@@ -25437,10 +25427,9 @@ body.home .testro-hero__title {
   line-height: 1.2 !important;
 }
 
-/* AI Cap cards — Framer Variant 1 is transparent glass + cyan border */
+/* AI Cap cards — glass fill; top-line border via .testro-card--top-line */
 .home .testro-ai__card {
   background: transparent !important;
-  border: 1px solid #00acff !important;
   border-radius: 16px !important;
   padding: 24px !important;
   min-height: 198px;
@@ -25450,16 +25439,6 @@ body.home .testro-hero__title {
 }
 .home .testro-ai__card:hover {
   background: rgb(35 89 150) !important;
-}
-.home .testro-ai__card::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 18px;
-  width: 42px;
-  height: 5px;
-  border-radius: 0 0 10px 10px;
-  background: #00acff;
 }
 .home .testro-ai__icon {
   background: linear-gradient(135deg, #003e84 0%, #00acff 100%) !important;
@@ -25976,7 +25955,8 @@ body.home .testro-hero__title {
   overflow: hidden;
 }
 
-.testro-product-ai .testro-prod-card::before,
+/* Legacy full-width bar / glow — hide; shared top-line ::before stays */
+.testro-product-ai .testro-prod-card:not(.testro-card--top-line)::before,
 .testro-product-ai .testro-prod-card__glow {
   display: none;
 }
@@ -26336,21 +26316,32 @@ body.home .testro-hero__title {
   display: none !important;
 }
 
-/* Spotlight cards (BUILT AROUND INTELLIGENCE) — Framer exact */
+/* Spotlight cards (AI-Native Test Automation) — Framer shell + top-line */
 .testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card,
 .testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card:hover {
   background: #f4f9ff !important;
   border: 1px solid #d5e9fc !important;
   border-radius: 20px !important;
-  box-shadow: none !important;
   backdrop-filter: none !important;
   min-height: 270px;
+}
+.testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card:not(.testro-card--top-line),
+.testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card:not(.testro-card--top-line):hover {
+  box-shadow: none !important;
   transform: none !important;
 }
-.testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card::before,
+.testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card:not(.testro-card--top-line)::before,
 .testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card::after,
 .testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card__glow {
   display: none !important;
+}
+.testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card.testro-card--top-line::before {
+  display: block !important;
+  border-radius: 20px 0 0 0 !important;
+}
+.testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card.testro-card--top-line:hover::before,
+.testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card.testro-card--top-line:focus-within::before {
+  border-radius: 20px 20px 0 0 !important;
 }
 .testro-product-ai .testro-prod-features.testro-prod-section--spotlight .testro-prod-card__body {
   padding: 28px !important;
@@ -26389,7 +26380,7 @@ body.home .testro-hero__title {
   color: #5b7290 !important;
 }
 
-/* Engine cards — white on #F4F9FF */
+/* Engine cards (Intelligent Automation Engine) — white on #F4F9FF + top-line */
 .testro-product-ai .testro-prod-features.testro-prod-section--tint {
   background: #f4f9ff !important;
 }
@@ -26398,13 +26389,24 @@ body.home .testro-hero__title {
   background: #fff !important;
   border: 1px solid #d5e9fc !important;
   border-radius: 20px !important;
+}
+.testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card:not(.testro-card--top-line),
+.testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card:not(.testro-card--top-line):hover {
   box-shadow: none !important;
   transform: none !important;
 }
-.testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card::before,
+.testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card:not(.testro-card--top-line)::before,
 .testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card::after,
 .testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card__glow {
   display: none !important;
+}
+.testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card.testro-card--top-line::before {
+  display: block !important;
+  border-radius: 20px 0 0 0 !important;
+}
+.testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card.testro-card--top-line:hover::before,
+.testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card.testro-card--top-line:focus-within::before {
+  border-radius: 20px 20px 0 0 !important;
 }
 .testro-product-ai .testro-prod-features.testro-prod-section--tint .testro-prod-card__body {
   padding: 26px !important;
@@ -54224,5 +54226,86 @@ body.home .testro-resources__cta .primary-button {
   .testro-faq--framer .testro-faq__list {
     max-width: 100% !important;
     margin-inline: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   Reusable card utility — top gradient line (hover extend)
+   Class: .testro-card--top-line
+   Home + product pages (feature-grid, outcomes, bf/re compose, etc.)
+   ========================================================================== */
+
+.testro-card--top-line {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+
+  border: 1px solid #dce7f1 !important;
+  border-radius: 16px !important;
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.testro-card--top-line::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: auto !important;
+  top: -1px !important;
+  left: -1px !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 65px !important;
+  height: 4px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: linear-gradient(90deg, #00acff 0%, #003e84 100%) !important;
+  background-size: auto !important;
+  border-radius: 16px 0 0 0 !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transform-origin: left center;
+  pointer-events: none !important;
+  z-index: 5 !important;
+  transition:
+    width 0.8s ease-in-out,
+    border-radius 0.8s ease-in-out !important;
+}
+
+.testro-card--top-line:hover::before,
+.testro-card--top-line:focus-visible::before,
+.testro-card--top-line:focus-within::before {
+  width: calc(100% + 2px) !important;
+  border-radius: 16px 16px 0 0 !important;
+  transform: none !important;
+}
+
+.testro-card--top-line:hover,
+.testro-card--top-line:focus-visible,
+.testro-card--top-line:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgb(0 62 132 / 0.10);
+}
+
+/* Hide legacy accent tabs / full-width top bars when using the utility */
+.testro-card--top-line .testro-key-features__accent,
+.testro-card--top-line .testro-industries__accent,
+.testro-card--top-line .testro-prod-bf__card-accent,
+.testro-card--top-line .testro-prod-card__glow {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testro-card--top-line::before {
+    transition: none !important;
+  }
+
+  .testro-card--top-line:hover,
+  .testro-card--top-line:focus-visible,
+  .testro-card--top-line:focus-within {
+    transform: none;
   }
 }

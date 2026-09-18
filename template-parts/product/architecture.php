@@ -47,7 +47,7 @@ $section_class = 'testro-prod-section testro-prod-arch' . ( $is_grid ? ' testro-
 		<?php if ( $is_grid ) : ?>
 			<ul class="testro-prod-arch__grid">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-arch__grid-card">
+					<li class="testro-prod-arch__grid-card testro-card--top-line">
 						<h3 class="testro-prod-arch__grid-title"><?php echo esc_html( $item['title'] ); ?></h3>
 						<?php if ( ! empty( $item['description'] ) ) : ?>
 							<p class="testro-prod-arch__grid-desc"><?php echo esc_html( $item['description'] ); ?></p>

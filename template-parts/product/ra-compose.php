@@ -86,7 +86,7 @@ $is_brand   = ! empty( $args['brand'] );
 			?>
 			<ul class="testro-prod-ra__cards testro-prod-ra__cards--<?php echo esc_attr( (string) $columns ); ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-ra__card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-ra__card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( ! $hide_icons ) : ?>
 							<span class="testro-prod-ra__card-tile" aria-hidden="true">
 								<?php
@@ -222,7 +222,7 @@ $is_brand   = ! empty( $args['brand'] );
 			?>
 			<ul class="testro-prod-ra__stake">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-ra__stake-card<?php echo 1 === $index ? ' testro-prod-ra__stake-card--accent' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+					<li class="testro-prod-ra__stake-card testro-card--top-line<?php echo 1 === $index ? ' testro-prod-ra__stake-card--accent' : ''; ?>" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<span class="testro-prod-ra__stake-tile" aria-hidden="true">
 							<?php
 							$icon = ! empty( $item['icon'] ) ? (string) $item['icon'] : 'user-check';
