@@ -3,8 +3,8 @@
  * Web Testing — Validate Every UI Changes (Framer Gj9D5TyHM).
  *
  * Section Intro is visible:false in Framer — do not render intro.
- * Browser Coverage: 2×2 stack of rows, gap 24; cards h=143, horizontal
- * left visual slot + copy (title includes em dash from Framer controls).
+ * Browser Coverage: 2×2 stack of rows, gap 24; cards with left visual
+ * slot + copy (title includes em dash from Framer controls).
  *
  * @package TestRo
  */
@@ -28,8 +28,25 @@ $suite_uri  = get_template_directory_uri() . '/assets/images/web/analytics-suite
 
 		<ul class="testro-web-validate__grid">
 			<?php foreach ( $items as $index => $item ) : ?>
-				<li class="testro-web-validate__card testro-card--top-line">
-					<span class="testro-web-validate__slot" aria-hidden="true" style="background-image: url('<?php echo esc_url( $suite_uri ); ?>');"></span>
+				<?php
+				$image = isset( $item['image'] ) ? (string) $item['image'] : '';
+				$alt   = isset( $item['title'] ) ? trim( (string) $item['title'], " —-\t\n\r\0\x0B" ) : '';
+				?>
+				<li class="testro-web-validate__card<?php echo '' !== $image ? ' testro-web-validate__card--has-image' : ''; ?> testro-card--top-line">
+					<?php if ( '' !== $image ) : ?>
+						<span class="testro-web-validate__slot testro-web-validate__slot--image">
+							<img
+								src="<?php echo esc_url( $image ); ?>"
+								alt="<?php echo esc_attr( $alt ); ?>"
+								width="1024"
+								height="1024"
+								loading="lazy"
+								decoding="async"
+							/>
+						</span>
+					<?php else : ?>
+						<span class="testro-web-validate__slot" aria-hidden="true" style="background-image: url('<?php echo esc_url( $suite_uri ); ?>');"></span>
+					<?php endif; ?>
 					<div class="testro-web-validate__copy">
 						<p class="testro-web-validate__card-text">
 							<?php if ( ! empty( $item['title'] ) ) : ?>

@@ -25,6 +25,8 @@ $badges = array(
 	),
 );
 
+$canvas_image = '';
+
 if ( function_exists( 'testro_get_product_page' ) ) {
 	$product = testro_get_product_page();
 	if ( empty( $product['hero']['canvas_badges'] ) || ! is_array( $product['hero']['canvas_badges'] ) ) {
@@ -33,10 +35,25 @@ if ( function_exists( 'testro_get_product_page' ) ) {
 	if ( ! empty( $product['hero']['canvas_badges'] ) && is_array( $product['hero']['canvas_badges'] ) ) {
 		$badges = $product['hero']['canvas_badges'];
 	}
+	if ( ! empty( $product['hero']['image'] ) ) {
+		$canvas_image = (string) $product['hero']['image'];
+	}
 }
 ?>
 <div class="testro-hero-canvas testro-prod-hero-canvas" aria-hidden="true">
-	<div class="testro-hero-canvas__grid"></div>
+	<div class="testro-hero-canvas__grid">
+		<?php if ( '' !== $canvas_image ) : ?>
+			<img
+				class="testro-hero-canvas__image"
+				src="<?php echo esc_url( $canvas_image ); ?>"
+				alt=""
+				width="1024"
+				height="576"
+				decoding="async"
+				fetchpriority="high"
+			/>
+		<?php endif; ?>
+	</div>
 	<ul class="testro-hero-canvas__chips">
 		<?php foreach ( $badges as $badge ) : ?>
 			<?php

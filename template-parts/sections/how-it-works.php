@@ -12,8 +12,8 @@ $count = count( $steps );
 	<section class="testro-how testro-how--framer" aria-labelledby="how-heading">
 		<div class="testro-container">
 			<header class="testro-section-header testro-how__header">
-				<p class="testro-section-eyebrow"><?php esc_html_e( 'HOW IT WORKS', 'testro' ); ?></p>
-				<h2 id="how-heading" class="main-headings testro-how__title-heading"><?php esc_html_e( 'From plain English to production-ready tests.', 'testro' ); ?></h2>
+				<h2 id="how-heading" class="main-headings testro-how__title-heading"><?php echo esc_html( testro_section_label_title( __( 'HOW IT WORKS', 'testro' ) ) ); ?></h2>
+				<p class="sub-text testro-how__headline"><?php esc_html_e( 'From plain English to production-ready tests.', 'testro' ); ?></p>
 				<p class="sub-text testro-how__headline"><?php esc_html_e( 'Anyone can automate. Record, play, automate — one connected workflow, no separate tools to stitch together.', 'testro' ); ?></p>
 			</header>
 

@@ -11,13 +11,13 @@ $default  = $services[0];
 ?>
 <section class="testro-services linear-background" id="services" aria-labelledby="services-heading" data-services>
 	<div class="testro-services__eyebrow-wrap">
-		<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Quality services you can count on', 'testro' ); ?></p>
+		<h2 id="services-heading" class="testro-services__heading gradient-text"><?php esc_html_e( 'Quality services you can count on', 'testro' ); ?></h2>
 	</div>
 
 	<header class="testro-services__header">
-		<h2 id="services-heading" class="testro-services__heading gradient-text" data-services-title>
+		<p class="testro-services__intro sub-text" data-services-title>
 			<?php echo esc_html( $default['main_title'] ); ?>
-		</h2>
+		</p>
 		<p class="testro-services__intro sub-text" data-services-desc>
 			<?php echo esc_html( $default['main_description'] ); ?>
 		</p>

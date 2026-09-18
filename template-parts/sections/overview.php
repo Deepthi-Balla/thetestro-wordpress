@@ -14,11 +14,11 @@ $cards    = isset( $data['cards'] ) && is_array( $data['cards'] ) ? $data['cards
 	<div class="testro-container">
 		<header class="testro-section-header testro-overview__header">
 			<?php if ( ! empty( $data['eyebrow'] ) ) : ?>
-				<p class="testro-section-eyebrow"><?php echo esc_html( $data['eyebrow'] ); ?></p>
+				<h2 id="overview-heading" class="main-headings testro-overview__title"><?php echo esc_html( testro_section_label_title( $data['eyebrow'] ) ); ?></h2>
+				<p class="sub-text testro-overview__headline"><?php echo esc_html( $data['title'] ); ?></p>
+			<?php else : ?>
+				<h2 id="overview-heading" class="main-headings testro-overview__title"><?php echo esc_html( $data['title'] ); ?></h2>
 			<?php endif; ?>
-			<h2 id="overview-heading" class="main-headings testro-overview__title">
-				<?php echo esc_html( $data['title'] ); ?>
-			</h2>
 			<?php if ( '' !== $headline ) : ?>
 				<p class="sub-text testro-overview__headline"><?php echo esc_html( $headline ); ?></p>
 			<?php endif; ?>

@@ -19,7 +19,7 @@ foreach ( $items as $item ) {
 		'description' => $item['description'],
 		'href'        => ! empty( $item['href'] ) ? $item['href'] : $blog_url,
 		'meta'        => ! empty( $item['meta'] ) ? $item['meta'] : 'AI Insights',
-		'image'       => '',
+		'image'       => ! empty( $item['image'] ) ? (string) $item['image'] : '',
 	);
 }
 
@@ -30,8 +30,8 @@ if ( ! $cards ) {
 <section class="testro-resources testro-resources--framer" id="resources" aria-labelledby="resources-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-resources__header">
-			<p class="testro-section-eyebrow"><?php esc_html_e( 'LATEST BLOGS & RESOURCES', 'testro' ); ?></p>
-			<h2 id="resources-heading" class="main-headings"><?php echo esc_html( ! empty( $headline ) ? $headline : __( 'Learn about AI-driven testing.', 'testro' ) ); ?></h2>
+			<h2 id="resources-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'LATEST BLOGS & RESOURCES', 'testro' ) ) ); ?></h2>
+			<p class="sub-text"><?php echo esc_html( ! empty( $headline ) ? $headline : __( 'Learn about AI-driven testing.', 'testro' ) ); ?></p>
 			<p class="sub-text"><?php echo esc_html( $intro ); ?></p>
 		</header>
 
@@ -41,7 +41,14 @@ if ( ! $cards ) {
 					<article class="testro-resources__card testro-resources__card--framer">
 						<a class="testro-resources__media" href="<?php echo esc_url( $card['href'] ); ?>" tabindex="-1" aria-hidden="true">
 							<?php if ( ! empty( $card['image'] ) ) : ?>
-								<img src="<?php echo esc_url( $card['image'] ); ?>" alt="" loading="lazy" decoding="async" width="640" height="360" />
+								<img
+									src="<?php echo esc_url( $card['image'] ); ?>"
+									alt=""
+									loading="lazy"
+									decoding="async"
+									width="960"
+									height="540"
+								/>
 							<?php else : ?>
 								<span class="testro-resources__placeholder"></span>
 							<?php endif; ?>

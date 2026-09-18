@@ -26,14 +26,11 @@ $count         = count( $items );
 		<div class="testro-web-cicd__inner">
 			<header class="testro-web-cicd__head">
 				<?php if ( ! empty( $args['eyebrow'] ) ) : ?>
-					<p class="testro-web-cicd__eyebrow">
-						<span class="testro-web-cicd__eyebrow-icon" aria-hidden="true">
-							<?php echo testro_icon( 'shield-check', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
-						</span>
-						<span><?php echo esc_html( (string) $args['eyebrow'] ); ?></span>
-					</p>
-				<?php endif; ?>
-				<?php if ( ! empty( $args['title'] ) ) : ?>
+					<h2 id="<?php echo esc_attr( $heading_id ); ?>" class="testro-web-cicd__title"><?php echo esc_html( testro_section_label_title( (string) $args['eyebrow'] ) ); ?></h2>
+					<?php if ( ! empty( $args['title'] ) ) : ?>
+						<p class="testro-web-cicd__intro"><?php echo esc_html( (string) $args['title'] ); ?></p>
+					<?php endif; ?>
+				<?php elseif ( ! empty( $args['title'] ) ) : ?>
 					<h2 id="<?php echo esc_attr( $heading_id ); ?>" class="testro-web-cicd__title"><?php echo esc_html( (string) $args['title'] ); ?></h2>
 				<?php endif; ?>
 				<?php if ( ! empty( $args['intro'] ) ) : ?>

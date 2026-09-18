@@ -41,8 +41,8 @@ $items = array(
 <section class="testro-industries testro-industries--framer" id="industries" aria-labelledby="industries-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-industries__header">
-			<p class="testro-section-eyebrow"><?php esc_html_e( 'SOLUTIONS BY INDUSTRY', 'testro' ); ?></p>
-			<h2 id="industries-heading" class="main-headings"><?php esc_html_e( 'Built for your industry.', 'testro' ); ?></h2>
+			<h2 id="industries-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'SOLUTIONS BY INDUSTRY', 'testro' ) ) ); ?></h2>
+			<p class="sub-text testro-industries__headline"><?php esc_html_e( 'Built for your industry.', 'testro' ); ?></p>
 			<p class="sub-text testro-industries__headline">
 				<?php esc_html_e( 'theTestRo adapts to the workflows, constraints, and release pace of the teams who can’t afford a broken experience.', 'testro' ); ?>
 			</p>

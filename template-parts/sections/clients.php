@@ -50,9 +50,11 @@ $track_items = $clients ? array_merge( $clients, $clients ) : array();
 		<div class="testro-clients__top">
 			<header class="testro-section-header testro-clients__header">
 				<?php if ( '' !== $eyebrow ) : ?>
-					<p class="testro-section-eyebrow testro-clients__eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
+					<h2 id="clients-heading" class="main-headings testro-clients__heading"><?php echo esc_html( testro_section_label_title( $eyebrow ) ); ?></h2>
+					<p class="sub-text"><?php echo esc_html( $title ); ?></p>
+				<?php else : ?>
+					<h2 id="clients-heading" class="main-headings testro-clients__heading"><?php echo esc_html( $title ); ?></h2>
 				<?php endif; ?>
-				<h2 id="clients-heading" class="main-headings testro-clients__heading"><?php echo esc_html( $title ); ?></h2>
 			</header>
 
 			<ul class="testro-clients__metrics" aria-label="<?php esc_attr_e( 'Platform statistics', 'testro' ); ?>">

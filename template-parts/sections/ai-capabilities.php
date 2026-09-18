@@ -12,9 +12,11 @@ $items = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] 
 	<div class="testro-container">
 		<header class="testro-section-header testro-ai__header">
 			<?php if ( ! empty( $data['eyebrow'] ) ) : ?>
-				<p class="testro-section-eyebrow testro-ai__eyebrow"><?php echo esc_html( $data['eyebrow'] ); ?></p>
+				<h2 id="ai-capabilities-heading" class="main-headings testro-ai__title"><?php echo esc_html( testro_section_label_title( $data['eyebrow'] ) ); ?></h2>
+				<p class="sub-text testro-ai__intro"><?php echo esc_html( $data['title'] ); ?></p>
+			<?php else : ?>
+				<h2 id="ai-capabilities-heading" class="main-headings testro-ai__title"><?php echo esc_html( $data['title'] ); ?></h2>
 			<?php endif; ?>
-			<h2 id="ai-capabilities-heading" class="main-headings testro-ai__title"><?php echo esc_html( $data['title'] ); ?></h2>
 			<?php if ( ! empty( $data['intro'] ) ) : ?>
 				<p class="sub-text testro-ai__intro"><?php echo esc_html( $data['intro'] ); ?></p>
 			<?php endif; ?>

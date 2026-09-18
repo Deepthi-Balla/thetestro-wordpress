@@ -1,6 +1,6 @@
 <?php
 /**
- * Reusable primary button with dual-label hover + arrow (reference interaction).
+ * Reusable primary button with arrow hover interaction.
  *
  * Expected $args:
  * - label (string)
@@ -60,10 +60,7 @@ if ( $is_outline ) :
 	<?php
 else :
 	?>
-<span class="primary-button__label relative block h-6 overflow-hidden">
-	<span class="primary-button__label-a block transition-transform duration-300 group-hover:-translate-y-full"><?php echo esc_html( $label ); ?></span>
-	<span class="primary-button__label-b absolute inset-0 translate-y-full transition-transform duration-300 group-hover:translate-y-0" aria-hidden="true"><?php echo esc_html( $label ); ?></span>
-</span>
+<span class="primary-button__label"><?php echo esc_html( $label ); ?></span>
 	<?php
 endif;
 if ( $with_arrow ) :

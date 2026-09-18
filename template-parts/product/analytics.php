@@ -70,8 +70,23 @@ if ( $is_framer ) {
 				?>
 			</div>
 
-			<?php /* Framer Failure Classification Dashboard — chrome only, no invented KPI text. */ ?>
-			<div class="testro-prod-analytics__empty-panel" aria-hidden="true"></div>
+			<?php
+			$empty_image = isset( $dashboard['image'] ) ? (string) $dashboard['image'] : '';
+			$empty_alt   = isset( $dashboard['alt'] ) ? (string) $dashboard['alt'] : '';
+			?>
+			<div class="testro-prod-analytics__empty-panel<?php echo '' !== $empty_image ? ' testro-prod-analytics__empty-panel--image' : ''; ?>"<?php echo '' === $empty_image ? ' aria-hidden="true"' : ''; ?>>
+				<?php if ( '' !== $empty_image ) : ?>
+					<img
+						class="testro-prod-analytics__empty-panel-image"
+						src="<?php echo esc_url( $empty_image ); ?>"
+						alt="<?php echo esc_attr( $empty_alt ); ?>"
+						width="1024"
+						height="1024"
+						loading="lazy"
+						decoding="async"
+					/>
+				<?php endif; ?>
+			</div>
 
 		<?php elseif ( $is_skeleton ) : ?>
 			<div class="testro-prod-analytics__copy">
@@ -155,7 +170,23 @@ if ( $is_framer ) {
 			</div>
 
 			<?php if ( $dashboard ) : ?>
-				<div class="testro-prod-analytics__panel" aria-hidden="true"></div>
+				<?php
+				$panel_image = isset( $dashboard['image'] ) ? (string) $dashboard['image'] : '';
+				$panel_alt   = isset( $dashboard['alt'] ) ? (string) $dashboard['alt'] : '';
+				?>
+				<div class="testro-prod-analytics__panel<?php echo '' !== $panel_image ? ' testro-prod-analytics__panel--image' : ''; ?>"<?php echo '' === $panel_image ? ' aria-hidden="true"' : ''; ?>>
+					<?php if ( '' !== $panel_image ) : ?>
+						<img
+							class="testro-prod-analytics__panel-image"
+							src="<?php echo esc_url( $panel_image ); ?>"
+							alt="<?php echo esc_attr( $panel_alt ); ?>"
+							width="682"
+							height="840"
+							loading="lazy"
+							decoding="async"
+						/>
+					<?php endif; ?>
+				</div>
 			<?php endif; ?>
 		<?php else : ?>
 		<?php

@@ -28,9 +28,11 @@ $cta_url = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'case-studies' 
 	<div class="testro-container">
 		<header class="testro-section-header testro-case-studies__header">
 			<?php if ( '' !== $eyebrow ) : ?>
-				<p class="subtitle-pill testro-section-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-			<?php endif; ?>
-			<?php if ( '' !== $title ) : ?>
+				<h2 id="case-studies-heading" class="gradient-text main-headings"><?php echo esc_html( testro_section_label_title( $eyebrow ) ); ?></h2>
+				<?php if ( '' !== $title ) : ?>
+					<p class="sub-text"><?php echo esc_html( $title ); ?></p>
+				<?php endif; ?>
+			<?php elseif ( '' !== $title ) : ?>
 				<h2 id="case-studies-heading" class="gradient-text main-headings"><?php echo esc_html( $title ); ?></h2>
 			<?php endif; ?>
 			<?php if ( '' !== $intro ) : ?>

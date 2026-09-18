@@ -1,6 +1,14 @@
 <?php
 /**
- * Product page section header — eyebrow pill, heading and intro copy.
+ * Product page section header — eyebrow, heading and intro copy.
+ *
+ * Style reassignment (exact existing implementations reused, no new type values):
+ * - When a label/eyebrow is present:
+ *   Label / eyebrow → former Header Title styles (heading tag + title classes)
+ *   Header Title    → former Supporting Text styles (p + intro classes)
+ *   Supporting Text → unchanged (p + intro classes)
+ * - When no label/eyebrow is present, the title keeps its original heading styles
+ *   so sections without an eyebrow are not visually broken.
  *
  * Expected $args:
  * - eyebrow    (string)  Optional pill label.
@@ -35,25 +43,48 @@ if ( '' === $title && '' === $eyebrow ) {
 	return;
 }
 
-$heading_class = 'testro-prod-head__title main-headings';
+/*
+ * Style B — exact former Header Title implementation:
+ * heading tag + testro-prod-head__title + main-headings (+ gradient-text on light).
+ */
+$title_style_class = 'testro-prod-head__title main-headings';
 if ( 'dark' !== $tone ) {
-	$heading_class .= ' gradient-text';
+	$title_style_class .= ' gradient-text';
 }
+
+/* Style C — exact former Supporting Text implementation. */
+$intro_style_class = 'testro-prod-head__intro';
+
+$label_is_heading = ( '' !== $eyebrow );
 ?>
 <header class="testro-prod-head testro-prod-head--<?php echo esc_attr( $tone ); ?> testro-prod-head--<?php echo esc_attr( $align ); ?>" data-reveal>
-	<?php if ( '' !== $eyebrow ) : ?>
-		<p class="subtitle-pill testro-section-eyebrow testro-prod-head__eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-	<?php endif; ?>
-
-	<?php if ( '' !== $title ) : ?>
+	<?php if ( $label_is_heading ) : ?>
 		<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
-		<<?php echo $heading_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="<?php echo esc_attr( $heading_class ); ?>">
-			<?php echo esc_html( $title ); ?>
+		<<?php echo $heading_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="<?php echo esc_attr( $title_style_class ); ?>">
+			<?php echo esc_html( testro_section_label_title( $eyebrow ) ); ?>
 		</<?php echo $heading_tag; ?>>
 	<?php endif; ?>
 
+	<?php if ( '' !== $title ) : ?>
+		<?php if ( $label_is_heading ) : ?>
+			<?php /* Style C — exact former supporting implementation (p + intro class). */ ?>
+			<p class="<?php echo esc_attr( $intro_style_class ); ?>"><?php echo esc_html( $title ); ?></p>
+		<?php else : ?>
+			<?php
+			/*
+			 * No label: keep the original title implementation so sections
+			 * without an eyebrow are not visually broken.
+			 */
+			?>
+			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
+			<<?php echo $heading_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="<?php echo esc_attr( $title_style_class ); ?>">
+				<?php echo esc_html( $title ); ?>
+			</<?php echo $heading_tag; ?>>
+		<?php endif; ?>
+	<?php endif; ?>
+
 	<?php if ( '' !== $intro ) : ?>
-		<p class="testro-prod-head__intro"><?php echo esc_html( $intro ); ?></p>
+		<p class="<?php echo esc_attr( $intro_style_class ); ?>"><?php echo esc_html( $intro ); ?></p>
 	<?php endif; ?>
 
 	<?php if ( '' !== $emphasis ) : ?>
@@ -61,16 +92,16 @@ if ( 'dark' !== $tone ) {
 	<?php endif; ?>
 
 	<?php if ( '' !== $intro_extra ) : ?>
-		<p class="testro-prod-head__intro testro-prod-head__intro-extra"><?php echo esc_html( $intro_extra ); ?></p>
+		<p class="<?php echo esc_attr( $intro_style_class ); ?> testro-prod-head__intro-extra"><?php echo esc_html( $intro_extra ); ?></p>
 	<?php endif; ?>
 
 	<?php if ( '' !== $intro_body ) : ?>
-		<p class="testro-prod-head__intro"><?php echo esc_html( $intro_body ); ?></p>
+		<p class="<?php echo esc_attr( $intro_style_class ); ?>"><?php echo esc_html( $intro_body ); ?></p>
 	<?php endif; ?>
 
 	<?php foreach ( $paragraphs as $paragraph ) : ?>
 		<?php if ( '' !== (string) $paragraph ) : ?>
-			<p class="testro-prod-head__intro"><?php echo esc_html( (string) $paragraph ); ?></p>
+			<p class="<?php echo esc_attr( $intro_style_class ); ?>"><?php echo esc_html( (string) $paragraph ); ?></p>
 		<?php endif; ?>
 	<?php endforeach; ?>
 </header>

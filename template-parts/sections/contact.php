@@ -65,9 +65,11 @@ if ( $is_brief ) {
 				<div class="testro-contact__intro" data-reveal>
 					<header class="testro-contact__header">
 						<?php if ( $show_eyebrow ) : ?>
-							<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Contact Us', 'testro' ); ?></p>
+							<h2 id="contact-heading" class="testro-contact__heading"><?php esc_html_e( 'Contact Us', 'testro' ); ?></h2>
+							<p class="testro-contact__supporting"><?php echo esc_html( $title ); ?></p>
+						<?php else : ?>
+							<h2 id="contact-heading" class="testro-contact__heading"><?php echo esc_html( $title ); ?></h2>
 						<?php endif; ?>
-						<h2 id="contact-heading" class="testro-contact__heading"><?php echo esc_html( $title ); ?></h2>
 						<?php if ( '' !== $supporting ) : ?>
 							<p class="testro-contact__supporting"><?php echo esc_html( $supporting ); ?></p>
 						<?php endif; ?>
@@ -79,9 +81,11 @@ if ( $is_brief ) {
 			<?php elseif ( $is_split ) : ?>
 				<header class="testro-contact__header" data-reveal>
 					<?php if ( $show_eyebrow ) : ?>
-						<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Contact Us', 'testro' ); ?></p>
+						<h2 id="contact-heading" class="testro-contact__heading gradient-text"><?php esc_html_e( 'Contact Us', 'testro' ); ?></h2>
+						<p class="testro-contact__supporting"><?php echo esc_html( $title ); ?></p>
+					<?php else : ?>
+						<h2 id="contact-heading" class="testro-contact__heading gradient-text"><?php echo esc_html( $title ); ?></h2>
 					<?php endif; ?>
-					<h2 id="contact-heading" class="testro-contact__heading gradient-text"><?php echo esc_html( $title ); ?></h2>
 					<?php if ( '' !== $supporting ) : ?>
 						<p class="testro-contact__supporting"><?php echo esc_html( $supporting ); ?></p>
 					<?php endif; ?>

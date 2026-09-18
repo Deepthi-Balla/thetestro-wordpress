@@ -39,8 +39,12 @@ $heading_id = $id . '-heading';
 								$step_count = count( $item['steps'] );
 								foreach ( $item['steps'] as $step_i => $step ) :
 									$step_label = trim( (string) $step );
+									$is_first   = 0 === (int) $step_i;
 									?>
-									<span class="testro-web-journey__step<?php echo 0 === (int) $step_i ? ' testro-web-journey__step--active' : ''; ?>">
+									<span class="testro-web-journey__step<?php echo $is_first ? ' testro-web-journey__step--active' : ''; ?>">
+										<?php if ( $is_first ) : ?>
+											<span class="testro-web-journey__step-ring" aria-hidden="true"></span>
+										<?php endif; ?>
 										<?php if ( '' !== $step_label ) : ?>
 											<span class="testro-web-journey__step-label"><?php echo esc_html( $step_label ); ?></span>
 										<?php endif; ?>

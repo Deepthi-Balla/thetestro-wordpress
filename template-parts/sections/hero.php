@@ -14,6 +14,9 @@ $subtitle         = isset( $slide['subtitle'] ) ? (string) $slide['subtitle'] : 
 $cta_primary      = isset( $slide['cta'] ) ? (string) $slide['cta'] : __( 'Start Testing', 'testro' );
 $cta_secondary    = isset( $slide['cta_secondary'] ) ? (string) $slide['cta_secondary'] : __( 'Get a Demo', 'testro' );
 $supporting_line  = isset( $slide['supporting_line'] ) ? (string) $slide['supporting_line'] : '';
+$hero_image       = isset( $slide['image'] ) && '' !== (string) $slide['image']
+	? (string) $slide['image']
+	: testro_asset( 'images/home/hero-dashboard.jpg' );
 $canvas_badges    = isset( $slide['canvas_badges'] ) && is_array( $slide['canvas_badges'] )
 	? $slide['canvas_badges']
 	: array(
@@ -71,7 +74,17 @@ $canvas_badges    = isset( $slide['canvas_badges'] ) && is_array( $slide['canvas
 
 		<div class="testro-hero__visual" aria-hidden="true">
 			<div class="testro-hero-canvas">
-				<div class="testro-hero-canvas__grid"></div>
+				<div class="testro-hero-canvas__grid">
+					<img
+						class="testro-hero-canvas__image"
+						src="<?php echo esc_url( $hero_image ); ?>"
+						alt=""
+						width="1024"
+						height="576"
+						decoding="async"
+						fetchpriority="high"
+					/>
+				</div>
 				<ul class="testro-hero-canvas__chips">
 					<?php foreach ( $canvas_badges as $badge ) : ?>
 						<?php

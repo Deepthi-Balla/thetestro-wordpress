@@ -18,11 +18,11 @@ if ( ! $plans ) {
 		<div class="testro-pricing__container">
 			<header class="testro-pricing__header">
 				<div class="testro-pricing__eyebrow-wrap">
-					<p class="subtitle-pill testro-section-eyebrow"><?php esc_html_e( 'Pricing', 'testro' ); ?></p>
+					<h2 id="pricing-plans-heading" class="gradient-text leading-tight main-headings testro-pricing__title"><?php esc_html_e( 'Pricing', 'testro' ); ?></h2>
 				</div>
-				<h2 id="pricing-plans-heading" class="gradient-text leading-tight main-headings testro-pricing__title">
+				<p class="sub-text testro-pricing__intro">
 					<?php esc_html_e( 'Choose the Right Plan', 'testro' ); ?>
-				</h2>
+				</p>
 				<p class="sub-text testro-pricing__intro">
 					<?php esc_html_e( 'Flexible pricing designed for startups, growing teams, and enterprises. Choose the plan that fits your testing requirements and scale as your automation needs grow.', 'testro' ); ?>
 				</p>

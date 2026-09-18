@@ -175,6 +175,7 @@ function testro_get_product_pages() {
 				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
 				'layout'          => 'split',
 				'visual'          => 'ai-capability-canvas',
+				'image'           => TESTRO_URI . '/assets/images/product/ai-test-automation-hero.jpg',
 				'breadcrumbs'     => false,
 				'canvas_badges'   => array(
 					array(
@@ -404,9 +405,10 @@ function testro_get_product_pages() {
 							'description' => __( 'Know in seconds if your build is safe to ship.', 'testro' ),
 						),
 					),
-					/* Framer panel is an empty bordered frame — do not invent dashboard widgets. */
+					/* Framer panel filled with quality intelligence visual. */
 					'dashboard'     => array(
-						'empty' => true,
+						'image' => TESTRO_URI . '/assets/images/product/ai-quality-intelligence.jpg',
+						'alt'   => __( 'theTestRo AI quality intelligence dashboard with test analytics and insights', 'testro' ),
 					),
 				),
 
@@ -946,6 +948,7 @@ function testro_get_product_pages() {
 				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
 				'layout'          => 'split',
 				'visual'          => 'ai-capability-canvas',
+				'image'           => TESTRO_URI . '/assets/images/product/web-testing-hero.jpg',
 				'breadcrumbs'     => false,
 				'canvas_badges'   => array(
 					array(
@@ -988,9 +991,10 @@ function testro_get_product_pages() {
 					'intro_extra'   => __( 'This kind of web application test automation means your team spends less time maintaining tests and more time building features.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
-					/* Framer Failure Classification Dashboard has no extractable labels — empty chrome only. */
+					/* Right panel — AI natural-language to test visual. */
 					'dashboard'     => array(
-						'empty_panel' => true,
+						'image' => TESTRO_URI . '/assets/images/product/web-build-reliable.jpg',
+						'alt'   => __( 'theTestRo AI turning plain-English steps into a ready web test', 'testro' ),
 					),
 				),
 
@@ -1091,14 +1095,17 @@ function testro_get_product_pages() {
 						array(
 							'title'       => __( 'Self-Healing Locators', 'testro' ),
 							'description' => __( 'Your page structure shifts. theTestRo finds the right element on its own.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/maintain-self-healing.jpg',
 						),
 						array(
 							'title'       => __( 'Dynamic Element Detection', 'testro' ),
 							'description' => __( 'Handles dropdowns, pop-ups, and content that loads after the page does.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/maintain-dynamic-elements.jpg',
 						),
 						array(
 							'title'       => __( 'Automatic Test Updates', 'testro' ),
 							'description' => __( 'Tests adjust to small UI changes. No failing. No waiting on a fix.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/maintain-auto-updates.jpg',
 						),
 					),
 				),
@@ -1113,18 +1120,22 @@ function testro_get_product_pages() {
 						array(
 							'title'       => __( 'UI Validation —', 'testro' ),
 							'description' => __( 'Confirm buttons, forms, and menus all work as designed, on every release.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/validate-ui.jpg',
 						),
 						array(
 							'title'       => __( 'Visual Regression Testing —', 'testro' ),
 							'description' => __( 'Catch layout shifts and broken styles before a user ever sees them.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/validate-visual-regression.jpg',
 						),
 						array(
 							'title'       => __( 'Layout Verification —', 'testro' ),
 							'description' => __( 'Compare screenshots across builds. Spot changes that shouldn\'t be there.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/validate-layout.jpg',
 						),
 						array(
 							'title'       => __( 'Responsive Testing —', 'testro' ),
 							'description' => __( 'Check your site across screen sizes, from desktop down to mobile.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/validate-responsive.jpg',
 						),
 					),
 				),
@@ -1207,18 +1218,22 @@ function testro_get_product_pages() {
 						array(
 							'title'       => __( 'Test Reports', 'testro' ),
 							'description' => __( 'Clear, shareable summaries after every run.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/analytics-test-reports.jpg',
 						),
 						array(
 							'title'       => __( 'Historical Trends', 'testro' ),
 							'description' => __( 'See how pass rates and stability shift release over release.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/analytics-historical-trends.jpg',
 						),
 						array(
 							'title'       => __( 'Execution Metrics', 'testro' ),
 							'description' => __( 'Track run time, flaky rate, and coverage in one place.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/analytics-execution-metrics.jpg',
 						),
 						array(
 							'title'       => __( 'Dashboard', 'testro' ),
 							'description' => __( 'One view for your whole team to check before every ship.', 'testro' ),
+							'image'       => TESTRO_URI . '/assets/images/web/analytics-dashboard.jpg',
 						),
 					),
 				),

@@ -20,6 +20,39 @@ function testro_asset( $path ) {
 }
 
 /**
+ * Format a former section eyebrow for use as a header title (title case, not ALL CAPS).
+ *
+ * @param string $text Label / eyebrow text.
+ * @return string
+ */
+function testro_section_label_title( $text ) {
+	$text = trim( (string) $text );
+	if ( '' === $text ) {
+		return '';
+	}
+
+	$letters = preg_replace( '/[^A-Za-z]/', '', $text );
+	if ( '' !== $letters && strtoupper( $letters ) === $letters ) {
+		$text = ucwords( strtolower( $text ), " \t\r\n\f\v-/&" );
+	}
+
+	$text = preg_replace( '/\bthetestro\b/i', 'theTestRo', $text );
+
+	$replacements = array(
+		'Faq'    => 'FAQ',
+		'Ai'     => 'AI',
+		'Api'    => 'API',
+		'Qa'     => 'QA',
+		'Ci/Cd'  => 'CI/CD',
+		'Devops' => 'DevOps',
+		'Sap'    => 'SAP',
+		'Ui'     => 'UI',
+	);
+
+	return strtr( $text, $replacements );
+}
+
+/**
  * Resolve WebP URL for a theme image when a sibling exists under images/webp/.
  *
  * @param string $path Relative path under assets/ (e.g. images/logo.png).
@@ -247,6 +280,7 @@ function testro_get_hero_slides() {
 					'tone'  => 'dark',
 				),
 			),
+			'image'           => testro_asset( 'images/home/hero-dashboard.jpg' ),
 			'pill'            => 'AI-Powered Test Automation Platform',
 			'title'           => 'Best Test Automation Platform for Modern Software Testing',
 			'subtitle'        => 'theTestRo is the best test automation platform for teams testing web, API, mobile, and cross-browser apps — fast. Build, run, and scale your tests in one place. No slowdowns, no extra tools.',
@@ -1633,6 +1667,7 @@ function testro_get_resources() {
 				'href'        => $blog_url,
 				'icon'        => 'blog',
 				'meta'        => 'AI Insights',
+				'image'       => testro_asset( 'images/home/resource-ai-2026.jpg' ),
 			),
 			array(
 				'title'       => 'No-Code vs. Low-Code Testing: Which Fits Your Team?',
@@ -1640,6 +1675,7 @@ function testro_get_resources() {
 				'href'        => $blog_url,
 				'icon'        => 'blocks',
 				'meta'        => 'Testing Guide',
+				'image'       => testro_asset( 'images/home/resource-nocode-lowcode.jpg' ),
 			),
 			array(
 				'title'       => 'How to Build a Continuous Testing Strategy',
@@ -1647,6 +1683,7 @@ function testro_get_resources() {
 				'href'        => $blog_url,
 				'icon'        => 'cicd',
 				'meta'        => 'Strategy',
+				'image'       => testro_asset( 'images/home/resource-continuous-testing.jpg' ),
 			),
 		),
 	);

@@ -26,9 +26,9 @@ if ( ! $faqs ) {
 <section class="testro-faq testro-faq--framer" id="faq" aria-labelledby="faq-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-faq__header">
-			<p class="testro-section-eyebrow"><?php esc_html_e( 'FAQ', 'testro' ); ?></p>
 			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
-			<<?php echo $heading_tag; ?> id="faq-heading" class="main-headings"><?php echo esc_html( $title ); ?></<?php echo $heading_tag; ?>>
+			<<?php echo $heading_tag; ?> id="faq-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'FAQ', 'testro' ) ) ); ?></<?php echo $heading_tag; ?>>
+			<p class="sub-text"><?php echo esc_html( $title ); ?></p>
 			<?php if ( '' !== $intro ) : ?>
 				<p class="sub-text"><?php echo esc_html( $intro ); ?></p>
 			<?php endif; ?>

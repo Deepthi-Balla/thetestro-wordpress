@@ -43,8 +43,8 @@ $rows = array(
 <section class="testro-impact" id="benefits" aria-labelledby="benefits-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-impact__header">
-			<p class="testro-section-eyebrow"><?php esc_html_e( 'WHY CHOOSE THETESTRO', 'testro' ); ?></p>
-			<h2 id="benefits-heading" class="main-headings"><?php esc_html_e( 'The real impact of theTestRo', 'testro' ); ?></h2>
+			<h2 id="benefits-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'WHY CHOOSE THETESTRO', 'testro' ) ) ); ?></h2>
+			<p class="sub-text"><?php esc_html_e( 'The real impact of theTestRo', 'testro' ); ?></p>
 			<p class="sub-text">
 				<?php esc_html_e( 'A practical quality system that clears space for your team to move faster with confidence.', 'testro' ); ?>
 			</p>

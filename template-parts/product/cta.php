@@ -50,13 +50,17 @@ $second_text  = $is_brand ? $body_extra : $body;
 
 			<div class="testro-prod-cta__body">
 				<?php if ( '' !== $eyebrow_text ) : ?>
-					<p class="testro-section-eyebrow testro-prod-cta__eyebrow"><?php echo esc_html( $eyebrow_text ); ?></p>
+					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
+					<<?php echo $heading_tag; ?> id="<?php echo esc_attr( $heading_id ); ?>" class="testro-prod-cta__title main-headings">
+						<?php echo esc_html( testro_section_label_title( $eyebrow_text ) ); ?>
+					</<?php echo $heading_tag; ?>>
+					<p class="testro-prod-cta__intro"><?php echo esc_html( $heading_text ); ?></p>
+				<?php else : ?>
+					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
+					<<?php echo $heading_tag; ?> id="<?php echo esc_attr( $heading_id ); ?>" class="testro-prod-cta__title main-headings">
+						<?php echo esc_html( $heading_text ); ?>
+					</<?php echo $heading_tag; ?>>
 				<?php endif; ?>
-
-				<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
-				<<?php echo $heading_tag; ?> id="<?php echo esc_attr( $heading_id ); ?>" class="testro-prod-cta__title main-headings">
-					<?php echo esc_html( $heading_text ); ?>
-				</<?php echo $heading_tag; ?>>
 
 				<?php if ( '' !== $lead_text ) : ?>
 					<p class="testro-prod-cta__intro"><?php echo esc_html( $lead_text ); ?></p>

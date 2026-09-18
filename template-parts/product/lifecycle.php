@@ -3,7 +3,7 @@
  * Product page lifecycle — Framer split-ring (absolute diagram) or classic rail.
  *
  * Framer AI diagram (620×620):
- * - Ring 496×496 at 62,62 — 3px dashed #18A3F5
+ * - Ring 496×496 at 62,62 — 3px dashed #18A3F5 (SVG stroke, dash-flow animation)
  * - Hub 156×156 at 232,232
  * - Cards 178×142 at fixed tops/lefts (no CSS rotate invention)
  *
@@ -72,7 +72,18 @@ $ring_positions = array(
 
 				<div class="testro-prod-lifecycle__canvas-wrap">
 					<div class="testro-prod-lifecycle__canvas" role="list" aria-label="<?php esc_attr_e( 'Autonomous test lifecycle stages', 'testro' ); ?>">
-						<span class="testro-prod-lifecycle__ring" aria-hidden="true"></span>
+						<svg class="testro-prod-lifecycle__ring" viewBox="0 0 496 496" aria-hidden="true" focusable="false">
+							<circle
+								class="testro-prod-lifecycle__ring-path"
+								cx="248"
+								cy="248"
+								r="246.5"
+								fill="none"
+								stroke="#18a3f5"
+								stroke-width="3"
+								stroke-dasharray="12 9"
+							/>
+						</svg>
 
 						<div class="testro-prod-lifecycle__hub" aria-hidden="true">
 							<span class="testro-prod-lifecycle__hub-label"><?php esc_html_e( 'AI ENGINE', 'testro' ); ?></span>
