@@ -53,6 +53,22 @@ function testro_section_label_title( $text ) {
 }
 
 /**
+ * Shared class for a section's bottom-right supporting line.
+ *
+ * @param bool $light White text on a dark or colored section background.
+ * @return string
+ */
+function testro_bottom_text_class( $light = false ) {
+	$classes = array( 'testro-bottom-text' );
+
+	if ( $light ) {
+		$classes[] = 'testro-bottom-text--light';
+	}
+
+	return implode( ' ', $classes );
+}
+
+/**
  * Resolve WebP URL for a theme image when a sibling exists under images/webp/.
  *
  * @param string $path Relative path under assets/ (e.g. images/logo.png).
@@ -660,25 +676,21 @@ function testro_get_how_it_works() {
 			'step'        => '1',
 			'title'       => 'Record or build',
 			'description' => 'Capture your workflow, or build a test with our no-code editor.',
-			'tag'         => 'no code required',
 		),
 		array(
 			'step'        => '2',
 			'title'       => 'Enhance with AI',
 			'description' => 'Let AI add checks, fixes, and edge cases.',
-			'tag'         => 'AI-assisted',
 		),
 		array(
 			'step'        => '3',
 			'title'       => 'Run at scale',
 			'description' => 'Test in parallel across browsers, devices, and environments.',
-			'tag'         => 'parallel execution',
 		),
 		array(
 			'step'        => '4',
 			'title'       => 'Analyze and ship',
 			'description' => 'Review results, fix bugs fast, and ship with confidence.',
-			'tag'         => 'release-ready',
 		),
 	);
 }
@@ -1391,10 +1403,9 @@ function testro_get_faqs() {
  */
 function testro_get_overview() {
 	return array(
-		'eyebrow'  => 'PRODUCT OVERVIEW',
-		'title'    => 'One Platform. Every Test You Need.',
-		'headline' => 'Everything a modern QA team needs, without the tool-juggling.',
-		'quote'    => 'This is what a true enterprise test automation platform should feel like.',
+		'title'    => 'Product Overview',
+		'headline' => 'One Platform. Every Test You Need.',
+		'quote'    => 'This is what a true enterprise test automation platform should feel like',
 		'cards'    => array(
 			array(
 				'title'       => 'All your testing, in one place',

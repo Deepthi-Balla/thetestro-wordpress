@@ -2,7 +2,7 @@
 /**
  * Product page architecture.
  *
- * layout=card-grid (Framer AI): white text cards, no hub/icons.
+ * layout=card-grid (Framer AI): white text cards with feature-card icons.
  * default: hub + node diagram (other product pages).
  *
  * @package TestRo
@@ -48,6 +48,11 @@ $section_class = 'testro-prod-section testro-prod-arch' . ( $is_grid ? ' testro-
 			<ul class="testro-prod-arch__grid">
 				<?php foreach ( $items as $index => $item ) : ?>
 					<li class="testro-prod-arch__grid-card testro-card--top-line">
+						<?php if ( ! empty( $item['icon'] ) ) : ?>
+							<span class="testro-prod-card__icon" aria-hidden="true">
+								<?php echo testro_icon( $item['icon'], array( 'size' => 20 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+							</span>
+						<?php endif; ?>
 						<h3 class="testro-prod-arch__grid-title"><?php echo esc_html( $item['title'] ); ?></h3>
 						<?php if ( ! empty( $item['description'] ) ) : ?>
 							<p class="testro-prod-arch__grid-desc"><?php echo esc_html( $item['description'] ); ?></p>

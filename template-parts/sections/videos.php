@@ -32,13 +32,13 @@ $demo_url = $video_id
 ?>
 <section class="testro-demo" id="videos" aria-labelledby="videos-heading">
 	<div class="testro-container testro-demo__layout">
-		<div class="testro-demo__copy">
+		<div class="testro-demo__copy testro-section-header--three-lines">
 			<h2 id="videos-heading" class="main-headings testro-demo__title"><?php echo esc_html( testro_section_label_title( __( 'PRODUCT DEMO', 'testro' ) ) ); ?></h2>
 			<p class="sub-text testro-demo__desc">
 				<?php esc_html_e( 'See theTestRo build, run, and heal a test — in real time.', 'testro' ); ?>
 			</p>
 			<p class="sub-text testro-demo__desc">
-				<?php esc_html_e( 'A four-minute walkthrough of the full loop: writing a test in plain English, running it across browsers, and watching Intelligence repair a broken selector without anyone touching a line of code.', 'testro' ); ?>
+				<?php esc_html_e( 'Watch how fast test creation, AI healing, and reporting really work.', 'testro' ); ?>
 			</p>
 
 			<ol class="testro-demo__chapters">

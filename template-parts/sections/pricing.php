@@ -10,7 +10,7 @@ $plans = testro_get_pricing_plans();
 <div id="pricing">
 	<section class="testro-pricing" aria-labelledby="pricing-heading" data-pricing-section>
 		<div class="testro-pricing__container">
-			<header class="testro-pricing__header">
+			<header class="testro-pricing__header testro-section-header--three-lines">
 				<h2 id="pricing-heading" class="gradient-text leading-tight main-headings testro-pricing__title">
 					<?php esc_html_e( 'From Startup to Enterprise', 'testro' ); ?>
 				</h2>

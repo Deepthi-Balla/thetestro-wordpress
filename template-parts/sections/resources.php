@@ -29,7 +29,7 @@ if ( ! $cards ) {
 ?>
 <section class="testro-resources testro-resources--framer" id="resources" aria-labelledby="resources-heading">
 	<div class="testro-container">
-		<header class="testro-section-header testro-resources__header">
+		<header class="testro-section-header testro-section-header--three-lines testro-resources__header">
 			<h2 id="resources-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'LATEST BLOGS & RESOURCES', 'testro' ) ) ); ?></h2>
 			<p class="sub-text"><?php echo esc_html( ! empty( $headline ) ? $headline : __( 'Learn about AI-driven testing.', 'testro' ) ); ?></p>
 			<p class="sub-text"><?php echo esc_html( $intro ); ?></p>

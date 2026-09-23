@@ -44,7 +44,6 @@ $items = array(
 			<h2 id="industries-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'SOLUTIONS BY INDUSTRY', 'testro' ) ) ); ?></h2>
 			<p class="sub-text testro-industries__headline"><?php esc_html_e( 'Built for your industry.', 'testro' ); ?></p>
 			<p class="sub-text testro-industries__headline">
-				<?php esc_html_e( 'theTestRo adapts to the workflows, constraints, and release pace of the teams who can’t afford a broken experience.', 'testro' ); ?>
 			</p>
 		</header>
 

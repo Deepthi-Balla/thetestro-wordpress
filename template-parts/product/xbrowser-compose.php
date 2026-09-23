@@ -19,6 +19,8 @@ $section_class = 'testro-prod-section testro-prod-xbrowser testro-prod-xbrowser-
 $item_level    = isset( $args['item_heading_level'] ) ? max( 1, min( 6, (int) $args['item_heading_level'] ) ) : 3;
 $item_tag      = 'h' . $item_level;
 $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
+$header_style  = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
+$use_three     = ( 'three-lines' === $header_style );
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -26,28 +28,59 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
 >
 	<div class="testro-container">
-		<?php
-		get_template_part(
-			'template-parts/product/section-header',
-			null,
-			array(
-				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'         => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
-				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
-				'heading_id'    => $heading_id,
-				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
-				'tone'          => $tone,
-				'align'         => isset( $args['align'] ) ? $args['align'] : 'start',
-			)
-		);
-		?>
+		<?php if ( $use_three ) : ?>
+			<?php
+			/*
+			 * Same three-line header as Home → Why theTestRo / product why headers.
+			 * Eyebrow is the heading; title and intro are the two supporting lines.
+			 */
+			$line_heading = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+			$line_two     = isset( $args['title'] ) ? (string) $args['title'] : '';
+			$line_three   = isset( $args['intro'] ) ? (string) $args['intro'] : '';
+			if ( '' === $line_heading ) {
+				$line_heading = $line_two;
+				$line_two     = $line_three;
+				$line_three   = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
+			}
+			$three_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+			$three_tag   = 'h' . $three_level;
+			?>
+			<header class="testro-section-header testro-section-header--three-lines testro-why__header" data-reveal>
+				<?php if ( '' !== $line_heading ) : ?>
+					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+					<<?php echo $three_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $three_tag; ?>>
+				<?php endif; ?>
+				<?php if ( '' !== $line_two ) : ?>
+					<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
+				<?php endif; ?>
+				<?php if ( '' !== $line_three ) : ?>
+					<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
+				<?php endif; ?>
+			</header>
+		<?php else : ?>
+			<?php
+			get_template_part(
+				'template-parts/product/section-header',
+				null,
+				array(
+					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+					'title'         => isset( $args['title'] ) ? $args['title'] : '',
+					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+					'heading_id'    => $heading_id,
+					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+					'tone'          => $tone,
+					'align'         => isset( $args['align'] ) ? $args['align'] : 'start',
+				)
+			);
+			?>
+		<?php endif; ?>
 
 		<?php if ( 'capability-grid' === $variant ) : ?>
 			<?php
 			$card_fill  = isset( $args['card_fill'] ) ? sanitize_html_class( (string) $args['card_fill'] ) : 'white';
 			$icon_tone  = isset( $args['icon_tone'] ) ? sanitize_html_class( (string) $args['icon_tone'] ) : ( 'white' === $card_fill ? 'gradient' : 'navy' );
-			$icon_size  = isset( $args['icon_size'] ) ? (int) $args['icon_size'] : 22;
+			$icon_size  = isset( $args['icon_size'] ) ? (int) $args['icon_size'] : 18;
 			?>
 			<ul class="testro-prod-xbrowser__cap-grid testro-prod-xbrowser__cap-grid--<?php echo esc_attr( $card_fill ); ?> testro-prod-xbrowser__cap-grid--icon-<?php echo esc_attr( $icon_tone ); ?>">
 				<?php foreach ( $items as $index => $item ) : ?>
@@ -88,8 +121,8 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 				<?php foreach ( $items as $index => $item ) : ?>
 					<li class="testro-prod-xbrowser__audience-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( ! empty( $item['icon'] ) ) : ?>
-							<span class="testro-prod-xbrowser__cap-icon testro-prod-xbrowser__cap-icon--navy" aria-hidden="true">
-								<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+							<span class="testro-prod-xbrowser__cap-icon" aria-hidden="true">
+								<?php echo testro_icon( $item['icon'], array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 						<?php endif; ?>
 						<div class="testro-prod-xbrowser__cap-copy">
@@ -108,8 +141,8 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 				<?php foreach ( $items as $index => $item ) : ?>
 					<li class="testro-prod-xbrowser__ai-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 						<?php if ( ! empty( $item['icon'] ) ) : ?>
-							<span class="testro-prod-xbrowser__cap-icon testro-prod-xbrowser__cap-icon--navy" aria-hidden="true">
-								<?php echo testro_icon( $item['icon'], array( 'size' => 22 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+							<span class="testro-prod-xbrowser__cap-icon" aria-hidden="true">
+								<?php echo testro_icon( $item['icon'], array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 						<?php endif; ?>
 						<div class="testro-prod-xbrowser__cap-copy">
@@ -134,7 +167,7 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 						<span class="testro-prod-xbrowser__feature-tile" aria-hidden="true">
 							<?php
 							$icon = ! empty( $item['icon'] ) ? (string) $item['icon'] : 'code';
-							echo testro_icon( $icon, array( 'size' => 20 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG.
+							echo testro_icon( $icon, array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG.
 							?>
 						</span>
 						<div class="testro-prod-xbrowser__feature-copy">
@@ -172,7 +205,7 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 
 		<?php elseif ( 'catch-release' === $variant ) : ?>
 			<?php if ( ! empty( $args['statement'] ) ) : ?>
-				<div class="testro-prod-xbrowser__statement" data-reveal>
+				<div class="testro-prod-xbrowser__statement testro-card--top-line" data-reveal>
 					<p><?php echo esc_html( (string) $args['statement'] ); ?></p>
 				</div>
 			<?php endif; ?>
@@ -190,22 +223,17 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 						<span class="testro-prod-xbrowser__play"><?php esc_html_e( '▶ playback · frame 0:14', 'testro' ); ?></span>
 					</div>
 				</div>
-				<ol class="testro-prod-xbrowser__benefits">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-xbrowser__benefit">
-							<span class="testro-prod-xbrowser__benefit-rail" aria-hidden="true">
-								<span class="testro-prod-xbrowser__benefit-num"><span><?php echo esc_html( (string) ( $index + 1 ) ); ?></span></span>
-							</span>
-							<div class="testro-prod-xbrowser__benefit-copy">
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-								<<?php echo $item_tag; ?> class="testro-prod-xbrowser__benefit-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-xbrowser__benefit-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
-							</div>
-						</li>
-					<?php endforeach; ?>
-				</ol>
+				<?php
+				/* Same numbered rows as AI Test Automation → Enterprise Test Execution. */
+				get_template_part(
+					'template-parts/product/numbered-rows',
+					null,
+					array(
+						'items'       => $items,
+						'heading_tag' => $item_tag,
+					)
+				);
+				?>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
 				<p class="testro-prod-xbrowser__debug-outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
@@ -213,7 +241,13 @@ $tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
 		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) && ! in_array( $variant, array( 'scale-parallel', 'debug-browser' ), true ) ) : ?>
-			<p class="testro-prod-xbrowser__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<?php
+			$outro_class = 'testro-prod-xbrowser__outro';
+			if ( ! empty( $args['outro_bottom_text'] ) ) {
+				$outro_class .= ' ' . testro_bottom_text_class( 'dark' === $tone );
+			}
+			?>
+			<p class="<?php echo esc_attr( $outro_class ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>

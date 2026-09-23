@@ -178,7 +178,7 @@ $panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['
 				/* Framer Workflow Closing Note: stackAlignment=end, footer max-width 700. */
 				?>
 				<div class="testro-prod-tm__outro-wrap testro-prod-tm__outro-wrap--end">
-					<p class="testro-prod-tm__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+					<p class="testro-prod-tm__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -207,7 +207,7 @@ $panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
 				<div class="testro-prod-tm__outro-wrap testro-prod-tm__outro-wrap--end">
-					<p class="testro-prod-tm__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+					<p class="testro-prod-tm__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 				</div>
 			<?php endif; ?>
 		<?php endif; ?>

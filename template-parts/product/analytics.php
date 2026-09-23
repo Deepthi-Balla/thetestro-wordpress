@@ -51,6 +51,7 @@ if ( $is_framer ) {
 >
 	<div class="testro-container<?php echo ( $is_framer || $is_skeleton || $is_empty_panel ) ? ' testro-prod-analytics__framer-wrap' : ''; ?>">
 		<?php if ( $is_empty_panel ) : ?>
+			<?php $empty_bottom = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : ''; ?>
 			<div class="testro-prod-analytics__copy">
 				<?php
 				get_template_part(
@@ -61,7 +62,6 @@ if ( $is_framer ) {
 						'title'         => isset( $args['title'] ) ? $args['title'] : '',
 						'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
 						'emphasis'      => isset( $args['emphasis'] ) ? $args['emphasis'] : '',
-						'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 						'heading_id'    => $heading_id,
 						'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 						'align'         => 'start',
@@ -87,6 +87,10 @@ if ( $is_framer ) {
 					/>
 				<?php endif; ?>
 			</div>
+
+			<?php if ( '' !== $empty_bottom ) : ?>
+				<p class="<?php echo esc_attr( testro_bottom_text_class() ); ?>"><?php echo esc_html( $empty_bottom ); ?></p>
+			<?php endif; ?>
 
 		<?php elseif ( $is_skeleton ) : ?>
 			<div class="testro-prod-analytics__copy">
@@ -152,21 +156,16 @@ if ( $is_framer ) {
 					<p class="testro-prod-analytics__product-line"><?php echo esc_html( $product_line ); ?></p>
 				<?php endif; ?>
 
-				<?php if ( $items ) : ?>
-				<ul class="testro-prod-analytics__markers">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-analytics__marker-row">
-							<span class="testro-prod-analytics__marker" aria-hidden="true"><?php echo esc_html( $marker ); ?></span>
-							<span class="testro-prod-analytics__marker-text">
-								<p class="testro-prod-analytics__marker-title"><?php echo esc_html( $item['title'] ); ?></p>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-analytics__marker-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
-							</span>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-				<?php endif; ?>
+				<?php
+				get_template_part(
+					'template-parts/product/numbered-rows',
+					null,
+					array(
+						'items'       => $items,
+						'heading_tag' => 'h3',
+					)
+				);
+				?>
 			</div>
 
 			<?php if ( $dashboard ) : ?>
@@ -303,10 +302,16 @@ if ( $is_framer ) {
 				</div>
 			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>
-			<p class="testro-prod-head__intro testro-prod-analytics__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
-		<?php endif; ?>
+			<?php
+			$analytics_outro_classes = 'testro-prod-head__intro testro-prod-analytics__outro';
+			if ( ! empty( $args['outro_bottom_text'] ) ) {
+				$analytics_outro_classes .= ' ' . testro_bottom_text_class();
+			}
+			?>
+			<p class="<?php echo esc_attr( $analytics_outro_classes ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>

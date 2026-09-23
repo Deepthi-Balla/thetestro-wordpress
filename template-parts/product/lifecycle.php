@@ -95,10 +95,6 @@ $ring_positions = array(
 							$pos = isset( $ring_positions[ $index ] ) ? $ring_positions[ $index ] : array( 'top' => 0, 'left' => 0 );
 							$top_pct  = ( (float) $pos['top'] / 620 ) * 100;
 							$left_pct = ( (float) $pos['left'] / 620 ) * 100;
-							$line = trim( (string) $item['title'] );
-							if ( ! empty( $item['description'] ) ) {
-								$line .= ' — ' . (string) $item['description'];
-							}
 							?>
 							<article
 								class="testro-prod-lifecycle__orbit-card"
@@ -106,7 +102,7 @@ $ring_positions = array(
 								style="top: <?php echo esc_attr( (string) $top_pct ); ?>%; left: <?php echo esc_attr( (string) $left_pct ); ?>%;"
 							>
 								<span class="testro-prod-lifecycle__orbit-num"><?php echo esc_html( (string) ( $index + 1 ) ); ?></span>
-								<p class="testro-prod-lifecycle__orbit-copy"><?php echo esc_html( $line ); ?></p>
+								<p class="testro-prod-lifecycle__orbit-copy"><strong><?php echo esc_html( (string) $item['title'] ); ?></strong><?php echo ! empty( $item['description'] ) ? ' — ' . esc_html( (string) $item['description'] ) : ''; ?></p>
 							</article>
 						<?php endforeach; ?>
 					</div>

@@ -44,12 +44,9 @@ $track_items = array_merge( $cards, $cards );
 ?>
 <section class="testro-stories" id="testimonials" aria-labelledby="testimonials-heading">
 	<div class="testro-container">
-		<header class="testro-section-header testro-stories__header">
+		<header class="testro-section-header testro-section-header--three-lines testro-stories__header">
 			<h2 id="testimonials-heading" class="main-headings testro-stories__title"><?php echo esc_html( testro_section_label_title( __( 'CUSTOMER STORIES', 'testro' ) ) ); ?></h2>
 			<p class="sub-text testro-stories__intro"><?php esc_html_e( 'What our customers say.', 'testro' ); ?></p>
-			<p class="sub-text testro-stories__intro">
-				<?php esc_html_e( 'Quality leaders use theTestRo to make every release feel more predictable.', 'testro' ); ?>
-			</p>
 		</header>
 
 		<div class="testro-stories__marquee" aria-label="<?php esc_attr_e( 'Customer testimonials', 'testro' ); ?>">

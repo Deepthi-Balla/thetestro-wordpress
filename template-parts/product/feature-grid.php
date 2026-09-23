@@ -38,10 +38,19 @@ if ( ! $items && '' === $title ) {
 
 $tone       = 'brand' === $variant ? 'dark' : 'light';
 $heading_id = $id ? $id . '-heading' : '';
+$is_lift    = ( 'lift' === $variant );
 $section_class = 'testro-prod-section testro-prod-section--' . $variant . ' testro-prod-features';
 if ( $is_split_list ) {
 	$section_class .= ' testro-prod-features--split-list';
 }
+/* Reuse Home → Key Features card chrome for lift grids. */
+if ( $is_lift ) {
+	$section_class .= ' testro-key-features testro-key-features--framer';
+}
+$eyebrow = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+$intro   = isset( $args['intro'] ) ? (string) $args['intro'] : '';
+$section_heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+$section_heading_tag   = 'h' . $section_heading_level;
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -75,40 +84,80 @@ if ( $is_split_list ) {
 				<?php endif; ?>
 			</div>
 
-			<?php if ( $items ) : ?>
-			<ol class="testro-prod-features__rows">
-				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-features__row" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 70 ) ); ?>ms">
-						<span class="testro-prod-features__row-num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></span>
-						<div class="testro-prod-features__row-body">
-							<?php if ( $card_heading_tag ) : ?>
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag name is derived from a numeric arg. ?>
-								<<?php echo $card_heading_tag; ?> class="testro-prod-features__row-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $card_heading_tag; ?>>
-							<?php else : ?>
-								<p class="testro-prod-features__row-title"><?php echo esc_html( $item['title'] ); ?></p>
-							<?php endif; ?>
-							<?php if ( ! empty( $item['description'] ) ) : ?>
-								<p class="testro-prod-features__row-desc"><?php echo esc_html( $item['description'] ); ?></p>
-							<?php endif; ?>
-						</div>
-					</li>
-				<?php endforeach; ?>
-			</ol>
-			<?php endif; ?>
+			<?php
+			get_template_part(
+				'template-parts/product/numbered-rows',
+				null,
+				array(
+					'items'       => $items,
+					'heading_tag' => $card_heading_tag,
+				)
+			);
+			?>
 		<?php else : ?>
+			<?php if ( $is_lift ) : ?>
+				<?php
+				/* Same header + card structure/classes as Home → Key Features. */
+				$kf_heading = '' !== $eyebrow ? testro_section_label_title( $eyebrow ) : $title;
+				$kf_sub     = '' !== $intro ? $intro : '';
+				?>
+				<header class="testro-section-header testro-key-features__header">
+					<?php if ( '' !== $kf_heading ) : ?>
+						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+						<<?php echo $section_heading_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings"><?php echo esc_html( $kf_heading ); ?></<?php echo $section_heading_tag; ?>>
+					<?php endif; ?>
+					<?php if ( '' !== $kf_sub ) : ?>
+						<p class="sub-text"><?php echo esc_html( $kf_sub ); ?></p>
+					<?php endif; ?>
+				</header>
+
+				<?php if ( $items ) : ?>
+					<ul class="testro-key-features__grid" data-columns="<?php echo esc_attr( (string) $columns ); ?>">
+						<?php foreach ( $items as $item ) : ?>
+							<?php
+							$has_href  = ! empty( $item['href'] );
+							$card_tag  = $has_href ? 'a' : 'div';
+							$card_href = $has_href ? ' href="' . esc_url( (string) $item['href'] ) . '"' : '';
+							?>
+							<li>
+								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $card_tag is a|div; $card_href escaped. ?>
+								<<?php echo $card_tag; ?> class="testro-key-features__card testro-card--top-line"<?php echo $card_href; ?>>
+									<span class="testro-key-features__accent" aria-hidden="true"></span>
+									<?php if ( ! empty( $item['icon'] ) ) : ?>
+										<span class="testro-key-features__icon" aria-hidden="true">
+											<?php echo testro_icon( $item['icon'], array( 'size' => 20 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+										</span>
+									<?php endif; ?>
+									<span class="testro-key-features__body">
+										<?php if ( $card_heading_tag ) : ?>
+											<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+											<<?php echo $card_heading_tag; ?> class="testro-key-features__title"><?php echo esc_html( $item['title'] ); ?></<?php echo $card_heading_tag; ?>>
+										<?php else : ?>
+											<strong class="testro-key-features__title"><?php echo esc_html( $item['title'] ); ?></strong>
+										<?php endif; ?>
+										<?php if ( ! empty( $item['description'] ) ) : ?>
+											<span class="testro-key-features__desc"><?php echo esc_html( $item['description'] ); ?></span>
+										<?php endif; ?>
+									</span>
+								</<?php echo $card_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- a|div. ?>>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
+			<?php else : ?>
 			<?php
 			get_template_part(
 				'template-parts/product/section-header',
 				null,
 				array(
-					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-					'title'         => isset( $args['title'] ) ? $args['title'] : '',
-					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'eyebrow'       => $eyebrow,
+					'title'         => $title,
+					'intro'         => $intro,
 					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 					'intro_body'    => isset( $args['intro_body'] ) ? $args['intro_body'] : '',
 					'paragraphs'    => isset( $args['paragraphs'] ) ? $args['paragraphs'] : array(),
 					'heading_id'    => $heading_id,
-					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+					'heading_level' => $section_heading_level,
 					'tone'          => $tone,
 					'align'         => isset( $args['align'] ) ? $args['align'] : 'center',
 				)
@@ -140,19 +189,6 @@ if ( $is_split_list ) {
 									<?php echo testro_icon( $item['icon'], array( 'size' => 20 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 								</span>
 							<?php endif; ?>
-							<?php if ( 'lift' === $variant ) : ?>
-								<div class="testro-prod-card__copy">
-									<?php if ( $card_heading_tag ) : ?>
-										<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag name is derived from a numeric arg. ?>
-										<<?php echo $card_heading_tag; ?> class="testro-prod-card__title"><?php echo esc_html( $item['title'] ); ?></<?php echo $card_heading_tag; ?>>
-									<?php else : ?>
-										<p class="testro-prod-card__title"><?php echo esc_html( $item['title'] ); ?></p>
-									<?php endif; ?>
-									<?php if ( ! empty( $item['description'] ) ) : ?>
-										<p class="testro-prod-card__desc"><?php echo esc_html( $item['description'] ); ?></p>
-									<?php endif; ?>
-								</div>
-							<?php else : ?>
 							<?php if ( $card_heading_tag ) : ?>
 								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag name is derived from a numeric arg. ?>
 								<<?php echo $card_heading_tag; ?> class="testro-prod-card__title"><?php echo esc_html( $item['title'] ); ?></<?php echo $card_heading_tag; ?>>
@@ -161,7 +197,6 @@ if ( $is_split_list ) {
 							<?php endif; ?>
 							<?php if ( ! empty( $item['description'] ) ) : ?>
 								<p class="testro-prod-card__desc"><?php echo esc_html( $item['description'] ); ?></p>
-							<?php endif; ?>
 							<?php endif; ?>
 
 							<?php if ( $has_cta ) : ?>
@@ -204,6 +239,7 @@ if ( $is_split_list ) {
 
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
 				<p class="testro-prod-head__intro testro-prod-features__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<?php endif; ?>
 			<?php endif; ?>
 		<?php endif; ?>
 	</div>

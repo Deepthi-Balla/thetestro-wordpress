@@ -182,7 +182,7 @@ $head_align = ! empty( $args['align_end'] ) ? 'start' : ( isset( $args['align'] 
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-pw__outro testro-prod-pw__outro--end" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-pw__outro testro-prod-pw__outro--end <?php echo esc_attr( testro_bottom_text_class( ! empty( $args['brand'] ) ) ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'feature-split' === $variant ) : ?>
@@ -228,7 +228,7 @@ $head_align = ! empty( $args['align_end'] ) ? 'start' : ( isset( $args['align'] 
 				<?php endif; ?>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-pw__outro testro-prod-pw__outro--end" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-pw__outro testro-prod-pw__outro--end <?php echo esc_attr( testro_bottom_text_class( ! empty( $args['brand'] ) ) ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php endif; ?>

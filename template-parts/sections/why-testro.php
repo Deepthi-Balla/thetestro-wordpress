@@ -16,7 +16,7 @@ $check_img = testro_asset( 'images/home/why-check.png' );
 <div id="why-the-testro">
 	<section class="testro-why testro-why--compare" aria-labelledby="why-heading">
 		<div class="testro-container">
-			<header class="testro-section-header testro-why__header">
+			<header class="testro-section-header testro-section-header--three-lines testro-why__header">
 				<h2 id="why-heading" class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( __( 'WHY THETESTRO', 'testro' ) ) ); ?></h2>
 				<p class="sub-text testro-why__intro"><?php esc_html_e( 'Built to replace five tools with one.', 'testro' ); ?></p>
 				<p class="sub-text testro-why__intro"><?php esc_html_e( 'Old record-and-playback tools break easily. Open-source frameworks take too much setup. theTestRo fixes both problems.', 'testro' ); ?></p>

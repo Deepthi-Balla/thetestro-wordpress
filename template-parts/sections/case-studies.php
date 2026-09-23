@@ -26,7 +26,7 @@ $cta_url = function_exists( 'testro_nav_url' ) ? testro_nav_url( 'case-studies' 
 ?>
 <section class="testro-case-studies linear-background" id="case-studies" aria-labelledby="case-studies-heading">
 	<div class="testro-container">
-		<header class="testro-section-header testro-case-studies__header">
+		<header class="testro-section-header testro-section-header--three-lines testro-case-studies__header">
 			<?php if ( '' !== $eyebrow ) : ?>
 				<h2 id="case-studies-heading" class="gradient-text main-headings"><?php echo esc_html( testro_section_label_title( $eyebrow ) ); ?></h2>
 				<?php if ( '' !== $title ) : ?>

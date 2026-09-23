@@ -90,7 +90,7 @@ function testro_get_thankyou_url( $type ) {
 function testro_enqueue_assets() {
 	wp_enqueue_style(
 		'testro-fonts',
-		'https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@500;600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@500;600;700&display=swap',
 		array(),
 		null
 	);

@@ -80,7 +80,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-te__outro testro-prod-te__outro--end" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-te__outro testro-prod-te__outro--end <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'process-flow' === $variant ) : ?>
@@ -243,7 +243,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 				</div>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-te__outro testro-prod-te__outro--split" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-te__outro testro-prod-te__outro--split <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'compare-panels' === $variant ) : ?>

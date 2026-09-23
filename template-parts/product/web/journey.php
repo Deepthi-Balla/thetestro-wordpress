@@ -62,13 +62,13 @@ $heading_id = $id . '-heading';
 									<span class="testro-web-journey__signal-icon">
 										<?php if ( 'workflow' === $signal ) : ?>
 											<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
-												<circle cx="16" cy="24" r="2.5" fill="#00ACFF"/>
-												<circle cx="24" cy="24" r="2.5" fill="#00ACFF"/>
-												<circle cx="32" cy="24" r="2.5" fill="#00ACFF"/>
+												<circle cx="16" cy="24" r="2.5" fill="currentColor"/>
+												<circle cx="24" cy="24" r="2.5" fill="currentColor"/>
+												<circle cx="32" cy="24" r="2.5" fill="currentColor"/>
 											</svg>
 										<?php else : ?>
 											<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
-												<path d="M14.5 24.5 20.5 30.5 33.5 17.5" stroke="#00ACFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+												<path d="M14.5 24.5 20.5 30.5 33.5 17.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 										<?php endif; ?>
 									</span>

@@ -10,7 +10,7 @@ $items = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] 
 ?>
 <section class="testro-ai testro-ai--framer" id="ai-capabilities" aria-labelledby="ai-capabilities-heading">
 	<div class="testro-container">
-		<header class="testro-section-header testro-ai__header">
+		<header class="testro-section-header testro-section-header--three-lines testro-ai__header">
 			<?php if ( ! empty( $data['eyebrow'] ) ) : ?>
 				<h2 id="ai-capabilities-heading" class="main-headings testro-ai__title"><?php echo esc_html( testro_section_label_title( $data['eyebrow'] ) ); ?></h2>
 				<p class="sub-text testro-ai__intro"><?php echo esc_html( $data['title'] ); ?></p>
@@ -41,7 +41,7 @@ $items = isset( $data['items'] ) && is_array( $data['items'] ) ? $data['items'] 
 		<?php endif; ?>
 
 		<?php if ( ! empty( $data['outro'] ) ) : ?>
-			<blockquote class="testro-ai__quote">
+			<blockquote class="testro-ai__quote <?php echo esc_attr( testro_bottom_text_class( true ) ); ?>">
 				<p><?php echo esc_html( $data['outro'] ); ?></p>
 			</blockquote>
 		<?php endif; ?>

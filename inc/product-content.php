@@ -201,6 +201,7 @@ function testro_get_product_pages() {
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
+						'with_arrow'    => false,
 					),
 				),
 			),
@@ -213,7 +214,6 @@ function testro_get_product_pages() {
 					'id'            => 'ai-native-automation',
 					'variant'       => 'spotlight',
 					'columns'       => 3,
-					'eyebrow'       => __( 'BUILT AROUND INTELLIGENCE', 'testro' ),
 					'title'         => __( 'AI-Native Test Automation', 'testro' ),
 					'intro'         => __( 'theTestRo is AI-native. AI sits at the core of every test. It\'s not bolted on as an extra. This is real AI software testing, not automation with an AI label stuck on top.', 'testro' ),
 					'heading_level' => 2,
@@ -221,7 +221,7 @@ function testro_get_product_pages() {
 					'card_heading_level' => 3,
 					'items'         => array(
 						array(
-							'icon'        => 'message-text',
+							'icon'        => 'braces',
 							'title'       => __( 'Natural Language Test Authoring', 'testro' ),
 							'description' => __( 'Type a test in plain English. AI turns it into a working test in seconds.', 'testro' ),
 						),
@@ -244,9 +244,7 @@ function testro_get_product_pages() {
 					'id'            => 'intelligent-automation-engine',
 					'variant'       => 'tint',
 					'columns'       => 3,
-					'eyebrow'       => __( 'AI AUTOMATION, END TO END', 'testro' ),
 					'title'         => __( 'Intelligent Automation Engine', 'testro' ),
-					'intro'         => __( 'Built to understand your product, adapt to change, and keep every test moving forward.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'card_heading_level' => 3,
@@ -290,10 +288,7 @@ function testro_get_product_pages() {
 					'id'            => 'enterprise-test-execution',
 					'variant'       => 'brand',
 					'layout'        => 'split-list',
-					'status'        => __( 'CONTINUOUS EXECUTION READY', 'testro' ),
-					'eyebrow'       => __( 'EXECUTION LAYER / ALWAYS ON', 'testro' ),
-					'title'         => __( 'Enterprise Test Execution', 'testro' ),
-					'intro'         => __( 'Move every release with confidence. theTestRo coordinates coverage, environments, and scale as one intelligent system.', 'testro' ),
+					'eyebrow'       => __( 'Enterprise Test Execution', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'card_heading_level' => 3,
@@ -330,10 +325,8 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'lifecycle',
 					'id'            => 'autonomous-test-lifecycle',
-					'eyebrow'       => __( 'LIFECYCLE', 'testro' ),
-					'title'         => __( 'Autonomous Test Lifecycle', 'testro' ),
+					'eyebrow'       => __( 'Autonomous Test Lifecycle', 'testro' ),
 					'intro'         => __( 'theTestRo manages the full test lifecycle, start to finish:', 'testro' ),
-					'intro_extra'   => __( 'It never stops at step six. Every run feeds the AI engine at the center, so optimization loops straight back into generation — the suite keeps improving on its own.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'layout'        => 'split-ring',
@@ -377,9 +370,8 @@ function testro_get_product_pages() {
 					'type'          => 'analytics',
 					'id'            => 'quality-intelligence',
 					'variant'       => 'framer-quality',
-					'eyebrow'       => __( 'TURN TEST RESULTS INTO REAL INSIGHT', 'testro' ),
-					'title'         => __( 'AI-Powered Quality Intelligence', 'testro' ),
-					'product_line'  => __( 'theTestRo — www.thetestro.com', 'testro' ),
+					'eyebrow'       => __( 'AI-Powered Quality Intelligence', 'testro' ),
+					'product_line'  => __( 'Turn Test Results Into Real Insight. theTestRo — www.thetestro.com', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'marker'        => '=',
@@ -424,22 +416,27 @@ function testro_get_product_pages() {
 					'align'         => 'start',
 					'items'         => array(
 						array(
+							'icon'        => 'layout-grid',
 							'title'       => __( 'Unified Test Platform', 'testro' ),
 							'description' => __( 'Manage every test type in one place, not scattered tools.', 'testro' ),
 						),
 						array(
+							'icon'        => 'folder-tree',
 							'title'       => __( 'Scalable Test Repository', 'testro' ),
 							'description' => __( 'Store and organize thousands of tests with no slowdown.', 'testro' ),
 						),
 						array(
+							'icon'        => 'puzzle',
 							'title'       => __( 'Reusable Test Components', 'testro' ),
 							'description' => __( 'Build once, use everywhere. Cut duplicate work.', 'testro' ),
 						),
 						array(
+							'icon'        => 'server',
 							'title'       => __( 'Environment Management', 'testro' ),
 							'description' => __( 'Test across dev, staging, and production with ease.', 'testro' ),
 						),
 						array(
+							'icon'        => 'shield-lock',
 							'title'       => __( 'Secure Enterprise Infrastructure', 'testro' ),
 							'description' => __( 'Built with enterprise-grade security in mind.', 'testro' ),
 						),
@@ -657,8 +654,7 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'pipeline',
 					'id'            => 'how-it-works',
-					'eyebrow'       => __( 'LIVE CAPTURE', 'testro' ),
-					'title'         => __( 'How It Works', 'testro' ),
+					'eyebrow'       => __( 'How It Works', 'testro' ),
 					'intro'         => __( 'Say goodbye to scripts and syntax errors. Record your actions in a real browser, or type steps in plain English. Either way, you get a working test fast — and you don\'t need a developer standing by to explain what went wrong', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
@@ -685,9 +681,8 @@ function testro_get_product_pages() {
 					'type'          => 'feature-grid',
 					'id'            => 'key-features',
 					'variant'       => 'lift',
-					'columns'       => 3,
+					'columns'       => 4,
 					'eyebrow'       => __( 'KEY FEATURES', 'testro' ),
-					'title'         => __( 'Everything you need, built in.', 'testro' ),
 					'intro'         => __( 'theTestRo covers the essentials any strong codeless testing platform needs, plus a few extras most tools skip.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
@@ -729,7 +724,9 @@ function testro_get_product_pages() {
 					/* Framer eyebrow "BUILT AROUND INTELLIGENCE" is visible:false — omit. */
 					'eyebrow'       => '',
 					'title'         => __( 'Plain-English, AI-Backed Authoring', 'testro' ),
-					'intro'         => __( 'This isn\'t basic record-and-playback. theTestRo is AI no-code test automation at its core. It understands real apps, not just clicks. That difference matters once your app goes beyond simple flows. It includes logins with multi-factor codes. It includes dynamic pricing tables. It also includes forms that change based on what users pick.', 'testro' ),
+					'intro'         => __( 'This isn\'t basic record-and-playback. theTestRo is AI no-code test automation at its core. It understands real apps, not just clicks.', 'testro' ),
+					'intro_extra'   => __( 'That difference matters once your app goes beyond simple flows. It includes logins with multi-factor codes. It includes dynamic pricing tables. It also includes forms that change based on what users pick.', 'testro' ),
+					'header_style'  => 'why',
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
@@ -746,19 +743,20 @@ function testro_get_product_pages() {
 							'description' => __( 'AI finds buttons and fields even when your page layout shifts around.', 'testro' ),
 						),
 					),
-					'outro'         => __( 'Skipping code shouldn\'t mean losing power. theTestRo gives non-technical testers the same depth a full engineering team used to need.', 'testro' ),
+					'outro'              => __( 'Skipping code shouldn\'t mean losing power. theTestRo gives non-technical testers the same depth a full engineering team used to need.', 'testro' ),
+					'outro_bottom_text'  => true,
 				),
 
 				/* ---------------------------------------------------------- */
 				array(
-					'type'          => 'outcomes',
-					'id'            => 'built-to-stay-green',
-					'variant'       => 'safeguards',
-					'title'         => __( 'Built to Stay Green', 'testro' ),
-					'intro'         => __( 'A common worry with any codeless test automation platform is upkeep. theTestRo handles this with a few smart defaults, so tests stay stable over time:', 'testro' ),
-					'heading_level' => 2,
-					'align'         => 'start',
-					'items'         => array(
+					'type'               => 'analytics',
+					'id'                 => 'built-to-stay-green',
+					'variant'            => 'framer-quality',
+					'eyebrow'            => __( 'Built to Stay Green', 'testro' ),
+					'product_line'       => __( 'A common worry with any codeless test automation platform is upkeep. theTestRo handles this with a few smart defaults, so tests stay stable over time:', 'testro' ),
+					'heading_level'      => 2,
+					'align'              => 'start',
+					'items'              => array(
 						array(
 							'title'       => __( 'Multiple Backup Selectors', 'testro' ),
 							'description' => __( 'Each step gets more than one way to find an element. A small design tweak won\'t break your test.', 'testro' ),
@@ -772,7 +770,8 @@ function testro_get_product_pages() {
 							'description' => __( 'Tests wait for key background calls to finish before moving forward. Fewer false failures, less noise.', 'testro' ),
 						),
 					),
-					'outro'         => __( 'This is scriptless test automation built to last, not just built to launch fast.', 'testro' ),
+					'outro'              => __( 'This is scriptless test automation built to last, not just built to launch fast.', 'testro' ),
+					'outro_bottom_text'  => true,
 				),
 
 				/* ---------------------------------------------------------- */
@@ -785,26 +784,32 @@ function testro_get_product_pages() {
 					'align'         => 'start',
 					'items'         => array(
 						array(
+							'icon'        => 'user-check',
 							'title'       => __( 'Manual Testers', 'testro' ),
 							'description' => __( 'Turn your existing test cases into automated ones. No coding course needed.', 'testro' ),
 						),
 						array(
+							'icon'        => 'badge-check',
 							'title'       => __( 'QA Teams', 'testro' ),
 							'description' => __( 'Free up your automation engineers for the hard problems. Let the whole team help with testing.', 'testro' ),
 						),
 						array(
+							'icon'        => 'layout-grid',
 							'title'       => __( 'Product Managers', 'testro' ),
 							'description' => __( 'Check new features yourself, without waiting on engineering.', 'testro' ),
 						),
 						array(
+							'icon'        => 'rocket',
 							'title'       => __( 'Small Teams & Startups', 'testro' ),
 							'description' => __( 'Get real test coverage without hiring a full automation team.', 'testro' ),
 						),
 						array(
+							'icon'        => 'briefcase',
 							'title'       => __( 'QA Leads & Managers', 'testro' ),
 							'description' => __( 'Roll out a repeatable, no-code software testing process across every team, without months of training.', 'testro' ),
 						),
 						array(
+							'icon'        => 'trending-up',
 							'title'       => __( 'Growing Engineering Orgs', 'testro' ),
 							'description' => __( 'Add test coverage as fast as you ship new features. Do it without hiring a new tester for each one.', 'testro' ),
 						),
@@ -815,8 +820,8 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'comparison',
 					'id'            => 'scripted-tools-vs-thetestro',
-					'eyebrow'       => __( 'WHY MORE TEAMS ARE GOING SCRIPTLESS', 'testro' ),
-					'title'         => __( 'Scripted Tools vs. theTestRo', 'testro' ),
+					'eyebrow'       => __( 'Scripted Tools vs. theTestRo', 'testro' ),
+					'title'         => __( 'Why More Teams Are Going Scriptless', 'testro' ),
 					'intro'         => '',
 					'heading_level' => 2,
 					'align'         => 'start',
@@ -859,7 +864,6 @@ function testro_get_product_pages() {
 					/* Framer eyebrow is visible:false — omit. */
 					'eyebrow'       => '',
 					'title'         => __( 'Integrations', 'testro' ),
-					'intro'         => __( 'This isn\'t basic record-and-playback. theTestRo is AI no-code test automation at its core. It understands real apps, not just clicks. That difference matters once your app goes beyond simple flows. It includes logins with multi-factor codes. It includes dynamic pricing tables. It also includes forms that change based on what users pick.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
@@ -880,7 +884,6 @@ function testro_get_product_pages() {
 							'description' => __( 'Get alerts right in the channels your team already checks.', 'testro' ),
 						),
 					),
-					'outro'         => __( 'Skipping code shouldn\'t mean losing power. theTestRo gives non-technical testers the same depth a full engineering team used to need.', 'testro' ),
 				),
 
 				/* ---------------------------------------------------------- */
@@ -1023,17 +1026,16 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* AI-Powered Web Test Authoring (Framer frame: DevOps & Continuous Quality) */
+				/* AI-Powered Web Test Authoring — same How It Works treatment as No-Code. */
 				array(
 					'type'          => 'pipeline',
 					'id'            => 'ai-web-test-authoring',
 					'eyebrow'       => __( 'AI-Powered Web Test Authoring', 'testro' ),
-					'title'         => __( 'AI-Powered Web Test Authoring', 'testro' ),
-					'intro'         => __( 'Test multi-step processes like approvals, payments, and order tracking, start to finish.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
-					'variant'       => 'tint',
-					'layout'        => 'timeline-cards',
+					'variant'       => 'brand',
+					'layout'        => 'timeline',
+					'outro_bottom_text' => true,
 					'items'         => array(
 						array(
 							'title'       => __( 'Natural Language Test Creation', 'testro' ),
@@ -1052,31 +1054,39 @@ function testro_get_product_pages() {
 					'outro'         => __( '-theTestRo brings real AI web testing to every step, not just the first draft. It keeps learning from every test run.', 'testro' ),
 				),
 
-				/* Execute Tests Across Every Browser — Framer vRpmMrK4S (titles include Framer em dashes / spelling). */
+				/* Execute Tests Across Every Browser — Home Key Features card treatment. */
 				array(
-					'type'          => 'web-browsers',
+					'type'          => 'feature-grid',
+					'variant'       => 'lift',
 					'id'            => 'execute-across-browsers',
+					'columns'       => 3,
 					'title'         => __( 'Execute Tests Across Every Browser', 'testro' ),
 					'intro'         => __( 'Run the same web test across every browser your users actually use:', 'testro' ),
 					'heading_level' => 2,
+					'align'         => 'start',
 					'items'         => array(
 						array(
+							'icon'        => 'browsers',
 							'title'       => __( 'Chrome —', 'testro' ),
 							'description' => __( 'Test on the browser most of your users already have open.', 'testro' ),
 						),
 						array(
+							'icon'        => 'browsers',
 							'title'       => __( 'Edge —', 'testro' ),
 							'description' => __( 'Cover Microsoft\'s default browser without extra setup.', 'testro' ),
 						),
 						array(
+							'icon'        => 'browsers',
 							'title'       => __( 'Firefox—', 'testro' ),
 							'description' => __( 'Catch rendering issues Chrome alone won\'t show you.', 'testro' ),
 						),
 						array(
+							'icon'        => 'browsers',
 							'title'       => __( 'Safari—', 'testro' ),
 							'description' => __( 'Make sure Mac and iPhone users get the same experience.', 'testro' ),
 						),
 						array(
+							'icon'        => 'browsers',
 							'title'       => __( 'Parallel Executtion—', 'testro' ),
 							'description' => __( 'Run thousands of tests at once, so a full regression suite finishes in minutes, not hours.', 'testro' ),
 						),
@@ -1087,9 +1097,7 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'web-maintenance',
 					'id'            => 'intelligent-web-maintenance',
-					'eyebrow'       => __( 'PRODUCT OVERVIEW', 'testro' ),
-					'title'         => __( 'Intelligent Web Test Maintenance', 'testro' ),
-					'intro'         => __( 'Everything a modern QA team needs, without the tool-juggling.', 'testro' ),
+					'eyebrow'       => __( 'Intelligent Web Test Maintenance', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -1110,32 +1118,35 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Validate Every UI Changes — Framer Gj9D5TyHM (intro visible:false). */
+				/* Validate Every UI Changes — Home Key Features card treatment. */
 				array(
-					'type'          => 'web-validate',
+					'type'          => 'feature-grid',
 					'id'            => 'validate-ui-changes',
+					'variant'       => 'lift',
+					'columns'       => 2,
 					'title'         => __( 'Validate Every UI Changes', 'testro' ),
 					'heading_level' => 2,
+					'align'         => 'start',
 					'items'         => array(
 						array(
+							'icon'        => 'scan-eye',
 							'title'       => __( 'UI Validation —', 'testro' ),
 							'description' => __( 'Confirm buttons, forms, and menus all work as designed, on every release.', 'testro' ),
-							'image'       => TESTRO_URI . '/assets/images/web/validate-ui.jpg',
 						),
 						array(
+							'icon'        => 'scan-eye',
 							'title'       => __( 'Visual Regression Testing —', 'testro' ),
 							'description' => __( 'Catch layout shifts and broken styles before a user ever sees them.', 'testro' ),
-							'image'       => TESTRO_URI . '/assets/images/web/validate-visual-regression.jpg',
 						),
 						array(
+							'icon'        => 'layout-grid',
 							'title'       => __( 'Layout Verification —', 'testro' ),
 							'description' => __( 'Compare screenshots across builds. Spot changes that shouldn\'t be there.', 'testro' ),
-							'image'       => TESTRO_URI . '/assets/images/web/validate-layout.jpg',
 						),
 						array(
+							'icon'        => 'smartphone',
 							'title'       => __( 'Responsive Testing —', 'testro' ),
 							'description' => __( 'Check your site across screen sizes, from desktop down to mobile.', 'testro' ),
-							'image'       => TESTRO_URI . '/assets/images/web/validate-responsive.jpg',
 						),
 					),
 				),
@@ -1148,6 +1159,7 @@ function testro_get_product_pages() {
 					'title'         => __( 'Debug Test Failures Faster', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
+					'outro_bottom_text' => true,
 					'items'         => array(
 						array(
 							'title'       => __( 'Screenshots', 'testro' ),
@@ -1173,9 +1185,7 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'web-cicd',
 					'id'            => 'scale-web-testing-cicd',
-					'eyebrow'       => __( 'BUILT FOR THE ENTERPRISE', 'testro' ),
-					'title'         => __( 'Scale Web Testing in CI/CD', 'testro' ),
-					'intro'         => __( 'Everything your QA organization needs to move fast, stay in control, and scale without limits.', 'testro' ),
+					'eyebrow'       => __( 'Scale Web Testing in CI/CD', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -1210,9 +1220,7 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'web-analytics',
 					'id'            => 'web-testing-analytics',
-					'eyebrow'       => __( 'PRODUCT OVERVIEW', 'testro' ),
-					'title'         => __( 'Web Testing Analytics', 'testro' ),
-					'intro'         => __( 'Everything a modern QA team needs, without the tool-juggling.', 'testro' ),
+					'eyebrow'       => __( 'Web Testing Analytics', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -1242,9 +1250,7 @@ function testro_get_product_pages() {
 				array(
 					'type'          => 'web-enterprise',
 					'id'            => 'enterprise-ready-web',
-					'eyebrow'       => __( 'BUILT FOR THE ENTERPRISE', 'testro' ),
-					'title'         => __( 'Enterprise-Ready Web Testing', 'testro' ),
-					'intro'         => __( 'Everything your QA organization needs to move fast, stay in control, and scale without limits.', 'testro' ),
+					'eyebrow'       => __( 'Enterprise-Ready Web Testing', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -1268,7 +1274,6 @@ function testro_get_product_pages() {
 							'description' => __( 'Run at scale. No servers to set up or manage yourself.', 'testro' ),
 						),
 					),
-					'outro'         => __( 'One connected platform for your people, processes, and scale.', 'testro' ),
 				),
 
 				/* Supported Browsers & Platforms — Framer VWJxJtN3s */
@@ -1390,9 +1395,9 @@ function testro_get_product_pages() {
 					'type'          => 'api-compose',
 					'id'            => 'import-a-spec',
 					'variant'       => 'import-spec',
-					'eyebrow'       => __( 'FROM SPEC TO TEST SUITE IN MINUTES', 'testro' ),
 					'title'         => __( 'Import a Spec, Get Working Tests', 'testro' ),
-					'intro'         => __( 'Skip the blank page. Bring in your Postman collection or Swagger/OpenAPI file, and theTestRo reads it, finds every endpoint, and builds the requests for you. What used to take a sprint to hand-write now takes minutes.', 'testro' ),
+					'intro'         => __( 'From Spec to Test Suite in Minutes.', 'testro' ),
+					'intro_extra'   => __( 'Skip the blank page. Bring in your Postman collection or Swagger/OpenAPI file, and theTestRo reads it, finds every endpoint, and builds the requests for you. What used to take a sprint to hand-write now takes minutes.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'mock'          => array(
@@ -1437,8 +1442,7 @@ function testro_get_product_pages() {
 					'type'          => 'api-compose',
 					'id'            => 'test-apis-alone-or-full-journey',
 					'variant'       => 'journey-modes',
-					'eyebrow'       => __( 'API TEST AUTOMATION', 'testro' ),
-					'title'         => __( 'Test APIs Alone or Inside a Full Journey', 'testro' ),
+					'title'         => __( 'Test APIs Alone or Insidea Full Journey', 'testro' ),
 					'intro'         => __( 'Some checks just need a fast request and response. Others need the full picture.', 'testro' ),
 					'outro'         => __( 'This shows what real API test automation looks like when one mode doesn\'t box it in.', 'testro' ),
 					'heading_level' => 2,
@@ -1470,9 +1474,9 @@ function testro_get_product_pages() {
 					'type'          => 'api-compose',
 					'id'            => 'validate-every-response',
 					'variant'       => 'validate-response',
-					'eyebrow'       => __( 'GO DEEPER THAN "IT RETURNED 200"', 'testro' ),
 					'title'         => __( 'Validate Every Response, Not Just the Status Code', 'testro' ),
-					'intro'         => __( 'A passing status code doesn\'t mean the response was actually correct. A field could be missing, a value could be wrong, or the shape of the data could have quietly changed. theTestRo checks further:', 'testro' ),
+					'intro'         => __( 'Go Deeper Than "It Returned 200".', 'testro' ),
+					'intro_extra'   => __( 'A passing status code doesn\'t mean the response was actually correct. A field could be missing, a value could be wrong, or the shape of the data could have quietly changed. theTestRo checks further:', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
@@ -1496,14 +1500,14 @@ function testro_get_product_pages() {
 					'type'          => 'api-compose',
 					'id'            => 'self-healing-api-tests',
 					'variant'       => 'self-healing',
-					'eyebrow'       => __( 'WHEN YOUR API CHANGES, YOUR TESTS KEEP UP', 'testro' ),
 					'title'         => __( 'Self-Healing API Tests', 'testro' ),
-					'intro'         => __( 'Endpoints shift. Fields get renamed. Schemas evolve. theTestRo adapts instead of breaking.', 'testro' ),
+					'intro'         => __( 'When Your API Changes, Your Tests Keep Up.', 'testro' ),
+					'intro_extra'   => __( 'Endpoints shift. Fields get renamed. Schemas evolve. theTestRo adapts instead of breaking:', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'scan-eye',
+							'icon'        => 'search',
 							'title'       => __( 'Schema Drift Detection', 'testro' ),
 							'description' => __( 'Spot new fields, changed structures, or updated endpoints as soon as they happen.', 'testro' ),
 						),
@@ -1534,18 +1538,22 @@ function testro_get_product_pages() {
 						array(
 							'name'  => 'orders',
 							'count' => '142/142',
+							'fill'  => '100%',
 						),
 						array(
 							'name'  => 'payments',
 							'count' => '98/98',
+							'fill'  => '72%',
 						),
 						array(
 							'name'  => 'auth',
 							'count' => '61/61',
+							'fill'  => '44%',
 						),
 						array(
 							'name'  => 'inventory',
 							'count' => '118/118',
+							'fill'  => '80%',
 						),
 					),
 					'items'         => array(
@@ -1569,27 +1577,27 @@ function testro_get_product_pages() {
 					'type'          => 'api-compose',
 					'id'            => 'trigger-tests-on-every-backend-deploy',
 					'variant'       => 'deploy-pipeline',
-					'eyebrow'       => __( 'CATCH BREAKS BEFORE THEY REACH PRODUCTION', 'testro' ),
 					'title'         => __( 'Trigger Tests on Every Backend Deploy', 'testro' ),
-					'intro'         => __( 'theTestRo plugs straight into your release process. Every backend deploy can kick off a test run automatically, so a broken contract appears in the pull request, not after it ships.', 'testro' ),
+					'intro'         => __( 'Catch Breaks Before They Reach Production.', 'testro' ),
+					'intro_extra'   => __( 'theTestRo plugs straight into your release process. Every backend deploy can kick off a test run automatically, so a broken contract appears in the pull request, not after it ships.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'pipeline'      => array(
 						array(
 							'label' => __( 'commit', 'testro' ),
-							'icon'  => 'git-branch',
+							'icon'  => 'sparkles',
 						),
 						array(
 							'label' => __( 'deploy', 'testro' ),
-							'icon'  => 'rocket',
+							'icon'  => 'layers',
 						),
 						array(
 							'label' => __( 'test run', 'testro' ),
-							'icon'  => 'zap',
+							'icon'  => 'play',
 						),
 						array(
 							'label'  => __( 'pull request', 'testro' ),
-							'icon'   => 'git-branch',
+							'icon'   => 'check',
 							'active' => true,
 						),
 						array(
@@ -1608,8 +1616,8 @@ function testro_get_product_pages() {
 					'type'          => 'api-compose',
 					'id'            => 'debug-failures-fast',
 					'variant'       => 'debug-fast',
-					'eyebrow'       => __( 'Know Why It Failed, Not Just That It Did', 'testro' ),
 					'title'         => __( 'Debug Failures Fast', 'testro' ),
+					'intro'         => __( 'Know Why It Failed, Not Just That It Did', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
@@ -1731,6 +1739,7 @@ function testro_get_product_pages() {
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
+						'with_arrow'    => false,
 					),
 				),
 			),
@@ -1748,31 +1757,30 @@ function testro_get_product_pages() {
 					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'layout-grid',
-							'title'       => __( 'Rendering Differences', 'testro' ),
-							'description' => __( 'Spot layout shifts and style breaks between browser engines. Catch them before a user ever sees them.', 'testro' ),
+							'icon'        => 'braces',
+							'title'       => __( 'Single Test, Full Coverage', 'testro' ),
+							'description' => __( 'Build a test once. theTestRo runs it across Chrome, Safari, Firefox, and Edge. No rewriting needed.', 'testro' ),
 						),
 						array(
-							'icon'        => 'filter-check',
-							'title'       => __( 'Functional Parity Checks', 'testro' ),
-							'description' => __( 'Confirm buttons, forms, and navigation work the same way everywhere. Not just on your team\'s default browser.', 'testro' ),
+							'icon'        => 'braces',
+							'title'       => __( 'Real Browsers, Not Just Emulators', 'testro' ),
+							'description' => __( 'Check behavior on real browser engines. Not simulated guesses that miss real rendering quirks.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
-							'title'       => __( 'Legacy and Current Versions', 'testro' ),
-							'description' => __( 'Test the latest browser releases and older versions your users might still be running.', 'testro' ),
+							'icon'        => 'braces',
+							'title'       => __( 'Desktop and Mobile Web Together', 'testro' ),
+							'description' => __( 'Cover layouts, touch, and mobile behavior alongside desktop, all in one run.', 'testro' ),
 						),
 					),
 				),
 
 				array(
-					'type'          => 'xbrowser-compose',
+					'type'          => 'pipeline',
 					'id'            => 'how-it-works',
-					'variant'       => 'how-timeline',
-					'tone'          => 'dark',
+					'variant'       => 'brand',
+					'layout'        => 'timeline',
 					'eyebrow'       => __( 'HOW IT WORKS', 'testro' ),
 					'title'         => __( 'From One Test to Full Browser Coverage in Four Steps', 'testro' ),
-					'intro'         => __( 'Say goodbye to scripts and syntax errors. Record your actions in a real browser, or type steps in plain English. Either way, you get a working test fast — and you don\'t need a developer standing by to explain what went wrong', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
@@ -1805,25 +1813,25 @@ function testro_get_product_pages() {
 					'variant'       => 'capability-grid',
 					'card_fill'     => 'tint',
 					'icon_tone'     => 'navy',
-					'eyebrow'       => __( 'Find What "Works on Chrome" Misses', 'testro' ),
-					'title'         => __( 'Browser Compatibility Testing That Actually Catches the Gaps', 'testro' ),
-					'intro'         => __( 'A feature can work fine in one browser and quietly break in another. A button that doesn\'t register a click. A layout that collapses. A form that submits wrong. theTestRo is built to catch exactly that kind of gap', 'testro' ),
-					'outro'         => __( 'This is cross-browser test automation the way it should work. Build it once. Trust it everywhere.', 'testro' ),
+					'header_style'  => 'three-lines',
+					'eyebrow'       => __( 'Browser Compatibility Testing That Actually Catches the Gaps', 'testro' ),
+					'title'         => __( 'Find What "Works on Chrome" Misses.', 'testro' ),
+					'intro'         => __( 'A feature can work fine in one browser and quietly break in another. A button that doesn\'t register a click. A layout that collapses. A form that submits wrong. theTestRo is built to catch exactly that kind of gap:', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'layout-grid',
+							'icon'        => 'braces',
 							'title'       => __( 'Rendering Differences', 'testro' ),
 							'description' => __( 'Spot layout shifts and style breaks between browser engines. Catch them before a user ever sees them.', 'testro' ),
 						),
 						array(
-							'icon'        => 'filter-check',
+							'icon'        => 'braces',
 							'title'       => __( 'Functional Parity Checks', 'testro' ),
 							'description' => __( 'Confirm buttons, forms, and navigation work the same way everywhere. Not just on your team\'s default browser.', 'testro' ),
 						),
 						array(
-							'icon'        => 'git-branch',
+							'icon'        => 'braces',
 							'title'       => __( 'Legacy and Current Versions', 'testro' ),
 							'description' => __( 'Test the latest browser releases and older versions your users might still be running.', 'testro' ),
 						),
@@ -1836,28 +1844,26 @@ function testro_get_product_pages() {
 					'variant'       => 'audience-row',
 					'eyebrow'       => __( 'Who relies on cross-browser testing', 'testro' ),
 					'title'         => __( 'Built for Teams Who Can\'t Guess Which Browser a User Picks', 'testro' ),
-					'intro'         => __( 'A feature can work fine in one browser and quietly break in another. A button that doesn\'t register a click. A layout that collapses. A form that submits wrong. theTestRo is built to catch exactly that kind of gap', 'testro' ),
-					'outro'         => __( 'This is cross-browser test automation the way it should work. Build it once. Trust it everywhere.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'coins',
+							'icon'        => 'braces',
 							'title'       => __( 'E-Commerce Teams', 'testro' ),
 							'description' => __( 'A broken checkout button in one browser costs real revenue. Catch it before launch, not after a support ticket.', 'testro' ),
 						),
 						array(
-							'icon'        => 'layout-grid',
+							'icon'        => 'braces',
 							'title'       => __( 'SaaS Product Teams', 'testro' ),
 							'description' => __( 'Enterprise customers use a wide mix of browsers, often older, locked-down corporate versions. Cover them all.', 'testro' ),
 						),
 						array(
-							'icon'        => 'user-check',
+							'icon'        => 'braces',
 							'title'       => __( 'Agencies & Consultancies', 'testro' ),
 							'description' => __( 'Deliver client sites with proof they work everywhere, not just in the browser your team happened to test in.', 'testro' ),
 						),
 						array(
-							'icon'        => 'gauge',
+							'icon'        => 'braces',
 							'title'       => __( 'QA Managers', 'testro' ),
 							'description' => __( 'Get one clear report across every target browser, instead of piecing together manual checks from different testers.', 'testro' ),
 						),
@@ -1868,25 +1874,25 @@ function testro_get_product_pages() {
 					'type'          => 'xbrowser-compose',
 					'id'            => 'ai-cross-browser-testing',
 					'variant'       => 'ai-row',
-					'eyebrow'       => __( 'When Browsers Render Differently, theTestRo Keeps Up', 'testro' ),
-					'title'         => __( 'AI Cross-Browser Testing That Adapts on Its Own', 'testro' ),
+					'header_style'  => 'three-lines',
+					'eyebrow'       => __( 'AI Cross-Browser Testing That Adapts on Its Own', 'testro' ),
+					'title'         => __( 'When Browsers Render Differently, theTestRo Keeps Up.', 'testro' ),
 					'intro'         => __( 'Every browser engine handles elements a little differently. That\'s usually where cross-browser tests break.', 'testro' ),
-					'outro'         => __( 'This is cross-browser test automation the way it should work. Build it once. Trust it everywhere.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'heart-pulse',
+							'icon'        => 'braces',
 							'title'       => __( 'Self-Healing Across Engines', 'testro' ),
 							'description' => __( 'theTestRo finds the right element even when Chrome, Firefox, and Safari render it differently underneath.', 'testro' ),
 						),
 						array(
-							'icon'        => 'refresh',
+							'icon'        => 'braces',
 							'title'       => __( 'Automatic Adjustment', 'testro' ),
 							'description' => __( 'A rendering quirk in one browser won\'t take down your whole suite. theTestRo adapts and keeps running.', 'testro' ),
 						),
 						array(
-							'icon'        => 'message-text',
+							'icon'        => 'braces',
 							'title'       => __( 'Plain-English Fixes', 'testro' ),
 							'description' => __( 'Need to update a step yourself? Just rewrite the sentence. No separate driver code per browser.', 'testro' ),
 						),
@@ -1894,46 +1900,47 @@ function testro_get_product_pages() {
 				),
 
 				/* Framer aBnNzzG9W — Feature Card 2 row (250px), centered under header. */
-				array(
-					'type'          => 'xbrowser-compose',
-					'id'            => 'enterprise-outcomes',
-					'variant'       => 'feature-card-row',
-					'card_width'    => 'fixed',
-					'eyebrow'       => __( 'ENTERPRISE OUTCOMES', 'testro' ),
-					'title'         => __( 'What Teams Gain with theTestRo', 'testro' ),
-					'intro'         => __( 'A feature can work fine in one browser and quietly break in another. A button that doesn\'t register a click. A layout that collapses. A form that submits wrong. theTestRo is built to catch exactly that kind of gap', 'testro' ),
-					'heading_level' => 2,
-					'align'         => 'start',
-					'items'         => array(
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'E-Commerce Teams', 'testro' ),
-							'description' => __( 'A broken checkout button in one browser costs real revenue. Catch it before launch, not after a support ticket.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'SaaS Product Teams', 'testro' ),
-							'description' => __( 'Enterprise customers use a wide mix of browsers, often older, locked-down corporate versions. Cover them all.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'Agencies & Consultancies', 'testro' ),
-							'description' => __( 'Deliver client sites with proof they work everywhere, not just in the browser your team happened to test in.', 'testro' ),
-						),
-						array(
-							'icon'        => 'code',
-							'title'       => __( 'QA Managers', 'testro' ),
-							'description' => __( 'Get one clear report across every target browser, instead of piecing together manual checks from different testers.', 'testro' ),
-						),
-					),
-				),
+				// array(
+				// 	'type'          => 'xbrowser-compose',
+				// 	'id'            => 'enterprise-outcomes',
+				// 	'variant'       => 'feature-card-row',
+				// 	'card_width'    => 'fixed',
+				// 	'eyebrow'       => __( 'ENTERPRISE OUTCOMES', 'testro' ),
+				// 	'title'         => __( 'What Teams Gain with theTestRo', 'testro' ),
+				// 	'intro'         => __( 'A feature can work fine in one browser and quietly break in another. A button that doesn\'t register a click. A layout that collapses. A form that submits wrong. theTestRo is built to catch exactly that kind of gap', 'testro' ),
+				// 	'heading_level' => 2,
+				// 	'align'         => 'start',
+				// 	'items'         => array(
+				// 		array(
+				// 			'icon'        => 'code',
+				// 			'title'       => __( 'E-Commerce Teams', 'testro' ),
+				// 			'description' => __( 'A broken checkout button in one browser costs real revenue. Catch it before launch, not after a support ticket.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'icon'        => 'code',
+				// 			'title'       => __( 'SaaS Product Teams', 'testro' ),
+				// 			'description' => __( 'Enterprise customers use a wide mix of browsers, often older, locked-down corporate versions. Cover them all.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'icon'        => 'code',
+				// 			'title'       => __( 'Agencies & Consultancies', 'testro' ),
+				// 			'description' => __( 'Deliver client sites with proof they work everywhere, not just in the browser your team happened to test in.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'icon'        => 'code',
+				// 			'title'       => __( 'QA Managers', 'testro' ),
+				// 			'description' => __( 'Get one clear report across every target browser, instead of piecing together manual checks from different testers.', 'testro' ),
+				// 		),
+				// 	),
+				// ),
 
 				array(
-					'type'          => 'xbrowser-compose',
+					'type'          => 'pipeline',
 					'id'            => 'scale-execution-parallel',
-					'variant'       => 'scale-parallel',
-					'tone'          => 'dark',
-					'eyebrow'       => __( 'Scale execution across browsers in parallel', 'testro' ),
+					'variant'       => 'brand',
+					'layout'        => 'timeline',
+					'outro_bottom_text' => true,
+					'eyebrow'       => __( 'Scale Execution Across Browsers in Parallel', 'testro' ),
 					'title'         => __( 'Stop Running Browsers One at a Time', 'testro' ),
 					'intro'         => __( 'Sequential browser testing is slow by design; every browser waits its turn.', 'testro' ),
 					'outro'         => __( 'Running the same suite locally across five browsers usually means five separate setups, five sets of drivers, and five places for something to go stale. theTestRo replaces all of that with one cloud-based run.', 'testro' ),
@@ -1961,6 +1968,7 @@ function testro_get_product_pages() {
 					'id'            => 'real-world-conditions',
 					'variant'       => 'feature-card-row',
 					'card_width'    => 'fluid',
+					'header_style'  => 'three-lines',
 					'eyebrow'       => __( 'Real-world conditions, not just a clean test environment', 'testro' ),
 					'title'         => __( 'Test How Your Users Actually Experience Your Site', 'testro' ),
 					'intro'         => __( 'A perfect browser in a perfect test environment isn\'t the real world.', 'testro' ),
@@ -1968,17 +1976,17 @@ function testro_get_product_pages() {
 					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'code',
+							'icon'        => 'braces',
 							'title'       => __( 'Network Throttling', 'testro' ),
 							'description' => __( 'See how your app behaves on a slow connection, not just fast office Wi-Fi.', 'testro' ),
 						),
 						array(
-							'icon'        => 'code',
+							'icon'        => 'braces',
 							'title'       => __( 'Geolocation Simulation', 'testro' ),
 							'description' => __( 'Check how content, currency, and language change for users in different regions.', 'testro' ),
 						),
 						array(
-							'icon'        => 'code',
+							'icon'        => 'braces',
 							'title'       => __( 'Responsive Breakpoints', 'testro' ),
 							'description' => __( 'Check layouts across desktop, tablet, and mobile screens, all in one pass.', 'testro' ),
 						),
@@ -1989,8 +1997,9 @@ function testro_get_product_pages() {
 					'type'          => 'xbrowser-compose',
 					'id'            => 'catch-browser-bugs-before-release',
 					'variant'       => 'catch-release',
-					'eyebrow'       => __( 'Trigger a Full Browser Check on Every Pull Request', 'testro' ),
-					'title'         => __( 'Catch browser bugs before they reach a release', 'testro' ),
+					'header_style'  => 'three-lines',
+					'eyebrow'       => __( 'Catch Browser Bugs Before They Reach a Release', 'testro' ),
+					'title'         => __( 'Trigger a Full Browser Check on Every Pull Request', 'testro' ),
 					'intro'         => __( 'theTestRo connects straight into your release workflow. New code lands, and a full cross-browser run can start automatically.', 'testro' ),
 					'statement'     => __( 'A Safari-only bug shows up in code review, not in a support ticket weeks later. Results come back per browser, so your team knows exactly where the fix is needed. No guessing from one vague failure message', 'testro' ),
 					'heading_level' => 2,
@@ -2001,8 +2010,8 @@ function testro_get_product_pages() {
 					'type'          => 'xbrowser-compose',
 					'id'            => 'debug-browser-specific-failures',
 					'variant'       => 'debug-browser',
-					'eyebrow'       => __( 'See Exactly Where It Broke, and Why', 'testro' ),
-					'title'         => __( 'Debug browser-specific failures fast', 'testro' ),
+					'eyebrow'       => __( 'Debug browser-specific failures fast', 'testro' ),
+					'title'         => __( 'See Exactly Where It Broke, and Why', 'testro' ),
 					'outro'         => __( 'That distinction matters. A team that chases every flaky failure as if it were a real bug burns hours it doesn\'t have. theTestRo sorts the signal from the noise before your team even looks at the report.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
@@ -2028,6 +2037,7 @@ function testro_get_product_pages() {
 					'variant'       => 'capability-grid',
 					'card_fill'     => 'tint',
 					'icon_tone'     => 'navy',
+					'outro_bottom_text' => true,
 					'title'         => __( 'Enterprise Cross-Browser Testing at Scale', 'testro' ),
 					'intro'         => __( 'Built for Teams Running Hundreds of Checks a Day', 'testro' ),
 					'outro'         => __( 'theTestRo isn\'t just browser testing on its own either. It provides full cross-platform testing and covers the mix of browsers, systems, and screen sizes your real users actually use.', 'testro' ),
@@ -2035,17 +2045,17 @@ function testro_get_product_pages() {
 					'align'         => 'start',
 					'items'         => array(
 						array(
-							'icon'        => 'browsers',
+							'icon'        => 'braces',
 							'title'       => __( 'Broad Browser and OS Coverage', 'testro' ),
 							'description' => __( 'Test across Windows, macOS, iOS, and Android. No new infrastructure needed.', 'testro' ),
 						),
 						array(
-							'icon'        => 'shield-lock',
+							'icon'        => 'braces',
 							'title'       => __( 'Role-Based Access', 'testro' ),
 							'description' => __( 'Control who can build, run, or approve tests across your org.', 'testro' ),
 						),
 						array(
-							'icon'        => 'user-check',
+							'icon'        => 'braces',
 							'title'       => __( 'Manual and Automated Together', 'testro' ),
 							'description' => __( 'Some edge cases still need a human eye. theTestRo supports manual browser sessions right alongside automated runs, in the same place.', 'testro' ),
 						),
@@ -2140,8 +2150,9 @@ function testro_get_product_pages() {
 					'type'          => 'tm-compose',
 					'id'            => 'what-is-ai-test-management',
 					'variant'       => 'what-split',
-					'eyebrow'       => __( 'A Single Source of Truth for Your Whole QA Process', 'testro' ),
+					// 'eyebrow'       => __( 'A Single Source of Truth for Your Whole QA Process', 'testro' ),
 					'title'         => __( 'What Is an AI Test Management Tool?', 'testro' ),
+				    'intro'         => __('A Single Source of Truth for Your Whole QA Process', 'testro'),
 					'intro'         => __( 'A test management tool helps testers plan tests, write test cases, run them, and track bugs. It keeps everything organized in one place.', 'testro' ),
 					'intro_extra'   => __( 'A strong test management platform becomes the single source of truth for a QA team. Every test case, every run, and every bug report lives in one searchable home. No more digging through spreadsheets, chat threads, and someone\'s personal notes.', 'testro' ),
 					'outro'         => __( 'An AI test management tool takes that a step further. Instead of testers doing every step by hand, AI agents handle the repetitive parts. They read requirements, draft test cases, run them, and write up bugs. Your team reviews and stays in control at each step.', 'testro' ),
@@ -2155,8 +2166,8 @@ function testro_get_product_pages() {
 					'type'          => 'tm-compose',
 					'id'            => 'ai-agents-testing',
 					'variant'       => 'agents-flow',
-					'eyebrow'       => __( 'Four AI Agents, One Testing Workflow', 'testro' ),
-					'title'         => __( 'AI AGENTS AT EVERY STAGE OF TESTING', 'testro' ),
+					'eyebrow'       => __( ' AI Agents at every stage of Testing', 'testro' ),
+					'title'         => __( 'Four AI Agents, One Testing Workflow', 'testro' ),
 					'intro'         => __( 'theTestRo places a dedicated AI agent at each stage of the test management cycle. This keeps work moving, so nothing waits for someone to handle it.', 'testro' ),
 					'outro'         => __( 'This is what AI-powered test management actually looks like in practice. Not one clever feature, but AI support at every single stage of the cycle.', 'testro' ),
 					'heading_level' => 2,
@@ -2194,8 +2205,8 @@ function testro_get_product_pages() {
 					'type'          => 'tm-compose',
 					'id'            => 'central-test-repository',
 					'variant'       => 'split-safeguards',
-					'eyebrow'       => __( 'Stop Hunting Across Spreadsheets and Tools', 'testro' ),
-					'title'         => __( 'One Central Repository for Every Test', 'testro' ),
+					'eyebrow'       => __( 'One Central Repository for Every Test ', 'testro' ),
+					'title'         => __( 'Stop Hunting Across Spreadsheets and Tools', 'testro' ),
 					'intro'         => __( 'theTestRo replaces scattered spreadsheets and outdated tools. It gives you one central home for every test case, test run, and bug report.', 'testro' ),
 					'outro'         => __( 'A test case management tool built this way means nobody\'s asking "wait, which version of this test is the current one?" ever again.', 'testro' ),
 					'heading_level' => 2,

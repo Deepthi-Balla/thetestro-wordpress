@@ -203,7 +203,7 @@ $is_brand   = ! empty( $args['brand'] );
 				<?php endif; ?>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-ra__outro<?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-ra__outro--end' : ''; ?><?php echo ! empty( $args['outro_italic'] ) ? ' testro-prod-ra__outro--italic' : ''; ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-ra__outro<?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-ra__outro--end' : ''; ?><?php echo ! empty( $args['outro_italic'] ) ? ' testro-prod-ra__outro--italic' : ''; ?><?php echo ( ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ) ? ' ' . esc_attr( testro_bottom_text_class( ! empty( $args['brand'] ) ) ) : ''; ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'overview' === $variant ) : ?>

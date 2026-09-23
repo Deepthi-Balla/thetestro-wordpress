@@ -16,7 +16,7 @@ if ( ! $plans ) {
 <div id="pricing">
 	<section class="testro-pricing testro-pricing--plans" aria-labelledby="pricing-plans-heading" data-pricing-section>
 		<div class="testro-pricing__container">
-			<header class="testro-pricing__header">
+			<header class="testro-pricing__header testro-section-header--three-lines">
 				<div class="testro-pricing__eyebrow-wrap">
 					<h2 id="pricing-plans-heading" class="gradient-text leading-tight main-headings testro-pricing__title"><?php esc_html_e( 'Pricing', 'testro' ); ?></h2>
 				</div>

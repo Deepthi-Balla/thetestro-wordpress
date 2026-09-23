@@ -40,6 +40,10 @@ $item_level = isset( $args['item_heading_level'] ) ? max( 1, min( 6, (int) $args
 $item_tag   = 'h' . $item_level;
 $columns    = isset( $args['columns'] ) ? max( 1, (int) $args['columns'] ) : count( $items );
 $is_brand   = ! empty( $args['brand'] );
+$bottom_text_class = '';
+if ( ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ) {
+	$bottom_text_class = ' ' . testro_bottom_text_class( $is_brand );
+}
 $card_fill  = isset( $args['card_fill'] ) ? sanitize_html_class( (string) $args['card_fill'] ) : '';
 $card_style = isset( $args['card_style'] ) ? sanitize_html_class( (string) $args['card_style'] ) : 'industry';
 if ( ! in_array( $card_style, array( 'industry', 'resource', 'resource-module' ), true ) ) {
@@ -132,7 +136,7 @@ if ( 'industry' !== $card_style ) {
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-bf__outro<?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-bf__outro--end' : ''; ?><?php echo ! empty( $args['outro_italic'] ) ? ' testro-prod-bf__outro--italic' : ''; ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-bf__outro<?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-bf__outro--end' : ''; ?><?php echo ! empty( $args['outro_italic'] ) ? ' testro-prod-bf__outro--italic' : ''; ?><?php echo esc_attr( $bottom_text_class ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'exec-split' === $variant ) : ?>
@@ -219,7 +223,7 @@ if ( 'industry' !== $card_style ) {
 				</div>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-bf__outro<?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-bf__outro--end' : ''; ?><?php echo ! empty( $args['outro_italic'] ) ? ' testro-prod-bf__outro--italic' : ''; ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-bf__outro<?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-bf__outro--end' : ''; ?><?php echo ! empty( $args['outro_italic'] ) ? ' testro-prod-bf__outro--italic' : ''; ?><?php echo esc_attr( $bottom_text_class ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'impact-rows' === $variant ) : ?>
@@ -250,7 +254,7 @@ if ( 'industry' !== $card_style ) {
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-bf__outro<?php echo $is_brand ? ' testro-prod-bf__outro--on-dark' : ''; ?><?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-bf__outro--end' : ''; ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-bf__outro<?php echo $is_brand ? ' testro-prod-bf__outro--on-dark' : ''; ?><?php echo ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'] ? ' testro-prod-bf__outro--end' : ''; ?><?php echo esc_attr( $bottom_text_class ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'workflow-grid' === $variant ) : ?>

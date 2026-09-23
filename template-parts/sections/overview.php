@@ -1,6 +1,7 @@
 <?php
 /**
- * Product overview — Framer 3-card grid + quote.
+ * Product overview — Framer muahWPQ8i
+ * (3 cards · pad 26/22/24 · r20 · gap 20 · shadow 0 20 40 -12 rgba(0,62,132,.18)).
  *
  * @package TestRo
  */
@@ -9,16 +10,38 @@ $data     = testro_get_overview();
 $headline = isset( $data['headline'] ) ? (string) $data['headline'] : '';
 $quote    = isset( $data['quote'] ) ? (string) $data['quote'] : '';
 $cards    = isset( $data['cards'] ) && is_array( $data['cards'] ) ? $data['cards'] : array();
+
+$suite_rows = array(
+	array( 'symbol' => '▣', 'label' => 'Web Testing' ),
+	array( 'symbol' => '▱', 'label' => 'API Testing' ),
+	array( 'symbol' => '▯', 'label' => 'Mobile Testing' ),
+	array( 'symbol' => '◉', 'label' => 'Cross-Browser' ),
+);
+
+$visuals = array(
+	'code'  => array(
+		'src'    => 'images/home/overview-code.png',
+		'alt'    => __( 'Code and no-code authoring side by side', 'testro' ),
+		'width'  => 321,
+		'height' => 157,
+	),
+	'scale' => array(
+		'src'    => 'images/home/overview-scale.png',
+		'alt'    => __( 'Pass rate scaling from small team to enterprise', 'testro' ),
+		'width'  => 316,
+		'height' => 169,
+	),
+);
 ?>
 <section class="testro-overview" id="overview" aria-labelledby="overview-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-overview__header">
 			<?php if ( ! empty( $data['eyebrow'] ) ) : ?>
-				<h2 id="overview-heading" class="main-headings testro-overview__title"><?php echo esc_html( testro_section_label_title( $data['eyebrow'] ) ); ?></h2>
-				<p class="sub-text testro-overview__headline"><?php echo esc_html( $data['title'] ); ?></p>
-			<?php else : ?>
-				<h2 id="overview-heading" class="main-headings testro-overview__title"><?php echo esc_html( $data['title'] ); ?></h2>
+				<p class="testro-section-eyebrow"><?php echo esc_html( $data['eyebrow'] ); ?></p>
 			<?php endif; ?>
+			<h2 id="overview-heading" class="main-headings testro-overview__title">
+				<?php echo esc_html( $data['title'] ); ?>
+			</h2>
 			<?php if ( '' !== $headline ) : ?>
 				<p class="sub-text testro-overview__headline"><?php echo esc_html( $headline ); ?></p>
 			<?php endif; ?>
@@ -31,43 +54,58 @@ $cards    = isset( $data['cards'] ) && is_array( $data['cards'] ) ? $data['cards
 					$variant = isset( $card['variant'] ) ? (string) $card['variant'] : 'suites';
 					$title   = isset( $card['title'] ) ? (string) $card['title'] : '';
 					$desc    = isset( $card['description'] ) ? (string) $card['description'] : '';
+					$icon    = 'layers';
+					if ( 'code' === $variant ) {
+						$icon = 'terminal';
+					} elseif ( 'scale' === $variant ) {
+						$icon = 'activity';
+					}
 					?>
-					<li class="testro-overview__card testro-overview__card--<?php echo esc_attr( $variant ); ?> testro-card--top-line">
-						<span class="testro-overview__card-icon" aria-hidden="true"></span>
-						<h3 class="testro-overview__card-title"><?php echo esc_html( $title ); ?></h3>
-						<p class="testro-overview__card-desc"><?php echo esc_html( $desc ); ?></p>
+					<li class="testro-overview__card testro-overview__card--<?php echo esc_attr( $variant ); ?>">
+						<div class="testro-overview__card-top">
+							<span class="testro-overview__card-icon" aria-hidden="true">
+								<?php
+								echo testro_icon( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG from allowlisted library.
+									$icon,
+									array(
+										'size'   => 21,
+										'stroke' => 1.7,
+									)
+								);
+								?>
+							</span>
+							<h3 class="testro-overview__card-title"><?php echo esc_html( $title ); ?></h3>
+							<p class="testro-overview__card-desc"><?php echo esc_html( $desc ); ?></p>
+						</div>
 
 						<?php if ( 'suites' === $variant ) : ?>
-							<ul class="testro-overview__suite-list" aria-hidden="true">
-								<li><span>Web Testing</span><em>Passing</em></li>
-								<li><span>API Testing</span><em>Passing</em></li>
-								<li><span>Mobile Testing</span><em>Passing</em></li>
-								<li><span>Cross-Browser</span><em>Passing</em></li>
-							</ul>
-							<p class="testro-overview__suite-badge" aria-hidden="true">✓ ALL suites passing</p>
-						<?php elseif ( 'code' === $variant ) : ?>
-							<div class="testro-overview__code-mock" aria-hidden="true">
-								<div class="testro-overview__code-pane">
-									<p>Code</p>
-									<span></span><span></span><span></span>
-								</div>
-								<div class="testro-overview__nocode-pane">
-									<p>No-Code</p>
-									<label><i></i> Click Button</label>
-									<label><i></i> Fill Form</label>
-									<label><i></i> Verify Text</label>
-								</div>
+							<div class="testro-overview__suite-panel">
+								<ul class="testro-overview__suite-list" aria-hidden="true">
+									<?php foreach ( $suite_rows as $row ) : ?>
+										<li>
+											<span><?php echo esc_html( $row['symbol'] . '  ' . $row['label'] ); ?></span>
+											<em><?php esc_html_e( 'Passing', 'testro' ); ?></em>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+								<p class="testro-overview__suite-badge" aria-hidden="true"><?php esc_html_e( '✓  ALL suites passing', 'testro' ); ?></p>
 							</div>
-						<?php else : ?>
-							<div class="testro-overview__scale-mock" aria-hidden="true">
-								<div class="testro-overview__scale-chart">
-									<span class="testro-overview__scale-tip">✓ 98% Pass</span>
-								</div>
-								<div class="testro-overview__scale-axis">
-									<span><?php esc_html_e( 'Small team', 'testro' ); ?></span>
-									<span><?php esc_html_e( 'Enterprise', 'testro' ); ?></span>
-								</div>
-							</div>
+						<?php elseif ( isset( $visuals[ $variant ] ) ) : ?>
+							<?php
+							$visual = $visuals[ $variant ];
+							echo '<div class="testro-overview__visual" aria-hidden="true">';
+							echo testro_picture( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- helper escapes attrs.
+								$visual['src'],
+								$visual['alt'],
+								array(
+									'class'   => 'testro-overview__visual-img',
+									'width'   => (string) $visual['width'],
+									'height'  => (string) $visual['height'],
+									'loading' => 'lazy',
+								)
+							);
+							echo '</div>';
+							?>
 						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>
@@ -75,7 +113,7 @@ $cards    = isset( $data['cards'] ) && is_array( $data['cards'] ) ? $data['cards
 		<?php endif; ?>
 
 		<?php if ( '' !== $quote ) : ?>
-			<blockquote class="testro-overview__quote">
+			<blockquote class="testro-overview__quote <?php echo esc_attr( testro_bottom_text_class() ); ?>">
 				<p><?php echo esc_html( $quote ); ?></p>
 			</blockquote>
 		<?php endif; ?>

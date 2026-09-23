@@ -20,7 +20,7 @@ $item_level    = isset( $args['item_heading_level'] ) ? max( 1, min( 6, (int) $a
 $item_tag      = 'h' . $item_level;
 
 /**
- * Render Framer Validation Benefits numbered rows (26px circle + copy).
+ * Render Framer Validation Benefits numbered rows (26px circle + copy + bottom separators).
  *
  * @param array  $items Items.
  * @param string $tag   Heading tag.
@@ -33,7 +33,7 @@ $render_numbered = static function ( $items, $tag ) {
 	foreach ( $items as $index => $item ) {
 		$delay = (string) ( $index * 60 );
 		echo '<li class="testro-prod-api__benefit" data-reveal style="--reveal-delay: ' . esc_attr( $delay ) . 'ms">';
-		echo '<span class="testro-prod-api__benefit-num" aria-hidden="true"><span>' . esc_html( (string) ( $index + 1 ) ) . '</span></span>';
+		echo '<span class="testro-prod-api__benefit-num" aria-hidden="true"><span>' . esc_html( sprintf( '%02d', $index + 1 ) ) . '</span></span>';
 		echo '<div class="testro-prod-api__benefit-copy">';
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg.
 		echo '<' . $tag . ' class="testro-prod-api__benefit-title">' . esc_html( $item['title'] ) . '</' . $tag . '>';
@@ -73,11 +73,11 @@ $render_numbered = static function ( $items, $tag ) {
 			$upload = isset( $mock['file'] ) ? (string) $mock['file'] : 'openapi.yaml';
 			$eps    = isset( $mock['endpoints'] ) && is_array( $mock['endpoints'] ) ? $mock['endpoints'] : array();
 			?>
-			<?php /* Framer: Spec Import Mockup = horizontal gap 34; Import Steps = 3-col grid below. */ ?>
+			<?php /* Framer: Spec Import Mockup = horizontal gap 34, radius 16; Import Steps = 3-col text grid (not cards). */ ?>
 			<div class="testro-prod-api__spec-mock" data-reveal aria-hidden="true">
 				<div class="testro-prod-api__spec-upload-col">
+					<span class="testro-prod-api__upload-label"><?php esc_html_e( 'UPLOAD', 'testro' ); ?></span>
 					<div class="testro-prod-api__upload">
-						<span class="testro-prod-api__upload-label"><?php esc_html_e( 'UPLOAD', 'testro' ); ?></span>
 						<span class="testro-prod-api__upload-file"><?php echo esc_html( $upload ); ?></span>
 					</div>
 				</div>
@@ -86,8 +86,12 @@ $render_numbered = static function ( $items, $tag ) {
 					<span class="testro-prod-api__endpoints-label"><?php esc_html_e( 'DETECTED ENDPOINTS', 'testro' ); ?></span>
 					<ul class="testro-prod-api__endpoint-list">
 						<?php foreach ( $eps as $ep ) : ?>
+							<?php
+							$method      = isset( $ep['method'] ) ? strtoupper( (string) $ep['method'] ) : 'GET';
+							$method_slug = sanitize_html_class( strtolower( $method ) );
+							?>
 							<li class="testro-prod-api__endpoint">
-								<span class="testro-prod-api__method"><?php echo esc_html( isset( $ep['method'] ) ? (string) $ep['method'] : 'GET' ); ?></span>
+								<span class="testro-prod-api__method testro-prod-api__method--<?php echo esc_attr( $method_slug ); ?>"><?php echo esc_html( $method ); ?></span>
 								<code class="testro-prod-api__path"><?php echo esc_html( isset( $ep['path'] ) ? (string) $ep['path'] : '' ); ?></code>
 								<span class="testro-prod-api__check" aria-hidden="true">✓</span>
 							</li>
@@ -99,7 +103,7 @@ $render_numbered = static function ( $items, $tag ) {
 			<?php if ( $items ) : ?>
 				<ol class="testro-prod-api__steps-grid">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-api__step-card testro-card--top-line" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+						<li class="testro-prod-api__step-card" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 							<span class="testro-prod-api__step-index" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></span>
 							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
 							<<?php echo $item_tag; ?> class="testro-prod-api__step-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
@@ -112,6 +116,7 @@ $render_numbered = static function ( $items, $tag ) {
 			<?php endif; ?>
 
 		<?php elseif ( 'journey-modes' === $variant ) : ?>
+			<?php /* Framer Testing Modes: 3 cards 365px / pad 28 / r14 / gap 40. */ ?>
 			<ul class="testro-prod-api__modes">
 				<?php foreach ( $items as $index => $item ) : ?>
 					<?php $mode = isset( $item['mode'] ) ? sanitize_html_class( (string) $item['mode'] ) : 'standalone'; ?>
@@ -126,42 +131,73 @@ $render_numbered = static function ( $items, $tag ) {
 								<p class="testro-prod-api__mode-desc"><?php echo esc_html( $item['description'] ); ?></p>
 							<?php endif; ?>
 						</div>
-						<hr class="testro-prod-api__mode-divider" />
+						<span class="testro-prod-api__mode-divider" aria-hidden="true"></span>
+
 						<?php if ( 'standalone' === $mode ) : ?>
-							<div class="testro-prod-api__mode-visual" aria-hidden="true">
+							<?php /* Request Response Flow — horizontal, centered, dashed connector. */ ?>
+							<div class="testro-prod-api__mode-visual testro-prod-api__mode-visual--standalone" aria-hidden="true">
 								<div class="testro-prod-api__req">
-									<span class="testro-prod-api__browser-chrome"></span>
-									<span class="testro-prod-api__method">GET</span>
-									<code>/v1/users/42</code>
+									<span class="testro-prod-api__window-chrome"></span>
+									<span class="testro-prod-api__req-method">GET</span>
+									<span class="testro-prod-api__req-path">/v1/users/42</span>
 									<span class="testro-prod-api__req-tag"><?php esc_html_e( 'REQUEST', 'testro' ); ?></span>
 								</div>
-								<div class="testro-prod-api__dash-conn" aria-hidden="true"><span></span><span></span><span></span></div>
-								<div class="testro-prod-api__ok"><strong>200</strong><span><?php esc_html_e( 'OK', 'testro' ); ?></span></div>
+								<div class="testro-prod-api__dash-conn" aria-hidden="true">
+									<span></span><span></span><span></span>
+								</div>
+								<div class="testro-prod-api__ok">
+									<span class="testro-prod-api__ok-copy">
+										<strong>200</strong>
+										<span><?php esc_html_e( 'OK', 'testro' ); ?></span>
+									</span>
+									<span class="testro-prod-api__ok-badge">✓</span>
+								</div>
 							</div>
+
 						<?php elseif ( 'chained' === $mode ) : ?>
-							<div class="testro-prod-api__mode-visual testro-prod-api__mode-visual--chain" aria-hidden="true">
-								<div class="testro-prod-api__req testro-prod-api__req--post">
-									<span class="testro-prod-api__browser-chrome"></span>
-									<span class="testro-prod-api__method">POST</span>
-									<span class="testro-prod-api__req-tag"><?php esc_html_e( 'API CALL', 'testro' ); ?></span>
+							<?php /* API State UI Flow — POST | DB state | browser + UI REFLECTED caption. */ ?>
+							<div class="testro-prod-api__mode-foot" aria-hidden="true">
+								<div class="testro-prod-api__mode-visual testro-prod-api__mode-visual--chain">
+									<div class="testro-prod-api__req testro-prod-api__req--post">
+										<span class="testro-prod-api__window-chrome"></span>
+										<span class="testro-prod-api__req-method testro-prod-api__req-method--navy">POST</span>
+										<span class="testro-prod-api__req-tag"><?php esc_html_e( 'API CALL', 'testro' ); ?></span>
+									</div>
+									<div class="testro-prod-api__chain-state">
+										<span class="testro-prod-api__chain-db">
+											<?php echo testro_icon( 'database', array( 'size' => 48 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+											<span class="testro-prod-api__chain-db-check">✓</span>
+										</span>
+										<span class="testro-prod-api__chain-caption"><?php esc_html_e( 'STATE CHECK', 'testro' ); ?></span>
+									</div>
+									<div class="testro-prod-api__browser">
+										<span class="testro-prod-api__window-chrome"></span>
+										<span class="testro-prod-api__browser-line"></span>
+										<span class="testro-prod-api__browser-line testro-prod-api__browser-line--short"></span>
+										<span class="testro-prod-api__browser-check">✓</span>
+									</div>
 								</div>
-								<div class="testro-prod-api__chain-steps">
-									<span><?php esc_html_e( 'STATE CHECK', 'testro' ); ?></span>
-									<span><?php esc_html_e( 'UI REFLECTED', 'testro' ); ?></span>
-								</div>
-								<div class="testro-prod-api__browser">
-									<span class="testro-prod-api__browser-chrome"></span>
-									<span class="testro-prod-api__browser-line"></span>
-									<span class="testro-prod-api__browser-line testro-prod-api__browser-line--short"></span>
-								</div>
+								<!-- <span class="testro-prod-api__chain-caption testro-prod-api__chain-caption--ui"><?php esc_html_e( 'UI REFLECTED', 'testro' ); ?></span> -->
 							</div>
+
 						<?php else : ?>
+							<?php /* Reusable: Step Grouped box → arrow → checked list. */ ?>
 							<div class="testro-prod-api__mode-visual testro-prod-api__mode-visual--reuse" aria-hidden="true">
-								<span class="testro-prod-api__reuse-label"><?php esc_html_e( 'Step Grouped', 'testro' ); ?></span>
+								<div class="testro-prod-api__reuse-source">
+									<span class="testro-prod-api__reuse-label"><?php esc_html_e( 'Step Grouped', 'testro' ); ?></span>
+									<div class="testro-prod-api__reuse-box">
+										<span class="testro-prod-api__window-chrome"></span>
+										<span class="testro-prod-api__reuse-chip"><?php esc_html_e( 'Login', 'testro' ); ?></span>
+										<span class="testro-prod-api__reuse-chip"><?php esc_html_e( 'Get token', 'testro' ); ?></span>
+									</div>
+								</div>
+								<span class="testro-prod-api__reuse-arrow" aria-hidden="true">
+									<?php echo testro_icon( 'arrow-right', array( 'size' => 24 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+								</span>
 								<ul class="testro-prod-api__reuse-list">
-									<li><?php esc_html_e( 'Login', 'testro' ); ?></li>
-									<li><?php esc_html_e( 'Get token', 'testro' ); ?></li>
-									<li><?php esc_html_e( 'Checkout Profile', 'testro' ); ?></li>
+									<li><span class="testro-prod-api__reuse-check" aria-hidden="true">✓</span><?php esc_html_e( 'Checkout Profile', 'testro' ); ?></li>
+									<li><span class="testro-prod-api__reuse-check" aria-hidden="true">✓</span><?php esc_html_e( 'Profile test', 'testro' ); ?></li>
+									<li><span class="testro-prod-api__reuse-check" aria-hidden="true">✓</span><?php esc_html_e( 'Orders test', 'testro' ); ?></li>
 								</ul>
 							</div>
 						<?php endif; ?>
@@ -169,11 +205,11 @@ $render_numbered = static function ( $items, $tag ) {
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-api__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="<?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'validate-response' === $variant ) : ?>
-			<?php /* Framer Validation Detail Layout: horizontal gap 56 — payload 44% | benefits. */ ?>
+			<?php /* Framer Validation Detail Layout: horizontal gap 56 — payload 44% r7 | benefits with #D9E2EF separators. */ ?>
 			<div class="testro-prod-api__detail" data-reveal>
 				<div class="testro-prod-api__payload" aria-hidden="true">
 					<header class="testro-prod-api__payload-head">
@@ -182,7 +218,7 @@ $render_numbered = static function ( $items, $tag ) {
 					</header>
 					<ul class="testro-prod-api__payload-fields">
 						<li><span>status</span><code>“fulfilled”</code></li>
-						<li><span>total</span><code>“19.99”</code></li>
+						<li><span>total</span><code class="testro-prod-api__payload-accent">“19.99”</code></li>
 						<li><span>currency</span><code>“USD”</code></li>
 						<li><span>items[]</span><code>3 entries</code></li>
 					</ul>
@@ -191,18 +227,36 @@ $render_numbered = static function ( $items, $tag ) {
 			</div>
 
 		<?php elseif ( 'self-healing' === $variant ) : ?>
-			<?php /* Framer: full-width repair demo, then 3-col benefits grid gap 34. */ ?>
+			<?php
+			/*
+			 * Framer Automated Repair Demonstration:
+			 * pad 20/22/28/22, r18, gap 26, gradient 270deg light→cyan.
+			 * Header: Sora 16/600 navy + white pills (red/green text+dots).
+			 * Assertion: navy panel r12 pad 20 — horizontal line + #7FA7E6 underline.
+			 */
+			?>
 			<div class="testro-prod-api__heal-demo" data-reveal aria-hidden="true">
 				<header class="testro-prod-api__heal-head">
-					<span><?php esc_html_e( 'test_step_042 — validate_order_field', 'testro' ); ?></span>
+					<span class="testro-prod-api__heal-step"><?php esc_html_e( 'test_step_042 — validate_order_field', 'testro' ); ?></span>
 					<span class="testro-prod-api__heal-statuses">
-						<span class="testro-prod-api__heal-pill"><?php esc_html_e( 'Detecting schema drift', 'testro' ); ?></span>
-						<span class="testro-prod-api__heal-pill testro-prod-api__heal-pill--ok"><?php esc_html_e( 'Automatically repaired', 'testro' ); ?></span>
+						<span class="testro-prod-api__heal-pill testro-prod-api__heal-pill--drift">
+							<span class="testro-prod-api__heal-dot testro-prod-api__heal-dot--warn"></span>
+							<?php esc_html_e( 'Detecting schema drift', 'testro' ); ?>
+						</span>
+						<span class="testro-prod-api__heal-pill testro-prod-api__heal-pill--ok">
+							<span class="testro-prod-api__heal-dot testro-prod-api__heal-dot--ok"></span>
+							<?php esc_html_e( 'Automatically repaired', 'testro' ); ?>
+						</span>
 					</span>
 				</header>
-				<pre class="testro-prod-api__heal-code">assert response.
-order_amount
-=== 19.99</pre>
+				<div class="testro-prod-api__heal-code">
+					<div class="testro-prod-api__heal-assert">
+						<span class="testro-prod-api__heal-code-plain"><?php esc_html_e( 'assert response.', 'testro' ); ?></span>
+						<span class="testro-prod-api__heal-code-field">order_amount</span>
+						<span class="testro-prod-api__heal-code-plain">=== 19.99</span>
+					</div>
+					<span class="testro-prod-api__heal-underline"></span>
+				</div>
 			</div>
 			<?php if ( $items ) : ?>
 				<ul class="testro-prod-api__heal-grid">
@@ -228,13 +282,14 @@ order_amount
 			<?php
 			$suites = isset( $args['suites'] ) && is_array( $args['suites'] ) ? $args['suites'] : array();
 			?>
-			<?php /* Framer: full-width dashboard rows, then 3-col benefits, then statement. */ ?>
+			<?php /* Framer: full-width dashboard r18, then 3-col benefits with #DCE4EF separators. */ ?>
 			<?php if ( $suites ) : ?>
 				<div class="testro-prod-api__cloud-dash" data-reveal aria-hidden="true">
 					<?php foreach ( $suites as $suite ) : ?>
+						<?php $fill = isset( $suite['fill'] ) ? (string) $suite['fill'] : '100%'; ?>
 						<div class="testro-prod-api__suite-row">
 							<span class="testro-prod-api__suite-name"><?php echo esc_html( isset( $suite['name'] ) ? (string) $suite['name'] : '' ); ?></span>
-							<span class="testro-prod-api__suite-track"><span class="testro-prod-api__suite-fill"></span></span>
+							<span class="testro-prod-api__suite-track"><span class="testro-prod-api__suite-fill" style="width: <?php echo esc_attr( $fill ); ?>"></span></span>
 							<strong class="testro-prod-api__suite-count"><?php echo esc_html( isset( $suite['count'] ) ? (string) $suite['count'] : '' ); ?></strong>
 						</div>
 					<?php endforeach; ?>
@@ -255,7 +310,7 @@ order_amount
 				</ol>
 			<?php endif; ?>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-api__scale-outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="<?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'deploy-pipeline' === $variant ) : ?>
@@ -286,14 +341,14 @@ order_amount
 			<?php endif; ?>
 			<?php if ( ! empty( $args['notes'] ) && is_array( $args['notes'] ) ) : ?>
 				<ul class="testro-prod-api__pipe-notes">
-					<?php foreach ( $args['notes'] as $note ) : ?>
-						<li><?php echo esc_html( (string) $note ); ?></li>
+					<?php foreach ( $args['notes'] as $note_index => $note ) : ?>
+						<li class="<?php echo 1 === (int) $note_index ? 'testro-prod-api__pipe-note--accent' : ''; ?>"><?php echo esc_html( (string) $note ); ?></li>
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
 
 		<?php elseif ( 'debug-fast' === $variant ) : ?>
-			<?php /* Framer: horizontal — dark log 44% | numbered benefits. Intro hidden in Framer. */ ?>
+			<?php /* Framer: horizontal — dark log 44% r7 | numbered benefits with separators. */ ?>
 			<div class="testro-prod-api__detail" data-reveal>
 				<div class="testro-prod-api__debug-panel" aria-hidden="true">
 					<ul class="testro-prod-api__debug-log">
@@ -315,6 +370,7 @@ order_amount
 			/*
 			 * Framer Coverage Diagram 473.17×417.14.
 			 * Nodes use centerAnchor % from Framer; connectors rotate ±38° / -90°.
+			 * Right column: numbered benefits with #D9E2EF separators between points.
 			 */
 			?>
 			<div class="testro-prod-api__detail testro-prod-api__detail--enterprise" data-reveal>

@@ -60,7 +60,7 @@ if ( $is_timeline_cards ) {
 			<ol class="testro-prod-pipeline__timeline">
 				<?php foreach ( $items as $index => $item ) : ?>
 					<li class="testro-prod-pipeline__timeline-item">
-						<span class="testro-prod-pipeline__timeline-marker" aria-hidden="true"></span>
+						<span class="testro-prod-pipeline__timeline-marker" aria-hidden="true"><?php echo $is_timeline_cards ? '' : esc_html( (string) ( $index + 1 ) ); ?></span>
 						<?php if ( $is_timeline_cards ) : ?>
 							<div class="testro-prod-pipeline__timeline-card">
 								<h3 class="testro-prod-pipeline__timeline-title"><?php echo esc_html( $item['title'] ); ?></h3>
@@ -104,7 +104,13 @@ if ( $is_timeline_cards ) {
 		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>
-			<p class="testro-prod-head__intro testro-prod-pipeline__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<?php
+			$pipeline_outro_classes = 'testro-prod-head__intro testro-prod-pipeline__outro';
+			if ( ! empty( $args['outro_bottom_text'] ) ) {
+				$pipeline_outro_classes .= ' ' . testro_bottom_text_class( 'dark' === $tone );
+			}
+			?>
+			<p class="<?php echo esc_attr( $pipeline_outro_classes ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>

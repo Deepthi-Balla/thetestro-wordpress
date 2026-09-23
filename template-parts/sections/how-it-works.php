@@ -13,8 +13,7 @@ $count = count( $steps );
 		<div class="testro-container">
 			<header class="testro-section-header testro-how__header">
 				<h2 id="how-heading" class="main-headings testro-how__title-heading"><?php echo esc_html( testro_section_label_title( __( 'HOW IT WORKS', 'testro' ) ) ); ?></h2>
-				<p class="sub-text testro-how__headline"><?php esc_html_e( 'From plain English to production-ready tests.', 'testro' ); ?></p>
-				<p class="sub-text testro-how__headline"><?php esc_html_e( 'Anyone can automate. Record, play, automate — one connected workflow, no separate tools to stitch together.', 'testro' ); ?></p>
+				<p class="sub-text testro-how__headline"><?php esc_html_e( 'Four Simple Steps to Better Testing', 'testro' ); ?></p>
 			</header>
 
 			<div class="testro-how__flow-wrap">
