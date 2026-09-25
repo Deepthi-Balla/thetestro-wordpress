@@ -8,6 +8,8 @@
  * - title           (string)  Section heading.
  * - supporting      (string)  Supporting heading under the H2.
  * - description     (string)  Supporting copy.
+ * - intro_extra     (string)  Optional third line for three-lines headers.
+ * - header_style    (string)  'three-lines' uses shared section-header three-line pattern.
  * - submit_label    (string)  Submit button label.
  * - show_phone      (bool)    Include phone field.
  * - show_subject    (bool)    Include inquiry-type select.
@@ -25,6 +27,7 @@ $layout         = in_array( $layout_raw, array( 'split', 'brief' ), true ) ? $la
 $title          = isset( $args['title'] ) ? (string) $args['title'] : __( "Talk to Us — We're Ready", 'testro' );
 $supporting     = isset( $args['supporting'] ) ? (string) $args['supporting'] : '';
 $description    = isset( $args['description'] ) ? (string) $args['description'] : __( "Tell us what you need and we'll show you how we can help. Start the conversation today.", 'testro' );
+$intro_extra    = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
 $submit_label   = isset( $args['submit_label'] ) ? (string) $args['submit_label'] : __( 'Send Us a Message', 'testro' );
 $show_phone     = ! empty( $args['show_phone'] );
 $show_subject   = ! empty( $args['show_subject'] );
@@ -33,6 +36,8 @@ $section_id     = isset( $args['section_id'] ) ? sanitize_title( $args['section_
 $show_highlights = array_key_exists( 'show_highlights', $args ) ? (bool) $args['show_highlights'] : true;
 $show_consent   = ! empty( $args['show_consent'] );
 $show_eyebrow   = array_key_exists( 'show_eyebrow', $args ) ? (bool) $args['show_eyebrow'] : true;
+$header_style   = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
+$use_three      = ( 'three-lines' === $header_style );
 $is_split       = in_array( $layout, array( 'split', 'brief' ), true );
 $is_brief       = 'brief' === $layout;
 
@@ -63,19 +68,36 @@ if ( $is_brief ) {
 			<?php if ( $is_brief ) : ?>
 				<?php /* Framer HUsfsRFdk: left brief (title + intro) · right form. */ ?>
 				<div class="testro-contact__intro" data-reveal>
-					<header class="testro-contact__header">
-						<?php if ( $show_eyebrow ) : ?>
-							<h2 id="contact-heading" class="testro-contact__heading"><?php esc_html_e( 'Contact Us', 'testro' ); ?></h2>
-							<p class="testro-contact__supporting"><?php echo esc_html( $title ); ?></p>
-						<?php else : ?>
-							<h2 id="contact-heading" class="testro-contact__heading"><?php echo esc_html( $title ); ?></h2>
+					<?php if ( $use_three ) : ?>
+						<header class="testro-section-header testro-section-header--three-lines testro-contact__header">
+							<h2 id="contact-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( $title ) ); ?></h2>
+							<?php if ( '' !== $description ) : ?>
+								<p class="sub-text"><?php echo esc_html( $description ); ?></p>
+							<?php endif; ?>
+							<?php if ( '' !== $intro_extra ) : ?>
+								<p class="sub-text"><?php echo esc_html( $intro_extra ); ?></p>
+							<?php elseif ( '' !== $supporting ) : ?>
+								<p class="sub-text"><?php echo esc_html( $supporting ); ?></p>
+							<?php endif; ?>
+						</header>
+					<?php else : ?>
+						<header class="testro-contact__header">
+							<?php if ( $show_eyebrow ) : ?>
+								<h2 id="contact-heading" class="testro-contact__heading"><?php esc_html_e( 'Contact Us', 'testro' ); ?></h2>
+								<p class="testro-contact__supporting"><?php echo esc_html( $title ); ?></p>
+							<?php else : ?>
+								<h2 id="contact-heading" class="testro-contact__heading"><?php echo esc_html( $title ); ?></h2>
+							<?php endif; ?>
+							<?php if ( '' !== $supporting ) : ?>
+								<p class="testro-contact__supporting"><?php echo esc_html( $supporting ); ?></p>
+							<?php endif; ?>
+						</header>
+						<?php if ( '' !== $description ) : ?>
+							<p class="testro-contact__desc"><?php echo esc_html( $description ); ?></p>
 						<?php endif; ?>
-						<?php if ( '' !== $supporting ) : ?>
-							<p class="testro-contact__supporting"><?php echo esc_html( $supporting ); ?></p>
+						<?php if ( '' !== $intro_extra ) : ?>
+							<p class="testro-contact__desc"><?php echo esc_html( $intro_extra ); ?></p>
 						<?php endif; ?>
-					</header>
-					<?php if ( '' !== $description ) : ?>
-						<p class="testro-contact__desc"><?php echo esc_html( $description ); ?></p>
 					<?php endif; ?>
 				</div>
 			<?php elseif ( $is_split ) : ?>

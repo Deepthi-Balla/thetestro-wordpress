@@ -51,7 +51,7 @@ if ( ! $actions ) {
 
 		<?php if ( 'primary' === $style ) : ?>
 			<?php
-			$with_arrow = array_key_exists( 'with_arrow', $action ) ? (bool) $action['with_arrow'] : true;
+			$with_arrow = array_key_exists( 'with_arrow', $action ) ? (bool) $action['with_arrow'] : false;
 			get_template_part(
 				'template-parts/components/primary-button',
 				null,

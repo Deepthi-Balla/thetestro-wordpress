@@ -116,7 +116,7 @@ $is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true 
 				<table>
 					<thead>
 						<tr>
-							<th scope="col"><?php echo esc_html( '' !== $first_label ? $first_label : __( 'Category', 'testro' ) ); ?></th>
+							<th scope="col"><?php echo esc_html( $first_label ); ?></th>
 							<th scope="col"><?php echo esc_html( $legacy_label ); ?></th>
 							<?php if ( $has_middle ) : ?>
 								<th scope="col"><?php echo esc_html( $middle_label ); ?></th>

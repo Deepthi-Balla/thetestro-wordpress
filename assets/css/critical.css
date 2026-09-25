@@ -17,16 +17,16 @@
   --color-border-soft: #eaf3fc;
   --banner-height: 42px;
   --nav-height: 76px;
-  --container: 1200px;
+  --container: 1440px;
   --container-pad: clamp(1rem, 4.67vw, 3.5rem);
   --header-stack-padding: 0;
   --radius-btn: 8px;
   --shadow-btn: 0 4px 14px 0 rgb(0 172 255 / 0.28);
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   :root {
-    --container-pad: 5rem;
+    --container-pad: 5rem; /* 80px L/R desktop — application-wide */
   }
 }
 

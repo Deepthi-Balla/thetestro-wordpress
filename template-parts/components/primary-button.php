@@ -6,7 +6,7 @@
  * - label (string)
  * - attrs (array) HTML attributes
  * - href (string|optional) if set, renders <a> instead of <button>
- * - with_arrow (bool) default true for primary CTAs
+ * - with_arrow (bool) default false for primary CTAs
  *
  * @package TestRo
  */
@@ -15,7 +15,7 @@ $args       = isset( $args ) && is_array( $args ) ? $args : array();
 $label      = isset( $args['label'] ) ? $args['label'] : '';
 $attrs      = isset( $args['attrs'] ) && is_array( $args['attrs'] ) ? $args['attrs'] : array();
 $href       = isset( $args['href'] ) ? $args['href'] : '';
-$with_arrow = array_key_exists( 'with_arrow', $args ) ? (bool) $args['with_arrow'] : true;
+$with_arrow = array_key_exists( 'with_arrow', $args ) ? (bool) $args['with_arrow'] : false;
 
 if ( '' === $label ) {
 	return;

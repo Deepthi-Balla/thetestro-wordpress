@@ -16,18 +16,8 @@ $sales_email   = 'sales@thetestro.com';
 $support_email = 'support@thetestro.com';
 
 /*
- * Hero CTAs (eSYVygpZf): Get Custom Pricing = Primary.
  * Final CTA (p_VDbGabt): Start Testing Free = Secondary, Book a Demo = Primary.
  */
-$contact_hero_actions = array(
-	array(
-		'label'      => __( 'Get Custom Pricing', 'testro' ),
-		'style'      => 'primary',
-		'modal'      => 'demo-modal',
-		'with_arrow' => false,
-	),
-);
-
 $contact_cta_actions = array(
 	array(
 		'label'           => __( 'Start Testing Free', 'testro' ),
@@ -46,7 +36,7 @@ $contact_cta_actions = array(
 ?>
 <div class="testro-page-shell testro-page-shell--contact">
 	<?php
-	/* Framer eSYVygpZf — Platform Opening: hero copy + CTA + sales/support cards. */
+	/* Framer eSYVygpZf — Platform Opening: hero copy + sales/support cards. */
 	?>
 	<section class="testro-prod-hero testro-contact-hero" aria-labelledby="product-hero-title">
 		<div class="testro-container testro-prod-hero__inner testro-contact-hero__inner">
@@ -57,26 +47,12 @@ $contact_cta_actions = array(
 				<p class="testro-prod-hero__sub" data-reveal>
 					<?php esc_html_e( "Got a question about pricing, a feature, or how theTestRo fits your team? Want to see it in action first? Just reach out. We'll get you the answer.", 'testro' ); ?>
 				</p>
-				<?php if ( $contact_hero_actions ) : ?>
-					<div class="testro-prod-hero__actions" data-reveal>
-						<?php
-						get_template_part(
-							'template-parts/product/actions',
-							null,
-							array(
-								'actions' => $contact_hero_actions,
-								'align'   => 'center',
-							)
-						);
-						?>
-					</div>
-				<?php endif; ?>
 			</div>
 
 			<ul class="testro-contact-channels" data-reveal aria-label="<?php esc_attr_e( 'Contact channels', 'testro' ); ?>">
-				<li class="testro-contact-channels__card">
+				<li class="testro-contact-channels__card testro-card--top-line">
 					<span class="testro-contact-channels__icon" aria-hidden="true">
-						<?php echo testro_icon( 'mail', array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+						<?php echo testro_icon( 'message-text', array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 					</span>
 					<div class="testro-contact-channels__copy">
 						<h2 class="testro-contact-channels__title"><?php esc_html_e( 'Talk to Sales', 'testro' ); ?></h2>
@@ -84,9 +60,9 @@ $contact_cta_actions = array(
 					</div>
 					<a class="testro-contact-channels__link" href="<?php echo esc_url( 'mailto:' . $sales_email ); ?>"><?php echo esc_html( $sales_email ); ?></a>
 				</li>
-				<li class="testro-contact-channels__card">
+				<li class="testro-contact-channels__card testro-card--top-line">
 					<span class="testro-contact-channels__icon" aria-hidden="true">
-						<?php echo testro_icon( 'timer', array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
+						<?php echo testro_icon( 'clock', array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 					</span>
 					<div class="testro-contact-channels__copy">
 						<h2 class="testro-contact-channels__title"><?php esc_html_e( 'Get Support', 'testro' ); ?></h2>
@@ -105,9 +81,10 @@ $contact_cta_actions = array(
 		null,
 		array(
 			'layout'          => 'brief',
-			'title'           => __( 'Tell Us a Bit About What You Need', 'testro' ),
+			'title'           => __( 'Send Us a Message', 'testro' ),
 			'supporting'      => '',
-			'description'     => __( 'Fill this out, and someone from our team will follow up shortly.', 'testro' ),
+			'description'     => __( 'Tell Us a Bit About What You Need.', 'testro' ),
+			'intro_extra'     => __( 'Fill this out, and someone from our team will follow up shortly.', 'testro' ),
 			'submit_label'    => __( 'Send Message', 'testro' ),
 			'message_label'   => __( 'Message', 'testro' ),
 			'full_name'       => true,
@@ -115,6 +92,7 @@ $contact_cta_actions = array(
 			'show_highlights' => false,
 			'show_consent'    => true,
 			'show_eyebrow'    => false,
+			'header_style'    => 'three-lines',
 		)
 	);
 

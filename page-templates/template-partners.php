@@ -128,7 +128,7 @@ $partner_actions = array(
 		)
 	);
 
-	/* Framer ub0iRos3M — Why Partners Choose · exec-split stages 01–04. */
+	/* Framer ub0iRos3M — Why Partners Choose · QI numbered rows (AI Quality Intelligence left rail). */
 	get_template_part(
 		'template-parts/product/bf-compose',
 		null,
@@ -136,27 +136,24 @@ $partner_actions = array(
 			'id'            => 'why-partners-choose',
 			'variant'       => 'exec-split',
 			'white'         => true,
+			'steps_style'   => 'numbered-rows',
 			'title'         => __( 'Why Partners Choose theTestRo', 'testro' ),
 			'intro'         => __( 'Real Outcomes, Not Just Feature Checklists', 'testro' ),
 			'heading_level' => 2,
 			'items'         => array(
 				array(
-					'stage'       => '01',
 					'title'       => __( 'A Platform Teams Actually Adopt', 'testro' ),
 					'description' => __( 'theTestRo is built to be picked up fast by QA teams of every size, which means shorter sales cycles and happier clients.', 'testro' ),
 				),
 				array(
-					'stage'       => '02',
 					'title'       => __( 'AI That Cuts Real Time, Not Just Marketing Copy', 'testro' ),
 					'description' => __( 'Plain-English test creation and self-healing tests mean your clients see results early, which makes renewals easier.', 'testro' ),
 				),
 				array(
-					'stage'       => '03',
 					'title'       => __( 'One Platform Across Every Industry', 'testro' ),
 					'description' => __( 'From retail to healthcare to financial services, theTestRo fits a wide range of client environments without a custom build each time.', 'testro' ),
 				),
 				array(
-					'stage'       => '04',
 					'title'       => __( 'A Growing Market to Sell Into', 'testro' ),
 					'description' => __( 'Test automation demand keeps climbing as companies ship software faster. Partnering now means growing alongside that demand, not catching up to it later.', 'testro' ),
 				),
@@ -165,23 +162,14 @@ $partner_actions = array(
 	);
 	?>
 
-	<?php /* Framer fuCTOgkgZ — Join a Growing Partner Network · logos + ratings + CTA. */ ?>
+	<?php /* Framer fuCTOgkgZ — Join a Growing Partner Network · three-line header + logos + CTA. */ ?>
 	<section class="testro-partner-network" id="partner-network" aria-labelledby="partner-network-heading">
 		<div class="testro-container testro-partner-network__inner">
-			<?php
-			get_template_part(
-				'template-parts/product/section-header',
-				null,
-				array(
-					'title'         => __( 'Join a Growing Partner Network', 'testro' ),
-					'intro'         => __( "You'd Be in Good Company", 'testro' ),
-					'intro_extra'   => __( "theTestRo works with implementation firms, resellers, and system integrators across the industry, from focused boutique QA consultancies to large enterprise service providers. Whatever size your business is, there's a partnership model that fits.", 'testro' ),
-					'heading_id'    => 'partner-network-heading',
-					'heading_level' => 2,
-					'align'         => 'center',
-				)
-			);
-			?>
+			<header class="testro-section-header testro-section-header--three-lines testro-why__header testro-partner-network__header" data-reveal>
+				<h2 id="partner-network-heading" class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( __( 'Join a Growing Partner Network', 'testro' ) ) ); ?></h2>
+				<p class="sub-text testro-why__intro"><?php echo esc_html( __( "You'd Be in Good Company", 'testro' ) ); ?></p>
+				<p class="sub-text testro-why__intro"><?php echo esc_html( __( "theTestRo works with implementation firms, resellers, and system integrators across the industry, from focused boutique QA consultancies to large enterprise service providers. Whatever size your business is, there's a partnership model that fits.", 'testro' ) ); ?></p>
+			</header>
 
 			<?php
 			/* Framer fPTkjCQkB — Trusted Logos Row One ticker inside Partner Network. */

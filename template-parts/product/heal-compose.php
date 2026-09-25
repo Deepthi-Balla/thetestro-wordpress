@@ -3,11 +3,12 @@
  * Self-Healing Automation — Framer compositions (/features-tab/self-healing-automation-tool).
  *
  * Variants:
+ * - proof-split         Left copy + right numbered proof list (same as CI/CD proof-split)
  * - stability-timeline  Vertical numbered flow with connector (G9kzMV4BD)
  * - split-numbered      Media panel + numbered benefit rows (locator / diagnostics / enterprise)
  * - zigzag-timeline     Alternating L/R recovery timeline (J54n4VJGf)
  * - alt-media-rows      Alternating media/text cards (a5RjPu4_E)
- * - exec-flow           Horizontal numbered connector + stages (K4HbvYdhk)
+ * - exec-flow           Horizontal 01–04 steps (same as CI/CD process-flow)
  * - feature-cards       Feature Card 2 grid (ESpIAn3NI)
  * - why-rows            Title | description rule rows (o5mAvJfPU)
  *
@@ -29,9 +30,11 @@ $section_class = 'testro-prod-section testro-prod-heal testro-prod-heal--' . $va
 if ( 'dark' === $tone ) {
 	$section_class .= ' testro-prod-heal--tone-dark';
 }
-$item_level = isset( $args['item_heading_level'] ) ? max( 1, min( 6, (int) $args['item_heading_level'] ) ) : 3;
-$item_tag   = 'h' . $item_level;
-$media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 'right' : 'left';
+$item_level   = isset( $args['item_heading_level'] ) ? max( 1, min( 6, (int) $args['item_heading_level'] ) ) : 3;
+$item_tag     = 'h' . $item_level;
+$media_side   = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 'right' : 'left';
+$header_style = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
+$use_three    = ( 'three-lines' === $header_style );
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -39,24 +42,122 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
 >
 	<div class="testro-container">
-		<?php
-		get_template_part(
-			'template-parts/product/section-header',
-			null,
-			array(
-				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-				'title'         => isset( $args['title'] ) ? $args['title'] : '',
-				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
-				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
-				'heading_id'    => $heading_id,
-				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
-				'tone'          => 'dark' === $tone ? 'dark' : 'light',
-				'align'         => isset( $args['align'] ) ? $args['align'] : 'start',
-			)
-		);
-		?>
+		<?php if ( 'proof-split' !== $variant && $use_three ) : ?>
+			<?php
+			/*
+			 * Same three-line header as cross-browser / Why theTestRo.
+			 * Eyebrow is the heading; title and intro are the supporting lines.
+			 * With no eyebrow, title is the heading and intro_extra is the third line.
+			 */
+			$line_heading = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+			$line_two     = isset( $args['title'] ) ? (string) $args['title'] : '';
+			$line_three   = isset( $args['intro'] ) ? (string) $args['intro'] : '';
+			if ( '' === $line_heading ) {
+				$line_heading = $line_two;
+				$line_two     = $line_three;
+				$line_three   = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
+			}
+			$three_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+			$three_tag   = 'h' . $three_level;
+			?>
+			<header class="testro-section-header testro-section-header--three-lines testro-why__header" data-reveal>
+				<?php if ( '' !== $line_heading ) : ?>
+					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+					<<?php echo $three_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $three_tag; ?>>
+				<?php endif; ?>
+				<?php if ( '' !== $line_two ) : ?>
+					<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
+				<?php endif; ?>
+				<?php if ( '' !== $line_three ) : ?>
+					<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
+				<?php endif; ?>
+			</header>
+		<?php elseif ( 'proof-split' !== $variant ) : ?>
+			<?php
+			get_template_part(
+				'template-parts/product/section-header',
+				null,
+				array(
+					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+					'title'         => isset( $args['title'] ) ? $args['title'] : '',
+					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+					'heading_id'    => $heading_id,
+					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+					'tone'          => 'dark' === $tone ? 'dark' : 'light',
+					'align'         => isset( $args['align'] ) ? $args['align'] : 'start',
+				)
+			);
+			?>
+		<?php endif; ?>
 
-		<?php if ( 'stability-timeline' === $variant ) : ?>
+		<?php if ( 'proof-split' === $variant ) : ?>
+			<?php /* Same layout as CI/CD What CI/CD Testing Actually Means. */ ?>
+			<div class="testro-prod-heal__proof" data-reveal>
+				<div class="testro-prod-heal__proof-copy">
+					<?php if ( $use_three ) : ?>
+						<?php
+						$line_heading = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+						$line_two     = isset( $args['title'] ) ? (string) $args['title'] : '';
+						$line_three   = isset( $args['intro'] ) ? (string) $args['intro'] : '';
+						if ( '' === $line_heading ) {
+							$line_heading = $line_two;
+							$line_two     = $line_three;
+							$line_three   = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
+						}
+						$three_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+						$three_tag   = 'h' . $three_level;
+						?>
+						<header class="testro-section-header testro-section-header--three-lines testro-why__header" data-reveal>
+							<?php if ( '' !== $line_heading ) : ?>
+								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+								<<?php echo $three_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $three_tag; ?>>
+							<?php endif; ?>
+							<?php if ( '' !== $line_two ) : ?>
+								<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
+							<?php endif; ?>
+							<?php if ( '' !== $line_three ) : ?>
+								<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
+							<?php endif; ?>
+						</header>
+					<?php else : ?>
+						<?php
+						get_template_part(
+							'template-parts/product/section-header',
+							null,
+							array(
+								'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+								'title'         => isset( $args['title'] ) ? $args['title'] : '',
+								'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+								'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+								'heading_id'    => $heading_id,
+								'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+								'align'         => 'start',
+							)
+						);
+						?>
+					<?php endif; ?>
+				</div>
+				<ol class="testro-prod-heal__proof-list">
+					<?php foreach ( $items as $index => $item ) : ?>
+						<li class="testro-prod-heal__proof-item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
+							<span class="testro-prod-heal__proof-marker" aria-hidden="true"><?php echo esc_html( (string) ( $index + 1 ) ); ?></span>
+							<div class="testro-prod-heal__proof-item-copy">
+								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+								<<?php echo $item_tag; ?> class="testro-prod-heal__proof-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+								<?php if ( ! empty( $item['description'] ) ) : ?>
+									<p class="testro-prod-heal__proof-desc"><?php echo esc_html( $item['description'] ); ?></p>
+								<?php endif; ?>
+							</div>
+						</li>
+					<?php endforeach; ?>
+				</ol>
+			</div>
+			<?php if ( ! empty( $args['outro'] ) ) : ?>
+				<p class="testro-prod-heal__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<?php endif; ?>
+
+		<?php elseif ( 'stability-timeline' === $variant ) : ?>
 			<?php /* Framer DevOps Flow: left pad 48, numbered steps + hollow markers on vertical rule. */ ?>
 			<ol class="testro-prod-heal__timeline">
 				<?php foreach ( $items as $index => $item ) : ?>
@@ -78,27 +179,25 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 			<?php endif; ?>
 
 		<?php elseif ( 'split-numbered' === $variant ) : ?>
-			<?php /* Framer Validation Detail Layout: gap 56 — media 44% | numbered benefits. */ ?>
+			<?php /* Media panel + AI Quality Intelligence left-column numbered rows. */ ?>
 			<div class="testro-prod-heal__split testro-prod-heal__split--media-<?php echo esc_attr( $media_side ); ?>" data-reveal>
 				<div class="testro-prod-heal__media" aria-hidden="true">
 					<span class="testro-prod-heal__media-frame">
 						<span class="testro-prod-heal__media-stripes"></span>
 					</span>
 				</div>
-				<ol class="testro-prod-heal__benefits">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-heal__benefit" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
-							<span class="testro-prod-heal__benefit-num" aria-hidden="true"><span><?php echo esc_html( (string) ( $index + 1 ) ); ?></span></span>
-							<div class="testro-prod-heal__benefit-copy">
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-								<<?php echo $item_tag; ?> class="testro-prod-heal__benefit-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-heal__benefit-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
-							</div>
-						</li>
-					<?php endforeach; ?>
-				</ol>
+				<div class="testro-prod-heal__benefits">
+					<?php
+					get_template_part(
+						'template-parts/product/numbered-rows',
+						null,
+						array(
+							'items'       => $items,
+							'heading_tag' => $item_tag,
+						)
+					);
+					?>
+				</div>
 			</div>
 
 		<?php elseif ( 'zigzag-timeline' === $variant ) : ?>
@@ -143,16 +242,11 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 			</ul>
 
 		<?php elseif ( 'exec-flow' === $variant ) : ?>
-			<?php /* Same Framer Workflow Flow pattern as TM agents-flow; labels hidden in Framer. */ ?>
-			<div class="testro-prod-heal__flow" aria-hidden="true">
-				<span class="testro-prod-heal__flow-line"></span>
-				<?php foreach ( $items as $index => $item ) : ?>
-					<span class="testro-prod-heal__flow-step"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
-				<?php endforeach; ?>
-			</div>
+			<?php /* Same layout as CI/CD How theTestRo Connects to Your Pipeline. */ ?>
 			<ul class="testro-prod-heal__stages">
 				<?php foreach ( $items as $index => $item ) : ?>
 					<li class="testro-prod-heal__stage" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+						<span class="testro-prod-heal__flow-step" aria-hidden="true"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
 						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
 						<<?php echo $item_tag; ?> class="testro-prod-heal__stage-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
 						<?php if ( ! empty( $item['description'] ) ) : ?>
@@ -191,12 +285,12 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 			<?php endif; ?>
 
 		<?php elseif ( 'why-rows' === $variant ) : ?>
-			<?php /* Framer Debug Capabilities: horizontal title 300px | description, rule borders. */ ?>
+			<?php /* Horizontal numbered title | description rule rows. */ ?>
 			<ul class="testro-prod-heal__why">
 				<?php foreach ( $items as $index => $item ) : ?>
 					<li class="testro-prod-heal__why-row" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
 						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-						<<?php echo $item_tag; ?> class="testro-prod-heal__why-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+						<<?php echo $item_tag; ?> class="testro-prod-heal__why-title"><span class="testro-prod-heal__why-num" aria-hidden="true"><?php echo esc_html( (string) ( $index + 1 ) ); ?>.</span> <?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
 						<?php if ( ! empty( $item['description'] ) ) : ?>
 							<p class="testro-prod-heal__why-desc"><?php echo esc_html( $item['description'] ); ?></p>
 						<?php endif; ?>

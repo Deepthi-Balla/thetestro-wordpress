@@ -101,6 +101,7 @@ function testro_get_static_pages() {
 				'title'       => __( 'Compare Test Automation Tools & Find the Best Platform', 'testro' ),
 				'description' => __( 'Compare theTestRo with leading test automation platforms. Evaluate AI capabilities, automation features, integrations, and pricing to choose the right solution.', 'testro' ),
 			),
+			'faqs'     => 'compare-tools',
 			'stub'     => false,
 		),
 		'use-cases' => array(

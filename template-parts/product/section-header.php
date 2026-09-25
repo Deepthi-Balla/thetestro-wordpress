@@ -56,8 +56,20 @@ if ( 'dark' !== $tone ) {
 $intro_style_class = 'testro-prod-head__intro';
 
 $label_is_heading = ( '' !== $eyebrow );
+/*
+ * Framer label + heading: eyebrow stays the existing mono label, title stays
+ * the heading. Opt-in only, so pages that promote the eyebrow to the heading
+ * keep that behavior.
+ */
+$eyebrow_is_label = ! empty( $args['eyebrow_is_label'] ) && '' !== $eyebrow;
+if ( $eyebrow_is_label ) {
+	$label_is_heading = false;
+}
 ?>
 <header class="testro-prod-head testro-prod-head--<?php echo esc_attr( $tone ); ?> testro-prod-head--<?php echo esc_attr( $align ); ?>" data-reveal>
+	<?php if ( $eyebrow_is_label ) : ?>
+		<p class="testro-section-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
+	<?php endif; ?>
 	<?php if ( $label_is_heading ) : ?>
 		<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
 		<<?php echo $heading_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="<?php echo esc_attr( $title_style_class ); ?>">

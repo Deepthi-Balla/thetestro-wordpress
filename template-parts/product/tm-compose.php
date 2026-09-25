@@ -16,12 +16,16 @@ if ( '' === $variant ) {
 
 $heading_id    = $id ? $id . '-heading' : '';
 $section_class = 'testro-prod-section testro-prod-tm testro-prod-tm--' . $variant;
-$item_level    = isset( $args['item_heading_level'] ) ? max( 1, min( 6, (int) $args['item_heading_level'] ) ) : 3;
-$item_tag      = 'h' . $item_level;
-$tone          = ! empty( $args['tone'] ) ? (string) $args['tone'] : 'light';
-$image         = isset( $args['image'] ) ? (string) $args['image'] : '';
-$image_alt     = isset( $args['image_alt'] ) ? (string) $args['image_alt'] : '';
-$panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['panel'] : array();
+if ( ! empty( $args['tint'] ) ) {
+	$section_class .= ' testro-prod-tm--tint';
+}
+$item_level = isset( $args['item_heading_level'] ) ? max( 1, min( 6, (int) $args['item_heading_level'] ) ) : 3;
+$item_tag   = 'h' . $item_level;
+$image      = isset( $args['image'] ) ? (string) $args['image'] : '';
+$image_alt  = isset( $args['image_alt'] ) ? (string) $args['image_alt'] : '';
+$panel      = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['panel'] : array();
+/* Agents flow reuses TE How Test Execution Works header + stage layout. */
+$skip_three_line = in_array( $variant, array( 'what-split', 'agents-flow' ), true );
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -29,23 +33,35 @@ $panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['
 	<?php echo $heading_id ? 'aria-labelledby="' . esc_attr( $heading_id ) . '"' : ''; ?>
 >
 	<div class="testro-container">
-		<?php if ( 'what-split' !== $variant ) : ?>
+		<?php if ( ! $skip_three_line ) : ?>
 			<?php
-			get_template_part(
-				'template-parts/product/section-header',
-				null,
-				array(
-					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
-					'title'         => isset( $args['title'] ) ? $args['title'] : '',
-					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
-					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
-					'heading_id'    => $heading_id,
-					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
-					'tone'          => $tone,
-					'align'         => isset( $args['align'] ) ? $args['align'] : 'start',
-				)
-			);
+			/*
+			 * Three-line header: eyebrow is the heading, title is the second line,
+			 * intro is the cyan third line. Same structure as Home → Why theTestRo.
+			 */
+			$line_heading = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+			$line_two     = isset( $args['title'] ) ? (string) $args['title'] : '';
+			$line_three   = isset( $args['intro'] ) ? (string) $args['intro'] : '';
+			if ( '' === $line_heading ) {
+				$line_heading = $line_two;
+				$line_two     = $line_three;
+				$line_three   = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
+			}
+			$three_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+			$three_tag   = 'h' . $three_level;
 			?>
+			<header class="testro-section-header testro-section-header--three-lines testro-why__header" data-reveal>
+				<?php if ( '' !== $line_heading ) : ?>
+					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+					<<?php echo $three_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $three_tag; ?>>
+				<?php endif; ?>
+				<?php if ( '' !== $line_two ) : ?>
+					<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
+				<?php endif; ?>
+				<?php if ( '' !== $line_three ) : ?>
+					<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
+				<?php endif; ?>
+			</header>
 		<?php endif; ?>
 
 		<?php if ( 'what-split' === $variant ) : ?>
@@ -72,9 +88,41 @@ $panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['
 					?>
 					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
 					<<?php echo $h_tag; ?> class="testro-prod-tm__what-title" id="<?php echo esc_attr( $heading_id ); ?>"><?php echo esc_html( (string) $args['title'] ); ?></<?php echo $h_tag; ?>>
-					<?php if ( ! empty( $args['intro'] ) ) : ?>
-						<p class="testro-prod-tm__what-desc"><?php echo esc_html( (string) $args['intro'] ); ?></p>
-					<?php endif; ?>
+					<?php
+					/*
+					 * intro and intro_body are separate keys. A second 'intro' key in
+					 * the content array overwrites the first, so an added paragraph
+					 * belongs in intro_body (or an intros list).
+					 */
+					$what_intros = array();
+					foreach ( array( 'intro', 'intro_body' ) as $intro_key ) {
+						if ( empty( $args[ $intro_key ] ) ) {
+							continue;
+						}
+						$intro_value = $args[ $intro_key ];
+						if ( is_array( $intro_value ) ) {
+							foreach ( $intro_value as $intro_line ) {
+								$intro_line = trim( (string) $intro_line );
+								if ( '' !== $intro_line ) {
+									$what_intros[] = $intro_line;
+								}
+							}
+						} else {
+							$what_intros[] = (string) $intro_value;
+						}
+					}
+					if ( ! empty( $args['intros'] ) && is_array( $args['intros'] ) ) {
+						foreach ( $args['intros'] as $intro_line ) {
+							$intro_line = trim( (string) $intro_line );
+							if ( '' !== $intro_line ) {
+								$what_intros[] = $intro_line;
+							}
+						}
+					}
+					?>
+					<?php foreach ( $what_intros as $what_intro ) : ?>
+						<p class="testro-prod-tm__what-desc"><?php echo esc_html( $what_intro ); ?></p>
+					<?php endforeach; ?>
 					<?php if ( ! empty( $args['intro_extra'] ) ) : ?>
 						<p class="testro-prod-tm__what-desc testro-prod-tm__what-desc--body"><?php echo esc_html( (string) $args['intro_extra'] ); ?></p>
 					<?php endif; ?>
@@ -86,17 +134,28 @@ $panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['
 
 		<?php elseif ( 'agents-flow' === $variant ) : ?>
 			<?php
-			/* Framer Workflow Flow: absolute step circles over a connector line, then 4 stage columns. */
+			/*
+			 * Same layout as Test Execution → How Test Execution Works (process-flow):
+			 * section-header + 01–04 cyan steps with per-stage connector segments.
+			 */
+			get_template_part(
+				'template-parts/product/section-header',
+				null,
+				array(
+					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
+					'title'         => isset( $args['title'] ) ? $args['title'] : '',
+					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+					'heading_id'    => $heading_id,
+					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+					'align'         => 'start',
+				)
+			);
 			?>
-			<div class="testro-prod-tm__flow" aria-hidden="true">
-				<span class="testro-prod-tm__flow-line"></span>
-				<?php foreach ( $items as $index => $item ) : ?>
-					<span class="testro-prod-tm__flow-step"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
-				<?php endforeach; ?>
-			</div>
 			<ul class="testro-prod-tm__stages">
 				<?php foreach ( $items as $index => $item ) : ?>
 					<li class="testro-prod-tm__stage" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+						<span class="testro-prod-tm__flow-step" aria-hidden="true"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
 						<?php if ( ! empty( $item['label'] ) ) : ?>
 							<p class="testro-prod-tm__stage-label"><?php echo esc_html( (string) $item['label'] ); ?></p>
 						<?php endif; ?>
@@ -109,9 +168,7 @@ $panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<div class="testro-prod-tm__outro-wrap testro-prod-tm__outro-wrap--start">
-					<p class="testro-prod-tm__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
-				</div>
+				<p class="testro-prod-tm__outro testro-prod-tm__outro--flow <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'split-safeguards' === $variant ) : ?>

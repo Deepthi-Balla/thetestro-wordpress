@@ -156,7 +156,7 @@ $why_cta_actions = array(
 			'heading_level' => 2,
 			'align'         => 'start',
 			'text_only'     => true,
-			'first_label'   => __( 'Category', 'testro' ),
+			'first_label'   => '',
 			'legacy'        => array(
 				'label' => __( 'Custom Frameworks', 'testro' ),
 			),
@@ -213,7 +213,7 @@ $why_cta_actions = array(
 		)
 	);
 
-	/* Framer zBWLD349I — exec-split; stages 01,02,03,03,03,03 (Framer quirk preserved). */
+	/* Framer zBWLD349I — exec-split; right rail uses AI Quality Intelligence numbered rows. */
 	get_template_part(
 		'template-parts/product/bf-compose',
 		null,
@@ -221,37 +221,32 @@ $why_cta_actions = array(
 			'id'            => 'real-savings',
 			'variant'       => 'exec-split',
 			'tint'          => true,
+			'steps_style'   => 'numbered-rows',
 			'title'         => __( 'Where the Real Savings Show Up', 'testro' ),
 			'intro'         => __( 'Faster and Cheaper, Not Just One or the Other', 'testro' ),
 			'heading_level' => 2,
 			'items'         => array(
 				array(
-					'stage'       => '01',
 					'title'       => __( 'Setup and Ramp-Up', 'testro' ),
 					'description' => __( 'Skip the weeks most teams spend just getting a framework running.', 'testro' ),
 				),
 				array(
-					'stage'       => '02',
 					'title'       => __( 'Test Script Development', 'testro' ),
 					'description' => __( 'Build tests much faster than hand-scripting.', 'testro' ),
 				),
 				array(
-					'stage'       => '03',
 					'title'       => __( 'Test Execution', 'testro' ),
 					'description' => __( 'Parallel runs cut execution time a lot compared to running tests one by one.', 'testro' ),
 				),
 				array(
-					'stage'       => '03',
 					'title'       => __( 'Framework Development', 'testro' ),
 					'description' => __( 'No custom framework to build or own long term.', 'testro' ),
 				),
 				array(
-					'stage'       => '03',
 					'title'       => __( 'AI-Driven Maintenance', 'testro' ),
 					'description' => __( 'Self-healing tests mean far less time spent patching broken scripts.', 'testro' ),
 				),
 				array(
-					'stage'       => '03',
 					'title'       => __( 'Test Planning and Design', 'testro' ),
 					'description' => __( 'Plain-English test creation cuts planning time too. Not just scripting time.', 'testro' ),
 				),
