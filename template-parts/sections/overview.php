@@ -61,7 +61,7 @@ $visuals = array(
 						$icon = 'activity';
 					}
 					?>
-					<li class="testro-overview__card testro-overview__card--<?php echo esc_attr( $variant ); ?>">
+					<li class="testro-overview__card testro-overview__card--<?php echo esc_attr( $variant ); ?> testro-card--top-line">
 						<div class="testro-overview__card-top">
 							<span class="testro-overview__card-icon" aria-hidden="true">
 								<?php

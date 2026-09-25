@@ -673,22 +673,22 @@ function testro_get_feature_tabs() {
 function testro_get_how_it_works() {
 	return array(
 		array(
-			'step'        => '1',
+			'step'        => '01',
 			'title'       => 'Record or build',
 			'description' => 'Capture your workflow, or build a test with our no-code editor.',
 		),
 		array(
-			'step'        => '2',
+			'step'        => '02',
 			'title'       => 'Enhance with AI',
 			'description' => 'Let AI add checks, fixes, and edge cases.',
 		),
 		array(
-			'step'        => '3',
+			'step'        => '03',
 			'title'       => 'Run at scale',
 			'description' => 'Test in parallel across browsers, devices, and environments.',
 		),
 		array(
-			'step'        => '4',
+			'step'        => '04',
 			'title'       => 'Analyze and ship',
 			'description' => 'Review results, fix bugs fast, and ship with confidence.',
 		),

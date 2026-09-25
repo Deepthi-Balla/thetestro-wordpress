@@ -1,6 +1,7 @@
 <?php
 /**
- * How it works — Framer VEyT2cC7G (4-col grid · 226×2 gradient connectors at number row).
+ * How it works — Framer Zg2v_q3Jm / VEyT2cC7G
+ * Uses global process-flow utility: .testro-process-flow
  *
  * @package TestRo
  */
@@ -16,21 +17,23 @@ $count = count( $steps );
 				<p class="sub-text testro-how__headline"><?php esc_html_e( 'Four Simple Steps to Better Testing', 'testro' ); ?></p>
 			</header>
 
-			<div class="testro-how__flow-wrap">
-				<span class="testro-how__line testro-how__line--1" aria-hidden="true"></span>
-				<span class="testro-how__line testro-how__line--2" aria-hidden="true"></span>
-				<span class="testro-how__line testro-how__line--3" aria-hidden="true"></span>
-
-				<ol class="testro-how__flow" style="--how-count: <?php echo esc_attr( (string) max( 1, $count ) ); ?>">
+			<div class="testro-process-flow">
+				<ol
+					class="testro-process-flow__track"
+					style="--process-count: <?php echo esc_attr( (string) max( 1, $count ) ); ?>"
+				>
 					<?php foreach ( $steps as $index => $step ) : ?>
-						<li class="testro-how__flow-item">
-							<span class="testro-how__flow-num" aria-hidden="true"><?php echo esc_html( isset( $step['step'] ) ? $step['step'] : (string) ( $index + 1 ) ); ?></span>
-							<div class="testro-how__flow-body">
-								<h3 class="testro-how__flow-title"><?php echo esc_html( $step['title'] ); ?></h3>
-								<p class="testro-how__flow-desc"><?php echo esc_html( $step['description'] ); ?></p>
-								<?php if ( ! empty( $step['tag'] ) ) : ?>
-									<p class="testro-how__flow-tag"><?php echo esc_html( $step['tag'] ); ?></p>
-								<?php endif; ?>
+						<?php
+						$num = isset( $step['step'] ) ? (string) $step['step'] : (string) ( $index + 1 );
+						if ( ctype_digit( $num ) ) {
+							$num = sprintf( '%02d', (int) $num );
+						}
+						?>
+						<li class="testro-process-flow__step">
+							<span class="testro-process-flow__num" aria-hidden="true"><?php echo esc_html( $num ); ?></span>
+							<div class="testro-process-flow__body">
+								<h3 class="testro-process-flow__title"><?php echo esc_html( $step['title'] ); ?></h3>
+								<p class="testro-process-flow__desc"><?php echo esc_html( $step['description'] ); ?></p>
 							</div>
 						</li>
 					<?php endforeach; ?>

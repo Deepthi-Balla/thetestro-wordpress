@@ -64,6 +64,7 @@
   --color-cyan-pill: #00acff;
   --color-pill-bg: #eaf3fc;
   --color-white: #ffffff;
+  --color-bg-secondary: #F4F9FF; /* section + card tint fill */
 
   --grad-brand: linear-gradient(90deg, #003e84 0%, #00acff 100%);
   --grad-text: var(--grad-brand);
@@ -21816,7 +21817,7 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
   padding: 1.25rem 1.2rem 1.15rem;
   border-radius: 1.5rem;
   border: 1px solid var(--color-border);
-  background: #F4F9FF;
+  background: var(--color-bg-secondary);
   text-decoration: none;
   color: inherit;
   box-shadow: 0 10px 30px rgb(2 8 23 / 0.03);
@@ -24037,7 +24038,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
   padding: 0.7rem 1rem;
   border-radius: 999px;
   background: var(--color-border-soft);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-cyan);
   font-size: 13.5px;
   font-weight: 600;
   line-height: 1.2;
@@ -24442,7 +24443,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
   padding: 1.25rem 1.1rem 1.35rem;
   border: 1px solid var(--color-cyan);
   border-radius: 14px;
-  background: #F4F9FF;
+  background: var(--color-bg-secondary);
   text-decoration: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -24703,7 +24704,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 /* Product Demo */
 .testro-demo {
   padding: clamp(4rem, 8vw, 6rem) 0;
-  background: #fff;
+  background: var(--color-bg-secondary);
 }
 .testro-demo__layout {
   display: grid;
@@ -24834,7 +24835,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
   padding: 1.25rem 1.15rem 1.35rem;
   border: 1px solid var(--color-cyan);
   border-radius: 12px;
-  background: #F4F9FF;
+  background: var(--color-bg-secondary);
   text-decoration: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -25396,7 +25397,7 @@ body.home .testro-hero__title {
 .home .testro-ai--framer { padding: 88px 0 !important; }
 .home .testro-ai--framer .testro-ai__header { margin-bottom: 48px; }
 .home .testro-how--framer { padding: 96px 0 !important; }
-.home .testro-how--framer .testro-how__header { margin-bottom: 64px; }
+.home .testro-how--framer .testro-how__header { margin-bottom: 0; }
 .home .testro-demo { padding: 100px 0 96px !important; }
 .home .testro-industries--framer { padding: 96px 0 !important; }
 .home .testro-industries--framer .testro-industries__header { margin-bottom: 52px; }
@@ -25426,7 +25427,7 @@ body.home .testro-hero__title {
   padding: 24px !important;
   gap: 11px !important;
   border-color: var(--color-cyan) !important;
-  background: #F4F9FF;
+  background: var(--color-bg-secondary);
   box-shadow: 0 10px 30px rgb(2 8 23 / 0.03);
   text-decoration: none;
   color: inherit;
@@ -25608,6 +25609,7 @@ body.home .testro-hero__title {
   max-width: 42rem;
   width: auto !important;
   font-size: 16px !important;
+  line-height: 1.65em !important;
 }
 
 /* Overview / Industry / FAQ — full-width left headers aligned with content */
@@ -27151,6 +27153,7 @@ body.home .testro-hero__title {
   padding: 9px 18px;
   border-radius: 30px;
   background: #eaf3fc;
+  border: 1px solid #00ACFF;
   color: #003e84;
   font-size: 13.5px;
   font-weight: 500;
@@ -35738,7 +35741,7 @@ html.testro-js .testro-product-heal [data-reveal].is-revealed {
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
-  border: 0 !important;
+  border: 1px solid #00ACFF !important;
   color: #003e84 !important;
   font-size: 13.5px !important;
   font-weight: 600 !important;
@@ -36659,7 +36662,7 @@ html.testro-js .testro-product-heal [data-reveal].is-revealed {
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
-  border: 0 !important;
+  border: 1px solid #00ACFF !important;
   color: #003e84 !important;
   font-size: 13.5px !important;
   font-weight: 600 !important;
@@ -53911,7 +53914,7 @@ body.home .testro-hero__supporting--pill,
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
-  border: 0 !important;
+  border: 1px solid #00ACFF !important;
   color: #003e84 !important;
   font-size: 13.5px !important;
   font-weight: 600 !important;
@@ -53976,11 +53979,9 @@ body.home .testro-ai__cards {
   padding: 14px 0 !important;
 }
 
-/* --- How connectors: 2px gradient --- */
-body.home .testro-how--framer .testro-how__flow::before {
-  height: 2px !important;
-  background: linear-gradient(90deg, #003e84 0%, #00acff 100%) !important;
-  opacity: 1 !important;
+/* --- How It Works section pad (steps: .testro-process-flow) --- */
+body.home .testro-how--framer {
+  padding: 96px 0 !important;
 }
 
 /* --- Industries YP670SWOt: gap 24 · cards 347×190 --- */
@@ -54564,7 +54565,7 @@ body.home .testro-why__panel:focus-visible {
 body.home .testro-why__panel--old {
   flex: 0.72 1 0;
   min-width: 0;
-  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 32%) !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #ADE4FF 100%) !important;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -54698,98 +54699,7 @@ body.home .testro-how--framer .testro-how__header {
   align-items: flex-start !important;
   text-align: left !important;
 }
-body.home .testro-how__flow-wrap {
-  position: relative;
-  width: 100%;
-}
-body.home .testro-how__flow {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-  position: relative;
-  z-index: 1;
-}
-body.home .testro-how__flow::before {
-  display: none !important;
-  content: none !important;
-}
-body.home .testro-how__flow-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-  margin: 0;
-  padding: 0;
-  background: none;
-  border: 0;
-  box-shadow: none;
-}
-/* Framer: 41×41 #EAF3FC circles behind 01–04 */
-body.home .testro-how__flow-num {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  margin: 0;
-  width: 41px !important;
-  height: 41px !important;
-  border-radius: 999px !important;
-  background: var(--color-cyan) !important;
-  border: 0 !important;
-  font-family: var(--testro-font-display);
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  line-height: 1em;
-  color: #fff !important;
-  position: relative;
-  z-index: 1;
-}
-body.home .testro-how__flow-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-body.home .testro-how__flow-title {
-  margin: 0 !important;
-  font-family: var(--testro-font-display);
-  font-size: 20px !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.04em;
-  line-height: 1.4em !important;
-  color: #003e84 !important;
-}
-body.home .testro-how__flow-desc {
-  margin: 0 !important;
-  font-size: 16px !important;
-  font-weight: 400;
-  line-height: 1.6em !important;
-  color: #5b7290 !important;
-}
-body.home .testro-how__flow-tag {
-  margin: 0 !important;
-  font-family: var(--testro-font-mono);
-  font-size: 12px !important;
-  font-weight: 400;
-  line-height: 1em;
-  color: #00284f !important;
-}
-body.home .testro-how__line {
-  position: absolute;
-  top: 20px; /* vertical center of 41px number circles */
-  height: 2px;
-  width: min(226px, 20.8%);
-  border-radius: 2px;
-  background: linear-gradient(90deg, #003e84 0%, #00acff 100%);
-  z-index: 0;
-  pointer-events: none;
-}
-body.home .testro-how__line--1 { left: 4.23%; }
-body.home .testro-how__line--2 { left: 29.87%; }
-body.home .testro-how__line--3 { left: 55.33%; }
+/* Process steps use global .testro-process-flow (Framer Zg2v_q3Jm) */
 
 /* ---------- WHY CHOOSE ---------- */
 body.home .testro-impact {
@@ -54930,18 +54840,8 @@ body.home .testro-resources__cta .primary-button {
     flex: 1 1 auto;
     width: 100%;
   }
-  body.home .testro-how__line {
-    display: none;
-  }
-  body.home .testro-how__flow {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px 24px;
-  }
 }
 @media (max-width: 640px) {
-  body.home .testro-how__flow {
-    grid-template-columns: 1fr;
-  }
   body.home .testro-impact__row {
     gap: 20px;
   }
@@ -55103,12 +55003,163 @@ body.home .testro-ai--framer .testro-ai__card.testro-card--top-line {
   border: 1px solid var(--color-cyan) !important;
 }
 
+/* Homepage Product Overview — match Framer 20px radius with top-line accent */
+body.home .testro-overview__card.testro-card--top-line::before {
+  border-radius: 20px 0 0 0 !important;
+}
+body.home .testro-overview__card.testro-card--top-line:hover::before,
+body.home .testro-overview__card.testro-card--top-line:focus-visible::before,
+body.home .testro-overview__card.testro-card--top-line:focus-within::before {
+  border-radius: 20px 20px 0 0 !important;
+}
+
 /* AI Test Automation — same Home card border token on the four feature card sections */
 .testro-product-ai #ai-native-automation .testro-card--top-line,
 .testro-product-ai #intelligent-automation-engine .testro-card--top-line,
 .testro-product-ai #enterprise-architecture .testro-card--top-line,
 .testro-product-ai #enterprise-outcomes .testro-card--top-line {
   border-color: var(--color-cyan) !important;
+}
+
+/* ==========================================================================
+   Reusable process-flow utility — Framer Home Zg2v_q3Jm
+   Class: .testro-process-flow
+   Horizontal numbered steps (01–04) with cyan markers + navy→cyan connector.
+   Use across home + product pages (How It Works / pipeline / stages).
+
+   Structure:
+     .testro-process-flow
+       .testro-process-flow__track   (--process-count: N)
+         .testro-process-flow__step
+           .testro-process-flow__num
+           .testro-process-flow__body
+             .testro-process-flow__title
+             .testro-process-flow__desc
+
+   Modifiers:
+     .testro-process-flow--navy   Navy step markers
+     .testro-process-flow--solid  Solid cyan connector (no gradient)
+   ========================================================================== */
+
+.testro-process-flow {
+  position: relative;
+  width: 100%;
+}
+
+.testro-process-flow__track {
+  --process-count: 4;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--process-count), minmax(0, 1fr));
+  gap: 24px;
+  width: 95%;
+  max-width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+/* Connector through marker centers (Framer: 2px navy→cyan bar) */
+.testro-process-flow__track::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 20px;
+  right: calc((100% - (var(--process-count) - 1) * 24px) / var(--process-count) - 20px);
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #003e84 0%, #00acff 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.testro-process-flow--solid .testro-process-flow__track::before {
+  background: #00acff;
+}
+
+.testro-process-flow__step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  position: relative;
+  z-index: 1;
+}
+
+.testro-process-flow__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #00acff;
+  border: 0;
+  font-family: var(--testro-font-display, "Sora", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2em;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.testro-process-flow--navy .testro-process-flow__num {
+  background: #003e84;
+}
+
+.testro-process-flow__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.testro-process-flow__title {
+  margin: 0;
+  font-family: var(--testro-font-display, "Sora", sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  color: #003e84;
+}
+
+.testro-process-flow__desc {
+  margin: 0;
+  font-family: var(--testro-font), Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55em;
+  color: #5b7290;
+}
+
+@media (max-width: 1023px) {
+  .testro-process-flow__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 32px 24px;
+  }
+
+  .testro-process-flow__track::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .testro-process-flow__track {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 
 /* --------------------------------------------------------------------------

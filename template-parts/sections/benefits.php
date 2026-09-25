@@ -1,8 +1,8 @@
 <?php
 /**
- * Why Choose / Impact — Framer UJi1xy19J rows (metric 48px mono · icon Shield Tick 28px).
+ * Why Choose / Impact — Framer UJi1xy19J rows (metric 48px mono · icon 28px).
  *
- * Leading: 50% | Shield | Shield | 1 | Shield
+ * Leading: 50% | Shield | Arrow | 1 | Circle-check
  *
  * @package TestRo
  */
@@ -22,7 +22,7 @@ $rows = array(
 	),
 	array(
 		'variant'     => 'icon',
-		'icon'        => 'shield-check',
+		'icon'        => 'arrow-right',
 		'title'       => __( 'Faster delivery', 'testro' ),
 		'description' => __( 'Ship faster with testing built right into your CI/CD flow.', 'testro' ),
 	),
@@ -34,7 +34,7 @@ $rows = array(
 	),
 	array(
 		'variant'     => 'icon',
-		'icon'        => 'shield-check',
+		'icon'        => 'circle-check',
 		'title'       => __( 'Coverage your team can trust', 'testro' ),
 		'description' => __( 'Build more trust with deeper, more reliable test coverage across every release.', 'testro' ),
 	),
