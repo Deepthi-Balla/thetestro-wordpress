@@ -9,6 +9,8 @@
  *   Supporting Text → unchanged (p + intro classes)
  * - When no label/eyebrow is present, the title keeps its original heading styles
  *   so sections without an eyebrow are not visually broken.
+ * - header_style=three-lines → Home Why theTestRo three-line header
+ *   (eyebrow/title/intro, or title/intro/intro_extra when no eyebrow).
  *
  * Expected $args:
  * - eyebrow    (string)  Optional pill label.
@@ -21,6 +23,7 @@
  * - heading_level (int)     Semantic heading level 1–6. Default 2.
  * - tone          (string)  'light' (default) or 'dark' for brand-gradient backgrounds.
  * - align         (string)  'center' (default) or 'start'.
+ * - header_style  (string)  Optional 'three-lines' for Why theTestRo header.
  *
  * @package TestRo
  */
@@ -38,6 +41,39 @@ $heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['
 $heading_tag   = 'h' . $heading_level;
 $tone          = isset( $args['tone'] ) && 'dark' === $args['tone'] ? 'dark' : 'light';
 $align         = isset( $args['align'] ) && 'start' === $args['align'] ? 'start' : 'center';
+$header_style  = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
+
+if ( 'three-lines' === $header_style ) {
+	/*
+	 * Same three-line header as Home → Why theTestRo.
+	 * With eyebrow: eyebrow / title / intro.
+	 * Without: title / intro / intro_extra.
+	 */
+	$line_heading = $eyebrow;
+	$line_two     = $title;
+	$line_three   = $intro;
+	if ( '' === $line_heading ) {
+		$line_heading = $line_two;
+		$line_two     = $line_three;
+		$line_three   = $intro_extra;
+	}
+	if ( '' === $line_heading ) {
+		return;
+	}
+	?>
+	<header class="testro-section-header testro-section-header--three-lines testro-why__header" data-reveal>
+		<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
+		<<?php echo $heading_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $heading_tag; ?>>
+		<?php if ( '' !== $line_two ) : ?>
+			<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
+		<?php endif; ?>
+		<?php if ( '' !== $line_three ) : ?>
+			<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
+		<?php endif; ?>
+	</header>
+	<?php
+	return;
+}
 
 if ( '' === $title && '' === $eyebrow ) {
 	return;

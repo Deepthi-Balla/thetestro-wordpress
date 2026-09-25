@@ -2,8 +2,11 @@
 /**
  * Product page pipeline / DevOps flow.
  *
- * layout=timeline (Framer AI): vertical title+desc with left flow markers.
- * default: horizontal stage cards.
+ * layout=timeline — Framer “DevOps & Continuous Quality” global pattern:
+ *   vertical numbered steps + cyan connector. Themes via variant:
+ *   - spotlight/default/tint = light (navy/slate on white) — e.g. AI authoring
+ *   - brand = blue gradient band (white type) — e.g. How It Works
+ * default layout: horizontal stage cards.
  *
  * @package TestRo
  */
@@ -48,6 +51,8 @@ if ( $is_timeline_cards ) {
 				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 				'title'         => isset( $args['title'] ) ? $args['title'] : '',
 				'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+				'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+				'header_style'  => isset( $args['header_style'] ) ? $args['header_style'] : '',
 				'heading_id'    => $heading_id,
 				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 				'tone'          => $tone,

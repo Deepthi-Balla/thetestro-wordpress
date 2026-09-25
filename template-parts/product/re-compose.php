@@ -5,8 +5,12 @@
  * Variants:
  * - feature-cards    Industry cards with gradient icon tile + cyan border
  * - exec-split       Left brief (390px) + right numbered steps
+ *                    Optional steps_style=numbered-rows for AI Quality Intelligence badges
+ *                    Optional header_style=three-lines for Why theTestRo header
  * - workflow-grid    Left brief + gradient integration tiles
+ *                    Optional header_style=three-lines for Why theTestRo header
  * - coverage-split   Eyebrow/title + bordered rows | striped media
+ *                    Optional list_style=numbered-rows for AI Quality Intelligence badges
  * - compare-table    Text-only 3-column comparison table
  *
  * Feature/exec/workflow markup reuses .testro-prod-bf-* classes (same Framer
@@ -98,56 +102,133 @@ $heading_lv = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['hea
 			<?php endif; ?>
 
 		<?php elseif ( 'exec-split' === $variant ) : ?>
+			<?php
+			$header_style = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
+			$use_three    = ( 'three-lines' === $header_style );
+			?>
 			<div class="testro-prod-bf__exec" data-reveal>
 				<div class="testro-prod-bf__exec-brief">
-					<?php if ( ! empty( $args['eyebrow'] ) ) : ?>
-						<p class="testro-prod-bf__exec-label"><?php echo esc_html( (string) $args['eyebrow'] ); ?></p>
-					<?php endif; ?>
-					<?php if ( ! empty( $args['title'] ) ) : ?>
-						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- heading tag from sanitized level. ?>
-						<h<?php echo (int) $heading_lv; ?>
-							<?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?>
-							class="testro-prod-bf__exec-title"
-						><?php echo esc_html( (string) $args['title'] ); ?></h<?php echo (int) $heading_lv; ?>>
-					<?php endif; ?>
-					<?php if ( ! empty( $args['intro'] ) ) : ?>
-						<p class="testro-prod-bf__exec-intro"><?php echo esc_html( (string) $args['intro'] ); ?></p>
-					<?php endif; ?>
-					<?php if ( ! empty( $args['intro_extra'] ) ) : ?>
-						<p class="testro-prod-bf__exec-emphasis"><?php echo esc_html( (string) $args['intro_extra'] ); ?></p>
+					<?php if ( $use_three ) : ?>
+						<?php
+						/*
+						 * Same three-line header as Home → Why theTestRo.
+						 * With eyebrow: eyebrow / title / intro.
+						 * Without: title / intro / intro_extra.
+						 */
+						$line_heading = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+						$line_two     = isset( $args['title'] ) ? (string) $args['title'] : '';
+						$line_three   = isset( $args['intro'] ) ? (string) $args['intro'] : '';
+						if ( '' === $line_heading ) {
+							$line_heading = $line_two;
+							$line_two     = $line_three;
+							$line_three   = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
+						}
+						$three_tag = 'h' . $heading_lv;
+						?>
+						<header class="testro-section-header testro-section-header--three-lines testro-why__header">
+							<?php if ( '' !== $line_heading ) : ?>
+								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+								<<?php echo $three_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $three_tag; ?>>
+							<?php endif; ?>
+							<?php if ( '' !== $line_two ) : ?>
+								<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
+							<?php endif; ?>
+							<?php if ( '' !== $line_three ) : ?>
+								<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
+							<?php endif; ?>
+						</header>
+					<?php else : ?>
+						<?php if ( ! empty( $args['eyebrow'] ) ) : ?>
+							<p class="testro-prod-bf__exec-label"><?php echo esc_html( (string) $args['eyebrow'] ); ?></p>
+						<?php endif; ?>
+						<?php if ( ! empty( $args['title'] ) ) : ?>
+							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- heading tag from sanitized level. ?>
+							<h<?php echo (int) $heading_lv; ?>
+								<?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?>
+								class="testro-prod-bf__exec-title"
+							><?php echo esc_html( (string) $args['title'] ); ?></h<?php echo (int) $heading_lv; ?>>
+						<?php endif; ?>
+						<?php if ( ! empty( $args['intro'] ) ) : ?>
+							<p class="testro-prod-bf__exec-intro"><?php echo esc_html( (string) $args['intro'] ); ?></p>
+						<?php endif; ?>
+						<?php if ( ! empty( $args['intro_extra'] ) ) : ?>
+							<p class="testro-prod-bf__exec-emphasis"><?php echo esc_html( (string) $args['intro_extra'] ); ?></p>
+						<?php endif; ?>
 					<?php endif; ?>
 				</div>
-				<ul class="testro-prod-bf__exec-steps">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-bf__exec-step" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
-							<span class="testro-prod-bf__exec-num" aria-hidden="true"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
-							<div class="testro-prod-bf__exec-step-copy">
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-								<<?php echo $item_tag; ?> class="testro-prod-bf__exec-step-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-bf__exec-step-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
-							</div>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+				<?php if ( ! empty( $args['steps_style'] ) && 'numbered-rows' === $args['steps_style'] ) : ?>
+					<?php
+					/* Same numbered badge rows as AI Quality Intelligence. */
+					get_template_part(
+						'template-parts/product/numbered-rows',
+						null,
+						array(
+							'items'       => $items,
+							'heading_tag' => $item_tag,
+						)
+					);
+					?>
+				<?php else : ?>
+					<ul class="testro-prod-bf__exec-steps">
+						<?php foreach ( $items as $index => $item ) : ?>
+							<li class="testro-prod-bf__exec-step" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
+								<span class="testro-prod-bf__exec-num" aria-hidden="true"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
+								<div class="testro-prod-bf__exec-step-copy">
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+									<<?php echo $item_tag; ?> class="testro-prod-bf__exec-step-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+									<?php if ( ! empty( $item['description'] ) ) : ?>
+										<p class="testro-prod-bf__exec-step-desc"><?php echo esc_html( $item['description'] ); ?></p>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
 			</div>
 
 		<?php elseif ( 'workflow-grid' === $variant ) : ?>
+			<?php
+			$header_style = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
+			$use_three    = ( 'three-lines' === $header_style );
+			?>
 			<div class="testro-prod-bf__workflow" data-reveal>
 				<div class="testro-prod-bf__workflow-brief">
-					<?php if ( ! empty( $args['eyebrow'] ) ) : ?>
-						<p class="testro-prod-bf__exec-label"><?php echo esc_html( (string) $args['eyebrow'] ); ?></p>
-					<?php endif; ?>
-					<?php if ( ! empty( $args['title'] ) ) : ?>
-						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- heading tag from sanitized level. ?>
-						<h<?php echo (int) $heading_lv; ?>
-							<?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?>
-							class="testro-prod-bf__exec-title"
-						><?php echo esc_html( (string) $args['title'] ); ?></h<?php echo (int) $heading_lv; ?>>
-					<?php endif; ?>
-					<?php if ( ! empty( $args['intro'] ) ) : ?>
-						<p class="testro-prod-bf__exec-intro"><?php echo esc_html( (string) $args['intro'] ); ?></p>
+					<?php if ( $use_three ) : ?>
+						<?php
+						$line_heading = isset( $args['title'] ) ? (string) $args['title'] : '';
+						$line_two     = isset( $args['intro'] ) ? (string) $args['intro'] : '';
+						$line_three   = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
+						$three_tag    = 'h' . $heading_lv;
+						?>
+						<header class="testro-section-header testro-section-header--three-lines testro-why__header">
+							<?php if ( '' !== $line_heading ) : ?>
+								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+								<<?php echo $three_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $three_tag; ?>>
+							<?php endif; ?>
+							<?php if ( '' !== $line_two ) : ?>
+								<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
+							<?php endif; ?>
+							<?php if ( '' !== $line_three ) : ?>
+								<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
+							<?php endif; ?>
+						</header>
+					<?php else : ?>
+						<?php if ( ! empty( $args['eyebrow'] ) ) : ?>
+							<p class="testro-prod-bf__exec-label"><?php echo esc_html( (string) $args['eyebrow'] ); ?></p>
+						<?php endif; ?>
+						<?php if ( ! empty( $args['title'] ) ) : ?>
+							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- heading tag from sanitized level. ?>
+							<h<?php echo (int) $heading_lv; ?>
+								<?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?>
+								class="testro-prod-bf__exec-title"
+							><?php echo esc_html( (string) $args['title'] ); ?></h<?php echo (int) $heading_lv; ?>>
+						<?php endif; ?>
+						<?php if ( ! empty( $args['intro'] ) ) : ?>
+							<p class="testro-prod-bf__exec-intro"><?php echo esc_html( (string) $args['intro'] ); ?></p>
+						<?php endif; ?>
+						<?php if ( ! empty( $args['intro_extra'] ) ) : ?>
+							<p class="testro-prod-bf__exec-intro"><?php echo esc_html( (string) $args['intro_extra'] ); ?></p>
+						<?php endif; ?>
 					<?php endif; ?>
 				</div>
 				<ul class="testro-prod-bf__tools">
@@ -161,6 +242,7 @@ $heading_lv = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['hea
 
 		<?php elseif ( 'coverage-split' === $variant ) : ?>
 			<?php /* Framer Coverage Engine — pad 54/72/80/72, gap 48; copy+rows | striped media. */ ?>
+			<?php $list_style = isset( $args['list_style'] ) ? (string) $args['list_style'] : ''; ?>
 			<div class="testro-prod-re__coverage" data-reveal>
 				<div class="testro-prod-re__coverage-copy">
 					<?php if ( ! empty( $args['eyebrow'] ) ) : ?>
@@ -179,17 +261,31 @@ $heading_lv = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['hea
 					<?php if ( ! empty( $args['intro_extra'] ) ) : ?>
 						<p class="testro-prod-re__coverage-intro"><?php echo esc_html( (string) $args['intro_extra'] ); ?></p>
 					<?php endif; ?>
-					<ul class="testro-prod-re__coverage-list">
-						<?php foreach ( $items as $index => $item ) : ?>
-							<li class="testro-prod-re__coverage-item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-								<<?php echo $item_tag; ?> class="testro-prod-re__coverage-item-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-re__coverage-item-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
-							</li>
-						<?php endforeach; ?>
-					</ul>
+					<?php if ( 'numbered-rows' === $list_style ) : ?>
+						<?php
+						/* Same numbered badge rows as AI Quality Intelligence. */
+						get_template_part(
+							'template-parts/product/numbered-rows',
+							null,
+							array(
+								'items'       => $items,
+								'heading_tag' => $item_tag,
+							)
+						);
+						?>
+					<?php else : ?>
+						<ul class="testro-prod-re__coverage-list">
+							<?php foreach ( $items as $index => $item ) : ?>
+								<li class="testro-prod-re__coverage-item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+									<<?php echo $item_tag; ?> class="testro-prod-re__coverage-item-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+									<?php if ( ! empty( $item['description'] ) ) : ?>
+										<p class="testro-prod-re__coverage-item-desc"><?php echo esc_html( $item['description'] ); ?></p>
+									<?php endif; ?>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				</div>
 				<div class="testro-prod-re__coverage-media" aria-hidden="true">
 					<span class="testro-prod-re__media-frame">

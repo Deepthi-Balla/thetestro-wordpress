@@ -5,11 +5,13 @@
  * Variants:
  * - proof-split     Left copy + right vertical proof timeline (built)
  * - process-flow    Horizontal 01–04 steps with connector (pipeline)
+ *                   Optional flow_style=home for Home How It Works (.testro-process-flow)
  * - compare-table   3-column Manual vs CI/CD table
  * - feature-cards   Feature Card 2 grid (who / practices / feedback / scale)
  * - integrations    Hub + tool badges panel
  * - shift-panels    3-column bordered shift-left / build / shift-right
  * - trigger-rows    Stacked title/desc rows on tint (triggers)
+ *                   Uses QI numbered-rows (AI Quality Intelligence left rail)
  *
  * @package TestRo
  */
@@ -27,6 +29,9 @@ $heading_id    = $id ? $id . '-heading' : '';
 $section_class = 'testro-prod-section testro-prod-cicd testro-prod-cicd--' . $variant;
 if ( ! empty( $args['tint'] ) ) {
 	$section_class .= ' testro-prod-cicd--tint';
+}
+if ( ! empty( $args['white'] ) ) {
+	$section_class .= ' testro-prod-cicd--white';
 }
 if ( ! empty( $args['hide_icons'] ) ) {
 	$section_class .= ' testro-prod-cicd--no-icons';
@@ -84,6 +89,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 				'template-parts/product/section-header',
 				null,
 				array(
+					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 					'title'         => isset( $args['title'] ) ? $args['title'] : '',
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
 					'heading_id'    => $heading_id,
@@ -91,19 +97,52 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 					'align'         => 'start',
 				)
 			);
+			$flow_style = isset( $args['flow_style'] ) ? (string) $args['flow_style'] : '';
 			?>
-			<ul class="testro-prod-cicd__stages">
-				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-cicd__stage" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
-						<span class="testro-prod-cicd__flow-step" aria-hidden="true"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
-						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-						<<?php echo $item_tag; ?> class="testro-prod-cicd__stage-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-						<?php if ( ! empty( $item['description'] ) ) : ?>
-							<p class="testro-prod-cicd__stage-desc"><?php echo esc_html( $item['description'] ); ?></p>
-						<?php endif; ?>
-					</li>
-				<?php endforeach; ?>
-			</ul>
+			<?php if ( 'home' === $flow_style ) : ?>
+				<?php
+				/* Same horizontal process flow as Home → How It Works. */
+				$flow_count = max( 1, count( $items ) );
+				?>
+				<div class="testro-process-flow">
+					<ol
+						class="testro-process-flow__track"
+						style="--process-count: <?php echo esc_attr( (string) $flow_count ); ?>"
+					>
+						<?php foreach ( $items as $index => $item ) : ?>
+							<?php
+							$num = isset( $item['stage'] ) ? (string) $item['stage'] : (string) ( $index + 1 );
+							if ( ctype_digit( $num ) ) {
+								$num = sprintf( '%02d', (int) $num );
+							}
+							?>
+							<li class="testro-process-flow__step" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+								<span class="testro-process-flow__num" aria-hidden="true"><?php echo esc_html( $num ); ?></span>
+								<div class="testro-process-flow__body">
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+									<<?php echo $item_tag; ?> class="testro-process-flow__title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+									<?php if ( ! empty( $item['description'] ) ) : ?>
+										<p class="testro-process-flow__desc"><?php echo esc_html( $item['description'] ); ?></p>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ol>
+				</div>
+			<?php else : ?>
+				<ul class="testro-prod-cicd__stages">
+					<?php foreach ( $items as $index => $item ) : ?>
+						<li class="testro-prod-cicd__stage" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+							<span class="testro-prod-cicd__flow-step" aria-hidden="true"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
+							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+							<<?php echo $item_tag; ?> class="testro-prod-cicd__stage-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+							<?php if ( ! empty( $item['description'] ) ) : ?>
+								<p class="testro-prod-cicd__stage-desc"><?php echo esc_html( $item['description'] ); ?></p>
+							<?php endif; ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
 
 		<?php elseif ( 'compare-table' === $variant ) : ?>
 			<?php
@@ -144,6 +183,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 				array(
 					'title'         => isset( $args['title'] ) ? $args['title'] : '',
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 					'heading_id'    => $heading_id,
 					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 					'align'         => $head_align,
@@ -179,9 +219,11 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 				'template-parts/product/section-header',
 				null,
 				array(
+					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 					'title'         => isset( $args['title'] ) ? $args['title'] : '',
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
 					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+					'header_style'  => isset( $args['header_style'] ) ? $args['header_style'] : '',
 					'heading_id'    => $heading_id,
 					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 					'align'         => 'start',
@@ -224,9 +266,11 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 				'template-parts/product/section-header',
 				null,
 				array(
+					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 					'title'         => isset( $args['title'] ) ? $args['title'] : '',
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
 					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+					'header_style'  => isset( $args['header_style'] ) ? $args['header_style'] : '',
 					'heading_id'    => $heading_id,
 					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 					'align'         => 'start',
@@ -258,18 +302,16 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 					'align'         => 'start',
 				)
 			);
+			/* Same left-rail numbered rows as AI-Powered Quality Intelligence. */
+			get_template_part(
+				'template-parts/product/numbered-rows',
+				null,
+				array(
+					'items'       => $items,
+					'heading_tag' => $item_tag,
+				)
+			);
 			?>
-			<ul class="testro-prod-cicd__triggers">
-				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-cicd__trigger-row" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
-						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-						<<?php echo $item_tag; ?> class="testro-prod-cicd__trigger-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-						<?php if ( ! empty( $item['description'] ) ) : ?>
-							<p class="testro-prod-cicd__trigger-desc"><?php echo esc_html( $item['description'] ); ?></p>
-						<?php endif; ?>
-					</li>
-				<?php endforeach; ?>
-			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
 				<p class="testro-prod-cicd__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>

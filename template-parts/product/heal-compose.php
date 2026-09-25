@@ -5,6 +5,7 @@
  * Variants:
  * - stability-timeline  Vertical numbered flow with connector (G9kzMV4BD)
  * - split-numbered      Media panel + numbered benefit rows (locator / diagnostics / enterprise)
+ *                       Optional list_style=numbered-rows for AI Quality Intelligence badges
  * - zigzag-timeline     Alternating L/R recovery timeline (J54n4VJGf)
  * - alt-media-rows      Alternating media/text cards (a5RjPu4_E)
  * - exec-flow           Horizontal numbered connector + stages (K4HbvYdhk)
@@ -79,26 +80,41 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 
 		<?php elseif ( 'split-numbered' === $variant ) : ?>
 			<?php /* Framer Validation Detail Layout: gap 56 — media 44% | numbered benefits. */ ?>
+			<?php $list_style = isset( $args['list_style'] ) ? (string) $args['list_style'] : ''; ?>
 			<div class="testro-prod-heal__split testro-prod-heal__split--media-<?php echo esc_attr( $media_side ); ?>" data-reveal>
 				<div class="testro-prod-heal__media" aria-hidden="true">
 					<span class="testro-prod-heal__media-frame">
 						<span class="testro-prod-heal__media-stripes"></span>
 					</span>
 				</div>
-				<ol class="testro-prod-heal__benefits">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-heal__benefit" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
-							<span class="testro-prod-heal__benefit-num" aria-hidden="true"><span><?php echo esc_html( (string) ( $index + 1 ) ); ?></span></span>
-							<div class="testro-prod-heal__benefit-copy">
-								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-								<<?php echo $item_tag; ?> class="testro-prod-heal__benefit-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-								<?php if ( ! empty( $item['description'] ) ) : ?>
-									<p class="testro-prod-heal__benefit-desc"><?php echo esc_html( $item['description'] ); ?></p>
-								<?php endif; ?>
-							</div>
-						</li>
-					<?php endforeach; ?>
-				</ol>
+				<?php if ( 'numbered-rows' === $list_style ) : ?>
+					<?php
+					/* Same numbered badge rows as AI Quality Intelligence. */
+					get_template_part(
+						'template-parts/product/numbered-rows',
+						null,
+						array(
+							'items'       => $items,
+							'heading_tag' => $item_tag,
+						)
+					);
+					?>
+				<?php else : ?>
+					<ol class="testro-prod-heal__benefits">
+						<?php foreach ( $items as $index => $item ) : ?>
+							<li class="testro-prod-heal__benefit" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+								<span class="testro-prod-heal__benefit-num" aria-hidden="true"><span><?php echo esc_html( (string) ( $index + 1 ) ); ?></span></span>
+								<div class="testro-prod-heal__benefit-copy">
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+									<<?php echo $item_tag; ?> class="testro-prod-heal__benefit-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+									<?php if ( ! empty( $item['description'] ) ) : ?>
+										<p class="testro-prod-heal__benefit-desc"><?php echo esc_html( $item['description'] ); ?></p>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ol>
+				<?php endif; ?>
 			</div>
 
 		<?php elseif ( 'zigzag-timeline' === $variant ) : ?>

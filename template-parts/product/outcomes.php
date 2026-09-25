@@ -162,6 +162,7 @@ $outro_bottom_text     = ! empty( $args['outro_bottom_text'] );
 						'heading_id'    => $heading_id,
 						'heading_level' => $section_heading_level,
 						'align'         => isset( $args['align'] ) ? $args['align'] : 'center',
+						'header_style'  => $header_style,
 					)
 				);
 				?>
@@ -172,7 +173,10 @@ $outro_bottom_text     = ! empty( $args['outro_bottom_text'] );
 					<?php foreach ( $items as $index => $item ) : ?>
 						<li class="testro-prod-outcomes__debug-row" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
 							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-							<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__debug-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_heading_tag; ?>>
+							<<?php echo $item_heading_tag; ?> class="testro-prod-outcomes__debug-title">
+								<span class="testro-prod-outcomes__debug-num" aria-hidden="true"><?php echo esc_html( (string) ( $index + 1 ) ); ?>.</span>
+								<?php echo esc_html( $item['title'] ); ?>
+							</<?php echo $item_heading_tag; ?>>
 							<?php if ( ! empty( $item['description'] ) ) : ?>
 								<p class="testro-prod-outcomes__debug-desc"><?php echo esc_html( $item['description'] ); ?></p>
 							<?php endif; ?>

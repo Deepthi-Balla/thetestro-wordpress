@@ -4,10 +4,15 @@
  *
  * Variants:
  * - feature-cards     Feature Card 2 grid
+ *                   Optional header_style=three-lines for Why theTestRo header
  * - process-flow      Horizontal 01–04 steps
+ *                   Optional flow_style=home for Home How It Works (.testro-process-flow)
  * - compare-table     3-column comparison (with checkmarks)
  * - capability-rows   Title | description rows (+ optional brand / outro)
  * - feature-split     List + striped media panel
+ *                   Optional list_style=numbered-rows for QI left-rail badges
+ *                   Optional list_style=plain-rows for QI title/desc type without badges
+ *                   Optional header_style=three-lines for Why theTestRo header
  *
  * @package TestRo
  */
@@ -58,10 +63,12 @@ $head_align = ! empty( $args['align_end'] ) ? 'start' : ( isset( $args['align'] 
 					'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 					'title'         => isset( $args['title'] ) ? $args['title'] : '',
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 					'heading_id'    => $heading_id,
 					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 					'align'         => $head_align,
 					'tone'          => ! empty( $args['brand'] ) ? 'dark' : 'light',
+					'header_style'  => isset( $args['header_style'] ) ? (string) $args['header_style'] : '',
 				)
 			);
 			$hide_icons = ! empty( $args['hide_icons'] );
@@ -88,7 +95,7 @@ $head_align = ! empty( $args['align_end'] ) ? 'start' : ( isset( $args['align'] 
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-pw__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-pw__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'process-flow' === $variant ) : ?>
@@ -104,19 +111,52 @@ $head_align = ! empty( $args['align_end'] ) ? 'start' : ( isset( $args['align'] 
 					'align'         => 'start',
 				)
 			);
+			$flow_style = isset( $args['flow_style'] ) ? (string) $args['flow_style'] : '';
 			?>
-			<ul class="testro-prod-pw__stages">
-				<?php foreach ( $items as $index => $item ) : ?>
-					<li class="testro-prod-pw__stage" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
-						<span class="testro-prod-pw__flow-step" aria-hidden="true"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
-						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-						<<?php echo $item_tag; ?> class="testro-prod-pw__stage-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-						<?php if ( ! empty( $item['description'] ) ) : ?>
-							<p class="testro-prod-pw__stage-desc"><?php echo esc_html( $item['description'] ); ?></p>
-						<?php endif; ?>
-					</li>
-				<?php endforeach; ?>
-			</ul>
+			<?php if ( 'home' === $flow_style ) : ?>
+				<?php
+				/* Same horizontal process flow as Home → How It Works. */
+				$flow_count = max( 1, count( $items ) );
+				?>
+				<div class="testro-process-flow">
+					<ol
+						class="testro-process-flow__track"
+						style="--process-count: <?php echo esc_attr( (string) $flow_count ); ?>"
+					>
+						<?php foreach ( $items as $index => $item ) : ?>
+							<?php
+							$num = isset( $item['stage'] ) ? (string) $item['stage'] : (string) ( $index + 1 );
+							if ( ctype_digit( $num ) ) {
+								$num = sprintf( '%02d', (int) $num );
+							}
+							?>
+							<li class="testro-process-flow__step" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+								<span class="testro-process-flow__num" aria-hidden="true"><?php echo esc_html( $num ); ?></span>
+								<div class="testro-process-flow__body">
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+									<<?php echo $item_tag; ?> class="testro-process-flow__title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+									<?php if ( ! empty( $item['description'] ) ) : ?>
+										<p class="testro-process-flow__desc"><?php echo esc_html( $item['description'] ); ?></p>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ol>
+				</div>
+			<?php else : ?>
+				<ul class="testro-prod-pw__stages">
+					<?php foreach ( $items as $index => $item ) : ?>
+						<li class="testro-prod-pw__stage" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 60 ) ); ?>ms">
+							<span class="testro-prod-pw__flow-step" aria-hidden="true"><?php echo esc_html( isset( $item['stage'] ) ? (string) $item['stage'] : sprintf( '%02d', $index + 1 ) ); ?></span>
+							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+							<<?php echo $item_tag; ?> class="testro-prod-pw__stage-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+							<?php if ( ! empty( $item['description'] ) ) : ?>
+								<p class="testro-prod-pw__stage-desc"><?php echo esc_html( $item['description'] ); ?></p>
+							<?php endif; ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
 
 		<?php elseif ( 'compare-table' === $variant ) : ?>
 			<?php
@@ -188,15 +228,18 @@ $head_align = ! empty( $args['align_end'] ) ? 'start' : ( isset( $args['align'] 
 		<?php elseif ( 'feature-split' === $variant ) : ?>
 			<?php
 			$media_left = ! empty( $args['media_side'] ) && 'left' === $args['media_side'];
+			$list_style = isset( $args['list_style'] ) ? (string) $args['list_style'] : '';
 			get_template_part(
 				'template-parts/product/section-header',
 				null,
 				array(
 					'title'         => isset( $args['title'] ) ? $args['title'] : '',
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
+					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
 					'heading_id'    => $heading_id,
 					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 					'align'         => 'start',
+					'header_style'  => isset( $args['header_style'] ) ? (string) $args['header_style'] : '',
 				)
 			);
 			?>
@@ -208,17 +251,32 @@ $head_align = ! empty( $args['align_end'] ) ? 'start' : ( isset( $args['align'] 
 						</span>
 					</div>
 				<?php endif; ?>
-				<ul class="testro-prod-pw__split-list">
-					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-prod-pw__split-item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
-							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-							<<?php echo $item_tag; ?> class="testro-prod-pw__split-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
-							<?php if ( ! empty( $item['description'] ) ) : ?>
-								<p class="testro-prod-pw__split-desc"><?php echo esc_html( $item['description'] ); ?></p>
-							<?php endif; ?>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+				<?php if ( 'numbered-rows' === $list_style || 'plain-rows' === $list_style ) : ?>
+					<?php
+					/* QI left-rail type — numbered badges optional. */
+					get_template_part(
+						'template-parts/product/numbered-rows',
+						null,
+						array(
+							'items'        => $items,
+							'heading_tag'  => $item_tag,
+							'show_numbers' => ( 'numbered-rows' === $list_style ),
+						)
+					);
+					?>
+				<?php else : ?>
+					<ul class="testro-prod-pw__split-list">
+						<?php foreach ( $items as $index => $item ) : ?>
+							<li class="testro-prod-pw__split-item" data-reveal style="--reveal-delay: <?php echo esc_attr( (string) ( $index * 50 ) ); ?>ms">
+								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
+								<<?php echo $item_tag; ?> class="testro-prod-pw__split-title"><?php echo esc_html( $item['title'] ); ?></<?php echo $item_tag; ?>>
+								<?php if ( ! empty( $item['description'] ) ) : ?>
+									<p class="testro-prod-pw__split-desc"><?php echo esc_html( $item['description'] ); ?></p>
+								<?php endif; ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
 				<?php if ( ! $media_left ) : ?>
 					<div class="testro-prod-pw__split-media" aria-hidden="true">
 						<span class="testro-prod-pw__media-frame">

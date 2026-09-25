@@ -46,7 +46,7 @@ $count         = count( $items );
 				<div class="testro-web-cicd__boxes">
 					<ul class="testro-web-cicd__cards">
 						<?php foreach ( $items as $index => $item ) : ?>
-							<li class="testro-web-cicd__card testro-card--top-line">
+							<li class="testro-web-cicd__card">
 								<span class="testro-web-cicd__tile" aria-hidden="true">
 									<?php
 									$icon = ! empty( $item['icon'] ) ? $item['icon'] : 'server';

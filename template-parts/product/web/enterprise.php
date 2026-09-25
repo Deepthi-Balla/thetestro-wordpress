@@ -40,7 +40,7 @@ $count      = count( $items );
 			<div class="testro-web-enterprise__grid-wrap">
 				<ul class="testro-web-enterprise__cards">
 					<?php foreach ( $items as $index => $item ) : ?>
-						<li class="testro-web-enterprise__card testro-card--top-line">
+						<li class="testro-web-enterprise__card">
 							<div class="testro-web-enterprise__card-header">
 								<span class="testro-web-enterprise__tile" aria-hidden="true">
 									<?php

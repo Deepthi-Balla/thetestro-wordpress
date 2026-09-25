@@ -92,7 +92,9 @@ function testro_body_classes( $classes ) {
 				$classes[] = 'testro-product-heal';
 			}
 			if ( ! empty( $product['slug'] ) && 'test-development' === $product['slug'] ) {
+				/* Test Development reuses RA compose chrome for Home How It Works flow. */
 				$classes[] = 'testro-product-td';
+				$classes[] = 'testro-product-ra';
 			}
 			if ( ! empty( $product['slug'] ) && 'test-execution' === $product['slug'] ) {
 				$classes[] = 'testro-product-te';

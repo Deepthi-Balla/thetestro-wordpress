@@ -40,7 +40,7 @@ $suite_uri  = get_template_directory_uri() . '/assets/images/web/analytics-suite
 				$image = isset( $item['image'] ) ? (string) $item['image'] : '';
 				$alt   = isset( $item['title'] ) ? (string) $item['title'] : '';
 				?>
-				<li class="testro-web-analytics__card<?php echo '' !== $image ? ' testro-web-analytics__card--has-image' : ''; ?> testro-card--top-line">
+				<li class="testro-web-analytics__card<?php echo '' !== $image ? ' testro-web-analytics__card--has-image' : ''; ?>">
 					<?php if ( '' !== $image ) : ?>
 						<span class="testro-web-analytics__visual testro-web-analytics__visual--image">
 							<img
