@@ -4659,13 +4659,14 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer k875JCgHM — brand feature-split + outro; three-lines header. */
+				/* Framer k875JCgHM — brand feature-split + outro; three-lines header; QI numbered rows. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'ai-root-cause-analysis',
 					'variant'       => 'feature-split',
 					'brand'         => true,
 					'header_style'  => 'three-lines',
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'AI Root Cause Analysis', 'testro' ),
 					'intro'         => __( 'Know Why in Seconds, Not Hours.', 'testro' ),
 					'intro_extra'   => __( 'Every test failure comes with real diagnostic evidence, generated on its own.', 'testro' ),
@@ -4745,7 +4746,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer j5DGppmwB — brand feature-cards (white cards on gradient). */
+				/* Framer j5DGppmwB — brand feature-cards (white cards on gradient); three-lines header. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'isolate-issues-by-environment',
@@ -4753,8 +4754,11 @@ function testro_get_product_pages() {
 					'brand'         => true,
 					'bordered'      => true,
 					'columns'       => 3,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Isolate Issues by Environment and Suite', 'testro' ),
-					'intro'         => __( 'Find Patterns, Not Just Single Failures.Most test reporting stops at pass or fail. The actual investigation gets left to a person.', 'testro' ),
+					'intro'         => __( 'Find Patterns, Not Just Single Failures.', 'testro' ),
+					'intro_extra'   => __( 'Most test reporting stops at pass or fail. The actual investigation gets left to a person.', 'testro' ),
+					'outro'         => __( 'Automated test execution only means something if it happens on environments that match what your users actually run.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -4834,7 +4838,7 @@ function testro_get_product_pages() {
 					'id'            => 'manual-investigation-vs-ai-test-analytics',
 					'variant'       => 'compare-table',
 					'brand'         => true,
-					'intro'         => __( 'Manual Investigation vs. AI Test Analytics', 'testro' ),
+					'title'         => __( 'Manual Investigation vs. AI Test Analytics', 'testro' ),
 					'intro'         => __( 'What Changes When Reports Explain Themselves', 'testro' ),
 					'heading_level' => 2,
 					'legacy_label'  => __( 'Manual Investigation', 'testro' ),
@@ -10914,13 +10918,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer JM0QmkP0K — #F1F8FD process-flow ×4; step-4 marker literally "03". */
+				/* Framer JM0QmkP0K — Home How It Works process-flow (cyan markers + navy→cyan connector); #F1F8FD; step-4 marker literally "03". */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'how-teams-get-started',
 					'variant'       => 'process-flow',
 					'tint'          => true,
-					'step_marker'   => 'navy',
+					'flow_style'    => 'home',
 					'title'         => __( 'How Teams Get Started', 'testro' ),
 					'intro'         => __( 'From sign-up to full coverage in four steps.', 'testro' ),
 					'heading_level' => 2,
