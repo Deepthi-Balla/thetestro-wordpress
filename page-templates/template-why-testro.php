@@ -145,7 +145,7 @@ $why_cta_actions = array(
 		)
 	);
 
-	/* Framer CwcalJw13 — 4-column Tool Comparison. */
+	/* Framer CwcalJw13 — Tool Comparison (Custom Frameworks | Other Tools). */
 	get_template_part(
 		'template-parts/product/comparison',
 		null,
@@ -156,64 +156,55 @@ $why_cta_actions = array(
 			'heading_level' => 2,
 			'align'         => 'start',
 			'text_only'     => true,
-			'first_label'   => __( 'Category', 'testro' ),
+			'first_label'   => '',
 			'legacy'        => array(
 				'label' => __( 'Custom Frameworks', 'testro' ),
 			),
 			'middle'        => array(
 				'label' => __( 'Other Tools', 'testro' ),
 			),
-			'modern'        => array(
-				'label' => __( 'theTestRo AI Test Automation Platform', 'testro' ),
-			),
+			'modern'        => array(),
 			'rows'          => array(
 				array(
 					'aspect' => __( 'Setup Time', 'testro' ),
 					'legacy' => __( 'High', 'testro' ),
 					'middle' => __( 'Minimal to Moderate', 'testro' ),
-					'modern' => __( 'Start Testing in Minutes', 'testro' ),
 				),
 				array(
 					'aspect' => __( 'Scripting Language', 'testro' ),
 					'legacy' => __( 'Java, Python, JavaScript, etc.', 'testro' ),
 					'middle' => __( 'Visual or Keyword', 'testro' ),
-					'modern' => __( 'Plain English', 'testro' ),
 				),
 				array(
 					'aspect' => __( 'Test Creation Effort', 'testro' ),
 					'legacy' => __( 'High', 'testro' ),
 					'middle' => __( 'Moderate', 'testro' ),
-					'modern' => __( 'Build Tests Fast, No Code Needed', 'testro' ),
 				),
 				array(
 					'aspect' => __( 'Maintenance', 'testro' ),
 					'legacy' => __( 'High', 'testro' ),
 					'middle' => __( 'Requires Updates', 'testro' ),
-					'modern' => __( 'Self-Healing, Updates on Its Own', 'testro' ),
 				),
 				array(
 					'aspect' => __( 'Cross-Browser Testing', 'testro' ),
 					'legacy' => __( 'Requires Setup', 'testro' ),
 					'middle' => __( 'Add-On Integration', 'testro' ),
-					'modern' => __( 'Built In From Day One', 'testro' ),
 				),
 				array(
 					'aspect' => __( 'Parallel Testing', 'testro' ),
 					'legacy' => __( 'Requires Setup', 'testro' ),
 					'middle' => __( 'Add-On Integration', 'testro' ),
-					'modern' => __( 'Built In From Day One', 'testro' ),
 				),
 				array(
 					'aspect' => __( 'Scalability', 'testro' ),
 					'legacy' => __( 'High Effort', 'testro' ),
 					'middle' => __( 'Low', 'testro' ),
-					'modern' => __( 'Scales With Your Team, No Extra Work', 'testro' ),
 				),
 			),
 		)
 	);
 
-	/* Framer zBWLD349I — exec-split; stages 01,02,03,03,03,03 (Framer quirk preserved). */
+	/* Framer zBWLD349I — exec-split; QI numbered rows (AI Quality Intelligence left rail). */
 	get_template_part(
 		'template-parts/product/bf-compose',
 		null,
@@ -221,6 +212,7 @@ $why_cta_actions = array(
 			'id'            => 'real-savings',
 			'variant'       => 'exec-split',
 			'tint'          => true,
+			'steps_style'   => 'numbered-rows',
 			'title'         => __( 'Where the Real Savings Show Up', 'testro' ),
 			'intro'         => __( 'Faster and Cheaper, Not Just One or the Other', 'testro' ),
 			'heading_level' => 2,

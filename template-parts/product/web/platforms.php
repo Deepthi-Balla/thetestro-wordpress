@@ -73,7 +73,7 @@ $heading_id = $id . '-heading';
 			<?php if ( $frameworks || $conditions || ! empty( $args['outro'] ) ) : ?>
 				<div class="testro-web-platforms__explainer">
 					<?php if ( ! empty( $args['outro'] ) ) : ?>
-						<p class="testro-web-platforms__outro"><?php echo esc_html( (string) $args['outro'] ); ?></p>
+						<p class="testro-web-platforms__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>"><?php echo esc_html( (string) $args['outro'] ); ?></p>
 					<?php endif; ?>
 
 					<div class="testro-web-platforms__diagram" aria-hidden="true">

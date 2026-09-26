@@ -17,10 +17,17 @@ $args   = isset( $args ) && is_array( $args ) ? $args : array();
 $rows   = isset( $args['rows'] ) && is_array( $args['rows'] ) ? $args['rows'] : array();
 $legacy    = isset( $args['legacy'] ) && is_array( $args['legacy'] ) ? $args['legacy'] : array();
 $middle    = isset( $args['middle'] ) && is_array( $args['middle'] ) ? $args['middle'] : array();
-$modern    = isset( $args['modern'] ) && is_array( $args['modern'] ) ? $args['modern'] : array();
+/*
+ * modern omitted → show with defaults (existing pages).
+ * modern => [] / false → hide the modern column.
+ */
+$has_modern_arg = array_key_exists( 'modern', $args );
+$modern         = ( $has_modern_arg && is_array( $args['modern'] ) ) ? $args['modern'] : array();
+$has_modern     = ! $has_modern_arg || (bool) $modern;
 $text_only = ! empty( $args['text_only'] );
 $two_column = ! empty( $args['two_column'] );
-$first_label = isset( $args['first_label'] ) ? (string) $args['first_label'] : '';
+$first_label_set = array_key_exists( 'first_label', $args );
+$first_label     = $first_label_set ? (string) $args['first_label'] : '';
 $layout    = isset( $args['layout'] ) ? (string) $args['layout'] : '';
 $is_framer_pair = ( 'framer-pair' === $layout );
 $id        = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
@@ -116,12 +123,14 @@ $is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true 
 				<table>
 					<thead>
 						<tr>
-							<th scope="col"><?php echo esc_html( '' !== $first_label ? $first_label : __( 'Category', 'testro' ) ); ?></th>
+							<th scope="col"><?php echo esc_html( $first_label_set ? $first_label : __( 'Category', 'testro' ) ); ?></th>
 							<th scope="col"><?php echo esc_html( $legacy_label ); ?></th>
 							<?php if ( $has_middle ) : ?>
 								<th scope="col"><?php echo esc_html( $middle_label ); ?></th>
 							<?php endif; ?>
-							<th scope="col" class="testro-prod-compare__tm-modern"><?php echo esc_html( $modern_label ); ?></th>
+							<?php if ( $has_modern ) : ?>
+								<th scope="col" class="testro-prod-compare__tm-modern"><?php echo esc_html( $modern_label ); ?></th>
+							<?php endif; ?>
 						</tr>
 					</thead>
 					<tbody>
@@ -132,7 +141,9 @@ $is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true 
 								<?php if ( $has_middle ) : ?>
 									<td><?php echo esc_html( isset( $row['middle'] ) ? $row['middle'] : '' ); ?></td>
 								<?php endif; ?>
-								<td class="testro-prod-compare__tm-modern"><?php echo esc_html( isset( $row['modern'] ) ? $row['modern'] : '' ); ?></td>
+								<?php if ( $has_modern ) : ?>
+									<td class="testro-prod-compare__tm-modern"><?php echo esc_html( isset( $row['modern'] ) ? $row['modern'] : '' ); ?></td>
+								<?php endif; ?>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>
@@ -204,6 +215,7 @@ $is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true 
 				</div>
 				<?php endif; ?>
 
+				<?php if ( $has_modern ) : ?>
 				<div class="testro-prod-compare__head-cell testro-prod-compare__head-cell--modern">
 					<span class="testro-prod-compare__head-icon">
 						<?php echo testro_icon( 'sparkles', array( 'size' => 16 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -215,6 +227,7 @@ $is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true 
 						<?php endif; ?>
 					</span>
 				</div>
+				<?php endif; ?>
 			</div>
 
 			<ul class="testro-prod-compare__rows">
@@ -255,6 +268,7 @@ $is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true 
 						</div>
 						<?php endif; ?>
 
+						<?php if ( $has_modern ) : ?>
 						<div class="testro-prod-compare__cell testro-prod-compare__cell--modern">
 							<span class="testro-prod-compare__cell-label"><?php echo esc_html( $modern_label ); ?></span>
 							<?php if ( ! $text_only ) : ?>
@@ -262,8 +276,9 @@ $is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true 
 								<?php echo testro_icon( $modern_mark['icon'], array( 'size' => 14 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
 							</span>
 							<?php endif; ?>
-							<p class="testro-prod-compare__text"><?php echo esc_html( $row['modern'] ); ?></p>
+							<p class="testro-prod-compare__text"><?php echo esc_html( isset( $row['modern'] ) ? $row['modern'] : '' ); ?></p>
 						</div>
+						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -272,7 +287,7 @@ $is_tm_table = in_array( $variant, array( 'tm-gradient', 'why-gradient' ), true 
 		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>
-			<p class="testro-prod-head__intro testro-prod-compare__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<p class="testro-prod-head__intro testro-prod-compare__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>

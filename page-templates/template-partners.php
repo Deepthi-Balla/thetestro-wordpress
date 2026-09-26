@@ -128,7 +128,7 @@ $partner_actions = array(
 		)
 	);
 
-	/* Framer ub0iRos3M — Why Partners Choose · exec-split stages 01–04. */
+	/* Framer ub0iRos3M — Why Partners Choose · exec-split; QI numbered rows (AI Quality Intelligence left rail). */
 	get_template_part(
 		'template-parts/product/bf-compose',
 		null,
@@ -136,6 +136,7 @@ $partner_actions = array(
 			'id'            => 'why-partners-choose',
 			'variant'       => 'exec-split',
 			'white'         => true,
+			'steps_style'   => 'numbered-rows',
 			'title'         => __( 'Why Partners Choose theTestRo', 'testro' ),
 			'intro'         => __( 'Real Outcomes, Not Just Feature Checklists', 'testro' ),
 			'heading_level' => 2,
@@ -178,7 +179,7 @@ $partner_actions = array(
 					'intro_extra'   => __( "theTestRo works with implementation firms, resellers, and system integrators across the industry, from focused boutique QA consultancies to large enterprise service providers. Whatever size your business is, there's a partnership model that fits.", 'testro' ),
 					'heading_id'    => 'partner-network-heading',
 					'heading_level' => 2,
-					'align'         => 'center',
+					'header_style'  => 'three-lines',
 				)
 			);
 			?>

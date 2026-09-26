@@ -1,6 +1,7 @@
 <?php
 /**
- * Final CTA band — reuses product CTA template.
+ * Final CTA band — Framer LLSoPcZQL (homepage Final CTA).
+ * Shared brand CTA template; do not restyle per page.
  *
  * @package TestRo
  */
@@ -18,14 +19,17 @@ get_template_part(
 		'variant'       => 'brand',
 		'actions'       => array(
 			array(
-				'label' => __( 'Book a Demo', 'testro' ),
-				'style' => 'secondary',
-				'modal' => 'demo-modal',
+				'label'      => __( 'Book a Demo', 'testro' ),
+				'style'      => 'secondary',
+				'modal'      => 'demo-modal',
+				'with_arrow' => false,
 			),
 			array(
-				'label' => __( 'Start Free Trial', 'testro' ),
-				'style' => 'primary',
-				'modal' => 'demo-modal',
+				'label'           => __( 'Start Free Trial', 'testro' ),
+				'style'           => 'primary',
+				'modal'           => 'demo-modal',
+				'with_arrow'      => false,
+				'allow_on_footer' => true,
 			),
 		),
 	)

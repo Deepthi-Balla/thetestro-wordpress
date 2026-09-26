@@ -110,10 +110,7 @@ if ( $is_timeline_cards ) {
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>
 			<?php
-			$pipeline_outro_classes = 'testro-prod-head__intro testro-prod-pipeline__outro';
-			if ( ! empty( $args['outro_bottom_text'] ) ) {
-				$pipeline_outro_classes .= ' ' . testro_bottom_text_class( 'dark' === $tone );
-			}
+			$pipeline_outro_classes = 'testro-prod-head__intro testro-prod-pipeline__outro ' . testro_bottom_text_class( 'dark' === $tone );
 			?>
 			<p class="<?php echo esc_attr( $pipeline_outro_classes ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>

@@ -97,7 +97,7 @@ $section_class = 'testro-prod-section testro-prod-arch' . ( $is_grid ? ' testro-
 		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>
-			<p class="testro-prod-head__intro testro-prod-arch__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<p class="testro-prod-head__intro testro-prod-arch__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>

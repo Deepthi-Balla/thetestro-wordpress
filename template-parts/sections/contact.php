@@ -15,6 +15,8 @@
  * - section_id      (string)  Wrapper id (default: contact-form).
  * - show_highlights (bool)    Show split-layout highlight list. Default true.
  * - show_consent    (bool)    Show privacy consent line. Default false.
+ * - eyebrow         (string)  Optional three-lines label (brief layout).
+ * - header_style    (string)  Optional 'three-lines' for brief layout header.
  *
  * @package TestRo
  */
@@ -25,6 +27,8 @@ $layout         = in_array( $layout_raw, array( 'split', 'brief' ), true ) ? $la
 $title          = isset( $args['title'] ) ? (string) $args['title'] : __( "Talk to Us — We're Ready", 'testro' );
 $supporting     = isset( $args['supporting'] ) ? (string) $args['supporting'] : '';
 $description    = isset( $args['description'] ) ? (string) $args['description'] : __( "Tell us what you need and we'll show you how we can help. Start the conversation today.", 'testro' );
+$eyebrow        = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
+$header_style   = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
 $submit_label   = isset( $args['submit_label'] ) ? (string) $args['submit_label'] : __( 'Send Us a Message', 'testro' );
 $show_phone     = ! empty( $args['show_phone'] );
 $show_subject   = ! empty( $args['show_subject'] );
@@ -35,6 +39,7 @@ $show_consent   = ! empty( $args['show_consent'] );
 $show_eyebrow   = array_key_exists( 'show_eyebrow', $args ) ? (bool) $args['show_eyebrow'] : true;
 $is_split       = in_array( $layout, array( 'split', 'brief' ), true );
 $is_brief       = 'brief' === $layout;
+$use_three_lines = $is_brief && 'three-lines' === $header_style;
 
 $inquiry_types = array(
 	''             => __( 'Select an inquiry type', 'testro' ),
@@ -62,20 +67,37 @@ if ( $is_brief ) {
 		<div class="testro-contact__inner<?php echo $is_split ? ' testro-contact__inner--split' : ''; ?><?php echo $is_brief ? ' testro-contact__inner--brief' : ''; ?>">
 			<?php if ( $is_brief ) : ?>
 				<?php /* Framer HUsfsRFdk: left brief (title + intro) · right form. */ ?>
-				<div class="testro-contact__intro" data-reveal>
-					<header class="testro-contact__header">
-						<?php if ( $show_eyebrow ) : ?>
-							<h2 id="contact-heading" class="testro-contact__heading"><?php esc_html_e( 'Contact Us', 'testro' ); ?></h2>
-							<p class="testro-contact__supporting"><?php echo esc_html( $title ); ?></p>
-						<?php else : ?>
-							<h2 id="contact-heading" class="testro-contact__heading"><?php echo esc_html( $title ); ?></h2>
+				<div class="testro-contact__intro">
+					<?php if ( $use_three_lines ) : ?>
+						<?php
+						get_template_part(
+							'template-parts/product/section-header',
+							null,
+							array(
+								'eyebrow'       => $eyebrow,
+								'title'         => $title,
+								'intro'         => $description,
+								'heading_id'    => 'contact-heading',
+								'heading_level' => 2,
+								'header_style'  => 'three-lines',
+							)
+						);
+						?>
+					<?php else : ?>
+						<header class="testro-contact__header" data-reveal>
+							<?php if ( $show_eyebrow ) : ?>
+								<h2 id="contact-heading" class="testro-contact__heading"><?php echo esc_html( '' !== $eyebrow ? $eyebrow : __( 'Contact Us', 'testro' ) ); ?></h2>
+								<p class="testro-contact__supporting"><?php echo esc_html( $title ); ?></p>
+							<?php else : ?>
+								<h2 id="contact-heading" class="testro-contact__heading"><?php echo esc_html( $title ); ?></h2>
+							<?php endif; ?>
+							<?php if ( '' !== $supporting ) : ?>
+								<p class="testro-contact__supporting"><?php echo esc_html( $supporting ); ?></p>
+							<?php endif; ?>
+						</header>
+						<?php if ( '' !== $description ) : ?>
+							<p class="testro-contact__desc" data-reveal><?php echo esc_html( $description ); ?></p>
 						<?php endif; ?>
-						<?php if ( '' !== $supporting ) : ?>
-							<p class="testro-contact__supporting"><?php echo esc_html( $supporting ); ?></p>
-						<?php endif; ?>
-					</header>
-					<?php if ( '' !== $description ) : ?>
-						<p class="testro-contact__desc"><?php echo esc_html( $description ); ?></p>
 					<?php endif; ?>
 				</div>
 			<?php elseif ( $is_split ) : ?>

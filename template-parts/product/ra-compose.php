@@ -7,9 +7,11 @@
  * - process-flow    Horizontal 01–04 steps (navy or cyan markers)
  *                   Optional flow_style=home for Home How It Works (.testro-process-flow)
  *                   Optional header_style=three-lines for Why theTestRo header
+ *                   Optional header_style=faq-label for FAQ small cyan mono label
  * - feature-split   List + striped media right (brand / tint / white)
  *                   Optional list_style=numbered-rows for AI Quality Intelligence badges
  *                   Optional header_style=three-lines for Why theTestRo header
+ *                   Optional header_style=faq-label for FAQ small cyan mono label
  * - overview        3 stakeholder cards with icon tiles + hatched media
  * - compare-table   Category | Manual | theTestRo (no checkmarks)
  *
@@ -228,7 +230,6 @@ $is_brand   = ! empty( $args['brand'] );
 			$item_checks    = ! empty( $args['item_checks'] );
 			$header_in_rail = ! empty( $args['header_in_rail'] );
 			$header_style   = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
-			$use_three      = ( 'three-lines' === $header_style );
 			$header_args    = array(
 				'eyebrow'       => isset( $args['eyebrow'] ) ? $args['eyebrow'] : '',
 				'title'         => isset( $args['title'] ) ? $args['title'] : '',
@@ -239,66 +240,16 @@ $is_brand   = ! empty( $args['brand'] );
 				'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 				'align'         => 'start',
 				'tone'          => $is_brand ? 'dark' : 'light',
+				'header_style'  => $header_style,
 			);
-			/*
-			 * Same three-line header as Home → Why theTestRo.
-			 * With eyebrow: eyebrow / title / intro.
-			 * Without: title / intro / intro_extra.
-			 */
-			$line_heading = '';
-			$line_two     = '';
-			$line_three   = '';
-			$three_tag    = 'h2';
-			if ( $use_three ) {
-				$line_heading = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
-				$line_two     = isset( $args['title'] ) ? (string) $args['title'] : '';
-				$line_three   = isset( $args['intro'] ) ? (string) $args['intro'] : '';
-				if ( '' === $line_heading ) {
-					$line_heading = $line_two;
-					$line_two     = $line_three;
-					$line_three   = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
-				}
-				$three_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
-				$three_tag   = 'h' . $three_level;
-			}
 			?>
 			<?php if ( ! $header_in_rail ) : ?>
-				<?php if ( $use_three ) : ?>
-					<header class="testro-section-header testro-section-header--three-lines testro-why__header" data-reveal>
-						<?php if ( '' !== $line_heading ) : ?>
-							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-							<<?php echo $three_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $three_tag; ?>>
-						<?php endif; ?>
-						<?php if ( '' !== $line_two ) : ?>
-							<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
-						<?php endif; ?>
-						<?php if ( '' !== $line_three ) : ?>
-							<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
-						<?php endif; ?>
-					</header>
-				<?php else : ?>
-					<?php get_template_part( 'template-parts/product/section-header', null, $header_args ); ?>
-				<?php endif; ?>
+				<?php get_template_part( 'template-parts/product/section-header', null, $header_args ); ?>
 			<?php endif; ?>
 			<div class="testro-prod-ra__split testro-prod-ra__split--media-<?php echo esc_attr( $media_side ); ?><?php echo $hide_media ? ' testro-prod-ra__split--no-media' : ''; ?><?php echo $header_in_rail ? ' testro-prod-ra__split--rail-header' : ''; ?>" data-reveal>
 				<div class="testro-prod-ra__split-rail">
 					<?php if ( $header_in_rail ) : ?>
-						<?php if ( $use_three ) : ?>
-							<header class="testro-section-header testro-section-header--three-lines testro-why__header" data-reveal>
-								<?php if ( '' !== $line_heading ) : ?>
-									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- tag from numeric arg. ?>
-									<<?php echo $three_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings testro-why__heading"><?php echo esc_html( testro_section_label_title( $line_heading ) ); ?></<?php echo $three_tag; ?>>
-								<?php endif; ?>
-								<?php if ( '' !== $line_two ) : ?>
-									<p class="sub-text testro-why__intro"><?php echo esc_html( $line_two ); ?></p>
-								<?php endif; ?>
-								<?php if ( '' !== $line_three ) : ?>
-									<p class="sub-text testro-why__intro"><?php echo esc_html( $line_three ); ?></p>
-								<?php endif; ?>
-							</header>
-						<?php else : ?>
-							<?php get_template_part( 'template-parts/product/section-header', null, $header_args ); ?>
-						<?php endif; ?>
+						<?php get_template_part( 'template-parts/product/section-header', null, $header_args ); ?>
 					<?php endif; ?>
 					<?php if ( ! empty( $args['list_label'] ) ) : ?>
 						<p class="testro-prod-ra__split-label"><?php echo esc_html( (string) $args['list_label'] ); ?></p>

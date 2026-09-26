@@ -1,10 +1,16 @@
 <?php
 /**
- * Product page closing CTA band.
+ * Product page closing CTA band — Framer Final CTA (LLSoPcZQL).
  *
  * Expected $args: id, title, intro, body (string, optional second paragraph),
  * note (string), actions (array[]), assurances (string[]), heading_level (int),
  * variant ('default'|'brand').
+ *
+ * Brand variant maps Framer Final CTA:
+ *   title → eyebrow, intro → heading, body → supporting copy, note → trial line.
+ *
+ * Styles live only on .testro-prod-cta / .testro-prod-cta--brand — do not
+ * restyle from page shells or product scopes.
  *
  * @package TestRo
  */
@@ -30,11 +36,11 @@ if ( '' === $title && '' === $intro ) {
 	return;
 }
 
-$heading_id   = $id ? $id . '-heading' : 'product-cta-heading';
+$heading_id    = $id ? $id . '-heading' : 'product-cta-heading';
 $section_class = 'testro-prod-cta' . ( $is_brand ? ' testro-prod-cta--brand' : '' );
 
-/* Brand variant: title = eyebrow, intro = primary heading (Framer Final CTA). */
-$eyebrow_text  = $is_brand ? $title : '';
+/* Brand: title=eyebrow, intro=primary heading. Default: title=heading, intro=lead. */
+$eyebrow_text = $is_brand ? $title : '';
 $heading_text = $is_brand ? ( '' !== $intro ? $intro : $title ) : $title;
 $lead_text    = $is_brand ? $body : $intro;
 $second_text  = $is_brand ? $body_extra : $body;
@@ -50,17 +56,13 @@ $second_text  = $is_brand ? $body_extra : $body;
 
 			<div class="testro-prod-cta__body">
 				<?php if ( '' !== $eyebrow_text ) : ?>
-					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
-					<<?php echo $heading_tag; ?> id="<?php echo esc_attr( $heading_id ); ?>" class="testro-prod-cta__title main-headings">
-						<?php echo esc_html( testro_section_label_title( $eyebrow_text ) ); ?>
-					</<?php echo $heading_tag; ?>>
-					<p class="testro-prod-cta__intro"><?php echo esc_html( $heading_text ); ?></p>
-				<?php else : ?>
-					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
-					<<?php echo $heading_tag; ?> id="<?php echo esc_attr( $heading_id ); ?>" class="testro-prod-cta__title main-headings">
-						<?php echo esc_html( $heading_text ); ?>
-					</<?php echo $heading_tag; ?>>
+					<p class="testro-prod-cta__eyebrow"><?php echo esc_html( $eyebrow_text ); ?></p>
 				<?php endif; ?>
+
+				<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
+				<<?php echo $heading_tag; ?> id="<?php echo esc_attr( $heading_id ); ?>" class="testro-prod-cta__title">
+					<?php echo esc_html( $heading_text ); ?>
+				</<?php echo $heading_tag; ?>>
 
 				<?php if ( '' !== $lead_text ) : ?>
 					<p class="testro-prod-cta__intro"><?php echo esc_html( $lead_text ); ?></p>
@@ -80,8 +82,8 @@ $second_text  = $is_brand ? $body_extra : $body;
 					null,
 					array(
 						'actions' => $actions,
-						'tone'    => $is_brand ? 'dark' : 'dark',
-						'align'   => $is_brand ? 'center' : 'center',
+						'tone'    => 'dark',
+						'align'   => 'center',
 					)
 				);
 				?>

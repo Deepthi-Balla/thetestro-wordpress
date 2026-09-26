@@ -238,7 +238,7 @@ $section_heading_tag   = 'h' . $section_heading_level;
 			<?php endif; ?>
 
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-head__intro testro-prod-features__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-head__intro testro-prod-features__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 			<?php endif; ?>
 		<?php endif; ?>

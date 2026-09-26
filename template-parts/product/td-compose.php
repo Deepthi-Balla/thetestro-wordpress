@@ -4,19 +4,26 @@
  *
  * Variants:
  * - proof-split     Left copy + DevOps timeline (pYO4jfzAN)
+ *                   Framer: pad 96/80, row gap 48, cols 64
  *                   Optional header_style=three-lines for Why theTestRo header
  *                   Optional outro_align=end for shared bottom-text supporting line
  * - nl-split        Chat demo panel + numbered capabilities (p5fDSvGbK)
+ *                   Framer: pad 96/80, row gap 48, cols 64
  *                   Optional list_style=numbered-rows for AI Quality Intelligence badges
  *                   Optional outro_align=end for shared bottom-text supporting line
  * - process-flow    Horizontal 01–04 steps on navy→cyan (jKIau9ekT)
+ *                   Framer: pad 96/80, gap 64
  * - role-rows       Pill role label + title/desc rule rows (yifVABAd4)
+ *                   Framer: pad 96/80, header→rows 24
  *                   Optional list_style=numbered-rows for AI Quality Intelligence badges
  * - feature-split   Alternating media | feature list (afm6…MGaZaREz3)
+ *                   Framer: pad 96/80, cols 64, feature gap 20
  *                   Optional list_style=numbered-rows for AI Quality Intelligence badges
  *                   Optional list_style=plain-rows for QI title/desc type without badges
  * - platform-band   Three dash-list columns on gradient (eMaQR9czK)
+ *                   Framer: pad 96/80, gap 64; header_style=faq-label (mono label)
  * - integrations    Left copy + gradient tool pills (uH0gRXAZL)
+ *                   Framer: pad 96/80, gap 64
  *                   Optional header_style=three-lines for Why theTestRo header
  *
  * @package TestRo
@@ -52,7 +59,7 @@ $bubbles    = isset( $args['bubbles'] ) && is_array( $args['bubbles'] ) ? $args[
 >
 	<div class="testro-container">
 		<?php if ( 'proof-split' === $variant ) : ?>
-			<?php /* Framer Built Before You Finish — gap 96; right = DevOps timeline. */ ?>
+			<?php /* Framer Built Before You Finish — pad 96, cols 64, outro gap 48. */ ?>
 			<?php
 			$header_style = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
 			$use_three    = ( 'three-lines' === $header_style );
@@ -141,7 +148,7 @@ $bubbles    = isset( $args['bubbles'] ) && is_array( $args['bubbles'] ) ? $args[
 			<?php endif; ?>
 
 		<?php elseif ( 'nl-split' === $variant ) : ?>
-			<?php /* Framer Natural Language — chat demo | copy, tint #F1F8FD, gap 96. */ ?>
+			<?php /* Framer Natural Language — chat demo | copy, tint #F1F8FD, pad 96, cols 64. */ ?>
 			<?php
 			$has_bubbles = false;
 			foreach ( $bubbles as $bubble_check ) {
@@ -226,7 +233,7 @@ $bubbles    = isset( $args['bubbles'] ) && is_array( $args['bubbles'] ) ? $args[
 			<?php endif; ?>
 
 		<?php elseif ( 'process-flow' === $variant ) : ?>
-			<?php /* Framer From Idea — pad 72/80, gap 36, cyan markers + connector. */ ?>
+			<?php /* Framer From Idea — pad 96/80, gap 64, cyan markers + connector. */ ?>
 			<?php
 			get_template_part(
 				'template-parts/product/section-header',
@@ -299,9 +306,11 @@ $bubbles    = isset( $args['bubbles'] ) && is_array( $args['bubbles'] ) ? $args[
 			<?php endif; ?>
 
 		<?php elseif ( 'feature-split' === $variant ) : ?>
-			<?php /* Framer zigzag feature rows — gap 96, pad 88/80, striped media. */ ?>
+			<?php /* Framer zigzag feature rows — pad 96/80, cols 64, striped media. */ ?>
 			<?php
-			$list_style = isset( $args['list_style'] ) ? (string) $args['list_style'] : '';
+			$list_style   = isset( $args['list_style'] ) ? (string) $args['list_style'] : '';
+			$outro_end    = ! empty( $args['outro_align'] ) && 'end' === $args['outro_align'];
+			$outro_italic = ! empty( $args['outro_italic'] );
 			?>
 			<div class="testro-prod-td__feature testro-prod-td__feature--media-<?php echo esc_attr( $media_side ); ?>" data-reveal>
 				<div class="testro-prod-td__feature-media" aria-hidden="true">
@@ -350,14 +359,24 @@ $bubbles    = isset( $args['bubbles'] ) && is_array( $args['bubbles'] ) ? $args[
 							<?php endforeach; ?>
 						</ul>
 					<?php endif; ?>
-					<?php if ( ! empty( $args['outro'] ) ) : ?>
+					<?php if ( ! empty( $args['outro'] ) && ! $outro_end ) : ?>
 						<p class="testro-prod-td__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>
+			<?php if ( ! empty( $args['outro'] ) && $outro_end ) : ?>
+				<?php
+				$outro_classes = 'testro-prod-td__outro testro-prod-td__outro--end';
+				if ( $outro_italic ) {
+					$outro_classes .= ' testro-prod-td__outro--italic';
+				}
+				$outro_classes .= ' ' . testro_bottom_text_class( 'dark' === $tone );
+				?>
+				<p class="<?php echo esc_attr( $outro_classes ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<?php endif; ?>
 
 		<?php elseif ( 'platform-band' === $variant ) : ?>
-			<?php /* Framer Workflow Overview — pad 48/56/72, gap 64, 3 columns. */ ?>
+			<?php /* Framer Workflow Overview — faq-label header, pad 96/80, gap 64, 3 columns. */ ?>
 			<?php
 			get_template_part(
 				'template-parts/product/section-header',
@@ -368,6 +387,7 @@ $bubbles    = isset( $args['bubbles'] ) && is_array( $args['bubbles'] ) ? $args[
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
 					'heading_id'    => $heading_id,
 					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
+					'header_style'  => isset( $args['header_style'] ) ? (string) $args['header_style'] : 'faq-label',
 					'tone'          => 'dark',
 					'align'         => 'start',
 				)

@@ -118,7 +118,7 @@ $use_three     = ( 'three-lines' === $header_style );
 				</div>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-tm__what-outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-tm__what-outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'agents-flow' === $variant ) : ?>
@@ -146,8 +146,8 @@ $use_three     = ( 'three-lines' === $header_style );
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<div class="testro-prod-tm__outro-wrap testro-prod-tm__outro-wrap--start">
-					<p class="testro-prod-tm__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<div class="testro-prod-tm__outro-wrap testro-prod-tm__outro-wrap--end">
+					<p class="testro-prod-tm__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 				</div>
 			<?php endif; ?>
 

@@ -101,7 +101,7 @@ $heading_id = $id ? $id . '-heading' : '';
 				<?php /* Framer Coverage Explainer: copy 440 LEFT, diagram 480 RIGHT, gap 72, pad-top 34. */ ?>
 				<div class="testro-prod-platforms__explainer" data-reveal>
 					<?php if ( ! empty( $args['outro'] ) ) : ?>
-						<p class="testro-prod-platforms__outro"><?php echo esc_html( (string) $args['outro'] ); ?></p>
+						<p class="testro-prod-platforms__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>"><?php echo esc_html( (string) $args['outro'] ); ?></p>
 					<?php endif; ?>
 
 					<div class="testro-prod-platforms__diagram" aria-hidden="true">

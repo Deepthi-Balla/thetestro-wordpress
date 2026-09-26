@@ -51,7 +51,6 @@ $intro                 = isset( $args['intro'] ) ? (string) $args['intro'] : '';
 $intro_extra           = isset( $args['intro_extra'] ) ? (string) $args['intro_extra'] : '';
 $header_style          = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
 $is_why_header         = ( 'why' === $header_style );
-$outro_bottom_text     = ! empty( $args['outro_bottom_text'] );
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -406,10 +405,7 @@ $outro_bottom_text     = ! empty( $args['outro_bottom_text'] );
 
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
 				<?php
-				$outro_classes = 'testro-prod-head__intro testro-prod-outcomes__outro';
-				if ( $outro_bottom_text ) {
-					$outro_classes .= ' ' . testro_bottom_text_class();
-				}
+				$outro_classes = 'testro-prod-head__intro testro-prod-outcomes__outro ' . testro_bottom_text_class();
 				?>
 				<p class="<?php echo esc_attr( $outro_classes ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>

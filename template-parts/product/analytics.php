@@ -306,10 +306,7 @@ if ( $is_framer ) {
 
 		<?php if ( ! empty( $args['outro'] ) ) : ?>
 			<?php
-			$analytics_outro_classes = 'testro-prod-head__intro testro-prod-analytics__outro';
-			if ( ! empty( $args['outro_bottom_text'] ) ) {
-				$analytics_outro_classes .= ' ' . testro_bottom_text_class();
-			}
+			$analytics_outro_classes = 'testro-prod-head__intro testro-prod-analytics__outro ' . testro_bottom_text_class();
 			?>
 			<p class="<?php echo esc_attr( $analytics_outro_classes ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>

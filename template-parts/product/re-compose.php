@@ -54,6 +54,7 @@ $item_tag   = 'h' . $item_level;
 $columns    = isset( $args['columns'] ) ? max( 1, (int) $args['columns'] ) : count( $items );
 $card_fill  = isset( $args['card_fill'] ) ? sanitize_html_class( (string) $args['card_fill'] ) : '';
 $heading_lv = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;
+$is_brand   = ! empty( $args['brand'] );
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -98,7 +99,7 @@ $heading_lv = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['hea
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-bf__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-bf__outro <?php echo esc_attr( testro_bottom_text_class( $is_brand ) ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'exec-split' === $variant ) : ?>
@@ -294,7 +295,7 @@ $heading_lv = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['hea
 				</div>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-re__coverage-outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-re__coverage-outro <?php echo esc_attr( testro_bottom_text_class( $is_brand ) ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'compare-table' === $variant ) : ?>
@@ -341,7 +342,7 @@ $heading_lv = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['hea
 				<?php endforeach; ?>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-re__compare-outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-re__compare-outro <?php echo esc_attr( testro_bottom_text_class( $is_brand ) ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 		<?php endif; ?>
 	</div>

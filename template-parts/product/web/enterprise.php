@@ -67,7 +67,7 @@ $count      = count( $items );
 			</div>
 
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-web-enterprise__outro"><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-web-enterprise__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>"><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 		</div>
 	</div>

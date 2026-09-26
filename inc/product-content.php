@@ -2701,14 +2701,15 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer K4HbvYdhk — horizontal exec flow; labels + intro + closing note visible:false. */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector). */
 				array(
-					'type'          => 'heal-compose',
+					'type'          => 'ra-compose',
 					'id'            => 'intelligent-execution-engine',
-					'variant'       => 'exec-flow',
+					'variant'       => 'process-flow',
+					'white'         => true,
+					'flow_style'    => 'home',
 					'title'         => __( 'Intelligent Execution Engine', 'testro' ),
 					'heading_level' => 2,
-					'align'         => 'start',
 					'items'         => array(
 						array(
 							'stage'       => '01',
@@ -2994,6 +2995,7 @@ function testro_get_product_pages() {
 					'title'         => __( 'Natural Language Test Creation', 'testro' ),
 					'intro'         => __( 'You shouldn\'t need to know a framework to build a reliable test.', 'testro' ),
 					'outro'         => __( 'The intelligence lives authoring built so a whole QA team can pitch in. Not just the people who can code.', 'testro' ),
+					'outro_align'   => 'end',
 					'heading_level' => 2,
 					'bubbles'       => array(
 						array(
@@ -3213,6 +3215,7 @@ function testro_get_product_pages() {
 					'title'         => __( 'Cleaner Maintenance With Smart Suggestions', 'testro' ),
 					'intro'         => __( 'Repeating the same steps across dozens of tests wastes time. It multiplies maintenance work too.', 'testro' ),
 					'outro'         => __( 'Automated test development doesn\'t stop at creation. theTestRo keeps working after the test is written. Your suite stays lean instead of piling up dead weight release after release.', 'testro' ),
+					'outro_align'   => 'end',
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -3230,12 +3233,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer eMaQR9czK — three platform columns on gradient. */
+				/* Framer eMaQR9czK — faq-label header (mono label + title + intro) on gradient. */
 				array(
 					'type'          => 'td-compose',
 					'id'            => 'one-platform-every-team',
 					'variant'       => 'platform-band',
 					'tone'          => 'dark',
+					'header_style'  => 'faq-label',
 					'eyebrow'       => __( 'Authoring, Management, and Execution Together', 'testro' ),
 					'title'         => __( 'One Platform for every testing team', 'testro' ),
 					'intro'         => __( 'Authoring, Management, and Execution Together', 'testro' ),
@@ -3912,30 +3916,33 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer w3nQcw4BE — 2×2 Feature Card 2, no icons; eyebrow hidden. */
+				/* Framer w3nQcw4BE — 2×2 Feature Card 2 with icons. */
 				array(
 					'type'          => 'cicd-compose',
 					'id'            => 'who-benefits-from-cicd-test-automation',
 					'variant'       => 'feature-cards',
-					'hide_icons'    => true,
 					'columns'       => 2,
 					'title'         => __( 'Who Benefits Most From CI/CD Test Automation', 'testro' ),
 					'intro'         => __( 'Built for Teams Shipping Fast', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
+							'icon'        => 'code',
 							'title'       => __( 'Development Teams', 'testro' ),
 							'description' => __( 'Get instant feedback on a commit. No context-switching to the next task first.', 'testro' ),
 						),
 						array(
+							'icon'        => 'badge-check',
 							'title'       => __( 'QA Teams', 'testro' ),
 							'description' => __( 'Spend less time manually triggering runs. More time on exploratory and edge-case testing.', 'testro' ),
 						),
 						array(
+							'icon'        => 'infinity',
 							'title'       => __( 'DevOps Engineers', 'testro' ),
 							'description' => __( 'Keep the pipeline itself the single source of truth for release readiness.', 'testro' ),
 						),
 						array(
+							'icon'        => 'trending-up',
 							'title'       => __( 'Engineering Leadership', 'testro' ),
 							'description' => __( 'See release confidence as a real number. Not a gut feeling from a status meeting.', 'testro' ),
 						),
@@ -3964,26 +3971,30 @@ function testro_get_product_pages() {
 					'outro'         => __( 'A CI/CD integration that requires custom scripts for every tool just adds another thing to maintain. theTestRo plugs in directly. No developer needs to write connector code first.', 'testro' ),
 				),
 
-				/* Framer Q2Jusql1U — shift triptych; three-lines header. */
+				/* Testing at Every Stage — Feature Card 2 ×3 with icons; three-lines header. */
 				array(
 					'type'          => 'cicd-compose',
 					'id'            => 'testing-at-every-stage',
-					'variant'       => 'shift-panels',
+					'variant'       => 'feature-cards',
 					'header_style'  => 'three-lines',
+					'columns'       => 3,
 					'title'         => __( 'Testing at Every Stage, Not Just at the End', 'testro' ),
 					'intro'         => __( 'Shift Left. Shift Right. Cover Both Ends.', 'testro' ),
 					'intro_extra'   => __( 'Waiting until the end of a sprint to test makes bugs expensive to fix. theTestRo supports testing across the whole pipeline.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
+							'icon'        => 'zap',
 							'title'       => __( 'Shift-Left Testing', 'testro' ),
 							'description' => __( 'Run tests as early as possible, right when code is committed. Issues surface before they pile up.', 'testro' ),
 						),
 						array(
+							'icon'        => 'refresh',
 							'title'       => __( 'Regression Testing on Every Build', 'testro' ),
 							'description' => __( 'Confirm new changes haven’t broken existing features. This happens on its own.', 'testro' ),
 						),
 						array(
+							'icon'        => 'activity',
 							'title'       => __( 'Shift-Right Monitoring', 'testro' ),
 							'description' => __( 'Keep testing after deployment too. We catch production issues fast, not users.', 'testro' ),
 						),
@@ -4027,69 +4038,73 @@ function testro_get_product_pages() {
 					'heading_level' => 2,
 					'items'         => array(
 						array(
-							'icon'        => 'play',
+							'icon'        => 'zap',
 							'title'       => __( 'Parallel Execution', 'testro' ),
 							'description' => __( 'Tests run at the same time across environments. Pipeline speed doesn\'t drop as coverage grows.', 'testro' ),
 						),
 						array(
-							'icon'        => 'play',
+							'icon'        => 'browsers',
 							'title'       => __( 'Headless Test Runs', 'testro' ),
 							'description' => __( 'Don\'t render a full browser UI when you don\'t need it. Less resource use, faster runs.', 'testro' ),
 						),
 						array(
-							'icon'        => 'play',
+							'icon'        => 'filter-check',
 							'title'       => __( 'Smart Test Selection', 'testro' ),
 							'description' => __( 'Run only the tests affected by a specific change, not the entire suite every single time.', 'testro' ),
 						),
 					),
 				),
 
-				/* Framer PJSBY6D8c — Feature Card 2 ×3, no icons. */
+				/* Framer PJSBY6D8c — Feature Card 2 ×3 with icons. */
 				array(
 					'type'          => 'cicd-compose',
 					'id'            => 'real-time-feedback-and-reporting',
 					'variant'       => 'feature-cards',
-					'hide_icons'    => true,
 					'columns'       => 3,
 					'title'         => __( 'Real-Time Feedback and Reporting', 'testro' ),
 					'intro'         => __( 'Know the Moment Something Breaks', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
+							'icon'        => 'activity',
 							'title'       => __( 'Live Pipeline Status', 'testro' ),
 							'description' => __( 'See test results right when a run finishes, inside your CI/CD tool.', 'testro' ),
 						),
 						array(
+							'icon'        => 'alert-octagon',
 							'title'       => __( 'Failure Alerts', 'testro' ),
 							'description' => __( 'Get notified in Slack or your issue tracker the moment a test fails.', 'testro' ),
 						),
 						array(
+							'icon'        => 'chart-bar',
 							'title'       => __( 'Historical Trends', 'testro' ),
 							'description' => __( 'Track pass rates and pipeline stability over time. Not just the last run.', 'testro' ),
 						),
 					),
 				),
 
-				/* Framer zoXr155ky — Feature Card 2 ×3, no icons. */
+				/* Framer zoXr155ky — Feature Card 2 ×3 with icons. */
 				array(
 					'type'          => 'cicd-compose',
 					'id'            => 'devops-test-automation-at-scale',
 					'variant'       => 'feature-cards',
-					'hide_icons'    => true,
 					'columns'       => 3,
 					'title'         => __( 'DevOps Test Automation at Scale', 'testro' ),
 					'intro'         => __( 'Built for Teams Shipping Multiple Times a Day', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
+							'icon'        => 'git-branch',
 							'title'       => __( 'Multi-Branch Support', 'testro' ),
 							'description' => __( 'Test across feature branches, release branches, and main. Each one independently.', 'testro' ),
 						),
 						array(
+							'icon'        => 'server',
 							'title'       => __( 'Environment Management', 'testro' ),
 							'description' => __( 'Run the right tests against the right environment on their own. Dev, staging, or production.', 'testro' ),
 						),
 						array(
+							'icon'        => 'layout-grid',
 							'title'       => __( 'Team-Wide Visibility', 'testro' ),
 							'description' => __( 'Everyone from developers to QA leads sees the same pipeline status. No need to ask around.', 'testro' ),
 						),
@@ -7971,34 +7986,20 @@ function testro_get_product_pages() {
 
 			'sections' => array(
 
-				/* Framer ZEWIc6Ujv — tint exec-split ×3 + callout outro. */
+				/* Framer ZEWIc6Ujv — tint exec-split + striped media + bottom text. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'why-healthcare-software-is-harder',
 					'variant'       => 'exec-split',
 					'tint'          => true,
+					'steps_style'   => 'media',
 					'title'         => __( 'Why healthcare software is harder to test', 'testro' ),
-					'intro'         => __( 'Healthcare systems carry a weight most other industries don\'t have to think about. Patient data is sensitive — a security gap can mean real harm, not just a bad review.', 'testro' ),
-					'intro_extra'   => __( 'Clinical workflows involve many systems talking to each other: EHR platforms, lab systems, billing, insurance. A broken handoff between any two can delay a diagnosis or a payment. Healthcare teams often run on legacy infrastructure too, which makes automation harder to adopt, not easier.', 'testro' ),
-					'outro'         => __( 'This is why generic healthcare software testing tools fall short. Healthcare needs a platform built around these constraints, not one that treats them as an afterthought.', 'testro' ),
+					'intro'         => __( 'Healthcare systems carry a weight most other industries don\'t have to think about.', 'testro' ),
+					'intro_body'    => __( 'Patient data is sensitive. A security gap can mean real harm, not just a bad review. Clinical workflows involve many systems talking to each other.', 'testro' ),
+					'intro_extra'   => __( 'EHR platforms, lab systems, billing, insurance. A broken handoff between any two can delay a diagnosis or a payment. Healthcare teams often run on legacy infrastructure too. That wasn\'t built with modern testing in mind, which makes automation harder to adopt, not easier.', 'testro' ),
+					'outro'         => __( 'This is why generic healthcare software testing tools fall short. Healthcare needs a platform built around these constraints. Not one that treats them as an afterthought, added on once the core product is already built. The teams that get this right start with compliance and stability as first-class requirements, not a checklist item at the end of a sprint.', 'testro' ),
+					'outro_align'   => 'end',
 					'heading_level' => 2,
-					'items'         => array(
-						array(
-							'stage'       => '01',
-							'title'       => __( 'Sensitive patient data', 'testro' ),
-							'description' => __( 'A security gap can mean real harm, not just a bad review.', 'testro' ),
-						),
-						array(
-							'stage'       => '02',
-							'title'       => __( 'Interconnected clinical systems', 'testro' ),
-							'description' => __( 'EHR, lab systems, billing, and insurance all need to hand off cleanly to one another.', 'testro' ),
-						),
-						array(
-							'stage'       => '03',
-							'title'       => __( 'Legacy infrastructure', 'testro' ),
-							'description' => __( 'Older systems weren\'t built with modern testing in mind, which makes automation harder to adopt.', 'testro' ),
-						),
-					),
 				),
 
 				/* Framer C4hKfqrYv — white, 3×2 feature cards. */
@@ -8087,16 +8088,16 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer FcPErrjW6 — white impact-rows. */
+				/* Same Debug Test Failures Faster rows as automated-web-application-testing. */
 				array(
-					'type'          => 'bf-compose',
-					'id'            => 'ai-clinical-workflows',
-					'variant'       => 'impact-rows',
-					'white'         => true,
-					'title'         => __( 'AI that understands clinical workflows, not just clicks', 'testro' ),
-					'intro'         => __( 'This is what separates real healthcare test automation from a generic tool with a healthcare label slapped on.', 'testro' ),
-					'heading_level' => 2,
-					'items'         => array(
+					'type'              => 'outcomes',
+					'id'                => 'ai-clinical-workflows',
+					'variant'           => 'debug-rows',
+					'title'             => __( 'AI that understands clinical workflows, not just clicks', 'testro' ),
+					'heading_level'     => 2,
+					'align'             => 'start',
+					'outro_bottom_text' => true,
+					'items'             => array(
 						array(
 							'title'       => __( 'Plain-English test creation', 'testro' ),
 							'description' => __( 'QA teams and clinical experts build tests with no scripts. A nurse informaticist can describe a workflow just as easily as an engineer can.', 'testro' ),
@@ -8110,6 +8111,7 @@ function testro_get_product_pages() {
 							'description' => __( 'Turn login, patient search, and order entry into building blocks. Update once, and it applies everywhere those blocks get used.', 'testro' ),
 						),
 					),
+					'outro'             => __( 'This is what separates real healthcare test automation from a generic tool with a healthcare label slapped on.', 'testro' ),
 				),
 
 				/* Framer BBN5VXr9u — tint feature-cards ×3. */
@@ -8203,12 +8205,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer OLK_6BFBL — white workflow-grid, 7 tiles. */
+				/* Framer OLK_6BFBL — white workflow-grid, 7 tiles; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'fits-existing-toolchain',
 					'variant'       => 'workflow-grid',
 					'white'         => true,
+					'header_style'  => 'three-lines',
 					'tool_columns'  => 3,
 					'title'         => __( 'Fits into the toolchain you already run', 'testro' ),
 					'intro'         => __( 'theTestRo connects with Jira, Jenkins, GitHub, Azure DevOps, and healthcare data formats like HL7/FHIR in JSON or XML.', 'testro' ),
@@ -8273,8 +8276,8 @@ function testro_get_product_pages() {
 			/* Framer Platform Opening O6LazEot7 — eyebrow visible:false. */
 			'hero' => array(
 				'eyebrow'         => '',
-				'title'           => __( 'Built for teams that can\'t afford a broken payment flow.', 'testro' ),
-				'subtitle'        => __( 'Automate onboarding, checks, payments, and core banking journeys across web, mobile, and APIs.', 'testro' ),
+				'title'           => __( 'AI Test Automation for Banking & Financial Services ', 'testro' ),
+				'subtitle'        => __( 'theTestRo is built for teams that cannot afford a broken payment flow. Automate onboarding, checks, payments, and core banking journeys across web, mobile, and APIs', 'testro' ),
 				'subtitle_extra'  => __( 'Audit-ready evidence is built in from the start. This is banking software testing made for regulated teams. Not a generic tool with a finance label stuck on top.', 'testro' ),
 				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
 				'layout'          => 'split',
@@ -8306,8 +8309,7 @@ function testro_get_product_pages() {
 					'variant'       => 'feature-cards',
 					'tint'          => true,
 					'columns'       => 4,
-					'eyebrow'       => __( 'COVERAGE', 'testro' ),
-					'title'         => __( 'Automate Core Banking and Payment Journeys', 'testro' ),
+					'eyebrow'         => __( 'Automate Core Banking and Payment Journeys', 'testro' ),
 					'intro'         => __( 'From Account Opening to Servicing, Covered End to End', 'testro' ),
 					'outro'         => __( 'This is real banking test automation. It covers the full customer journey, not just a login screen.', 'testro' ),
 					'heading_level' => 2,
@@ -8335,13 +8337,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer DBABUzJT_ — brand exec-split, 4 steps. */
+				/* Framer DBABUzJT_ — white exec-split, 4 steps; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'how-teams-get-started',
 					'variant'       => 'exec-split',
-					'brand'         => true,
-					'eyebrow'       => __( 'Onboarding', 'testro' ),
+					'white'         => true,
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'How teams get started', 'testro' ),
 					'intro'         => __( 'From sign-up to full coverage in four steps.', 'testro' ),
 					'heading_level' => 2,
@@ -8377,8 +8379,7 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'card_fill'     => 'tint',
 					'columns'       => 4,
-					'eyebrow'       => __( 'Who it\'s for', 'testro' ),
-					'title'         => __( 'Who uses theTestRo in banking and finance', 'testro' ),
+					'eyebrow'         => __( 'Who uses theTestRo in banking and finance', 'testro' ),
 					'intro'         => __( 'Built for every team touching financial software.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -8405,16 +8406,17 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer r1ZdxWNxr — light exec-split + italic emphasis. */
+				/* Framer r1ZdxWNxr — light exec-split; QI numbered rows + bottom text. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'security-testing-regulated',
 					'variant'       => 'exec-split',
 					'tint'          => true,
-					'eyebrow'       => __( 'Security', 'testro' ),
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'Security testing built for regulated environments', 'testro' ),
 					'intro'         => __( 'Test the way banks actually operate.', 'testro' ),
-					'intro_extra'   => __( 'Financial software testing that skips this layer isn\'t really testing your product. It\'s testing a simpler, safer version of it. Real customers don\'t get that safer version, so your tests shouldn\'t either.', 'testro' ),
+					'outro'         => __( 'Financial software testing that skips this layer isn\'t really testing your product. It\'s testing a simpler, safer version of it. Real customers don\'t get that safer version, so your tests shouldn\'t either.', 'testro' ),
+					'outro_align'   => 'end',
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -8435,16 +8437,15 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer zeIRVJZQT — white impact-rows. */
+				/* Same Debug Test Failures Faster rows as automated-web-application-testing. */
 				array(
-					'type'          => 'bf-compose',
+					'type'          => 'outcomes',
 					'id'            => 'payment-gateway-and-qr',
-					'variant'       => 'impact-rows',
-					'white'         => true,
-					'eyebrow'       => __( 'Payments', 'testro' ),
+					'variant'       => 'debug-rows',
 					'title'         => __( 'Payment gateway and QR code testing', 'testro' ),
 					'intro'         => __( 'Every transaction path, validated.', 'testro' ),
 					'heading_level' => 2,
+					'align'         => 'start',
 					'items'         => array(
 						array(
 							'title'       => __( 'Payment gateway testing', 'testro' ),
@@ -8468,8 +8469,7 @@ function testro_get_product_pages() {
 					'variant'       => 'feature-cards',
 					'tint'          => true,
 					'columns'       => 3,
-					'eyebrow'       => __( 'Regression', 'testro' ),
-					'title'         => __( 'Reduce regression cycles without cutting corners on compliance', 'testro' ),
+					'eyebrow'         => __( 'Reduce regression cycles without cutting corners on compliance', 'testro' ),
 					'intro'         => __( 'Faster releases, same audit trail.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -8499,8 +8499,7 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'card_fill'     => 'tint',
 					'columns'       => 3,
-					'eyebrow'       => __( 'Devices', 'testro' ),
-					'title'         => __( 'Real device and geolocation testing', 'testro' ),
+					'eyebrow'         => __( 'Real device and geolocation testing', 'testro' ),
 					'intro'         => __( 'Test where your customers actually bank.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -8530,8 +8529,7 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'card_fill'     => 'tint',
 					'columns'       => 3,
-					'eyebrow'       => __( 'Authoring', 'testro' ),
-					'title'         => __( 'AI agents at every stage of testing', 'testro' ),
+					'eyebrow'         => __( 'AI agents at every stage of testing', 'testro' ),
 					'intro'         => __( 'Faster test authoring, without losing control.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -8553,16 +8551,18 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer OZR8pVFIF — light exec-split, 5 steps + italic emphasis. */
+				/* Framer OZR8pVFIF — light exec-split; QI numbered rows + three-lines header + bottom text. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'enterprise-security-and-compliance',
 					'variant'       => 'exec-split',
 					'tint'          => true,
-					'eyebrow'       => __( 'Enterprise', 'testro' ),
+					'steps_style'   => 'numbered-rows',
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Enterprise security and compliance', 'testro' ),
 					'intro'         => __( 'Certifications that matter to regulated teams.', 'testro' ),
-					'intro_extra'   => __( 'Full traceability: clear logs to back up audits and release checks. BFSI testing isn\'t just about catching bugs. It\'s about proving you caught them, with real evidence to show for it.', 'testro' ),
+					'outro'         => __( 'Full traceability: clear logs to back up audits and release checks. BFSI testing isn\'t just about catching bugs. It\'s about proving you caught them, with real evidence to show for it.', 'testro' ),
+					'outro_align'   => 'end',
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -8601,8 +8601,7 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'card_fill'     => 'tint',
 					'columns'       => 3,
-					'eyebrow'       => __( 'Scale', 'testro' ),
-					'title'         => __( 'Built for high-transaction periods', 'testro' ),
+					'eyebrow'         => __( 'Built for high-transaction periods', 'testro' ),
 					'intro'         => __( 'Stay stable during payroll runs and peak load.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -8624,16 +8623,15 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer cOoDPcNnW — tint impact-rows. */
+				/* Same Debug Test Failures Faster rows as automated-web-application-testing. */
 				array(
-					'type'          => 'bf-compose',
+					'type'          => 'outcomes',
 					'id'            => 'core-financial-workflows',
-					'variant'       => 'impact-rows',
-					'tint'          => true,
-					'eyebrow'       => __( 'Coverage map', 'testro' ),
+					'variant'       => 'debug-rows',
 					'title'         => __( 'Core financial workflows covered', 'testro' ),
 					'intro'         => __( 'Built around how financial products actually work.', 'testro' ),
 					'heading_level' => 2,
+					'align'         => 'start',
 					'items'         => array(
 						array(
 							'title'       => __( 'Digital banking portals', 'testro' ),
@@ -8650,15 +8648,16 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer yCiOpUmtE — white workflow-grid. */
+				/* Framer yCiOpUmtE — white workflow-grid; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'fits-existing-workflow',
 					'variant'       => 'workflow-grid',
 					'white'         => true,
-					'eyebrow'       => __( 'Workflow', 'testro' ),
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Fits into your existing workflow', 'testro' ),
-					'intro'         => __( 'No extra tools to manage. theTestRo connects with your build process and gates releases on the results, so a risky change gets caught before it reaches customers.', 'testro' ),
+					'intro'         => __( 'No extra tools to manage.', 'testro' ),
+					'intro_extra'   => __( 'theTestRo connects with your build process and gates releases on the results, so a risky change gets caught before it reaches customers.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array( 'title' => __( 'Jira', 'testro' ) ),
@@ -8771,11 +8770,12 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer G9y0V7ZK5 — tint process-flow ×4 (eyebrow visible:false). */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector). */
 				array(
 					'type'          => 'te-compose',
 					'id'            => 'how-teams-get-started',
 					'variant'       => 'process-flow',
+					'flow_style'    => 'home',
 					'title'         => __( 'How Teams Get Started', 'testro' ),
 					'intro'         => __( 'From sign-up to full coverage in four steps.', 'testro' ),
 					'heading_level' => 2,
@@ -8878,6 +8878,7 @@ function testro_get_product_pages() {
 					'card_fill'     => 'tint',
 					'columns'       => 2,
 					'title'         => __( 'Hotel and Flight Booking Flow Testing', 'testro' ),
+					'intro'         => __('The Moments That Actually Convert','testro'),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -8903,14 +8904,14 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer jPV2zv2P4 — white feature-split, media right. */
+				/* Framer jPV2zv2P4 — white feature-split, media right; QI numbered rows. */
 				array(
 					'type'          => 'td-compose',
 					'id'            => 'real-device-and-network-condition-testing',
 					'variant'       => 'feature-split',
 					'media_side'    => 'right',
-					'eyebrow'       => __( 'Device & network', 'testro' ),
-					'title'         => __( 'Real Device and Network Condition Testing', 'testro' ),
+					'list_style'    => 'numbered-rows',
+					'eyebrow'         => __( 'Real Device and Network Condition Testing', 'testro' ),
 					'intro'         => __( 'Test where travelers actually are, not just your office Wi-Fi.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -8929,15 +8930,15 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer ueWdOKxjL — tint feature-split, media left. */
+				/* Framer ueWdOKxjL — tint feature-split, media left; QI plain rows (no number badges). */
 				array(
 					'type'          => 'td-compose',
 					'id'            => 'visual-regression-booking-pages',
 					'variant'       => 'feature-split',
 					'tint'          => true,
 					'media_side'    => 'left',
-					'eyebrow'       => __( 'Visual regression', 'testro' ),
-					'title'         => __( 'Visual Regression for Booking Pages and Itineraries', 'testro' ),
+					'list_style'    => 'plain-rows',
+					'eyebrow'         => __( 'Visual Regression for Booking Pages and Itineraries', 'testro' ),
 					'intro'         => __( 'Catch broken layouts before a traveler does.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -8956,14 +8957,14 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer m2VNlF14C — white feature-split, media right. */
+				/* Framer m2VNlF14C — white feature-split, media right; QI numbered rows. */
 				array(
 					'type'          => 'td-compose',
 					'id'            => 'built-for-peak-season',
 					'variant'       => 'feature-split',
 					'media_side'    => 'right',
-					'eyebrow'       => __( 'Peak season', 'testro' ),
-					'title'         => __( 'Built for Peak Season and High-Traffic Events', 'testro' ),
+					'list_style'    => 'numbered-rows',
+					'eyebrow'         => __( 'Built for Peak Season and High-Traffic Events', 'testro' ),
 					'intro'         => __( 'Ready before the rush, not during it.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -8989,8 +8990,7 @@ function testro_get_product_pages() {
 					'variant'       => 'feature-cards',
 					'white'         => true,
 					'columns'       => 3,
-					'eyebrow'       => __( 'What theTestRo covers out of the box', 'testro' ),
-					'title'         => __( 'Core Travel and Hospitality Test Scenarios', 'testro' ),
+					'eyebrow'         => __( 'Core Travel and Hospitality Test Scenarios', 'testro' ),
 					'intro'         => __( 'What theTestRo covers out of the box.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -9022,13 +9022,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer MUDeoDVSI — white exec-split ×3. */
+				/* Framer MUDeoDVSI — white exec-split ×3; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'ai-powered-no-code-travel-teams',
 					'variant'       => 'exec-split',
 					'white'         => true,
-					'eyebrow'       => __( 'Ready before Black Friday, not during it', 'testro' ),
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'AI-Powered, No-Code Testing for Travel Teams', 'testro' ),
 					'intro'         => __( 'Let more of your team contribute to quality.', 'testro' ),
 					'heading_level' => 2,
@@ -9051,17 +9051,17 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer HOJiTFmk1 — white workflow-grid, 4 tiles 2×2. */
+				/* Framer HOJiTFmk1 — white workflow-grid, 4 tiles 2×2; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'fits-existing-workflow',
 					'variant'       => 'workflow-grid',
 					'white'         => true,
 					'tool_columns'  => 2,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Fits Into Your Existing Workflow', 'testro' ),
 					'intro'         => __( 'No new tools to manage. theTestRo connects with Jira, Jenkins, GitHub Actions, and Slack — the tools travel and hospitality teams already run. Trigger tests on every build automatically.', 'testro' ),
 					'intro_extra'   => __( 'Get results right where your team already looks. This is hospitality software testing that fits your workflow, not one that forces a new one.', 'testro' ),
-					'intro_emphasis'=> true,
 					'heading_level' => 2,
 					'items'         => array(
 						array( 'title' => __( 'Jira', 'testro' ) ),
@@ -9238,29 +9238,33 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer Ab8NZVzx1 — tint impact-rows ×4 (eyebrow Coverage map hidden). */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector). */
 				array(
-					'type'          => 'bf-compose',
-					'id'            => 'how-insurance-teams-get-started',
-					'variant'       => 'impact-rows',
-					'tint'          => true,
+					'type'          => 'te-compose',
+					'id'            => 'how-teams-get-started',
+					'variant'       => 'process-flow',
+					'flow_style'    => 'home',
 					'title'         => __( 'How Teams Get Started', 'testro' ),
 					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
+							'stage'       => '01',
 							'title'       => __( 'Connect your systems', 'testro' ),
 							'description' => __( 'Point theTestRo at your policyholder portal, agent tools, and APIs.', 'testro' ),
 						),
 						array(
+							'stage'       => '02',
 							'title'       => __( 'Start with high-risk flows first', 'testro' ),
 							'description' => __( 'Claims filing and premium calculations carry the most risk — build these tests first.', 'testro' ),
 						),
 						array(
+							'stage'       => '03',
 							'title'       => __( 'Add edge cases', 'testro' ),
 							'description' => __( 'Layer in cancellations, endorsements, and multi-region checks as coverage grows.', 'testro' ),
 						),
 						array(
+							'stage'       => '04',
 							'title'       => __( 'Run before every release', 'testro' ),
 							'description' => __( 'Trigger a full suite on its own, so nothing risky ships untested.', 'testro' ),
 						),
@@ -9304,14 +9308,17 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer F5gKsqaEt — white impact-rows ×4. */
+				/* Framer F5gKsqaEt — white impact-rows ×4; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'claims-management-testing',
 					'variant'       => 'impact-rows',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Claims Management Testing', 'testro' ),
 					'intro'         => __( 'Where Trust Gets Built or Broken', 'testro' ),
+					'outro'         => __( 'Claims management testing done well means fewer angry calls and fewer manual fixes after the fact.', 'testro' ),
+					'outro_align'   => 'end',
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -9333,14 +9340,17 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer dLPJv_vyo — tint impact-rows ×4 (long intro). */
+				/* Framer dLPJv_vyo — tint impact-rows ×4; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'policy-administration-testing',
 					'variant'       => 'impact-rows',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Policy Administration Testing', 'testro' ),
-					'intro'         => __( 'Get the core workflows right, every time. Skipping the hard cases misses the exact spots that cause the most support calls.', 'testro' ),
+					'intro'         => __( 'Get the core workflows right, every time.', 'testro' ),
+					'outro'         => __( 'Skipping the hard cases misses the exact spots that cause the most support calls.', 'testro' ),
+					'outro_align'   => 'end',
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -9362,14 +9372,17 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer AR_MmFZbj — white exec-split ×3 (healthcare leftovers hidden). */
+				/* Framer AR_MmFZbj — white exec-split ×3; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'no-code-test-automation-for-insurance',
 					'variant'       => 'exec-split',
 					'white'         => true,
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'No-Code Test Automation for Insurance Teams', 'testro' ),
 					'intro'         => __( 'Let More of Your Team Build Tests', 'testro' ),
+					'outro'         => __( 'This is no-code test automation for insurance built for teams that can\'t wait on a few automation engineers to cover everything.', 'testro' ),
+					'outro_align'   => 'end',
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -9390,14 +9403,15 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer ov6YhuCIg — white exec-split ×3. */
+				/* Framer ov6YhuCIg — white exec-split ×3; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'real-device-and-field-condition-testing',
 					'variant'       => 'exec-split',
 					'white'         => true,
-					'title'         => __( 'Real Device and Field Condition Testing', 'testro' ),
-					'intro'         => __( 'Test Where Your Users Actually Are', 'testro' ),
+					'steps_style'   => 'numbered-rows',
+					'intro'         => __( 'Real Device and Field Condition Testing', 'testro' ),
+					'title'         => __( 'Test Where Your Users Actually Are', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -9418,12 +9432,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer yfPTVUu5E — white impact-rows ×3. */
+				/* Framer yfPTVUu5E — white impact-rows ×3; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'visual-regression-quotes-policy-pages',
 					'variant'       => 'impact-rows',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Visual Regression for Quotes and Policy Pages', 'testro' ),
 					'intro'         => __( 'Catch Broken Layouts Before a Policyholder Does', 'testro' ),
 					'heading_level' => 2,
@@ -9443,12 +9458,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer cvzSrgy5y — white impact-rows ×3. */
+				/* Framer cvzSrgy5y — white impact-rows ×3; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'built-for-open-enrollment',
 					'variant'       => 'impact-rows',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Built for Open Enrollment and Renewal Season', 'testro' ),
 					'intro'         => __( 'Ready Before the Surge, Not During It', 'testro' ),
 					'heading_level' => 2,
@@ -9468,12 +9484,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer puTTiuXoA — tint exec-split ×3. */
+				/* Framer puTTiuXoA — tint exec-split ×3; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'insurance-api-testing-and-integrations',
 					'variant'       => 'exec-split',
 					'tint'          => true,
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'Insurance API Testing and Integrations', 'testro' ),
 					'intro'         => __( 'Keep Every Connected System in Sync', 'testro' ),
 					'heading_level' => 2,
@@ -9496,12 +9513,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer YTrZ8JScP — white exec-split ×3. */
+				/* Framer YTrZ8JScP — white exec-split ×3; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'security-and-compliance-built-in',
 					'variant'       => 'exec-split',
 					'white'         => true,
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'Security and Compliance Built In', 'testro' ),
 					'intro'         => __( 'Data Protection That Doesn\'t Slow You Down', 'testro' ),
 					'heading_level' => 2,
@@ -9643,7 +9661,7 @@ function testro_get_product_pages() {
 
 			'sections' => array(
 
-				/* Framer ZGxTACb1t — white section; industry cards fill #F4F9FF, PathNode top accent, pad 24 / r16. */
+				/* Framer ZGxTACb1t — white section; industry cards fill #F4F9FF; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'typical-dynamics-365-testing-challenges',
@@ -9652,6 +9670,7 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'card_fill'     => 'tint',
 					'columns'       => 4,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Typical Dynamics 365 Testing Challenges', 'testro' ),
 					'intro'         => __( 'Why D365 Testing Is Harder Than It Looks', 'testro' ),
 					'intro_extra'   => __( 'Dynamics 365 is a large, connected suite with updates arriving all the time. Teams testing it run into the same problems again and again.', 'testro' ),
@@ -9681,13 +9700,12 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer BTL7vvma8 — tint #F1F8FD process-flow ×4; navy 40px Step Markers (JetBrains Mono). */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector). */
 				array(
-					'type'          => 'ra-compose',
+					'type'          => 'te-compose',
 					'id'            => 'how-teams-get-started',
 					'variant'       => 'process-flow',
-					'tint'          => true,
-					'step_marker'   => 'navy',
+					'flow_style'    => 'home',
 					'title'         => __( 'How Teams Get Started', 'testro' ),
 					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
 					'heading_level' => 2,
@@ -9751,7 +9769,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer CErkMQHpa — tint #F4F9FF industry cards ×4 white fill + cyan PathNode; visible Salesforce outro. */
+				/* Framer CErkMQHpa — tint #F4F9FF industry cards ×4; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'why-standard-testing-approaches-fall-short',
@@ -9759,6 +9777,7 @@ function testro_get_product_pages() {
 					'card_style'    => 'industry',
 					'tint'          => true,
 					'columns'       => 4,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Why Standard Testing Approaches Fall Short', 'testro' ),
 					'intro'         => __( 'Repeatable Testing That Actually Survives Change', 'testro' ),
 					'intro_extra'   => __( 'Most test automation breaks the moment Dynamics 365 changes underneath it. theTestRo is built to do the opposite.', 'testro' ),
@@ -9869,7 +9888,6 @@ function testro_get_product_pages() {
 					'columns'       => 3,
 					'title'         => __( 'Real-Time Alignment With Microsoft\'s Release Cycle', 'testro' ),
 					'intro'         => __( 'Tests That Don\'t Fall Behind Every Update', 'testro' ),
-					'intro_extra'   => __( 'Most test automation breaks the moment Dynamics 365 changes underneath it. theTestRo is built to do the opposite.', 'testro' ),
 					'outro'         => __( 'This is what real-time Dynamics 365 testing should mean. Staying in step with Microsoft\'s release calendar on its own. Not scrambling after each one.', 'testro' ),
 					'outro_align'   => 'end',
 					'outro_italic'  => true,
@@ -9893,12 +9911,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer jWugEmXAb — tint capability-split (left title + right stacked capabilities). */
+				/* Framer jWugEmXAb — tint capability-split; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'self-healing-tests-that-survive-every-update',
 					'variant'       => 'capability-split',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Self-Healing Tests That Survive Every Update', 'testro' ),
 					'intro'         => __( 'Locator-Free Automation for a System That Never Stops Changing', 'testro' ),
 					'heading_level' => 2,
@@ -9918,12 +9937,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer oGLs6hjCU — white Coverage Engine feature-split + Dynamics statement. */
+				/* Framer oGLs6hjCU — white Coverage Engine feature-split; QI numbered rows. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'dynamics-365-regression-testing-at-scale',
 					'variant'       => 'feature-split',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Dynamics 365 Regression Testing at Scale', 'testro' ),
 					'intro'         => __( 'Full Regression Without the Multi-Week Wait', 'testro' ),
 					'outro'         => __( 'Dynamics 365 regression testing built this way turns a multi-week manual cycle into something that wraps up in days.', 'testro' ),
@@ -9964,12 +9984,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer hJhMsw8DK — tint exec-split ×4; Workflow label + healthcare leftovers hidden. */
+				/* Framer hJhMsw8DK — tint exec-split ×4; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'who-uses-testro-for-dynamics-365-testing',
 					'variant'       => 'exec-split',
 					'tint'          => true,
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'Who Uses theTestRo for Dynamics 365 Testing', 'testro' ),
 					'intro'         => __( 'Built for Every Team Running on D365', 'testro' ),
 					'heading_level' => 2,
@@ -10083,7 +10104,7 @@ function testro_get_product_pages() {
 
 			'sections' => array(
 
-				/* Framer rVnsfeVEm — white; industry cards #F4F9FF + PathNode; eyebrow + mid leftover skipped. */
+				/* Framer rVnsfeVEm — white; industry cards #F4F9FF + PathNode; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'what-makes-salesforce-hard-to-test',
@@ -10092,6 +10113,7 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'card_fill'     => 'tint',
 					'columns'       => 4,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'What Makes Salesforce Hard to Test', 'testro' ),
 					'intro'         => __( 'Why Generic Automation Breaks on Salesforce', 'testro' ),
 					'intro_extra'   => __( 'Salesforce isn\'t a typical web app. Testing it like one usually leads to trouble.', 'testro' ),
@@ -10121,13 +10143,12 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer GQTgmaeMl — #F1F8FD process-flow ×4; navy 40px markers; eyebrow + footer leftover skipped. */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector). */
 				array(
-					'type'          => 'ra-compose',
+					'type'          => 'te-compose',
 					'id'            => 'how-teams-get-started',
 					'variant'       => 'process-flow',
-					'tint'          => true,
-					'step_marker'   => 'navy',
+					'flow_style'    => 'home',
 					'title'         => __( 'How Teams Get Started', 'testro' ),
 					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
 					'heading_level' => 2,
@@ -10191,7 +10212,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer XRpLoxrnu — #F4F9FF industry cards ×3 white fill + PathNode. */
+				/* Framer XRpLoxrnu — #F4F9FF industry cards ×3 white fill + PathNode; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'record-and-build-tests-without-code',
@@ -10199,9 +10220,10 @@ function testro_get_product_pages() {
 					'card_style'    => 'industry',
 					'tint'          => true,
 					'columns'       => 3,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Record and Build Tests Without Code', 'testro' ),
 					'intro'         => __( 'Capture Real Workflows, No Scripting Required', 'testro' ),
-					'outro'         => __( 'This is Salesforce automation testing built so QA staff, admins, and business users can all pitch in. Not just engineers who know Selenium.', 'testro' ),
+					'intro_extra'   => __( 'This is Salesforce automation testing built so QA staff, admins, and business users can all pitch in. Not just engineers who know Selenium.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -10222,7 +10244,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer vZMj0tyqX — white industry cards ×3 tint fill + PathNode. */
+				/* Framer vZMj0tyqX — white industry cards ×3 tint fill + PathNode; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'self-healing-for-salesforces-lightning-ui',
@@ -10231,9 +10253,10 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'card_fill'     => 'tint',
 					'columns'       => 3,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Self-Healing for Salesforce\'s Lightning UI', 'testro' ),
 					'intro'         => __( 'Tests That Adapt Instead of Breaking', 'testro' ),
-					'outro'         => __( 'This is what real AI Salesforce testing should mean. Stability that holds through the exact kind of change that breaks everything else.', 'testro' ),
+					'intro_extra'   => __( 'This is what real AI Salesforce testing should mean. Stability that holds through the exact kind of change that breaks everything else.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -10254,7 +10277,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer JtDc0a2JA — #F4F9FF industry cards ×4; Framer Sales Cloud copy kept. */
+				/* Framer JtDc0a2JA — #F4F9FF industry cards ×4; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'test-every-salesforce-cloud-from-one-platform',
@@ -10262,9 +10285,10 @@ function testro_get_product_pages() {
 					'card_style'    => 'industry',
 					'tint'          => true,
 					'columns'       => 4,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Test Every Salesforce Cloud From One Platform', 'testro' ),
 					'intro'         => __( 'Sales, Service, CPQ, and Beyond', 'testro' ),
-					'outro'         => __( 'One plain-English flow can cover all it. No separate siloed suite for every cloud.', 'testro' ),
+					'intro_extra'   => __( 'One plain-English flow can cover all it. No separate siloed suite for every cloud.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -10290,12 +10314,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer lpFgIbVoJ — white capability-split; Coverage Label leftover skipped. */
+				/* Framer lpFgIbVoJ — white capability-split; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'salesforce-api-and-integration-testing',
 					'variant'       => 'capability-split',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Salesforce API and Integration Testing', 'testro' ),
 					'intro'         => __( 'Check What Happens Behind the Screen', 'testro' ),
 					'heading_level' => 2,
@@ -10315,12 +10340,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer TXZptkcf4 — #F4F9FF feature-split; Visual regression eyebrow skipped. */
+				/* Framer TXZptkcf4 — #F4F9FF feature-split; QI numbered rows. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'salesforce-regression-testing-across-every-release',
 					'variant'       => 'feature-split',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Salesforce Regression Testing Across Every Release', 'testro' ),
 					'intro'         => __( 'Ready Before Every Seasonal Update', 'testro' ),
 					'outro'         => __( 'Salesforce regression testing built this way turns three major annual releases into a routine check. Not a scramble.', 'testro' ),
@@ -10341,12 +10367,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer edA6tAFbH — white capability-split; Framer title “AI Root Cause Identify”. */
+				/* Framer edA6tAFbH — white capability-split; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'debug-failures-with-full-context',
 					'variant'       => 'capability-split',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Debug Failures With Full Context', 'testro' ),
 					'intro'         => __( 'Know Exactly What Broke, and Why', 'testro' ),
 					'heading_level' => 2,
@@ -10366,12 +10393,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer brMA3AvwX — #F4F9FF feature-split ×4. */
+				/* Framer brMA3AvwX — #F4F9FF feature-split ×4; QI numbered rows. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'enterprise-salesforce-testing-at-scale',
 					'variant'       => 'feature-split',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Enterprise Salesforce Testing at Scale', 'testro' ),
 					'intro'         => __( 'Built for Complex, Multi-Org Environments', 'testro' ),
 					'outro'         => __( 'Enterprise Salesforce testing has to hold up across many orgs, teams, and releases at once. Not just a single sandbox.', 'testro' ),
@@ -10418,12 +10446,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer LAShtwZdZ — #F4F9FF exec-split ×4; healthcare leftovers skipped. */
+				/* Framer LAShtwZdZ — #F4F9FF exec-split ×4; QI numbered rows. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'who-uses-testro-for-salesforce-testing',
 					'variant'       => 'exec-split',
 					'tint'          => true,
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'Who Uses theTestRo for Salesforce Testing', 'testro' ),
 					'intro'         => __( 'Built for Every Role Touching the Platform', 'testro' ),
 					'heading_level' => 2,
@@ -10594,7 +10623,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer oeYSA8wM4 — soft #EAF3FC feature-split list|media; What's covered label. */
+				/* Framer oeYSA8wM4 — soft #EAF3FC feature-split; FAQ-label header. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'one-platform-for-every-oracle-app',
@@ -10602,6 +10631,8 @@ function testro_get_product_pages() {
 					'soft'          => true,
 					'media_side'    => 'right',
 					'item_checks'   => true,
+					'header_style'  => 'faq-label',
+					'eyebrow'       => __( 'Module Coverage', 'testro' ),
 					'title'         => __( 'One Platform for Every Oracle App', 'testro' ),
 					'intro'         => __( 'Test Every Corner of the Oracle Stack', 'testro' ),
 					'intro_extra'   => __( 'Test Oracle Cloud Fusion, EBS, HCM, SCM, CRM, and ERP from one platform. No piecing together separate tools for each part.', 'testro' ),
@@ -10617,7 +10648,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer l80irKL3X — white feature-split list|media. */
+				/* Framer l80irKL3X — white feature-split; FAQ-label header. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'quarterly-update-testing',
@@ -10625,7 +10656,9 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'media_side'    => 'right',
 					'item_checks'   => true,
-					'title'         => __( 'Quarterly Update Testing: Catch Regressions Before They Ship', 'testro' ),
+					'header_style'  => 'faq-label',
+					'eyebrow'       => __( 'Quarterly Update Testing', 'testro' ),
+					'title'         => __( 'Catch Regressions Before They Ship', 'testro' ),
 					'intro'         => __( 'Stay Ahead of Oracle\'s Release Cadence', 'testro' ),
 					'intro_extra'   => __( 'theTestRo runs full regression suites against staging. Problems appear before they ever touch production.', 'testro' ),
 					'outro'         => __( 'Oracle Cloud\'s fast update pace calls for fast regression coverage. A suite that used to take weeks to re-check can run in hours instead.', 'testro' ),
@@ -10640,7 +10673,7 @@ function testro_get_product_pages() {
 				),
 
 				/* Framer uhcR8txql — keep industry cards ×4 (not in this rebuild list but between quarterly and database). */
-				/* Framer uhcR8txql — #F4F9FF industry cards ×4; supporting frames visible:false. */
+				/* Framer uhcR8txql — #F4F9FF industry cards ×4; supporting frames visible:false; FAQ-label header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'cicd-integration-ship-without-the-manual-qa-bottleneck',
@@ -10648,7 +10681,9 @@ function testro_get_product_pages() {
 					'card_style'    => 'industry',
 					'tint'          => true,
 					'columns'       => 4,
-					'title'         => __( 'CI/CD Integration: Ship Without the Manual QA Bottleneck', 'testro' ),
+					'header_style'  => 'faq-label',
+					'eyebrow'       => __( 'CI/CD Integration', 'testro' ),
+					'title'         => __( 'Ship Without the Manual QA Bottleneck', 'testro' ),
 					'intro'         => __( 'Gate Every Oracle Deployment on Real Results', 'testro' ),
 					'intro_extra'   => __( 'Build a release-readiness pipeline. A run that checks itself gates every Oracle deployment. Pass or fail signals your team can trust.', 'testro' ),
 					'heading_level' => 2,
@@ -10676,14 +10711,17 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer FClEn5Zqw — white capability-split title|rail with connecting borders (Dyn/SF pattern); no icons. */
+				/* Framer FClEn5Zqw — white capability-split; QI numbered rows; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'database-and-integration-testing',
 					'variant'       => 'capability-split',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Database and Integration Testing', 'testro' ),
-					'intro'         => __( 'Check data, not just the interface. Check Oracle Database flows start finishing. Connect theTestRo to Oracle DB through your setup already in place. Confirm data stays correct, ERP data flows right, and business steps hold up after every change.', 'testro' ),
+					'intro'         => __( 'Check data, not just the interface.', 'testro' ),
+					'intro_extra'   => __( 'Check Oracle Database flows start finishing. Connect theTestRo to Oracle DB through your setup already in place. Confirm data stays correct, ERP data flows right, and business steps hold up after every change.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -10709,7 +10747,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer mFDxKMu9X — #F4F9FF stacked feature-split (no media); checks + connecting borders. */
+				/* Framer mFDxKMu9X — #F4F9FF stacked feature-split; FAQ-label header. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'maintenance-and-reporting',
@@ -10717,8 +10755,11 @@ function testro_get_product_pages() {
 					'tint'          => true,
 					'hide_media'    => true,
 					'item_checks'   => true,
-					'title'         => __( 'Maintenance and Reporting: Keep the Suite Healthy on Its Own', 'testro' ),
-					'intro'         => __( 'Check data, not just the interface. Check Oracle Database flows start finishing. Connect theTestRo to Oracle DB through your setup already in place. Confirm data stays correct, ERP data flows right, and business steps hold up after every change.', 'testro' ),
+					'header_style'  => 'faq-label',
+					'eyebrow'       => __( 'Maintenance and Reporting', 'testro' ),
+					'title'         => __( 'Keep the Suite Healthy on Its Own', 'testro' ),
+					'intro'         => __( 'Know What Needs Attention Before You Ship', 'testro' ),
+					'intro_extra'   => __( 'theTestRo shows failure trends, root causes, and release readiness signs. Your team knows exactly what to check before every Oracle deployment.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array( 'description' => __( 'AI-powered root cause diagnostics on every failure.', 'testro' ) ),
@@ -10727,12 +10768,12 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer s544m2i_4 — white process-flow ×3; navy markers; Cloud Scale leftover skipped. */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector). */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'how-to-get-started-with-oracle-testing',
 					'variant'       => 'process-flow',
-					'step_marker'   => 'navy',
+					'flow_style'    => 'home',
 					'title'         => __( 'How to Get Started With Oracle Testing', 'testro' ),
 					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
 					'heading_level' => 2,
@@ -10755,7 +10796,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer SY_029mkM — white; tint industry cards; CRM outro frames visible:false; email leftovers visible. */
+				/* Framer SY_029mkM — white; tint industry cards; three-lines header. */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'what-makes-oracle-testing-different',
@@ -10764,8 +10805,10 @@ function testro_get_product_pages() {
 					'white'         => true,
 					'card_fill'     => 'tint',
 					'columns'       => 2,
+					'header_style'  => 'three-lines',
 					'title'         => __( 'What Makes Oracle Testing Different From a Standard Web App', 'testro' ),
-					'intro'         => __( 'Why generic automation tools fall short. Oracle apps carry deep business logic. A typical web testing tool never handled it.', 'testro' ),
+					'intro'         => __( 'Why generic automation tools fall short.', 'testro' ),
+					'intro_extra'   => __( 'Oracle apps carry deep business logic. A typical web testing tool never handled it.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -10985,12 +11028,13 @@ function testro_get_product_pages() {
 
 			'sections' => array(
 
-				/* Framer o66aisMRx — #F4F9FF Natural Language: title|intro left + AI Coverage Scenarios right; Visual regression + SF leftover hidden. */
+				/* Framer o66aisMRx — #F4F9FF Natural Language; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'why-sap-testing-needs-its-own-approach',
 					'variant'       => 'capability-split',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Why SAP Testing Needs Its Own Approach', 'testro' ),
 					'intro'         => __( 'SAP sits at the center of some of the most critical business operations in the world. Finance, supply chain, HR, and procurement all depend on it. When something breaks in an SAP setup, the damage doesn\'t stay contained. It ripples across every department that relies on it.', 'testro' ),
 					'outro'         => __( 'SAP ERP testing that ignores these four realities isn\'t truly testing your system. Testing a simpler version won\'t hold up in production.', 'testro' ),
@@ -11015,12 +11059,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer SBpJKZsdD — brand exec-split; System Label + Continuous Execution Ready hidden. */
+				/* Framer SBpJKZsdD — brand exec-split; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'how-teams-get-started-with-sap-testing',
 					'variant'       => 'exec-split',
 					'brand'         => true,
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'How Teams Get Started With SAP Testing', 'testro' ),
 					'intro'         => __( 'From sign-up to full coverage in four steps.', 'testro' ),
 					'heading_level' => 2,
@@ -11202,12 +11247,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer Kj1eOem2b — #F4F9FF Natural Language title|rail ×3; Visual regression + SF leftover hidden. */
+				/* Framer Kj1eOem2b — #F4F9FF Natural Language; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'end-to-end-automation-across-enterprise-apps',
 					'variant'       => 'capability-split',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'End-to-End Automation Across Enterprise Apps', 'testro' ),
 					'intro'         => __( 'Beyond SAP Alone', 'testro' ),
 					'outro'         => __( 'Enterprise SAP testing has to reach past the SAP GUI itself. Real business steps rarely stay in just one system.', 'testro' ),
@@ -11264,12 +11310,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer hNqMkTJTG — #F4F9FF Natural Language title|rail ×3; Visual regression + SF leftover hidden. */
+				/* Framer hNqMkTJTG — #F4F9FF Natural Language; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'enterprise-sap-testing-at-scale',
 					'variant'       => 'capability-split',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Enterprise SAP Testing at Scale', 'testro' ),
 					'intro'         => __( 'Built for large, complex landscapes.', 'testro' ),
 					'outro'         => __( 'Enterprise SAP testing has to hold up across a landscape with dozens of links and years of customization. Not just a clean demo environment.', 'testro' ),
@@ -11300,8 +11347,6 @@ function testro_get_product_pages() {
 					'card_fill'     => 'tint',
 					'columns'       => 2,
 					'title'         => __( 'Who Uses theTestRo for SAP Testing', 'testro' ),
-					'intro'         => __( 'Testing that doesn\'t break when SAP changes.', 'testro' ),
-					'outro'         => __( 'This is what real automated SAP testing should mean. Stability that survives the kind of change that breaks brittle, script-based approaches.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -11515,13 +11560,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer fGKFozvCY — #F1F8FD Solutions by Industry process steps ×4 navy markers; leftover eyebrow + Cloud Scale hidden; preserve duplicate 03. */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector). */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'how-teams-get-started-with-testro',
 					'variant'       => 'process-flow',
 					'tint'          => true,
-					'step_marker'   => 'navy',
+					'flow_style'    => 'home',
 					'title'         => __( 'How Teams Get Started With theTestRo', 'testro' ),
 					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
 					'heading_level' => 2,
@@ -11586,12 +11631,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer RFgSO7sdk — white Natural Language title|rail ×4; Visual regression + SF leftover hidden; preserve Framer "start finishing" wording. */
+				/* Framer RFgSO7sdk — white Natural Language; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'workday-integration-testing',
 					'variant'       => 'capability-split',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Workday Integration Testing', 'testro' ),
 					'intro'         => __( 'Check What Connects to Workday', 'testro' ),
 					'intro_extra'   => __( 'Check Workday EIBs, Studio flows, and Core Connectors start finishing. Connect theTestRo to your setup already in place. Test payroll, benefits, and finance data flows after every change.', 'testro' ),
@@ -11633,13 +11679,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer B7AHEDZCA — white Solutions by Industry process steps ×3 navy markers; leftover eyebrow + Cloud Scale hidden. */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector, white bg). */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'how-to-get-started-with-workday-testing',
 					'variant'       => 'process-flow',
 					'white'         => true,
-					'step_marker'   => 'navy',
+					'flow_style'    => 'home',
 					'title'         => __( 'How to Get Started With Workday Testing', 'testro' ),
 					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
 					'heading_level' => 2,
@@ -11707,12 +11753,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer ldYhIdEL4 — white Natural Language title|rail ×4; leftover Connects intros + SF copy hidden. */
+				/* Framer ldYhIdEL4 — white Natural Language; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'who-uses-testro-for-workday-testing',
 					'variant'       => 'capability-split',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Who Uses theTestRo for Workday Testing', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -11735,12 +11782,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer aB3J1ZEis — #F4F9FF Natural Language title|rail ×4; Visual regression + Connects leftover + SF copy hidden. */
+				/* Framer aB3J1ZEis — #F4F9FF Natural Language; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'what-makes-workday-testing-different',
 					'variant'       => 'capability-split',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'What Makes Workday Testing Different From a Standard Web App', 'testro' ),
 					'intro'         => __( 'Why Generic Automation Tools Fall Short', 'testro' ),
 					'intro_extra'   => __( 'Workday doesn\'t expose stable element IDs the way a typical web app does. That alone breaks most script-based tools.', 'testro' ),
@@ -11845,12 +11893,13 @@ function testro_get_product_pages() {
 
 			'sections' => array(
 
-				/* Framer sjGHSEDxV — white Natural Language title|rail ×4; Visual regression + Workday leftover hidden. */
+				/* Framer sjGHSEDxV — white Natural Language title|rail ×4; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'why-servicenow-testing-feels-broken',
 					'variant'       => 'capability-split',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Why ServiceNow Testing Feels Broken', 'testro' ),
 					'intro'         => __( 'The Pain Every ServiceNow QA Team Knows', 'testro' ),
 					'outro'         => __( 'ServiceNow test automation that ignores these four realities isn\'t genuinely testing your instance. They are testing a version that stopped matching reality months ago.', 'testro' ),
@@ -11875,11 +11924,12 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer bwtxox12u — #F1F8FD process-flow; eyebrow + environments leftover hidden; duplicate stage 03 kept. */
+				/* Home How It Works process-flow (cyan markers + navy→cyan connector); duplicate stage 03 kept. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'how-teams-get-started',
 					'variant'       => 'process-flow',
+					'flow_style'    => 'home',
 					'tint'          => true,
 					'title'         => __( 'How Teams Get Started', 'testro' ),
 					'intro'         => __( 'From Sign-Up to Full Coverage in Four Steps', 'testro' ),
@@ -11944,12 +11994,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer co2PSPBck — #F1F8FD Natural Language title|rail ×6; Visual regression + Workday/SF leftovers hidden; preserve "start finishing". */
+				/* Framer co2PSPBck — #F1F8FD Natural Language title|rail ×6; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'every-module-and-workflow-covered',
 					'variant'       => 'capability-split',
 					'tint'          => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'Every Module and Workflow, Covered', 'testro' ),
 					'intro'         => __( 'Total Coverage, Not Just the Common Cases', 'testro' ),
 					'heading_level' => 2,
@@ -11981,12 +12032,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer RKRXTV1fn — white Natural Language title|rail ×3; Visual regression + Workday leftover hidden; preserve Framer casing. */
+				/* Framer RKRXTV1fn — white Natural Language title|rail ×3; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'ai-servicenow-testing-that-adapts',
 					'variant'       => 'capability-split',
 					'white'         => true,
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'AI ServiceNow Testing That Adapts', 'testro' ),
 					'intro'         => __( 'Tests That Heal Instead of Break', 'testro' ),
 					'outro'         => __( 'This is what ai ServiceNow testing should mean. Stability that survives exactly the kind of change that breaks brittle, script-based tools.', 'testro' ),
@@ -12007,7 +12059,7 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer Bc3LX6vKt — #F1F8FD media|rail-header+list; Visual regression + Functional leftover hidden. */
+				/* Framer Bc3LX6vKt — #F1F8FD media|rail-header; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'            => 'ra-compose',
 					'id'              => 'plain-english-test-authoring',
@@ -12015,6 +12067,7 @@ function testro_get_product_pages() {
 					'tint'            => true,
 					'media_side'      => 'left',
 					'header_in_rail'  => true,
+					'list_style'      => 'numbered-rows',
 					'title'           => __( 'Plain-English Test Authoring', 'testro' ),
 					'intro'           => __( 'Anyone Can Build a Test, Not Just Engineers', 'testro' ),
 					'heading_level'   => 2,
@@ -12034,13 +12087,15 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer QlR8yjHeF — white Coverage Engine: header + cards|media; leftovers hidden; cyan italic intro_extra. */
+				/* Framer QlR8yjHeF — white Coverage Engine: three-lines header + list|media; QI numbered rows. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'workflows-that-go-beyond-servicenow',
 					'variant'       => 'feature-split',
 					'white'         => true,
 					'media_side'    => 'right',
+					'list_style'    => 'numbered-rows',
+					'header_style'  => 'three-lines',
 					'title'         => __( 'Workflows That Go Beyond ServiceNow', 'testro' ),
 					'intro'         => __( 'Cross-System Testing, in One Run', 'testro' ),
 					'intro_extra'   => __( 'An incident in ServiceNow can create a case in another system. An HR request can write back to a connected HRMS. A test that stops at ServiceNow\'s edge misses exactly where things tend to break.', 'testro' ),
@@ -12061,13 +12116,14 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer dYGwqjTAY — #F4F9FF Coverage Engine: header + media|cards + italic Supporting Copy. */
+				/* Framer dYGwqjTAY — #F4F9FF Coverage Engine: header + media|list; QI numbered rows; italic Supporting Copy. */
 				array(
 					'type'          => 'ra-compose',
 					'id'            => 'servicenow-regression-testing-at-every-upgrade',
 					'variant'       => 'feature-split',
 					'tint'          => true,
 					'media_side'    => 'left',
+					'list_style'    => 'numbered-rows',
 					'title'         => __( 'ServiceNow Regression Testing at Every Upgrade', 'testro' ),
 					'intro'         => __( 'Ready Before the Next Release, Not After', 'testro' ),
 					'outro'         => __( 'Automated ServiceNow testing built this way turns a dreaded upgrade cycle into a routine check.', 'testro' ),
@@ -12142,12 +12198,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Framer RyvqHQNoy — white exec-split; Workflow + healthcare leftovers hidden. */
+				/* Framer RyvqHQNoy — white exec-split; QI numbered rows (AI Quality Intelligence left rail). */
 				array(
 					'type'          => 'bf-compose',
 					'id'            => 'who-uses-testro-for-servicenow-testing',
 					'variant'       => 'exec-split',
 					'white'         => true,
+					'steps_style'   => 'numbered-rows',
 					'title'         => __( 'Who Uses theTestRo for ServiceNow Testing', 'testro' ),
 					'intro'         => __( 'Built for Every Role Touching the Platform', 'testro' ),
 					'heading_level' => 2,

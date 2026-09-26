@@ -75,7 +75,7 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 				<?php endforeach; ?>
 			</ol>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-heal__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-heal__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'split-numbered' === $variant ) : ?>
@@ -178,7 +178,7 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-heal__outro testro-prod-heal__outro--flow" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-heal__outro testro-prod-heal__outro--flow <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'feature-cards' === $variant ) : ?>
@@ -203,7 +203,7 @@ $media_side = isset( $args['media_side'] ) && 'right' === $args['media_side'] ? 
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-heal__outro testro-prod-heal__outro--center" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-heal__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'why-rows' === $variant ) : ?>

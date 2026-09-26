@@ -200,7 +200,7 @@ $use_three     = ( 'three-lines' === $header_style );
 				<?php endforeach; ?>
 			</ol>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-xbrowser__scale-outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-xbrowser__scale-outro <?php echo esc_attr( testro_bottom_text_class( 'dark' === $tone ) ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'catch-release' === $variant ) : ?>
@@ -236,18 +236,12 @@ $use_three     = ( 'three-lines' === $header_style );
 				?>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-xbrowser__debug-outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-xbrowser__debug-outro <?php echo esc_attr( testro_bottom_text_class( 'dark' === $tone ) ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $args['outro'] ) && ! in_array( $variant, array( 'scale-parallel', 'debug-browser' ), true ) ) : ?>
-			<?php
-			$outro_class = 'testro-prod-xbrowser__outro';
-			if ( ! empty( $args['outro_bottom_text'] ) ) {
-				$outro_class .= ' ' . testro_bottom_text_class( 'dark' === $tone );
-			}
-			?>
-			<p class="<?php echo esc_attr( $outro_class ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<p class="testro-prod-xbrowser__outro <?php echo esc_attr( testro_bottom_text_class( 'dark' === $tone ) ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>

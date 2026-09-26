@@ -7,7 +7,7 @@
  * - process-flow    Horizontal 01–04 steps with connector (pipeline)
  *                   Optional flow_style=home for Home How It Works (.testro-process-flow)
  * - compare-table   3-column Manual vs CI/CD table
- * - feature-cards   Feature Card 2 grid (who / practices / feedback / scale)
+ * - feature-cards   Feature Card 2 grid (who / stages / practices / feedback / scale)
  * - integrations    Hub + tool badges panel
  * - shift-panels    3-column bordered shift-left / build / shift-right
  * - trigger-rows    Stacked title/desc rows on tint (triggers)
@@ -80,7 +80,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 				</ul>
 			</div>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-cicd__outro testro-prod-cicd__outro--center" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-cicd__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php elseif ( 'process-flow' === $variant ) : ?>
@@ -184,6 +184,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 					'title'         => isset( $args['title'] ) ? $args['title'] : '',
 					'intro'         => isset( $args['intro'] ) ? $args['intro'] : '',
 					'intro_extra'   => isset( $args['intro_extra'] ) ? $args['intro_extra'] : '',
+					'header_style'  => isset( $args['header_style'] ) ? $args['header_style'] : '',
 					'heading_id'    => $heading_id,
 					'heading_level' => isset( $args['heading_level'] ) ? (int) $args['heading_level'] : 2,
 					'align'         => $head_align,
@@ -256,7 +257,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 					</ul>
 				<?php endif; ?>
 				<?php if ( ! empty( $args['outro'] ) ) : ?>
-					<p class="testro-prod-cicd__integ-note"><?php echo esc_html( (string) $args['outro'] ); ?></p>
+					<p class="testro-prod-cicd__integ-note <?php echo esc_attr( testro_bottom_text_class() ); ?>"><?php echo esc_html( (string) $args['outro'] ); ?></p>
 				<?php endif; ?>
 			</div>
 
@@ -313,7 +314,7 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 			);
 			?>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
-				<p class="testro-prod-cicd__outro" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+				<p class="testro-prod-cicd__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 			<?php endif; ?>
 
 		<?php endif; ?>

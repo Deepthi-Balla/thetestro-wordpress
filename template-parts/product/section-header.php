@@ -11,6 +11,8 @@
  *   so sections without an eyebrow are not visually broken.
  * - header_style=three-lines → Home Why theTestRo three-line header
  *   (eyebrow/title/intro, or title/intro/intro_extra when no eyebrow).
+ * - header_style=faq-label → FAQ small cyan mono label + title + intro
+ *   (requires eyebrow; same markup rhythm as FAQ on every page).
  *
  * Expected $args:
  * - eyebrow    (string)  Optional pill label.
@@ -23,7 +25,7 @@
  * - heading_level (int)     Semantic heading level 1–6. Default 2.
  * - tone          (string)  'light' (default) or 'dark' for brand-gradient backgrounds.
  * - align         (string)  'center' (default) or 'start'.
- * - header_style  (string)  Optional 'three-lines' for Why theTestRo header.
+ * - header_style  (string)  Optional 'three-lines' or 'faq-label'.
  *
  * @package TestRo
  */
@@ -42,6 +44,36 @@ $heading_tag   = 'h' . $heading_level;
 $tone          = isset( $args['tone'] ) && 'dark' === $args['tone'] ? 'dark' : 'light';
 $align         = isset( $args['align'] ) && 'start' === $args['align'] ? 'start' : 'center';
 $header_style  = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
+
+if ( 'faq-label' === $header_style ) {
+	/*
+	 * Same three-line rhythm as FAQ on every page:
+	 * small cyan mono label / large navy title / slate intro.
+	 * Optional intro_extra stays as a fourth supporting line.
+	 */
+	$label = '' !== $eyebrow ? $eyebrow : '';
+	if ( '' === $label && '' === $title ) {
+		return;
+	}
+	?>
+	<header class="testro-section-header testro-section-header--three-lines testro-section-header--faq-label" data-reveal>
+		<?php if ( '' !== $label ) : ?>
+			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $heading_tag is sanitized h1–h6. ?>
+			<<?php echo $heading_tag; ?><?php echo $heading_id ? ' id="' . esc_attr( $heading_id ) . '"' : ''; ?> class="main-headings"><?php echo esc_html( testro_section_label_title( $label ) ); ?></<?php echo $heading_tag; ?>>
+		<?php endif; ?>
+		<?php if ( '' !== $title ) : ?>
+			<p class="sub-text"><?php echo esc_html( $title ); ?></p>
+		<?php endif; ?>
+		<?php if ( '' !== $intro ) : ?>
+			<p class="sub-text"><?php echo esc_html( $intro ); ?></p>
+		<?php endif; ?>
+		<?php if ( '' !== $intro_extra ) : ?>
+			<p class="sub-text testro-prod-head__intro-extra"><?php echo esc_html( $intro_extra ); ?></p>
+		<?php endif; ?>
+	</header>
+	<?php
+	return;
+}
 
 if ( 'three-lines' === $header_style ) {
 	/*
