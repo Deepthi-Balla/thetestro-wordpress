@@ -935,28 +935,28 @@ body.banner-hidden .testro-nav,
 /*
  * Mega panels — Framer RelativeOverlay (floatingPlacement bottom).
  * Vertical: top 100% of trigger (Product offsetY 24px · Solution/Resources 14px).
- * Horizontal: centered on the nav item (left: 50% + translateX(-50%)); width fits content.
- * --mega-shift only nudges for viewport collision.
+ * Horizontal: --mega-offset (set by JS) centers the panel on its nav item, clamped
+ * to the viewport. `left` is never transitioned, so opening only animates vertically.
  */
 .testro-mega {
   position: absolute;
   top: 100%;
-  left: 50%;
+  left: var(--mega-offset, 0px);
   right: auto;
   z-index: 80;
   width: max-content;
   min-width: 0;
-  max-width: min(1440px, calc(100vw - 24px));
+  max-width: min(1440px, var(--mega-max-width, calc(100vw - 24px)));
   padding: 24px 0 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateX(calc(-50% + var(--mega-shift, 0px))) translateY(8px) scale(0.98);
+  transform: translateY(-8px);
   transform-origin: top center;
   transition:
-    opacity 0.28s cubic-bezier(0.34, 1.4, 0.64, 1),
-    transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1),
-    visibility 0.28s;
+    opacity 0.18s ease-in,
+    transform 0.18s ease-in,
+    visibility 0s linear 0.18s;
 }
 
 .testro-mega--solutions,
@@ -968,7 +968,7 @@ body.banner-hidden .testro-nav,
 .testro-mega--solutions,
 .testro-mega--resources {
   width: max-content;
-  max-width: min(1440px, calc(100vw - 24px));
+  max-width: min(1440px, var(--mega-max-width, calc(100vw - 24px)));
 }
 
 .testro-nav__item.is-open > .testro-mega,
@@ -976,7 +976,11 @@ body.banner-hidden .testro-nav,
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(calc(-50% + var(--mega-shift, 0px))) translateY(0) scale(1);
+  transform: translateY(0);
+  transition:
+    opacity 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
 }
 
 .testro-mega[hidden] {
@@ -1287,6 +1291,8 @@ body.banner-hidden .testro-nav,
 
 @media (prefers-reduced-motion: reduce) {
   .testro-mega,
+  .testro-nav__item.is-open > .testro-mega,
+  .testro-nav__item:focus-within > .testro-mega,
   .testro-nav__chevron,
   .testro-mega__link {
     transition: none;
@@ -1354,7 +1360,11 @@ body.banner-hidden .testro-nav,
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateX(calc(-50% + var(--mega-shift, 0px))) translateY(0) scale(1);
+    transform: translateY(0);
+    transition:
+      opacity 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0s;
   }
 
   .testro-nav__item--has-mega:hover > .testro-nav__trigger {
@@ -1364,6 +1374,12 @@ body.banner-hidden .testro-nav,
 
   .testro-nav__item--has-mega:hover > .testro-nav__trigger .testro-nav__chevron {
     transform: rotate(180deg);
+  }
+}
+
+@media (min-width: 901px) and (prefers-reduced-motion: reduce) {
+  .testro-nav__item--has-mega:hover > .testro-mega {
+    transition: none;
   }
 }
 
@@ -6322,6 +6338,7 @@ body.modal-open {
     visibility: visible;
     pointer-events: auto;
     transform: none;
+    transition: none;
     margin: 0.15rem 0 0.35rem;
     padding: 0;
   }
@@ -6469,6 +6486,18 @@ body.modal-open {
 
   .testro-features__tab.is-active {
     padding: 0 1rem;
+  }
+}
+
+/* Mobile menu: drop the promo (left-side section of each mega panel); keep link columns only */
+@media (max-width: 767px) {
+  .testro-mega__promo {
+    display: none;
+  }
+
+  .testro-mega--solutions .testro-mega__inner,
+  .testro-mega--resources .testro-mega__inner {
+    padding-left: 0.85rem;
   }
 }
 
@@ -20818,7 +20847,6 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
     padding: 0.3rem 0.7rem;
     font-size: 13px;
     line-height: 1.3;
-    border-radius: 16px;
     gap: 0.4rem;
   }
 
@@ -25394,6 +25422,18 @@ body.home .testro-hero__title {
 .testro-top-banner__cta {
   font-size: 12.5px;
   font-weight: 600;
+}
+/* Mobile: full-bleed strip; height follows wrapped copy */
+@media (max-width: 768px) {
+  .testro-top-banner {
+    width: 100%;
+  }
+  .testro-top-banner__inner,
+  .banner-background {
+    height: auto;
+    min-height: 42px;
+    padding: 0.5rem 0.75rem;
+  }
 }
 
 /* AI Cap cards — Framer glass fill; border via .testro-card--top-line */
@@ -52717,14 +52757,8 @@ body.home .testro-demo__play {
   }
 }
 @media (max-width: 768px) {
-  body.home .testro-top-banner,
   body.home .testro-nav {
     width: 100%;
-  }
-  body.home .testro-top-banner__inner {
-    height: auto;
-    min-height: 42px;
-    padding: 0.5rem 0.75rem;
   }
 }
 @media (max-width: 640px) {

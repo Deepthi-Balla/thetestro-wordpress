@@ -189,6 +189,7 @@
     var nav = qs('.testro-nav');
     var toggle = qs('.testro-nav__toggle');
     var MOBILE_NAV_MAX = 900;
+    var MEGA_VIEWPORT_GUTTER = 12;
     var megaItems = nav ? qsa('.testro-nav__item--has-mega', nav) : [];
     var closeMegaTimer = null;
 
@@ -196,59 +197,52 @@
       return window.innerWidth <= MOBILE_NAV_MAX;
     }
 
-    function alignMegaToContainer(item) {
+    /*
+     * Center the panel under its nav item, then clamp inside the viewport.
+     * Uses layout sizes (offsetWidth / item rect) so the open/close transform never skews
+     * the measurement; clientWidth excludes the vertical scrollbar.
+     */
+    function positionMegaPanel(item) {
       var panel = item ? qs('.testro-mega', item) : null;
       if (!panel) return;
       if (isMobileNav()) {
-        panel.style.removeProperty('--mega-shift');
-        panel.style.removeProperty('--mega-width');
+        panel.style.removeProperty('--mega-offset');
+        panel.style.removeProperty('--mega-max-width');
         return;
       }
-      /* Content-sized panels: centered on the nav item; only nudge for viewport edges */
-      panel.style.removeProperty('--mega-width');
-      panel.style.setProperty('--mega-shift', '0px');
-      var rect = panel.getBoundingClientRect();
-      var pad = 12;
-      var shift = 0;
-      if (rect.left < pad) {
-        shift = pad - rect.left;
-      } else if (rect.right > window.innerWidth - pad) {
-        shift = window.innerWidth - pad - rect.right;
-      }
-      if (shift) {
-        panel.style.setProperty('--mega-shift', Math.round(shift) + 'px');
-      }
+      var viewportWidth = document.documentElement.clientWidth;
+      panel.style.setProperty('--mega-max-width', viewportWidth - MEGA_VIEWPORT_GUTTER * 2 + 'px');
+      var itemRect = item.getBoundingClientRect();
+      var panelWidth = panel.offsetWidth;
+      var left = itemRect.left + (itemRect.width - panelWidth) / 2;
+      left = Math.min(left, viewportWidth - MEGA_VIEWPORT_GUTTER - panelWidth);
+      left = Math.max(left, MEGA_VIEWPORT_GUTTER);
+      panel.style.setProperty('--mega-offset', Math.round(left - itemRect.left) + 'px');
     }
 
-    function clampMegaPosition(item) {
-      alignMegaToContainer(item);
+    function positionAllMegas() {
+      megaItems.forEach(positionMegaPanel);
     }
 
     function setMegaOpen(item, open) {
       if (!item) return;
       var trigger = qs('.testro-nav__trigger', item);
       var panel = qs('.testro-mega', item);
+      if (panel && open) {
+        panel.removeAttribute('hidden');
+        positionMegaPanel(item);
+      }
       item.classList.toggle('is-open', open);
       if (trigger) {
         trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
       }
       if (panel) {
         panel.setAttribute('aria-hidden', open ? 'false' : 'true');
-        if (open) {
-          panel.removeAttribute('hidden');
-          alignMegaToContainer(item);
-          requestAnimationFrame(function () {
-            alignMegaToContainer(item);
-          });
-        } else if (isMobileNav()) {
+        if (!open && isMobileNav()) {
           panel.setAttribute('hidden', '');
-          panel.style.removeProperty('--mega-shift');
-          panel.style.removeProperty('--mega-width');
-        } else {
-          /* Desktop keeps panel in DOM for CSS hover/transitions */
+        } else if (!open) {
+          /* Desktop keeps panel in DOM (and its offset) so closing only fades vertically */
           panel.removeAttribute('hidden');
-          panel.style.removeProperty('--mega-shift');
-          panel.style.removeProperty('--mega-width');
         }
       }
     }
@@ -326,17 +320,20 @@
 
     syncMegaHiddenState();
 
+    /* Pre-position so CSS :hover / :focus-within opens are already anchored correctly */
+    positionAllMegas();
+    window.addEventListener('load', positionAllMegas);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(positionAllMegas);
+    }
+
     window.addEventListener('resize', function () {
       updateNavTop();
       if (window.innerWidth > MOBILE_NAV_MAX) {
         closeNav();
       }
       syncMegaHiddenState();
-      megaItems.forEach(function (item) {
-        if (item.classList.contains('is-open')) {
-          alignMegaToContainer(item);
-        }
-      });
+      positionAllMegas();
     });
 
     if (typeof ResizeObserver !== 'undefined') {
