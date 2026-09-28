@@ -105,7 +105,8 @@
   --shadow-btn-secondary: 0 2px 8px 0 rgb(0 62 132 / 0.08);
   --shadow-automation: 0 0 0 8px #ffffff40, 12px 16px 16px #0000001a;
 
-  --container: 1200px;
+  /* Global content frame: 80px L/R (--container-pad) up to a 1440px viewport, centered beyond. */
+  --container: 1440px;
   /* Horizontal section inset: Framer 1200 canvas ≈56px; large desktop baseline 80px */
   --container-pad: clamp(1rem, 4.67vw, 3.5rem);
   --section-pad-y: clamp(3.5rem, 6vw, 6rem);
@@ -54310,7 +54311,7 @@ html body .testro-prod-cta.testro-prod-cta--brand .testro-prod-cta__assurances {
 
 /* ==========================================================================
    Global horizontal rhythm — Test Development / Framer reference
-   max-width: 1200px (--container) · L/R: --container-pad · content starts left
+   max-width: 1440px (--container) · L/R: --container-pad · content starts left
    ========================================================================== */
 
 html body .testro-container {
@@ -54325,6 +54326,38 @@ html body .testro-product-web .testro-web-shell {
   padding-inline: var(--container-pad) !important;
   margin-inline: auto;
   box-sizing: border-box;
+}
+
+/*
+ * Above 1200px the content frame is wider than the fixed Framer block widths
+ * (1080–1096px), so those blocks keep their size but stay on the container's
+ * left edge instead of centering, and no section adds its own side inset on
+ * top of --container-pad.
+ */
+@media (min-width: 1200px) {
+  html body .testro-prod-hero.testro-prod-hero--split {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  html body .testro-container > .testro-prod-bf__cards,
+  html body .testro-container > .testro-prod-re__compare-intro,
+  html body .testro-container > .testro-prod-re__table,
+  html body .testro-container > .testro-prod-xbrowser__cap-grid,
+  html body .testro-container > .testro-prod-xbrowser__debug,
+  html body .testro-web-shell > .testro-web-cicd__inner {
+    align-self: flex-start;
+    margin-inline: 0;
+  }
+
+  html body.testro-product-sap #how-teams-get-started-with-sap-testing .testro-prod-bf__exec {
+    justify-content: start;
+  }
+
+  html body.testro-product-web .testro-web-platforms .testro-web-shell {
+    padding-left: var(--container-pad);
+    padding-right: var(--container-pad);
+  }
 }
 
 /* Product pages: section headers start from the left edge of the container. */

@@ -17,7 +17,7 @@
   --color-border-soft: #eaf3fc;
   --banner-height: 42px;
   --nav-height: 76px;
-  --container: 1200px;
+  --container: 1440px;
   --container-pad: clamp(1rem, 4.67vw, 3.5rem);
   --header-stack-padding: 0;
   --radius-btn: 8px;
