@@ -19,6 +19,7 @@
   --nav-height: 76px;
   --container: 1440px;
   --container-pad: clamp(1rem, 4.67vw, 3.5rem);
+  --section-pad-y: clamp(3.5rem, 7.5vw, 6rem);
   --header-stack-padding: 0;
   --radius-btn: 8px;
   --shadow-btn: 0 4px 14px 0 rgb(0 172 255 / 0.28);
@@ -111,7 +112,7 @@ body {
 }
 
 .testro-hero {
-  padding: clamp(3.5rem, 7vw, 6.25rem) 0 clamp(3.5rem, 6vw, 6rem);
+  padding-block: var(--section-pad-y);
   text-align: left;
 }
 

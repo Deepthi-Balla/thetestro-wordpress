@@ -109,7 +109,8 @@
   --container: 1440px;
   /* Horizontal section inset: Framer 1200 canvas ≈56px; large desktop baseline 80px */
   --container-pad: clamp(1rem, 4.67vw, 3.5rem);
-  --section-pad-y: clamp(3.5rem, 6vw, 6rem);
+  /* Section rhythm: 96px at the 1280px desktop breakpoint, fluid down to 56px. */
+  --section-pad-y: clamp(3.5rem, 7.5vw, 6rem);
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -52699,6 +52700,42 @@ body.home .testro-demo__play {
   }
 }
 
+/* Tablet / mobile hero + header — same stack as .testro-hero (≤1023 / ≤640) and product split heroes */
+@media (max-width: 1023px) {
+  /* minmax(0, …) so the canvas aspect-ratio + min-height cannot widen the track past the viewport */
+  body.home .testro-hero > .testro-hero__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem !important;
+  }
+  body.home .testro-hero-canvas {
+    max-width: 528px;
+  }
+}
+@media (max-width: 900px) {
+  body.home .testro-mega__promo-media {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  body.home .testro-top-banner,
+  body.home .testro-nav {
+    width: 100%;
+  }
+  body.home .testro-top-banner__inner {
+    height: auto;
+    min-height: 42px;
+    padding: 0.5rem 0.75rem;
+  }
+}
+@media (max-width: 640px) {
+  body.home .testro-hero-canvas {
+    min-height: 240px;
+  }
+  body.home .testro-hero__actions .testro-btn {
+    width: auto;
+  }
+}
+
 /* === HOME FIX5 — Overview / Why / How / Choose / Resources === */
 /* Framer: muahWPQ8i · G3gbasgpx · VEyT2cC7G · UJi1xy19J · GplGQoLlh */
 
@@ -54397,4 +54434,23 @@ html body.home .testro-resources__header,
 html body.home .testro-clients__header {
   text-align: left !important;
   align-items: flex-start !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Global section rhythm                                                      */
+/* Desktop baseline is 96px (--section-pad-y at ≥1280px). The same token      */
+/* scales down on tablet and mobile. Any page section in <main> is included,  */
+/* including sections wrapped for anchors. Nested <section> elements (pricing */
+/* panels and similar) and sections inside post content are left alone.       */
+/* -------------------------------------------------------------------------- */
+main#main-content.site-main section:not(section section):not(.testro-entry__content section) {
+  padding-block: var(--section-pad-y) !important;
+}
+
+/*
+ * Web sections store their vertical pad on the inner shell. The section now
+ * owns that space, so the shell keeps only its horizontal inset.
+ */
+main#main-content.site-main section.testro-web-section > .testro-web-shell {
+  padding-block: 0 !important;
 }
