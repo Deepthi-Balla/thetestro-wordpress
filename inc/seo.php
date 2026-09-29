@@ -289,7 +289,7 @@ function testro_seo_meta_tags() {
 	$image_w     = 315;
 	$image_h     = 315;
 	$image_alt   = 'theTestRo';
-	$site_name   = get_bloginfo( 'name' );
+	$site_name   = 'theTestRo';
 	$twitter     = testro_get_option( 'twitter', '@testro_ai' );
 
 	if ( is_singular() && has_post_thumbnail() ) {

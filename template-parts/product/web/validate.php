@@ -1,6 +1,6 @@
 <?php
 /**
- * Web Testing — Validate Every UI Changes (Framer Gj9D5TyHM).
+ * Web Testing — Validate Every UI Change (Framer Gj9D5TyHM).
  *
  * Section Intro is visible:false in Framer — do not render intro.
  * Browser Coverage: 2×2 stack of rows, gap 24; cards with left visual

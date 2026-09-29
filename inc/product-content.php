@@ -1129,13 +1129,13 @@ function testro_get_product_pages() {
 					),
 				),
 
-				/* Validate Every UI Changes — Home Key Features card treatment. */
+				/* Validate Every UI Change — Home Key Features card treatment. */
 				array(
 					'type'          => 'feature-grid',
 					'id'            => 'validate-ui-changes',
 					'variant'       => 'lift',
 					'columns'       => 2,
-					'title'         => __( 'Validate Every UI Changes', 'testro' ),
+					'title'         => __( 'Validate Every UI Change', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
@@ -1201,7 +1201,7 @@ function testro_get_product_pages() {
 					'items'         => array(
 						array(
 							'icon'        => 'infinity',
-							'title'       => __( 'Jenkin', 'testro' ),
+							'title'       => __( 'Jenkins', 'testro' ),
 							'description' => __( 'Run tests automatically as part of your existing pipeline.', 'testro' ),
 						),
 						array(

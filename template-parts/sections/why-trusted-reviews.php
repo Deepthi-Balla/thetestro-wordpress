@@ -2,7 +2,7 @@
 /**
  * Trusted Logos Row One (Framer oyx6zQLFo / Partners w9X6aEuRB / Network fPTkjCQkB).
  *
- * Horizontal ticker: logo + ★★★★☆ 4.6/5.0) — Urbuddi, Xcally, Optimworks, Sevaki, Graduway.
+ * Horizontal ticker: logo + ★★★★☆ 4.6/5.0 — Urbuddi, Xcally, Optimworks, Sevaki, Graduway.
  * Framer tickerEffect: velocity 38, hoverModifier 0, draggable false, overflow clip.
  *
  * Args:
@@ -56,7 +56,7 @@ $marquee = static function () use ( $track_items ) {
 					</div>
 					<p class="testro-why-reviews__rating" aria-label="<?php esc_attr_e( 'Rated 4.6 out of 5', 'testro' ); ?>">
 						<span class="testro-why-reviews__stars" aria-hidden="true">★★★★☆</span>
-						<span><?php esc_html_e( '4.6/5.0)', 'testro' ); ?></span>
+						<span><?php esc_html_e( '(4.6/5.0)', 'testro' ); ?></span>
 					</p>
 				</li>
 			<?php endforeach; ?>

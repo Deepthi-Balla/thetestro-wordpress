@@ -1,6 +1,6 @@
 <?php
 /**
- * Site footer — floating card layout matching theTestRo reference.
+ * Site footer — full-bleed background with content in the global container.
  *
  * @package TestRo
  */
@@ -15,13 +15,14 @@ $footer_bg = testro_asset_webp( 'images/footer-bg.png' );
 $blog_id   = (int) get_option( 'page_for_posts' );
 $blog_url  = $blog_id ? get_permalink( $blog_id ) : $home;
 ?>
-<footer class="testro-footer" role="contentinfo">
-	<div
-		class="testro-footer__card"
-		style="--footer-bg: url('<?php echo esc_url( $footer_bg ); ?>')"
-	>
-		<div class="testro-footer__overlay" aria-hidden="true"></div>
+<footer
+	class="testro-footer"
+	role="contentinfo"
+	style="--footer-bg: url('<?php echo esc_url( $footer_bg ); ?>')"
+>
+	<div class="testro-footer__overlay" aria-hidden="true"></div>
 
+	<div class="testro-container">
 		<div class="testro-footer__inner">
 			<div class="testro-footer__brand">
 				<a href="<?php echo esc_url( $home ); ?>" class="testro-footer__logo">

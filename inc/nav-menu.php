@@ -164,7 +164,7 @@ function testro_get_nav_menus() {
 							'icon'  => 'board',
 						),
 						array(
-							'label' => __( 'Self-Healing Tests, Self-Healing automation tool', 'testro' ),
+							'label' => __( 'Self Healing automation tool', 'testro' ),
 							'href'  => testro_nav_url( 'self-healing-test-automation-tool' ),
 							'icon'  => 'heal',
 						),

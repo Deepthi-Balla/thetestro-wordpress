@@ -101,7 +101,7 @@ $track_items = $clients ? array_merge( $clients, $clients ) : array();
 								</div>
 								<p class="testro-clients__rating-line" aria-label="<?php esc_attr_e( 'Rated 4.6 out of 5', 'testro' ); ?>">
 									<span class="testro-clients__stars" aria-hidden="true">★★★★☆</span>
-									<span> 4.6/5.0)</span>
+									<span> (4.6/5.0)</span>
 								</p>
 							</li>
 						<?php endforeach; ?>
