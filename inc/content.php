@@ -69,7 +69,7 @@ function testro_bottom_text_class( $light = false ) {
 }
 
 /**
- * Resolve WebP URL for a theme image when a sibling exists under images/webp/.
+ * Resolve WebP URL for a theme image when its optimized copy exists under images/webp/.
  *
  * @param string $path Relative path under assets/ (e.g. images/logo.png).
  * @return string
@@ -77,16 +77,9 @@ function testro_bottom_text_class( $light = false ) {
 function testro_asset_webp( $path ) {
 	$path     = ltrim( $path, '/' );
 	$original = testro_asset( $path );
+	$webp     = testro_webp_theme_relative( $path );
 
-	if ( ! preg_match( '/\.(png|jpe?g)$/i', $path ) ) {
-		return $original;
-	}
-
-	$base = preg_replace( '/\.(png|jpe?g)$/i', '', basename( $path ) );
-	$webp = 'images/webp/' . $base . '.webp';
-	$file = TESTRO_DIR . '/assets/' . $webp;
-
-	return file_exists( $file ) ? testro_asset( $webp ) : $original;
+	return ( '' !== $webp && file_exists( TESTRO_DIR . '/assets/' . $webp ) ) ? testro_asset( $webp ) : $original;
 }
 
 /**

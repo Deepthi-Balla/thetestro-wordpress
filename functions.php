@@ -24,6 +24,7 @@ $testro_includes = array(
 	'/inc/customizer.php',
 	'/inc/performance.php',
 	'/inc/images.php',
+	'/inc/image-delivery.php',
 	'/inc/icons.php',
 	'/inc/content.php',
 	'/inc/product-content.php',
