@@ -1012,13 +1012,11 @@ body.banner-hidden .testro-nav,
 .testro-mega--solutions .testro-mega__inner {
   height: auto;
   min-height: 310px;
-  padding-left: 24px;
 }
 
 .testro-mega--resources .testro-mega__inner {
   height: auto;
   min-height: 310px;
-  padding-left: 24px;
   border-radius: 10px;
 }
 
@@ -5502,18 +5500,19 @@ body.modal-open {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #111;
 }
 
 .testro-footer__enquire a {
-  color: #60a5fa;
+  color: #2563eb;
+  font-weight: 600;
   text-decoration: underline;
   font-size: 15px;
   transition: color 0.2s ease;
 }
 
 .testro-footer__enquire a:hover {
-  color: #3b82f6;
+  color: #1d4ed8;
 }
 
 .testro-footer__demo {
@@ -5533,7 +5532,7 @@ body.modal-open {
 
 .testro-footer__newsletter-copy {
   margin: 0 0 1.5rem;
-  color: #6b7280;
+  color: #111;
   font-size: 0.875rem;
   line-height: 1.5;
   max-width: 200px;
@@ -6342,11 +6341,6 @@ body.modal-open {
     box-shadow: none;
   }
 
-  .testro-mega--solutions .testro-mega__inner,
-  .testro-mega--resources .testro-mega__inner {
-    padding-left: 0;
-  }
-
   .testro-mega__promo {
     flex: none;
     width: 100%;
@@ -6479,11 +6473,6 @@ body.modal-open {
 @media (max-width: 767px) {
   .testro-mega__promo {
     display: none;
-  }
-
-  .testro-mega--solutions .testro-mega__inner,
-  .testro-mega--resources .testro-mega__inner {
-    padding-left: 0.85rem;
   }
 }
 
