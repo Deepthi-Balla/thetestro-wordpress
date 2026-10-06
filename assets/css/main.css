@@ -5383,440 +5383,294 @@ body.modal-open {
 
 /* -------------------------------------------------------------------------- */
 /* Footer — full-bleed background, content in .testro-container              */
+/* Framer w08bZ5fJw: pad 44 top/bottom; brand and nav pinned to container.   */
 /* -------------------------------------------------------------------------- */
 .testro-footer {
   position: relative;
-  z-index: 0;
   width: 100%;
-  padding-block: 5.5rem;
-  color: #0f172a;
-  background-color: #f8fafc;
-  background-image: var(--footer-bg, none);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.testro-footer__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: rgb(224 242 254 / 0.4);
-  pointer-events: none;
-}
-
-.testro-footer__inner,
-.testro-footer__bottom {
-  position: relative;
-  z-index: 1;
+  padding-block: 44px;
+  overflow: clip;
+  color: var(--color-navy);
+  background: linear-gradient(90deg, #f2faff 0%, #cfecff 100%);
 }
 
 .testro-footer__inner {
   display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  margin-bottom: 5rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
 }
 
+.testro-footer p {
+  margin: 0;
+}
+
+.testro-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Brand: logo 242×51, gap 11 → description + socials (gap 24) */
 .testro-footer__brand {
-  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  flex: 0 0 auto;
 }
 
 .testro-footer__logo {
-  display: inline-block;
-  margin-bottom: 1.25rem;
+  display: block;
+  width: 242px;
+  height: 51px;
 }
 
+.testro-footer__logo picture,
 .testro-footer__logo img {
-  height: 2.5rem;
-  width: auto;
   display: block;
+  width: 242px;
+  height: 51px;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.testro-footer__about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .testro-footer__description {
-  margin: 0;
-  color: #1e40af;
-  font-size: 0.875rem;
-  line-height: 1.625;
+  width: 301px;
+  max-width: 100%;
+  font-family: var(--testro-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55em;
+  letter-spacing: 0;
+  color: var(--color-slate);
+  text-wrap: balance;
+}
+
+.testro-footer__social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.testro-footer__social a {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: #003e81;
+}
+
+.testro-footer__social a.testro-footer__social-link--linkedin {
+  color: #235992;
+}
+
+.testro-footer__social svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+/* Right side: link columns (gap 54) + newsletter, gap 24 */
+.testro-footer__nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 0 0 auto;
+}
+
+.testro-footer__cols {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 54px;
+}
+
+.testro-footer__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.testro-footer__col--resources {
+  width: 97px;
+}
+
+.testro-footer__col--explore {
+  width: 112px;
+}
+
+.testro-footer__col--contact {
+  width: 173px;
 }
 
 .testro-footer__heading {
-  margin: 0 0 1.5rem;
-  font-size: 1rem;
+  font-family: var(--testro-font-display);
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: -0.025em;
-  color: #0f172a;
-  text-transform: none;
-}
-
-.testro-footer__heading--newsletter {
-  margin-bottom: 1rem;
-}
-
-.testro-footer__heading--follow {
-  margin-bottom: 1.5rem;
-  color: #003e81;
+  line-height: 125%;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
+  color: var(--color-navy);
+  white-space: nowrap;
 }
 
 .testro-footer__links {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.testro-footer__links li,
+.testro-footer__links a,
+.testro-footer__newsletter-copy {
+  font-family: var(--testro-font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2em;
+  letter-spacing: 0;
+  color: var(--color-navy);
+}
+
+.testro-footer__links li {
+  white-space: nowrap;
 }
 
 .testro-footer__links a {
-  color: #111;
-  font-size: 15px;
-  line-height: 1.5;
-  transition: color 0.2s ease;
+  text-decoration: none;
 }
 
-.testro-footer__links a:hover {
-  color: #2563eb;
-}
-
-.testro-footer__link--accent {
-  color: #2563eb !important;
-  font-weight: 600;
-}
-
-.testro-footer__link--accent:hover {
-  color: #1d4ed8 !important;
-}
-
-.testro-footer__contact {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.testro-footer__enquire {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: #111;
-}
-
-.testro-footer__enquire a {
-  color: #2563eb;
-  font-weight: 600;
+.testro-footer__links a.testro-footer__mail {
+  color: #0099ff;
   text-decoration: underline;
-  font-size: 15px;
-  transition: color 0.2s ease;
 }
 
-.testro-footer__enquire a:hover {
-  color: #1d4ed8;
-}
-
-.testro-footer__demo {
-  display: inline-block;
-  color: #111;
-  font-size: 15px;
-  transition: color 0.2s ease;
-}
-
-.testro-footer__demo:hover {
-  color: #2563eb;
-}
-
-.testro-footer__newsletter-block {
-  margin-bottom: 2.5rem;
+/* Newsletter: copy 207 wide, pill 237×49 */
+.testro-footer__newsletter {
+  width: 237px;
+  position: relative;
+  z-index: 1;
 }
 
 .testro-footer__newsletter-copy {
-  margin: 0 0 1.5rem;
-  color: #111;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  max-width: 200px;
+  width: 207px;
+  margin-bottom: 0;
 }
 
 .testro-form--newsletter {
-  position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 280px;
+  gap: 8px;
+}
+
+.testro-footer__subscribe-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: 100%;
+  padding: 10px 10px 10px 14px;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgb(0 170 255 / 0.4);
 }
 
 .testro-form--newsletter input[type="email"] {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  border-radius: 9999px;
-  border: 1px solid #e5e7eb;
-  background: rgb(255 255 255 / 0.8);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #020817;
+  width: 120px;
+  min-width: 0;
+  flex: 1 1 auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-family: var(--testro-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2em;
+  letter-spacing: -0.02em;
+  color: var(--color-slate);
   outline: none;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.testro-form--newsletter input[type="email"]:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgb(59 130 246 / 0.45);
 }
 
 .testro-form--newsletter input[type="email"]::placeholder {
-  color: #9ca3af;
+  color: var(--color-slate);
+  opacity: 1;
+}
+
+.testro-footer__subscribe-field:focus-within {
+  box-shadow: inset 0 0 0 1px rgb(0 170 255 / 0.4), 0 0 0 2px rgb(0 170 255 / 0.35);
 }
 
 .testro-footer__subscribe {
-  margin-top: 10px;
-  width: 100%;
-  height: 40px;
-  padding: 0 1.5rem;
-  background: #2d2d2d;
-  color: #fff;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 6px 8px;
   border: 0;
-  border-radius: 999px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  border-radius: 32px;
+  background: var(--color-navy);
+  font-family: var(--testro-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2em;
+  letter-spacing: 0;
+  color: #fff;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
-.testro-footer__subscribe:hover {
-  background: #000;
+.testro-footer__subscribe:disabled {
+  opacity: 0.7;
+  cursor: default;
 }
 
-.testro-footer__social {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.testro-footer__social a {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 999px;
-  background: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
-  border: 1px solid #f9fafb;
-  transition: transform 0.2s ease;
-}
-
-.testro-footer__social a:hover {
-  transform: scale(1.1);
-}
-
-.testro-footer__social li:first-child a {
-  color: #0077b5;
-}
-
-.testro-footer__social li:last-child a {
-  color: #ff0000;
-}
-
-.testro-footer__bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid rgb(219 234 254 / 0.3);
-}
-
-.testro-footer__copy {
-  margin: 0;
-  color: #1e3a8a;
-  font-weight: 500;
-  font-size: 15px;
-}
-
-.testro-footer__legal {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.testro-footer__legal a {
-  color: #4b5563;
-  font-size: 15px;
-  transition: color 0.2s ease;
-}
-
-.testro-footer__legal a:hover {
-  color: #2563eb;
-}
-
-/* Mobile: Newsletter → Follow Us → divider → Copyright (desktop unchanged) */
-@media (max-width: 767px) {
-  /*
-   * Shift/scale the footer-bg so the decorative white arcs sit below the
-   * newsletter + Follow Us content. At default cover/center those arcs read
-   * as a horizontal divider cutting through Subscribe.
-   *
-   * background-size: 250% auto only paints the top of the tall mobile card;
-   * fill the rest with the same light blue as footer-bg.png so Newsletter,
-   * Follow Us, and Copyright share one continuous background (divider stays
-   * as border-top only — no separate copyright color block).
-   */
-  .testro-footer {
-    background-color: #baefff;
-    background-position: center top;
-    background-size: 250% auto;
-  }
-
+/* Tablet: inner row (1080px) no longer fits — brand above, columns below */
+@media (max-width: 1199px) {
   .testro-footer__inner {
-    gap: 2rem;
-    margin-bottom: 0;
-  }
-
-  .testro-footer__newsletter {
-    display: flex;
     flex-direction: column;
-    gap: 1.75rem;
-    width: 100%;
-  }
-
-  /* 1. Newsletter — heading, copy, email, Subscribe as one section */
-  .testro-footer__newsletter-block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .testro-footer__heading--newsletter {
-    width: 100%;
-    margin-bottom: 0.75rem;
-  }
-
-  .testro-footer__newsletter-copy {
-    max-width: none;
-    width: 100%;
-    margin: 0 0 1.25rem;
-  }
-
-  /*
-   * Keep the form at its desktop max-width (280px). Full-bleed width stretched
-   * Subscribe across the footer-bg white arcs and looked like a divider through
-   * the button.
-   */
-  .testro-form--newsletter {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    max-width: 280px;
-    margin-inline: 0;
-  }
-
-  .testro-form--newsletter input[type="email"],
-  .testro-footer__subscribe {
-    width: 100%;
-    max-width: 280px;
-    box-sizing: border-box;
-  }
-
-  .testro-form--newsletter input[type="email"] {
-    min-height: 2.5rem;
-    padding: 1rem 1.5rem;
-  }
-
-  .testro-footer__subscribe {
-    margin-top: 10px;
-    height: 40px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* 2. Follow Us — heading + icons together, still above the divider */
-  .testro-footer__follow {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 1.5rem;
-  }
-
-  .testro-footer__heading--follow {
-    margin-bottom: 0;
-    flex-shrink: 0;
-  }
-
-  .testro-footer__social {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    margin: 0;
-  }
-
-  /* 3. Copyright only — single divider after Follow Us */
-  .testro-footer__bottom {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-top: 0;
-    padding-top: 1.5rem;
-    padding-bottom: 0.25rem;
-    border-top: 1px solid #93c5fd;
-  }
-
-  .testro-footer__copy {
-    width: 100%;
-    text-align: center;
-  }
-
-  .testro-footer__legal {
-    width: 100%;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .testro-footer {
-    padding-block: 7rem;
-  }
-
-  .testro-footer__bottom {
-    flex-direction: row;
-  }
-
-  .testro-footer__legal {
-    justify-content: flex-end;
-  }
-}
-
-@media (min-width: 1024px) {
-  .testro-footer__inner {
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: flex-start;
-    gap: 4rem;
+    gap: 40px;
   }
 
-  .testro-footer__brand {
-    flex: 0 0 auto;
-    max-width: 280px;
+  .testro-footer__nav {
+    flex-wrap: wrap;
+    row-gap: 40px;
+  }
+}
+
+/* Mobile: Resources + Explore side by side, Contact and Newsletter full rows */
+@media (max-width: 767px) {
+  .testro-footer__nav,
+  .testro-footer__cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 24px;
+    width: 100%;
   }
 
-  .testro-footer__col {
-    flex: 0 1 auto;
+  .testro-footer__cols {
+    grid-column: 1 / -1;
+  }
+
+  .testro-footer__col--resources,
+  .testro-footer__col--explore {
+    width: auto;
+  }
+
+  .testro-footer__col--contact,
+  .testro-footer__newsletter {
+    grid-column: 1 / -1;
+    width: 100%;
   }
 }
 
@@ -6805,9 +6659,6 @@ body.modal-open {
     line-height: 1.4;
   }
 
-  .testro-footer {
-    padding-block: 3.5rem;
-  }
 
   .testro-contact__card-body {
     padding: 0 0.25rem 1rem;
