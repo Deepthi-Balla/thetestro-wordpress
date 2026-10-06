@@ -26434,6 +26434,7 @@ body.home .testro-hero__title {
   display: grid;
   grid-template-columns: minmax(0, 520px) minmax(0, 504px);
   gap: clamp(2rem, 5vw, 4.5rem);
+  --section-stack-gap: clamp(2rem, 5vw, 4.5rem);
   align-items: stretch;
   justify-content: space-between;
 }
@@ -53921,7 +53922,8 @@ html body .testro-prod-pipeline--timeline .testro-prod-pipeline__outro.testro-bo
   html body .testro-prod-re--compare-table > .testro-container,
   html body .testro-prod-heal--feature-cards > .testro-container,
   html body .testro-prod-cicd--proof-points > .testro-container,
-  html body .testro-prod-cicd--trigger-rows > .testro-container
+  html body .testro-prod-cicd--trigger-rows > .testro-container,
+  html body .testro-prod-analytics--framer > .testro-container
 ) > .testro-bottom-text.testro-bottom-text.testro-bottom-text {
   margin-top: calc(48px - var(--section-stack-gap, 0px)) !important;
 }
