@@ -2,7 +2,7 @@
 /**
  * Web Testing — Intelligent Web Test Maintenance (Framer WjwO1AihP).
  *
- * Product Capability Cards: 1026×297, gap 16, 3 Unified Testing Cards
+ * Product Capability Cards: 1026 wide, gap 16, 3 equal Unified Testing Cards
  * (pad 24, gap 24, r 18, border rgb(220,234,249)). Visual slot shows the
  * feature illustration when provided.
  *
@@ -18,7 +18,6 @@ if ( ! $items ) {
 }
 
 $heading_id = $id . '-heading';
-$widths     = array( 320, 368, 324 );
 ?>
 <section class="testro-web-section testro-web-maintain" id="<?php echo esc_attr( $id ); ?>" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
 	<div class="testro-web-shell">
@@ -37,13 +36,12 @@ $widths     = array( 320, 368, 324 );
 		</header>
 
 		<ul class="testro-web-maintain__cards">
-			<?php foreach ( $items as $index => $item ) : ?>
+			<?php foreach ( $items as $item ) : ?>
 				<?php
-				$w     = isset( $widths[ $index ] ) ? (int) $widths[ $index ] : 320;
 				$image = isset( $item['image'] ) ? (string) $item['image'] : '';
 				$alt   = isset( $item['title'] ) ? (string) $item['title'] : '';
 				?>
-				<li class="testro-web-maintain__card<?php echo '' !== $image ? ' testro-web-maintain__card--has-image' : ''; ?> testro-card--top-line" style="--card-w: <?php echo esc_attr( (string) $w ); ?>px">
+				<li class="testro-web-maintain__card<?php echo '' !== $image ? ' testro-web-maintain__card--has-image' : ''; ?> testro-card--top-line">
 					<span class="testro-web-maintain__visual<?php echo '' !== $image ? ' testro-web-maintain__visual--image' : ''; ?>">
 						<?php if ( '' !== $image ) : ?>
 							<img

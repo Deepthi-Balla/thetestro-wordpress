@@ -27493,7 +27493,7 @@ body.home .testro-hero__title {
 
 .testro-product-web .testro-prod-analytics__empty-panel--image {
   position: relative;
-  padding: 20px;
+  padding: 0;
   background: #fff;
   display: block;
   align-self: stretch;
@@ -27516,11 +27516,11 @@ body.home .testro-hero__title {
 
   .testro-product-web .testro-prod-analytics__empty-panel-image {
     position: absolute;
-    inset: 20px;
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
+    inset: 0;
+    width: 100%;
+    height: 100%;
     max-height: none;
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 
@@ -29010,7 +29010,7 @@ body.home .testro-hero__title {
   color: #212121;
 }
 
-/* ---- 3. Maintenance WjwO1AihP: pad 80/56/88/56, cards 320/368/324 gap 16 ---- */
+/* ---- 3. Maintenance WjwO1AihP: pad 80/56/88/56, 3 equal cards gap 16 ---- */
 .testro-product-web .testro-web-maintain {
   background: #f4f9ff;
 }
@@ -29069,8 +29069,9 @@ body.home .testro-hero__title {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   align-items: stretch;
   gap: 16px;
   width: 100%;
@@ -29084,8 +29085,7 @@ body.home .testro-hero__title {
   align-items: flex-start;
   gap: 24px;
   padding: 24px;
-  width: var(--card-w, 320px);
-  flex: 0 1 var(--card-w, 320px);
+  min-width: 0;
   background: #fff;
   border: 1px solid rgb(220, 234, 249);
   border-radius: 18px;
@@ -29997,12 +29997,7 @@ html body .testro-product-web .testro-web-platforms__outro {
   }
 
   .testro-product-web .testro-web-maintain__cards {
-    flex-wrap: wrap;
-  }
-
-  .testro-product-web .testro-web-maintain__card {
-    flex: 1 1 calc(50% - 8px);
-    width: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .testro-product-web .testro-web-validate__grid,
@@ -30018,11 +30013,6 @@ html body .testro-product-web .testro-web-platforms__outro {
   .testro-product-web .testro-web-maintain__cards {
     display: grid;
     grid-template-columns: 1fr;
-  }
-
-  .testro-product-web .testro-web-maintain__card {
-    width: 100%;
-    flex: none;
   }
 
   .testro-product-web .testro-web-journey__title,
@@ -30089,6 +30079,10 @@ html body .testro-product-web .testro-web-platforms__outro {
   .testro-product-web .testro-prod-outcomes__journey {
     grid-template-columns: 1fr;
     gap: 44px;
+  }
+
+  .testro-product-web .testro-prod-analytics--empty-panel .testro-prod-analytics__framer-wrap {
+    --section-stack-gap: 44px;
   }
 
   .testro-product-web .testro-prod-outcomes__journey-flow {
@@ -32660,6 +32654,7 @@ html body .testro-product-web .testro-web-platforms__outro {
   display: flex;
   flex-direction: column;
   gap: 64px !important;
+  --section-stack-gap: 64px;
   padding-inline: var(--container-pad);
 }
 
@@ -36803,6 +36798,7 @@ body.testro-product-td .testro-faq {
 
   .testro-product-te .testro-prod-te--feature-split .testro-container {
     gap: 48px;
+    --section-stack-gap: 48px;
   }
 
   .testro-product-te .testro-prod-te__outro--split {
@@ -53823,7 +53819,21 @@ html body .testro-bottom-text.testro-bottom-text.testro-bottom-text {
   font-size: 16px !important;
   letter-spacing: -0.02em !important;
   line-height: 1.55em !important;
-  text-align: right !important;
+  /*
+   * One right-side text column for every section: the box is pinned to the
+   * container's right edge and every line (wrapped or not) starts at the
+   * same left boundary inside it. Width is Framer's closing-note column.
+   */
+  box-sizing: border-box;
+  display: block;
+  width: 100% !important;
+  max-width: var(--testro-bottom-text-width, 700px) !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  align-self: flex-end !important;
+  text-align: left !important;
+  text-wrap: pretty !important;
+  overflow-wrap: break-word;
   color: #5B7290 !important;
   -webkit-text-fill-color: #5B7290 !important;
 }
@@ -53846,6 +53856,7 @@ html body .testro-bottom-text.testro-bottom-text.testro-bottom-text > p {
   letter-spacing: inherit !important;
   line-height: inherit !important;
   text-align: inherit !important;
+  text-wrap: inherit !important;
   color: inherit !important;
   -webkit-text-fill-color: inherit !important;
 }
@@ -53853,67 +53864,10 @@ html body .testro-bottom-text.testro-bottom-text.testro-bottom-text > p {
 /* Drop the old centered quote chrome on the homepage lines. */
 html body .testro-overview__quote.testro-bottom-text,
 html body .testro-ai__quote.testro-bottom-text {
-  box-sizing: border-box;
-  display: block;
-  width: 100% !important;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
   padding: 0 !important;
   border: 0 !important;
   background: none !important;
   box-shadow: none !important;
-}
-
-/*
- * Supporting lines also carry the intro class, whose max-width and auto
- * margins shrink the box so text-align:right sits in the middle of the row.
- * Stretch the box only. Type, color, and the 48px top margin stay on
- * .testro-bottom-text.
- */
-html body .testro-prod-pipeline__outro.testro-bottom-text,
-html body .testro-prod-outcomes__outro.testro-bottom-text,
-html body .testro-prod-xbrowser__outro.testro-bottom-text,
-html body .testro-prod-xbrowser__scale-outro.testro-bottom-text,
-html body .testro-prod-xbrowser__debug-outro.testro-bottom-text,
-html body .testro-prod-bf__exec-outro.testro-bottom-text,
-html body .testro-prod-bf__outro.testro-bottom-text,
-html body .testro-prod-bf__workflow-outro.testro-bottom-text,
-html body .testro-prod-re__coverage-outro.testro-bottom-text,
-html body .testro-prod-re__compare-outro.testro-bottom-text,
-html body .testro-prod-pw__outro.testro-bottom-text,
-html body .testro-prod-ra__outro.testro-bottom-text,
-html body .testro-prod-td__outro.testro-bottom-text,
-html body .testro-prod-te__outro.testro-bottom-text,
-html body .testro-prod-tm__outro.testro-bottom-text,
-html body .testro-prod-tm__what-outro.testro-bottom-text,
-html body .testro-prod-heal__outro.testro-bottom-text,
-html body .testro-prod-cicd__outro.testro-bottom-text,
-html body .testro-prod-cicd__integ-note.testro-bottom-text,
-html body .testro-prod-compare__outro.testro-bottom-text,
-html body .testro-prod-features__outro.testro-bottom-text,
-html body .testro-prod-analytics__outro.testro-bottom-text,
-html body .testro-prod-arch__outro.testro-bottom-text,
-html body .testro-prod-healing__outro.testro-bottom-text,
-html body .testro-prod-bento__outro.testro-bottom-text,
-html body .testro-prod-browsers__outro.testro-bottom-text,
-html body .testro-prod-platforms__outro.testro-bottom-text,
-html body .testro-web-enterprise__outro.testro-bottom-text {
-  display: block;
-  width: 100% !important;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  align-self: stretch !important;
-}
-
-/* Framer DevOps outro: 738px, end-aligned (gP2xF9DBw). */
-html body .testro-prod-pipeline--timeline .testro-prod-pipeline__outro.testro-bottom-text {
-  width: min(100%, 738px) !important;
-  max-width: 738px !important;
-  margin-left: auto !important;
-  margin-right: 0 !important;
-  line-height: 1.16em !important;
 }
 
 /*
@@ -53949,9 +53903,51 @@ html body .testro-prod-pipeline--timeline .testro-prod-pipeline__outro.testro-bo
   html body .testro-prod-heal--feature-cards > .testro-container,
   html body .testro-prod-cicd--proof-points > .testro-container,
   html body .testro-prod-cicd--trigger-rows > .testro-container,
-  html body .testro-prod-analytics--framer > .testro-container
+  html body .testro-prod-analytics--framer > .testro-container,
+  html body .testro-prod-analytics--empty-panel .testro-prod-analytics__framer-wrap,
+  html body .testro-prod-section--debug-rows > .testro-container
 ) > .testro-bottom-text.testro-bottom-text.testro-bottom-text {
   margin-top: calc(48px - var(--section-stack-gap, 0px)) !important;
+}
+
+/*
+ * Containers whose page rules set (or later override) the flex gap without a
+ * matching --section-stack-gap. Each value must equal that container's gap.
+ */
+html body.testro-product-heal #intelligent-test-stability > .testro-container,
+html body.testro-product-ra #getting-started-with-reports > .testro-container {
+  --section-stack-gap: 64px;
+}
+
+html body.testro-product-pw #what-sets-testro-export-apart > .testro-container {
+  --section-stack-gap: 52px;
+}
+
+html body.testro-product-sap .testro-prod-bf--capability-split > .testro-container,
+html body.testro-product-wd .testro-prod-bf--capability-split > .testro-container,
+html body.testro-product-sn .testro-prod-bf--capability-split > .testro-container {
+  --section-stack-gap: 24px;
+}
+
+html body.testro-product-sap #one-platform-for-the-complete-sap-suite > .testro-container,
+html body.testro-product-uc #explore-software-testing-use-cases > .testro-container,
+html body.testro-product-uc #supported-platforms > .testro-container,
+html body.testro-product-re #real-challenges-in-retail-testing > .testro-container,
+html body.testro-product-re #test-every-customer-touchpoint > .testro-container,
+html body.testro-product-re #core-retail-ecommerce-scenarios > .testro-container,
+html body.testro-product-e2e #enterprise-end-to-end-testing-at-scale > .testro-container,
+html body.testro-product-wd #one-platform-for-every-tenant > .testro-container,
+html body.testro-product-wd #workday-validation-from-sandbox-to-production > .testro-container {
+  --section-stack-gap: 40px;
+}
+
+html body.testro-product-sap #locator-free-automation-for-sap-elements > .testro-container,
+html body.testro-product-sn #enterprise-servicenow-testing-at-scale > .testro-container {
+  --section-stack-gap: 42px;
+}
+
+html body.testro-product-uc #why-choose-thetestro-for-every-testing-use-case > .testro-container {
+  --section-stack-gap: 48px;
 }
 
 /* TM wrap already offsets the line — keep the inner text margin at 0, wrap at 48px. */

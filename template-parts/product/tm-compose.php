@@ -27,6 +27,7 @@ $image_alt     = isset( $args['image_alt'] ) ? (string) $args['image_alt'] : '';
 $panel         = isset( $args['panel'] ) && is_array( $args['panel'] ) ? $args['panel'] : array();
 $header_style  = isset( $args['header_style'] ) ? (string) $args['header_style'] : '';
 $use_three     = ( 'three-lines' === $header_style );
+$outro_class   = 'testro-prod-tm__outro ' . testro_bottom_text_class();
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"
@@ -147,7 +148,7 @@ $use_three     = ( 'three-lines' === $header_style );
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
 				<div class="testro-prod-tm__outro-wrap testro-prod-tm__outro-wrap--end">
-					<p class="testro-prod-tm__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+					<p class="<?php echo esc_attr( $outro_class ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -215,7 +216,7 @@ $use_three     = ( 'three-lines' === $header_style );
 				/* Framer Workflow Closing Note: stackAlignment=end, footer max-width 700. */
 				?>
 				<div class="testro-prod-tm__outro-wrap testro-prod-tm__outro-wrap--end">
-					<p class="testro-prod-tm__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+					<p class="<?php echo esc_attr( $outro_class ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -244,7 +245,7 @@ $use_three     = ( 'three-lines' === $header_style );
 			</ul>
 			<?php if ( ! empty( $args['outro'] ) ) : ?>
 				<div class="testro-prod-tm__outro-wrap testro-prod-tm__outro-wrap--end">
-					<p class="testro-prod-tm__outro <?php echo esc_attr( testro_bottom_text_class() ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
+					<p class="<?php echo esc_attr( $outro_class ); ?>" data-reveal><?php echo esc_html( (string) $args['outro'] ); ?></p>
 				</div>
 			<?php endif; ?>
 		<?php endif; ?>

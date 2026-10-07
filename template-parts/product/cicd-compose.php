@@ -256,10 +256,10 @@ $head_align = isset( $args['align'] ) && 'center' === $args['align'] ? 'center' 
 						<?php endforeach; ?>
 					</ul>
 				<?php endif; ?>
-				<?php if ( ! empty( $args['outro'] ) ) : ?>
-					<p class="testro-prod-cicd__integ-note <?php echo esc_attr( testro_bottom_text_class() ); ?>"><?php echo esc_html( (string) $args['outro'] ); ?></p>
-				<?php endif; ?>
 			</div>
+			<?php if ( ! empty( $args['outro'] ) ) : ?>
+				<p class="testro-prod-cicd__integ-note <?php echo esc_attr( testro_bottom_text_class() ); ?>"><?php echo esc_html( (string) $args['outro'] ); ?></p>
+			<?php endif; ?>
 
 		<?php elseif ( 'shift-panels' === $variant ) : ?>
 			<?php
