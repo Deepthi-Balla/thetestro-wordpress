@@ -10,21 +10,15 @@
 $rows = array(
 	array(
 		'variant'     => 'metric',
-		'metric'      => '50%',
-		'title'       => __( 'Less QA time, more quality work', 'testro' ),
-		'description' => __( 'Cut QA time by up to 50% with fast, AI-driven testing.', 'testro' ),
+		'metric'      => '50X',
+		'title'       => __( '50x faster testing', 'testro' ),
+		'description' => __( 'Build and run tests up to 50x faster with no-code, AI-driven automation.', 'testro' ),
 	),
 	array(
 		'variant'     => 'icon',
 		'icon'        => 'shield-check',
-		'title'       => __( 'Less test maintenance', 'testro' ),
-		'description' => __( 'Spend less time fixing tests — self-healing does it for you.', 'testro' ),
-	),
-	array(
-		'variant'     => 'icon',
-		'icon'        => 'arrow-right',
-		'title'       => __( 'Faster delivery', 'testro' ),
-		'description' => __( 'Ship faster with testing built right into your CI/CD flow.', 'testro' ),
+		'title'       => __( 'No coding expertise needed', 'testro' ),
+		'description' => __( 'Anyone on your team can create and run tests, with no scripting skills required.', 'testro' ),
 	),
 	array(
 		'variant'     => 'metric',

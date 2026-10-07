@@ -294,7 +294,7 @@ function testro_get_hero_slides() {
 			'title'           => 'Best Test Automation Platform for Modern Software Testing',
 			'subtitle'        => 'theTestRo is the best test automation platform for teams testing Web, API, mobile, and cross-browser apps — fast. Build, run, and scale your tests in one place. No slowdowns, no extra tools.',
 			'cta'             => 'Start Today',
-			'supporting_line' => 'No credit card needed — set up your first test in minutes',
+			'supporting_line' => 'No credit card or tokens required — Start testing in minutes ',
 		),
 	);
 }
@@ -671,8 +671,8 @@ function testro_get_how_it_works() {
 		),
 		array(
 			'step'        => '02',
-			'title'       => 'Enhance with AI',
-			'description' => 'Let AI add checks, fixes, and edge cases.',
+			'title'       => 'Schedule',
+			'description' => 'Choose when tests run: on a schedule, on every release, or on demand.',
 		),
 		array(
 			'step'        => '03',
@@ -1406,7 +1406,7 @@ function testro_get_overview() {
 			),
 			array(
 				'title'       => 'Code your way, or don’t',
-				'description' => 'Choose code, no-code, or the workflow that lets your team move fastest.',
+				'description' => 'No coding needed. Pick the workflow that lets your team move fastest. ',
 				'variant'     => 'code',
 			),
 			array(
@@ -1426,46 +1426,38 @@ function testro_get_overview() {
 function testro_get_key_features() {
 	return array(
 		array(
-			'title'       => 'No-Code & Low-Code Builder',
-			'description' => 'Build tests visually. No scripting needed.',
+			'title'       => 'No-Code Automation',
+			'description' => 'Build tests visually without writing a single line of code. Anyone on your team, technical or not, can create and run automated tests in minutes.',
 			'href'        => testro_nav_url( 'no-code-test-automation' ),
 			'icon'        => 'blocks',
 		),
 		array(
-			'title'       => 'Cross-Browser & Cross-Device Testing',
-			'description' => 'Test on real browsers and real devices.',
-			'href'        => testro_nav_url( 'automated-cross-browser-testing-tool' ),
+			'title'       => 'Self-Healing Tests',
+			'description' => 'When your UI changes, your tests adapt automatically. Self-healing reduces broken tests and cuts the time your team spends on maintenance, so you can release with confidence.',
+			'href'        => testro_nav_url( 'self-healing-test-automation-tool' ),
 			'icon'        => 'browsers',
 		),
 		array(
-			'title'       => 'API Test Automation',
-			'description' => 'Test REST and GraphQL APIs alongside your UI tests.',
-			'href'        => testro_nav_url( 'automated-api-testing' ),
+			'title'       => 'Reporting',
+			'description' => 'Get clear, live reports on every test run. See what passed, what failed, and why, all in one place, so your team can make decisions quickly.',
+			'href'        => testro_nav_url( 'reporting-analytics' ),
 			'icon'        => 'api',
 		),
 		array(
-			'title'       => 'Parallel Test Execution',
-			'description' => 'Run thousands of tests at once in the cloud.',
-			'href'        => testro_nav_url( 'test-execution' ),
+			'title'       => 'Advanced Debugging',
+			'description' => 'Find the cause of a failure fast. Step-by-step logs, screenshots, and video replays show exactly what happened, so you spend less time guessing and more time fixing.',
 			'icon'        => 'play',
 		),
 		array(
-			'title'       => 'CI/CD Integrations',
-			'description' => 'Works with Jenkins, GitHub Actions, GitLab, and Azure DevOps.',
-			'href'        => testro_nav_url( 'ci-cd-integration' ),
+			'title'       => 'Playwright Export',
+			'description' => 'Need code? Export your tests to Playwright whenever you want. You are never locked in, and developers can extend your tests in their own environment.',
+			'href'        => testro_nav_url( 'playwright-test-automation' ),
 			'icon'        => 'cicd',
 		),
 		array(
-			'title'       => 'Reporting & Analytics',
-			'description' => 'See live dashboards, video replays, and root-cause data.',
-			'href'        => testro_nav_url( 'reporting-analytics' ),
+			'title'       => 'Structured Playwright',
+			'description' => 'The exported code is clean, organized, and easy to read. Your developers can review it, maintain it, and add it to your existing codebase without rewriting it.',
 			'icon'        => 'chart',
-		),
-		array(
-			'title'       => 'Test Data Management',
-			'description' => 'Manage test data safely across every environment.',
-			'href'        => testro_nav_url( 'test-management-software' ),
-			'icon'        => 'board',
 		),
 	);
 }
@@ -1487,6 +1479,7 @@ function testro_get_ai_capabilities() {
 				'title'       => 'AI Test Generation',
 				'description' => 'Type a scenario in plain English. AI builds the test for you.',
 			),
+			
 			array(
 				'icon'        => 'wrench',
 				'title'       => 'Smart Test Maintenance',
@@ -1496,6 +1489,11 @@ function testro_get_ai_capabilities() {
 				'icon'        => 'microscope',
 				'title'       => 'Visual AI Testing',
 				'description' => 'AI spots layout bugs and visual glitches fast.',
+			),
+			array(
+				'icon'        => 'sparkles',
+				'title'       => 'Intelligent Locator Strategy',
+				'description' => 'AI identifies each element using multiple signals, so your tests stay stable when the UI changes. ',
 			),
 		),
 	);
@@ -1515,11 +1513,12 @@ function testro_get_industries() {
 				'label' => 'By Industry',
 				'items' => array(
 					array(
-						'label'       => 'Healthcare',
-						'description' => 'Test patient portals. Meet every rule, every time.',
+						'label'       => 'Insurance',
+						'description' => 'Test claims and policies. Keep every payout accurate',
 						'href'        => testro_nav_url( 'healthcare' ),
 						'icon'        => 'health',
 					),
+				
 					array(
 						'label'       => 'Banking & Finance',
 						'description' => 'Run safe, secure tests for strict systems.',
@@ -1527,23 +1526,30 @@ function testro_get_industries() {
 						'icon'        => 'bank',
 					),
 					array(
-						'label'       => 'E-commerce & Retail',
-						'description' => 'Test checkout and payments, even under heavy load.',
+						'label'       => 'Healthcare',
+						'description' => 'Test patient portals. Meet every rule, every time.',
+						'href'        => testro_nav_url( 'healthcare' ),
+						'icon'        => 'health',
+					),
+					array(
+						'label'       => 'Education',
+						'description' => 'Test student portals and learning platforms, even during enrollment rush.',
+						'href'        => testro_nav_url( 'healthcare' ),
+						'icon'        => 'health',
+					),
+					array(
+						'label'       => 'Travel & Hospitality',
+						'description' => 'Test bookings and check-ins, even during peak season.',
 						'href'        => testro_nav_url( 'retail-ecommerce' ),
 						'icon'        => 'retail',
 					),
 					array(
-						'label'       => 'SaaS & Technology',
-						'description' => 'Keep up with fast product launches.',
+						'label'       => 'Retail & E-commerce',
+						'description' => 'Test checkout and payments, even under heavy load.',
 						'href'        => testro_nav_url( 'use-cases' ),
 						'icon'        => 'spark',
 					),
-					array(
-						'label'       => 'Enterprise IT',
-						'description' => 'Manage testing across every team, at scale.',
-						'href'        => testro_nav_url( 'use-cases' ),
-						'icon'        => 'erp',
-					),
+					
 				),
 			),
 		),

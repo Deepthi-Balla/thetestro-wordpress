@@ -12,8 +12,8 @@ get_template_part(
 	array(
 		'id'            => 'final-cta',
 		'title'         => __( 'READY WHEN YOU ARE', 'testro' ),
-		'intro'         => __( 'Ready to test smarter?', 'testro' ),
-		'body'          => __( 'Join teams who use theTestRo to ship faster, catch more bugs, and cut manual work.', 'testro' ),
+		'intro'         => __( 'Ready to test at the speed of AI? ', 'testro' ),
+		'body'          => __( 'Ship faster, catch more bugs, and cut manual work with theTestRo. ', 'testro' ),
 		'note'          => __( '14-day full access trial  ·  No credit card required', 'testro' ),
 		'heading_level' => 2,
 		'variant'       => 'brand',

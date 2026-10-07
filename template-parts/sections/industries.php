@@ -7,35 +7,41 @@
 
 $items = array(
 	array(
-		'label'       => __( 'Healthcare', 'testro' ),
-		'description' => __( 'Test patient portals. Meet every rule, every time.', 'testro' ),
-		'href'        => testro_nav_url( 'healthcare' ),
-		'icon'        => 'health',
-	),
-	array(
-		'label'       => __( 'Banking & Finance', 'testro' ),
-		'description' => __( 'Run safe, secure tests for strict systems.', 'testro' ),
-		'href'        => testro_nav_url( 'banking-finance' ),
-		'icon'        => 'bank',
-	),
-	array(
-		'label'       => __( 'Retail & E-commerce', 'testro' ),
-		'description' => __( 'Test checkout and payments, even under heavy load.', 'testro' ),
-		'href'        => testro_nav_url( 'retail-ecommerce' ),
-		'icon'        => 'retail',
-	),
-	array(
-		'label'       => __( 'Travel & Hospitality', 'testro' ),
-		'description' => __( 'Test bookings and check-ins, even during peak season.', 'testro' ),
-		'href'        => testro_nav_url( 'travel-and-hospitality' ),
-		'icon'        => 'travel',
-	),
-	array(
-		'label'       => __( 'Insurance', 'testro' ),
-		'description' => __( 'Test claims and policies. Keep every payout accurate.', 'testro' ),
-		'href'        => testro_nav_url( 'insurance' ),
-		'icon'        => 'insurance',
-	),
+						'label'       => 'Insurance',
+						'description' => 'Test claims and policies. Keep every payout accurate',
+						'href'        => testro_nav_url( 'insurance' ),
+						'icon'        => 'health',
+					),
+				
+					array(
+						'label'       => 'Banking & Finance',
+						'description' => 'Run safe, secure tests for strict systems.',
+						'href'        => testro_nav_url( 'banking-finance' ),
+						'icon'        => 'bank',
+					),
+					array(
+						'label'       => 'Healthcare',
+						'description' => 'Test patient portals. Meet every rule, every time.',
+						'href'        => testro_nav_url( 'healthcare' ),
+						'icon'        => 'health',
+					),
+					array(
+						'label'       => 'Education',
+						'description' => 'Test student portals and learning platforms, even during enrollment rush.',
+						'icon'        => 'health',
+					),
+					array(
+						'label'       => 'Travel & Hospitality',
+						'description' => 'Test bookings and check-ins, even during peak season.',
+						'href'        => testro_nav_url( 'travel-and-hospitality' ),
+						'icon'        => 'retail',
+					),
+					array(
+						'label'       => 'Retail & E-commerce',
+						'description' => 'Test checkout and payments, even under heavy load.',
+						'href'        => testro_nav_url( 'retail-ecommerce' ),
+						'icon'        => 'spark',
+					),
 );
 ?>
 <section class="testro-industries testro-industries--framer" id="industries" aria-labelledby="industries-heading">
@@ -49,8 +55,13 @@ $items = array(
 
 		<ul class="testro-industries__grid testro-industries__grid--framer">
 			<?php foreach ( $items as $item ) : ?>
+				<?php $has_link = ! empty( $item['href'] ); ?>
 				<li>
+					<?php if ( $has_link ) : ?>
 					<a class="testro-industries__card testro-industries__card--framer testro-card--top-line" href="<?php echo esc_url( $item['href'] ); ?>">
+					<?php else : ?>
+					<div class="testro-industries__card testro-industries__card--framer testro-card--top-line">
+					<?php endif; ?>
 						<span class="testro-industries__accent" aria-hidden="true"></span>
 						<span class="testro-industries__icon" aria-hidden="true">
 							<?php echo testro_nav_icon( $item['icon'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -59,7 +70,11 @@ $items = array(
 							<strong class="testro-industries__label"><?php echo esc_html( $item['label'] ); ?></strong>
 							<span class="testro-industries__desc"><?php echo esc_html( $item['description'] ); ?></span>
 						</span>
+					<?php if ( $has_link ) : ?>
 					</a>
+					<?php else : ?>
+					</div>
+					<?php endif; ?>
 				</li>
 			<?php endforeach; ?>
 		</ul>

@@ -33,7 +33,7 @@ $blog_url = $blog_id ? get_permalink( $blog_id ) : $home;
 				</a>
 				<div class="testro-footer__about">
 					<p class="testro-footer__description">
-						<?php esc_html_e( 'All-in-one platform for creating, editing, modifying, and tests without code.', 'testro' ); ?>
+						<?php esc_html_e( 'Meet today\'s AI-era testing needs with no-code automation.', 'testro' ); ?>
 					</p>
 					<ul class="testro-footer__social">
 						<li>

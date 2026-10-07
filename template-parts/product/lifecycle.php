@@ -29,17 +29,22 @@ $loop_note  = isset( $args['loop_note'] )
 $section_class = 'testro-prod-section testro-prod-lifecycle' . ( $is_ring ? ' testro-prod-lifecycle--split-ring' : '' );
 
 /*
- * Framer absolute positions inside 620×620 canvas (top, left).
- * Order matches items: Generate, Execute, Detect, Analyze, Self-Heal, Optimize.
+ * Cards are centred on the ring stroke (620×620 canvas, ring centre 310,310,
+ * stroke radius 246.5) and spaced evenly, starting at 12 o'clock, clockwise.
  */
-$ring_positions = array(
-	array( 'top' => 0, 'left' => 224 ),
-	array( 'top' => 142, 'left' => 442 ),
-	array( 'top' => 342, 'left' => 442 ),
-	array( 'top' => 478, 'left' => 224 ),
-	array( 'top' => 342, 'left' => 0 ),
-	array( 'top' => 142, 'left' => 0 ),
-);
+$ring_center   = 310;
+$ring_radius   = 246.5;
+$card_w        = 178;
+$card_h        = 142;
+$ring_count    = max( 1, $total );
+$ring_positions = array();
+for ( $i = 0; $i < $ring_count; $i++ ) {
+	$angle            = deg2rad( -90 + ( 360 / $ring_count ) * $i );
+	$ring_positions[] = array(
+		'top'  => $ring_center + $ring_radius * sin( $angle ) - $card_h / 2,
+		'left' => $ring_center + $ring_radius * cos( $angle ) - $card_w / 2,
+	);
+}
 ?>
 <section
 	class="<?php echo esc_attr( $section_class ); ?>"

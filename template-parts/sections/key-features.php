@@ -19,8 +19,13 @@ if ( ! $features ) {
 
 		<ul class="testro-key-features__grid">
 			<?php foreach ( $features as $feature ) : ?>
+				<?php $has_link = ! empty( $feature['href'] ); ?>
 				<li>
+					<?php if ( $has_link ) : ?>
 					<a class="testro-key-features__card testro-card--top-line" href="<?php echo esc_url( $feature['href'] ); ?>">
+					<?php else : ?>
+					<div class="testro-key-features__card testro-card--top-line">
+					<?php endif; ?>
 						<span class="testro-key-features__accent" aria-hidden="true"></span>
 						<span class="testro-key-features__icon" aria-hidden="true">
 							<?php echo testro_nav_icon( $feature['icon'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
@@ -29,7 +34,11 @@ if ( ! $features ) {
 							<strong class="testro-key-features__title"><?php echo esc_html( $feature['title'] ); ?></strong>
 							<span class="testro-key-features__desc"><?php echo esc_html( $feature['description'] ); ?></span>
 						</span>
+					<?php if ( $has_link ) : ?>
 					</a>
+					<?php else : ?>
+					</div>
+					<?php endif; ?>
 				</li>
 			<?php endforeach; ?>
 		</ul>

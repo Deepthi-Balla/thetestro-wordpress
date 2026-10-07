@@ -111,6 +111,10 @@
   --container-pad: clamp(1rem, 4.67vw, 3.5rem);
   /* Section rhythm: 96px at the 1280px desktop breakpoint, fluid down to 56px. */
   --section-pad-y: clamp(3.5rem, 7.5vw, 6rem);
+  /* Split hero frame shared by .testro-hero and .testro-prod-hero--split (stacks at ≤1024px). */
+  --hero-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  --hero-gap: clamp(2rem, 5vw, 64px);
+  --hero-copy-gap: 32px;
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -1416,8 +1420,8 @@ body.banner-hidden .testro-nav,
 
 .testro-hero__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: var(--hero-columns);
+  gap: var(--hero-gap);
   align-items: center;
   min-height: clamp(360px, 50vw, 560px);
 }
@@ -1426,8 +1430,7 @@ body.banner-hidden .testro-nav,
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.35rem;
-  max-width: 440px;
+  gap: var(--hero-copy-gap);
   width: 100%;
 }
 
@@ -1437,7 +1440,7 @@ body.banner-hidden .testro-nav,
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.7px;
-  max-width: none;
+  max-width: 16ch;
   width: auto;
   margin: 0;
   background-image: var(--grad-brand);
@@ -1452,7 +1455,7 @@ body.banner-hidden .testro-nav,
   font-size: 16px;
   font-weight: 400;
   width: auto;
-  max-width: none;
+  max-width: 38rem;
   margin: 0;
   line-height: 1.65;
   text-align: left;
@@ -1464,7 +1467,7 @@ body.banner-hidden .testro-nav,
   align-items: center;
   justify-content: flex-start;
   gap: 0.75rem 0.85rem;
-  margin-top: 0.25rem;
+  margin-top: 2.25rem;
 }
 
 .testro-hero__actions .testro-btn--primary,
@@ -1602,15 +1605,10 @@ body.banner-hidden .testro-nav,
   transform: translateX(50%);
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .testro-hero__layout {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
     min-height: 0;
-  }
-
-  .testro-hero__copy {
-    max-width: 36rem;
   }
 
   .testro-hero__visual {
@@ -7689,11 +7687,11 @@ html.testro-js [data-reveal].is-revealed {
 
 .testro-prod-hero__split {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-columns: var(--hero-columns);
   grid-template-areas:
     "lead visual"
     "more visual";
-  gap: 1.25rem 3rem;
+  gap: var(--hero-gap);
   align-items: center;
   width: 100%;
 }
@@ -7702,6 +7700,7 @@ html.testro-js [data-reveal].is-revealed {
   grid-area: lead;
   display: flex;
   flex-direction: column;
+  gap: var(--hero-copy-gap);
   align-items: flex-start;
 }
 
@@ -7733,9 +7732,12 @@ html.testro-js [data-reveal].is-revealed {
 }
 
 .testro-prod-hero--split .testro-prod-hero__sub {
-  margin-inline: 0;
-  margin-top: 0.25rem;
+  margin: 0;
   max-width: 38rem;
+}
+
+.testro-prod-hero--split .testro-prod-hero__supporting {
+  margin: 0;
 }
 
 .testro-prod-hero--split .testro-prod-hero__badges {
@@ -20165,7 +20167,6 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
       "lead"
       "visual"
       "more";
-    gap: 1.5rem;
   }
 
   .testro-prod-hero--split {
@@ -20731,7 +20732,7 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
     max-width: 18ch;
   }
 
-  body.testro-product-page .testro-prod-hero--split .testro-prod-hero__actions {
+  .testro-prod-hero--split .testro-prod-hero__actions {
     margin-top: 1.25rem;
   }
 
@@ -20742,7 +20743,6 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
     overflow: hidden;
     font-size: 0.9375rem;
     line-height: 1.55;
-    margin-top: 1rem;
   }
 
   body.testro-product-page .testro-prod-hero--split .testro-prod-hero__badges {
@@ -23277,8 +23277,6 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
 }
 
 .testro-page-shell--compare .testro-prod-hero__title.gradient-text {
-  max-width: 22ch;
-  margin-inline: auto;
   text-wrap: balance;
 }
 
@@ -23347,10 +23345,6 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
   .testro-page-shell--compare .testro-faq {
     padding-top: 2.75rem;
     padding-bottom: 2.75rem;
-  }
-
-  .testro-page-shell--compare .testro-prod-hero__title.gradient-text {
-    max-width: none;
   }
 }
 
@@ -25767,21 +25761,11 @@ body.home .testro-hero__title {
 .testro-product-ai .testro-prod-hero {
   padding: clamp(3.5rem, 7vw, 6.25rem) 0 clamp(3.5rem, 6vw, 6rem);
   background: #fff;
-  text-align: left;
 }
 
 .testro-product-ai .testro-prod-hero__aurora,
 .testro-product-ai .testro-prod-hero__grid {
   display: none;
-}
-
-.testro-product-ai .testro-prod-hero--split .testro-prod-hero__split {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  grid-template-areas:
-    "lead visual"
-    "lead visual";
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
 }
 
 .testro-product-ai .testro-prod-hero__more:empty,
@@ -25813,23 +25797,12 @@ body.home .testro-hero__title {
   letter-spacing: -0.7px !important;
   line-height: 1.15 !important;
   margin: 0;
-  max-width: none;
 }
 
 .testro-product-ai .testro-prod-hero--split .testro-prod-hero__sub {
-  margin: 1.25rem 0 0;
-  max-width: 36rem;
   font-size: 1rem;
   line-height: 1.65;
   color: var(--color-muted, #5b6b7c);
-}
-
-.testro-product-ai .testro-prod-hero__actions {
-  margin-top: 1.5rem;
-}
-
-.testro-product-ai .testro-prod-hero__supporting {
-  margin-top: 1.25rem;
 }
 
 .testro-product-ai .testro-prod-hero__visual {
@@ -26173,22 +26146,13 @@ body.home .testro-hero__title {
   }
 }
 
-@media (max-width: 768px) {
-  .testro-product-ai .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "lead"
-      "visual";
-  }
-
+@media (max-width: 1024px) {
   .testro-product-ai .testro-prod-hero__visual {
     justify-content: center;
   }
+}
 
-  .testro-product-ai .testro-prod-hero__title.gradient-text {
-    max-width: none;
-  }
-
+@media (max-width: 768px) {
   .testro-product-ai .testro-prod-pipeline__flow {
     grid-template-columns: 1fr;
   }
@@ -26776,13 +26740,11 @@ body.home .testro-hero__title {
   font-weight: 700 !important;
   line-height: 1.15 !important;
   letter-spacing: -0.7px !important;
-  max-width: none;
 }
 
 .testro-product-nocode .testro-prod-hero__supporting,
 .testro-product-nocode .testro-hero__supporting--pill {
   display: inline-flex;
-  margin-top: 1.25rem;
   padding: 9px 18px;
   border-radius: 30px;
   background: #eaf3fc;
@@ -27331,20 +27293,8 @@ body.home .testro-hero__title {
 
 /* Hero — Platform Opening: pad 100/80/96/80, gap 64 */
 .testro-product-web .testro-prod-hero--split {
-  padding: clamp(4rem, 8vw, 100px) clamp(1.25rem, 5vw, 80px) clamp(3.5rem, 7vw, 96px) !important;
+  padding: clamp(4rem, 8vw, 100px) 0 clamp(3.5rem, 7vw, 96px) !important;
   background: #f7fbff !important;
-}
-
-.testro-product-web .testro-prod-hero--split .testro-prod-hero__split {
-  gap: clamp(2rem, 5vw, 64px) !important;
-  align-items: center;
-}
-
-.testro-product-web .testro-prod-hero--split .testro-prod-hero__lead {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: flex-start;
 }
 
 .testro-product-web .testro-prod-hero__title.gradient-text,
@@ -27355,25 +27305,18 @@ body.home .testro-hero__title {
   line-height: 1.15 !important;
   letter-spacing: -0.7px !important;
   margin: 0 !important;
-  max-width: none;
 }
 
 .testro-product-web .testro-prod-hero__sub {
-  margin: 0 !important;
   color: #5b7290 !important;
   font-size: 16px !important;
   font-weight: 400 !important;
   line-height: 1.65 !important;
 }
 
-.testro-product-web .testro-prod-hero__actions {
-  margin: 0 !important;
-}
-
 .testro-product-web .testro-prod-hero__supporting,
 .testro-product-web .testro-hero__supporting--pill {
   display: inline-flex;
-  margin: 0 !important;
   padding: 9px 18px;
   border-radius: 30px;
   background: #eaf3fc;
@@ -30179,20 +30122,8 @@ html body .testro-product-web .testro-web-platforms__outro {
 
 /* Hero — Platform Opening */
 .testro-product-api .testro-prod-hero--split {
-  padding: clamp(4rem, 8vw, 100px) clamp(1.25rem, 5vw, 80px) clamp(3.5rem, 7vw, 96px) !important;
+  padding: clamp(4rem, 8vw, 100px) 0 clamp(3.5rem, 7vw, 96px) !important;
   background: #f7fbff !important;
-}
-
-.testro-product-api .testro-prod-hero--split .testro-prod-hero__split {
-  gap: clamp(2rem, 5vw, 64px) !important;
-  align-items: center;
-}
-
-.testro-product-api .testro-prod-hero--split .testro-prod-hero__lead {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: flex-start;
 }
 
 .testro-product-api .testro-prod-hero__title.gradient-text,
@@ -30212,7 +30143,6 @@ html body .testro-product-web .testro-web-platforms__outro {
 }
 
 .testro-product-api .testro-prod-hero__sub {
-  margin: 0 !important;
   color: #5b7290 !important;
   font-size: 16px !important;
   font-weight: 400 !important;
@@ -30222,7 +30152,6 @@ html body .testro-product-web .testro-web-platforms__outro {
 .testro-product-api .testro-prod-hero__supporting,
 .testro-product-api .testro-hero__supporting--pill {
   display: inline-flex;
-  margin: 0 !important;
   padding: 9px 18px;
   border-radius: 30px;
   background: #eaf3fc;
@@ -31710,20 +31639,8 @@ html body .testro-product-web .testro-web-platforms__outro {
 }
 
 .testro-product-xbrowser .testro-prod-hero--split {
-  padding: clamp(4rem, 8vw, 100px) clamp(1.25rem, 5vw, 80px) clamp(3.5rem, 7vw, 96px) !important;
+  padding: clamp(4rem, 8vw, 100px) 0 clamp(3.5rem, 7vw, 96px) !important;
   background: #f7fbff !important;
-}
-
-.testro-product-xbrowser .testro-prod-hero--split .testro-prod-hero__split {
-  gap: clamp(2rem, 5vw, 64px) !important;
-  align-items: center;
-}
-
-.testro-product-xbrowser .testro-prod-hero--split .testro-prod-hero__lead {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: flex-start;
 }
 
 .testro-product-xbrowser .testro-prod-hero__title.gradient-text,
@@ -31742,7 +31659,6 @@ html body .testro-product-web .testro-web-platforms__outro {
 }
 
 .testro-product-xbrowser .testro-prod-hero__sub {
-  margin: 0 !important;
   color: #5b7290 !important;
   font-size: 16px !important;
   font-weight: 400 !important;
@@ -31758,7 +31674,6 @@ html body .testro-product-web .testro-web-platforms__outro {
 .testro-product-xbrowser .testro-prod-hero__supporting,
 .testro-product-xbrowser .testro-hero__supporting--pill {
   display: inline-flex;
-  margin: 0 !important;
   padding: 9px 18px;
   border-radius: 30px;
   background: #eaf3fc;
@@ -32457,22 +32372,9 @@ html body .testro-product-web .testro-web-platforms__outro {
 }
 
 .testro-product-tm .testro-prod-hero--split {
-  padding: clamp(4rem, 8vw, 100px) clamp(1.25rem, 5vw, 80px) clamp(3.5rem, 7vw, 96px) !important;
+  padding: clamp(4rem, 8vw, 100px) 0 clamp(3.5rem, 7vw, 96px) !important;
   background: #fff !important;
   min-height: 560px;
-}
-
-.testro-product-tm .testro-prod-hero--split .testro-prod-hero__split {
-  gap: clamp(2rem, 5vw, 64px) !important;
-  align-items: center;
-}
-
-.testro-product-tm .testro-prod-hero--split .testro-prod-hero__lead {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: flex-start;
-  max-width: 440px;
 }
 
 .testro-product-tm .testro-prod-hero__title.gradient-text,
@@ -32483,7 +32385,6 @@ html body .testro-product-web .testro-web-platforms__outro {
   line-height: 1.15 !important;
   letter-spacing: -0.7px !important;
   margin: 0 !important;
-  max-width: 390px;
 }
 
 .testro-product-tm .testro-prod-hero__eyebrow,
@@ -32492,7 +32393,6 @@ html body .testro-product-web .testro-web-platforms__outro {
 }
 
 .testro-product-tm .testro-prod-hero__sub {
-  margin: 0 !important;
   color: #5b7290 !important;
   font-size: 16px !important;
   font-weight: 400 !important;
@@ -32502,7 +32402,6 @@ html body .testro-product-web .testro-web-platforms__outro {
 .testro-product-tm .testro-prod-hero__supporting,
 .testro-product-tm .testro-hero__supporting--pill {
   display: inline-flex;
-  margin: 0 !important;
   padding: 9px 18px;
   border-radius: 30px;
   background: #eaf3fc;
@@ -33237,10 +33136,6 @@ html body .testro-product-web .testro-web-platforms__outro {
 }
 
 @media (max-width: 720px) {
-  .testro-product-tm .testro-prod-hero--split .testro-prod-hero__lead {
-    max-width: none;
-  }
-
   .testro-product-tm .testro-prod-tm__stages,
   .testro-product-tm .testro-prod-tm__flow {
     grid-template-columns: 1fr;
@@ -34336,29 +34231,12 @@ html.testro-js .testro-product-heal [data-reveal].is-revealed {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-heal .testro-prod-hero--split .testro-prod-hero__split {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 528px);
-  grid-template-areas:
-    "lead visual"
-    "lead visual";
-  gap: 64px;
-  align-items: center;
-}
-
-/* Opening Copy: inner text stack gap 20; pill sits 32 below actions (20 + 12). */
-.testro-product-heal .testro-prod-hero__lead {
-  gap: 20px;
-}
-
 .testro-product-heal .testro-prod-hero__lead .testro-prod-hero__title {
   margin: 0 !important;
-  max-width: none !important;
   font-family: var(--testro-font-display, "Sora", sans-serif) !important;
 }
 
 .testro-product-heal .testro-prod-hero__lead .testro-prod-hero__sub {
-  margin: 0 !important;
-  max-width: none;
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
@@ -34370,13 +34248,8 @@ html.testro-js .testro-product-heal [data-reveal].is-revealed {
   font-style: normal !important;
 }
 
-.testro-product-heal .testro-prod-hero__actions {
-  margin: 0 !important;
-}
-
 .testro-product-heal .testro-prod-hero__supporting,
 .testro-product-heal .testro-hero__supporting--pill {
-  margin: 12px 0 0 !important;
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
@@ -34799,14 +34672,6 @@ html.testro-js .testro-product-heal [data-reveal].is-revealed {
 }
 
 @media (max-width: 1100px) {
-  .testro-product-heal .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "lead"
-      "visual";
-    gap: 40px;
-  }
-
   .testro-product-heal .testro-prod-hero__title {
     font-size: clamp(1.85rem, 4vw, 46px) !important;
   }
@@ -34878,21 +34743,8 @@ body.testro-product-td .testro-prod-hero {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-td .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-td .testro-prod-hero__lead {
-  gap: 22px;
-  max-width: 440px;
-}
-
 .testro-product-td .testro-prod-hero__title {
   margin: 0 !important;
-  max-width: none !important;
   font-family: var(--testro-font-display, "Sora", sans-serif) !important;
   font-size: 46px !important;
   font-weight: 700 !important;
@@ -34901,8 +34753,6 @@ body.testro-product-td .testro-prod-hero {
 }
 
 .testro-product-td .testro-prod-hero__lead .testro-prod-hero__sub {
-  margin: 0 !important;
-  max-width: none;
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
@@ -34916,13 +34766,11 @@ body.testro-product-td .testro-prod-hero {
 }
 
 .testro-product-td .testro-prod-hero__actions {
-  margin: 10px 0 0 !important;
   gap: 16px;
 }
 
 .testro-product-td .testro-prod-hero__supporting,
 .testro-product-td .testro-hero__supporting--pill {
-  margin: 0 !important;
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
@@ -35722,7 +35570,6 @@ body.testro-product-td .testro-faq {
     padding: clamp(3rem, 8vw, 72px) 0 !important;
   }
 
-  .testro-product-td .testro-prod-hero--split .testro-prod-hero__split,
   .testro-product-td .testro-prod-td__proof,
   .testro-product-td .testro-prod-td__nl,
   .testro-product-td .testro-prod-td__feature,
@@ -35808,23 +35655,10 @@ body.testro-product-td .testro-faq {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-te .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-te .testro-prod-hero__lead {
-  gap: 22px;
-  max-width: 440px;
-}
-
 .testro-product-te .testro-prod-hero__title,
 .testro-product-te .testro-prod-hero__title.gradient-text,
 .testro-product-te .testro-prod-hero--split .testro-prod-hero__title.gradient-text {
   margin: 0 !important;
-  max-width: none !important;
   font-family: var(--testro-font-display, "Sora", sans-serif) !important;
   font-size: 46px !important;
   font-weight: 700 !important;
@@ -35833,8 +35667,6 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-te .testro-prod-hero__lead .testro-prod-hero__sub {
-  margin: 0 !important;
-  max-width: none;
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
@@ -35842,13 +35674,11 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-te .testro-prod-hero__actions {
-  margin: 0 !important;
   gap: 16px;
 }
 
 .testro-product-te .testro-prod-hero__supporting,
 .testro-product-te .testro-hero__supporting--pill {
-  margin: 10px 0 0 !important;
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
@@ -36723,7 +36553,6 @@ body.testro-product-td .testro-faq {
 
 /* ---- Responsive ---- */
 @media (max-width: 1100px) {
-  .testro-product-te .testro-prod-hero--split .testro-prod-hero__split,
   .testro-product-te .testro-prod-te__feature,
   .testro-product-te .testro-prod-te__parallel,
   .testro-product-te .testro-prod-te__compare {
@@ -36867,23 +36696,10 @@ body.testro-product-td .testro-faq {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-cicd .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-cicd .testro-prod-hero__lead {
-  gap: 22px;
-  max-width: 440px;
-}
-
 .testro-product-cicd .testro-prod-hero__title,
 .testro-product-cicd .testro-prod-hero__title.gradient-text,
 .testro-product-cicd .testro-prod-hero--split .testro-prod-hero__title.gradient-text {
   margin: 0 !important;
-  max-width: none !important;
   font-family: var(--testro-font-display, "Sora", sans-serif) !important;
   font-size: 46px !important;
   font-weight: 700 !important;
@@ -36892,8 +36708,6 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-cicd .testro-prod-hero__lead .testro-prod-hero__sub {
-  margin: 0 !important;
-  max-width: none;
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
@@ -36910,13 +36724,11 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-cicd .testro-prod-hero__actions {
-  margin: 0 !important;
   gap: 16px;
 }
 
 .testro-product-cicd .testro-prod-hero__supporting,
 .testro-product-cicd .testro-hero__supporting--pill {
-  margin: 10px 0 0 !important;
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
@@ -37611,7 +37423,6 @@ body.testro-product-td .testro-faq {
 
 /* ---- Responsive ---- */
 @media (max-width: 1100px) {
-  .testro-product-cicd .testro-prod-hero--split .testro-prod-hero__split,
   .testro-product-cicd .testro-prod-cicd__proof {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -37696,23 +37507,10 @@ body.testro-product-td .testro-faq {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-pw .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-pw .testro-prod-hero__lead {
-  gap: 22px;
-  max-width: 440px;
-}
-
 .testro-product-pw .testro-prod-hero__title,
 .testro-product-pw .testro-prod-hero__title.gradient-text,
 .testro-product-pw .testro-prod-hero--split .testro-prod-hero__title.gradient-text {
   margin: 0 !important;
-  max-width: none !important;
   font-family: var(--testro-font-display, "Sora", sans-serif) !important;
   font-size: 46px !important;
   font-weight: 700 !important;
@@ -37721,8 +37519,6 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-pw .testro-prod-hero__lead .testro-prod-hero__sub {
-  margin: 0 !important;
-  max-width: none;
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
@@ -37738,13 +37534,11 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-pw .testro-prod-hero__actions {
-  margin: 0 !important;
   gap: 16px;
 }
 
 .testro-product-pw .testro-prod-hero__supporting,
 .testro-product-pw .testro-hero__supporting--pill {
-  margin: 10px 0 0 !important;
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
@@ -38471,7 +38265,6 @@ body.testro-product-td .testro-faq {
 
 /* ---- Responsive ---- */
 @media (max-width: 1100px) {
-  .testro-product-pw .testro-prod-hero--split .testro-prod-hero__split,
   .testro-product-pw .testro-prod-pw__split {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -38555,23 +38348,10 @@ body.testro-product-td .testro-faq {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-ra .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-ra .testro-prod-hero__lead {
-  gap: 22px;
-  max-width: 440px;
-}
-
 .testro-product-ra .testro-prod-hero__title,
 .testro-product-ra .testro-prod-hero__title.gradient-text,
 .testro-product-ra .testro-prod-hero--split .testro-prod-hero__title.gradient-text {
   margin: 0 !important;
-  max-width: none !important;
   font-family: var(--testro-font-display, "Sora", sans-serif) !important;
   font-size: 46px !important;
   font-weight: 700 !important;
@@ -38580,8 +38360,6 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-ra .testro-prod-hero__lead .testro-prod-hero__sub {
-  margin: 0 !important;
-  max-width: none;
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
@@ -38590,13 +38368,11 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-ra .testro-prod-hero__actions {
-  margin: 0 !important;
   gap: 16px;
 }
 
 .testro-product-ra .testro-prod-hero__supporting,
 .testro-product-ra .testro-hero__supporting--pill {
-  margin: 10px 0 0 !important;
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
@@ -39395,7 +39171,6 @@ body.testro-product-td .testro-faq {
 
 /* ---- Responsive ---- */
 @media (max-width: 1100px) {
-  .testro-product-ra .testro-prod-hero--split .testro-prod-hero__split,
   .testro-product-ra .testro-prod-ra__split {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -39477,23 +39252,10 @@ body.testro-product-td .testro-faq {
   max-width: 1200px;
 }
 
-.testro-product-bf .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-bf .testro-prod-hero__lead {
-  gap: 32px;
-  max-width: 440px;
-}
-
 .testro-product-bf .testro-prod-hero__title,
 .testro-product-bf .testro-prod-hero__title.gradient-text,
 .testro-product-bf .testro-prod-hero--split .testro-prod-hero__title.gradient-text {
   margin: 0 !important;
-  max-width: none !important;
   font-family: var(--testro-font-display, "Sora", sans-serif) !important;
   font-size: 46px !important;
   font-weight: 700 !important;
@@ -39502,8 +39264,6 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-bf .testro-prod-hero__lead .testro-prod-hero__sub {
-  margin: 0 !important;
-  max-width: none;
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
@@ -39518,13 +39278,11 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-bf .testro-prod-hero__actions {
-  margin: 0 !important;
   gap: 16px;
 }
 
 .testro-product-bf .testro-prod-hero__supporting,
 .testro-product-bf .testro-hero__supporting--pill {
-  margin: 10px 0 0 !important;
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
@@ -40242,7 +40000,6 @@ body.testro-product-td .testro-faq {
 
 /* ---- Responsive ---- */
 @media (max-width: 1100px) {
-  .testro-product-bf .testro-prod-hero--split .testro-prod-hero__split,
   .testro-product-bf .testro-prod-bf__exec,
   .testro-product-bf .testro-prod-bf__workflow {
     grid-template-columns: 1fr;
@@ -40308,23 +40065,10 @@ body.testro-product-td .testro-faq {
   max-width: 1200px;
 }
 
-.testro-product-re .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-re .testro-prod-hero__lead {
-  gap: 32px;
-  max-width: 440px;
-}
-
 .testro-product-re .testro-prod-hero__title,
 .testro-product-re .testro-prod-hero__title.gradient-text,
 .testro-product-re .testro-prod-hero--split .testro-prod-hero__title.gradient-text {
   margin: 0 !important;
-  max-width: none !important;
   font-family: var(--testro-font-display, "Sora", sans-serif) !important;
   font-size: 46px !important;
   font-weight: 700 !important;
@@ -40333,8 +40077,6 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-re .testro-prod-hero__lead .testro-prod-hero__sub {
-  margin: 0 !important;
-  max-width: none;
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
@@ -40349,13 +40091,11 @@ body.testro-product-td .testro-faq {
 }
 
 .testro-product-re .testro-prod-hero__actions {
-  margin: 0 !important;
   gap: 16px;
 }
 
 .testro-product-re .testro-prod-hero__supporting,
 .testro-product-re .testro-hero__supporting--pill {
-  margin: 10px 0 0 !important;
   padding: 9px 18px !important;
   border-radius: 30px !important;
   background: #eaf3fc !important;
@@ -40883,7 +40623,6 @@ body.testro-product-td .testro-faq {
 
 /* ---- Responsive ---- */
 @media (max-width: 1100px) {
-  .testro-product-re .testro-prod-hero--split .testro-prod-hero__split,
   .testro-product-re .testro-prod-bf__exec,
   .testro-product-re .testro-prod-bf__workflow {
     grid-template-columns: 1fr;
@@ -41318,19 +41057,6 @@ body.testro-product-td .testro-faq {
   }
 }
 
-/* Retail hero: Opening Copy inner stack gap 22 (Framer DjTX4SJaY) */
-.testro-product-re .testro-prod-hero__lead {
-  gap: 22px;
-}
-
-.testro-product-re .testro-prod-hero__actions {
-  margin-top: 10px !important;
-}
-
-.testro-product-re .testro-prod-hero__supporting {
-  margin-top: 10px !important;
-}
-
 /* ---- Framer typography corrections (section-specific) ---- */
 .testro-product-re #who-uses-testro-in-retail .testro-prod-head__title,
 .testro-product-re #who-uses-testro-in-retail .testro-prod-head__title.gradient-text {
@@ -41391,10 +41117,6 @@ body.testro-product-td .testro-faq {
 /* ---- Hero: Framer V1hyZnED4 pad 100/80/96/80, gap 64, canvas 528×390 ---- */
 .testro-product-hc .testro-prod-hero--split {
   padding: 100px 0 96px !important;
-}
-
-.testro-product-hc .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
 }
 
 .testro-product-hc .testro-prod-hero-canvas,
@@ -41794,10 +41516,6 @@ body.testro-product-td .testro-faq {
 /* ---- Hero: Framer OGYirnB5W ---- */
 .testro-product-th .testro-prod-hero--split {
   padding: 100px 0 96px !important;
-}
-
-.testro-product-th .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
 }
 
 .testro-product-th .testro-prod-hero-canvas,
@@ -42284,10 +42002,6 @@ body.testro-product-td .testro-faq {
   padding: 100px 0 96px !important;
 }
 
-.testro-product-ins .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-}
-
 .testro-product-ins .testro-prod-hero-canvas,
 .testro-product-ins .testro-hero-canvas {
   height: 390px;
@@ -42720,10 +42434,6 @@ body.testro-product-td .testro-faq {
 .testro-product-rt .testro-prod-hero--split {
   padding: 100px 0 96px !important;
   background: #ffffff !important;
-}
-
-.testro-product-rt .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
 }
 
 .testro-product-rt .testro-prod-hero-canvas,
@@ -43356,10 +43066,6 @@ body.testro-product-td .testro-faq {
   background: #ffffff !important;
 }
 
-.testro-product-st .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-}
-
 .testro-product-st .testro-prod-hero-canvas,
 .testro-product-st .testro-hero-canvas {
   height: 390px;
@@ -43971,10 +43677,6 @@ body.testro-product-td .testro-faq {
   background: #ffffff !important;
 }
 
-.testro-product-it .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-}
-
 .testro-product-it .testro-prod-hero-canvas,
 .testro-product-it .testro-hero-canvas {
   height: 390px;
@@ -44476,10 +44178,6 @@ body.testro-product-td .testro-faq {
 .testro-product-ft .testro-prod-hero--split {
   padding: 100px 0 96px !important;
   background: #ffffff !important;
-}
-
-.testro-product-ft .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
 }
 
 .testro-product-ft .testro-prod-hero-canvas,
@@ -45105,10 +44803,6 @@ body.testro-product-td .testro-faq {
   background: #ffffff !important;
 }
 
-.testro-product-e2e .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-}
-
 .testro-product-e2e .testro-prod-hero-canvas,
 .testro-product-e2e .testro-hero-canvas {
   height: 390px;
@@ -45448,10 +45142,6 @@ body.testro-product-td .testro-faq {
 .testro-product-uc .testro-prod-hero--split {
   padding: 100px 0 96px !important;
   background: #ffffff !important;
-}
-
-.testro-product-uc .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
 }
 
 .testro-product-uc .testro-prod-hero__title {
@@ -45977,10 +45667,6 @@ body.testro-product-td .testro-faq {
 .testro-product-dyn .testro-prod-hero--split {
   padding: 100px 0 96px !important;
   background: #ffffff !important;
-}
-
-.testro-product-dyn .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
 }
 
 .testro-product-dyn .testro-prod-hero__title {
@@ -46596,10 +46282,6 @@ body.testro-product-td .testro-faq {
   line-height: 1.15 !important;
 }
 
-.testro-product-dyn .testro-prod-hero__split {
-  gap: 64px;
-}
-
 
 /* ==========================================================================
    Salesforce Testing — NEW Framer /erp-applications/salesforce-testing
@@ -46643,10 +46325,6 @@ body.testro-product-td .testro-faq {
 
 .testro-product-sf .testro-prod-hero--split .testro-container {
   padding-inline: var(--container-pad);
-}
-
-.testro-product-sf .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
 }
 
 .testro-product-sf .testro-prod-hero__title {
@@ -47035,10 +46713,6 @@ body.testro-product-td .testro-faq {
 
 .testro-product-or .testro-prod-hero--split .testro-container {
   padding-inline: var(--container-pad);
-}
-
-.testro-product-or .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
 }
 
 .testro-product-or .testro-prod-hero__title {
@@ -47633,18 +47307,6 @@ body.testro-product-td .testro-faq {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-sap .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-sap .testro-prod-hero__lead {
-  gap: 32px; /* Opening Copy gap */
-  max-width: 440px;
-}
-
 .testro-product-sap .testro-prod-hero__visual {
   width: 100%;
   max-width: 528px;
@@ -47662,7 +47324,6 @@ body.testro-product-td .testro-faq {
 
 .testro-product-sap .testro-prod-hero__actions {
   gap: 16px;
-  margin: 0 !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -48139,10 +47800,6 @@ body.testro-product-td .testro-faq {
    Responsive — preserve Framer proportions without inventing a new layout
    -------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
-  .testro-product-sap .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 64px);
-  }
 
   .testro-product-sap #one-platform-for-the-complete-sap-suite .testro-prod-bf__cards--3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -48168,11 +47825,6 @@ body.testro-product-td .testro-faq {
   .testro-product-sap .testro-prod-hero--split {
     min-height: 0;
     padding: 64px 0 56px !important;
-  }
-
-  .testro-product-sap .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: 1fr;
-    gap: 32px;
   }
 
   .testro-product-sap .testro-prod-hero__lead,
@@ -48266,18 +47918,6 @@ body.testro-product-td .testro-faq {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-wd .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-wd .testro-prod-hero__lead {
-  gap: 32px;
-  max-width: 440px;
-}
-
 .testro-product-wd .testro-prod-hero__visual {
   width: 100%;
   max-width: 528px;
@@ -48295,12 +47935,6 @@ body.testro-product-td .testro-faq {
 
 .testro-product-wd .testro-prod-hero__actions {
   gap: 16px;
-  margin: 0 !important;
-}
-
-.testro-product-wd .testro-prod-hero__supporting,
-.testro-product-wd .testro-hero__supporting--pill {
-  margin: 0 !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -48966,10 +48600,6 @@ body.testro-product-td .testro-faq {
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
-  .testro-product-wd .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 64px);
-  }
 
   .testro-product-wd #one-platform-for-every-tenant .testro-prod-bf__cards--3,
   .testro-product-wd #workday-validation-from-sandbox-to-production .testro-prod-bf__cards--3 {
@@ -48990,11 +48620,6 @@ body.testro-product-td .testro-faq {
   .testro-product-wd .testro-prod-hero--split {
     min-height: 0;
     padding: 64px 0 56px !important;
-  }
-
-  .testro-product-wd .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: 1fr;
-    gap: 32px;
   }
 
   .testro-product-wd .testro-prod-hero__lead,
@@ -49112,18 +48737,6 @@ body.testro-product-td .testro-faq {
   padding-inline: var(--container-pad);
 }
 
-.testro-product-sn .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 440px) minmax(0, 528px);
-  justify-content: space-between;
-}
-
-.testro-product-sn .testro-prod-hero__lead {
-  gap: 32px;
-  max-width: 440px;
-}
-
 .testro-product-sn .testro-prod-hero__title {
   font-size: 46px !important;
   font-weight: 700 !important;
@@ -49155,7 +48768,6 @@ body.testro-product-td .testro-faq {
 
 .testro-product-sn .testro-prod-hero__actions {
   gap: 16px;
-  margin: 0 !important;
 }
 
 .testro-product-sn .testro-prod-hero__supporting,
@@ -49941,10 +49553,6 @@ body.testro-product-td .testro-faq {
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
-  .testro-product-sn .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 64px);
-  }
 
   .testro-product-sn #enterprise-servicenow-testing-at-scale .testro-prod-bf__cards--3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -49960,11 +49568,6 @@ body.testro-product-td .testro-faq {
   .testro-product-sn .testro-prod-hero--split {
     min-height: 0;
     padding: 64px 0 56px !important;
-  }
-
-  .testro-product-sn .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: 1fr;
-    gap: 32px;
   }
 
   .testro-product-sn .testro-prod-hero__lead,
@@ -50095,7 +49698,7 @@ body.testro-product-td .testro-faq {
   font-weight: 700 !important;
   line-height: 1.15 !important;
   letter-spacing: -0.7px !important;
-  max-width: 18ch;
+  max-width: none;
 }
 
 .testro-page-why .testro-prod-hero__sub,
@@ -51480,8 +51083,6 @@ body.testro-product-td .testro-faq {
 /* Neutralize legacy hub styles that centered / truncated the old hero title. */
 .testro-page-compare.testro-page-shell--compare .testro-prod-hero__title.gradient-text,
 .testro-page-shell--compare .testro-page-compare .testro-prod-hero__title.gradient-text {
-  max-width: none !important;
-  margin-inline: 0 !important;
   text-wrap: wrap;
 }
 
@@ -51502,17 +51103,6 @@ body.testro-product-td .testro-faq {
   padding-inline: var(--container-pad);
 }
 
-.testro-page-compare .testro-prod-hero--split .testro-prod-hero__split {
-  gap: 64px;
-  align-items: center;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 528px);
-}
-
-.testro-page-compare .testro-prod-hero__lead {
-  max-width: 520px;
-  gap: 32px;
-}
-
 .testro-page-compare .testro-prod-hero__title,
 .testro-page-compare.testro-product-bf .testro-prod-hero__title,
 .testro-page-compare.testro-product-bf .testro-prod-hero__title.gradient-text {
@@ -51520,16 +51110,12 @@ body.testro-product-td .testro-faq {
   font-weight: 700 !important;
   line-height: 1.15 !important;
   letter-spacing: -0.7px !important;
-  max-width: none !important;
-  text-align: left;
 }
 
 .testro-page-compare .testro-prod-hero__sub {
   font-size: 16px !important;
   line-height: 1.65 !important;
   color: #5b7290 !important;
-  max-width: none;
-  text-align: left;
 }
 
 /* Framer Opening Copy checklist: gap 16 · icon 24 · not pill chips */
@@ -51567,11 +51153,6 @@ body.testro-product-td .testro-faq {
   height: 24px;
   color: #00acff;
   stroke: #00acff;
-}
-
-.testro-page-compare .testro-prod-hero__actions {
-  margin-top: 0 !important;
-  justify-content: flex-start;
 }
 
 .testro-page-compare .testro-prod-hero__actions .testro-btn--primary,
@@ -51862,15 +51443,6 @@ body.testro-product-td .testro-faq {
 }
 
 @media (max-width: 1100px) {
-
-  .testro-page-compare .testro-prod-hero--split .testro-prod-hero__split {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .testro-page-compare .testro-prod-hero__lead {
-    max-width: none;
-  }
 
   .testro-page-compare .testro-compare-tools__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -52206,21 +51778,11 @@ body.home .testro-hero > .testro-container,
 .home .testro-hero > .testro-container {
   max-width: var(--container);
   padding-inline: var(--container-pad) !important;
-  gap: 64px !important;
 }
 body.home .testro-hero__layout,
 .home .testro-hero__layout {
-  gap: 64px !important;
   align-items: center;
   min-height: 0 !important;
-}
-body.home .testro-hero__copy,
-.home .testro-hero__copy {
-  gap: 32px !important;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 440px;
 }
 body.home .testro-hero__title,
 .page-template-front-page .testro-hero__title,
@@ -52244,7 +51806,6 @@ body.home .testro-hero__actions,
   display: flex;
   gap: 16px !important;
   align-items: center;
-  margin: 0 !important;
 }
 body.home .testro-hero__actions .testro-btn,
 .home .testro-hero__actions .primary-button {
@@ -52585,11 +52146,10 @@ body.home .testro-demo__play {
 }
 
 /* Tablet / mobile hero + header — same stack as .testro-hero (≤1023 / ≤640) and product split heroes */
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   /* minmax(0, …) so the canvas aspect-ratio + min-height cannot widen the track past the viewport */
   body.home .testro-hero > .testro-hero__layout {
     grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem !important;
   }
   body.home .testro-hero-canvas {
     max-width: 528px;
@@ -52603,6 +52163,9 @@ body.home .testro-demo__play {
 @media (max-width: 768px) {
   body.home .testro-nav {
     width: 100%;
+  }
+  body.home .testro-hero__actions {
+    margin-top: 1.25rem;
   }
 }
 @media (max-width: 640px) {
