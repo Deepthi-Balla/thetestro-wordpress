@@ -921,6 +921,25 @@ body.banner-hidden .testro-nav,
   font-weight: 500;
 }
 
+/*
+ * Active label uses the same brand fill as .testro-hero__title (--grad-brand).
+ * Scoped to the label so chevron, hover, and open backgrounds stay as they are.
+ */
+.testro-nav__item.is-active > .testro-nav__trigger .testro-nav__trigger-label,
+.testro-nav__item.is-active > .testro-nav__trigger:hover .testro-nav__trigger-label,
+.testro-nav__item.is-active.is-open > .testro-nav__trigger .testro-nav__trigger-label,
+.testro-nav__item.is-active:focus-within > .testro-nav__trigger .testro-nav__trigger-label,
+.testro-nav__link.is-active,
+.testro-nav__link.is-active:hover,
+.testro-nav__link[aria-current="page"],
+.testro-nav__link[aria-current="page"]:hover {
+  background-image: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 .testro-nav__chevron {
   width: 18px;
   height: 18px;
@@ -936,7 +955,8 @@ body.banner-hidden .testro-nav,
  * Mega panels — Framer RelativeOverlay (floatingPlacement bottom).
  * Vertical: top 100% of trigger (Product offsetY 24px · Solution/Resources 14px).
  * Horizontal: --mega-offset (set by JS) centers the panel on its nav item, clamped
- * to the viewport. `left` is never transitioned, so opening only animates vertically.
+ * to the global content frame (.testro-container content box). `left` is never
+ * transitioned, so opening only animates vertically.
  */
 .testro-mega {
   position: absolute;
@@ -946,7 +966,7 @@ body.banner-hidden .testro-nav,
   z-index: 80;
   width: max-content;
   min-width: 0;
-  max-width: min(1440px, var(--mega-max-width, calc(100vw - 24px)));
+  max-width: var(--mega-max-width, calc(min(100vw, var(--container)) - 2 * var(--container-pad)));
   padding: 24px 0 0;
   opacity: 0;
   visibility: hidden;
@@ -968,7 +988,7 @@ body.banner-hidden .testro-nav,
 .testro-mega--solutions,
 .testro-mega--resources {
   width: max-content;
-  max-width: min(1440px, var(--mega-max-width, calc(100vw - 24px)));
+  max-width: var(--mega-max-width, calc(min(100vw, var(--container)) - 2 * var(--container-pad)));
 }
 
 .testro-nav__item.is-open > .testro-mega,
@@ -6274,14 +6294,20 @@ body.modal-open {
   }
 
   .testro-nav__item.is-active > .testro-nav__trigger {
-    background: rgb(0 172 255 / 0.08);
-    color: var(--color-cyan);
+    background-color: rgb(0 172 255 / 0.08);
   }
 
   .testro-nav__link.is-active,
-  .testro-nav__link[aria-current="page"] {
-    background: rgb(0 172 255 / 0.08);
-    color: var(--color-cyan);
+  .testro-nav__link[aria-current="page"],
+  .testro-nav__link.is-active:hover,
+  .testro-nav__link[aria-current="page"]:hover {
+    background-color: transparent;
+    background-image: var(--grad-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    box-shadow: inset 0 0 0 999px rgb(0 172 255 / 0.08);
   }
 
   .testro-mega__link:hover {

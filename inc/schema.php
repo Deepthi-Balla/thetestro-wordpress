@@ -49,7 +49,7 @@ function testro_schema_organization() {
 		'image'       => function_exists( 'testro_asset_webp' ) ? testro_asset_webp( 'images/testrologo.png' ) : ( TESTRO_URI . '/assets/images/testrologo.png' ),
 		'email'       => $email,
 		'sameAs'      => array_values( array_filter( array( $linkedin, $youtube ) ) ),
-		'description' => 'Intelligence-powered no-code web automation platform for functional and API testing.',
+		'description' => 'Intelligence-powered no-code Web automation platform for functional and API testing.',
 		'contactPoint' => array(
 			'@type'             => 'ContactPoint',
 			'contactType'       => 'customer support',
@@ -78,7 +78,7 @@ function testro_schema_website() {
 		'@id'             => trailingslashit( home_url( '/' ) ) . '#website',
 		'url'             => trailingslashit( home_url( '/' ) ),
 		'name'            => 'theTestRo',
-		'description'     => 'Intelligence-powered no-code web automation platform for functional and API testing.',
+		'description'     => 'Intelligence-powered no-code Web automation platform for functional and API testing.',
 		'publisher'       => array( '@id' => trailingslashit( home_url( '/' ) ) . '#organization' ),
 		'inLanguage'      => 'en-US',
 		'potentialAction' => array(
@@ -190,7 +190,7 @@ function testro_schema_software_application() {
 		'operatingSystem'        => 'Web',
 		'url'                    => trailingslashit( home_url( '/' ) ),
 		'image'                  => function_exists( 'testro_asset_webp' ) ? testro_asset_webp( 'images/testrologo.png' ) : ( TESTRO_URI . '/assets/images/testrologo.png' ),
-		'description'            => 'Intelligence-powered no-code web automation platform with self-healing locators, NLP-based test steps, and intelligent scheduling for functional and API testing.',
+		'description'            => 'Intelligence-powered no-code Web automation platform with self-healing locators, NLP-based test steps, and intelligent scheduling for functional and API testing.',
 		'offers'                 => $offers,
 		'publisher'              => array( '@id' => trailingslashit( home_url( '/' ) ) . '#organization' ),
 		'featureList'            => array(

@@ -27,7 +27,7 @@ if ( ! $cards ) {
 	return;
 }
 ?>
-<section class="testro-resources testro-resources--framer" id="resources" aria-labelledby="resources-heading">
+<!-- <section class="testro-resources testro-resources--framer" id="resources" aria-labelledby="resources-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-section-header--three-lines testro-section-header--faq-label testro-resources__header">
 			<h2 id="resources-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'LATEST BLOGS & RESOURCES', 'testro' ) ) ); ?></h2>
@@ -81,4 +81,4 @@ if ( ! $cards ) {
 			?>
 		</div>
 	</div>
-</section>
+</section> -->

@@ -231,7 +231,7 @@ function testro_get_sitemap_images() {
 	$paths = array(
 		array( 'images/testrologo.png', 'theTestRo', 'theTestRo Intelligence-powered no-code test automation logo' ),
 		array( 'images/testro-logo.png', 'theTestRo wordmark', 'theTestRo brand wordmark' ),
-		array( 'images/functional.png', 'Functional Automation Testing', 'Functional web automation testing with theTestRo' ),
+		array( 'images/functional.png', 'Functional Automation Testing', 'Functional Web automation testing with theTestRo' ),
 		array( 'images/APi.png', 'API Automation Testing', 'API automation testing with theTestRo' ),
 		array( 'images/functional-api.png', 'Functional + API Testing', 'Combined functional and API automation' ),
 	);
@@ -292,9 +292,8 @@ function testro_get_hero_slides() {
 			'image'           => testro_asset( 'images/home/hero-dashboard.jpg' ),
 			'pill'            => 'AI-Powered Test Automation Platform',
 			'title'           => 'Best Test Automation Platform for Modern Software Testing',
-			'subtitle'        => 'theTestRo is the best test automation platform for teams testing web, API, mobile, and cross-browser apps — fast. Build, run, and scale your tests in one place. No slowdowns, no extra tools.',
-			'cta'             => 'Start Testing',
-			'cta_secondary'   => 'Get a Demo',
+			'subtitle'        => 'theTestRo is the best test automation platform for teams testing Web, API, mobile, and cross-browser apps — fast. Build, run, and scale your tests in one place. No slowdowns, no extra tools.',
+			'cta'             => 'Start Today',
 			'supporting_line' => 'No credit card needed — set up your first test in minutes',
 		),
 	);
@@ -515,7 +514,7 @@ function testro_get_services() {
 	return array(
 		array(
 			'title'            => 'Functional Automation Testing',
-			'description'      => 'Automatically tests user workflows to ensure features work across web and mobile.',
+			'description'      => 'Automatically tests user workflows to ensure features work across Web and mobile.',
 			'main_title'       => 'Functional Automation Testing delivering quality, reliability & confidence.',
 			'main_description' => 'Next-generation test automation that drives speed, accuracy, and reliability. Built to help teams deliver better software, faster.',
 			'image'            => testro_asset( 'images/functional.png' ),
@@ -557,7 +556,7 @@ function testro_get_why_features() {
 		array(
 			'icon'        => 'devices',
 			'title'       => 'Full test coverage',
-			'description' => 'web, API, mobile, and cross-browser in one place',
+			'description' => 'Web, API, mobile, and cross-browser in one place',
 		),
 		array(
 			'icon'        => 'focus',
@@ -1364,7 +1363,7 @@ function testro_get_faqs() {
 	return array(
 		array(
 			'question' => 'What is theTestRo?',
-			'answer'   => 'theTestRo is an AI test automation platform for web, API, mobile, and cross-browser testing — built for teams of any size.',
+			'answer'   => 'theTestRo is an AI test automation platform for Web, API, mobile, and cross-browser testing — built for teams of any size.',
 		),
 		array(
 			'question' => 'How is theTestRo different from other test automation platforms?',
@@ -1402,7 +1401,7 @@ function testro_get_overview() {
 		'cards'    => array(
 			array(
 				'title'       => 'All your testing, in one place',
-				'description' => 'theTestRo brings web, API, mobile, and cross-browser testing into one place. No more juggling five different tools.',
+				'description' => 'theTestRo brings Web, API, mobile, and cross-browser testing into one place. No more juggling five different tools.',
 				'variant'     => 'suites',
 			),
 			array(
@@ -1484,11 +1483,6 @@ function testro_get_ai_capabilities() {
 		'outro'   => 'This is what makes theTestRo a true AI test automation platform — not just automation with AI added on top.',
 		'items'   => array(
 			array(
-				'icon'        => 'heart-pulse',
-				'title'       => 'Self-Healing Tests',
-				'description' => 'When your UI changes, AI fixes broken tests on its own.',
-			),
-			array(
 				'icon'        => 'sparkles',
 				'title'       => 'AI Test Generation',
 				'description' => 'Type a scenario in plain English. AI builds the test for you.',
@@ -1521,10 +1515,10 @@ function testro_get_industries() {
 				'label' => 'By Industry',
 				'items' => array(
 					array(
-						'label'       => 'E-commerce & Retail',
-						'description' => 'Test checkout and payments, even under heavy load.',
-						'href'        => testro_nav_url( 'retail-ecommerce' ),
-						'icon'        => 'retail',
+						'label'       => 'Healthcare',
+						'description' => 'Test patient portals. Meet every rule, every time.',
+						'href'        => testro_nav_url( 'healthcare' ),
+						'icon'        => 'health',
 					),
 					array(
 						'label'       => 'Banking & Finance',
@@ -1533,10 +1527,10 @@ function testro_get_industries() {
 						'icon'        => 'bank',
 					),
 					array(
-						'label'       => 'Healthcare',
-						'description' => 'Test patient portals. Meet every rule, every time.',
-						'href'        => testro_nav_url( 'healthcare' ),
-						'icon'        => 'health',
+						'label'       => 'E-commerce & Retail',
+						'description' => 'Test checkout and payments, even under heavy load.',
+						'href'        => testro_nav_url( 'retail-ecommerce' ),
+						'icon'        => 'retail',
 					),
 					array(
 						'label'       => 'SaaS & Technology',

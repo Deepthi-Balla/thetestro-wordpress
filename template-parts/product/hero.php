@@ -225,7 +225,7 @@ $section_class = 'testro-prod-hero' . ( $is_split ? ' testro-prod-hero--split' :
 							</div>
 						</div>
 					<?php elseif ( 'web-testing-dashboard' === $visual ) : ?>
-						<div class="testro-prod-hero-web" role="img" aria-label="<?php esc_attr_e( 'Live multi-browser web testing mockup with Chrome, Firefox, Safari, Edge execution, visual validation and AI self-healing', 'testro' ); ?>">
+						<div class="testro-prod-hero-web" role="img" aria-label="<?php esc_attr_e( 'Live multi-browser Web testing mockup with Chrome, Firefox, Safari, Edge execution, visual validation and AI self-healing', 'testro' ); ?>">
 							<div class="testro-prod-hero-web__float testro-prod-hero-web__float--heal">
 								<span class="testro-prod-hero-web__float-dot"></span>
 								<?php echo testro_icon( 'heart-pulse', array( 'size' => 14 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>

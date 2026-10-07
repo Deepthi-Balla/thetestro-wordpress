@@ -7,12 +7,6 @@
 
 $items = array(
 	array(
-		'label'       => __( 'Retail & E-commerce', 'testro' ),
-		'description' => __( 'Test checkout and payments, even under heavy load.', 'testro' ),
-		'href'        => testro_nav_url( 'retail-ecommerce' ),
-		'icon'        => 'retail',
-	),
-	array(
 		'label'       => __( 'Healthcare', 'testro' ),
 		'description' => __( 'Test patient portals. Meet every rule, every time.', 'testro' ),
 		'href'        => testro_nav_url( 'healthcare' ),
@@ -23,6 +17,12 @@ $items = array(
 		'description' => __( 'Run safe, secure tests for strict systems.', 'testro' ),
 		'href'        => testro_nav_url( 'banking-finance' ),
 		'icon'        => 'bank',
+	),
+	array(
+		'label'       => __( 'Retail & E-commerce', 'testro' ),
+		'description' => __( 'Test checkout and payments, even under heavy load.', 'testro' ),
+		'href'        => testro_nav_url( 'retail-ecommerce' ),
+		'icon'        => 'retail',
 	),
 	array(
 		'label'       => __( 'Travel & Hospitality', 'testro' ),

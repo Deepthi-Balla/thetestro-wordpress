@@ -138,20 +138,21 @@ function testro_get_nav_menus() {
 							'href'  => testro_nav_url( 'no-code-test-automation' ),
 							'icon'  => 'code',
 						),
-						array(
-							'label' => __( 'Web Testing', 'testro' ),
-							'href'  => testro_nav_url( 'automated-web-application-testing' ),
-							'icon'  => 'globe',
-						),
-						array(
-							'label' => __( 'API Testing', 'testro' ),
-							'href'  => testro_nav_url( 'automated-api-testing' ),
-							'icon'  => 'api',
-						),
+						
 						array(
 							'label' => __( 'Cross-Browser Testing', 'testro' ),
 							'href'  => testro_nav_url( 'automated-cross-browser-testing-tool' ),
 							'icon'  => 'browsers',
+						),
+						array(
+							'label' => __( 'Web Automation Testing', 'testro' ),
+							'href'  => testro_nav_url( 'automated-web-application-testing' ),
+							'icon'  => 'globe',
+						),
+						array(
+							'label' => __( 'API Automation Testing', 'testro' ),
+							'href'  => testro_nav_url( 'automated-api-testing' ),
+							'icon'  => 'api',
 						),
 					),
 				),

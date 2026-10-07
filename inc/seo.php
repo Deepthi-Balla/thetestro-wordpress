@@ -85,7 +85,7 @@ add_filter( 'document_title_parts', 'testro_document_title_parts' );
  */
 function testro_get_meta_description() {
 	if ( is_front_page() ) {
-		return "Accelerate software testing with theTestRo's test automation platform. Automate web, API, cross-browser, AI-powered, and no-code testing from one platform.";
+		return "Accelerate software testing with theTestRo's test automation platform. Automate Web, API, cross-browser, AI-powered, and no-code testing from one platform.";
 	}
 
 	if ( function_exists( 'testro_get_product_page' ) ) {
@@ -132,7 +132,7 @@ function testro_get_meta_description() {
 	}
 
 	if ( is_404() ) {
-		return 'The page you requested could not be found. Return to theTestRo for Intelligence-powered no-code web automation.';
+		return 'The page you requested could not be found. Return to theTestRo for Intelligence-powered no-code Web automation.';
 	}
 
 	return get_bloginfo( 'description', 'display' );
@@ -390,7 +390,7 @@ function testro_serve_manifest() {
 	$manifest = array(
 		'name'             => 'theTestRo',
 		'short_name'       => 'TestRo',
-		'description'      => 'Intelligence-powered no-code web automation platform for functional and API testing.',
+		'description'      => 'Intelligence-powered no-code Web automation platform for functional and API testing.',
 		'start_url'        => trailingslashit( home_url( '/' ) ),
 		'scope'            => trailingslashit( home_url( '/' ) ),
 		'display'          => 'standalone',

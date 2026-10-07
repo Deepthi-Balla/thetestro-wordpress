@@ -13,7 +13,7 @@ if ( ! $features ) {
 <section class="testro-key-features testro-key-features--framer" id="key-features" aria-labelledby="key-features-heading">
 	<div class="testro-container">
 		<header class="testro-section-header testro-key-features__header">
-			<h2 id="key-features-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'KEY FEATURES', 'testro' ) ) ); ?></h2>
+			<h2 id="key-features-heading" class="main-headings"><?php echo esc_html( testro_section_label_title( __( 'CORE FEATURES', 'testro' ) ) ); ?></h2>
 			<p class="sub-text"><?php esc_html_e( 'Everything you need, built in.', 'testro' ); ?></p>
 		</header>
 

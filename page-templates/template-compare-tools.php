@@ -107,7 +107,7 @@ $compare_cta_actions = array(
 			'badges'      => array(
 				__( 'Build tests in plain English, no scripting required', 'testro' ),
 				__( 'Run tests across thousands of real browsers and devices', 'testro' ),
-				__( 'One platform for web, mobile, API, and enterprise app testing', 'testro' ),
+				__( 'One platform for Web, mobile, API, and enterprise app testing', 'testro' ),
 			),
 			'actions'     => $compare_hero_actions,
 			'breadcrumbs' => false,

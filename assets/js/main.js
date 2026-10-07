@@ -198,9 +198,27 @@
     }
 
     /*
-     * Center the panel under its nav item, then clamp inside the viewport.
+     * Content box of the nav's .testro-container: the global frame
+     * (max-width --container, padding-inline --container-pad) shared by every section.
+     */
+    function getMegaBounds() {
+      var frame = nav ? qs('.testro-container', nav) : null;
+      if (!frame) {
+        var viewportWidth = document.documentElement.clientWidth;
+        return { left: MEGA_VIEWPORT_GUTTER, right: viewportWidth - MEGA_VIEWPORT_GUTTER };
+      }
+      var rect = frame.getBoundingClientRect();
+      var style = getComputedStyle(frame);
+      return {
+        left: rect.left + (parseFloat(style.paddingLeft) || 0),
+        right: rect.right - (parseFloat(style.paddingRight) || 0),
+      };
+    }
+
+    /*
+     * Center the panel under its nav item, then clamp inside the global content frame.
      * Uses layout sizes (offsetWidth / item rect) so the open/close transform never skews
-     * the measurement; clientWidth excludes the vertical scrollbar.
+     * the measurement.
      */
     function positionMegaPanel(item) {
       var panel = item ? qs('.testro-mega', item) : null;
@@ -210,13 +228,13 @@
         panel.style.removeProperty('--mega-max-width');
         return;
       }
-      var viewportWidth = document.documentElement.clientWidth;
-      panel.style.setProperty('--mega-max-width', viewportWidth - MEGA_VIEWPORT_GUTTER * 2 + 'px');
+      var bounds = getMegaBounds();
+      panel.style.setProperty('--mega-max-width', Math.floor(bounds.right - bounds.left) + 'px');
       var itemRect = item.getBoundingClientRect();
       var panelWidth = panel.offsetWidth;
       var left = itemRect.left + (itemRect.width - panelWidth) / 2;
-      left = Math.min(left, viewportWidth - MEGA_VIEWPORT_GUTTER - panelWidth);
-      left = Math.max(left, MEGA_VIEWPORT_GUTTER);
+      left = Math.min(left, bounds.right - panelWidth);
+      left = Math.max(left, bounds.left);
       panel.style.setProperty('--mega-offset', Math.round(left - itemRect.left) + 'px');
     }
 

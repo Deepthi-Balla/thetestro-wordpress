@@ -58,7 +58,7 @@ $why_cta_actions = array(
 		null,
 		array(
 			'title'       => __( 'Test Smarter and Ship Faster with a No-Code Test Automation Platform', 'testro' ),
-			'subtitle'    => __( 'theTestRo is your reliable, no-code test automation platform for web, mobile, and API testing, all from one place. Build tests in plain English, run them at scale, and stop losing time to broken scripts.', 'testro' ),
+			'subtitle'    => __( 'theTestRo is your reliable, no-code test automation platform for Web, mobile, and API testing, all from one place. Build tests in plain English, run them at scale, and stop losing time to broken scripts.', 'testro' ),
 			'actions'     => $why_hero_actions,
 			'breadcrumbs' => false,
 		)

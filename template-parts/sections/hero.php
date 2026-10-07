@@ -11,8 +11,7 @@ $slide  = isset( $slides[0] ) && is_array( $slides[0] ) ? $slides[0] : array();
 
 $title            = isset( $slide['title'] ) ? (string) $slide['title'] : __( 'Best Test Automation Platform for Modern Software Testing', 'testro' );
 $subtitle         = isset( $slide['subtitle'] ) ? (string) $slide['subtitle'] : '';
-$cta_primary      = isset( $slide['cta'] ) ? (string) $slide['cta'] : __( 'Start Testing', 'testro' );
-$cta_secondary    = isset( $slide['cta_secondary'] ) ? (string) $slide['cta_secondary'] : __( 'Get a Demo', 'testro' );
+$cta_primary      = isset( $slide['cta'] ) ? (string) $slide['cta'] : __( 'Start Today', 'testro' );
 $supporting_line  = isset( $slide['supporting_line'] ) ? (string) $slide['supporting_line'] : '';
 $hero_image       = isset( $slide['image'] ) && '' !== (string) $slide['image']
 	? (string) $slide['image']

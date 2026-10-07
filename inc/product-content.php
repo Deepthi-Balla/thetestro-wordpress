@@ -305,6 +305,11 @@ function testro_get_product_pages() {
 					'card_heading_level' => 3,
 					'items'         => array(
 						array(
+							'icon'        => 'layers-api',
+							'title'       => __( 'API + UI + End-to-End Test Automation', 'testro' ),
+							'description' => __( 'Cover your whole stack. One platform, not five tools.', 'testro' ),
+						),
+						array(
 							'icon'        => 'zap',
 							'title'       => __( 'Parallel Execution Engine', 'testro' ),
 							'description' => __( 'Run thousands of tests at once, in the cloud.', 'testro' ),
@@ -313,11 +318,6 @@ function testro_get_product_pages() {
 							'icon'        => 'browsers',
 							'title'       => __( 'Cross-Browser & Cross-Platform Execution', 'testro' ),
 							'description' => __( 'Test every browser, OS, and device combo.', 'testro' ),
-						),
-						array(
-							'icon'        => 'layers-api',
-							'title'       => __( 'API + UI + End-to-End Test Automation', 'testro' ),
-							'description' => __( 'Cover your whole stack. One platform, not five tools.', 'testro' ),
 						),
 						array(
 							'icon'        => 'calendar-sync',
@@ -377,43 +377,43 @@ function testro_get_product_pages() {
 				),
 
 				/* ---------------------------------------------------------- */
-				array(
-					'type'          => 'analytics',
-					'id'            => 'quality-intelligence',
-					'variant'       => 'framer-quality',
-					'eyebrow'       => __( 'AI-Powered Quality Intelligence', 'testro' ),
-					'product_line'  => __( 'Turn Test Results Into Real Insight. theTestRo — www.thetestro.com', 'testro' ),
-					'heading_level' => 2,
-					'align'         => 'start',
-					'marker'        => '=',
-					'items'         => array(
-						array(
-							'title'       => __( 'Smart Failure Classification', 'testro' ),
-							'description' => __( 'AI sorts failures into real bugs, flaky tests, or setup issues.', 'testro' ),
-						),
-						array(
-							'title'       => __( 'Execution Insights', 'testro' ),
-							'description' => __( 'See trends across every test run, in one clear view.', 'testro' ),
-						),
-						array(
-							'title'       => __( 'Test Health Analytics', 'testro' ),
-							'description' => __( 'Know which tests are stable and which need attention.', 'testro' ),
-						),
-						array(
-							'title'       => __( 'Risk-Based Prioritization', 'testro' ),
-							'description' => __( 'AI points you to the tests that matter most.', 'testro' ),
-						),
-						array(
-							'title'       => __( 'Release Readiness Dashboard', 'testro' ),
-							'description' => __( 'Know in seconds if your build is safe to ship.', 'testro' ),
-						),
-					),
-					/* Framer panel filled with quality intelligence visual. */
-					'dashboard'     => array(
-						'image' => TESTRO_URI . '/assets/images/product/ai-quality-intelligence.jpg',
-						'alt'   => __( 'theTestRo AI quality intelligence dashboard with test analytics and insights', 'testro' ),
-					),
-				),
+				// array(
+				// 	'type'          => 'analytics',
+				// 	'id'            => 'quality-intelligence',
+				// 	'variant'       => 'framer-quality',
+				// 	'eyebrow'       => __( 'AI-Powered Quality Intelligence', 'testro' ),
+				// 	'product_line'  => __( 'Turn Test Results Into Real Insight. theTestRo — www.thetestro.com', 'testro' ),
+				// 	'heading_level' => 2,
+				// 	'align'         => 'start',
+				// 	'marker'        => '=',
+				// 	'items'         => array(
+				// 		array(
+				// 			'title'       => __( 'Smart Failure Classification', 'testro' ),
+				// 			'description' => __( 'AI sorts failures into real bugs, flaky tests, or setup issues.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'title'       => __( 'Execution Insights', 'testro' ),
+				// 			'description' => __( 'See trends across every test run, in one clear view.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'title'       => __( 'Test Health Analytics', 'testro' ),
+				// 			'description' => __( 'Know which tests are stable and which need attention.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'title'       => __( 'Risk-Based Prioritization', 'testro' ),
+				// 			'description' => __( 'AI points you to the tests that matter most.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'title'       => __( 'Release Readiness Dashboard', 'testro' ),
+				// 			'description' => __( 'Know in seconds if your build is safe to ship.', 'testro' ),
+				// 		),
+				// 	),
+				// 	/* Framer panel filled with quality intelligence visual. */
+				// 	'dashboard'     => array(
+				// 		'image' => TESTRO_URI . '/assets/images/product/ai-quality-intelligence.jpg',
+				// 		'alt'   => __( 'theTestRo AI quality intelligence dashboard with test analytics and insights', 'testro' ),
+				// 	),
+				// ),
 
 				/* ---------------------------------------------------------- */
 				array(
@@ -455,39 +455,39 @@ function testro_get_product_pages() {
 				),
 
 				/* ---------------------------------------------------------- */
-				array(
-					'type'          => 'pipeline',
-					'id'            => 'devops-continuous-quality',
-					'eyebrow'       => __( 'DEVOPS & CONTINUOUS QUALITY', 'testro' ),
-					'title'         => __( 'Fits Right Into Your DevOps Flow', 'testro' ),
-					'intro'         => '',
-					'heading_level' => 2,
-					'align'         => 'start',
-					'variant'       => 'brand',
-					'layout'        => 'timeline',
-					'items'         => array(
-						array(
-							'title'       => __( 'CI/CD Pipeline Integration', 'testro' ),
-							'description' => __( 'Connects with Jenkins, GitHub Actions, GitLab, and Azure DevOps.', 'testro' ),
-						),
-						array(
-							'title'       => __( 'Git-Based Workflows', 'testro' ),
-							'description' => __( 'Version-control your tests, just like your code.', 'testro' ),
-						),
-						array(
-							'title'       => __( 'Scheduled & Trigger-Based Execution', 'testro' ),
-							'description' => __( 'Run tests on a schedule, or the second new code lands.', 'testro' ),
-						),
-						array(
-							'title'       => __( 'Quality Gates', 'testro' ),
-							'description' => __( 'Block risky releases automatically when tests fail.', 'testro' ),
-						),
-						array(
-							'title'       => __( 'Continuous Feedback Loop', 'testro' ),
-							'description' => __( 'Get instant results your whole team can see.', 'testro' ),
-						),
-					),
-				),
+				// array(
+				// 	'type'          => 'pipeline',
+				// 	'id'            => 'devops-continuous-quality',
+				// 	'eyebrow'       => __( 'DEVOPS & CONTINUOUS QUALITY', 'testro' ),
+				// 	'title'         => __( 'Fits Right Into Your DevOps Flow', 'testro' ),
+				// 	'intro'         => '',
+				// 	'heading_level' => 2,
+				// 	'align'         => 'start',
+				// 	'variant'       => 'brand',
+				// 	'layout'        => 'timeline',
+				// 	'items'         => array(
+				// 		array(
+				// 			'title'       => __( 'CI/CD Pipeline Integration', 'testro' ),
+				// 			'description' => __( 'Connects with Jenkins, GitHub Actions, GitLab, and Azure DevOps.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'title'       => __( 'Git-Based Workflows', 'testro' ),
+				// 			'description' => __( 'Version-control your tests, just like your code.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'title'       => __( 'Scheduled & Trigger-Based Execution', 'testro' ),
+				// 			'description' => __( 'Run tests on a schedule, or the second new code lands.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'title'       => __( 'Quality Gates', 'testro' ),
+				// 			'description' => __( 'Block risky releases automatically when tests fail.', 'testro' ),
+				// 		),
+				// 		array(
+				// 			'title'       => __( 'Continuous Feedback Loop', 'testro' ),
+				// 			'description' => __( 'Get instant results your whole team can see.', 'testro' ),
+				// 		),
+				// 	),
+				// ),
 
 				/* ---------------------------------------------------------- */
 				array(
@@ -745,10 +745,10 @@ function testro_get_product_pages() {
 							'title'       => __( 'Plain English Steps', 'testro' ),
 							'description' => __( 'Write "Log in with a valid email." The platform builds the working test for you.', 'testro' ),
 						),
-						array(
-							'title'       => __( 'BDD Support', 'testro' ),
-							'description' => __( 'Paste Behavior-Driven Development steps and get instant automation.', 'testro' ),
-						),
+						// array(
+						// 	'title'       => __( 'BDD Support', 'testro' ),
+						// 	'description' => __( 'Paste Behavior-Driven Development steps and get instant automation.', 'testro' ),
+						// ),
 						array(
 							'title'       => __( 'Smart Object Recognition', 'testro' ),
 							'description' => __( 'AI finds buttons and fields even when your page layout shifts around.', 'testro' ),
@@ -951,14 +951,14 @@ function testro_get_product_pages() {
 			'slug' => 'automated-web-application-testing',
 			'seo'  => array(
 				'title'       => __( 'Best Web Testing Tool for Fast & Reliable Automation', 'testro' ),
-				'description' => __( 'Automate web application testing with theTestRo\'s best web testing tool. Execute reliable cross-browser tests and accelerate software delivery with confidence.', 'testro' ),
+				'description' => __( 'Automate Web application testing with theTestRo\'s best Web testing tool. Execute reliable cross-browser tests and accelerate software delivery with confidence.', 'testro' ),
 			),
 
 			'hero' => array(
 				/* Framer Platform Opening hides the eyebrow (visible:false). */
 				'eyebrow'         => '',
 				'title'           => __( 'Best Web Testing Tool for Automated Web Application Testing', 'testro' ),
-				'subtitle'        => __( 'theTestRo is a web testing tool built for real user journeys, not just clicks. Write tests in plain English. Run them across every browser. Let AI catch what breaks, before your users do. This is automated web testing built to keep pace with how fast your team ships.', 'testro' ),
+				'subtitle'        => __( 'theTestRo is a Web testing tool built for real user journeys, not just clicks. Write tests in plain English. Run them across every browser. Let AI catch what breaks, before your users do. This is automated Web testing built to keep pace with how fast your team ships.', 'testro' ),
 				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
 				'layout'          => 'split',
 				'visual'          => 'ai-capability-canvas',
@@ -1002,13 +1002,13 @@ function testro_get_product_pages() {
 					'title'         => __( 'Build Reliable Web Tests Faster', 'testro' ),
 					'intro'         => __( 'Stop losing sprint days to test scripts and syntax errors. theTestRo turns your stories, page flows, or plain-English steps into a working test in minutes, not days. Update any step by typing a new sentence.', 'testro' ),
 					'emphasis'      => __( 'NO CODE. NO REBUILD.', 'testro' ),
-					'intro_extra'   => __( 'This kind of web application test automation means your team spends less time maintaining tests and more time building features.', 'testro' ),
+					'intro_extra'   => __( 'This kind of Web application test automation means your team spends less time maintaining tests and more time building features.', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					/* Right panel — AI natural-language to test visual. */
 					'dashboard'     => array(
 						'image' => TESTRO_URI . '/assets/images/product/web-build-reliable.jpg',
-						'alt'   => __( 'theTestRo AI turning plain-English steps into a ready web test', 'testro' ),
+						'alt'   => __( 'theTestRo AI turning plain-English steps into a ready Web test', 'testro' ),
 					),
 				),
 
@@ -1017,7 +1017,7 @@ function testro_get_product_pages() {
 					'type'          => 'web-journey',
 					'id'            => 'test-every-user-journey',
 					'title'         => __( 'Test Every User Journey', 'testro' ),
-					'intro'         => __( 'A single missed step in a checkout flow can cost real money. theTestRo\'s web test automation is built to catch that kind of gap before it reaches production, not after a customer reports it.', 'testro' ),
+					'intro'         => __( 'A single missed step in a checkout flow can cost real money. theTestRo\'s Web test automation is built to catch that kind of gap before it reaches production, not after a customer reports it.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -1062,7 +1062,7 @@ function testro_get_product_pages() {
 						),
 					),
 					/* Framer outro: Inter 16/400, width 738, textAlignment end. */
-					'outro'         => __( 'theTestRo brings real AI web testing to every step, not just the first draft. It keeps learning from every test run.', 'testro' ),
+					'outro'         => __( 'theTestRo brings real AI Web testing to every step, not just the first draft. It keeps learning from every test run.', 'testro' ),
 				),
 
 				/* Execute Tests Across Every Browser — Home Key Features card treatment. */
@@ -1072,7 +1072,7 @@ function testro_get_product_pages() {
 					'id'            => 'execute-across-browsers',
 					'columns'       => 3,
 					'title'         => __( 'Execute Tests Across Every Browser', 'testro' ),
-					'intro'         => __( 'Run the same web test across every browser your users actually use:', 'testro' ),
+					'intro'         => __( 'Run the same Web test across every browser your users actually use:', 'testro' ),
 					'heading_level' => 2,
 					'align'         => 'start',
 					'items'         => array(
@@ -1292,8 +1292,8 @@ function testro_get_product_pages() {
 					'type'          => 'web-platforms',
 					'id'            => 'supported-browsers-platforms',
 					'title'         => __( 'Supported Browsers & Platforms', 'testro' ),
-					'intro'         => __( 'theTestRo covers every major browser and system your users touch. That includes Chrome, Firefox, Safari, and Edge, on Windows, macOS, and Linux. Add mobile web coverage too, for the full picture of how real users see your site.', 'testro' ),
-					'matrix_note'   => __( 'Add mobile web coverage too, for the full picture of how real users see your site.', 'testro' ),
+					'intro'         => __( 'theTestRo covers every major browser and system your users touch. That includes Chrome, Firefox, Safari, and Edge, on Windows, macOS, and Linux. Add mobile Web coverage too, for the full picture of how real users see your site.', 'testro' ),
+					'matrix_note'   => __( 'Add mobile Web coverage too, for the full picture of how real users see your site.', 'testro' ),
 					'outro'         => __( 'Run a single-page app? A big multi-tenant platform? A site built on React, Angular, or Vue? theTestRo handles all of it. It deals with dynamic content and slow-loading parts on its own, no extra setup. You won\'t need to write custom waits every time your team ships something new.', 'testro' ),
 					'heading_level' => 2,
 					'matrix_label'  => __( 'Browser × Platform', 'testro' ),
@@ -1336,7 +1336,7 @@ function testro_get_product_pages() {
 					'variant'       => 'brand',
 					'title'         => __( 'READY WHEN YOU ARE', 'testro' ),
 					'intro'         => __( 'Start Testing Web Applications with AI', 'testro' ),
-					'body'          => __( 'Join teams already using theTestRo\'s automated web testing to catch bugs early, cover every browser, and ship with real confidence.', 'testro' ),
+					'body'          => __( 'Join teams already using theTestRo\'s automated Web testing to catch bugs early, cover every browser, and ship with real confidence.', 'testro' ),
 					'note'          => __( '14-day full access trial  ·  No credit card required', 'testro' ),
 					'heading_level' => 2,
 					'actions'       => array(
@@ -1659,7 +1659,7 @@ function testro_get_product_pages() {
 					'items'         => array(
 						array(
 							'title'       => __( 'Unified Coverage View', 'testro' ),
-							'description' => __( 'API results sit next to your web and mobile test results in one dashboard, so you see the whole picture.', 'testro' ),
+							'description' => __( 'API results sit next to your Web and mobile test results in one dashboard, so you see the whole picture.', 'testro' ),
 						),
 						array(
 							'title'       => __( 'Role-Based Access', 'testro' ),
@@ -1714,7 +1714,7 @@ function testro_get_product_pages() {
 			'slug' => 'automated-cross-browser-testing-tool',
 			'seo'  => array(
 				'title'       => __( 'Best Cross-Browser Testing Tool | theTestRo', 'testro' ),
-				'description' => __( 'Run automated cross-browser testing with theTestRo\'s best cross-browser testing tool. Test web apps across browsers to ensure compatibility and faster releases.', 'testro' ),
+				'description' => __( 'Run automated cross-browser testing with theTestRo\'s best cross-browser testing tool. Test Web apps across browsers to ensure compatibility and faster releases.', 'testro' ),
 			),
 
 			'hero' => array(
@@ -2866,7 +2866,7 @@ function testro_get_product_pages() {
 						),
 						array(
 							'title'       => __( 'Consistent Across Test Types', 'testro' ),
-							'description' => __( 'The same self-healing logic covers web, API, and cross-browser tests. Not just one narrow use case.', 'testro' ),
+							'description' => __( 'The same self-healing logic covers Web, API, and cross-browser tests. Not just one narrow use case.', 'testro' ),
 						),
 					),
 				),
@@ -5897,7 +5897,7 @@ function testro_get_product_pages() {
 			'hero' => array(
 				'eyebrow'         => '',
 				'title'           => __( 'Automated Functional Testing That Ships 10x Faster', 'testro' ),
-				'subtitle'        => __( 'theTestRo brings AI-powered functional testing to every workflow your app supports. Build tests in plain English. Run them across web, mobile, and API. Let self-healing keep them stable release after release.', 'testro' ),
+				'subtitle'        => __( 'theTestRo brings AI-powered functional testing to every workflow your app supports. Build tests in plain English. Run them across Web, mobile, and API. Let self-healing keep them stable release after release.', 'testro' ),
 				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
 				'layout'          => 'split',
 				'visual'          => 'ai-capability-canvas',
@@ -7512,14 +7512,14 @@ function testro_get_product_pages() {
 			'title'  => __( 'Retail & E-commerce', 'testro' ),
 			'seo'    => array(
 				'title'       => __( 'Automated Testing Tool for Retail & E-commerce Industry', 'testro' ),
-				'description' => __( 'Automate retail and e-commerce testing across web, mobile, APIs, POS systems, and self-checkout kiosks to deliver seamless digital shopping experiences.', 'testro' ),
+				'description' => __( 'Automate retail and e-commerce testing across Web, mobile, APIs, POS systems, and self-checkout kiosks to deliver seamless digital shopping experiences.', 'testro' ),
 			),
 
 			/* Framer Platform Opening DjTX4SJaY — eyebrow visible:false; AI Capability Canvas. */
 			'hero' => array(
 				'eyebrow'         => '',
 				'title'           => __( 'Automated Testing Tool for Retail & E-commerce Industry', 'testro' ),
-				'subtitle'        => __( 'theTestRo is an automated testing tool for the retail and e-commerce industry. Cover search, cart, checkout, and returns. Test across web, mobile, and in-store systems.', 'testro' ),
+				'subtitle'        => __( 'theTestRo is an automated testing tool for the retail and e-commerce industry. Cover search, cart, checkout, and returns. Test across Web, mobile, and in-store systems.', 'testro' ),
 				'subtitle_extra'  => __( 'Ship faster, even during your busiest sale of the year. This is retail and e-commerce testing built for the speed at which your catalog actually changes.', 'testro' ),
 				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
 				'layout'          => 'split',
@@ -7619,7 +7619,7 @@ function testro_get_product_pages() {
 						array(
 							'stage'       => '01',
 							'title'       => __( 'Connect your storefront', 'testro' ),
-							'description' => __( 'Point theTestRo at your web, mobile, or in-store systems.', 'testro' ),
+							'description' => __( 'Point theTestRo at your Web, mobile, or in-store systems.', 'testro' ),
 						),
 						array(
 							'stage'       => '02',
@@ -8274,14 +8274,14 @@ function testro_get_product_pages() {
 			'title'  => __( 'AI Test Automation for Banking & Financial Services', 'testro' ),
 			'seo'    => array(
 				'title'       => __( 'AI Test Automation for Modern Banking & Financial Services', 'testro' ),
-				'description' => __( 'Accelerate banking and financial software testing with AI test automation. Test core banking, payment systems, APIs, web, and mobile applications with confidence.', 'testro' ),
+				'description' => __( 'Accelerate banking and financial software testing with AI test automation. Test core banking, payment systems, APIs, Web, and mobile applications with confidence.', 'testro' ),
 			),
 
 			/* Framer Platform Opening O6LazEot7 — eyebrow visible:false. */
 			'hero' => array(
 				'eyebrow'         => '',
 				'title'           => __( 'AI Test Automation for Banking & Financial Services ', 'testro' ),
-				'subtitle'        => __( 'theTestRo is built for teams that cannot afford a broken payment flow. Automate onboarding, checks, payments, and core banking journeys across web, mobile, and APIs', 'testro' ),
+				'subtitle'        => __( 'theTestRo is built for teams that cannot afford a broken payment flow. Automate onboarding, checks, payments, and core banking journeys across Web, mobile, and APIs', 'testro' ),
 				'subtitle_extra'  => __( 'Audit-ready evidence is built in from the start. This is banking software testing made for regulated teams. Not a generic tool with a finance label stuck on top.', 'testro' ),
 				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
 				'layout'          => 'split',
@@ -8355,7 +8355,7 @@ function testro_get_product_pages() {
 						array(
 							'stage'       => '01',
 							'title'       => __( 'Connect your systems', 'testro' ),
-							'description' => __( 'Point theTestRo at your web, mobile, and API layers.', 'testro' ),
+							'description' => __( 'Point theTestRo at your Web, mobile, and API layers.', 'testro' ),
 						),
 						array(
 							'stage'       => '02',
@@ -8713,14 +8713,14 @@ function testro_get_product_pages() {
 			'title' => __( 'Travel & Hospitality', 'testro' ),
 			'seo'   => array(
 				'title'       => __( 'Travel & Hospitality Testing Solutions for Digital Experiences', 'testro' ),
-				'description' => __( 'Deliver seamless travel and hospitality experiences with automated testing for booking engines, travel portals, payment systems, web, mobile, and APIs.', 'testro' ),
+				'description' => __( 'Deliver seamless travel and hospitality experiences with automated testing for booking engines, travel portals, payment systems, Web, mobile, and APIs.', 'testro' ),
 			),
 
 			/* Framer Platform Opening OGYirnB5W — eyebrow visible:false; AI Capability Canvas. */
 			'hero' => array(
 				'eyebrow'         => '',
 				'title'           => __( 'Travel & Hospitality Testing Solutions for Digital Experiences', 'testro' ),
-				'subtitle'        => __( 'theTestRo is a travel and hospitality testing solution. Built for the full traveler journey. Test search, booking, check-in, and in-trip flows across web, mobile, and kiosks. Catch bugs before a customer does, not after a bad review.', 'testro' ),
+				'subtitle'        => __( 'theTestRo is a travel and hospitality testing solution. Built for the full traveler journey. Test search, booking, check-in, and in-trip flows across Web, mobile, and kiosks. Catch bugs before a customer does, not after a bad review.', 'testro' ),
 				'supporting_line' => __( 'No credit card needed — set up your first test in minutes', 'testro' ),
 				'layout'          => 'split',
 				'visual'          => 'ai-capability-canvas',
@@ -8787,7 +8787,7 @@ function testro_get_product_pages() {
 						array(
 							'stage'       => '01',
 							'title'       => __( 'Connect Your Systems', 'testro' ),
-							'description' => __( 'Point theTestRo at your web, mobile, and kiosk channels.', 'testro' ),
+							'description' => __( 'Point theTestRo at your Web, mobile, and kiosk channels.', 'testro' ),
 						),
 						array(
 							'stage'       => '02',
@@ -9151,7 +9151,7 @@ function testro_get_product_pages() {
 			'title' => __( 'Insurance', 'testro' ),
 			'seo'   => array(
 				'title'       => __( 'Insurance Testing Solutions with No-Code Test Automation', 'testro' ),
-				'description' => __( 'Accelerate insurance software testing with no-code test automation. Validate policy administration, claims management, customer portals, APIs, web, and mobile apps.', 'testro' ),
+				'description' => __( 'Accelerate insurance software testing with no-code test automation. Validate policy administration, claims management, customer portals, APIs, Web, and mobile apps.', 'testro' ),
 			),
 
 			/* Framer Platform Opening nQ8uIFsGS — eyebrow visible:false; AI Capability Canvas. */
@@ -9512,7 +9512,7 @@ function testro_get_product_pages() {
 						array(
 							'stage'       => '03',
 							'title'       => __( 'Centralized test management', 'testro' ),
-							'description' => __( 'Run web, mobile, and API tests from one place, not scattered across tools.', 'testro' ),
+							'description' => __( 'Run Web, mobile, and API tests from one place, not scattered across tools.', 'testro' ),
 						),
 					),
 				),
@@ -10120,7 +10120,7 @@ function testro_get_product_pages() {
 					'header_style'  => 'three-lines',
 					'title'         => __( 'What Makes Salesforce Hard to Test', 'testro' ),
 					'intro'         => __( 'Why Generic Automation Breaks on Salesforce', 'testro' ),
-					'intro_extra'   => __( 'Salesforce isn\'t a typical web app. Testing it like one usually leads to trouble.', 'testro' ),
+					'intro_extra'   => __( 'Salesforce isn\'t a typical Web app. Testing it like one usually leads to trouble.', 'testro' ),
 					'outro'         => __( 'CRM test automation that ignores these four problems isn\'t truly testing Salesforce. They are testing an easier, less accurate version of it.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
@@ -10577,7 +10577,7 @@ function testro_get_product_pages() {
 					'media_side'    => 'right',
 					'item_checks'   => true,
 					'title'         => __( 'Oracle Testing Built for a Punishing Release Schedule', 'testro' ),
-					'intro'         => __( 'Short testing windows, brittle manual scripts, and constant patches put QA teams under real pressure. Oracle\'s applications don\'t sit still. Testing them like a normal web app usually falls apart within a quarter.', 'testro' ),
+					'intro'         => __( 'Short testing windows, brittle manual scripts, and constant patches put QA teams under real pressure. Oracle\'s applications don\'t sit still. Testing them like a normal Web app usually falls apart within a quarter.', 'testro' ),
 					'outro'         => __( 'theTestRo writes Oracle tests in plain English and keeps them healthy across every Cloud and EBS release. Whether your team automates in-house or leans on outside testing support.', 'testro' ),
 					'outro_align'   => 'end',
 					'outro_italic'  => true,
@@ -10812,7 +10812,7 @@ function testro_get_product_pages() {
 					'header_style'  => 'three-lines',
 					'title'         => __( 'What Makes Oracle Testing Different From a Standard Web App', 'testro' ),
 					'intro'         => __( 'Why generic automation tools fall short.', 'testro' ),
-					'intro_extra'   => __( 'Oracle apps carry deep business logic. A typical web testing tool never handled it.', 'testro' ),
+					'intro_extra'   => __( 'Oracle apps carry deep business logic. A typical Web testing tool never handled it.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -11273,7 +11273,7 @@ function testro_get_product_pages() {
 						),
 						array(
 							'title'       => __( 'Omnichannel Validation', 'testro' ),
-							'description' => __( 'Check the same business process across web, mobile, and desktop, wherever your users actually work.', 'testro' ),
+							'description' => __( 'Check the same business process across Web, mobile, and desktop, wherever your users actually work.', 'testro' ),
 						),
 					),
 				),
@@ -11795,7 +11795,7 @@ function testro_get_product_pages() {
 					'list_style'    => 'numbered-rows',
 					'title'         => __( 'What Makes Workday Testing Different From a Standard Web App', 'testro' ),
 					'intro'         => __( 'Why Generic Automation Tools Fall Short', 'testro' ),
-					'intro_extra'   => __( 'Workday doesn\'t expose stable element IDs the way a typical web app does. That alone breaks most script-based tools.', 'testro' ),
+					'intro_extra'   => __( 'Workday doesn\'t expose stable element IDs the way a typical Web app does. That alone breaks most script-based tools.', 'testro' ),
 					'heading_level' => 2,
 					'items'         => array(
 						array(
@@ -12395,27 +12395,27 @@ function testro_get_faq_set( $context = '' ) {
 
 		'automated-web-application-testing' => array(
 			array(
-				'question' => __( 'What are the best web testing tools for automated testing?', 'testro' ),
-				'answer'   => __( 'The best web testing tools bring AI test creation, self-healing, and cross-browser checks into one place. theTestRo does all three. You won\'t need to stitch separate tools together for each job.', 'testro' ),
+				'question' => __( 'What are the best Web testing tools for automated testing?', 'testro' ),
+				'answer'   => __( 'The best Web testing tools bring AI test creation, self-healing, and cross-browser checks into one place. theTestRo does all three. You won\'t need to stitch separate tools together for each job.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does web test automation require coding skills?', 'testro' ),
+				'question' => __( 'Does Web test automation require coding skills?', 'testro' ),
 				'answer'   => __( 'No. Write test steps in plain English, or build visually by clicking through your app. No scripting needed.', 'testro' ),
 			),
 			array(
-				'question' => __( 'How does AI web testing handle UI changes?', 'testro' ),
+				'question' => __( 'How does AI Web testing handle UI changes?', 'testro' ),
 				'answer'   => __( 'Self-healing locators and dynamic element detection let tests adjust automatically when your page layout shifts, instead of failing outright.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does this cover full web application test automation, not just single pages?', 'testro' ),
+				'question' => __( 'Does this cover full Web application test automation, not just single pages?', 'testro' ),
 				'answer'   => __( 'Yes. theTestRo covers full user journeys and multi-step business workflows, not just isolated page checks, so your test suite reflects how people actually use your app.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Can this web testing software run across multiple browsers at once?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo runs cross-browser web testing in parallel across Chrome, Edge, Firefox, and Safari, cutting full regression time down significantly.', 'testro' ),
+				'question' => __( 'Can this Web testing software run across multiple browsers at once?', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo runs cross-browser Web testing in parallel across Chrome, Edge, Firefox, and Safari, cutting full regression time down significantly.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Is theTestRo enterprise web testing software?', 'testro' ),
+				'question' => __( 'Is theTestRo enterprise Web testing software?', 'testro' ),
 				'answer'   => __( 'Yes. Role-based access, team collaboration, and cloud execution make it a fit for QA teams of any size, big or small.', 'testro' ),
 			),
 		),
@@ -12458,7 +12458,7 @@ function testro_get_faq_set( $context = '' ) {
 			),
 			array(
 				'question' => __( 'Can I test both desktop and mobile browsers in the same run?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo covers desktop and mobile web together. No need for a separate mobile-only test suite.', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers desktop and mobile Web together. No need for a separate mobile-only test suite.', 'testro' ),
 			),
 			array(
 				'question' => __( 'Is this cross-browser testing platform suitable for regulated or enterprise environments?', 'testro' ),
@@ -12763,7 +12763,7 @@ function testro_get_faq_set( $context = '' ) {
 			),
 			array(
 				'question' => __( 'Does cross-platform end-to-end testing cover mobile apps too?', 'testro' ),
-				'answer'   => __( 'Yes. Test iOS and Android apps on real devices alongside your web app, in the same workflow. No separate tool needed.', 'testro' ),
+				'answer'   => __( 'Yes. Test iOS and Android apps on real devices alongside your Web app, in the same workflow. No separate tool needed.', 'testro' ),
 			),
 			array(
 				'question' => __( 'How does enterprise end-to-end testing fit into CI/CD?', 'testro' ),
@@ -12789,8 +12789,8 @@ function testro_get_faq_set( $context = '' ) {
 				'answer'   => __( 'Yes. AI-assisted test creation and self-healing help a small team cover the same ground. A much larger team would need to do it by hand.', 'testro' ),
 			),
 			array(
-				'question' => __( 'Does theTestRo support QA testing use cases across web, mobile, and API?', 'testro' ),
-				'answer'   => __( 'Yes. Every use case on this page runs across web, mobile, and API, from a single test suite.', 'testro' ),
+				'question' => __( 'Does theTestRo support QA testing use cases across Web, mobile, and API?', 'testro' ),
+				'answer'   => __( 'Yes. Every use case on this page runs across Web, mobile, and API, from a single test suite.', 'testro' ),
 			),
 			array(
 				'question' => __( 'How does AI change these common software testing scenarios?', 'testro' ),
@@ -12836,7 +12836,7 @@ function testro_get_faq_set( $context = '' ) {
 			),
 			array(
 				'question' => __( 'Can this tool test omnichannel flows like BOPIS?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo covers buy-online-pickup-in-store flows. It checks inventory across web, mobile, and in-store systems.', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers buy-online-pickup-in-store flows. It checks inventory across Web, mobile, and in-store systems.', 'testro' ),
 			),
 			array(
 				'question' => __( 'Do I need developers to build retail tests?', 'testro' ),
@@ -12871,7 +12871,7 @@ function testro_get_faq_set( $context = '' ) {
 			),
 			array(
 				'question' => __( 'Is healthcare mobile app testing included, or a separate product?', 'testro' ),
-				'answer'   => __( 'It\'s part of the same platform. Test web, mobile, and APIs together. No switching tools for each layer.', 'testro' ),
+				'answer'   => __( 'It\'s part of the same platform. Test Web, mobile, and APIs together. No switching tools for each layer.', 'testro' ),
 			),
 			array(
 				'question' => __( 'How fast can a healthcare team see results from test automation?', 'testro' ),
@@ -12890,7 +12890,7 @@ function testro_get_faq_set( $context = '' ) {
 			),
 			array(
 				'question' => __( 'Can this tool test airport kiosk and check-in flows?', 'testro' ),
-				'answer'   => __( 'Yes. theTestRo covers self-check-in kiosks alongside web and mobile channels. Every touchpoint gets tested.', 'testro' ),
+				'answer'   => __( 'Yes. theTestRo covers self-check-in kiosks alongside Web and mobile channels. Every touchpoint gets tested.', 'testro' ),
 			),
 			array(
 				'question' => __( 'How does travel software testing handle peak season traffic?', 'testro' ),
@@ -12898,7 +12898,7 @@ function testro_get_faq_set( $context = '' ) {
 			),
 			array(
 				'question' => __( 'Is hospitality mobile app testing included, or a separate product?', 'testro' ),
-				'answer'   => __( 'It\'s part of the same platform. Test web, mobile, and kiosk flows together. No switching tools for each layer.', 'testro' ),
+				'answer'   => __( 'It\'s part of the same platform. Test Web, mobile, and kiosk flows together. No switching tools for each layer.', 'testro' ),
 			),
 			array(
 				'question' => __( 'Does theTestRo test how bookings behave on slow or airport Wi-Fi?', 'testro' ),
@@ -12952,7 +12952,7 @@ function testro_get_faq_set( $context = '' ) {
 			),
 			array(
 				'question' => __( 'Is insurance API testing included, or a separate product?', 'testro' ),
-				'answer'   => __( 'It\'s part of the same platform. Test web, mobile, and APIs together. No switching tools for each layer.', 'testro' ),
+				'answer'   => __( 'It\'s part of the same platform. Test Web, mobile, and APIs together. No switching tools for each layer.', 'testro' ),
 			),
 			array(
 				'question' => __( 'How does policy administration testing handle renewal season traffic?', 'testro' ),
@@ -13102,7 +13102,7 @@ function testro_get_faq_set( $context = '' ) {
 			),
 			array(
 				'question' => __( 'Why do ServiceNow test scripts break so often?', 'testro' ),
-				'answer'   => __( 'ServiceNow renders UI dynamically. Selector-based scripts lose track of elements more easily than on a typical web app. Self-healing tests solve this by finding elements differently.', 'testro' ),
+				'answer'   => __( 'ServiceNow renders UI dynamically. Selector-based scripts lose track of elements more easily than on a typical Web app. Self-healing tests solve this by finding elements differently.', 'testro' ),
 			),
 			array(
 				'question' => __( 'Does this ServiceNow testing tool cover custom applications, not just standard modules?', 'testro' ),
@@ -13152,7 +13152,7 @@ function testro_get_faq_set( $context = '' ) {
 		'compare-tools' => array(
 			array(
 				'question' => __( 'Why choose theTestRo over traditional automation tools?', 'testro' ),
-				'answer'   => __( 'theTestRo combines AI-powered automation, no-code test creation, self-healing maintenance, and unified web, API, and cross-browser testing in one platform. That helps teams reduce brittle scripting, lower maintenance effort, and accelerate release cycles compared with traditional, script-heavy toolchains.', 'testro' ),
+				'answer'   => __( 'theTestRo combines AI-powered automation, no-code test creation, self-healing maintenance, and unified Web, API, and cross-browser testing in one platform. That helps teams reduce brittle scripting, lower maintenance effort, and accelerate release cycles compared with traditional, script-heavy toolchains.', 'testro' ),
 			),
 			array(
 				'question' => __( 'Which platforms can I compare with theTestRo?', 'testro' ),
