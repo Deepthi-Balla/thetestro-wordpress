@@ -814,6 +814,13 @@
       return;
     }
 
+    // Deep links to a plan card (e.g. #pricing-plan-free) land below the
+    // header, so reveal right away rather than waiting on the observer.
+    if (/^#pricing-plan-[\w-]+$/.test(window.location.hash || '') && qs(window.location.hash, section)) {
+      section.classList.add('is-revealed');
+      return;
+    }
+
     /*
      * Observe the header (not the whole section). On mobile the cards stack and
      * the section is often taller than the viewport, so threshold: 0.18 on the

@@ -25,6 +25,19 @@ $actions       = isset( $args['actions'] ) && is_array( $args['actions'] ) ? $ar
 if ( function_exists( 'testro_filter_footer_cta_actions' ) ) {
 	$actions = testro_filter_footer_cta_actions( $actions );
 }
+if ( function_exists( 'testro_route_start_testing_to_pricing' ) ) {
+	$actions = testro_route_start_testing_to_pricing( $actions );
+}
+$actions = array_map(
+	static function ( $action ) {
+		if ( is_array( $action ) ) {
+			$action['with_arrow'] = false;
+			unset( $action['icon'] );
+		}
+		return $action;
+	},
+	$actions
+);
 $assurances    = isset( $args['assurances'] ) && is_array( $args['assurances'] ) ? $args['assurances'] : array();
 $id            = isset( $args['id'] ) ? sanitize_title( $args['id'] ) : '';
 $heading_level = isset( $args['heading_level'] ) ? max( 1, min( 6, (int) $args['heading_level'] ) ) : 2;

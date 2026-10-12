@@ -2979,6 +2979,8 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
   display: flex;
   flex-direction: column;
   height: 100%;
+  /* Extra room keeps the badge above the card clear of the fixed header on #pricing-plan-* links. */
+  scroll-margin-top: calc(var(--header-scroll-offset, 7rem) + 1.5rem);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,

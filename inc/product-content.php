@@ -164,6 +164,41 @@ function testro_filter_footer_cta_actions( $actions ) {
 }
 
 /**
+ * URL of the Free plan card in the Pricing page plans section.
+ *
+ * @return string
+ */
+function testro_pricing_free_plan_url() {
+	$pricing_url = function_exists( 'testro_get_page_url' ) ? testro_get_page_url( 'pricing' ) : home_url( '/pricing/' );
+
+	return trailingslashit( $pricing_url ) . '#pricing-plan-free';
+}
+
+/**
+ * Closing CTA actions: send start-testing CTAs to the Free pricing plan
+ * instead of opening the demo dialog. Demo CTAs are left untouched.
+ *
+ * @param array $actions Action definitions.
+ * @return array
+ */
+function testro_route_start_testing_to_pricing( $actions ) {
+	if ( ! is_array( $actions ) ) {
+		return array();
+	}
+
+	return array_map(
+		static function ( $action ) {
+			if ( testro_action_is_start_testing_cta( $action ) ) {
+				unset( $action['modal'] );
+				$action['href'] = testro_pricing_free_plan_url();
+			}
+			return $action;
+		},
+		$actions
+	);
+}
+
+/**
  * All registered product pages keyed by page slug.
  *
  * @return array<string, array<string, mixed>>

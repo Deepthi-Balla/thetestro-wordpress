@@ -52,6 +52,7 @@ $plans = testro_get_pricing_plans();
 						style="--pricing-delay: <?php echo esc_attr( $delay ); ?>ms;"
 					>
 						<article
+							id="pricing-plan-<?php echo esc_attr( $plan['id'] ); ?>"
 							class="testro-pricing__card<?php echo $recommended ? ' is-recommended' : ''; ?><?php echo $is_custom ? ' is-custom' : ''; ?>"
 							data-plan="<?php echo esc_attr( $plan['id'] ); ?>"
 							<?php echo $billing_dynamic ? ' data-billing-dynamic="1"' : ''; ?>
