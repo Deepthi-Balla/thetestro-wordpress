@@ -105,23 +105,16 @@
   --shadow-btn-secondary: 0 2px 8px 0 rgb(0 62 132 / 0.08);
   --shadow-automation: 0 0 0 8px #ffffff40, 12px 16px 16px #0000001a;
 
-  /* Global content frame: 80px L/R (--container-pad) up to a 1440px viewport, centered beyond. */
-  --container: 1440px;
-  /* Horizontal section inset: Framer 1200 canvas ≈56px; large desktop baseline 80px */
-  --container-pad: clamp(1rem, 4.67vw, 3.5rem);
-  /* Section rhythm: 96px at the 1280px desktop breakpoint, fluid down to 56px. */
-  --section-pad-y: clamp(3.5rem, 7.5vw, 6rem);
+  /* Designer reference: 1200px content + 80px L/R at ~1360px viewport.
+     Pad, frame, and section rhythm scale with viewport; the frame caps on ultrawide. */
+  --container-pad: clamp(1rem, 5.882vw, 6.25rem);
+  --container: clamp(90rem, 92vw, 112.5rem);
+  --section-pad-y: clamp(3.5rem, 7.5vw, 6.5rem);
   /* Split hero frame shared by .testro-hero and .testro-prod-hero--split (stacks at ≤1024px). */
   --hero-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   --hero-gap: clamp(2rem, 5vw, 64px);
   --hero-copy-gap: 32px;
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@media (min-width: 1280px) {
-  :root {
-    --container-pad: 5rem; /* 80px L/R desktop baseline */
-  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1670,7 +1663,8 @@ body.banner-hidden .testro-nav,
 /* Stats                                                                      */
 /* -------------------------------------------------------------------------- */
 .testro-stats {
-  padding: 5rem 2rem; /* py-20 px-8 — matches reference pl/pr 32px */
+  padding-block: var(--section-pad-y);
+  padding-inline: 0;
 }
 
 .testro-stats__list {
@@ -2831,21 +2825,10 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
 
 .testro-pricing__container {
   width: 100%;
-  max-width: 1600px;
+  max-width: var(--container);
   margin-inline: auto;
-  padding-inline: 1rem;
-}
-
-@media (min-width: 640px) {
-  .testro-pricing__container {
-    padding-inline: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .testro-pricing__container {
-    padding-inline: 2rem;
-  }
+  padding-inline: var(--container-pad);
+  box-sizing: border-box;
 }
 
 .testro-pricing__header {
@@ -4781,24 +4764,11 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
   }
 }
 
-/* max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 */
 .testro-contact__inner {
   width: 100%;
   max-width: 56rem; /* 896px */
   margin-inline: auto;
-  padding-inline: 1rem;
-}
-
-@media (min-width: 640px) {
-  .testro-contact__inner {
-    padding-inline: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .testro-contact__inner {
-    padding-inline: 2rem;
-  }
+  padding-inline: var(--container-pad);
 }
 
 .testro-contact__header {
@@ -4808,20 +4778,8 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
   text-align: center;
   margin: 0 auto 3rem; /* mb-12 */
   max-width: 56rem;
-  padding-inline: 1rem;
+  padding-inline: 0;
   overflow: visible;
-}
-
-@media (min-width: 640px) {
-  .testro-contact__header {
-    padding-inline: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .testro-contact__header {
-    padding-inline: 2rem;
-  }
 }
 
 .testro-contact__heading {
@@ -5810,7 +5768,7 @@ body.modal-open {
 /* Inner pages                                                                */
 /* -------------------------------------------------------------------------- */
 .page-header {
-  padding: 10rem 1rem 3rem;
+  padding: 10rem var(--container-pad) 3rem;
   text-align: center;
   background: linear-gradient(to bottom, #f7fbff, #fff);
 }
@@ -5823,7 +5781,7 @@ body.modal-open {
 .entry-content {
   max-width: 48rem;
   margin: 0 auto;
-  padding: 2rem 1rem 4rem;
+  padding: 2rem var(--container-pad) 4rem;
   line-height: 1.75;
   color: #334155;
   overflow-wrap: anywhere;
@@ -6575,7 +6533,7 @@ body.modal-open {
   }
 
   .page-header {
-    padding: 8rem 1rem 2rem;
+    padding: 8rem var(--container-pad) 2rem;
   }
 
   .cta-button {
@@ -7040,7 +6998,8 @@ body.modal-open {
 
 @media (max-width: 767px) {
   .testro-clients {
-    padding: 4rem 1rem;
+    padding-block: 4rem;
+    padding-inline: 0;
     overflow-x: hidden;
   }
 
@@ -39251,7 +39210,7 @@ body.testro-product-td .testro-faq {
 
 .testro-product-bf .testro-prod-hero--split .testro-prod-hero__inner {
   padding-inline: var(--container-pad);
-  max-width: 1200px;
+  max-width: var(--container);
 }
 
 .testro-product-bf .testro-prod-hero__title,
@@ -40064,7 +40023,7 @@ body.testro-product-td .testro-faq {
 
 .testro-product-re .testro-prod-hero--split .testro-prod-hero__inner {
   padding-inline: var(--container-pad);
-  max-width: 1200px;
+  max-width: var(--container);
 }
 
 .testro-product-re .testro-prod-hero__title,
@@ -53791,8 +53750,8 @@ html body .testro-prod-cta.testro-prod-cta--brand .testro-prod-cta__assurances {
 }
 
 /* ==========================================================================
-   Global horizontal rhythm — Test Development / Framer reference
-   max-width: 1440px (--container) · L/R: --container-pad · content starts left
+   Global horizontal rhythm
+   max-width: --container · L/R: --container-pad · content starts left
    ========================================================================== */
 
 html body .testro-container {
