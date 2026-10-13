@@ -105,25 +105,38 @@ body {
   padding-inline: var(--container-pad);
 }
 
+.testro-hero-v2,
 .testro-hero {
-  padding-block: var(--section-pad-y);
+  position: relative;
+  overflow: hidden;
   text-align: left;
+  /* Full Framer bg image is applied in main.css (relative URLs break when inlined). */
+  background-color: #f4f8ff;
+  padding: clamp(2rem, 3.9vw, 3.75rem) clamp(1.25rem, 3.9vw, 3.75rem);
 }
 
-.testro-hero__layout {
+.testro-hero-v2__frame {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1.25rem, 2vw, 1.875rem);
   align-items: center;
+  width: min(100%, 88rem);
+  max-width: 1536px;
+  margin-inline: auto;
 }
 
-.testro-hero__title {
+.testro-hero-v2__title {
+  margin: 0;
   font-family: var(--testro-font-display);
-  font-size: clamp(2rem, 4vw, 2.875rem);
+  font-size: clamp(2.25rem, 1.1rem + 3.5vw, 4.5rem);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.7px;
-  background-image: var(--grad-brand);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #2b2b2b;
+}
+
+.testro-hero-v2__title-seg--gradient {
+  background-image: linear-gradient(90deg, #0e62fa 0%, #00b8dc 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -153,8 +166,8 @@ body {
   font-size: 15px;
 }
 
-@media (max-width: 1023px) {
-  .testro-hero__layout {
+@media (max-width: 1024px) {
+  .testro-hero-v2__frame {
     grid-template-columns: 1fr;
   }
 }

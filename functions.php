@@ -27,6 +27,7 @@ $testro_includes = array(
 	'/inc/image-delivery.php',
 	'/inc/icons.php',
 	'/inc/content.php',
+	'/inc/hero-render.php',
 	'/inc/product-content.php',
 	'/inc/migration.php',
 	'/inc/static-pages.php',

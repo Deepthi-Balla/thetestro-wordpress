@@ -19,6 +19,34 @@
  */
 
 $args     = isset( $args ) && is_array( $args ) ? $args : array();
+
+/* Framer Platform Opening redesign — dedicated markup/CSS (hero sections only). */
+if ( ! empty( $args['variant'] ) && 'redesign' === (string) $args['variant'] ) {
+	$redesign                  = $args;
+	$redesign['heading_id']    = 'product-hero-title';
+	$redesign['section_class'] = isset( $args['section_class'] )
+		? (string) $args['section_class']
+		: 'testro-prod-hero testro-prod-hero--redesign';
+
+	if ( empty( $redesign['cta_label'] ) && ! empty( $args['actions'][0]['label'] ) ) {
+		$redesign['cta_label'] = (string) $args['actions'][0]['label'];
+	}
+	if ( empty( $redesign['cta_href'] ) && ! empty( $args['actions'][0]['href'] ) ) {
+		$redesign['cta_href'] = (string) $args['actions'][0]['href'];
+	}
+	if ( ! isset( $redesign['cta_modal'] ) && ! empty( $args['actions'][0]['modal'] ) ) {
+		$redesign['cta_modal'] = $args['actions'][0]['modal'];
+	}
+	if ( ! isset( $redesign['cta_with_arrow'] ) ) {
+		$redesign['cta_with_arrow'] = array_key_exists( 'with_arrow', $args['actions'][0] ?? array() )
+			? (bool) $args['actions'][0]['with_arrow']
+			: true;
+	}
+
+	get_template_part( 'template-parts/components/hero-redesign', null, $redesign );
+	return;
+}
+
 $eyebrow  = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : '';
 $title    = isset( $args['title'] ) ? (string) $args['title'] : '';
 $subtitle       = isset( $args['subtitle'] ) ? (string) $args['subtitle'] : '';

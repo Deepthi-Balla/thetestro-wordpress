@@ -130,7 +130,7 @@ function testro_filter_hero_actions( $actions ) {
 
 	return array_map(
 		static function ( $action ) {
-			if ( is_array( $action ) ) {
+			if ( is_array( $action ) && ! array_key_exists( 'with_arrow', $action ) ) {
 				$action['with_arrow'] = false;
 			}
 			return $action;
@@ -213,41 +213,51 @@ function testro_get_product_pages() {
 			),
 
 			'hero' => array(
-				/* Framer Platform Opening hides the eyebrow (visible:false) — do not render it. */
-				'eyebrow'         => '',
-				'title'           => __( 'Test Smarter with an AI Test Automation Platform', 'testro' ),
-				'subtitle'        => __( 'Built for modern software teams. theTestRo is an AI test automation platform that writes, runs, and heals your tests. Ship faster. Catch more bugs. Spend less time on manual fixes.', 'testro' ),
-				'subtitle_emphasis' => __( 'AI test automation platform', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
-				'image'           => TESTRO_URI . '/assets/images/product/ai-test-automation-hero.jpg',
-				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				/* Framer hero redesign — AI Test Automation (XIeAXjQvY). */
+				'variant'       => 'redesign',
+				'breadcrumbs'   => false,
+				'title'         => __( 'Test Smarter with an AI Test Automation Platform', 'testro' ),
+				'title_lines'   => array(
+					/* Framer rows: "Test Smarter" / "with an AI Test" / "Automation Platform" */
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'Test', 'testro' ), 'tone' => 'dark' ),
+						array( 'text' => __( 'Smarter', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'with an', 'testro' ), 'tone' => 'dark' ),
+						array( 'text' => __( 'AI Test', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
-					),
-					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Automation Platform', 'testro' ), 'tone' => 'gradient' ),
 					),
 				),
-				'actions'         => array(
+				'body_blocks'   => array(
 					array(
-						'label'         => __( 'Schedule a Demo', 'testro' ),
+						array( 'text' => __( 'Built for modern software teams.', 'testro' ), 'tone' => 'strong' ),
+						array( 'text' => __( ' theTestRo is an AI test automation platform that ', 'testro' ), 'tone' => 'muted' ),
+						array( 'text' => __( 'writes, runs, and heals', 'testro' ), 'tone' => 'strong' ),
+						array( 'text' => __( ' your tests.', 'testro' ), 'tone' => 'muted' ),
+					),
+				),
+				'highlights'    => array(
+					array( 'icon' => 'rocket', 'label' => __( 'Ship Faster', 'testro' ), 'tone' => 'blue' ),
+					array( 'icon' => 'bug', 'label' => __( 'Catch more bugs', 'testro' ), 'tone' => 'purple' ),
+					array( 'icon' => 'clock', 'label' => __( 'Spend less time on manual fixes', 'testro' ), 'tone' => 'green' ),
+				),
+				'cta_label'     => __( 'Schedule a demo', 'testro' ),
+				'cta_modal'     => 'demo-modal',
+				'cta_with_arrow'=> true,
+				/* Framer trust pill is hidden (visible:false) on AI hero. */
+				'trust'         => false,
+				'mesh'          => 'images/hero/mesh-ai.gif',
+				'show_divider'  => true,
+				'actions'       => array(
+					array(
+						'label'         => __( 'Schedule a demo', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
-						'with_arrow'    => false,
+						'with_arrow'    => true,
 					),
 				),
 			),
@@ -652,38 +662,51 @@ function testro_get_product_pages() {
 			),
 
 			'hero' => array(
-				/* Framer Platform Opening hides the eyebrow (visible:false). */
-				'eyebrow'         => '',
-				'title'           => __( 'Best No-Code Test Automation Tool', 'testro' ),
-				'subtitle'        => __( 'theTestRo is the best no-code test automation tool for teams who want speed without scripts. Record your actions or type plain steps. Get a working test in minutes, with zero code.', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
-				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				/* Framer hero redesign — No-Code. */
+				'variant'        => 'redesign',
+				'breadcrumbs'    => false,
+				'title'          => __( 'Best No Code Test Automation tool', 'testro' ),
+				'title_lines'    => array(
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'Best', 'testro' ), 'tone' => 'dark' ),
+						array( 'text' => __( 'No Code', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Test', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
-					),
-					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Automation tool', 'testro' ), 'tone' => 'dark' ),
 					),
 				),
-				'actions'         => array(
+				'body_blocks'    => array(
+					array(
+						array( 'text' => __( 'theTestRo is the best no-code test automation tool for teams who want ', 'testro' ), 'tone' => 'muted' ),
+						array( 'text' => __( 'speed without scripts.', 'testro' ), 'tone' => 'strong' ),
+					),
+				),
+				'feature_lines'  => array(
+					array(
+						'icon' => 'target-img',
+						'text' => __( 'Record your actions or type plain steps.', 'testro' ),
+					),
+					array(
+						'icon' => 'bolt-img',
+						'text' => __( 'Get a working test in minutes, with zero code.', 'testro' ),
+					),
+				),
+				'cta_label'      => __( 'Start Testing Free', 'testro' ),
+				'cta_modal'      => 'demo-modal',
+				'cta_with_arrow' => true,
+				'trust'          => true,
+				'mesh'           => 'images/hero/mesh-nocode.gif',
+				'show_divider'   => true,
+				'actions'        => array(
 					array(
 						'label'         => __( 'Start Testing Free', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
+						'with_arrow'    => true,
 					),
 				),
 			),
@@ -985,39 +1008,49 @@ function testro_get_product_pages() {
 			),
 
 			'hero' => array(
-				/* Framer Platform Opening hides the eyebrow (visible:false). */
-				'eyebrow'         => '',
-				'title'           => __( 'Best Web Testing Tool for Automated Web Application Testing', 'testro' ),
-				'subtitle'        => __( 'theTestRo is a Web testing tool built for real user journeys, not just clicks. Write tests in plain English. Run them across every browser. Let AI catch what breaks, before your users do. This is automated Web testing built to keep pace with how fast your team ships.', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
-				'image'           => TESTRO_URI . '/assets/images/product/web-testing-hero.jpg',
-				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				/* Framer hero redesign — Web Testing. */
+				'variant'        => 'redesign',
+				'breadcrumbs'    => false,
+				'title'          => __( 'Best Web Testing Tool for Automated Web Application Testing', 'testro' ),
+				'title_lines'    => array(
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'Best Web Testing Tool', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'for', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
+						array( 'text' => __( 'Automated Web', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Application Testing', 'testro' ), 'tone' => 'gradient' ),
 					),
 				),
-				'actions'         => array(
+				'body_blocks'    => array(
+					array(
+						array( 'text' => __( 'theTestRo is a web testing tool built for real user journeys, not just clicks. Write tests in plain English. Run them across ', 'testro' ), 'tone' => 'muted' ),
+						array( 'text' => __( 'every browser.', 'testro' ), 'tone' => 'strong' ),
+					),
+					array(
+						array( 'text' => __( 'Let AI catch what breaks, before your users do.', 'testro' ), 'tone' => 'strong' ),
+					),
+					array(
+						array( 'text' => __( 'This is automated web testing built to keep pace with how fast your team ships.', 'testro' ), 'tone' => 'strong' ),
+					),
+				),
+				'cta_label'      => __( 'Start Testing Free', 'testro' ),
+				'cta_modal'      => 'demo-modal',
+				'cta_with_arrow' => true,
+				'trust'          => true,
+				'mesh'           => 'images/hero/mesh-web.webp',
+				'show_divider'   => true,
+				'actions'        => array(
 					array(
 						'label'         => __( 'Start Testing Free', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
+						'with_arrow'    => true,
 					),
 				),
 			),
@@ -1394,37 +1427,49 @@ function testro_get_product_pages() {
 			),
 
 			'hero' => array(
-				'eyebrow'         => '',
-				'title'           => __( 'Best API Testing Tool for Faster API Automation', 'testro' ),
-				'subtitle'        => __( 'theTestRo is the best API testing tool for teams who want speed and accuracy without the busywork. Import a spec, chain a request into a full user journey, and let AI catch what breaks, before your users do.', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
+				/* Framer hero redesign — API Testing. */
+				'variant'         => 'redesign',
 				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				'title'           => __( 'Best API Testing Tool for Faster API Automation', 'testro' ),
+				'title_lines'     => array(
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'Best API Testing Tool', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'for', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
+						array( 'text' => __( 'Faster API', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Automation', 'testro' ), 'tone' => 'gradient' ),
 					),
 				),
+				'body_blocks'     => array(
+					array(
+						array( 'text' => __( 'theTestRo is the best API testing tool for teams who want speed and accuracy without the busywork.', 'testro' ), 'tone' => 'muted' ),
+					),
+				),
+				'workflow_intro'  => __( 'A simpler way to automate API testing', 'testro' ),
+				'workflow_steps'  => array(
+					array( 'icon' => 'file-text', 'label' => __( 'Import API Spec', 'testro' ) ),
+					array( 'icon' => 'git-branch', 'label' => __( 'Chain Requests', 'testro' ) ),
+					array( 'icon' => 'shield-check', 'label' => __( 'Detect Failures', 'testro' ) ),
+				),
+				'workflow_outro'  => __( 'Import a spec, chain a request into a full user journey, and let AI catch what breaks, before your users do.', 'testro' ),
+				'cta_label'       => __( 'Start Testing Free', 'testro' ),
+				'cta_modal'       => 'demo-modal',
+				'cta_with_arrow'  => true,
+				'trust'           => true,
+				'mesh'            => 'images/hero/mesh-api.webp',
+				'show_divider'    => true,
 				'actions'         => array(
 					array(
 						'label'         => __( 'Start Testing Free', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
+						'with_arrow'    => true,
 					),
 				),
 			),
@@ -1748,39 +1793,46 @@ function testro_get_product_pages() {
 			),
 
 			'hero' => array(
-				'eyebrow'         => '',
-				'title'           => __( 'Best Cross-Browser Testing Tool for Reliable Web Compatibility', 'testro' ),
-				'subtitle'        => __( 'theTestRo is the best cross-browser testing tool for teams who can\'t afford browser gaps in production. Write a test once. Run it across Chrome, Safari, Firefox, and Edge automatically.', 'testro' ),
-				'subtitle_extra'  => __( 'Let AI catch what breaks along the way. This is cross-platform testing built to keep up with how many devices your users actually use.', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
-				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				/* Framer hero redesign — Cross-Browser. */
+				'variant'        => 'redesign',
+				'breadcrumbs'    => false,
+				'title'          => __( 'Best Cross-Browser Testing Tool for Reliable Web Compatibility', 'testro' ),
+				'title_lines'    => array(
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'Best', 'testro' ), 'tone' => 'dark' ),
+						array( 'text' => __( 'Cross-Browser', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Testing Tool', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
+						array( 'text' => __( 'for Reliable', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Web Compatibility', 'testro' ), 'tone' => 'dark' ),
 					),
 				),
-				'actions'         => array(
+				'body_blocks'    => array(
+					array(
+						array( 'text' => __( 'theTestRo is the best cross-browser testing tool for teams who can\'t afford browser gaps in production. Write a test once. Run it across Chrome, Safari, Firefox, and Edge automatically.', 'testro' ), 'tone' => 'muted' ),
+					),
+					array(
+						array( 'text' => __( 'Let AI catch what breaks along the way. This is cross-platform testing built to keep up with how many devices your users actually use.', 'testro' ), 'tone' => 'muted' ),
+					),
+				),
+				'cta_label'      => __( 'Start Testing Free', 'testro' ),
+				'cta_modal'      => 'demo-modal',
+				'cta_with_arrow' => true,
+				'trust'          => true,
+				'mesh'           => 'images/hero/mesh-xbrowser.webp',
+				'show_divider'   => true,
+				'actions'        => array(
 					array(
 						'label'         => __( 'Start Testing Free', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
-						'with_arrow'    => false,
+						'with_arrow'    => true,
 					),
 				),
 			),
@@ -2148,38 +2200,39 @@ function testro_get_product_pages() {
 			),
 
 			'hero' => array(
-				/* Framer Platform Opening: eyebrow + second description visible:false. */
-				'eyebrow'         => '',
-				'title'           => __( 'Best AI Test Management Software for Modern QA Teams', 'testro' ),
-				'subtitle'        => __( 'theTestRo is AI test management software that plans sprints, writes test cases, runs tests, and reports bugs, all in one place. One central repository. No more spreadsheets. No more tool switching.', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
-				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				/* Framer hero redesign — Test Management. */
+				'variant'        => 'redesign',
+				'breadcrumbs'    => false,
+				'title'          => __( 'Best AI Test Management Software for Modern QA Teams', 'testro' ),
+				'title_lines'    => array(
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'Best AI Test', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Management Software', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
-					),
-					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'for Modern QA Teams', 'testro' ), 'tone' => 'dark' ),
 					),
 				),
-				'actions'         => array(
+				'body_blocks'    => array(
+					array(
+						array( 'text' => __( 'theTestRo is AI test management software that plans sprints, writes test cases, runs tests, and reports bugs, all in one place. One central repository. No more spreadsheets. No more tool switching.', 'testro' ), 'tone' => 'muted' ),
+					),
+				),
+				'cta_label'      => __( 'Start Testing Free', 'testro' ),
+				'cta_modal'      => 'demo-modal',
+				'cta_with_arrow' => true,
+				'trust'          => true,
+				'mesh'           => 'images/hero/mesh-tm.webp',
+				'show_divider'   => true,
+				'actions'        => array(
 					array(
 						'label'         => __( 'Start Testing Free', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
+						'with_arrow'    => true,
 					),
 				),
 			),
@@ -2572,40 +2625,47 @@ function testro_get_product_pages() {
 				'description' => __( 'Reduce test maintenance with a self-healing test automation tool. Adapt to UI changes automatically, reduce flaky tests, and ensure reliable execution.', 'testro' ),
 			),
 
-			/* Framer Platform Opening eHGGBd_Ck — eyebrow visible:false; split + AI Capability Canvas. */
+			/* Framer hero redesign — Self-Healing. */
 			'hero' => array(
-				'eyebrow'         => '',
-				'title'           => __( 'Best Self-Healing Test Automation Tool for Reliable Testing', 'testro' ),
-				'subtitle'        => __( 'theTestRo is a self-healing test automation tool. It stops broken locators from breaking your builds.', 'testro' ),
-				'subtitle_extra'  => __( 'Your app\'s UI changes, and AI updates the test on its own. No manual script fixes. No flaky suite waiting on someone to notice. This is AI test automation built to hold up over time, not just on day one.', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
-				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				'variant'        => 'redesign',
+				'breadcrumbs'    => false,
+				'title'          => __( 'Best Self-Healing Test Automation Tool for Reliable Testing', 'testro' ),
+				'title_lines'    => array(
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'Best', 'testro' ), 'tone' => 'dark' ),
+						array( 'text' => __( 'Self-Healing Test', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Automation Tool', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
+						array( 'text' => __( 'for', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Reliable Testing', 'testro' ), 'tone' => 'dark' ),
 					),
 				),
-				'actions'         => array(
+				'body_blocks'    => array(
+					array(
+						array( 'text' => __( 'theTestRo is a self-healing test automation tool. It stops broken locators from breaking your builds.', 'testro' ), 'tone' => 'muted' ),
+					),
+					array(
+						array( 'text' => __( 'Your app\'s UI changes, and AI updates the test on its own. No manual script fixes. No flaky suite waiting on someone to notice. This is AI test automation built to hold up over time, not just on day one.', 'testro' ), 'tone' => 'muted' ),
+					),
+				),
+				'cta_label'      => __( 'Start Testing Free', 'testro' ),
+				'cta_modal'      => 'demo-modal',
+				'cta_with_arrow' => true,
+				'trust'          => true,
+				'mesh'           => 'images/hero/mesh-heal.webp',
+				'show_divider'   => true,
+				'actions'        => array(
 					array(
 						'label'         => __( 'Start Testing Free', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
+						'with_arrow'    => true,
 					),
 				),
 			),
@@ -2945,40 +3005,49 @@ function testro_get_product_pages() {
 				'description' => __( 'Accelerate test creation with an AI-powered test development platform. Build, manage, and maintain automated tests using intelligent automation.', 'testro' ),
 			),
 
-			/* Framer Platform Opening RMjb_C4M3 — eyebrow visible:false; split + AI Capability Canvas. */
+			/* Framer hero redesign — Test Development. */
 			'hero' => array(
-				'eyebrow'         => '',
-				'title'           => __( 'AI-Powered Test Development Platform', 'testro' ),
-				'subtitle'        => __( 'theTestRo is an AI-powered test development platform built for speed. Describe a test in plain English, or record a flow. Get a working automated test back in seconds.', 'testro' ),
-				'subtitle_extra'  => __( 'No scripting. No steep learning curve. Just faster test development from day one.', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
-				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				'variant'        => 'redesign',
+				'breadcrumbs'    => false,
+				'title'          => __( 'AI-Powered Test Development Platform', 'testro' ),
+				'title_lines'    => array(
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'AI-Powered', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Test', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
-					),
-					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Development Platform', 'testro' ), 'tone' => 'gradient' ),
 					),
 				),
-				'actions'         => array(
+				'body_blocks'    => array(
+					array(
+						array( 'text' => __( 'theTestRo is an AI-powered test development platform built for speed.', 'testro' ), 'tone' => 'muted' ),
+					),
+					array(
+						array( 'text' => __( 'No scripting.', 'testro' ), 'tone' => 'strong' ),
+					),
+					array(
+						array( 'text' => __( 'No steep learning curve.', 'testro' ), 'tone' => 'strong' ),
+					),
+					array(
+						array( 'text' => __( 'Just faster test development from day one.', 'testro' ), 'tone' => 'strong' ),
+					),
+				),
+				'cta_label'      => __( 'Start Testing Free', 'testro' ),
+				'cta_modal'      => 'demo-modal',
+				'cta_with_arrow' => true,
+				'trust'          => true,
+				'mesh'           => 'images/hero/mesh-td.webp',
+				'show_divider'   => true,
+				'actions'        => array(
 					array(
 						'label'         => __( 'Start Testing Free', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
+						'with_arrow'    => true,
 					),
 				),
 			),
@@ -3377,40 +3446,44 @@ function testro_get_product_pages() {
 				'description' => __( 'Execute automated tests with an AI-powered test execution platform. Run parallel, scheduled, and cross-browser tests to accelerate software delivery.', 'testro' ),
 			),
 
-			/* Framer Platform Opening tFRIBF6WC — eyebrow + subtitle_extra visible:false. */
+			/* Framer hero redesign — Test Execution. */
 			'hero' => array(
-				'eyebrow'         => '',
-				'title'           => __( 'AI-Powered Test Execution for Faster Software Releases', 'testro' ),
-				'subtitle'        => __( 'theTestRo is a test execution platform built to cut waiting time out of testing. Run tests in parallel across real browsers and devices. Get results back fast. Stop letting a slow test run hold up your release.', 'testro' ),
-				'supporting_line' => __( 'No credit card or tokens required — Start testing in minutes ', 'testro' ),
-				'layout'          => 'split',
-				'visual'          => 'ai-capability-canvas',
-				'breadcrumbs'     => false,
-				'canvas_badges'   => array(
+				'variant'        => 'redesign',
+				'breadcrumbs'    => false,
+				'title'          => __( 'AI-Powered Test Execution for Faster Software Releases', 'testro' ),
+				'title_lines'    => array(
 					array(
-						'label' => 'AI Authoring',
-						'tone'  => 'light',
+						array( 'text' => __( 'AI-Powered Test', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'Self-Healing',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Execution', 'testro' ), 'tone' => 'gradient' ),
 					),
 					array(
-						'label' => 'No-Code Tests',
-						'tone'  => 'light',
+						array( 'text' => __( 'for Faster', 'testro' ), 'tone' => 'dark' ),
 					),
 					array(
-						'label' => 'CI/CD Ready',
-						'tone'  => 'dark',
+						array( 'text' => __( 'Software', 'testro' ), 'tone' => 'gradient' ),
+						array( 'text' => __( 'Releases', 'testro' ), 'tone' => 'dark' ),
 					),
 				),
-				'actions'         => array(
+				'body_blocks'    => array(
+					array(
+						array( 'text' => __( 'theTestRo is a test execution platform built to cut waiting time out of testing. Run tests in parallel across real browsers and devices. Get results back fast. Stop letting a slow test run hold up your release.', 'testro' ), 'tone' => 'muted' ),
+					),
+				),
+				'cta_label'      => __( 'Start Testing Free', 'testro' ),
+				'cta_modal'      => 'demo-modal',
+				'cta_with_arrow' => true,
+				'trust'          => true,
+				'mesh'           => 'images/hero/mesh-te.webp',
+				'show_divider'   => true,
+				'actions'        => array(
 					array(
 						'label'         => __( 'Start Testing Free', 'testro' ),
 						'style'         => 'primary',
 						'modal'         => 'demo-modal',
 						'allow_on_hero' => true,
-						'with_arrow'    => false,
+						'with_arrow'    => true,
 					),
 				),
 			),

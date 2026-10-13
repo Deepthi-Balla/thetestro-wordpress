@@ -270,31 +270,11 @@ function testro_get_sitemap_images() {
 function testro_get_hero_slides() {
 	return array(
 		array(
-			'badges'          => array( 'AI Authoring', 'Self-Healing', 'No-Code Tests', 'CI/CD Ready' ),
-			'canvas_badges'   => array(
-				array(
-					'label' => 'AI Authoring',
-					'tone'  => 'light',
-				),
-				array(
-					'label' => 'Self-Healing',
-					'tone'  => 'dark',
-				),
-				array(
-					'label' => 'No-Code Tests',
-					'tone'  => 'light',
-				),
-				array(
-					'label' => 'CI/CD Ready',
-					'tone'  => 'dark',
-				),
-			),
-			'image'           => testro_asset( 'images/home/hero-dashboard.jpg' ),
-			'pill'            => 'AI-Powered Test Automation Platform',
 			'title'           => 'Best Test Automation Platform for Modern Software Testing',
 			'subtitle'        => 'theTestRo is the best test automation platform for teams testing Web, API, mobile, and cross-browser apps — fast. Build, run, and scale your tests in one place. No slowdowns, no extra tools.',
-			'cta'             => 'Start Today',
+			'cta'             => 'Start Testing',
 			'supporting_line' => 'No credit card or tokens required — Start testing in minutes ',
+			'image'           => testro_asset( 'images/hero/mesh-home.gif' ),
 		),
 	);
 }

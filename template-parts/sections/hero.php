@@ -1,104 +1,72 @@
 <?php
 /**
- * Hero / Platform Opening — Framer redesign.
- * Single h1 on the front page; split copy + capability canvas.
+ * Home hero — Framer Platform Opening redesign (1536 reference).
  *
  * @package TestRo
  */
 
-$slides = testro_get_hero_slides();
-$slide  = isset( $slides[0] ) && is_array( $slides[0] ) ? $slides[0] : array();
-
-$title            = isset( $slide['title'] ) ? (string) $slide['title'] : __( 'Best Test Automation Platform for Modern Software Testing', 'testro' );
-$subtitle         = isset( $slide['subtitle'] ) ? (string) $slide['subtitle'] : '';
-$cta_primary      = isset( $slide['cta'] ) ? (string) $slide['cta'] : __( 'Start Today', 'testro' );
-$supporting_line  = isset( $slide['supporting_line'] ) ? (string) $slide['supporting_line'] : '';
-$hero_image       = isset( $slide['image'] ) && '' !== (string) $slide['image']
-	? (string) $slide['image']
-	: testro_asset( 'images/home/hero-dashboard.jpg' );
-$canvas_badges    = isset( $slide['canvas_badges'] ) && is_array( $slide['canvas_badges'] )
-	? $slide['canvas_badges']
-	: array(
-		array( 'label' => __( 'AI Authoring', 'testro' ), 'tone' => 'light' ),
-		array( 'label' => __( 'Self-Healing', 'testro' ), 'tone' => 'dark' ),
-		array( 'label' => __( 'No-Code Tests', 'testro' ), 'tone' => 'light' ),
-		array( 'label' => __( 'CI/CD Ready', 'testro' ), 'tone' => 'dark' ),
-	);
-?>
-<section class="testro-hero" aria-labelledby="hero-heading">
-	<div class="testro-container testro-hero__layout">
-		<div class="testro-hero__copy">
-			<h1 id="hero-heading" class="testro-hero__title"><?php echo esc_html( $title ); ?></h1>
-
-			<?php if ( '' !== $subtitle ) : ?>
-				<p class="testro-hero__sub"><?php echo esc_html( $subtitle ); ?></p>
-			<?php endif; ?>
-
-			<div class="testro-hero__actions">
-				<?php
-				get_template_part(
-					'template-parts/components/primary-button',
-					null,
-					array(
-						'label'      => $cta_primary,
-						'href'       => '#final-cta',
-						'with_arrow' => false,
-						'attrs'      => array(
-							'class' => 'testro-btn testro-btn--primary',
-						),
-					)
-				);
-
-				get_template_part(
-					'template-parts/components/primary-button',
-					null,
-					array(
-						'label'      => $cta_secondary,
-						'with_arrow' => false,
-						'attrs'      => array(
-							'class'           => 'testro-btn testro-btn--secondary',
-							'data-open-modal' => 'demo-modal',
-							'aria-haspopup'   => 'dialog',
-							'aria-controls'   => 'demo-modal',
-						),
-					)
-				);
-				?>
-			</div>
-
-			<?php if ( '' !== $supporting_line ) : ?>
-				<p class="testro-hero__supporting testro-hero__supporting--pill"><?php echo esc_html( $supporting_line ); ?></p>
-			<?php endif; ?>
-		</div>
-
-		<div class="testro-hero__visual" aria-hidden="true">
-			<div class="testro-hero-canvas">
-				<div class="testro-hero-canvas__grid">
-					<img
-						class="testro-hero-canvas__image"
-						src="<?php echo esc_url( $hero_image ); ?>"
-						alt=""
-						width="1024"
-						height="576"
-						decoding="async"
-						fetchpriority="high"
-					/>
-				</div>
-				<ul class="testro-hero-canvas__chips">
-					<?php foreach ( $canvas_badges as $badge ) : ?>
-						<?php
-						$label = isset( $badge['label'] ) ? (string) $badge['label'] : '';
-						$tone  = isset( $badge['tone'] ) ? (string) $badge['tone'] : 'light';
-						if ( '' === $label ) {
-							continue;
-						}
-						?>
-						<li class="testro-hero-canvas__chip testro-hero-canvas__chip--<?php echo esc_attr( $tone ); ?>">
-							<?php echo esc_html( $label ); ?>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-		</div>
-	</div>
-</section>
+get_template_part(
+	'template-parts/components/hero-redesign',
+	null,
+	array(
+		'heading_id'    => 'hero-heading',
+		'section_class' => 'testro-hero',
+		'title'         => __( 'Best Test Automation Platform for Modern Software Testing', 'testro' ),
+		'title_lines'   => array(
+			array(
+				array(
+					'text' => __( 'Best Test Automation', 'testro' ),
+					'tone' => 'gradient',
+				),
+			),
+			array(
+				array(
+					'text' => __( 'Platform', 'testro' ),
+					'tone' => 'gradient',
+				),
+				array(
+					'text' => __( 'for Modern', 'testro' ),
+					'tone' => 'dark',
+				),
+			),
+			array(
+				array(
+					'text' => __( 'Software Testing', 'testro' ),
+					'tone' => 'dark',
+				),
+			),
+		),
+		'body_blocks'   => array(
+			array(
+				array(
+					'text' => __( 'theTestRo is the best test automation platform for teams testing ', 'testro' ),
+					'tone' => 'muted',
+				),
+				array(
+					'text' => __( 'Web, API, mobile, and cross-browser apps', 'testro' ),
+					'tone' => 'strong',
+				),
+				array(
+					'text' => __( ' — fast.', 'testro' ),
+					'tone' => 'muted',
+				),
+			),
+			array(
+				array(
+					'text' => __( 'Build, run, and scale your tests in one place. ', 'testro' ),
+					'tone' => 'muted',
+				),
+				array(
+					'text' => __( 'No slowdowns, no extra tools.', 'testro' ),
+					'tone' => 'strong',
+				),
+			),
+		),
+		'cta_label'     => __( 'Start Testing', 'testro' ),
+		'cta_href'      => '#final-cta',
+		'cta_with_arrow'=> true,
+		'trust'         => true,
+		'mesh'          => 'images/hero/mesh-home.gif',
+		'show_divider'  => true,
+	)
+);
