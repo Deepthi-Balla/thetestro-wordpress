@@ -24,6 +24,7 @@ $title_lines     = isset( $args['title_lines'] ) && is_array( $args['title_lines
 $title           = isset( $args['title'] ) ? (string) $args['title'] : testro_hero_plain_title( $title_lines );
 $body_blocks     = isset( $args['body_blocks'] ) && is_array( $args['body_blocks'] ) ? $args['body_blocks'] : array();
 $feature_lines   = isset( $args['feature_lines'] ) && is_array( $args['feature_lines'] ) ? $args['feature_lines'] : array();
+$feature_variant = isset( $args['feature_lines_variant'] ) ? (string) $args['feature_lines_variant'] : '';
 $highlights      = isset( $args['highlights'] ) && is_array( $args['highlights'] ) ? $args['highlights'] : array();
 $workflow_intro  = isset( $args['workflow_intro'] ) ? (string) $args['workflow_intro'] : '';
 $workflow_steps  = isset( $args['workflow_steps'] ) && is_array( $args['workflow_steps'] ) ? $args['workflow_steps'] : array();
@@ -37,12 +38,16 @@ $mesh            = isset( $args['mesh'] ) ? (string) $args['mesh'] : 'images/her
 $heading_id      = isset( $args['heading_id'] ) ? (string) $args['heading_id'] : 'hero-heading';
 $section_class   = isset( $args['section_class'] ) ? (string) $args['section_class'] : '';
 $show_divider    = array_key_exists( 'show_divider', $args ) ? (bool) $args['show_divider'] : true;
+$title_wrap      = isset( $args['title_wrap'] ) ? (string) $args['title_wrap'] : '';
 
 if ( '' === $title && ! $title_lines ) {
 	return;
 }
 
 $section_classes = trim( 'testro-hero-v2 ' . $section_class );
+if ( 'natural' === $title_wrap ) {
+	$section_classes .= ' testro-hero-v2--title-natural';
+}
 $mesh_url        = testro_asset( $mesh );
 ?>
 <section class="<?php echo esc_attr( $section_classes ); ?>" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
@@ -52,7 +57,7 @@ $mesh_url        = testro_asset( $mesh );
 
 			<?php testro_render_hero_body( $body_blocks ); ?>
 
-			<?php testro_render_hero_feature_lines( $feature_lines ); ?>
+			<?php testro_render_hero_feature_lines( $feature_lines, $feature_variant ); ?>
 
 			<?php testro_render_hero_highlights( $highlights ); ?>
 

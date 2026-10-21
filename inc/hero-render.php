@@ -50,8 +50,8 @@ function testro_hero_plain_title( $title_lines ) {
 		}
 		$line_text = array();
 		foreach ( $line as $segment ) {
-			if ( is_array( $segment ) && isset( $segment['text'] ) && '' !== (string) $segment['text'] ) {
-				$line_text[] = (string) $segment['text'];
+			if ( is_array( $segment ) && isset( $segment['text'] ) && '' !== trim( (string) $segment['text'] ) ) {
+				$line_text[] = trim( (string) $segment['text'] );
 			}
 		}
 		if ( $line_text ) {
@@ -140,21 +140,28 @@ function testro_render_hero_body( $blocks ) {
 }
 
 /**
- * Render icon + text feature lines (No-Code style).
+ * Render icon + text feature lines (No-Code / Web / TD styles).
  *
- * @param array $lines Feature lines.
+ * @param array  $lines   Feature lines.
+ * @param string $variant Optional variant: '' | 'panel'.
  */
-function testro_render_hero_feature_lines( $lines ) {
+function testro_render_hero_feature_lines( $lines, $variant = '' ) {
 	if ( ! is_array( $lines ) || ! $lines ) {
 		return;
 	}
 
-	echo '<ul class="testro-hero-v2__features">';
+	$classes = 'testro-hero-v2__features';
+	if ( 'panel' === $variant ) {
+		$classes .= ' testro-hero-v2__features--panel';
+	}
+
+	echo '<ul class="' . esc_attr( $classes ) . '">';
 	foreach ( $lines as $line ) {
 		if ( ! is_array( $line ) || empty( $line['text'] ) ) {
 			continue;
 		}
-		$icon = isset( $line['icon'] ) ? (string) $line['icon'] : 'zap';
+		$icon  = isset( $line['icon'] ) ? (string) $line['icon'] : 'zap';
+		$badge = ! empty( $line['badge'] );
 		echo '<li class="testro-hero-v2__feature">';
 		if ( 'target-img' === $icon ) {
 			printf(
@@ -166,10 +173,13 @@ function testro_render_hero_feature_lines( $lines ) {
 				'<img class="testro-hero-v2__feature-img" src="%s" alt="" width="25" height="24" decoding="async" />',
 				esc_url( testro_asset( 'images/hero/icon-bolt.png' ) )
 			);
+		} elseif ( $badge ) {
+			echo '<span class="testro-hero-v2__feature-badge" aria-hidden="true">' . testro_icon( $icon, array( 'size' => 14 ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
-			echo '<span class="testro-hero-v2__feature-icon" aria-hidden="true">' . testro_icon( $icon, array( 'size' => 20 ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			$icon_size = ( 'panel' === $variant ) ? 22 : 20;
+			echo '<span class="testro-hero-v2__feature-icon" aria-hidden="true">' . testro_icon( $icon, array( 'size' => $icon_size ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
-		echo '<span>' . esc_html( (string) $line['text'] ) . '</span>';
+		echo '<span class="testro-hero-v2__feature-text">' . esc_html( (string) $line['text'] ) . '</span>';
 		echo '</li>';
 	}
 	echo '</ul>';
@@ -231,7 +241,7 @@ function testro_render_hero_workflow( $intro, $steps, $outro = '' ) {
 			echo '<span class="testro-hero-v2__step-label">' . esc_html( (string) $step['label'] ) . '</span>';
 			echo '</li>';
 			if ( $index < $count - 1 ) {
-				echo '<li class="testro-hero-v2__step-arrow" aria-hidden="true">' . testro_icon( 'arrow-right', array( 'size' => 16 ) ) . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<li class="testro-hero-v2__step-arrow" aria-hidden="true">' . testro_icon( 'arrow-circle-right', array( 'size' => 18 ) ) . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 		echo '</ol>';

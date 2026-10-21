@@ -1432,15 +1432,14 @@ body.home .testro-hero.testro-hero-v2,
 }
 
 .testro-hero-v2__frame {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: clamp(1.25rem, 2vw, 1.875rem);
-  align-items: center;
+  /* Framer: left copy + absolute right mesh (not a competing 2-col grid). */
+  display: block;
   width: min(100%, 88rem);
   max-width: 1536px;
   margin-inline: auto;
   position: relative;
   z-index: 1;
+  min-height: clamp(22rem, 38vw, 33.3125rem);
 }
 
 .testro-hero-v2__copy {
@@ -1448,31 +1447,48 @@ body.home .testro-hero.testro-hero-v2,
   flex-direction: column;
   align-items: flex-start;
   gap: clamp(1.25rem, 1.8vw, 1.5rem);
-  width: min(100%, 50rem);
+  /* Framer "left text" is ~790px at 1536 reference; page overrides widen where needed. */
+  width: min(100%, 790px);
+  max-width: 100%;
   position: relative;
   z-index: 2;
+  text-align: left;
 }
 
 .testro-hero-v2__title {
   display: flex;
   flex-direction: column;
+  align-self: stretch;
   gap: 0;
   margin: 0;
+  width: 100%;
+  max-width: none;
   font-family: var(--testro-font-display);
   font-size: clamp(2.25rem, 1.1rem + 3.5vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--hero-v2-ink);
-  max-width: 16ch;
+  text-align: left;
 }
 
 .testro-hero-v2__title-line {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: baseline;
-  column-gap: 0.3em;
+  width: 100%;
+  /* Framer stack gap 22px at 72px ≈ 0.305em */
+  column-gap: 0.305em;
   row-gap: 0;
+}
+
+.testro-hero-v2__title-seg {
+  /* Allow word wrap inside a segment when the left column is narrower than Framer. */
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  text-align: left;
 }
 
 .testro-hero-v2__title-seg--gradient {
@@ -1488,20 +1504,50 @@ body.home .testro-hero.testro-hero-v2,
   -webkit-text-fill-color: var(--hero-v2-ink);
 }
 
+/* Natural title wrap — inline segments wrap at the left-column edge like body copy. */
+.testro-hero-v2--title-natural .testro-hero-v2__title {
+  display: block;
+}
+
+.testro-hero-v2--title-natural .testro-hero-v2__title-line {
+  display: block;
+  width: 100%;
+}
+
+.testro-hero-v2--title-natural .testro-hero-v2__title-seg {
+  display: inline;
+  flex: none;
+  max-width: none;
+  white-space: normal;
+}
+
+.testro-hero-v2--title-natural .testro-hero-v2__title-seg + .testro-hero-v2__title-seg::before {
+  content: " ";
+  white-space: normal;
+}
+
 .testro-hero-v2__body {
   display: flex;
   flex-direction: column;
+  align-self: stretch;
   gap: 1.25rem;
-  max-width: 42rem;
+  width: 100%;
+  /* Framer primary body width */
+  max-width: 671px;
+  text-align: left;
 }
 
 .testro-hero-v2__sub {
   margin: 0;
+  width: 100%;
+  max-width: 671px;
   font-family: "Inter Display", var(--testro-font);
   font-size: clamp(1rem, 0.85rem + 0.6vw, 1.5rem);
   line-height: 1.6;
   letter-spacing: 0;
   color: var(--hero-v2-muted);
+  text-align: left;
+  overflow-wrap: break-word;
 }
 
 .testro-hero-v2__run--muted {
@@ -1521,6 +1567,8 @@ body.home .testro-hero.testro-hero-v2,
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+  width: 100%;
+  max-width: 671px;
 }
 
 .testro-hero-v2__feature {
@@ -1544,6 +1592,64 @@ body.home .testro-hero.testro-hero-v2,
   color: var(--hero-v2-cta);
   flex-shrink: 0;
   margin-top: 0.15em;
+}
+
+.testro-hero-v2__feature-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #0e68f9;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.15em;
+}
+
+.testro-hero-v2__feature-badge svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
+}
+
+.testro-hero-v2__feature-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* TD hero — Framer light panel with icon rows */
+.testro-hero-v2__features--panel {
+  max-width: 100%;
+  gap: 0;
+  background: #edf7ff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.testro-hero-v2__features--panel .testro-hero-v2__feature {
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  margin: 0;
+  font-size: clamp(1.05rem, 0.5rem + 1.05vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #3b3737;
+  border-bottom: 0.6px solid #e8e8e8;
+}
+
+.testro-hero-v2__features--panel .testro-hero-v2__feature:last-child {
+  border-bottom: 0;
+}
+
+.testro-hero-v2__features--panel .testro-hero-v2__feature-icon {
+  color: #316af7;
+  margin-top: 0;
+}
+
+.testro-hero-v2__features--panel .testro-hero-v2__feature-text {
+  color: #3b3737;
 }
 
 .testro-hero-v2__highlights {
@@ -1594,7 +1700,7 @@ body.home .testro-hero.testro-hero-v2,
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  max-width: 42rem;
+  max-width: 671px;
 }
 
 .testro-hero-v2__workflow-intro {
@@ -1780,25 +1886,30 @@ body.home .testro-hero.testro-hero-v2,
 }
 
 .testro-hero-v2__visual {
-  position: relative;
-  width: 100%;
-  min-height: clamp(18rem, 38vw, 38rem);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(42%, 38rem);
+  max-width: 599px;
+  min-height: 0;
+  height: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
   pointer-events: none;
   overflow: visible;
+  z-index: 1;
 }
 
 .testro-hero-v2__mesh {
   display: block;
-  width: min(115%, 44rem);
+  width: 100%;
   max-width: none;
   height: auto;
   max-height: min(48rem, 72vh);
   object-fit: contain;
-  object-position: center right;
-  transform: translateX(4%);
+  object-position: top right;
+  transform: none;
 }
 
 /* Keep legacy home class hooks working with redesign markup */
@@ -1937,18 +2048,23 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
 }
 
 .testro-product-ai .testro-hero-v2__frame {
-  /* Framer mesh is absolute on the section; keep frame out of CB. */
-  display: block;
   position: static;
   min-height: 33.3125rem; /* 533px mesh height */
 }
 
 .testro-product-ai .testro-hero-v2__copy {
   gap: 24px;
-  width: min(100%, 790px);
-  align-items: flex-start;
-  /* Beat legacy .testro-prod-hero { text-align: center } */
-  text-align: left;
+}
+
+/* Title + subtitle use the full left-column width (not the narrower 671px body). */
+.testro-product-ai .testro-hero-v2__body,
+.testro-product-ai .testro-hero-v2__sub,
+.testro-product-xbrowser .testro-hero-v2__body,
+.testro-product-xbrowser .testro-hero-v2__sub,
+.testro-product-heal .testro-hero-v2__body,
+.testro-product-heal .testro-hero-v2__sub {
+  max-width: none;
+  width: 100%;
 }
 
 .testro-product-ai .testro-prod-hero.testro-hero-v2,
@@ -1961,46 +2077,120 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
 }
 
 .testro-product-ai .testro-hero-v2__title {
-  /* Stretch to copy width so every line shares the same left edge */
-  align-self: stretch;
-  width: 100%;
-  max-width: none;
   font-size: clamp(2.25rem, 0.6rem + 4.2vw, 4.5rem); /* → 72px at 1536 */
   color: #2b2b2b;
-  text-align: left;
-}
-
-.testro-product-ai .testro-hero-v2__title-line {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: baseline;
-  width: 100%;
-  /* Framer stack gap 22px at 72px ≈ 0.305em — scales with font size */
-  column-gap: 0.305em;
-}
-
-.testro-product-ai .testro-hero-v2__title-seg {
-  flex: 0 0 auto;
-  white-space: nowrap;
-  text-align: left;
 }
 
 .testro-product-ai .testro-hero-v2__body {
-  align-self: stretch;
-  width: 100%;
-  max-width: 671px;
   gap: 0;
-  text-align: left;
 }
 
 .testro-product-ai .testro-hero-v2__sub {
-  width: 100%;
-  max-width: 671px;
-  margin: 0;
   font-size: clamp(1.05rem, 0.5rem + 1.05vw, 1.5rem); /* → 24px at 1536 */
-  line-height: 1.6;
-  text-align: left;
+}
+
+/* Framer left-text widths that differ from the 790px default */
+.testro-product-xbrowser .testro-hero-v2__copy {
+  width: min(100%, 873px);
+}
+
+.testro-product-tm .testro-hero-v2__copy {
+  width: min(100%, 825px);
+}
+
+.testro-product-heal .testro-hero-v2__copy {
+  width: min(100%, 801px);
+}
+
+.testro-product-td .testro-hero-v2__copy {
+  width: min(100%, 818px);
+}
+
+/* Web hero feature rows — Framer blue circular badges + black 24px copy */
+.testro-product-web .testro-hero-v2__features {
+  gap: 0.75rem;
+  max-width: 100%;
+}
+
+.testro-product-web .testro-hero-v2__feature {
+  gap: 8px;
+  align-items: flex-start;
+  font-size: clamp(1.05rem, 0.5rem + 1.05vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: #000;
+}
+
+.testro-product-web .testro-hero-v2__feature-text {
+  color: #000;
+}
+
+/* API workflow cards — Framer: white 12px radius cards + cyan circle arrows */
+.testro-product-api .testro-hero-v2__workflow {
+  max-width: 100%;
+  gap: 24px;
+}
+
+.testro-product-api .testro-hero-v2__workflow-intro {
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(217, 223, 234, 0.54);
+}
+
+.testro-product-api .testro-hero-v2__steps {
+  gap: 20px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.testro-product-api .testro-hero-v2__step {
+  align-items: center;
+  gap: 18px;
+  background: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 24px;
+  min-width: 0;
+  flex: 0 1 auto;
+  box-shadow: none;
+}
+
+.testro-product-api .testro-hero-v2__step-icon {
+  color: #0e62fa;
+  width: 30px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testro-product-api .testro-hero-v2__step-label {
+  font-family: "Inter Display", var(--testro-font);
+  font-size: clamp(0.95rem, 0.55rem + 0.75vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #000;
+}
+
+.testro-product-api .testro-hero-v2__step-arrow {
+  color: #01b5de;
+  width: 17.5px;
+  height: 17.5px;
+}
+
+.testro-product-api .testro-hero-v2__step-arrow svg {
+  width: 17.5px;
+  height: 17.5px;
+  stroke-width: 2;
+}
+
+@media (max-width: 720px) {
+  .testro-product-api .testro-hero-v2__steps {
+    flex-wrap: wrap;
+  }
+
+  .testro-product-api .testro-hero-v2__step-arrow {
+    display: none;
+  }
 }
 
 /* Body → highlights = 20px (parent gap is 24px). */
@@ -2121,15 +2311,6 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
 }
 
 @media (max-width: 720px) {
-  .testro-product-ai .testro-hero-v2__title-line {
-    flex-wrap: wrap;
-    column-gap: 0.3em;
-  }
-
-  .testro-product-ai .testro-hero-v2__title-seg {
-    white-space: normal;
-  }
-
   .testro-product-ai .testro-hero-v2__mesh {
     max-height: 16rem;
   }
@@ -2137,8 +2318,10 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
 
 @media (max-width: 1024px) {
   .testro-hero-v2__frame {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1.75rem;
+    min-height: 0;
   }
 
   .testro-hero-v2__copy {
@@ -2146,15 +2329,16 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
     max-width: 42rem;
   }
 
-  .testro-hero-v2__title {
-    max-width: none;
-  }
-
   .testro-hero-v2__visual {
-    min-height: 0;
-    order: -1;
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
     max-width: 28rem;
+    height: auto;
+    min-height: 0;
     margin-inline: auto;
+    order: -1;
     justify-content: center;
   }
 

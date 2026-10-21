@@ -116,13 +116,11 @@ body {
 }
 
 .testro-hero-v2__frame {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: clamp(1.25rem, 2vw, 1.875rem);
-  align-items: center;
+  display: block;
   width: min(100%, 88rem);
   max-width: 1536px;
   margin-inline: auto;
+  position: relative;
 }
 
 .testro-hero-v2__title {
@@ -168,7 +166,8 @@ body {
 
 @media (max-width: 1024px) {
   .testro-hero-v2__frame {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 }
 
