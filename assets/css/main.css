@@ -25973,14 +25973,35 @@ main#main-content.site-main section.testro-clients--trusted {
   position: relative;
   padding: 60px 0 !important;
   padding-block: 60px !important;
-  background-color: #f4f8ff !important;
-  background-image: var(--testro-trusted-mesh, none) !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-size: cover !important;
+  /* Framer yY1lhTsR5: image fill only (no solid tint). Stretch so TR/BL mesh
+     corners always map to the section — cover crops them when aspect differs. */
+  background-color: #ffffff !important;
+  background-image: none !important;
   border: 0;
   overflow: clip;
   color: var(--color-navy, #003e84);
+  isolation: isolate;
+}
+
+.home .testro-clients--trusted::before,
+.testro-clients--trusted::before,
+main#main-content.site-main section.testro-clients--trusted::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: transparent;
+  background-image: var(--testro-trusted-mesh, none);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.home .testro-clients--trusted > *,
+.testro-clients--trusted > * {
+  position: relative;
+  z-index: 1;
 }
 
 .home .testro-clients--trusted .testro-clients__inner,
