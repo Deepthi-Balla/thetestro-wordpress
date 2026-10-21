@@ -2754,9 +2754,50 @@
     });
   }
 
+  /* ------------------------------------------------------------------------ */
+  /* Trusted By logo ticker — Framer tickerEffect velocity 38 + arrow controls */
+  /* ------------------------------------------------------------------------ */
+  function initTrustedTicker() {
+    var rails = qsa('[data-trusted-ticker]');
+    if (!rails.length) return;
+
+    rails.forEach(function (rail) {
+      var track = qs('[data-trusted-track]', rail);
+      var buttons = qsa('[data-trusted-dir]', rail);
+      if (!track) return;
+
+      function syncDuration() {
+        var half = track.scrollWidth / 2;
+        if (!half) return;
+        /* Framer tickerEffect.velocity = 38 (px/s). */
+        var seconds = Math.max(12, half / 38);
+        rail.style.setProperty('--trusted-ticker-duration', seconds.toFixed(2) + 's');
+      }
+
+      syncDuration();
+      if (typeof ResizeObserver !== 'undefined') {
+        var ro = new ResizeObserver(syncDuration);
+        ro.observe(track);
+      }
+
+      buttons.forEach(function (btn) {
+        on(btn, 'click', function () {
+          var dir = parseInt(btn.getAttribute('data-trusted-dir'), 10);
+          /* Left arrow = reverse, right arrow = forward (Framer chevron affordance). */
+          if (dir < 0) {
+            track.classList.add('is-reverse');
+          } else {
+            track.classList.remove('is-reverse');
+          }
+        });
+      });
+    });
+  }
+
   ready(function () {
     initPageScrollReset();
     initClients();
+    initTrustedTicker();
     initHeroCarousel();
     initNav();
     initDemoModal();

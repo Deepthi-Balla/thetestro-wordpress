@@ -1,9 +1,9 @@
 <?php
 /**
- * Trusted by Companies — Framer Home kZdZ5w6DV.
+ * Trusted by Companies — Framer /trusted-by-companies (w2n4CgITW / yY1lhTsR5).
  *
- * Desktop: gradient band · intro 520 + metrics 163×112 · logo ticker velocity 38.
- * Logos order: Urbuddi, Xcally, Optimworks, Sevaki, Graduway (same as why-trusted).
+ * Light mesh band · 72px one-line gradient title · absolute metrics · pill ticker v38.
+ * Logo order (Framer): Urbuddi, FinFolio, Xcally, Optimworks, theTestRo, Sevaki, Globcar.
  *
  * @package TestRo
  */
@@ -12,14 +12,45 @@ $args    = isset( $args ) && is_array( $args ) ? $args : array();
 $eyebrow = isset( $args['eyebrow'] ) ? (string) $args['eyebrow'] : __( 'TRUSTED BY COMPANIES', 'testro' );
 $title   = isset( $args['title'] ) ? (string) $args['title'] : __( 'Thousands of engineering and QA teams worldwide trust theTestRo.', 'testro' );
 
-$clients = function_exists( 'testro_get_why_trusted_logos' )
-	? testro_get_why_trusted_logos()
-	: array_slice( testro_get_clients(), 0, 5 );
+/*
+ * Framer Trusted Logos Row One (zqWSm9YhC) — 7 white marks, gap 20, pad 8, 140×100.
+ * Duplicated once in the track for a seamless CSS/JS ticker (same as Framer tickerEffect).
+ */
+$clients = array(
+	array(
+		'name' => 'Urbuddi',
+		'logo' => testro_asset( 'images/trusted/urbuddi-white.png' ),
+	),
+	array(
+		'name' => 'FinFolio',
+		'logo' => testro_asset( 'images/trusted/finfolio-white.png' ),
+	),
+	array(
+		'name' => 'Xcally',
+		'logo' => testro_asset( 'images/trusted/xcally-white.png' ),
+	),
+	array(
+		'name' => 'Optimworks',
+		'logo' => testro_asset( 'images/trusted/optimworks-white.png' ),
+	),
+	array(
+		'name' => 'theTestRo',
+		'logo' => testro_asset( 'images/trusted/thetestro-white.png' ),
+	),
+	array(
+		'name' => 'Sevaki',
+		'logo' => testro_asset( 'images/trusted/sevaki-white.png' ),
+	),
+	array(
+		'name' => 'Globcar',
+		'logo' => testro_asset( 'images/trusted/globcar-white.png' ),
+	),
+);
 
 /*
- * Framer Performance Metrics (mk0tbD67i):
- * glass card 163×112 · pad 11 · gap 8 · radius 19.8 · blur 15
- * badge 32×37 radius 11 — Chart / Shield Tick / Pie Chart (Iconic).
+ * Framer Performance Metrics (LQolfPiEE):
+ * white card 163×112 · pad 11 · gap 8 · radius 19.8 · blur 15 · shadow 0 1 2
+ * badge 32×37 radius 11 fill #ebf2ff — absolute top-right of section.
  */
 $metrics = array(
 	array(
@@ -42,10 +73,14 @@ $metrics = array(
 	),
 );
 
-/* Duplicate set for seamless CSS ticker (Framer tickerEffect velocity 38). */
 $track_items = $clients ? array_merge( $clients, $clients ) : array();
+$mesh_url    = testro_asset( 'images/hero/mesh-trusted.png' );
 ?>
-<section class="testro-clients testro-clients--trusted" aria-labelledby="clients-heading">
+<section
+	class="testro-clients testro-clients--trusted"
+	aria-labelledby="clients-heading"
+	style="--testro-trusted-mesh: url('<?php echo esc_url( $mesh_url ); ?>');"
+>
 	<div class="testro-container testro-clients__inner">
 		<div class="testro-clients__top">
 			<header class="testro-section-header testro-clients__header">
@@ -73,9 +108,19 @@ $track_items = $clients ? array_merge( $clients, $clients ) : array();
 		</div>
 
 		<?php if ( $track_items ) : ?>
-			<div class="testro-clients__logo-rail" aria-label="<?php esc_attr_e( 'Trusted customer ratings', 'testro' ); ?>">
+			<div class="testro-clients__logo-rail" data-trusted-ticker aria-label="<?php esc_attr_e( 'Trusted customer logos', 'testro' ); ?>">
+				<button
+					type="button"
+					class="testro-clients__rail-nav testro-clients__rail-nav--prev"
+					data-trusted-dir="-1"
+					aria-label="<?php esc_attr_e( 'Scroll logos backward', 'testro' ); ?>"
+				>
+					<svg width="47" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+						<path d="M15 6l-6 6 6 6"/>
+					</svg>
+				</button>
 				<div class="testro-clients__marquee">
-					<ul class="testro-clients__track">
+					<ul class="testro-clients__track" data-trusted-track>
 						<?php foreach ( $track_items as $client ) : ?>
 							<?php
 							$name = isset( $client['name'] ) ? (string) $client['name'] : '';
@@ -91,22 +136,28 @@ $track_items = $clients ? array_merge( $clients, $clients ) : array();
 										$logo,
 										$name,
 										array(
-											'width'   => 170,
-											'height'  => 72,
+											'width'   => 140,
+											'height'  => 100,
 											'class'   => 'testro-clients__logo',
 											'loading' => 'lazy',
 										)
 									);
 									?>
 								</div>
-								<p class="testro-clients__rating-line" aria-label="<?php esc_attr_e( 'Rated 4.6 out of 5', 'testro' ); ?>">
-									<span class="testro-clients__stars" aria-hidden="true">★★★★☆</span>
-									<span> (4.6/5.0)</span>
-								</p>
 							</li>
 						<?php endforeach; ?>
 					</ul>
 				</div>
+				<button
+					type="button"
+					class="testro-clients__rail-nav testro-clients__rail-nav--next"
+					data-trusted-dir="1"
+					aria-label="<?php esc_attr_e( 'Scroll logos forward', 'testro' ); ?>"
+				>
+					<svg width="47" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+						<path d="M9 6l6 6-6 6"/>
+					</svg>
+				</button>
 			</div>
 		<?php endif; ?>
 	</div>
