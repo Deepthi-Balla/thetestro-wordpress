@@ -15,6 +15,10 @@ get_header();
 $sales_email   = 'sales@thetestro.com';
 $support_email = 'support@thetestro.com';
 
+$partners_url = function_exists( 'testro_nav_url' )
+	? testro_nav_url( 'partners' )
+	: ( function_exists( 'testro_get_page_url' ) ? testro_get_page_url( 'partners' ) : home_url( '/partners/' ) );
+
 /*
  * Final CTA (p_VDbGabt): Start Testing Free = Secondary, Book a Demo = Primary.
  */
@@ -36,20 +40,57 @@ $contact_cta_actions = array(
 ?>
 <div class="testro-page-shell testro-page-shell--contact">
 	<?php
-	/* Framer eSYVygpZf — Platform Opening: hero copy + CTA + sales/support cards. */
+	/* Framer hero redesign — Contact Us. */
+	get_template_part(
+		'template-parts/product/hero',
+		null,
+		array(
+			'variant'        => 'redesign',
+			'breadcrumbs'    => false,
+			'title'          => __( "Let's Build Smarter Software Testing Together", 'testro' ),
+			'title_lines'    => array(
+				/* Framer rows: "Let's Build" / "Smarter Software Testing" / "Together" */
+				array(
+					array( 'text' => __( "Let's Build", 'testro' ), 'tone' => 'dark' ),
+				),
+				array(
+					array( 'text' => __( 'Smarter Software Testing', 'testro' ), 'tone' => 'gradient' ),
+				),
+				array(
+					array( 'text' => __( 'Together', 'testro' ), 'tone' => 'dark' ),
+				),
+			),
+			'body_blocks'    => array(
+				array(
+					array( 'text' => __( 'Got a question about pricing, a feature, or how theTestRo fits your team? ', 'testro' ), 'tone' => 'muted' ),
+					array( 'text' => __( 'Want to see it in action first?', 'testro' ), 'tone' => 'strong' ),
+					array( 'text' => __( " Just reach out. We'll get you the answer.", 'testro' ), 'tone' => 'muted' ),
+				),
+			),
+			/* Framer trust pill is hidden (visible:false) on Contact hero. */
+			'trust'          => false,
+			'mesh'           => 'images/hero/mesh-contact.webp',
+			'show_divider'   => true,
+			'cta_label'      => __( 'Become a Partner', 'testro' ),
+			'cta_href'       => $partners_url,
+			'cta_with_arrow' => true,
+			'actions'        => array(
+				array(
+					'label'         => __( 'Become a Partner', 'testro' ),
+					'style'         => 'primary',
+					'href'          => $partners_url,
+					'allow_on_hero' => true,
+					'with_arrow'    => true,
+				),
+			),
+		)
+	);
 	?>
-	<section class="testro-prod-hero testro-contact-hero" aria-labelledby="product-hero-title">
-		<div class="testro-container testro-prod-hero__inner testro-contact-hero__inner">
-			<div class="testro-contact-hero__copy">
-				<h1 id="product-hero-title" class="testro-prod-hero__title" data-reveal>
-					<?php esc_html_e( "Let's Build Smarter Software Testing Together", 'testro' ); ?>
-				</h1>
-				<p class="testro-prod-hero__sub" data-reveal>
-					<?php esc_html_e( "Got a question about pricing, a feature, or how theTestRo fits your team? Want to see it in action first? Just reach out. We'll get you the answer.", 'testro' ); ?>
-				</p>
-			</div>
 
-			<ul class="testro-contact-channels" data-reveal aria-label="<?php esc_attr_e( 'Contact channels', 'testro' ); ?>">
+	<?php /* Sales / support channel cards (below Platform Opening). */ ?>
+	<section class="testro-contact-channels-section" aria-label="<?php esc_attr_e( 'Contact channels', 'testro' ); ?>">
+		<div class="testro-container">
+			<ul class="testro-contact-channels">
 				<li class="testro-contact-channels__card testro-card--top-line">
 					<span class="testro-contact-channels__icon" aria-hidden="true">
 						<?php echo testro_icon( 'mail', array( 'size' => 18 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>

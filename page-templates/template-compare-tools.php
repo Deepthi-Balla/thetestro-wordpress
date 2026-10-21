@@ -66,18 +66,9 @@ $competitors = array(
 );
 
 /*
- * Hero: Start Free Trial (primary).
+ * Hero: Start Testing Free (primary, Framer redesign).
  * Final CTA: Secondary then Primary (Try for Free via allow_on_footer; Get a Demo).
  */
-$compare_hero_actions = array(
-	array(
-		'label'      => __( 'Start Free Trial', 'testro' ),
-		'style'      => 'primary',
-		'modal'      => 'demo-modal',
-		'with_arrow' => false,
-	),
-);
-
 $compare_cta_actions = array(
 	array(
 		'label'           => __( 'Try for Free', 'testro' ),
@@ -95,22 +86,57 @@ $compare_cta_actions = array(
 ?>
 <div class="testro-page-shell testro-page-shell--compare">
 	<?php
-	/* Framer kzSMcb2S7 — split Platform Opening; checklist in the lead; no breadcrumbs. */
+	/* Framer hero redesign — Compare Tools / theTestRo vs Alternatives. */
 	get_template_part(
 		'template-parts/product/hero',
 		null,
 		array(
-			'layout'      => 'split',
-			'visual'      => 'ai-capability-canvas',
-			'title'       => __( 'theTestRo vs Test Automation Alternatives', 'testro' ),
-			'subtitle'    => __( "Find out how theTestRo's AI-powered approach compares to other test automation tools on speed, ease of use, and everyday reliability.", 'testro' ),
-			'badges'      => array(
-				__( 'Build tests in plain English, no scripting required', 'testro' ),
-				__( 'Run tests across thousands of real browsers and devices', 'testro' ),
-				__( 'One platform for Web, mobile, API, and enterprise app testing', 'testro' ),
+			'variant'       => 'redesign',
+			'breadcrumbs'   => false,
+			'title'         => __( 'theTestRo vs Test Automation Alternatives', 'testro' ),
+			'title_lines'   => array(
+				array(
+					array( 'text' => __( 'theTestRo', 'testro' ), 'tone' => 'dark' ),
+					array( 'text' => __( 'vs', 'testro' ), 'tone' => 'gradient' ),
+					array( 'text' => __( 'Test Automation Alternatives', 'testro' ), 'tone' => 'dark' ),
+				),
 			),
-			'actions'     => $compare_hero_actions,
-			'breadcrumbs' => false,
+			'title_wrap'    => 'natural',
+			'body_blocks'   => array(
+				array(
+					array( 'text' => __( "Find out how theTestRo's AI-powered approach compares to other test automation tools on speed, ease of use, and everyday reliability.", 'testro' ), 'tone' => 'muted' ),
+				),
+			),
+			'feature_lines' => array(
+				array(
+					'icon' => 'bullet',
+					'text' => __( 'Build tests in plain English, no scripting required.', 'testro' ),
+				),
+				array(
+					'icon' => 'bullet',
+					'text' => __( 'Run tests across thousands of real browsers and devices.', 'testro' ),
+				),
+				array(
+					'icon' => 'bullet',
+					'text' => __( 'One platform for web, mobile, API, and enterprise app testing.', 'testro' ),
+				),
+			),
+			/* Framer trust pill is hidden (visible:false) on Compare hero. */
+			'trust'         => false,
+			'mesh'          => 'images/hero/mesh-vs.webp',
+			'show_divider'  => true,
+			'cta_label'      => __( 'Start Testing Free', 'testro' ),
+			'cta_modal'      => 'demo-modal',
+			'cta_with_arrow' => true,
+			'actions'       => array(
+				array(
+					'label'         => __( 'Start Testing Free', 'testro' ),
+					'style'         => 'primary',
+					'modal'         => 'demo-modal',
+					'allow_on_hero' => true,
+					'with_arrow'    => true,
+				),
+			),
 		)
 	);
 

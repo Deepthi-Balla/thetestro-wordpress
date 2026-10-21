@@ -16,25 +16,9 @@ get_header();
  * Section order (skip Navigation): Platform Opening → Trusted Logos Row One → Real Results
  * → Why Choose cards → Compare → Real Savings → Enterprise → Final CTA
  *
- * Hero CTAs (cfxdEXwlg): Start Testing Free = Primary, Book a Demo = Secondary.
+ * Hero CTAs (Framer redesign): both solid primary with arrows.
  * Final CTA (tZHKgQOg7): Start Testing Free = Secondary, Book a Demo = Primary.
  */
-$why_hero_actions = array(
-	array(
-		'label'      => __( 'Start Testing Free', 'testro' ),
-		'style'      => 'primary',
-		'modal'      => 'demo-modal',
-		'with_arrow' => false,
-	),
-	array(
-		'label'         => __( 'Book a Demo', 'testro' ),
-		'style'         => 'secondary',
-		'modal'         => 'demo-modal',
-		'with_arrow'    => false,
-		'allow_on_hero' => true,
-	),
-);
-
 $why_cta_actions = array(
 	array(
 		'label'           => __( 'Start Testing Free', 'testro' ),
@@ -52,15 +36,50 @@ $why_cta_actions = array(
 ?>
 <div class="testro-page-shell testro-page-shell--why">
 	<?php
-	/* Framer cfxdEXwlg — Platform Opening; no breadcrumbs; CTAs Primary + Secondary. */
+	/* Framer hero redesign — Why Choose theTestRo. */
 	get_template_part(
 		'template-parts/product/hero',
 		null,
 		array(
-			'title'       => __( 'Test Smarter and Ship Faster with a No-Code Test Automation Platform', 'testro' ),
-			'subtitle'    => __( 'theTestRo is your reliable, no-code test automation platform for Web, mobile, and API testing, all from one place. Build tests in plain English, run them at scale, and stop losing time to broken scripts.', 'testro' ),
-			'actions'     => $why_hero_actions,
-			'breadcrumbs' => false,
+			'variant'        => 'redesign',
+			'breadcrumbs'    => false,
+			'title'          => __( 'Test Smarter and Ship Faster with a No-Code Test Automation Platform', 'testro' ),
+			'title_lines'    => array(
+				/* Framer rows: dark lead-in, then gradient product phrase. */
+				array(
+					array( 'text' => __( 'Test Smarter and Ship Faster with a', 'testro' ), 'tone' => 'dark' ),
+				),
+				array(
+					array( 'text' => __( 'No-Code Test Automation Platform', 'testro' ), 'tone' => 'gradient' ),
+				),
+			),
+			'body_blocks'    => array(
+				array(
+					array( 'text' => __( 'theTestRo is your reliable, no-code test automation platform for ', 'testro' ), 'tone' => 'muted' ),
+					array( 'text' => __( 'web, mobile, and API testing', 'testro' ), 'tone' => 'strong' ),
+					array( 'text' => __( ', all from one place. Build tests in plain English, run them at scale, and stop losing time to broken scripts.', 'testro' ), 'tone' => 'muted' ),
+				),
+			),
+			/* Framer trust pill is hidden (visible:false) on Why Choose hero. */
+			'trust'          => false,
+			'mesh'           => 'images/hero/mesh-why.webp',
+			'show_divider'   => true,
+			'actions'        => array(
+				array(
+					'label'         => __( 'Start Testing Free', 'testro' ),
+					'style'         => 'primary',
+					'modal'         => 'demo-modal',
+					'allow_on_hero' => true,
+					'with_arrow'    => true,
+				),
+				array(
+					'label'         => __( 'Book a Demo', 'testro' ),
+					'style'         => 'primary',
+					'modal'         => 'demo-modal',
+					'allow_on_hero' => true,
+					'with_arrow'    => true,
+				),
+			),
 		)
 	);
 

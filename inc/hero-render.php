@@ -173,6 +173,13 @@ function testro_render_hero_feature_lines( $lines, $variant = '' ) {
 				'<img class="testro-hero-v2__feature-img" src="%s" alt="" width="25" height="24" decoding="async" />',
 				esc_url( testro_asset( 'images/hero/icon-bolt.png' ) )
 			);
+		} elseif ( 'check-img' === $icon ) {
+			printf(
+				'<img class="testro-hero-v2__feature-img" src="%s" alt="" width="20" height="20" decoding="async" />',
+				esc_url( testro_asset( 'images/hero/icon-check.png' ) )
+			);
+		} elseif ( 'bullet' === $icon ) {
+			echo '<span class="testro-hero-v2__feature-bullet" aria-hidden="true"></span>';
 		} elseif ( $badge ) {
 			echo '<span class="testro-hero-v2__feature-badge" aria-hidden="true">' . testro_icon( $icon, array( 'size' => 14 ) ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {

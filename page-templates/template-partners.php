@@ -25,7 +25,7 @@ $partner_actions = array(
 		'label'           => __( 'Become a Partner', 'testro' ),
 		'style'           => 'primary',
 		'href'            => $partner_contact,
-		'with_arrow'      => false,
+		'with_arrow'      => true,
 		'allow_on_hero'   => true,
 		'allow_on_footer' => true,
 	),
@@ -33,15 +33,33 @@ $partner_actions = array(
 ?>
 <div class="testro-page-shell testro-page-shell--partners">
 	<?php
-	/* Framer ZOy8hv38D — Platform Opening; no breadcrumbs. */
+	/* Framer hero redesign — Partners. */
 	get_template_part(
 		'template-parts/product/hero',
 		null,
 		array(
-			'title'       => __( 'Grow With theTestRo', 'testro' ),
-			'subtitle'    => __( 'Bring AI-powered test automation to your clients and open up a new line of revenue for your business.', 'testro' ),
-			'actions'     => $partner_actions,
-			'breadcrumbs' => false,
+			'variant'        => 'redesign',
+			'breadcrumbs'    => false,
+			'title'          => __( 'Grow With theTestRo', 'testro' ),
+			'title_lines'    => array(
+				array(
+					array( 'text' => __( 'Grow With', 'testro' ), 'tone' => 'dark' ),
+					array( 'text' => __( 'theTestRo', 'testro' ), 'tone' => 'gradient' ),
+				),
+			),
+			'body_blocks'    => array(
+				array(
+					array( 'text' => __( 'Bring AI-powered test automation to your clients and open up a new line of revenue for your business.', 'testro' ), 'tone' => 'muted' ),
+				),
+			),
+			/* Framer trust pill is hidden (visible:false) on Partners hero. */
+			'trust'          => false,
+			'mesh'           => 'images/hero/mesh-partners.webp',
+			'show_divider'   => true,
+			'cta_label'      => __( 'Become a Partner', 'testro' ),
+			'cta_href'       => $partner_contact,
+			'cta_with_arrow' => true,
+			'actions'        => $partner_actions,
 		)
 	);
 

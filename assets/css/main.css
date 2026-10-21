@@ -1588,6 +1588,16 @@ body.home .testro-hero.testro-hero-v2,
   margin-top: 0.2em;
 }
 
+/* Framer compare hero — plain disc bullets (not checkmarks). */
+.testro-hero-v2__feature-bullet {
+  width: 0.42em;
+  height: 0.42em;
+  margin-top: 0.55em;
+  border-radius: 50%;
+  background: var(--hero-v2-muted);
+  flex-shrink: 0;
+}
+
 .testro-hero-v2__feature-icon {
   color: var(--hero-v2-cta);
   flex-shrink: 0;
@@ -2106,6 +2116,16 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
   width: min(100%, 818px);
 }
 
+.testro-product-ins .testro-hero-v2__copy {
+  /* Framer row “Solutions with No-Code” must stay on one line. */
+  width: min(100%, 900px);
+}
+
+.testro-product-e2e .testro-hero-v2__copy {
+  /* Framer row “Automated End-to-End” must stay on one line. */
+  width: min(100%, 860px);
+}
+
 /* Web hero feature rows — Framer blue circular badges + black 24px copy */
 .testro-product-web .testro-hero-v2__features {
   gap: 0.75rem;
@@ -2198,14 +2218,16 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
   margin-top: -4px;
 }
 
-.testro-product-ai .testro-hero-v2__highlights {
+.testro-product-ai .testro-hero-v2__highlights,
+.testro-product-ra .testro-hero-v2__highlights {
   flex-wrap: nowrap;
   gap: 10px;
   padding: 10px 12px 10px 0;
   align-items: center;
 }
 
-.testro-product-ai .testro-hero-v2__highlight {
+.testro-product-ai .testro-hero-v2__highlight,
+.testro-product-ra .testro-hero-v2__highlight {
   gap: 8px;
   padding-right: 14px;
   font-family: "Inter Display", var(--testro-font);
@@ -2216,16 +2238,19 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
   white-space: nowrap;
 }
 
-.testro-product-ai .testro-hero-v2__highlight:last-child {
+.testro-product-ai .testro-hero-v2__highlight:last-child,
+.testro-product-ra .testro-hero-v2__highlight:last-child {
   padding-right: 0;
 }
 
-.testro-product-ai .testro-hero-v2__highlight-icon {
+.testro-product-ai .testro-hero-v2__highlight-icon,
+.testro-product-ra .testro-hero-v2__highlight-icon {
   width: 36px;
   height: 36px;
 }
 
-.testro-product-ai .testro-hero-v2__highlight-icon--blue {
+.testro-product-ai .testro-hero-v2__highlight-icon--blue,
+.testro-product-ra .testro-hero-v2__highlight-icon--blue {
   background: #0e68f9;
 }
 
@@ -2235,6 +2260,18 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
 
 .testro-product-ai .testro-hero-v2__highlight-icon--green {
   background: #00ab58;
+}
+
+/* RA third chip is longer — tighten gap/size so all three stay on one row at 1536. */
+.testro-product-ra .testro-hero-v2__highlights {
+  gap: 8px;
+  width: 100%;
+  max-width: none;
+}
+
+.testro-product-ra .testro-hero-v2__highlight {
+  padding-right: 10px;
+  font-size: clamp(0.875rem, 0.45rem + 0.7vw, 1.125rem); /* → 18px at 1536 */
 }
 
 .testro-product-ai .testro-hero-v2__cta-block {
@@ -2282,11 +2319,13 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
 }
 
 @media (max-width: 1024px) {
-  .testro-product-ai .testro-hero-v2__highlights {
+  .testro-product-ai .testro-hero-v2__highlights,
+  .testro-product-ra .testro-hero-v2__highlights {
     flex-wrap: wrap;
   }
 
-  .testro-product-ai .testro-hero-v2__highlight {
+  .testro-product-ai .testro-hero-v2__highlight,
+  .testro-product-ra .testro-hero-v2__highlight {
     white-space: normal;
   }
 
@@ -37469,7 +37508,8 @@ body.testro-product-td .testro-faq {
   background: #00284f;
 }
 
-.testro-product-cicd .testro-prod-hero .primary-button__arrow {
+/* Hero redesign shows the CTA arrow; keep legacy hide only for non-redesign markup. */
+.testro-product-cicd .testro-prod-hero:not(.testro-prod-hero--redesign) .primary-button__arrow {
   display: none !important;
 }
 
@@ -38279,7 +38319,8 @@ body.testro-product-td .testro-faq {
   background: #00284f;
 }
 
-.testro-product-pw .testro-prod-hero .primary-button__arrow {
+/* Hero redesign shows the CTA arrow; keep legacy hide only for non-redesign markup. */
+.testro-product-pw .testro-prod-hero:not(.testro-prod-hero--redesign) .primary-button__arrow {
   display: none !important;
 }
 
@@ -39113,7 +39154,8 @@ body.testro-product-td .testro-faq {
   background: #00284f;
 }
 
-.testro-product-ra .testro-prod-hero .primary-button__arrow {
+/* Hero redesign shows the CTA arrow; keep legacy hide only for non-redesign markup. */
+.testro-product-ra .testro-prod-hero:not(.testro-prod-hero--redesign) .primary-button__arrow {
   display: none !important;
 }
 
@@ -51081,6 +51123,12 @@ body.testro-product-td .testro-faq {
   border-radius: var(--radius-btn, 8px);
   font-size: 15px;
   font-weight: 600;
+}
+
+/* Sales / Support cards sit below the Framer redesign hero. */
+.testro-page-contact .testro-contact-channels-section {
+  padding: 0 0 clamp(2.5rem, 5vw, 4rem);
+  background: #fff;
 }
 
 /* Sales / Support cards — Industry Cards pad 12 gap 24 · cards pad 24 gap 22 */

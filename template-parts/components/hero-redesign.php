@@ -10,6 +10,7 @@
  * - highlights (array) Optional AI highlight chips
  * - workflow_intro / workflow_steps / workflow_outro
  * - cta_label, cta_href, cta_modal, cta_with_arrow
+ * - actions (array) Optional multi-CTA list; when set, renders instead of cta_label
  * - trust (array|true|false)
  * - mesh (string) Relative assets path for right visual
  * - heading_id (string)
@@ -33,6 +34,7 @@ $cta_label       = isset( $args['cta_label'] ) ? (string) $args['cta_label'] : _
 $cta_href        = isset( $args['cta_href'] ) ? (string) $args['cta_href'] : '#final-cta';
 $cta_modal       = ! empty( $args['cta_modal'] );
 $cta_with_arrow  = array_key_exists( 'cta_with_arrow', $args ) ? (bool) $args['cta_with_arrow'] : true;
+$actions         = isset( $args['actions'] ) && is_array( $args['actions'] ) ? $args['actions'] : array();
 $trust           = array_key_exists( 'trust', $args ) ? $args['trust'] : true;
 $mesh            = isset( $args['mesh'] ) ? (string) $args['mesh'] : 'images/hero/mesh-home.gif';
 $heading_id      = isset( $args['heading_id'] ) ? (string) $args['heading_id'] : 'hero-heading';
@@ -42,6 +44,26 @@ $title_wrap      = isset( $args['title_wrap'] ) ? (string) $args['title_wrap'] :
 
 if ( '' === $title && ! $title_lines ) {
 	return;
+}
+
+$hero_actions = array();
+foreach ( $actions as $action ) {
+	if ( ! is_array( $action ) || empty( $action['label'] ) ) {
+		continue;
+	}
+	if ( array_key_exists( 'allow_on_hero', $action ) && ! $action['allow_on_hero'] ) {
+		continue;
+	}
+	$hero_actions[] = $action;
+}
+if ( ! $hero_actions && '' !== $cta_label ) {
+	$hero_actions[] = array(
+		'label'      => $cta_label,
+		'style'      => 'primary',
+		'href'       => $cta_href,
+		'modal'      => $cta_modal ? ( is_string( $args['cta_modal'] ) ? $args['cta_modal'] : 'demo-modal' ) : '',
+		'with_arrow' => $cta_with_arrow,
+	);
 }
 
 $section_classes = trim( 'testro-hero-v2 ' . $section_class );
@@ -68,27 +90,38 @@ $mesh_url        = testro_asset( $mesh );
 					<span class="testro-hero-v2__divider" aria-hidden="true"></span>
 				<?php endif; ?>
 
-				<?php if ( '' !== $cta_label ) : ?>
+				<?php if ( $hero_actions ) : ?>
 					<div class="testro-hero-v2__actions">
 						<?php
-						$btn_attrs = array(
-							'class' => 'testro-btn testro-btn--primary testro-hero-v2__cta',
-						);
-						if ( $cta_modal ) {
-							$btn_attrs['data-open-modal'] = is_string( $args['cta_modal'] ) ? $args['cta_modal'] : 'demo-modal';
-							$btn_attrs['aria-haspopup']  = 'dialog';
-							$btn_attrs['aria-controls']  = $btn_attrs['data-open-modal'];
+						foreach ( $hero_actions as $action ) {
+							$style      = isset( $action['style'] ) ? (string) $action['style'] : 'primary';
+							$label      = (string) $action['label'];
+							$with_arrow = array_key_exists( 'with_arrow', $action ) ? (bool) $action['with_arrow'] : true;
+							$modal      = ! empty( $action['modal'] ) ? (string) $action['modal'] : '';
+							$href       = isset( $action['href'] ) ? (string) $action['href'] : '';
+							/* Framer Dynamics hero: both CTAs are solid primary blue with arrows. */
+							$btn_class  = 'primary' === $style || 'secondary' === $style
+								? 'testro-btn testro-btn--primary testro-hero-v2__cta'
+								: 'testro-btn testro-btn--' . sanitize_html_class( $style ) . ' testro-hero-v2__cta';
+							$btn_attrs  = array(
+								'class' => $btn_class,
+							);
+							if ( $modal ) {
+								$btn_attrs['data-open-modal'] = $modal;
+								$btn_attrs['aria-haspopup']  = 'dialog';
+								$btn_attrs['aria-controls']  = $modal;
+							}
+							get_template_part(
+								'template-parts/components/primary-button',
+								null,
+								array(
+									'label'      => $label,
+									'href'       => $modal ? '' : $href,
+									'with_arrow' => $with_arrow,
+									'attrs'      => $btn_attrs,
+								)
+							);
 						}
-						get_template_part(
-							'template-parts/components/primary-button',
-							null,
-							array(
-								'label'      => $cta_label,
-								'href'       => $cta_modal ? '' : $cta_href,
-								'with_arrow' => $cta_with_arrow,
-								'attrs'      => $btn_attrs,
-							)
-						);
 						?>
 					</div>
 				<?php endif; ?>

@@ -17,16 +17,6 @@ $contact_url = function_exists( 'testro_get_page_url' )
 	? testro_get_page_url( 'contact-us' )
 	: home_url( '/contact-us/' );
 
-$hero_actions = array(
-	array(
-		'label'         => __( 'Get Custom Pricing', 'testro' ),
-		'style'         => 'primary',
-		'modal'         => 'demo-modal',
-		'with_arrow'    => false,
-		'allow_on_hero' => true,
-	),
-);
-
 $cta_actions = array(
 	array(
 		'label'           => __( 'Talk to Sales', 'testro' ),
@@ -46,15 +36,44 @@ $cta_actions = array(
 ?>
 <div class="testro-page-shell testro-page-shell--pricing">
 	<?php
-	/* Framer qQh2Y_dT6 — Platform Opening; eyebrow + banking leftover hidden. */
+	/* Framer hero redesign — Pricing. */
 	get_template_part(
 		'template-parts/product/hero',
 		null,
 		array(
-			'title'       => __( 'Simple, Scalable Pricing for Enterprise Test Automation', 'testro' ),
-			'subtitle'    => __( "Every plan includes theTestRo's full AI testing platform. No per-agent fees, no hidden charges. Pick the plan that fits your team's size and scale, and grow into the next one when you're ready.", 'testro' ),
-			'actions'     => $hero_actions,
-			'breadcrumbs' => false,
+			'variant'        => 'redesign',
+			'breadcrumbs'    => false,
+			'title'          => __( 'Simple, Scalable Pricing for Enterprise Test Automation', 'testro' ),
+			'title_lines'    => array(
+				/* Framer rows: "Simple, Scalable" / "Pricing for Enterprise Test Automation" */
+				array(
+					array( 'text' => __( 'Simple, Scalable', 'testro' ), 'tone' => 'dark' ),
+				),
+				array(
+					array( 'text' => __( 'Pricing for Enterprise Test Automation', 'testro' ), 'tone' => 'gradient' ),
+				),
+			),
+			'body_blocks'    => array(
+				array(
+					array( 'text' => __( "Every plan includes theTestRo's full AI testing platform. No per-agent fees, no hidden charges. Pick the plan that fits your team's size and scale, and grow into the next one when you're ready.", 'testro' ), 'tone' => 'muted' ),
+				),
+			),
+			/* Framer trust pill is hidden (visible:false) on Pricing hero. */
+			'trust'          => false,
+			'mesh'           => 'images/hero/mesh-pricing.webp',
+			'show_divider'   => true,
+			'cta_label'      => __( 'Get Custom Pricing', 'testro' ),
+			'cta_modal'      => 'demo-modal',
+			'cta_with_arrow' => true,
+			'actions'        => array(
+				array(
+					'label'         => __( 'Get Custom Pricing', 'testro' ),
+					'style'         => 'primary',
+					'modal'         => 'demo-modal',
+					'allow_on_hero' => true,
+					'with_arrow'    => true,
+				),
+			),
 		)
 	);
 
