@@ -245,7 +245,9 @@ p {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  max-width: 48rem;
+  /* Use the full content column; wrap only when the container is genuinely narrow. */
+  max-width: none;
+  width: 100%;
   margin: 0 0 2.75rem;
 }
 
@@ -261,7 +263,8 @@ p {
 }
 
 /* Framer section titles: solid navy Sora (not purple gradient) */
-.testro-section-header h2 {
+.testro-section-header h2,
+.testro-section-header .main-headings {
   font-family: var(--testro-font-display);
   font-size: var(--font-size, var(--font-heading));
   font-weight: 700;
@@ -273,6 +276,8 @@ p {
   -webkit-text-fill-color: unset;
   color: var(--color-navy);
   margin-bottom: 0;
+  max-width: 100%;
+  align-self: stretch;
 }
 
 /*
@@ -284,8 +289,9 @@ p {
   font-size: var(--font-sub);
   line-height: 1.65;
   margin-top: 0.75rem;
-  max-width: 40rem;
+  max-width: 100%;
   width: auto;
+  align-self: stretch;
 }
 
 /* Framer eyebrows: plain cyan mono label (no animated pill chrome). */
@@ -366,7 +372,7 @@ p {
   font-size: var(--font-size, var(--font-sub));
   line-height: 1.65;
   width: auto;
-  max-width: 40rem;
+  max-width: 100%;
   margin: 0;
   text-align: left;
 }
@@ -5459,9 +5465,9 @@ html.testro-js .testro-how--timeline .testro-how__step[data-reveal].is-revealed 
   background: #f9fafb;
 }
 
-/* Reference FAQ title wraps at ~768px (max-w-3xl) at 68px / lh 102 */
 .testro-faq .testro-section-header {
-  max-width: 48rem;
+  max-width: none;
+  width: 100%;
   margin-bottom: 3rem;
 }
 
@@ -8115,7 +8121,8 @@ html.testro-js [data-reveal].is-revealed {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 56rem;
+  max-width: none;
+  width: 100%;
   margin: 0 auto 3.5rem;
   text-align: center;
 }
@@ -8162,7 +8169,8 @@ html.testro-js [data-reveal].is-revealed {
 
 .testro-prod-head__intro {
   margin: 1.25rem auto 0;
-  max-width: 46rem;
+  max-width: 100%;
+  width: 100%;
   color: var(--color-sub);
   font-size: var(--font-sub);
   line-height: 1.65;
@@ -22366,7 +22374,8 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 .testro-key-features__header .sub-text {
   margin-left: auto;
   margin-right: auto;
-  max-width: 42rem;
+  max-width: none;
+  width: 100%;
 }
 
 .testro-key-features__grid {
@@ -22474,7 +22483,8 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 .testro-industries__header .sub-text {
   margin-left: auto;
   margin-right: auto;
-  max-width: 42rem;
+  max-width: none;
+  width: 100%;
 }
 
 .testro-industries__tabs {
@@ -22610,7 +22620,8 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 .testro-benefits__header .sub-text {
   margin-left: auto;
   margin-right: auto;
-  max-width: 42rem;
+  max-width: none;
+  width: 100%;
 }
 
 .testro-benefits__grid {
@@ -22711,7 +22722,8 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 .testro-case-studies__header .sub-text {
   margin-left: auto;
   margin-right: auto;
-  max-width: 42rem;
+  max-width: none;
+  width: 100%;
 }
 
 .testro-case-studies__grid {
@@ -22837,7 +22849,8 @@ html:not(.testro-js) .testro-prod-hero-rep__breakdown-fill {
 .testro-resources__header .sub-text {
   margin-left: auto;
   margin-right: auto;
-  max-width: 42rem;
+  max-width: none;
+  width: 100%;
 }
 
 .testro-resources__grid {
@@ -25003,7 +25016,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
   font-size: var(--font-heading);
   letter-spacing: -0.7px;
 }
-.testro-ai--framer .testro-ai__intro { color: #bae6fd; max-width: 40rem; }
+.testro-ai--framer .testro-ai__intro { color: #bae6fd; max-width: none; width: 100%; }
 .testro-ai__grid {
   list-style: none;
   margin: 0 0 2rem;
@@ -25424,7 +25437,7 @@ html.testro-js .testro-prod-hero-uc.is-revealed .testro-prod-hero-uc__ring-value
   background: none !important;
   -webkit-text-fill-color: #fff !important;
 }
-.testro-stories__intro { color: rgb(255 255 255 / 0.92) !important; max-width: 40rem; }
+.testro-stories__intro { color: rgb(255 255 255 / 0.92) !important; max-width: none; width: 100%; }
 .testro-stories__grid {
   list-style: none;
   margin: 0;
@@ -25895,8 +25908,8 @@ body.home .testro-hero__title {
   color: var(--color-sub) !important;
   text-align: left !important;
   margin: 0 !important;
-  max-width: 42rem;
-  width: auto !important;
+  max-width: none;
+  width: 100% !important;
   font-size: 16px !important;
   line-height: 1.65em !important;
 }
@@ -25921,7 +25934,8 @@ body.home .testro-hero__title {
   margin-left: 0 !important;
   margin-right: 0 !important;
   text-align: left !important;
-  max-width: 48rem;
+  max-width: none;
+  width: 100%;
 }
 .home .testro-faq--framer {
   background: #fff !important;
@@ -26638,7 +26652,8 @@ main#main-content.site-main section.testro-clients--trusted::before {
 
 .testro-product-ai .testro-prod-head__intro {
   margin-top: 1rem;
-  max-width: 42rem;
+  max-width: none;
+  width: 100%;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--color-muted, #5b6b7c);
@@ -53624,9 +53639,9 @@ html body .testro-faq--framer.testro-faq--framer .testro-section-header--three-l
 /* Line 3: intro — slate body (overrides global cyan third-line token) */
 html body .testro-faq--framer.testro-faq--framer .testro-section-header--three-lines > :nth-child(3) {
   margin: 0 !important;
-  max-width: 620px !important;
-  width: auto !important;
-  align-self: flex-start !important;
+  max-width: none !important;
+  width: 100% !important;
+  align-self: stretch !important;
   font-family: var(--testro-font, "Inter", sans-serif) !important;
   font-size: 16px !important;
   font-weight: 400 !important;
@@ -53679,9 +53694,9 @@ html body .testro-section-header--faq-label.testro-section-header--faq-label > :
 
 html body .testro-section-header--faq-label.testro-section-header--faq-label > :nth-child(3) {
   margin: 0 !important;
-  max-width: 620px !important;
-  width: auto !important;
-  align-self: flex-start !important;
+  max-width: none !important;
+  width: 100% !important;
+  align-self: stretch !important;
   font-family: var(--testro-font, "Inter", sans-serif) !important;
   font-size: 16px !important;
   font-weight: 400 !important;
@@ -53693,13 +53708,44 @@ html body .testro-section-header--faq-label.testro-section-header--faq-label > :
 
 html body .testro-section-header--faq-label.testro-section-header--faq-label > .testro-prod-head__intro-extra {
   margin: 0 !important;
-  max-width: 720px !important;
-  width: auto !important;
-  align-self: flex-start !important;
+  max-width: none !important;
+  width: 100% !important;
+  align-self: stretch !important;
   font-family: var(--testro-font, "Inter", sans-serif) !important;
   font-size: 16px !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
+}
+
+/*
+ * Section header measure (global).
+ * Titles and supporting copy use the full content column and wrap only when
+ * the parent is genuinely narrow. Beats page shells that re-impose 40/42/46/48rem
+ * or 620px caps. Parent column widths (split briefs, etc.) still constrain layout.
+ */
+html body .testro-section-header,
+html body .testro-prod-head {
+  max-width: none !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+html body .testro-section-header h2,
+html body .testro-section-header .main-headings,
+html body .testro-section-header .testro-why__heading,
+html body .testro-prod-head .testro-prod-head__title,
+html body .testro-prod-head .main-headings {
+  max-width: none !important;
+}
+
+html body .testro-section-header > p:not(.subtitle-pill):not(.testro-section-eyebrow),
+html body .testro-section-header .sub-text,
+html body .testro-section-header .testro-why__intro,
+html body .testro-prod-head .testro-prod-head__intro,
+html body .testro-prod-head .testro-prod-head__intro-extra {
+  max-width: none !important;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .testro-faq--framer .testro-faq__list {
