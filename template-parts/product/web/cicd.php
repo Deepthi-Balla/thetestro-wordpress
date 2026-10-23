@@ -23,21 +23,21 @@ $count         = count( $items );
 ?>
 <section class="testro-web-section testro-web-cicd" id="<?php echo esc_attr( $id ); ?>" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
 	<div class="testro-web-shell">
-		<div class="testro-web-cicd__inner">
-			<header class="testro-web-cicd__head">
-				<?php if ( ! empty( $args['eyebrow'] ) ) : ?>
-					<h2 id="<?php echo esc_attr( $heading_id ); ?>" class="testro-web-cicd__title"><?php echo esc_html( testro_section_label_title( (string) $args['eyebrow'] ) ); ?></h2>
-					<?php if ( ! empty( $args['title'] ) ) : ?>
-						<p class="testro-web-cicd__intro"><?php echo esc_html( (string) $args['title'] ); ?></p>
-					<?php endif; ?>
-				<?php elseif ( ! empty( $args['title'] ) ) : ?>
-					<h2 id="<?php echo esc_attr( $heading_id ); ?>" class="testro-web-cicd__title"><?php echo esc_html( (string) $args['title'] ); ?></h2>
+		<header class="testro-web-cicd__head">
+			<?php if ( ! empty( $args['eyebrow'] ) ) : ?>
+				<h2 id="<?php echo esc_attr( $heading_id ); ?>" class="testro-web-cicd__title"><?php echo esc_html( testro_section_label_title( (string) $args['eyebrow'] ) ); ?></h2>
+				<?php if ( ! empty( $args['title'] ) ) : ?>
+					<p class="testro-web-cicd__intro"><?php echo esc_html( (string) $args['title'] ); ?></p>
 				<?php endif; ?>
-				<?php if ( ! empty( $args['intro'] ) ) : ?>
-					<p class="testro-web-cicd__intro"><?php echo esc_html( (string) $args['intro'] ); ?></p>
-				<?php endif; ?>
-			</header>
+			<?php elseif ( ! empty( $args['title'] ) ) : ?>
+				<h2 id="<?php echo esc_attr( $heading_id ); ?>" class="testro-web-cicd__title"><?php echo esc_html( (string) $args['title'] ); ?></h2>
+			<?php endif; ?>
+			<?php if ( ! empty( $args['intro'] ) ) : ?>
+				<p class="testro-web-cicd__intro"><?php echo esc_html( (string) $args['intro'] ); ?></p>
+			<?php endif; ?>
+		</header>
 
+		<div class="testro-web-cicd__inner">
 			<div class="testro-web-cicd__flow">
 				<span class="testro-web-cicd__brand" aria-hidden="true">
 					<img src="<?php echo esc_url( $cicd_icon_uri ); ?>" alt="" width="70" height="70" loading="lazy" decoding="async" />
