@@ -2355,7 +2355,7 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
     height: auto;
     min-height: 0;
     margin-inline: auto;
-    order: -1;
+    order: 0;
     justify-content: center;
   }
 
@@ -2394,7 +2394,8 @@ html body.testro-product-ai main#main-content.site-main section.testro-hero-v2,
     height: auto;
     min-height: 0;
     margin-inline: auto;
-    order: -1;
+    /* DOM order is copy then visual — keep that stack on tablet/mobile. */
+    order: 0;
     justify-content: center;
   }
 
@@ -26035,12 +26036,10 @@ main#main-content.site-main section.testro-clients--trusted::before {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  max-width: 1536px !important;
   width: 100%;
   margin-inline: auto;
   gap: 64px !important;
-  /* Framer section inset 60px — beat .testro-container pad token. */
-  padding-inline: 60px !important;
+  /* Width and side inset come from .testro-container (--container / --container-pad). */
   box-sizing: border-box;
 }
 
@@ -26477,7 +26476,6 @@ main#main-content.site-main section.testro-clients--trusted::before {
   .home .testro-clients--trusted .testro-clients__inner,
   .testro-clients--trusted .testro-clients__inner {
     gap: 40px !important;
-    padding-inline: 24px !important;
   }
 
   .home .testro-clients--trusted .testro-clients__header .sub-text,
@@ -54935,6 +54933,67 @@ html body.home main#main-content.site-main section.testro-clients.testro-clients
   html body.home main#main-content.site-main section.testro-clients.testro-clients--trusted {
     padding: 40px 0 !important;
     padding-block: 40px !important;
+  }
+}
+
+/*
+ * 1101px–1720px: the copy column is forced to full width (later section-header
+ * rule) while the metric cards stay absolute at the right, so the one-line
+ * title and supporting line run underneath those cards. Keep the copy in the
+ * space beside them — same 3×163px cards, 16px gaps, and 40px separation the
+ * desktop rule already reserves. 1100px and below already stack. The global
+ * content frame is still narrower than a 72px one-line title plus the cards
+ * until about 1720px; above that the title clears the cards on its own.
+ */
+@media (min-width: 1101px) and (max-width: 1720px) {
+  html body.home .testro-clients--trusted .testro-clients__header,
+  html body .testro-clients--trusted .testro-clients__header {
+    width: calc(100% - 521px - 40px) !important;
+    max-width: calc(100% - 521px - 40px) !important;
+  }
+
+  html body.home .testro-clients--trusted .testro-clients__heading,
+  html body.home .testro-clients--trusted .testro-clients__header .main-headings,
+  html body .testro-clients--trusted .testro-clients__heading,
+  html body .testro-clients--trusted .testro-clients__header .main-headings {
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-wrap: wrap;
+  }
+
+  html body.home .testro-clients--trusted .testro-clients__header .sub-text,
+  html body .testro-clients--trusted .testro-clients__header .sub-text {
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+}
+
+/*
+ * 1400px–1720px: keep "Trusted By Companies" on one line. The open space beside
+ * the cards is wide enough for that line once the column uses it; while the
+ * global frame is still tighter than a 72px line, the size eases down only as
+ * far as the slot instead of dropping "Companies".
+ */
+@media (min-width: 1400px) and (max-width: 1720px) {
+  html body.home .testro-clients--trusted .testro-clients__header,
+  html body .testro-clients--trusted .testro-clients__header {
+    width: calc(100% - 521px - 24px) !important;
+    max-width: calc(100% - 521px - 24px) !important;
+    container-type: inline-size;
+  }
+
+  html body.home .testro-clients--trusted .testro-clients__heading,
+  html body.home .testro-clients--trusted .testro-clients__header .main-headings,
+  html body .testro-clients--trusted .testro-clients__heading,
+  html body .testro-clients--trusted .testro-clients__header .main-headings {
+    width: max-content !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap;
+    /* 72px title measures ~805px; 8.85cqw tracks the column and caps at 72px. */
+    font-size: min(72px, 8.85cqw) !important;
   }
 }
 
